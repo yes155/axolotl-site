@@ -1,0 +1,206 @@
+{
+ "site": "axolotlcare",
+ "page_count": 130,
+ "article_count": 106,
+ "clusters": [
+  {
+   "id": "care-basics",
+   "name": "Care basics & ownership",
+   "stage": "TOFU",
+   "page_count": 11,
+   "page_urls": [
+    "/axolotls/care-guide",
+    "/care-basics/are-axolotls-good-beginner-pets",
+    "/care-basics/axolotl-age-and-size-chart",
+    "/care-basics/axolotl-facts",
+    "/care-basics/axolotl-intelligence-and-bonding",
+    "/care-basics/axolotls-and-children",
+    "/care-basics/behavior",
+    "/care-basics/cost-of-ownership-monthly",
+    "/care-basics/handling",
+    "/care-basics/how-to-pronounce-axolotl",
+    "/care-basics/keeping-multiple-axolotls"
+   ]
+  },
+  {
+   "id": "tank-setup",
+   "name": "Tank setup & water",
+   "stage": "MOFU",
+   "page_count": 17,
+   "page_urls": [
+    "/tank-setup/acclimating-a-new-axolotl",
+    "/tank-setup/aquarium-chillers",
+    "/tank-setup/canister-vs-sponge-filter",
+    "/tank-setup/filtration-for-axolotls",
+    "/tank-setup/gravel-risks",
+    "/tank-setup/hides-and-caves",
+    "/tank-setup/lighting-for-axolotls",
+    "/tank-setup/live-vs-artificial-plants",
+    "/tank-setup/setup-guide",
+    "/tank-setup/substrate-and-impaction",
+    "/tank-setup/tank-mates",
+    "/tank-setup/tank-size-by-age",
+    "/tank-setup/temperature",
+    "/tank-setup/uneaten-food-and-ammonia",
+    "/tank-setup/water-conditioners",
+    "/tank-setup/water-parameters-cycling",
+    "/tank-setup/why-tank-water-smells"
+   ]
+  },
+  {
+   "id": "diet",
+   "name": "Diet & feeding",
+   "stage": "MOFU",
+   "page_count": 12,
+   "page_urls": [
+    "/diet/axolotl-pellets",
+    "/diet/beef-heart",
+    "/diet/best-foods-list",
+    "/diet/blackworms-for-juveniles",
+    "/diet/fasting-and-vacation",
+    "/diet/feeder-fish-risks",
+    "/diet/feeding-schedule-by-age",
+    "/diet/how-to-hand-feed",
+    "/diet/live-vs-frozen-food",
+    "/diet/overfeeding-and-impaction",
+    "/diet/shrimp-for-axolotls",
+    "/diet/vitamin-and-supplement-needs"
+   ]
+  },
+  {
+   "id": "health",
+   "name": "Health & illness",
+   "stage": "MOFU",
+   "page_count": 18,
+   "page_urls": [
+    "/health/ammonia-burns",
+    "/health/black-tea-bath",
+    "/health/curled-gills-stress-signal",
+    "/health/finding-an-exotic-vet",
+    "/health/fridging-sick-axolotl",
+    "/health/fungal-infections-saprolegnia",
+    "/health/impaction-symptoms-treatment",
+    "/health/limb-regeneration",
+    "/health/malnutrition-signs",
+    "/health/minor-scrapes-and-wounds",
+    "/health/parasite-treatment",
+    "/health/quarantine-tub",
+    "/health/red-leg-syndrome",
+    "/health/refusing-to-eat",
+    "/health/salt-bath",
+    "/health/shrinking-gills",
+    "/health/stress-signs",
+    "/health/why-axolotl-floating"
+   ]
+  },
+  {
+   "id": "morphs",
+   "name": "Morphs & color genetics",
+   "stage": "MOFU",
+   "page_count": 13,
+   "page_urls": [
+    "/morphs/blue-and-pink-axolotl-myth",
+    "/morphs/chimera",
+    "/morphs/copper",
+    "/morphs/enigma-firefly-mac",
+    "/morphs/gfp-axolotl",
+    "/morphs/golden-albino",
+    "/morphs/leucistic",
+    "/morphs/melanoid",
+    "/morphs/morphs-comparison-chart",
+    "/morphs/mosaic",
+    "/morphs/piebald",
+    "/morphs/pigment-cells",
+    "/morphs/wild-type"
+   ]
+  },
+  {
+   "id": "breeding",
+   "name": "Breeding & genetics",
+   "stage": "MOFU",
+   "page_count": 6,
+   "page_urls": [
+    "/breeding/breeding-triggers-temperature-cycling",
+    "/breeding/color-genetics-punnett-squares",
+    "/breeding/egg-and-larvae-care",
+    "/breeding/genetics-and-inbreeding",
+    "/breeding/raising-juveniles",
+    "/breeding/sexing-axolotls"
+   ]
+  },
+  {
+   "id": "cost-buying",
+   "name": "Cost & buying",
+   "stage": "BOFU",
+   "page_count": 6,
+   "page_urls": [
+    "/cost-and-buying/axolotl-price-by-morph",
+    "/cost-and-buying/breeder-vs-pet-store",
+    "/cost-and-buying/choosing-a-reputable-breeder",
+    "/cost-and-buying/how-to-choose-a-healthy-axolotl",
+    "/cost-and-buying/red-flags-when-buying",
+    "/cost-and-buying/shipping-live-axolotls"
+   ]
+  },
+  {
+   "id": "legal",
+   "name": "Legality",
+   "stage": "BOFU",
+   "page_count": 7,
+   "page_urls": [
+    "/legal/california",
+    "/legal/canada",
+    "/legal/hawaii",
+    "/legal/maine",
+    "/legal/new-jersey",
+    "/legal/new-mexico",
+    "/legal/virginia"
+   ]
+  },
+  {
+   "id": "biology",
+   "name": "Biology & science",
+   "stage": "TOFU",
+   "page_count": 8,
+   "page_urls": [
+    "/biology-and-science/anatomy-gills-and-lungs",
+    "/biology-and-science/axolotl-vs-tiger-salamander",
+    "/biology-and-science/conservation-status",
+    "/biology-and-science/is-axolotl-amphibian",
+    "/biology-and-science/lifespan-wild-vs-captivity",
+    "/biology-and-science/neoteny",
+    "/biology-and-science/regeneration-and-limb-regrowth",
+    "/biology-and-science/wild-habitat-xochimilco"
+   ]
+  },
+  {
+   "id": "culture",
+   "name": "Pop culture, gifts & merch",
+   "stage": "TOFU",
+   "page_count": 8,
+   "page_urls": [
+    "/axolotl-in-culture/adopt-me-axolotl-guide",
+    "/axolotl-in-culture/axolotl-in-pop-culture-and-memes",
+    "/axolotl-in-culture/minecraft-axolotls-guide",
+    "/axolotl-in-culture/why-axolotls-are-suddenly-popular",
+    "/gifts-and-merch/axolotl-squishmallow-guide",
+    "/gifts-and-merch/best-axolotl-lego-sets",
+    "/gifts-and-merch/best-axolotl-toys-and-plushies",
+    "/gifts-and-merch/build-a-bear-axolotl-guide"
+   ]
+  },
+  {
+   "id": "tools",
+   "name": "Interactive tools",
+   "stage": "BOFU",
+   "page_count": 5,
+   "page_urls": [
+    "/tools/feeding-schedule-generator",
+    "/tools/nitrogen-cycle-tracker",
+    "/tools/symptom-checker",
+    "/tools/tank-size-calculator",
+    "/tools/water-conditioner-dosage-calculator"
+   ]
+  }
+ ]
+}

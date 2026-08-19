@@ -1,0 +1,3 @@
+Contact: mailto:contact@axolotlcare.example.com
+Preferred-Languages: en
+Expires: 2027-01-01

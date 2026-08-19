@@ -1,0 +1,13 @@
+id,severity,category,from,to,evidence,action
+LI-01,P0,MISSING-EDGE,<any>,,<the 5 tools>,content-linkgraph.json: tools cluster column inbound = 0 (cluster-matrix.txt tool row/col),Add 5 contextual edges article->tool + reciprocal per §13
+LI-02,P0,MISSING-EDGE,planning pages,/legal/*,cluster-matrix.txt legal column = 0 external; phase7 secondary map listed several planned links none executed,"Add: are-axolotls-good-beginner-pets->legal, cost-and-buying/red-flags-when-buying->legal, shipping-live-axolotls->legal, breeding/genetics-and-inbreeding->legal, biology-and-science/wild-habitat-xochimilco->legal"
+LI-03,P1,DIRECTIONALITY,diet,/health/impaction-symptoms-treatment; /health/malnutrition-signs,cluster-matrix diet->health = 1 (health->diet = 4),Add 2 return edges from overfeeding-and-impaction and feeder-fish-risks
+LI-04,P1,MISSING-EDGE,diet/overfeeding-and-impaction,/health/impaction-symptoms-treatment,page-roles.csv attributes feeding(obesity) vs digestive(impaction); diet silo 97%,Add edge
+LI-05,P1,MISSING-EDGE,diet/feeder-fish-risks,/health/parasite-treatment,feeder-fish-risks in=5 explanatory; parasite-treatment in=2 diagnostic,Add edge
+LI-06,P1,MISSING-EDGE,care-basics/behavior,/health/stress-signs (and reverse),behavior in=3/problem-solving; stress-signs in=2/diagnostic; shared attribute behavior,Add reciprocal edges (§9 CAN-01)
+LI-07,P1,DIRECTIONALITY,diet/<-> care-basics,,care-basics->diet = 1 (axolotl-intelligence-and-bonding); diet->care-basics = 0,Return edge from diet to care-basics/axolotl-intelligence-and-bonding
+LI-08,P0,ANCHOR-UNOBSERVED,<all>,<all>,content-linkgraph.json edges contain no anchor text field,Re-run extraction with anchor capture next phase; verify anchor quality (exact-match descriptive, not 'here')
+LI-09,P2,DIRECTIONALITY,tank-setup/<-> health,health<-score tank-setup 8 vs tank-setup->health 3,Acceptable direction; add salt-bath/black-tea-bath -> fungal-infections-saprolegnia cross-links,procedural-treatment to the diagnostic
+LI-10,P2,MISSING-EDGE,morphs,/morphs/pigment-cells,leucistic(in=10)/golden-albino/blue-and-pink-myth lack mechanism link,Add 1-2 edges
+LI-11,P2,UNREALIZED-PLAN,tank-setup/water-parameters-cycling -> tools/nitrogen-cycle-tracker,phase7 secondary map listed tool links (feeding-gen -> care-basics, etc.) only 3 tool edges exist (to axolotls),Add per §13 seed-spoke pairs
+LI-12,P2,CLIQUE-CHECK,lit.,harms: none,lighting<->hides<->plants triangle and water-conditioners<->acclimating<->cycling triangle are legitimate workspaces,No action; monitor after link battery

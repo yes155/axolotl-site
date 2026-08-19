@@ -1,0 +1,14 @@
+cluster	axolotls	care-basics	tank-setup	diet	health	morphs	breeding	biology-and-science	cost-and-buying	legal	axolotl-in-culture	gifts-and-merch	tools
+axolotls	1	0	4	0	1	0	0	0	0	0	0	0	0
+care-basics	1	25	6	1	2	0	1	2	3	0	0	0	0
+tank-setup	0	2	53	2	3	0	0	0	0	0	0	0	0
+diet	0	0	0	37	1	0	0	0	0	0	0	0	0
+health	0	0	8	4	59	0	0	0	0	0	0	0	0
+morphs	0	0	0	0	0	47	9	0	3	0	0	0	0
+breeding	0	0	0	0	0	2	17	0	0	0	0	0	0
+biology-and-science	0	0	0	0	1	0	0	26	0	0	1	0	0
+cost-and-buying	0	1	0	0	0	2	0	0	16	0	0	0	0
+legal	2	0	0	0	0	0	0	0	0	30	0	0	0
+axolotl-in-culture	0	2	0	0	0	0	0	1	1	0	11	2	0
+gifts-and-merch	0	0	0	0	0	0	0	0	0	0	1	12	0
+tools	3	0	0	0	0	0	0	0	0	0	0	0	0

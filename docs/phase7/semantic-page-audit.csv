@@ -1,0 +1,112 @@
+url,title,type,hub,cluster,secondary,words,inbound,outbound,faqs,intent,flags
+/biology-and-science/anatomy-gills-and-lungs,Axolotl Anatomy: Gills and Lungs,article,biology-and-science,biology,health,627,3,26,0,informational,thin|no-faq
+/biology-and-science/axolotl-vs-tiger-salamander,Axolotl vs Tiger Salamander,article,biology-and-science,biology,,654,3,25,0,commercial-investigation,thin|no-faq
+/biology-and-science/conservation-status,Axolotl Conservation Status,article,biology-and-science,biology,,743,5,27,0,informational,no-faq
+/biology-and-science/is-axolotl-amphibian,Is an Axolotl an Amphibian?,article,biology-and-science,biology,,614,4,25,0,informational,thin|no-faq
+/biology-and-science/lifespan-wild-vs-captivity,Axolotl Lifespan: Wild vs Captivity,article,biology-and-science,biology,,639,2,25,0,commercial-investigation,thin|no-faq
+/biology-and-science/neoteny,What Is Neoteny?,article,biology-and-science,biology,breeding,495,6,25,0,informational,thin|no-faq
+/biology-and-science/regeneration-and-limb-regrowth,Axolotl Regeneration: The Science,article,biology-and-science,biology,breeding|health,629,3,26,0,informational,thin|no-faq
+/biology-and-science/wild-habitat-xochimilco,Axolotl Wild Habitat: Xochimilco,article,biology-and-science,biology,legal,627,4,25,0,informational,thin|no-faq
+/breeding/breeding-triggers-temperature-cycling,Breeding Triggers: Temperature Cycling for Axolotls,article,breeding,breeding,tank-setup,800,4,25,0,informational,no-faq
+/breeding/color-genetics-punnett-squares,Axolotl Color Genetics: Punnett Squares Explained,article,breeding,breeding,morphs,852,9,26,0,informational,no-faq
+/breeding/egg-and-larvae-care,Axolotl Egg and Larvae Care: A Complete Guide,article,breeding,breeding,tank-setup,836,5,25,0,informational,no-faq
+/breeding/genetics-and-inbreeding,Axolotl Genetics and Inbreeding Risk,article,breeding,breeding,morphs,631,3,25,0,informational,thin|no-faq
+/breeding/raising-juveniles,Raising Baby Axolotls (Juveniles) to Adulthood,article,breeding,breeding,diet|tank-setup,832,4,25,0,informational,no-faq
+/breeding/sexing-axolotls,How to Tell Axolotl Gender (Sexing Guide),article,breeding,breeding,,608,2,25,0,informational,thin|no-faq
+/axolotls/care-guide,"Axolotl Care Guide: Tank Setup, Water Parameters, Diet & Health",article,axolotls,care-basics,tank-setup,3060,8,28,7,informational,
+/care-basics/are-axolotls-good-beginner-pets,Are Axolotls Good Pets for Beginners?,article,care-basics,care-basics,tank-setup,1028,5,27,4,informational,
+/care-basics/axolotl-age-and-size-chart,Axolotl Age and Size Chart,article,care-basics,care-basics,,1030,2,26,4,informational,
+/care-basics/axolotl-facts,Amazing Axolotl Facts,article,care-basics,care-basics,biology|legal,1047,4,26,4,informational,
+/care-basics/axolotl-intelligence-and-bonding,Do Axolotls Recognize Their Owners?,article,care-basics,care-basics,diet,1016,2,25,4,informational,
+/care-basics/axolotls-and-children,Are Axolotls Good Pets for Kids?,article,care-basics,care-basics,,986,3,27,4,informational,
+/care-basics/behavior,Axolotl Behavior Explained,article,care-basics,care-basics,cost-buying|health,895,3,26,0,informational,no-faq
+/care-basics/cost-of-ownership-monthly,Axolotl Monthly Cost of Ownership,article,care-basics,care-basics,cost-buying|diet|tank-setup,830,3,27,0,commercial,no-faq
+/care-basics/handling,How to Hold an Axolotl,article,care-basics,care-basics,,798,3,26,0,informational,no-faq
+/care-basics/how-to-pronounce-axolotl,How to Pronounce Axolotl,article,care-basics,care-basics,health,524,2,25,0,informational,thin|no-faq
+/care-basics/keeping-multiple-axolotls,Can Axolotls Live Together?,article,care-basics,care-basics,,712,3,26,0,informational,no-faq
+/cost-and-buying/axolotl-price-by-morph,Axolotl Price by Morph,article,cost-and-buying,cost-buying,morphs,544,6,26,0,commercial,thin|no-faq
+/cost-and-buying/breeder-vs-pet-store,Axolotl Breeder vs Pet Store,article,cost-and-buying,cost-buying,morphs,502,4,25,0,commercial,thin|no-faq
+/cost-and-buying/choosing-a-reputable-breeder,How to Choose a Reputable Axolotl Breeder,article,cost-and-buying,cost-buying,tank-setup,670,4,25,8,informational,thin
+/cost-and-buying/how-to-choose-a-healthy-axolotl,How to Choose a Healthy Axolotl,article,cost-and-buying,cost-buying,care-basics|health|tank-setup,549,4,25,2,informational,thin
+/cost-and-buying/red-flags-when-buying,Axolotl Seller Red Flags,article,cost-and-buying,cost-buying,,552,3,25,2,commercial,thin
+/cost-and-buying/shipping-live-axolotls,How Axolotls Are Shipped,article,cost-and-buying,cost-buying,,524,2,25,2,commercial,thin
+/axolotl-in-culture/adopt-me-axolotl-guide,Axolotl in Adopt Me: How to Get One,article,axolotl-in-culture,culture,health,517,2,26,3,informational,thin
+/axolotl-in-culture/axolotl-in-pop-culture-and-memes,Axolotl in Pop Culture and Memes,article,axolotl-in-culture,culture,biology,439,2,26,3,informational,thin
+/axolotl-in-culture/minecraft-axolotls-guide,Minecraft Axolotls: Complete Guide,article,axolotl-in-culture,culture,tank-setup,462,5,26,3,informational,thin
+/axolotl-in-culture/why-axolotls-are-suddenly-popular,Why Are Axolotls So Popular?,article,axolotl-in-culture,culture,,564,4,27,3,informational,thin
+/gifts-and-merch/axolotl-squishmallow-guide,The Complete Axolotl Squishmallow Guide,article,gifts-and-merch,culture,,807,4,25,0,informational,no-faq
+/gifts-and-merch/best-axolotl-lego-sets,Best LEGO Axolotl Sets,article,gifts-and-merch,culture,,610,2,25,0,commercial-investigation,thin|no-faq
+/gifts-and-merch/best-axolotl-toys-and-plushies,The Best Axolotl Toys and Plushies,article,gifts-and-merch,culture,,979,5,26,0,commercial-investigation,no-faq
+/gifts-and-merch/build-a-bear-axolotl-guide,The Build-A-Bear Axolotl Guide,article,gifts-and-merch,culture,,653,3,25,0,informational,thin|no-faq
+/diet/axolotl-pellets,Best Axolotl Pellets and Commercial Foods,article,diet,diet,,2956,2,25,0,commercial-investigation,no-faq|meta-short
+/diet/beef-heart,Can Axolotls Eat Beef Heart?,article,diet,diet,,1585,2,25,10,informational,
+/diet/best-foods-list,What Do Axolotls Eat? The Complete Diet Guide,article,diet,diet,,3041,8,27,0,informational,no-faq|meta-short
+/diet/blackworms-for-juveniles,Preparing Blackworms for Juvenile Axolotls,article,diet,diet,breeding,1380,2,25,5,informational,meta-short
+/diet/fasting-and-vacation,How Long Can Axolotls Fast?,article,diet,diet,breeding,2457,2,25,11,informational,
+/diet/feeder-fish-risks,The Risks of Feeding Feeder Fish to Axolotls,article,diet,diet,health,3702,5,25,13,informational,
+/diet/feeding-schedule-by-age,Axolotl Feeding Frequency by Life Stage and Size,article,diet,diet,breeding,1763,8,25,10,informational,meta-short
+/diet/how-to-hand-feed,How to Hand Feed Your Axolotl Safely,article,diet,diet,,2442,2,25,6,informational,
+/diet/live-vs-frozen-food,Earthworms vs. Bloodworms: Which Is Better for Axolotls?,article,diet,diet,,2493,5,25,8,informational,
+/diet/overfeeding-and-impaction,"Axolotl Obesity: Signs, Causes, Treatment, and Prevention",article,diet,diet,,2891,6,25,10,informational,
+/diet/shrimp-for-axolotls,Can Axolotls Eat Shrimp?,article,diet,diet,,2209,2,25,7,informational,
+/diet/vitamin-and-supplement-needs,Do Axolotls Need Vitamin Supplements? A Complete Guide to Safe Nutrition,article,diet,diet,,1023,2,25,4,informational,
+/health/ammonia-burns,How to Treat Axolotl Ammonia Burns,article,health,health,tank-setup,951,2,26,5,informational,
+/health/black-tea-bath,Black Tea Bath for Axolotls: Step-by-Step Treatment,article,health,health,,2657,4,25,11,informational,
+/health/curled-gills-stress-signal,Axolotl Curled Gills and Tail Tips: Understanding a Stress Signal,article,health,health,,1061,5,27,5,informational,
+/health/finding-an-exotic-vet,Finding an Exotic Vet for Axolotls,article,health,health,,519,2,27,4,informational,thin
+/health/fridging-sick-axolotl,When and How to Fridge a Sick Axolotl,article,health,health,,2989,4,25,10,informational,
+/health/fungal-infections-saprolegnia,How to Identify and Treat Axolotl Fungus,article,health,health,,1791,10,26,4,informational,
+/health/impaction-symptoms-treatment,Axolotl Impaction Symptoms and Treatment,article,health,health,tank-setup,537,2,27,0,informational,thin|no-faq
+/health/limb-regeneration,Understanding Axolotl Limb Regeneration,article,health,health,,860,3,25,6,informational,
+/health/malnutrition-signs,Signs of Malnutrition in Axolotls,article,health,health,diet,1923,3,25,7,informational,
+/health/minor-scrapes-and-wounds,Treating Minor Scrapes and Wounds on Axolotls,article,health,health,,933,2,26,5,informational,
+/health/parasite-treatment,Treating Axolotl Parasites,article,health,health,,1563,2,28,8,informational,
+/health/quarantine-tub,Setting Up an Axolotl Hospital Quarantine Tub,article,health,health,,1024,5,26,5,informational,
+/health/red-leg-syndrome,Recognizing Red Leg Syndrome in Axolotls,article,health,health,,999,3,26,5,informational,
+/health/refusing-to-eat,"Why Is My Axolotl Refusing to Eat? 12 Causes, Timeline and When to Worry",article,health,health,diet|tank-setup,3347,11,25,17,informational,
+/health/salt-bath,Axolotl Salt Baths: Treating Fungal Infections Safely,article,health,health,,2277,3,25,9,informational,
+/health/shrinking-gills,The Causes of Shrinking Axolotl Gills,article,health,health,cost-buying|tank-setup,1076,2,26,6,informational,
+/health/stress-signs,Axolotl Stress Signs,article,health,health,diet,576,2,27,0,informational,thin|no-faq
+/health/why-axolotl-floating,Why Is My Axolotl Floating? Causes and Treatment,article,health,health,,1588,3,25,7,informational,
+/legal/california,Are Axolotls Legal in California?,article,legal,legal,,726,7,27,0,commercial,no-faq
+/legal/canada,Are Axolotls Legal in Canada?,article,legal,legal,cost-buying,652,5,27,0,commercial,thin|no-faq
+/legal/hawaii,Are Axolotls Legal in Hawaii?,article,legal,legal,,557,2,26,0,commercial,thin|no-faq
+/legal/maine,Are Axolotls Legal in Maine?,article,legal,legal,,598,5,27,0,commercial,thin|no-faq
+/legal/new-jersey,Are Axolotls Legal in New Jersey?,article,legal,legal,,991,3,26,4,commercial,
+/legal/new-mexico,Are Axolotls Legal in New Mexico?,article,legal,legal,,951,2,26,4,commercial,
+/legal/virginia,Are Axolotls Legal in Virginia?,article,legal,legal,,927,6,27,5,commercial,
+/morphs/blue-and-pink-axolotl-myth,Blue and Pink Axolotl Myth,article,morphs,morphs,cost-buying,512,2,26,3,informational,thin
+/morphs/chimera,Chimera Axolotl: The Rarest Morph of All,article,morphs,morphs,,818,6,27,0,informational,no-faq
+/morphs/copper,Copper Axolotl,article,morphs,morphs,health,558,2,27,4,informational,thin
+/morphs/enigma-firefly-mac,"Enigma, MAC and Firefly Axolotls",article,morphs,morphs,health,618,3,26,4,informational,thin
+/morphs/gfp-axolotl,GFP Axolotl: The Glowing Morph,article,morphs,morphs,health,566,2,25,4,informational,thin
+/morphs/golden-albino,Golden Albino Axolotl,article,morphs,morphs,,535,3,26,4,informational,thin
+/morphs/leucistic,"Leucistic Axolotl: The ""Lucy"" Morph",article,morphs,morphs,health,611,10,29,4,informational,thin
+/morphs/melanoid,Melanoid Axolotl: The Dark Morph,article,morphs,morphs,,626,3,26,4,informational,thin
+/morphs/morphs-comparison-chart,Axolotl Morphs Comparison Chart,article,morphs,morphs,,466,3,26,0,commercial-investigation,thin|no-faq
+/morphs/mosaic,Mosaic Axolotl,article,morphs,morphs,,588,2,26,0,informational,thin|no-faq
+/morphs/piebald,Piebald Axolotl: The Patchy Morph,article,morphs,morphs,,587,2,27,4,informational,thin
+/morphs/pigment-cells,Understanding Axolotl Pigment Cells,article,morphs,morphs,,588,4,27,4,informational,thin
+/morphs/wild-type,Wild Type Axolotl: The Natural Color,article,morphs,morphs,,881,9,27,0,informational,no-faq
+/tank-setup/acclimating-a-new-axolotl,How to Acclimate a New Axolotl,article,tank-setup,tank-setup,,639,2,26,0,informational,thin|no-faq
+/tank-setup/aquarium-chillers,Best Aquarium Chillers for Axolotls,article,tank-setup,tank-setup,,2699,5,25,4,commercial-investigation,
+/tank-setup/canister-vs-sponge-filter,Canister Filters vs. Sponge Filters for Axolotls,article,tank-setup,tank-setup,,6117,2,25,11,informational,
+/tank-setup/filtration-for-axolotls,"Best Filter for Axolotl Tanks: Types, Sizing & Top Picks",article,tank-setup,tank-setup,,4274,4,25,6,commercial-investigation,
+/tank-setup/gravel-risks,The Dangers of Sharp Gravel for Axolotls,article,tank-setup,tank-setup,,2647,3,25,7,informational,
+/tank-setup/hides-and-caves,Best Hides and Caves for Axolotls,article,tank-setup,tank-setup,,4355,3,25,11,commercial-investigation,
+/tank-setup/lighting-for-axolotls,Axolotl Tank Lighting Requirements,article,tank-setup,tank-setup,,4075,4,25,9,informational,
+/tank-setup/live-vs-artificial-plants,Live Plants vs. Fake Plants for Axolotl Tanks,article,tank-setup,tank-setup,,3125,3,25,10,informational,meta-short
+/tank-setup/setup-guide,How to Set Up an Axolotl Tank the Right Way,article,tank-setup,tank-setup,cost-buying,2869,9,27,5,informational,meta-short
+/tank-setup/substrate-and-impaction,Choosing the Best Axolotl Substrate,article,tank-setup,tank-setup,,4029,5,25,9,commercial-investigation,
+/tank-setup/tank-mates,Can Axolotls Live with Fish?,article,tank-setup,tank-setup,,601,2,26,0,informational,thin|no-faq
+/tank-setup/tank-size-by-age,Axolotl Tank Size by Age,article,tank-setup,tank-setup,breeding,500,3,27,0,informational,thin|no-faq
+/tank-setup/temperature,How to Keep an Axolotl Tank Cool,article,tank-setup,tank-setup,,5826,5,25,10,informational,
+/tank-setup/uneaten-food-and-ammonia,Why Uneaten Food Causes Ammonia in an Axolotl Tank,article,tank-setup,tank-setup,diet,2449,3,25,3,informational,
+/tank-setup/water-conditioners,Axolotl Water Conditioner: Creating Safe Water,article,tank-setup,tank-setup,,4417,3,28,6,informational,
+/tank-setup/water-parameters-cycling,Managing Ammonia and Nitrate Spikes in Axolotl Tanks,article,tank-setup,tank-setup,,4924,15,25,0,informational,no-faq
+/tank-setup/why-tank-water-smells,Why Does My Axolotl Tank Water Stink?,article,tank-setup,tank-setup,cost-buying,2074,2,25,8,informational,
+/tools/feeding-schedule-generator,Axolotl Feeding Schedule Generator,tool,tools,tools,care-basics,0,125,1,0,trans,no-meta
+/tools/nitrogen-cycle-tracker,Axolotl nitrogen cycle tracker,tool,tools,tools,tank-setup,0,125,2,6,trans,meta-too-long
+/tools/symptom-checker,Axolotl Symptom Checker,tool,tools,tools,,0,125,1,0,trans,no-meta
+/tools/tank-size-calculator,Axolotl Tank Size Calculator,tool,tools,tools,tank-setup,0,125,1,0,trans,no-meta
+/tools/water-conditioner-dosage-calculator,Axolotl Water Conditioner  Dosage Calculator,tool,tools,tools,tank-setup,0,125,0,0,trans,meta-too-long

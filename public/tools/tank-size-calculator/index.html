@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Axolotl Tank Size Calculator</title>
+<style>
+  :root {
+    --ink: #1f2d3d;
+    --teal: #2c6e7f;
+    --teal-light: #e7f1f3;
+    --teal-dark: #1d4e5a;
+    --warning: #8a6116;
+    --warning-bg: #fbf2e1;
+    --border: #d7e0e3;
+    --muted: #5b6b73;
+    --bg: #fafcfc;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 32px 20px 64px; }
+  h1 { font-size: 1.5rem; margin: 0 0 6px; }
+  .subtitle { color: var(--muted); font-size: 0.95rem; margin: 0 0 28px; }
+  .calc-row { margin-bottom: 22px; }
+  .calc-label { font-size: 0.85rem; font-weight: 600; color: var(--muted); margin-bottom: 10px; display: block; }
+  .pill-group { display: flex; gap: 8px; flex-wrap: wrap; }
+  .pill {
+    padding: 10px 16px; border-radius: 20px; border: 1px solid var(--border);
+    background: var(--card); cursor: pointer; font-size: 0.9rem; color: var(--ink);
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .pill:hover { background: #f1f6f7; }
+  .pill.active { border: 1.5px solid var(--teal); background: var(--teal-light); font-weight: 600; }
+  .calc-result { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-top: 28px; }
+  .gallon-num { font-size: 2.4rem; font-weight: 700; color: var(--teal-dark); line-height: 1; }
+  .gallon-label { font-size: 0.85rem; color: var(--muted); margin-top: 6px; }
+  .dim-row { display: flex; gap: 24px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border); }
+  .dim-item { flex: 1; }
+  .dim-val { font-size: 1.15rem; font-weight: 600; }
+  .dim-lbl { font-size: 0.78rem; color: var(--muted); }
+  .warn-box { background: var(--warning-bg); border-radius: 8px; padding: 12px 14px; margin-top: 16px; font-size: 0.85rem; color: var(--warning); line-height: 1.5; }
+  .cta-link {
+    display: inline-block; margin-top: 18px; font-size: 0.85rem; font-weight: 600;
+    color: var(--teal-dark); text-decoration: none; border: 1px solid var(--teal);
+    padding: 9px 16px; border-radius: 8px;
+  }
+  .cta-link:hover { background: var(--teal-light); }
+  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 0.78rem; color: var(--muted); text-align: center; }
+  footer a { color: var(--teal); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Axolotl Tank Size Calculator</h1>
+    <p class="subtitle">Pick how many axolotls you have and their size to get a minimum recommended tank size.</p>
+  </header>
+
+  <div class="calc-row">
+    <span class="calc-label">How many axolotls?</span>
+    <div class="pill-group" id="count-group"></div>
+  </div>
+
+  <div class="calc-row">
+    <span class="calc-label">Size class</span>
+    <div class="pill-group" id="size-group"></div>
+  </div>
+
+  <div id="result-zone"></div>
+
+  <footer>
+    Companion tool to the full <a href="/axolotls/care-guide/">Axolotl Care Guide</a>.
+  </footer>
+</div>
+
+<script>
+const counts = [1, 2, 3];
+const sizes = [
+  { id: "juv", label: "Juvenile (under 6\")", perAnimal: 10 },
+  { id: "sub", label: "Subadult (6-8\")", perAnimal: 18 },
+  { id: "adult", label: "Adult (8\"+)", perAnimal: 20 }
+];
+
+let state = { count: 1, size: "adult" };
+
+const countGroup = document.getElementById("count-group");
+counts.forEach(function (c) {
+  const btn = document.createElement("button");
+  btn.className = "pill" + (c === state.count ? " active" : "");
+  btn.id = "count-" + c;
+  btn.textContent = c === 1 ? "1" : c + " (separate territories)";
+  btn.onclick = function () { state.count = c; render(); };
+  countGroup.appendChild(btn);
+});
+
+const sizeGroup = document.getElementById("size-group");
+sizes.forEach(function (s) {
+  const btn = document.createElement("button");
+  btn.className = "pill" + (s.id === state.size ? " active" : "");
+  btn.id = "size-" + s.id;
+  btn.textContent = s.label;
+  btn.onclick = function () { state.size = s.id; render(); };
+  sizeGroup.appendChild(btn);
+});
+
+function render() {
+  counts.forEach(function (c) {
+    document.getElementById("count-" + c).classList.toggle("active", c === state.count);
+  });
+  sizes.forEach(function (s) {
+    document.getElementById("size-" + s.id).classList.toggle("active", s.id === state.size);
+  });
+
+  const sizeData = sizes.find(function (s) { return s.id === state.size; });
+  const base = 20;
+  const perAnimal = sizeData.perAnimal;
+  let gallons;
+  if (state.count === 1) {
+    gallons = Math.max(base * (perAnimal / 20), state.size === "juv" ? 15 : 20);
+  } else {
+    gallons = Math.round((base * (perAnimal / 20)) + (state.count - 1) * perAnimal * 1.6);
+  }
+  gallons = Math.round(gallons / 5) * 5;
+
+  const length = Math.round(24 + (gallons - 20) * 0.9);
+  const width = Math.round(length * 0.45);
+
+  const resultEl = document.getElementById("result-zone");
+  let multiWarning = "";
+  if (state.count > 1) {
+    multiWarning = '<div class="warn-box">Multiple axolotls need separate territory within the tank, not just shared volume — feed at opposite ends and watch closely for nipping, especially around mealtimes.</div>';
+  }
+
+  resultEl.innerHTML =
+    '<div class="calc-result">' +
+      '<div class="gallon-num">' + gallons + ' gallons</div>' +
+      '<div class="gallon-label">minimum recommended tank size</div>' +
+      '<div class="dim-row">' +
+        '<div class="dim-item"><div class="dim-val">~' + length + '"</div><div class="dim-lbl">suggested length</div></div>' +
+        '<div class="dim-item"><div class="dim-val">~' + width + '"</div><div class="dim-lbl">suggested width</div></div>' +
+      '</div>' +
+      multiWarning +
+      '<a class="cta-link" href="/tank-setup/aquarium-chillers/">Find a chiller for this tank size →</a>' +
+    '</div>';
+}
+
+render();
+</script>
+</body>
+</html>

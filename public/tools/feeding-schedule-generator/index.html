@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Axolotl Feeding Schedule Generator</title>
+<style>
+  :root {
+    --ink: #1f2d3d;
+    --teal: #2c6e7f;
+    --teal-light: #e7f1f3;
+    --teal-dark: #1d4e5a;
+    --border: #d7e0e3;
+    --muted: #5b6b73;
+    --bg: #fafcfc;
+    --card: #ffffff;
+    --track: #dde7e9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 32px 20px 64px; }
+  h1 { font-size: 1.5rem; margin: 0 0 6px; }
+  .subtitle { color: var(--muted); font-size: 0.95rem; margin: 0 0 32px; }
+  .slider-wrap { padding: 8px 4px 4px; }
+  .slider-label { font-size: 0.9rem; font-weight: 600; color: var(--muted); margin-bottom: 14px; display: flex; justify-content: space-between; align-items: baseline; }
+  .slider-val { color: var(--teal-dark); font-weight: 700; font-size: 1.1rem; }
+  input[type=range] {
+    width: 100%; height: 5px; border-radius: 4px; background: var(--track);
+    accent-color: var(--teal); cursor: pointer;
+  }
+  .scale-ticks { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--muted); margin-top: 6px; }
+  .stage-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-top: 32px; }
+  .stage-tag {
+    display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 4px 12px;
+    border-radius: 8px; background: var(--teal-light); color: var(--teal-dark); margin-bottom: 16px;
+  }
+  .feed-grid { display: flex; gap: 14px; margin-top: 4px; }
+  .feed-item { flex: 1; background: #f4f8f9; border-radius: 10px; padding: 14px; }
+  .feed-val { font-size: 1.05rem; font-weight: 600; line-height: 1.3; }
+  .feed-lbl { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+  .note { font-size: 0.88rem; color: var(--muted); margin-top: 18px; line-height: 1.6; }
+  .cta-link {
+    display: inline-block; margin-top: 18px; font-size: 0.85rem; font-weight: 600;
+    color: var(--teal-dark); text-decoration: none; border: 1px solid var(--teal);
+    padding: 9px 16px; border-radius: 8px;
+  }
+  .cta-link:hover { background: var(--teal-light); }
+  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 0.78rem; color: var(--muted); text-align: center; }
+  footer a { color: var(--teal); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Axolotl Feeding Schedule Generator</h1>
+    <p class="subtitle">Drag the slider to your axolotl's length to get the right feeding frequency and portion size.</p>
+  </header>
+
+  <div class="slider-wrap">
+    <div class="slider-label">Axolotl length <span class="slider-val" id="len-display">8 in</span></div>
+    <input type="range" id="len-slider" min="0.25" max="12" step="0.25" value="8">
+    <div class="scale-ticks"><span>Hatchling</span><span>3"</span><span>6"</span><span>9"</span><span>12"+</span></div>
+  </div>
+
+  <div id="result-zone"></div>
+
+  <footer>
+    Companion tool to the full <a href="/axolotls/care-guide/">Axolotl Care Guide</a>.
+  </footer>
+</div>
+
+<script>
+const stages = [
+  { max: 0.5, name: "Hatchling", freq: "Twice daily", portion: "As much as eaten in 20-30 minutes", note: "Baby brine shrimp or finely chopped blackworms work well at this size — nothing solid enough to choke on yet." },
+  { max: 6, name: "Juvenile", freq: "Once daily", portion: "1-2 pellets per inch, or a third of a nightcrawler", note: "Growth is fast at this stage, so daily feeding supports it without overfeeding into impaction risk." },
+  { max: 8, name: "Subadult", freq: "Every 1-2 days", portion: "One nightcrawler or 5-8 pellets", note: "Growth is slowing down — this is when overfeeding starts to matter more than underfeeding." },
+  { max: 999, name: "Adult", freq: "Every 2-3 days", portion: "1-2 nightcrawlers or 8-10 pellets", note: "Adults can go a few days between meals without issue. A sunken belly means underfeeding; pull uneaten food within 30 minutes either way." }
+];
+
+const slider = document.getElementById("len-slider");
+const lenDisplay = document.getElementById("len-display");
+const resultEl = document.getElementById("result-zone");
+
+function getStage(len) {
+  return stages.find(function (s) { return len <= s.max; });
+}
+
+function render() {
+  const len = parseFloat(slider.value);
+  lenDisplay.textContent = len < 1 ? (len * 25.4).toFixed(0) + " mm" : len + " in";
+  const stage = getStage(len);
+
+  resultEl.innerHTML =
+    '<div class="stage-card">' +
+      '<span class="stage-tag">' + stage.name + '</span>' +
+      '<div class="feed-grid">' +
+        '<div class="feed-item"><div class="feed-val">' + stage.freq + '</div><div class="feed-lbl">feeding frequency</div></div>' +
+        '<div class="feed-item"><div class="feed-val" style="font-size:0.92rem;">' + stage.portion + '</div><div class="feed-lbl">portion size</div></div>' +
+      '</div>' +
+      '<p class="note">' + stage.note + '</p>' +
+      '<a class="cta-link" href="/diet/">See full feeding guide →</a>' +
+    '</div>';
+}
+
+slider.addEventListener("input", render);
+render();
+</script>
+</body>
+</html>

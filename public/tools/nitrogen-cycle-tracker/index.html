@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Axolotl Nitrogen Cycle Tracker — Free Tank Cycling Progress Tool</title>
+<meta name="description" content="Free axolotl nitrogen cycle tracker. Log your daily ammonia, nitrite, and nitrate readings and see exactly where your tank is in the cycling process — before adding your axolotl.">
+<meta name="keywords" content="axolotl nitrogen cycle tracker, axolotl tank cycling, how to cycle axolotl tank, axolotl ammonia nitrite nitrate, axolotl water parameters, axolotl cycling progress, is my axolotl tank cycled, axolotl cycling chart, axolotl tank cycle complete, how long to cycle axolotl tank">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Axolotl Nitrogen Cycle Tracker — Free Tool">
+<meta property="og:description" content="Log your daily ammonia, nitrite, and nitrate readings. The tracker tells you exactly which stage your cycle is in and when it's safe to add your axolotl.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Axolotl Nitrogen Cycle Tracker — Free Tool">
+<meta name="twitter:description" content="Track your axolotl tank cycling progress day by day. Know exactly when your tank is safe.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Axolotl Nitrogen Cycle Tracker",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web Browser",
+  "description": "Free interactive tool to track axolotl tank nitrogen cycle progress. Log daily ammonia, nitrite, and nitrate readings to know exactly when your tank is cycled and safe for your axolotl.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "featureList": [
+    "Daily ammonia, nitrite, and nitrate logging",
+    "Visual cycle progress chart",
+    "Automatic cycle stage detection",
+    "Cycle completion alert",
+    "Persistent data storage between sessions"
+  ],
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Axolotl owners setting up a new tank"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does it take to cycle an axolotl tank?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cycling an axolotl tank takes 4–8 weeks from scratch using pure ammonia dosing. At axolotl water temperatures (60–68°F / 16–20°C), nitrifying bacteria colonise more slowly than in tropical tanks. With seeded filter media from an established tank, cycling can complete in 1–2 weeks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know when my axolotl tank is fully cycled?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your axolotl tank is fully cycled when 2 ppm of ammonia drops to 0 ammonia and 0 nitrite within 24 hours, confirmed on two consecutive test days, with nitrate present. This is the only reliable completion criterion."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the safe water parameters for an axolotl?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Safe axolotl water parameters are: ammonia 0 ppm, nitrite 0 ppm, nitrate under 20 ppm, pH 7.4–7.6, temperature 60–68°F (16–20°C), GH 7–14 dGH, and KH 3–8 dKH."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I add my axolotl during cycling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Never cycle a tank with an axolotl inside. Ammonia above 0.1 ppm — normal during active cycling — causes gill burns, neurological damage, and immune suppression. Add your axolotl only after the cycle is confirmed complete on two consecutive test days."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-dark:   #2d6644;
+    --green-mid:    #4a8f5f;
+    --green-light:  #e8f5ee;
+    --green-border: #86d4a0;
+    --amber-bg:     #fdf3e3;
+    --amber-border: #f5c57a;
+    --red-bg:       #fdecea;
+    --red-border:   #f0a0a0;
+    --blue-bg:      #eaf4fb;
+    --blue-border:  #b5d4f4;
+    --text:         #1a1a1a;
+    --text-muted:   #666;
+    --text-faint:   #aaa;
+    --border:       #e5e5e5;
+    --surface:      #f8f9fa;
+    --white:        #ffffff;
+    --radius:       10px;
+    --radius-sm:    6px;
+    --shadow:       0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--surface);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 24px 18px;
+    text-align: center;
+  }
+  .site-header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--green-dark);
+    margin-bottom: 6px;
+  }
+  .site-header p {
+    font-size: 14px;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .breadcrumb {
+    font-size: 12px;
+    color: var(--text-faint);
+    margin-bottom: 8px;
+  }
+  .breadcrumb a { color: var(--green-mid); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+
+  /* ── LAYOUT ── */
+  .app {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 20px 16px 48px;
+  }
+
+  /* ── STAGE BAR ── */
+  .stage-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .stage {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 8px;
+    text-align: center;
+    transition: all .2s;
+  }
+  .stage.active  { border-color: var(--green-mid); background: var(--green-light); }
+  .stage.done    { border-color: var(--green-mid); background: var(--green-mid); }
+  .stage-num     { font-size: 10px; font-weight: 700; color: var(--text-faint); margin-bottom: 3px; text-transform: uppercase; letter-spacing: .04em; }
+  .stage.active .stage-num { color: var(--green-mid); }
+  .stage.done .stage-num   { color: #c8f0d4; }
+  .stage-label   { font-size: 12px; font-weight: 500; color: #555; line-height: 1.3; }
+  .stage.active .stage-label { color: var(--green-dark); font-weight: 600; }
+  .stage.done .stage-label   { color: #fff; }
+
+  /* ── STATUS CARD ── */
+  .status-card {
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    border: 1.5px solid transparent;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .status-card.info    { background: var(--blue-bg);   border-color: var(--blue-border); }
+  .status-card.warn    { background: var(--amber-bg);  border-color: var(--amber-border); }
+  .status-card.danger  { background: var(--red-bg);    border-color: var(--red-border); }
+  .status-card.success { background: var(--green-light); border-color: var(--green-border); }
+  .status-icon  { font-size: 22px; line-height: 1; flex-shrink: 0; margin-top: 1px; }
+  .status-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .status-desc  { font-size: 13px; color: #444; line-height: 1.55; }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 18px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+  }
+  .card-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: 14px;
+  }
+
+  /* ── FORM ── */
+  .entry-form {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr auto;
+    gap: 10px;
+    align-items: end;
+  }
+  .field label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: #888;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .field label span { font-weight: 400; color: var(--text-faint); font-size: 10px; margin-left: 3px; }
+  .field input {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: var(--radius-sm);
+    padding: 8px 10px;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--white);
+    outline: none;
+    transition: border .15s, box-shadow .15s;
+    -webkit-appearance: none;
+  }
+  .field input:focus { border-color: var(--green-mid); box-shadow: 0 0 0 3px rgba(74,143,95,.12); }
+  .add-btn {
+    background: var(--green-mid);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 9px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    height: 38px;
+    white-space: nowrap;
+    transition: background .15s, transform .1s;
+  }
+  .add-btn:hover  { background: var(--green-dark); }
+  .add-btn:active { transform: scale(.98); }
+
+  /* ── CHART ── */
+  .chart-wrap {
+    position: relative;
+    height: 220px;
+    margin-bottom: 10px;
+  }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 4px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .legend-swatch {
+    width: 12px; height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ── SAFE RANGES ── */
+  .safe-ranges {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .range-item {
+    background: var(--surface);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .range-name { font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 3px; }
+  .range-val  { font-size: 16px; font-weight: 700; color: var(--green-dark); }
+  .range-sub  { font-size: 10px; color: var(--text-faint); margin-top: 2px; }
+
+  /* ── READINGS TABLE ── */
+  .readings-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .readings-table thead th {
+    font-size: 11px; font-weight: 700; color: var(--text-muted);
+    text-align: left; padding: 6px 10px;
+    border-bottom: 1px solid #eee;
+    text-transform: uppercase; letter-spacing: .04em;
+  }
+  .readings-table tbody td { padding: 8px 10px; border-bottom: 1px solid #f5f5f5; color: #333; }
+  .readings-table tbody tr:last-child td { border-bottom: none; }
+  .readings-table tbody tr:hover { background: #fafafa; }
+  .ppm-ok     { color: #1a7e3e; font-weight: 600; }
+  .ppm-warn   { color: #b35e00; font-weight: 600; }
+  .ppm-danger { color: #c0392b; font-weight: 600; }
+  .del-btn {
+    background: none; border: none; color: #ccc; cursor: pointer;
+    font-size: 14px; padding: 3px 6px; border-radius: 4px; line-height: 1;
+  }
+  .del-btn:hover { color: #e74c3c; background: var(--red-bg); }
+
+  /* ── EMPTY STATE ── */
+  .empty-state { text-align: center; padding: 32px 16px; color: var(--text-faint); }
+  .empty-state-icon { font-size: 36px; margin-bottom: 10px; }
+  .empty-state p { font-size: 13px; line-height: 1.6; }
+
+  /* ── FAQ / SEO SECTION ── */
+  .faq-section { margin-top: 32px; }
+  .faq-section h2 { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 16px; }
+  .faq-item { border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 8px; background: var(--white); overflow: hidden; }
+  .faq-q {
+    padding: 13px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    list-style: none;
+  }
+  .faq-q:hover { background: var(--surface); }
+  .faq-q::after { content: '+'; font-size: 18px; font-weight: 400; color: var(--text-faint); transition: transform .2s; flex-shrink: 0; margin-left: 12px; }
+  details[open] .faq-q::after { transform: rotate(45deg); }
+  .faq-a {
+    padding: 0 16px 13px;
+    font-size: 13px;
+    color: #444;
+    line-height: 1.65;
+    border-top: 1px solid #f0f0f0;
+  }
+  .faq-a p { padding-top: 12px; }
+  .faq-a ul { padding-top: 10px; padding-left: 18px; }
+  .faq-a li { margin-bottom: 4px; }
+
+  /* ── SEO KEYWORD FOOTER ── */
+  .seo-text {
+    margin-top: 28px;
+    padding: 18px;
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    font-size: 13px;
+    color: #555;
+    line-height: 1.75;
+  }
+  .seo-text h2 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+  .seo-text h3 { font-size: 13px; font-weight: 700; color: var(--text); margin: 14px 0 6px; }
+  .seo-text p  { margin-bottom: 8px; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    text-align: center;
+    padding: 24px 16px;
+    font-size: 12px;
+    color: var(--text-faint);
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+    background: var(--white);
+  }
+  .site-footer a { color: var(--green-mid); text-decoration: none; }
+  .site-footer a:hover { text-decoration: underline; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 560px) {
+    .entry-form { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .add-btn    { grid-column: span 2; height: 40px; }
+    .stage-bar  { grid-template-columns: repeat(2, 1fr); }
+    .site-header h1 { font-size: 18px; }
+    .safe-ranges { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; }
+  }
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="/">Home</a> › <a href="/tank-setup/">Axolotl tank setup</a> › Nitrogen cycle tracker
+  </nav>
+  <h1>Axolotl nitrogen cycle tracker</h1>
+  <p>Log your daily ammonia, nitrite, and nitrate readings. The tracker identifies your cycle stage automatically and tells you the moment it's safe to add your axolotl.</p>
+</header>
+
+<main class="app" id="main-content">
+
+  <!-- STAGE PROGRESS BAR -->
+  <div class="stage-bar" role="list" aria-label="Nitrogen cycle stages">
+    <div class="stage" id="s0" role="listitem"><div class="stage-num">Stage 1</div><div class="stage-label">Ammonia building</div></div>
+    <div class="stage" id="s1" role="listitem"><div class="stage-num">Stage 2</div><div class="stage-label">Nitrite appearing</div></div>
+    <div class="stage" id="s2" role="listitem"><div class="stage-num">Stage 3</div><div class="stage-label">Nitrate rising</div></div>
+    <div class="stage" id="s3" role="listitem"><div class="stage-num">Stage 4</div><div class="stage-label">Cycle complete ✓</div></div>
+  </div>
+
+  <!-- STATUS -->
+  <div id="statuscard" class="status-card info" role="status" aria-live="polite">
+    <div class="status-icon">🧪</div>
+    <div>
+      <div class="status-title">No readings logged yet</div>
+      <div class="status-desc">Add your first test result below. Use a liquid reagent kit (API Freshwater Master Test Kit) — paper strips are not accurate enough to detect early ammonia and nitrite spikes.</div>
+    </div>
+  </div>
+
+  <!-- LOG ENTRY FORM -->
+  <div class="card">
+    <div class="card-title">Log today's water test</div>
+    <div class="entry-form">
+      <div class="field">
+        <label for="inp-date">Date</label>
+        <input type="date" id="inp-date" aria-label="Test date">
+      </div>
+      <div class="field">
+        <label for="inp-nh3">Ammonia <span>ppm</span></label>
+        <input type="number" id="inp-nh3" min="0" max="8" step="0.25" placeholder="0.00" aria-label="Ammonia in ppm">
+      </div>
+      <div class="field">
+        <label for="inp-no2">Nitrite <span>ppm</span></label>
+        <input type="number" id="inp-no2" min="0" max="8" step="0.25" placeholder="0.00" aria-label="Nitrite in ppm">
+      </div>
+      <div class="field">
+        <label for="inp-no3">Nitrate <span>ppm</span></label>
+        <input type="number" id="inp-no3" min="0" max="200" step="5" placeholder="0" aria-label="Nitrate in ppm">
+      </div>
+      <button class="add-btn" onclick="addEntry()" aria-label="Log this reading">+ Log</button>
+    </div>
+  </div>
+
+  <!-- CHART -->
+  <div class="card">
+    <div class="card-title">Cycle progress chart</div>
+    <div class="chart-wrap">
+      <canvas id="cyclechart"
+        role="img"
+        aria-label="Line chart showing axolotl tank ammonia, nitrite, and nitrate levels over time during nitrogen cycling">
+        No chart data yet — log your first reading above.
+      </canvas>
+    </div>
+    <div class="legend" aria-label="Chart legend">
+      <span class="legend-item"><span class="legend-swatch" style="background:#e74c3c"></span>Ammonia NH₃</span>
+      <span class="legend-item"><span class="legend-swatch" style="background:#e67e22"></span>Nitrite NO₂</span>
+      <span class="legend-item"><span class="legend-swatch" style="background:#27ae60"></span>Nitrate NO₃ (right axis)</span>
+    </div>
+  </div>
+
+  <!-- SAFE RANGES -->
+  <div class="card">
+    <div class="card-title">Safe parameter targets — axolotl tank</div>
+    <div class="safe-ranges">
+      <div class="range-item">
+        <div class="range-name">Ammonia NH₃</div>
+        <div class="range-val">0 ppm</div>
+        <div class="range-sub">Any reading = danger</div>
+      </div>
+      <div class="range-item">
+        <div class="range-name">Nitrite NO₂</div>
+        <div class="range-val">0 ppm</div>
+        <div class="range-sub">Any reading = danger</div>
+      </div>
+      <div class="range-item">
+        <div class="range-name">Nitrate NO₃</div>
+        <div class="range-val">&lt; 20 ppm</div>
+        <div class="range-sub">Weekly water change</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- READINGS LOG TABLE -->
+  <div class="card">
+    <div class="card-title">Reading log</div>
+    <div id="table-wrap">
+      <div class="empty-state">
+        <div class="empty-state-icon">📋</div>
+        <p>Your logged readings will appear here.<br>Each entry is saved automatically in your browser.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ — keyword-rich, schema-backed -->
+  <section class="faq-section" aria-labelledby="faq-heading">
+    <h2 id="faq-heading">Axolotl nitrogen cycle — frequently asked questions</h2>
+
+    <details class="faq-item">
+      <summary class="faq-q">How long does it take to cycle an axolotl tank?</summary>
+      <div class="faq-a">
+        <p>Cycling an axolotl tank takes <strong>4–8 weeks from scratch</strong> using pure ammonia dosing. With seeded filter media from an established tank, cycling can complete in <strong>1–2 weeks</strong>.</p>
+        <p>Axolotl tanks cycle more slowly than tropical fish tanks because nitrifying bacteria colonise fastest at 77–86°F — but axolotl water must stay at 60–68°F. Budget 6 weeks before purchasing your axolotl.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">How do I know when my axolotl tank is fully cycled?</summary>
+      <div class="faq-a">
+        <p>Your axolotl tank is fully cycled when <strong>2 ppm of ammonia drops to 0 ammonia and 0 nitrite within 24 hours</strong>, confirmed on two consecutive test days, with nitrate present. That is the only reliable completion criterion — this tracker flags it automatically.</p>
+        <p>Do a 50% water change to bring nitrate below 20 ppm before introducing your axolotl.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">What should ammonia, nitrite, and nitrate read during cycling?</summary>
+      <div class="faq-a">
+        <p>The expected progression during an axolotl nitrogen cycle:</p>
+        <ul>
+          <li><strong>Week 1–2:</strong> Ammonia rises and stays elevated. No nitrite yet.</li>
+          <li><strong>Week 2–4:</strong> Nitrite appears and spikes high. Ammonia starts dropping. Both chemicals can be elevated simultaneously — this is normal and means both bacterial colonies are active.</li>
+          <li><strong>Week 4–8:</strong> Nitrate appears and rises. Nitrite begins to fall. Ammonia approaches zero.</li>
+          <li><strong>Cycle complete:</strong> Both ammonia and nitrite read 0 ppm. Nitrate is present. This state holds for two consecutive test days.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Can I add my axolotl while the tank is still cycling?</summary>
+      <div class="faq-a">
+        <p><strong>No.</strong> Never cycle a tank with an axolotl inside. Ammonia above 0.1 ppm — which is normal throughout active cycling — causes gill burns, neurological damage, and immune suppression within hours.</p>
+        <p>If you already have your axolotl and the tank is uncycled, keep the axolotl in a tub with 100% daily water changes using dechlorinated water while the tank completes its cycle.</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Why is my axolotl nitrogen cycle stalling?</summary>
+      <div class="faq-a">
+        <p>The most common cause of a stalled axolotl nitrogen cycle is <strong>pH dropping below 6.5</strong>, which slows nitrification, and below 6.0 halts it completely. Test your KH (carbonate hardness) — if it's below 3 dKH, the buffer is exhausted and pH is crashing. Add crushed coral or sodium bicarbonate to raise KH and stabilise pH above 7.0.</p>
+        <p>Other causes: chlorine in the water killing bacteria (always dechlorinate), water temperature too cold (below 60°F slows colonisation further), or nitrite spiking above 4–5 ppm (do a 50% water change to bring it down).</p>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">What test kit should I use to track my axolotl nitrogen cycle?</summary>
+      <div class="faq-a">
+        <p>Use the <strong>API Freshwater Master Test Kit</strong> (liquid reagent, not strips). Paper test strips are not accurate enough to detect the early ammonia and nitrite spikes that matter most during cycling. The API kit tests ammonia, nitrite, nitrate, and pH — all four parameters you need to track during the cycle.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- SEO TEXT BLOCK -->
+  <div class="seo-text">
+    <h2>About this axolotl nitrogen cycle tracker</h2>
+    <p>This free tool is designed for new axolotl owners cycling a tank for the first time. Log your daily ammonia, nitrite, and nitrate readings from your API test kit and the tracker automatically identifies which of the four nitrogen cycle stages your tank is in — and alerts you the moment the cycle is complete and your axolotl can safely be introduced.</p>
+
+    <h3>What is the axolotl nitrogen cycle?</h3>
+    <p>The nitrogen cycle is the biological process that makes a tank safe for an axolotl. Axolotl waste and uneaten food produce ammonia (NH₃), which is acutely toxic at any concentration above 0.1 ppm. Nitrifying bacteria — first Nitrosomonas, then Nitrobacter — colonise your filter media and convert ammonia to nitrite (NO₂) and finally to nitrate (NO₃). Nitrate is far less toxic and is managed with weekly 20–30% water changes.</p>
+    <p>Cycling establishes those bacterial colonies before the axolotl enters the water. An uncycled tank has no bacteria to process waste, so ammonia accumulates to lethal levels within days.</p>
+
+    <h3>Axolotl water parameters — full reference</h3>
+    <p>Once cycled, maintain: temperature 60–68°F (16–20°C), pH 7.4–7.6, ammonia 0 ppm, nitrite 0 ppm, nitrate under 20 ppm, GH 7–14 dGH, KH 3–8 dKH. Test weekly with a liquid kit. If ammonia or nitrite reads above 0, move your axolotl to a clean tub with daily water changes while you identify the cause.</p>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p>Free axolotl nitrogen cycle tracker · Data is saved in your browser only · No account required</p>
+  <p style="margin-top:6px"><a href="/tank-setup/">← Back to axolotl tank setup guide</a></p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  /* ── DATA ── */
+  let entries = [];
+  try { entries = JSON.parse(localStorage.getItem('axo_cycle_v2') || '[]'); } catch(e) {}
+  let chart = null;
+
+  function save() {
+    try { localStorage.setItem('axo_cycle_v2', JSON.stringify(entries)); } catch(e) {}
+  }
+
+  function fmt(v) {
+    const n = parseFloat(v);
+    return isNaN(n) ? '0' : (n % 1 === 0 ? n.toString() : n.toFixed(2));
+  }
+
+  function ppmClass(val, type) {
+    const v = parseFloat(val) || 0;
+    if (type === 'nh3' || type === 'no2') {
+      if (v === 0)       return 'ppm-ok';
+      if (v < 0.5)       return 'ppm-warn';
+      return 'ppm-danger';
+    }
+    if (type === 'no3') {
+      if (v < 20)  return 'ppm-ok';
+      if (v < 40)  return 'ppm-warn';
+      return 'ppm-danger';
+    }
+    return '';
+  }
+
+  /* ── STAGE DETECTION ── */
+  function getStage(entries) {
+    if (!entries.length) return -1;
+    const n = entries.length;
+    const last = entries[n - 1];
+    // Completion: two consecutive days nh3=0 and no2=0 with no3 > 0
+    if (n >= 2) {
+      const prev = entries[n - 2];
+      if (last.nh3 === 0 && last.no2 === 0 && last.no3 > 0 &&
+          prev.nh3 === 0 && prev.no2 === 0 && prev.no3 > 0) return 3;
+    }
+    if (last.no3 > 0) return 2;
+    if (last.no2 > 0) return 1;
+    if (last.nh3 > 0) return 0;
+    return -1;
+  }
+
+  const STAGES = [
+    { cls:'info',    icon:'🔬', title:'Stage 1 — Ammonia building',
+      desc:'Ammonia is accumulating. Nitrosomonas bacteria are beginning to colonise your filter media. Keep dosing ammonia to 2 ppm daily and test every 24 hours. No nitrite yet is expected — this phase typically lasts 1–3 weeks at axolotl water temperatures.' },
+    { cls:'warn',    icon:'⚗️', title:'Stage 2 — Nitrite appearing',
+      desc:'Good progress. Nitrosomonas bacteria are active and converting ammonia into nitrite. Nitrite will spike very high during this phase — that is expected and correct. Continue dosing ammonia to 2 ppm daily. Nitrobacter bacteria are now starting to colonise.' },
+    { cls:'warn',    icon:'📈', title:'Stage 3 — Nitrate rising, almost finished',
+      desc:'Both bacterial colonies are active. Nitrate appearing confirms Nitrobacter are converting nitrite downstream. Watch for ammonia and nitrite to fall toward zero together. Keep dosing ammonia daily until both read 0 ppm on two consecutive days.' },
+    { cls:'success', icon:'✅', title:'Cycle complete — safe to add your axolotl',
+      desc:'Ammonia and nitrite have both read 0 ppm for two consecutive days with nitrate present. Do a 50% water change to bring nitrate below 20 ppm, then acclimate your axolotl using the 45-minute drip method. Never pour the transport bag water into the tank.' }
+  ];
+
+  /* ── RENDER STATUS ── */
+  function updateStatus() {
+    const stage = getStage(entries);
+    const card = document.getElementById('statuscard');
+
+    if (stage === -1) {
+      card.className = 'status-card info';
+      card.innerHTML = '<div class="status-icon">🧪</div><div><div class="status-title">No readings logged yet</div><div class="status-desc">Add your first test result below. Use a liquid reagent kit (API Freshwater Master Test Kit) — paper strips are not accurate enough to detect early ammonia and nitrite spikes.</div></div>';
+    } else {
+      const s = STAGES[stage];
+      card.className = 'status-card ' + s.cls;
+      card.innerHTML = `<div class="status-icon">${s.icon}</div><div><div class="status-title">${s.title}</div><div class="status-desc">${s.desc}</div></div>`;
+    }
+
+    // Update stage bar
+    ['s0','s1','s2','s3'].forEach((id, i) => {
+      const el = document.getElementById(id);
+      el.className = 'stage';
+      if (i < stage)       el.classList.add('done');
+      else if (i === stage) el.classList.add('active');
+    });
+  }
+
+  /* ── RENDER TABLE ── */
+  function renderTable() {
+    const wrap = document.getElementById('table-wrap');
+    if (!entries.length) {
+      wrap.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📋</div><p>Your logged readings will appear here.<br>Each entry is saved automatically in your browser.</p></div>';
+      return;
+    }
+    const rows = [...entries].reverse().map((e, ri) => {
+      const i = entries.length - 1 - ri;
+      return `<tr>
+        <td>${e.date}</td>
+        <td class="${ppmClass(e.nh3,'nh3')}">${fmt(e.nh3)} ppm</td>
+        <td class="${ppmClass(e.no2,'no2')}">${fmt(e.no2)} ppm</td>
+        <td class="${ppmClass(e.no3,'no3')}">${fmt(e.no3)} ppm</td>
+        <td><button class="del-btn" onclick="removeEntry(${i})" aria-label="Remove reading from ${e.date}">✕</button></td>
+      </tr>`;
+    }).join('');
+    wrap.innerHTML = `<table class="readings-table">
+      <thead><tr><th>Date</th><th>Ammonia</th><th>Nitrite</th><th>Nitrate</th><th></th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+  }
+
+  /* ── RENDER CHART ── */
+  function renderChart() {
+    const ctx = document.getElementById('cyclechart');
+    if (!entries.length) {
+      if (chart) { chart.destroy(); chart = null; }
+      return;
+    }
+    const sorted = [...entries].sort((a, b) => a.date.localeCompare(b.date));
+    const labels = sorted.map(e => e.date.slice(5)); // MM-DD
+    const nh3 = sorted.map(e => parseFloat(e.nh3) || 0);
+    const no2 = sorted.map(e => parseFloat(e.no2) || 0);
+    const no3 = sorted.map(e => parseFloat(e.no3) || 0);
+
+    if (chart) { chart.destroy(); chart = null; }
+
+    chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [
+          {
+            label: 'Ammonia (NH₃)',
+            data: nh3,
+            borderColor: '#e74c3c',
+            backgroundColor: 'rgba(231,76,60,0.07)',
+            tension: 0.35, pointRadius: 4, pointHoverRadius: 6,
+            borderWidth: 2, fill: true, yAxisID: 'y'
+          },
+          {
+            label: 'Nitrite (NO₂)',
+            data: no2,
+            borderColor: '#e67e22',
+            backgroundColor: 'rgba(230,126,34,0.07)',
+            tension: 0.35, pointRadius: 4, pointHoverRadius: 6,
+            borderWidth: 2, fill: true, yAxisID: 'y',
+            borderDash: [5, 3]
+          },
+          {
+            label: 'Nitrate (NO₃)',
+            data: no3,
+            borderColor: '#27ae60',
+            backgroundColor: 'rgba(39,174,96,0.07)',
+            tension: 0.35, pointRadius: 4, pointHoverRadius: 6,
+            borderWidth: 2, fill: false, yAxisID: 'y2'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y} ppm`
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: '#f0f0f0' },
+            ticks: { font: { size: 11 }, color: '#aaa', maxRotation: 45 }
+          },
+          y: {
+            position: 'left', min: 0,
+            grid: { color: '#f0f0f0' },
+            ticks: { font: { size: 11 }, color: '#888', callback: v => v + ' ppm' },
+            title: { display: true, text: 'NH₃ / NO₂ (ppm)', font: { size: 11 }, color: '#aaa' }
+          },
+          y2: {
+            position: 'right', min: 0,
+            grid: { drawOnChartArea: false },
+            ticks: { font: { size: 11 }, color: '#27ae60', callback: v => v + ' ppm' },
+            title: { display: true, text: 'NO₃ (ppm)', font: { size: 11 }, color: '#27ae60' }
+          }
+        }
+      }
+    });
+  }
+
+  /* ── ACTIONS ── */
+  function addEntry() {
+    const date = document.getElementById('inp-date').value;
+    const nh3  = parseFloat(document.getElementById('inp-nh3').value) || 0;
+    const no2  = parseFloat(document.getElementById('inp-no2').value) || 0;
+    const no3  = parseFloat(document.getElementById('inp-no3').value) || 0;
+    if (!date) { alert('Please select a date before logging.'); return; }
+
+    const idx = entries.findIndex(e => e.date === date);
+    if (idx > -1) {
+      if (!confirm(`You already have a reading for ${date}. Replace it?`)) return;
+      entries[idx] = { date, nh3, no2, no3 };
+    } else {
+      entries.push({ date, nh3, no2, no3 });
+    }
+    entries.sort((a, b) => a.date.localeCompare(b.date));
+    save();
+    render();
+
+    // Clear numeric inputs only
+    ['inp-nh3','inp-no2','inp-no3'].forEach(id => document.getElementById(id).value = '');
+    // Advance date by 1 day
+    const d = new Date(date + 'T00:00:00');
+    d.setDate(d.getDate() + 1);
+    document.getElementById('inp-date').value = d.toISOString().slice(0,10);
+  }
+
+  function removeEntry(i) {
+    if (!confirm('Remove this reading?')) return;
+    entries.splice(i, 1);
+    save();
+    render();
+  }
+
+  function render() {
+    updateStatus();
+    renderTable();
+    renderChart();
+  }
+
+  /* ── INIT ── */
+  const today = new Date();
+  document.getElementById('inp-date').value = today.toISOString().slice(0, 10);
+
+  // Allow Enter key to log
+  document.querySelectorAll('.entry-form input').forEach(el => {
+    el.addEventListener('keydown', e => { if (e.key === 'Enter') addEntry(); });
+  });
+
+  render();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1681 @@
+{
+ "template": [
+  "/",
+  "/about",
+  "/axolotl-in-culture",
+  "/axolotls",
+  "/biology-and-science",
+  "/breeding",
+  "/care-basics",
+  "/contact",
+  "/cost-and-buying",
+  "/diet",
+  "/gifts-and-merch",
+  "/health",
+  "/legal",
+  "/morphs",
+  "/privacy",
+  "/search",
+  "/tank-setup",
+  "/tools",
+  "/tools/feeding-schedule-generator",
+  "/tools/nitrogen-cycle-tracker",
+  "/tools/symptom-checker",
+  "/tools/tank-size-calculator",
+  "/tools/water-conditioner-dosage-calculator"
+ ],
+ "edges": [
+  {
+   "from": "/",
+   "to": "/axolotls/care-guide"
+  },
+  {
+   "from": "/",
+   "to": "/biology-and-science/regeneration-and-limb-regrowth"
+  },
+  {
+   "from": "/",
+   "to": "/diet/best-foods-list"
+  },
+  {
+   "from": "/",
+   "to": "/diet/feeding-schedule-by-age"
+  },
+  {
+   "from": "/",
+   "to": "/health/refusing-to-eat"
+  },
+  {
+   "from": "/",
+   "to": "/tank-setup/setup-guide"
+  },
+  {
+   "from": "/",
+   "to": "/tank-setup/water-parameters-cycling"
+  },
+  {
+   "from": "/axolotl-in-culture",
+   "to": "/axolotl-in-culture/adopt-me-axolotl-guide"
+  },
+  {
+   "from": "/axolotl-in-culture",
+   "to": "/axolotl-in-culture/axolotl-in-pop-culture-and-memes"
+  },
+  {
+   "from": "/axolotl-in-culture",
+   "to": "/axolotl-in-culture/minecraft-axolotls-guide"
+  },
+  {
+   "from": "/axolotl-in-culture",
+   "to": "/axolotl-in-culture/why-axolotls-are-suddenly-popular"
+  },
+  {
+   "from": "/axolotl-in-culture/adopt-me-axolotl-guide",
+   "to": "/axolotl-in-culture/minecraft-axolotls-guide"
+  },
+  {
+   "from": "/axolotl-in-culture/adopt-me-axolotl-guide",
+   "to": "/care-basics/axolotl-facts"
+  },
+  {
+   "from": "/axolotl-in-culture/adopt-me-axolotl-guide",
+   "to": "/cost-and-buying/axolotl-price-by-morph"
+  },
+  {
+   "from": "/axolotl-in-culture/axolotl-in-pop-culture-and-memes",
+   "to": "/axolotl-in-culture/minecraft-axolotls-guide"
+  },
+  {
+   "from": "/axolotl-in-culture/axolotl-in-pop-culture-and-memes",
+   "to": "/axolotl-in-culture/why-axolotls-are-suddenly-popular"
+  },
+  {
+   "from": "/axolotl-in-culture/axolotl-in-pop-culture-and-memes",
+   "to": "/gifts-and-merch/axolotl-squishmallow-guide"
+  },
+  {
+   "from": "/axolotl-in-culture/minecraft-axolotls-guide",
+   "to": "/axolotl-in-culture/axolotl-in-pop-culture-and-memes"
+  },
+  {
+   "from": "/axolotl-in-culture/minecraft-axolotls-guide",
+   "to": "/axolotl-in-culture/why-axolotls-are-suddenly-popular"
+  },
+  {
+   "from": "/axolotl-in-culture/minecraft-axolotls-guide",
+   "to": "/gifts-and-merch/best-axolotl-toys-and-plushies"
+  },
+  {
+   "from": "/axolotl-in-culture/why-axolotls-are-suddenly-popular",
+   "to": "/axolotl-in-culture/adopt-me-axolotl-guide"
+  },
+  {
+   "from": "/axolotl-in-culture/why-axolotls-are-suddenly-popular",
+   "to": "/axolotl-in-culture/minecraft-axolotls-guide"
+  },
+  {
+   "from": "/axolotl-in-culture/why-axolotls-are-suddenly-popular",
+   "to": "/biology-and-science/conservation-status"
+  },
+  {
+   "from": "/axolotl-in-culture/why-axolotls-are-suddenly-popular",
+   "to": "/care-basics/axolotl-facts"
+  },
+  {
+   "from": "/axolotls",
+   "to": "/axolotls/care-guide"
+  },
+  {
+   "from": "/axolotls/care-guide",
+   "to": "/health/refusing-to-eat"
+  },
+  {
+   "from": "/axolotls/care-guide",
+   "to": "/tank-setup/aquarium-chillers"
+  },
+  {
+   "from": "/axolotls/care-guide",
+   "to": "/tank-setup/setup-guide"
+  },
+  {
+   "from": "/axolotls/care-guide",
+   "to": "/tank-setup/substrate-and-impaction"
+  },
+  {
+   "from": "/axolotls/care-guide",
+   "to": "/tank-setup/water-parameters-cycling"
+  },
+  {
+   "from": "/biology-and-science",
+   "to": "/biology-and-science/anatomy-gills-and-lungs"
+  },
+  {
+   "from": "/biology-and-science",
+   "to": "/biology-and-science/axolotl-vs-tiger-salamander"
+  },
+  {
+   "from": "/biology-and-science",
+   "to": "/biology-and-science/conservation-status"
+  },
+  {
+   "from": "/biology-and-science",
+   "to": "/biology-and-science/is-axolotl-amphibian"
+  },
+  {
+   "from": "/biology-and-science",
+   "to": "/biology-and-science/lifespan-wild-vs-captivity"
+  },
+  {
+   "from": "/biology-and-science",
+   "to": "/biology-and-science/neoteny"
+  },
+  {
+   "from": "/biology-and-science",
+   "to": "/biology-and-science/regeneration-and-limb-regrowth"
+  },
+  {
+   "from": "/biology-and-science",
+   "to": "/biology-and-science/wild-habitat-xochimilco"
+  },
+  {
+   "from": "/biology-and-science/anatomy-gills-and-lungs",
+   "to": "/biology-and-science/is-axolotl-amphibian"
+  },
+  {
+   "from": "/biology-and-science/anatomy-gills-and-lungs",
+   "to": "/biology-and-science/neoteny"
+  },
+  {
+   "from": "/biology-and-science/anatomy-gills-and-lungs",
+   "to": "/biology-and-science/wild-habitat-xochimilco"
+  },
+  {
+   "from": "/biology-and-science/axolotl-vs-tiger-salamander",
+   "to": "/biology-and-science/is-axolotl-amphibian"
+  },
+  {
+   "from": "/biology-and-science/axolotl-vs-tiger-salamander",
+   "to": "/biology-and-science/neoteny"
+  },
+  {
+   "from": "/biology-and-science/conservation-status",
+   "to": "/axolotl-in-culture/why-axolotls-are-suddenly-popular"
+  },
+  {
+   "from": "/biology-and-science/conservation-status",
+   "to": "/biology-and-science/lifespan-wild-vs-captivity"
+  },
+  {
+   "from": "/biology-and-science/conservation-status",
+   "to": "/biology-and-science/neoteny"
+  },
+  {
+   "from": "/biology-and-science/conservation-status",
+   "to": "/biology-and-science/wild-habitat-xochimilco"
+  },
+  {
+   "from": "/biology-and-science/is-axolotl-amphibian",
+   "to": "/biology-and-science/anatomy-gills-and-lungs"
+  },
+  {
+   "from": "/biology-and-science/is-axolotl-amphibian",
+   "to": "/biology-and-science/axolotl-vs-tiger-salamander"
+  },
+  {
+   "from": "/biology-and-science/lifespan-wild-vs-captivity",
+   "to": "/biology-and-science/conservation-status"
+  },
+  {
+   "from": "/biology-and-science/lifespan-wild-vs-captivity",
+   "to": "/biology-and-science/wild-habitat-xochimilco"
+  },
+  {
+   "from": "/biology-and-science/neoteny",
+   "to": "/biology-and-science/axolotl-vs-tiger-salamander"
+  },
+  {
+   "from": "/biology-and-science/neoteny",
+   "to": "/biology-and-science/is-axolotl-amphibian"
+  },
+  {
+   "from": "/biology-and-science/regeneration-and-limb-regrowth",
+   "to": "/biology-and-science/anatomy-gills-and-lungs"
+  },
+  {
+   "from": "/biology-and-science/regeneration-and-limb-regrowth",
+   "to": "/biology-and-science/neoteny"
+  },
+  {
+   "from": "/biology-and-science/regeneration-and-limb-regrowth",
+   "to": "/health/limb-regeneration"
+  },
+  {
+   "from": "/biology-and-science/wild-habitat-xochimilco",
+   "to": "/biology-and-science/conservation-status"
+  },
+  {
+   "from": "/biology-and-science/wild-habitat-xochimilco",
+   "to": "/biology-and-science/neoteny"
+  },
+  {
+   "from": "/breeding",
+   "to": "/breeding/breeding-triggers-temperature-cycling"
+  },
+  {
+   "from": "/breeding",
+   "to": "/breeding/color-genetics-punnett-squares"
+  },
+  {
+   "from": "/breeding",
+   "to": "/breeding/egg-and-larvae-care"
+  },
+  {
+   "from": "/breeding",
+   "to": "/breeding/genetics-and-inbreeding"
+  },
+  {
+   "from": "/breeding",
+   "to": "/breeding/raising-juveniles"
+  },
+  {
+   "from": "/breeding",
+   "to": "/breeding/sexing-axolotls"
+  },
+  {
+   "from": "/breeding/breeding-triggers-temperature-cycling",
+   "to": "/breeding/egg-and-larvae-care"
+  },
+  {
+   "from": "/breeding/breeding-triggers-temperature-cycling",
+   "to": "/breeding/sexing-axolotls"
+  },
+  {
+   "from": "/breeding/color-genetics-punnett-squares",
+   "to": "/breeding/genetics-and-inbreeding"
+  },
+  {
+   "from": "/breeding/color-genetics-punnett-squares",
+   "to": "/morphs/chimera"
+  },
+  {
+   "from": "/breeding/color-genetics-punnett-squares",
+   "to": "/morphs/wild-type"
+  },
+  {
+   "from": "/breeding/egg-and-larvae-care",
+   "to": "/breeding/breeding-triggers-temperature-cycling"
+  },
+  {
+   "from": "/breeding/egg-and-larvae-care",
+   "to": "/breeding/raising-juveniles"
+  },
+  {
+   "from": "/breeding/genetics-and-inbreeding",
+   "to": "/breeding/color-genetics-punnett-squares"
+  },
+  {
+   "from": "/breeding/genetics-and-inbreeding",
+   "to": "/breeding/raising-juveniles"
+  },
+  {
+   "from": "/breeding/raising-juveniles",
+   "to": "/breeding/egg-and-larvae-care"
+  },
+  {
+   "from": "/breeding/raising-juveniles",
+   "to": "/breeding/genetics-and-inbreeding"
+  },
+  {
+   "from": "/breeding/sexing-axolotls",
+   "to": "/breeding/breeding-triggers-temperature-cycling"
+  },
+  {
+   "from": "/breeding/sexing-axolotls",
+   "to": "/breeding/raising-juveniles"
+  },
+  {
+   "from": "/care-basics",
+   "to": "/care-basics/are-axolotls-good-beginner-pets"
+  },
+  {
+   "from": "/care-basics",
+   "to": "/care-basics/axolotl-age-and-size-chart"
+  },
+  {
+   "from": "/care-basics",
+   "to": "/care-basics/axolotl-facts"
+  },
+  {
+   "from": "/care-basics",
+   "to": "/care-basics/axolotl-intelligence-and-bonding"
+  },
+  {
+   "from": "/care-basics",
+   "to": "/care-basics/axolotls-and-children"
+  },
+  {
+   "from": "/care-basics",
+   "to": "/care-basics/behavior"
+  },
+  {
+   "from": "/care-basics",
+   "to": "/care-basics/cost-of-ownership-monthly"
+  },
+  {
+   "from": "/care-basics",
+   "to": "/care-basics/handling"
+  },
+  {
+   "from": "/care-basics",
+   "to": "/care-basics/how-to-pronounce-axolotl"
+  },
+  {
+   "from": "/care-basics",
+   "to": "/care-basics/keeping-multiple-axolotls"
+  },
+  {
+   "from": "/care-basics/are-axolotls-good-beginner-pets",
+   "to": "/care-basics/axolotls-and-children"
+  },
+  {
+   "from": "/care-basics/are-axolotls-good-beginner-pets",
+   "to": "/care-basics/cost-of-ownership-monthly"
+  },
+  {
+   "from": "/care-basics/are-axolotls-good-beginner-pets",
+   "to": "/cost-and-buying/breeder-vs-pet-store"
+  },
+  {
+   "from": "/care-basics/are-axolotls-good-beginner-pets",
+   "to": "/tank-setup/setup-guide"
+  },
+  {
+   "from": "/care-basics/axolotl-age-and-size-chart",
+   "to": "/breeding/egg-and-larvae-care"
+  },
+  {
+   "from": "/care-basics/axolotl-age-and-size-chart",
+   "to": "/care-basics/are-axolotls-good-beginner-pets"
+  },
+  {
+   "from": "/care-basics/axolotl-age-and-size-chart",
+   "to": "/diet/feeding-schedule-by-age"
+  },
+  {
+   "from": "/care-basics/axolotl-facts",
+   "to": "/biology-and-science/conservation-status"
+  },
+  {
+   "from": "/care-basics/axolotl-facts",
+   "to": "/biology-and-science/regeneration-and-limb-regrowth"
+  },
+  {
+   "from": "/care-basics/axolotl-facts",
+   "to": "/care-basics/how-to-pronounce-axolotl"
+  },
+  {
+   "from": "/care-basics/axolotl-intelligence-and-bonding",
+   "to": "/care-basics/behavior"
+  },
+  {
+   "from": "/care-basics/axolotl-intelligence-and-bonding",
+   "to": "/care-basics/handling"
+  },
+  {
+   "from": "/care-basics/axolotls-and-children",
+   "to": "/care-basics/are-axolotls-good-beginner-pets"
+  },
+  {
+   "from": "/care-basics/axolotls-and-children",
+   "to": "/care-basics/handling"
+  },
+  {
+   "from": "/care-basics/axolotls-and-children",
+   "to": "/cost-and-buying/how-to-choose-a-healthy-axolotl"
+  },
+  {
+   "from": "/care-basics/axolotls-and-children",
+   "to": "/tank-setup/setup-guide"
+  },
+  {
+   "from": "/care-basics/behavior",
+   "to": "/care-basics/axolotl-intelligence-and-bonding"
+  },
+  {
+   "from": "/care-basics/behavior",
+   "to": "/health/curled-gills-stress-signal"
+  },
+  {
+   "from": "/care-basics/behavior",
+   "to": "/health/why-axolotl-floating"
+  },
+  {
+   "from": "/care-basics/cost-of-ownership-monthly",
+   "to": "/care-basics/are-axolotls-good-beginner-pets"
+  },
+  {
+   "from": "/care-basics/cost-of-ownership-monthly",
+   "to": "/cost-and-buying/axolotl-price-by-morph"
+  },
+  {
+   "from": "/care-basics/cost-of-ownership-monthly",
+   "to": "/tank-setup/aquarium-chillers"
+  },
+  {
+   "from": "/care-basics/cost-of-ownership-monthly",
+   "to": "/tank-setup/setup-guide"
+  },
+  {
+   "from": "/care-basics/handling",
+   "to": "/care-basics/axolotls-and-children"
+  },
+  {
+   "from": "/care-basics/handling",
+   "to": "/care-basics/keeping-multiple-axolotls"
+  },
+  {
+   "from": "/care-basics/handling",
+   "to": "/tank-setup/setup-guide"
+  },
+  {
+   "from": "/care-basics/how-to-pronounce-axolotl",
+   "to": "/axolotls/care-guide"
+  },
+  {
+   "from": "/care-basics/how-to-pronounce-axolotl",
+   "to": "/care-basics/axolotl-facts"
+  },
+  {
+   "from": "/care-basics/keeping-multiple-axolotls",
+   "to": "/care-basics/are-axolotls-good-beginner-pets"
+  },
+  {
+   "from": "/care-basics/keeping-multiple-axolotls",
+   "to": "/care-basics/behavior"
+  },
+  {
+   "from": "/care-basics/keeping-multiple-axolotls",
+   "to": "/tank-setup/tank-size-by-age"
+  },
+  {
+   "from": "/cost-and-buying",
+   "to": "/cost-and-buying/axolotl-price-by-morph"
+  },
+  {
+   "from": "/cost-and-buying",
+   "to": "/cost-and-buying/breeder-vs-pet-store"
+  },
+  {
+   "from": "/cost-and-buying",
+   "to": "/cost-and-buying/choosing-a-reputable-breeder"
+  },
+  {
+   "from": "/cost-and-buying",
+   "to": "/cost-and-buying/how-to-choose-a-healthy-axolotl"
+  },
+  {
+   "from": "/cost-and-buying",
+   "to": "/cost-and-buying/red-flags-when-buying"
+  },
+  {
+   "from": "/cost-and-buying",
+   "to": "/cost-and-buying/shipping-live-axolotls"
+  },
+  {
+   "from": "/cost-and-buying/axolotl-price-by-morph",
+   "to": "/care-basics/cost-of-ownership-monthly"
+  },
+  {
+   "from": "/cost-and-buying/axolotl-price-by-morph",
+   "to": "/morphs/leucistic"
+  },
+  {
+   "from": "/cost-and-buying/axolotl-price-by-morph",
+   "to": "/morphs/wild-type"
+  },
+  {
+   "from": "/cost-and-buying/breeder-vs-pet-store",
+   "to": "/cost-and-buying/choosing-a-reputable-breeder"
+  },
+  {
+   "from": "/cost-and-buying/breeder-vs-pet-store",
+   "to": "/cost-and-buying/shipping-live-axolotls"
+  },
+  {
+   "from": "/cost-and-buying/choosing-a-reputable-breeder",
+   "to": "/cost-and-buying/breeder-vs-pet-store"
+  },
+  {
+   "from": "/cost-and-buying/choosing-a-reputable-breeder",
+   "to": "/cost-and-buying/red-flags-when-buying"
+  },
+  {
+   "from": "/cost-and-buying/how-to-choose-a-healthy-axolotl",
+   "to": "/cost-and-buying/choosing-a-reputable-breeder"
+  },
+  {
+   "from": "/cost-and-buying/how-to-choose-a-healthy-axolotl",
+   "to": "/cost-and-buying/red-flags-when-buying"
+  },
+  {
+   "from": "/cost-and-buying/red-flags-when-buying",
+   "to": "/cost-and-buying/choosing-a-reputable-breeder"
+  },
+  {
+   "from": "/cost-and-buying/red-flags-when-buying",
+   "to": "/cost-and-buying/how-to-choose-a-healthy-axolotl"
+  },
+  {
+   "from": "/cost-and-buying/shipping-live-axolotls",
+   "to": "/cost-and-buying/breeder-vs-pet-store"
+  },
+  {
+   "from": "/cost-and-buying/shipping-live-axolotls",
+   "to": "/cost-and-buying/how-to-choose-a-healthy-axolotl"
+  },
+  {
+   "from": "/diet",
+   "to": "/diet/axolotl-pellets"
+  },
+  {
+   "from": "/diet",
+   "to": "/diet/beef-heart"
+  },
+  {
+   "from": "/diet",
+   "to": "/diet/best-foods-list"
+  },
+  {
+   "from": "/diet",
+   "to": "/diet/blackworms-for-juveniles"
+  },
+  {
+   "from": "/diet",
+   "to": "/diet/fasting-and-vacation"
+  },
+  {
+   "from": "/diet",
+   "to": "/diet/feeder-fish-risks"
+  },
+  {
+   "from": "/diet",
+   "to": "/diet/feeding-schedule-by-age"
+  },
+  {
+   "from": "/diet",
+   "to": "/diet/how-to-hand-feed"
+  },
+  {
+   "from": "/diet",
+   "to": "/diet/live-vs-frozen-food"
+  },
+  {
+   "from": "/diet",
+   "to": "/diet/overfeeding-and-impaction"
+  },
+  {
+   "from": "/diet",
+   "to": "/diet/shrimp-for-axolotls"
+  },
+  {
+   "from": "/diet",
+   "to": "/diet/vitamin-and-supplement-needs"
+  },
+  {
+   "from": "/diet/axolotl-pellets",
+   "to": "/diet/best-foods-list"
+  },
+  {
+   "from": "/diet/axolotl-pellets",
+   "to": "/diet/live-vs-frozen-food"
+  },
+  {
+   "from": "/diet/beef-heart",
+   "to": "/diet/feeder-fish-risks"
+  },
+  {
+   "from": "/diet/beef-heart",
+   "to": "/diet/overfeeding-and-impaction"
+  },
+  {
+   "from": "/diet/best-foods-list",
+   "to": "/diet/axolotl-pellets"
+  },
+  {
+   "from": "/diet/best-foods-list",
+   "to": "/diet/feeding-schedule-by-age"
+  },
+  {
+   "from": "/diet/best-foods-list",
+   "to": "/diet/how-to-hand-feed"
+  },
+  {
+   "from": "/diet/best-foods-list",
+   "to": "/diet/live-vs-frozen-food"
+  },
+  {
+   "from": "/diet/blackworms-for-juveniles",
+   "to": "/diet/feeding-schedule-by-age"
+  },
+  {
+   "from": "/diet/blackworms-for-juveniles",
+   "to": "/diet/overfeeding-and-impaction"
+  },
+  {
+   "from": "/diet/fasting-and-vacation",
+   "to": "/diet/blackworms-for-juveniles"
+  },
+  {
+   "from": "/diet/fasting-and-vacation",
+   "to": "/diet/feeding-schedule-by-age"
+  },
+  {
+   "from": "/diet/feeder-fish-risks",
+   "to": "/diet/beef-heart"
+  },
+  {
+   "from": "/diet/feeder-fish-risks",
+   "to": "/diet/live-vs-frozen-food"
+  },
+  {
+   "from": "/diet/feeding-schedule-by-age",
+   "to": "/diet/best-foods-list"
+  },
+  {
+   "from": "/diet/feeding-schedule-by-age",
+   "to": "/diet/overfeeding-and-impaction"
+  },
+  {
+   "from": "/diet/how-to-hand-feed",
+   "to": "/diet/best-foods-list"
+  },
+  {
+   "from": "/diet/how-to-hand-feed",
+   "to": "/diet/fasting-and-vacation"
+  },
+  {
+   "from": "/diet/live-vs-frozen-food",
+   "to": "/diet/best-foods-list"
+  },
+  {
+   "from": "/diet/live-vs-frozen-food",
+   "to": "/diet/feeder-fish-risks"
+  },
+  {
+   "from": "/diet/overfeeding-and-impaction",
+   "to": "/diet/feeding-schedule-by-age"
+  },
+  {
+   "from": "/diet/overfeeding-and-impaction",
+   "to": "/health/refusing-to-eat"
+  },
+  {
+   "from": "/diet/shrimp-for-axolotls",
+   "to": "/diet/best-foods-list"
+  },
+  {
+   "from": "/diet/shrimp-for-axolotls",
+   "to": "/diet/feeder-fish-risks"
+  },
+  {
+   "from": "/diet/vitamin-and-supplement-needs",
+   "to": "/diet/best-foods-list"
+  },
+  {
+   "from": "/diet/vitamin-and-supplement-needs",
+   "to": "/diet/shrimp-for-axolotls"
+  },
+  {
+   "from": "/gifts-and-merch",
+   "to": "/gifts-and-merch/axolotl-squishmallow-guide"
+  },
+  {
+   "from": "/gifts-and-merch",
+   "to": "/gifts-and-merch/best-axolotl-lego-sets"
+  },
+  {
+   "from": "/gifts-and-merch",
+   "to": "/gifts-and-merch/best-axolotl-toys-and-plushies"
+  },
+  {
+   "from": "/gifts-and-merch",
+   "to": "/gifts-and-merch/build-a-bear-axolotl-guide"
+  },
+  {
+   "from": "/gifts-and-merch/axolotl-squishmallow-guide",
+   "to": "/gifts-and-merch/best-axolotl-toys-and-plushies"
+  },
+  {
+   "from": "/gifts-and-merch/axolotl-squishmallow-guide",
+   "to": "/gifts-and-merch/build-a-bear-axolotl-guide"
+  },
+  {
+   "from": "/gifts-and-merch/best-axolotl-lego-sets",
+   "to": "/axolotl-in-culture/minecraft-axolotls-guide"
+  },
+  {
+   "from": "/gifts-and-merch/best-axolotl-lego-sets",
+   "to": "/gifts-and-merch/best-axolotl-toys-and-plushies"
+  },
+  {
+   "from": "/gifts-and-merch/best-axolotl-toys-and-plushies",
+   "to": "/gifts-and-merch/axolotl-squishmallow-guide"
+  },
+  {
+   "from": "/gifts-and-merch/best-axolotl-toys-and-plushies",
+   "to": "/gifts-and-merch/best-axolotl-lego-sets"
+  },
+  {
+   "from": "/gifts-and-merch/best-axolotl-toys-and-plushies",
+   "to": "/gifts-and-merch/build-a-bear-axolotl-guide"
+  },
+  {
+   "from": "/gifts-and-merch/build-a-bear-axolotl-guide",
+   "to": "/gifts-and-merch/axolotl-squishmallow-guide"
+  },
+  {
+   "from": "/gifts-and-merch/build-a-bear-axolotl-guide",
+   "to": "/gifts-and-merch/best-axolotl-toys-and-plushies"
+  },
+  {
+   "from": "/health",
+   "to": "/health/ammonia-burns"
+  },
+  {
+   "from": "/health",
+   "to": "/health/black-tea-bath"
+  },
+  {
+   "from": "/health",
+   "to": "/health/curled-gills-stress-signal"
+  },
+  {
+   "from": "/health",
+   "to": "/health/finding-an-exotic-vet"
+  },
+  {
+   "from": "/health",
+   "to": "/health/fridging-sick-axolotl"
+  },
+  {
+   "from": "/health",
+   "to": "/health/fungal-infections-saprolegnia"
+  },
+  {
+   "from": "/health",
+   "to": "/health/impaction-symptoms-treatment"
+  },
+  {
+   "from": "/health",
+   "to": "/health/limb-regeneration"
+  },
+  {
+   "from": "/health",
+   "to": "/health/malnutrition-signs"
+  },
+  {
+   "from": "/health",
+   "to": "/health/minor-scrapes-and-wounds"
+  },
+  {
+   "from": "/health",
+   "to": "/health/parasite-treatment"
+  },
+  {
+   "from": "/health",
+   "to": "/health/quarantine-tub"
+  },
+  {
+   "from": "/health",
+   "to": "/health/red-leg-syndrome"
+  },
+  {
+   "from": "/health",
+   "to": "/health/refusing-to-eat"
+  },
+  {
+   "from": "/health",
+   "to": "/health/salt-bath"
+  },
+  {
+   "from": "/health",
+   "to": "/health/shrinking-gills"
+  },
+  {
+   "from": "/health",
+   "to": "/health/stress-signs"
+  },
+  {
+   "from": "/health",
+   "to": "/health/why-axolotl-floating"
+  },
+  {
+   "from": "/health/ammonia-burns",
+   "to": "/health/curled-gills-stress-signal"
+  },
+  {
+   "from": "/health/ammonia-burns",
+   "to": "/health/quarantine-tub"
+  },
+  {
+   "from": "/health/ammonia-burns",
+   "to": "/tank-setup/water-parameters-cycling"
+  },
+  {
+   "from": "/health/black-tea-bath",
+   "to": "/health/fridging-sick-axolotl"
+  },
+  {
+   "from": "/health/black-tea-bath",
+   "to": "/health/fungal-infections-saprolegnia"
+  },
+  {
+   "from": "/health/curled-gills-stress-signal",
+   "to": "/health/ammonia-burns"
+  },
+  {
+   "from": "/health/curled-gills-stress-signal",
+   "to": "/health/shrinking-gills"
+  },
+  {
+   "from": "/health/curled-gills-stress-signal",
+   "to": "/health/stress-signs"
+  },
+  {
+   "from": "/health/curled-gills-stress-signal",
+   "to": "/tank-setup/water-parameters-cycling"
+  },
+  {
+   "from": "/health/finding-an-exotic-vet",
+   "to": "/health/fungal-infections-saprolegnia"
+  },
+  {
+   "from": "/health/finding-an-exotic-vet",
+   "to": "/health/impaction-symptoms-treatment"
+  },
+  {
+   "from": "/health/finding-an-exotic-vet",
+   "to": "/health/parasite-treatment"
+  },
+  {
+   "from": "/health/finding-an-exotic-vet",
+   "to": "/health/red-leg-syndrome"
+  },
+  {
+   "from": "/health/fridging-sick-axolotl",
+   "to": "/health/black-tea-bath"
+  },
+  {
+   "from": "/health/fridging-sick-axolotl",
+   "to": "/health/fungal-infections-saprolegnia"
+  },
+  {
+   "from": "/health/fungal-infections-saprolegnia",
+   "to": "/health/black-tea-bath"
+  },
+  {
+   "from": "/health/fungal-infections-saprolegnia",
+   "to": "/health/fridging-sick-axolotl"
+  },
+  {
+   "from": "/health/fungal-infections-saprolegnia",
+   "to": "/health/salt-bath"
+  },
+  {
+   "from": "/health/impaction-symptoms-treatment",
+   "to": "/diet/overfeeding-and-impaction"
+  },
+  {
+   "from": "/health/impaction-symptoms-treatment",
+   "to": "/health/fridging-sick-axolotl"
+  },
+  {
+   "from": "/health/impaction-symptoms-treatment",
+   "to": "/health/refusing-to-eat"
+  },
+  {
+   "from": "/health/impaction-symptoms-treatment",
+   "to": "/tank-setup/substrate-and-impaction"
+  },
+  {
+   "from": "/health/limb-regeneration",
+   "to": "/health/fungal-infections-saprolegnia"
+  },
+  {
+   "from": "/health/limb-regeneration",
+   "to": "/health/minor-scrapes-and-wounds"
+  },
+  {
+   "from": "/health/malnutrition-signs",
+   "to": "/diet/vitamin-and-supplement-needs"
+  },
+  {
+   "from": "/health/malnutrition-signs",
+   "to": "/health/refusing-to-eat"
+  },
+  {
+   "from": "/health/minor-scrapes-and-wounds",
+   "to": "/health/fungal-infections-saprolegnia"
+  },
+  {
+   "from": "/health/minor-scrapes-and-wounds",
+   "to": "/health/limb-regeneration"
+  },
+  {
+   "from": "/health/minor-scrapes-and-wounds",
+   "to": "/health/salt-bath"
+  },
+  {
+   "from": "/health/parasite-treatment",
+   "to": "/diet/live-vs-frozen-food"
+  },
+  {
+   "from": "/health/parasite-treatment",
+   "to": "/health/fungal-infections-saprolegnia"
+  },
+  {
+   "from": "/health/parasite-treatment",
+   "to": "/health/malnutrition-signs"
+  },
+  {
+   "from": "/health/parasite-treatment",
+   "to": "/health/quarantine-tub"
+  },
+  {
+   "from": "/health/parasite-treatment",
+   "to": "/tank-setup/water-parameters-cycling"
+  },
+  {
+   "from": "/health/quarantine-tub",
+   "to": "/health/fungal-infections-saprolegnia"
+  },
+  {
+   "from": "/health/quarantine-tub",
+   "to": "/health/red-leg-syndrome"
+  },
+  {
+   "from": "/health/quarantine-tub",
+   "to": "/health/refusing-to-eat"
+  },
+  {
+   "from": "/health/red-leg-syndrome",
+   "to": "/health/finding-an-exotic-vet"
+  },
+  {
+   "from": "/health/red-leg-syndrome",
+   "to": "/health/fungal-infections-saprolegnia"
+  },
+  {
+   "from": "/health/red-leg-syndrome",
+   "to": "/health/quarantine-tub"
+  },
+  {
+   "from": "/health/refusing-to-eat",
+   "to": "/diet/overfeeding-and-impaction"
+  },
+  {
+   "from": "/health/refusing-to-eat",
+   "to": "/health/malnutrition-signs"
+  },
+  {
+   "from": "/health/salt-bath",
+   "to": "/health/black-tea-bath"
+  },
+  {
+   "from": "/health/salt-bath",
+   "to": "/health/fungal-infections-saprolegnia"
+  },
+  {
+   "from": "/health/shrinking-gills",
+   "to": "/health/curled-gills-stress-signal"
+  },
+  {
+   "from": "/health/shrinking-gills",
+   "to": "/tank-setup/temperature"
+  },
+  {
+   "from": "/health/shrinking-gills",
+   "to": "/tank-setup/water-parameters-cycling"
+  },
+  {
+   "from": "/health/stress-signs",
+   "to": "/health/curled-gills-stress-signal"
+  },
+  {
+   "from": "/health/stress-signs",
+   "to": "/health/refusing-to-eat"
+  },
+  {
+   "from": "/health/stress-signs",
+   "to": "/health/why-axolotl-floating"
+  },
+  {
+   "from": "/health/stress-signs",
+   "to": "/tank-setup/water-parameters-cycling"
+  },
+  {
+   "from": "/health/why-axolotl-floating",
+   "to": "/health/refusing-to-eat"
+  },
+  {
+   "from": "/health/why-axolotl-floating",
+   "to": "/tank-setup/water-parameters-cycling"
+  },
+  {
+   "from": "/legal",
+   "to": "/legal/california"
+  },
+  {
+   "from": "/legal",
+   "to": "/legal/canada"
+  },
+  {
+   "from": "/legal",
+   "to": "/legal/hawaii"
+  },
+  {
+   "from": "/legal",
+   "to": "/legal/maine"
+  },
+  {
+   "from": "/legal",
+   "to": "/legal/new-jersey"
+  },
+  {
+   "from": "/legal",
+   "to": "/legal/new-mexico"
+  },
+  {
+   "from": "/legal",
+   "to": "/legal/virginia"
+  },
+  {
+   "from": "/legal/california",
+   "to": "/axolotls/care-guide"
+  },
+  {
+   "from": "/legal/california",
+   "to": "/legal/canada"
+  },
+  {
+   "from": "/legal/california",
+   "to": "/legal/new-jersey"
+  },
+  {
+   "from": "/legal/california",
+   "to": "/legal/virginia"
+  },
+  {
+   "from": "/legal/canada",
+   "to": "/axolotls/care-guide"
+  },
+  {
+   "from": "/legal/canada",
+   "to": "/legal/california"
+  },
+  {
+   "from": "/legal/canada",
+   "to": "/legal/maine"
+  },
+  {
+   "from": "/legal/canada",
+   "to": "/legal/virginia"
+  },
+  {
+   "from": "/legal/hawaii",
+   "to": "/legal/california"
+  },
+  {
+   "from": "/legal/hawaii",
+   "to": "/legal/canada"
+  },
+  {
+   "from": "/legal/hawaii",
+   "to": "/legal/maine"
+  },
+  {
+   "from": "/legal/maine",
+   "to": "/legal/california"
+  },
+  {
+   "from": "/legal/maine",
+   "to": "/legal/canada"
+  },
+  {
+   "from": "/legal/maine",
+   "to": "/legal/hawaii"
+  },
+  {
+   "from": "/legal/maine",
+   "to": "/legal/virginia"
+  },
+  {
+   "from": "/legal/new-jersey",
+   "to": "/legal/california"
+  },
+  {
+   "from": "/legal/new-jersey",
+   "to": "/legal/canada"
+  },
+  {
+   "from": "/legal/new-jersey",
+   "to": "/legal/virginia"
+  },
+  {
+   "from": "/legal/new-mexico",
+   "to": "/legal/california"
+  },
+  {
+   "from": "/legal/new-mexico",
+   "to": "/legal/maine"
+  },
+  {
+   "from": "/legal/new-mexico",
+   "to": "/legal/virginia"
+  },
+  {
+   "from": "/legal/virginia",
+   "to": "/legal/california"
+  },
+  {
+   "from": "/legal/virginia",
+   "to": "/legal/maine"
+  },
+  {
+   "from": "/legal/virginia",
+   "to": "/legal/new-jersey"
+  },
+  {
+   "from": "/legal/virginia",
+   "to": "/legal/new-mexico"
+  },
+  {
+   "from": "/morphs",
+   "to": "/morphs/blue-and-pink-axolotl-myth"
+  },
+  {
+   "from": "/morphs",
+   "to": "/morphs/chimera"
+  },
+  {
+   "from": "/morphs",
+   "to": "/morphs/copper"
+  },
+  {
+   "from": "/morphs",
+   "to": "/morphs/enigma-firefly-mac"
+  },
+  {
+   "from": "/morphs",
+   "to": "/morphs/gfp-axolotl"
+  },
+  {
+   "from": "/morphs",
+   "to": "/morphs/golden-albino"
+  },
+  {
+   "from": "/morphs",
+   "to": "/morphs/leucistic"
+  },
+  {
+   "from": "/morphs",
+   "to": "/morphs/melanoid"
+  },
+  {
+   "from": "/morphs",
+   "to": "/morphs/morphs-comparison-chart"
+  },
+  {
+   "from": "/morphs",
+   "to": "/morphs/mosaic"
+  },
+  {
+   "from": "/morphs",
+   "to": "/morphs/piebald"
+  },
+  {
+   "from": "/morphs",
+   "to": "/morphs/pigment-cells"
+  },
+  {
+   "from": "/morphs",
+   "to": "/morphs/wild-type"
+  },
+  {
+   "from": "/morphs/blue-and-pink-axolotl-myth",
+   "to": "/morphs/leucistic"
+  },
+  {
+   "from": "/morphs/blue-and-pink-axolotl-myth",
+   "to": "/morphs/morphs-comparison-chart"
+  },
+  {
+   "from": "/morphs/blue-and-pink-axolotl-myth",
+   "to": "/morphs/wild-type"
+  },
+  {
+   "from": "/morphs/chimera",
+   "to": "/breeding/color-genetics-punnett-squares"
+  },
+  {
+   "from": "/morphs/chimera",
+   "to": "/morphs/enigma-firefly-mac"
+  },
+  {
+   "from": "/morphs/chimera",
+   "to": "/morphs/mosaic"
+  },
+  {
+   "from": "/morphs/chimera",
+   "to": "/morphs/wild-type"
+  },
+  {
+   "from": "/morphs/copper",
+   "to": "/breeding/breeding-triggers-temperature-cycling"
+  },
+  {
+   "from": "/morphs/copper",
+   "to": "/breeding/color-genetics-punnett-squares"
+  },
+  {
+   "from": "/morphs/copper",
+   "to": "/breeding/egg-and-larvae-care"
+  },
+  {
+   "from": "/morphs/copper",
+   "to": "/morphs/pigment-cells"
+  },
+  {
+   "from": "/morphs/enigma-firefly-mac",
+   "to": "/morphs/chimera"
+  },
+  {
+   "from": "/morphs/enigma-firefly-mac",
+   "to": "/morphs/leucistic"
+  },
+  {
+   "from": "/morphs/enigma-firefly-mac",
+   "to": "/morphs/pigment-cells"
+  },
+  {
+   "from": "/morphs/gfp-axolotl",
+   "to": "/morphs/golden-albino"
+  },
+  {
+   "from": "/morphs/gfp-axolotl",
+   "to": "/morphs/leucistic"
+  },
+  {
+   "from": "/morphs/golden-albino",
+   "to": "/breeding/color-genetics-punnett-squares"
+  },
+  {
+   "from": "/morphs/golden-albino",
+   "to": "/morphs/gfp-axolotl"
+  },
+  {
+   "from": "/morphs/golden-albino",
+   "to": "/morphs/leucistic"
+  },
+  {
+   "from": "/morphs/leucistic",
+   "to": "/breeding/color-genetics-punnett-squares"
+  },
+  {
+   "from": "/morphs/leucistic",
+   "to": "/cost-and-buying/axolotl-price-by-morph"
+  },
+  {
+   "from": "/morphs/leucistic",
+   "to": "/morphs/blue-and-pink-axolotl-myth"
+  },
+  {
+   "from": "/morphs/leucistic",
+   "to": "/morphs/golden-albino"
+  },
+  {
+   "from": "/morphs/leucistic",
+   "to": "/morphs/melanoid"
+  },
+  {
+   "from": "/morphs/leucistic",
+   "to": "/morphs/wild-type"
+  },
+  {
+   "from": "/morphs/melanoid",
+   "to": "/morphs/leucistic"
+  },
+  {
+   "from": "/morphs/melanoid",
+   "to": "/morphs/pigment-cells"
+  },
+  {
+   "from": "/morphs/melanoid",
+   "to": "/morphs/wild-type"
+  },
+  {
+   "from": "/morphs/morphs-comparison-chart",
+   "to": "/cost-and-buying/axolotl-price-by-morph"
+  },
+  {
+   "from": "/morphs/morphs-comparison-chart",
+   "to": "/morphs/leucistic"
+  },
+  {
+   "from": "/morphs/morphs-comparison-chart",
+   "to": "/morphs/wild-type"
+  },
+  {
+   "from": "/morphs/mosaic",
+   "to": "/morphs/chimera"
+  },
+  {
+   "from": "/morphs/mosaic",
+   "to": "/morphs/morphs-comparison-chart"
+  },
+  {
+   "from": "/morphs/mosaic",
+   "to": "/morphs/piebald"
+  },
+  {
+   "from": "/morphs/piebald",
+   "to": "/breeding/color-genetics-punnett-squares"
+  },
+  {
+   "from": "/morphs/piebald",
+   "to": "/morphs/chimera"
+  },
+  {
+   "from": "/morphs/piebald",
+   "to": "/morphs/leucistic"
+  },
+  {
+   "from": "/morphs/piebald",
+   "to": "/morphs/wild-type"
+  },
+  {
+   "from": "/morphs/pigment-cells",
+   "to": "/breeding/color-genetics-punnett-squares"
+  },
+  {
+   "from": "/morphs/pigment-cells",
+   "to": "/morphs/copper"
+  },
+  {
+   "from": "/morphs/pigment-cells",
+   "to": "/morphs/enigma-firefly-mac"
+  },
+  {
+   "from": "/morphs/pigment-cells",
+   "to": "/morphs/melanoid"
+  },
+  {
+   "from": "/morphs/wild-type",
+   "to": "/breeding/color-genetics-punnett-squares"
+  },
+  {
+   "from": "/morphs/wild-type",
+   "to": "/cost-and-buying/axolotl-price-by-morph"
+  },
+  {
+   "from": "/morphs/wild-type",
+   "to": "/morphs/chimera"
+  },
+  {
+   "from": "/morphs/wild-type",
+   "to": "/morphs/leucistic"
+  },
+  {
+   "from": "/tank-setup",
+   "to": "/tank-setup/acclimating-a-new-axolotl"
+  },
+  {
+   "from": "/tank-setup",
+   "to": "/tank-setup/aquarium-chillers"
+  },
+  {
+   "from": "/tank-setup",
+   "to": "/tank-setup/canister-vs-sponge-filter"
+  },
+  {
+   "from": "/tank-setup",
+   "to": "/tank-setup/filtration-for-axolotls"
+  },
+  {
+   "from": "/tank-setup",
+   "to": "/tank-setup/gravel-risks"
+  },
+  {
+   "from": "/tank-setup",
+   "to": "/tank-setup/hides-and-caves"
+  },
+  {
+   "from": "/tank-setup",
+   "to": "/tank-setup/lighting-for-axolotls"
+  },
+  {
+   "from": "/tank-setup",
+   "to": "/tank-setup/live-vs-artificial-plants"
+  },
+  {
+   "from": "/tank-setup",
+   "to": "/tank-setup/setup-guide"
+  },
+  {
+   "from": "/tank-setup",
+   "to": "/tank-setup/substrate-and-impaction"
+  },
+  {
+   "from": "/tank-setup",
+   "to": "/tank-setup/tank-mates"
+  },
+  {
+   "from": "/tank-setup",
+   "to": "/tank-setup/tank-size-by-age"
+  },
+  {
+   "from": "/tank-setup",
+   "to": "/tank-setup/temperature"
+  },
+  {
+   "from": "/tank-setup",
+   "to": "/tank-setup/uneaten-food-and-ammonia"
+  },
+  {
+   "from": "/tank-setup",
+   "to": "/tank-setup/water-conditioners"
+  },
+  {
+   "from": "/tank-setup",
+   "to": "/tank-setup/water-parameters-cycling"
+  },
+  {
+   "from": "/tank-setup",
+   "to": "/tank-setup/why-tank-water-smells"
+  },
+  {
+   "from": "/tank-setup/acclimating-a-new-axolotl",
+   "to": "/health/quarantine-tub"
+  },
+  {
+   "from": "/tank-setup/acclimating-a-new-axolotl",
+   "to": "/tank-setup/water-conditioners"
+  },
+  {
+   "from": "/tank-setup/acclimating-a-new-axolotl",
+   "to": "/tank-setup/water-parameters-cycling"
+  },
+  {
+   "from": "/tank-setup/aquarium-chillers",
+   "to": "/tank-setup/setup-guide"
+  },
+  {
+   "from": "/tank-setup/aquarium-chillers",
+   "to": "/tank-setup/temperature"
+  },
+  {
+   "from": "/tank-setup/canister-vs-sponge-filter",
+   "to": "/tank-setup/filtration-for-axolotls"
+  },
+  {
+   "from": "/tank-setup/canister-vs-sponge-filter",
+   "to": "/tank-setup/temperature"
+  },
+  {
+   "from": "/tank-setup/filtration-for-axolotls",
+   "to": "/tank-setup/canister-vs-sponge-filter"
+  },
+  {
+   "from": "/tank-setup/filtration-for-axolotls",
+   "to": "/tank-setup/water-parameters-cycling"
+  },
+  {
+   "from": "/tank-setup/gravel-risks",
+   "to": "/tank-setup/live-vs-artificial-plants"
+  },
+  {
+   "from": "/tank-setup/gravel-risks",
+   "to": "/tank-setup/substrate-and-impaction"
+  },
+  {
+   "from": "/tank-setup/hides-and-caves",
+   "to": "/tank-setup/lighting-for-axolotls"
+  },
+  {
+   "from": "/tank-setup/hides-and-caves",
+   "to": "/tank-setup/live-vs-artificial-plants"
+  },
+  {
+   "from": "/tank-setup/lighting-for-axolotls",
+   "to": "/tank-setup/hides-and-caves"
+  },
+  {
+   "from": "/tank-setup/lighting-for-axolotls",
+   "to": "/tank-setup/water-conditioners"
+  },
+  {
+   "from": "/tank-setup/live-vs-artificial-plants",
+   "to": "/tank-setup/hides-and-caves"
+  },
+  {
+   "from": "/tank-setup/live-vs-artificial-plants",
+   "to": "/tank-setup/lighting-for-axolotls"
+  },
+  {
+   "from": "/tank-setup/setup-guide",
+   "to": "/tank-setup/filtration-for-axolotls"
+  },
+  {
+   "from": "/tank-setup/setup-guide",
+   "to": "/tank-setup/substrate-and-impaction"
+  },
+  {
+   "from": "/tank-setup/setup-guide",
+   "to": "/tank-setup/temperature"
+  },
+  {
+   "from": "/tank-setup/setup-guide",
+   "to": "/tank-setup/water-parameters-cycling"
+  },
+  {
+   "from": "/tank-setup/substrate-and-impaction",
+   "to": "/health/refusing-to-eat"
+  },
+  {
+   "from": "/tank-setup/substrate-and-impaction",
+   "to": "/tank-setup/gravel-risks"
+  },
+  {
+   "from": "/tank-setup/tank-mates",
+   "to": "/care-basics/keeping-multiple-axolotls"
+  },
+  {
+   "from": "/tank-setup/tank-mates",
+   "to": "/diet/feeder-fish-risks"
+  },
+  {
+   "from": "/tank-setup/tank-mates",
+   "to": "/tank-setup/tank-size-by-age"
+  },
+  {
+   "from": "/tank-setup/tank-size-by-age",
+   "to": "/care-basics/axolotl-age-and-size-chart"
+  },
+  {
+   "from": "/tank-setup/tank-size-by-age",
+   "to": "/tank-setup/gravel-risks"
+  },
+  {
+   "from": "/tank-setup/tank-size-by-age",
+   "to": "/tank-setup/setup-guide"
+  },
+  {
+   "from": "/tank-setup/tank-size-by-age",
+   "to": "/tank-setup/tank-mates"
+  },
+  {
+   "from": "/tank-setup/temperature",
+   "to": "/health/refusing-to-eat"
+  },
+  {
+   "from": "/tank-setup/temperature",
+   "to": "/tank-setup/aquarium-chillers"
+  },
+  {
+   "from": "/tank-setup/uneaten-food-and-ammonia",
+   "to": "/diet/feeding-schedule-by-age"
+  },
+  {
+   "from": "/tank-setup/uneaten-food-and-ammonia",
+   "to": "/tank-setup/water-parameters-cycling"
+  },
+  {
+   "from": "/tank-setup/water-conditioners",
+   "to": "/tank-setup/acclimating-a-new-axolotl"
+  },
+  {
+   "from": "/tank-setup/water-conditioners",
+   "to": "/tank-setup/aquarium-chillers"
+  },
+  {
+   "from": "/tank-setup/water-conditioners",
+   "to": "/tank-setup/filtration-for-axolotls"
+  },
+  {
+   "from": "/tank-setup/water-conditioners",
+   "to": "/tank-setup/lighting-for-axolotls"
+  },
+  {
+   "from": "/tank-setup/water-conditioners",
+   "to": "/tank-setup/water-parameters-cycling"
+  },
+  {
+   "from": "/tank-setup/water-parameters-cycling",
+   "to": "/tank-setup/uneaten-food-and-ammonia"
+  },
+  {
+   "from": "/tank-setup/water-parameters-cycling",
+   "to": "/tank-setup/why-tank-water-smells"
+  },
+  {
+   "from": "/tank-setup/why-tank-water-smells",
+   "to": "/tank-setup/uneaten-food-and-ammonia"
+  },
+  {
+   "from": "/tank-setup/why-tank-water-smells",
+   "to": "/tank-setup/water-parameters-cycling"
+  },
+  {
+   "from": "/tools/feeding-schedule-generator",
+   "to": "/axolotls/care-guide"
+  },
+  {
+   "from": "/tools/symptom-checker",
+   "to": "/axolotls/care-guide"
+  },
+  {
+   "from": "/tools/tank-size-calculator",
+   "to": "/axolotls/care-guide"
+  }
+ ]
+}

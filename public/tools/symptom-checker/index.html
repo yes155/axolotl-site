@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Axolotl Symptom Checker</title>
+<style>
+  :root {
+    --ink: #1f2d3d;
+    --teal: #2c6e7f;
+    --teal-light: #e7f1f3;
+    --teal-dark: #1d4e5a;
+    --danger: #b3461c;
+    --danger-bg: #fbeae3;
+    --warning: #8a6116;
+    --warning-bg: #fbf2e1;
+    --border: #d7e0e3;
+    --muted: #5b6b73;
+    --bg: #fafcfc;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+  }
+  header {
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-size: 1.6rem;
+    margin: 0 0 6px;
+    color: var(--ink);
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+  .disclaimer {
+    background: var(--teal-light);
+    border-left: 3px solid var(--teal);
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--teal-dark);
+    margin: 18px 0 28px;
+  }
+  .cat-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 22px 0 8px;
+  }
+  .cat-label:first-of-type { margin-top: 0; }
+  .symptom-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+    padding: 12px 14px;
+    margin-bottom: 7px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    cursor: pointer;
+    font-size: 0.92rem;
+    color: var(--ink);
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .symptom-btn:hover {
+    background: #f1f6f7;
+  }
+  .symptom-btn.active {
+    border: 1.5px solid var(--teal);
+    background: var(--teal-light);
+  }
+  .symptom-btn .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    flex-shrink: 0;
+  }
+  .symptom-btn.urgent-flag .dot {
+    background: var(--danger);
+  }
+  .result-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    margin-top: 24px;
+  }
+  .result-card.urgent {
+    border-color: var(--danger);
+  }
+  .tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 11px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background: var(--warning-bg);
+    color: var(--warning);
+  }
+  .tag.urgent {
+    background: var(--danger-bg);
+    color: var(--danger);
+  }
+  .result-cause {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .result-detail {
+    font-size: 0.92rem;
+    color: var(--muted);
+    margin: 0 0 16px;
+  }
+  .result-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin: 0 0 4px;
+  }
+  .result-action {
+    font-size: 0.94rem;
+    margin: 0 0 18px;
+  }
+  .vet-cta {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--danger);
+    text-decoration: none;
+    border: 1px solid var(--danger);
+    padding: 8px 14px;
+    border-radius: 8px;
+  }
+  footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-align: center;
+  }
+  footer a { color: var(--teal); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Axolotl Symptom Checker</h1>
+    <p class="subtitle">Select what you're seeing to get the likely cause and a concrete next step.</p>
+  </header>
+
+  <div class="disclaimer">
+    This tool gives general guidance based on commonly observed patterns. It is not a substitute for veterinary diagnosis — when in doubt, or if a symptom is marked urgent, contact an exotics-experienced vet.
+  </div>
+
+  <div id="symptom-list"></div>
+  <div id="result-zone"></div>
+
+  <footer>
+    Companion tool to the full <a href="/axolotls/care-guide/">Axolotl Care Guide</a>. Not a substitute for veterinary care.
+  </footer>
+</div>
+
+<script>
+const categories = [
+  {
+    name: "Skin & gills",
+    items: [
+      {
+        id: "fuzz",
+        label: "White, cottony fuzz on body or gills",
+        cause: "Fungal infection (Saprolegnia)",
+        detail: "Usually triggered by warm water or a scrape in the mucus layer that left an opening for fungus to take hold.",
+        action: "Move to cool isolation water and try a diluted black tea bath. Skip salt baths — they can burn the skin and disrupt thyroid function.",
+        urgent: false
+      },
+      {
+        id: "whitespots",
+        label: "Small white spots with rapid, labored breathing",
+        cause: "Ich (a parasitic infection)",
+        detail: "Different from fungal fuzz — these are discrete spots rather than a cottony mass, paired with visibly faster gill movement.",
+        action: "Quarantine immediately if housed with other animals. Use a commercial ich remedy labeled safe for scaleless species — many standard fish treatments are toxic to amphibians.",
+        urgent: false
+      },
+      {
+        id: "gillspale",
+        label: "Pale or shrunken gills",
+        cause: "Ammonia or nitrite burns, not infection",
+        detail: "Damaged gill tissue from toxin exposure rather than a pathogen.",
+        action: "Test ammonia and nitrite immediately. If nitrite poisoning (methemoglobinemia) is suspected, a methylene blue bath is the actual antidote — clean water alone won't reverse it.",
+        urgent: false
+      },
+      {
+        id: "gillscurled",
+        label: "Gills curling forward",
+        cause: "Strong water flow stressing the animal",
+        detail: "This is a flow problem, not a water-chemistry one — axolotls have very low tolerance for current.",
+        action: "Baffle or diffuse the filter output before changing anything else. A spray bar or sponge pre-filter usually fixes it within a day.",
+        urgent: false
+      },
+      {
+        id: "cloudyeyes",
+        label: "Cloudy eyes",
+        cause: "Bacterial infection",
+        detail: "Often appears alongside reddened skin or open sores when the infection is more advanced.",
+        action: "Improve water quality immediately and consider a commercial antibacterial remedy. Consult an aquatic specialist or exotics vet if it doesn't improve within a few days.",
+        urgent: false
+      },
+      {
+        id: "sores",
+        label: "Red sores or hemorrhaging near limbs or vent",
+        cause: "Bacterial infection (Aeromonas / Red Leg Syndrome)",
+        detail: "This is a fast-moving bacterial condition, not something to wait out.",
+        action: "Contact an exotics-experienced vet promptly. This is not a wait-and-see symptom.",
+        urgent: true
+      },
+      {
+        id: "skinslough",
+        label: "Excess mucus or skin sloughing off",
+        cause: "Low pH (acidic water)",
+        detail: "Below pH 6.0, water starts to damage the skin's protective barrier directly.",
+        action: "Test pH right away. Raise it gradually — no more than 0.2 per day — using a buffer or partial water change with harder source water.",
+        urgent: false
+      }
+    ]
+  },
+  {
+    name: "Behavior",
+    items: [
+      {
+        id: "surfacing",
+        label: "Surfacing constantly to gulp air",
+        cause: "Low dissolved oxygen in the water",
+        detail: "Axolotls breathe through gills, skin, and backup lungs — frequent surfacing means they're leaning hard on that backup system.",
+        action: "Check filtration and flow first, not temperature. Low oxygen often points to overstocking or a filter that's underperforming.",
+        urgent: false
+      },
+      {
+        id: "erratic",
+        label: "Swimming erratically or writhing",
+        cause: "Acute water quality stress",
+        detail: "A more urgent presentation than general lethargy — usually a sudden ammonia or nitrite spike rather than a slow decline.",
+        action: "Test all parameters immediately and do a partial water change while you wait on results.",
+        urgent: false
+      },
+      {
+        id: "scratching",
+        label: "Scratching at gills with a back leg",
+        cause: "Irritation, often from water quality or early parasite presence",
+        detail: "A self-soothing behavior that signals discomfort before more visible symptoms appear.",
+        action: "Test water parameters as the first step. If parameters are clean, watch closely for emerging signs of parasites or fungal growth.",
+        urgent: false
+      },
+      {
+        id: "lethargy",
+        label: "Lack of responsiveness or unusual lethargy",
+        cause: "Could be several causes — water quality, temperature, or illness",
+        detail: "A broad signal rather than a specific diagnosis. Worth treating as a prompt to check everything at once.",
+        action: "Test full water parameters and temperature together. If both check out and lethargy persists more than a day or two, involve a vet.",
+        urgent: false
+      }
+    ]
+  },
+  {
+    name: "Digestive",
+    items: [
+      {
+        id: "floating",
+        label: "Persistent floating, tail tilted up",
+        cause: "Gut impaction",
+        detail: "Often caused by swallowed gravel or substrate, or simple overfeeding.",
+        action: "Start a 72-hour fast. If fridging is used to slow digestion further, cap it at 3 weeks.",
+        urgent: false
+      },
+      {
+        id: "sunkenabdomen",
+        label: "Sunken abdomen",
+        cause: "Not enough food",
+        detail: "The opposite problem from impaction — underfeeding rather than a blockage.",
+        action: "Increase feeding frequency and portion size, and confirm the axolotl is actually eating what's offered rather than it decomposing uneaten.",
+        urgent: false
+      },
+      {
+        id: "feces",
+        label: "Bright green feces",
+        cause: "Prolonged starvation, not illness",
+        detail: "A diet gap rather than a pathogen or water quality issue.",
+        action: "Resume regular feeding on schedule and monitor — this should resolve within a week or two of consistent meals.",
+        urgent: false
+      }
+    ]
+  }
+];
+
+const listEl = document.getElementById("symptom-list");
+const resultEl = document.getElementById("result-zone");
+const flat = [];
+
+categories.forEach(cat => {
+  const label = document.createElement("div");
+  label.className = "cat-label";
+  label.textContent = cat.name;
+  listEl.appendChild(label);
+  cat.items.forEach(s => {
+    flat.push(s);
+    const btn = document.createElement("button");
+    btn.className = "symptom-btn" + (s.urgent ? " urgent-flag" : "");
+    btn.id = "btn-" + s.id;
+    btn.innerHTML = '<span class="dot"></span><span>' + s.label + '</span>';
+    btn.onclick = function () { selectSymptom(s.id); };
+    listEl.appendChild(btn);
+  });
+});
+
+function selectSymptom(id) {
+  flat.forEach(function (s) {
+    document.getElementById("btn-" + s.id).classList.toggle("active", s.id === id);
+  });
+  const s = flat.find(function (x) { return x.id === id; });
+  const tagClass = s.urgent ? "tag urgent" : "tag";
+  const cardClass = s.urgent ? "result-card urgent" : "result-card";
+  const vetButton = s.urgent
+    ? '<a class="vet-cta" href="#vet-resources">Find an exotics vet near you →</a>'
+    : '';
+  resultEl.innerHTML =
+    '<div class="' + cardClass + '">' +
+      '<span class="' + tagClass + '">' + (s.urgent ? "Contact a vet" : "Likely cause") + '</span>' +
+      '<p class="result-cause">' + s.cause + '</p>' +
+      '<p class="result-detail">' + s.detail + '</p>' +
+      '<p class="result-label">Next step</p>' +
+      '<p class="result-action">' + s.action + '</p>' +
+      vetButton +
+    '</div>';
+  resultEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+selectSymptom("fuzz");
+</script>
+</body>
+</html>

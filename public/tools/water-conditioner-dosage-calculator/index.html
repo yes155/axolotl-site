@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free axolotl water conditioner dosage calculator. Get precise Seachem Prime, Safe, Fritz Complete, and API dosing for routine water changes and emergency ammonia detoxification.">
+<title>Axolotl Water Conditioner Dosage Calculator | Precise Dosing for Healthy Axolotls</title>
+<style>
+/* =============================================
+   DESIGN TOKENS
+   ============================================= */
+:root {
+  --c-ocean:     #0B4D5E;
+  --c-deep:      #062F3C;
+  --c-teal:      #1A7A8A;
+  --c-aqua:      #5DC4CA;
+  --c-aqua-lt:   #ADE8EB;
+  --c-pink:      #E8A5A5;
+  --c-pink-dk:   #C97272;
+  --c-cream:     #F4F9FA;
+  --c-surface:   #FFFFFF;
+  --c-border:    #C8E5E9;
+  --c-text:      #1A2B35;
+  --c-text-2:    #3D5A65;
+  --c-text-muted:#6B8A94;
+  --c-warn-bg:   #FFF8E7;
+  --c-warn-bd:   #F5C842;
+  --c-warn-tx:   #7A5900;
+  --c-err-bg:    #FFF0F0;
+  --c-err-bd:    #E88080;
+  --c-err-tx:    #7A1010;
+  --c-ok-bg:     #EDF9F0;
+  --c-ok-bd:     #5DC48A;
+  --c-ok-tx:     #1A5C32;
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   22px;
+  --shadow-sm:   0 2px 8px rgba(11,77,94,0.08);
+  --shadow-md:   0 6px 24px rgba(11,77,94,0.12);
+  --shadow-lg:   0 12px 48px rgba(11,77,94,0.16);
+  --transition:  0.22s cubic-bezier(0.4,0,0.2,1);
+  --font-body:   -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:   'SF Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--c-cream);
+  color: var(--c-text);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* =============================================
+   PAGE WRAPPER
+   ============================================= */
+.page-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px 64px;
+}
+
+/* =============================================
+   HERO HEADER
+   ============================================= */
+.hero {
+  background: linear-gradient(145deg, var(--c-deep) 0%, var(--c-ocean) 55%, var(--c-teal) 100%);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  padding: 48px 32px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+/* Gill-plume decorative arcs */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: 50%;
+  transform: translateX(-50%);
+  width: 500px; height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(93,196,202,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.gill-decor {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.gill-decor span {
+  display: block;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: linear-gradient(180deg, var(--c-aqua) 0%, var(--c-pink) 100%);
+  opacity: 0.85;
+  animation: gillSway 3s ease-in-out infinite;
+}
+
+.gill-decor span:nth-child(1) { width: 10px; height: 32px; animation-delay: 0s;    transform-origin: bottom center; }
+.gill-decor span:nth-child(2) { width: 12px; height: 42px; animation-delay: 0.3s;  transform-origin: bottom center; }
+.gill-decor span:nth-child(3) { width: 14px; height: 52px; animation-delay: 0.6s;  transform-origin: bottom center; }
+.gill-decor span:nth-child(4) { width: 12px; height: 42px; animation-delay: 0.9s;  transform-origin: bottom center; }
+.gill-decor span:nth-child(5) { width: 10px; height: 32px; animation-delay: 1.2s;  transform-origin: bottom center; }
+
+@keyframes gillSway {
+  0%, 100% { transform: rotate(-6deg); }
+  50%       { transform: rotate(6deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gill-decor span { animation: none; }
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--c-aqua-lt);
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: clamp(24px, 5vw, 40px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--c-aqua);
+}
+
+.hero-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.72);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* =============================================
+   LAYOUT GRID
+   ============================================= */
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 700px) {
+  .calc-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  .calc-inputs  { grid-column: 1; }
+  .calc-outputs { grid-column: 2; position: sticky; top: 24px; }
+}
+
+/* =============================================
+   CARDS
+   ============================================= */
+.card {
+  background: var(--c-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--c-border);
+  overflow: hidden;
+}
+
+.card-header {
+  background: linear-gradient(90deg, var(--c-ocean), var(--c-teal));
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-header-icon {
+  width: 28px; height: 28px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.card-header h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.01em;
+}
+
+.card-body { padding: 22px; }
+
+/* =============================================
+   FORM ELEMENTS
+   ============================================= */
+.field-group { margin-bottom: 20px; }
+
+.field-group:last-child { margin-bottom: 0; }
+
+label.field-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-text-2);
+  margin-bottom: 7px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* Required star */
+.req { color: var(--c-pink-dk); margin-left: 3px; }
+
+.field-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 2px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-family: var(--font-body);
+  color: var(--c-text);
+  background: var(--c-cream);
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.field-input:focus {
+  border-color: var(--c-teal);
+  box-shadow: 0 0 0 3px rgba(26,122,138,0.18);
+  background: #fff;
+}
+
+.field-input::placeholder { color: var(--c-text-muted); font-size: 14px; }
+
+.field-input[aria-invalid="true"] {
+  border-color: var(--c-err-bd);
+  box-shadow: 0 0 0 3px rgba(232,128,128,0.15);
+}
+
+/* Select */
+.field-select {
+  width: 100%;
+  padding: 11px 36px 11px 14px;
+  border: 2px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-family: var(--font-body);
+  color: var(--c-text);
+  background: var(--c-cream) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='8'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%231A7A8A' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.field-select:focus {
+  border-color: var(--c-teal);
+  box-shadow: 0 0 0 3px rgba(26,122,138,0.18);
+  background-color: #fff;
+}
+
+/* Radio groups */
+.radio-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.radio-pill {
+  position: relative;
+  flex: 1;
+  min-width: 90px;
+}
+
+.radio-pill input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0; height: 0;
+}
+
+.radio-pill label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border: 2px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-text-2);
+  cursor: pointer;
+  background: var(--c-cream);
+  transition: all var(--transition);
+  text-align: center;
+  gap: 6px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.radio-pill input:checked + label {
+  background: var(--c-ocean);
+  border-color: var(--c-ocean);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.radio-pill label:hover {
+  border-color: var(--c-teal);
+  background: rgba(26,122,138,0.07);
+}
+
+.radio-pill input:checked + label:hover {
+  background: var(--c-teal);
+  border-color: var(--c-teal);
+}
+
+.radio-pill input:focus-visible + label {
+  outline: 3px solid var(--c-aqua);
+  outline-offset: 2px;
+}
+
+/* Emergency mode — special styling */
+.radio-pill.mode-emergency input:checked + label {
+  background: linear-gradient(135deg, #8B1A1A, #C94040);
+  border-color: #8B1A1A;
+}
+
+/* Input row for inline units */
+.input-with-unit {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.input-with-unit .field-input {
+  border-right: none;
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+}
+
+.input-unit-tag {
+  padding: 11px 14px;
+  background: var(--c-border);
+  border: 2px solid var(--c-border);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--c-text-2);
+  white-space: nowrap;
+}
+
+/* Collapsible conditional sections */
+.conditional-section {
+  margin-top: 14px;
+  padding: 16px;
+  background: rgba(93,196,202,0.07);
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.conditional-section.hidden { display: none; }
+
+/* =============================================
+   VALIDATION MESSAGES
+   ============================================= */
+.field-error {
+  display: none;
+  font-size: 12px;
+  color: var(--c-err-tx);
+  margin-top: 6px;
+  font-weight: 500;
+  gap: 4px;
+  align-items: center;
+}
+
+.field-error.visible {
+  display: flex;
+}
+
+.field-error::before { content: '⚠'; font-size: 11px; }
+
+/* =============================================
+   MODE TOGGLE (Routine / Emergency)
+   ============================================= */
+.mode-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 2px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.mode-option {
+  position: relative;
+}
+
+.mode-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0; height: 0;
+}
+
+.mode-option label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 10px;
+  cursor: pointer;
+  background: var(--c-cream);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--c-text-2);
+  transition: all var(--transition);
+  border-right: 1px solid var(--c-border);
+  gap: 5px;
+}
+
+.mode-option:last-child label { border-right: none; }
+
+.mode-icon { font-size: 22px; }
+
+.mode-option input:checked + label {
+  background: var(--c-ocean);
+  color: #fff;
+}
+
+.mode-option.emergency input:checked + label {
+  background: linear-gradient(135deg, #8B1A1A, #C94040);
+}
+
+.mode-option input:focus-visible + label {
+  outline: 3px solid var(--c-aqua);
+  outline-offset: -3px;
+}
+
+/* =============================================
+   CALCULATE BUTTON
+   ============================================= */
+.btn-calculate {
+  width: 100%;
+  padding: 16px 28px;
+  background: linear-gradient(135deg, var(--c-ocean), var(--c-teal));
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: var(--font-body);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 16px rgba(11,77,94,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.btn-calculate:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(11,77,94,0.38);
+}
+
+.btn-calculate:active { transform: translateY(0); }
+
+.btn-calculate:focus-visible {
+  outline: 3px solid var(--c-aqua);
+  outline-offset: 3px;
+}
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-secondary {
+  flex: 1;
+  padding: 12px 14px;
+  background: transparent;
+  color: var(--c-teal);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  border: 2px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.btn-secondary:hover {
+  background: rgba(26,122,138,0.08);
+  border-color: var(--c-teal);
+}
+
+.btn-secondary:focus-visible {
+  outline: 3px solid var(--c-aqua);
+  outline-offset: 2px;
+}
+
+/* =============================================
+   RESULTS PANEL
+   ============================================= */
+.result-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 52px 24px;
+  text-align: center;
+  color: var(--c-text-muted);
+  gap: 14px;
+}
+
+.result-placeholder-icon { font-size: 52px; opacity: 0.4; }
+
+.result-placeholder p {
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 220px;
+}
+
+/* Result content */
+.result-content { display: none; }
+.result-content.visible { display: block; }
+.result-placeholder.hidden { display: none; }
+
+/* Big dose display */
+.dose-display {
+  background: linear-gradient(145deg, var(--c-deep) 0%, var(--c-ocean) 100%);
+  border-radius: var(--radius-sm);
+  padding: 28px 22px;
+  text-align: center;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.dose-display::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; right: -30px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: rgba(93,196,202,0.12);
+  pointer-events: none;
+}
+
+.dose-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--c-aqua-lt);
+  margin-bottom: 8px;
+}
+
+.dose-value {
+  font-size: clamp(36px, 8vw, 58px);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.dose-unit {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--c-aqua);
+  margin-left: 4px;
+  vertical-align: super;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+}
+
+.dose-drops {
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+}
+
+.dose-drops strong { color: var(--c-aqua); font-size: 16px; }
+
+/* Result metrics grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.metric-card {
+  background: var(--c-cream);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  padding: 14px 12px;
+  text-align: center;
+}
+
+.metric-card .m-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--c-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.metric-card .m-value {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--c-ocean);
+}
+
+.metric-card .m-sub {
+  font-size: 11px;
+  color: var(--c-text-muted);
+  margin-top: 2px;
+}
+
+/* Emergency max dose block */
+.emergency-block {
+  display: none;
+  background: linear-gradient(135deg, #3D0B0B, #6E1A1A);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+
+.emergency-block.visible { display: block; }
+
+.emergency-block .em-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #FFB3B3;
+  margin-bottom: 4px;
+}
+
+.emergency-block .em-value {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.emergency-block .em-sub {
+  font-size: 12px;
+  color: rgba(255,179,179,0.75);
+  margin-top: 3px;
+}
+
+/* Instructions block */
+.instructions-block {
+  background: var(--c-ok-bg);
+  border: 1.5px solid var(--c-ok-bd);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin-bottom: 14px;
+  font-size: 14px;
+  color: var(--c-ok-tx);
+  line-height: 1.65;
+}
+
+.instructions-block .instr-title {
+  font-weight: 700;
+  margin-bottom: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Educational note */
+.edu-note {
+  background: rgba(93,196,202,0.1);
+  border-left: 4px solid var(--c-aqua);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--c-text-2);
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.edu-note strong { color: var(--c-ocean); }
+
+/* =============================================
+   WARNINGS SECTION
+   ============================================= */
+.warnings-section { margin-top: 24px; }
+
+.warnings-section h3 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--c-text-muted);
+  margin-bottom: 12px;
+  padding: 0 4px;
+}
+
+.warning-card {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--c-warn-bg);
+  border: 1.5px solid var(--c-warn-bd);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: var(--c-warn-tx);
+  line-height: 1.6;
+}
+
+.warning-card .w-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+.warning-card strong { font-weight: 700; display: block; margin-bottom: 2px; }
+
+.warning-card.danger {
+  background: var(--c-err-bg);
+  border-color: var(--c-err-bd);
+  color: var(--c-err-tx);
+}
+
+/* =============================================
+   ACTION BUTTONS (copy / print)
+   ============================================= */
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.btn-action {
+  flex: 1;
+  padding: 11px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  border: 2px solid var(--c-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--c-surface);
+  color: var(--c-teal);
+}
+
+.btn-action:hover {
+  background: rgba(26,122,138,0.08);
+  border-color: var(--c-teal);
+}
+
+.btn-action:focus-visible {
+  outline: 3px solid var(--c-aqua);
+  outline-offset: 2px;
+}
+
+/* =============================================
+   TOAST NOTIFICATION
+   ============================================= */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--c-ocean);
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  z-index: 9999;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* =============================================
+   SEO CONTENT / COLLAPSIBLE
+   ============================================= */
+.seo-section {
+  margin-top: 40px;
+  background: var(--c-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--c-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.seo-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  text-align: left;
+  gap: 12px;
+  transition: background var(--transition);
+}
+
+.seo-toggle:hover { background: rgba(93,196,202,0.07); }
+
+.seo-toggle:focus-visible {
+  outline: 3px solid var(--c-aqua);
+  outline-offset: -3px;
+}
+
+.seo-toggle-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.seo-toggle-icon { font-size: 20px; }
+
+.seo-toggle-text {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--c-ocean);
+}
+
+.seo-toggle-sub {
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--c-text-muted);
+}
+
+.seo-chevron {
+  font-size: 13px;
+  color: var(--c-teal);
+  transition: transform var(--transition);
+  flex-shrink: 0;
+}
+
+.seo-chevron.open { transform: rotate(180deg); }
+
+.seo-body {
+  display: none;
+  padding: 0 28px 28px;
+  border-top: 1px solid var(--c-border);
+  animation: slideDown 0.22s ease-out;
+}
+
+.seo-body.open { display: block; }
+
+.seo-body h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--c-ocean);
+  margin: 24px 0 10px;
+  line-height: 1.3;
+}
+
+.seo-body h3:first-child { margin-top: 20px; }
+
+.seo-body p {
+  font-size: 15px;
+  line-height: 1.78;
+  color: var(--c-text-2);
+  margin-bottom: 14px;
+}
+
+.seo-body p:last-child { margin-bottom: 0; }
+
+.seo-body strong { color: var(--c-text); font-weight: 700; }
+
+/* =============================================
+   FOOTER
+   ============================================= */
+.site-footer {
+  text-align: center;
+  padding: 32px 16px 16px;
+  font-size: 12px;
+  color: var(--c-text-muted);
+  line-height: 1.7;
+}
+
+.site-footer a { color: var(--c-teal); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+
+/* =============================================
+   PRINT STYLES
+   ============================================= */
+@media print {
+  .hero { background: #0B4D5E !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .gill-decor { display: none; }
+  .calc-inputs, .calc-inputs .card, .btn-calculate, .btn-row, .btn-secondary,
+  .btn-action, .seo-section, .site-footer, .warnings-section .warning-card { display: none !important; }
+  .calc-grid { display: block; }
+  .result-content { display: block !important; }
+  .result-placeholder { display: none !important; }
+  .card { box-shadow: none; border: 1px solid #ccc; }
+}
+
+/* =============================================
+   UTILITY
+   ============================================= */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--c-border);
+  margin: 20px 0;
+}
+
+/* =============================================
+   PRODUCT BADGE
+   ============================================= */
+.product-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(26,122,138,0.1);
+  color: var(--c-teal);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 100px;
+  margin-bottom: 12px;
+}
+
+/* =============================================
+   RESULT SUMMARY TABLE
+   ============================================= */
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.result-table tr { border-bottom: 1px solid var(--c-border); }
+.result-table tr:last-child { border-bottom: none; }
+
+.result-table td {
+  padding: 9px 6px;
+  line-height: 1.4;
+}
+
+.result-table td:first-child {
+  font-weight: 600;
+  color: var(--c-text-muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  width: 42%;
+}
+
+.result-table td:last-child {
+  font-weight: 600;
+  color: var(--c-text);
+}
+
+/* =============================================
+   RESPONSIVE TWEAKS
+   ============================================= */
+@media (max-width: 480px) {
+  .hero { padding: 36px 20px 44px; }
+  .card-body { padding: 18px 16px; }
+  .metrics-grid { grid-template-columns: 1fr 1fr; }
+  .radio-group { flex-direction: column; }
+  .radio-pill { min-width: auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOAST NOTIFICATION -->
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<!-- HERO HEADER -->
+<header class="hero" role="banner">
+  <div class="gill-decor" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <p class="hero-eyebrow">Precision Dosing Tool</p>
+  <h1>Axolotl Water Conditioner<br><em>Dosage Calculator</em></h1>
+  <p class="hero-sub">Get the exact conditioner dose for routine water changes and emergency ammonia detoxification — based on real product formulations.</p>
+</header>
+
+<main class="page-wrap" id="main-content">
+
+  <div class="calc-grid">
+
+    <!-- ============================
+         INPUTS COLUMN
+         ============================ -->
+    <section class="calc-inputs" aria-label="Calculator inputs">
+
+      <!-- TANK & UNITS -->
+      <div class="card" style="margin-bottom:20px;">
+        <div class="card-header">
+          <div class="card-header-icon" aria-hidden="true">🐟</div>
+          <h2>Tank Configuration</h2>
+        </div>
+        <div class="card-body">
+
+          <!-- Tank Size -->
+          <div class="field-group">
+            <label class="field-label" for="tankSize">Tank Size<span class="req" aria-hidden="true">*</span></label>
+            <div class="input-with-unit">
+              <input
+                type="number"
+                id="tankSize"
+                class="field-input"
+                placeholder="e.g. 40"
+                min="1"
+                step="0.1"
+                aria-required="true"
+                aria-describedby="tankSizeError"
+              >
+              <span class="input-unit-tag" id="tankUnitLabel" aria-live="polite">gal</span>
+            </div>
+            <div class="field-error" id="tankSizeError" role="alert">Please enter a valid tank size greater than 0.</div>
+          </div>
+
+          <!-- Units -->
+          <div class="field-group">
+            <fieldset>
+              <legend class="field-label">Volume Units</legend>
+              <div class="radio-group" role="group">
+                <div class="radio-pill">
+                  <input type="radio" id="unitGal" name="units" value="gallons" checked>
+                  <label for="unitGal">🇺🇸 Gallons</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="radio" id="unitLit" name="units" value="liters">
+                  <label for="unitLit">🌍 Liters</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- WATER CHANGE -->
+      <div class="card" style="margin-bottom:20px;">
+        <div class="card-header">
+          <div class="card-header-icon" aria-hidden="true">💧</div>
+          <h2>Water Change</h2>
+        </div>
+        <div class="card-body">
+
+          <div class="field-group">
+            <fieldset>
+              <legend class="field-label">How would you like to specify the water change?</legend>
+              <div class="radio-group">
+                <div class="radio-pill">
+                  <input type="radio" id="wcPercent" name="waterChangeType" value="percent" checked>
+                  <label for="wcPercent">📊 Percentage</label>
+                </div>
+                <div class="radio-pill">
+                  <input type="radio" id="wcCustom" name="waterChangeType" value="custom">
+                  <label for="wcCustom">✏️ Custom Volume</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- Percentage sub-section -->
+          <div class="conditional-section" id="sectionPercent">
+            <label class="field-label" for="wcPercentSelect">Water Change Percentage</label>
+            <select id="wcPercentSelect" class="field-select" aria-label="Water change percentage">
+              <option value="10">10% — Light maintenance</option>
+              <option value="20">20% — Regular change</option>
+              <option value="25" selected>25% — Standard weekly</option>
+              <option value="30">30% — Moderate</option>
+              <option value="40">40% — Deep clean</option>
+              <option value="50">50% — Heavy change</option>
+              <option value="75">75% — Emergency dilution</option>
+              <option value="100">100% — Full replacement</option>
+            </select>
+          </div>
+
+          <!-- Custom volume sub-section -->
+          <div class="conditional-section hidden" id="sectionCustomVol">
+            <label class="field-label" for="customVolume">Replacement Water Volume<span class="req" aria-hidden="true">*</span></label>
+            <div class="input-with-unit">
+              <input
+                type="number"
+                id="customVolume"
+                class="field-input"
+                placeholder="e.g. 10"
+                min="0.1"
+                step="0.1"
+                aria-required="true"
+                aria-describedby="customVolumeError"
+              >
+              <span class="input-unit-tag" id="customVolUnitLabel" aria-live="polite">gal</span>
+            </div>
+            <div class="field-error" id="customVolumeError" role="alert">Please enter a valid replacement volume greater than 0.</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- PRODUCT -->
+      <div class="card" style="margin-bottom:20px;">
+        <div class="card-header">
+          <div class="card-header-icon" aria-hidden="true">🧪</div>
+          <h2>Water Conditioner</h2>
+        </div>
+        <div class="card-body">
+
+          <div class="field-group">
+            <label class="field-label" for="productSelect">Select Your Conditioner</label>
+            <select id="productSelect" class="field-select" aria-describedby="productHint">
+              <option value="prime">Seachem Prime</option>
+              <option value="safe">Seachem Safe</option>
+              <option value="axolotl">Seachem Axolotl Conditioner</option>
+              <option value="fritz">Fritz Complete</option>
+              <option value="api">API Tap Water Conditioner</option>
+              <option value="custom">Custom Conditioner</option>
+            </select>
+            <p id="productHint" class="field-error" style="display:none;"></p>
+          </div>
+
+          <!-- Custom product sub-section -->
+          <div class="conditional-section hidden" id="sectionCustomProduct">
+            <p style="font-size:13px;color:var(--c-text-muted);margin-bottom:14px;">Enter your conditioner's dosage information from the product label.</p>
+            <div class="field-group">
+              <label class="field-label" for="customDoseML">Dose (ml)<span class="req" aria-hidden="true">*</span></label>
+              <div class="input-with-unit">
+                <input type="number" id="customDoseML" class="field-input" placeholder="e.g. 5" min="0.01" step="0.01" aria-required="true" aria-describedby="customDoseMLError">
+                <span class="input-unit-tag">ml</span>
+              </div>
+              <div class="field-error" id="customDoseMLError" role="alert">Please enter the dose in ml.</div>
+            </div>
+            <div class="field-group" style="margin-bottom:0;">
+              <label class="field-label" for="customTreatsGal">Treats (gallons)<span class="req" aria-hidden="true">*</span></label>
+              <div class="input-with-unit">
+                <input type="number" id="customTreatsGal" class="field-input" placeholder="e.g. 10" min="0.1" step="0.1" aria-required="true" aria-describedby="customTreatsGalError">
+                <span class="input-unit-tag">gal</span>
+              </div>
+              <div class="field-error" id="customTreatsGalError" role="alert">Please enter the volume this dose treats.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- MODE -->
+      <div class="card" style="margin-bottom:20px;">
+        <div class="card-header">
+          <div class="card-header-icon" aria-hidden="true">⚡</div>
+          <h2>Dosing Mode</h2>
+        </div>
+        <div class="card-body">
+
+          <div class="field-group">
+            <fieldset>
+              <legend class="field-label">Select dosing scenario</legend>
+              <div class="mode-group" role="group">
+                <div class="mode-option">
+                  <input type="radio" id="modeRoutine" name="mode" value="routine" checked>
+                  <label for="modeRoutine">
+                    <span class="mode-icon" aria-hidden="true">🔄</span>
+                    <span>Routine Water Change</span>
+                  </label>
+                </div>
+                <div class="mode-option emergency">
+                  <input type="radio" id="modeEmergency" name="mode" value="emergency">
+                  <label for="modeEmergency">
+                    <span class="mode-icon" aria-hidden="true">🚨</span>
+                    <span>Emergency: Ammonia / Nitrite</span>
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- Emergency sub-section -->
+          <div class="conditional-section hidden" id="sectionEmergency">
+            <div style="background:var(--c-err-bg);border-radius:6px;padding:10px 14px;margin-bottom:14px;font-size:13px;color:var(--c-err-tx);border:1px solid var(--c-err-bd);">
+              ⚠️ <strong>Emergency mode doses the FULL tank volume</strong> to temporarily detoxify ammonia. This is not a substitute for fixing your nitrogen cycle.
+            </div>
+            <label class="field-label" for="ammoniaPpm">Current Ammonia / Nitrite Level (ppm)</label>
+            <select id="ammoniaPpm" class="field-select" aria-label="Current ammonia or nitrite level in ppm">
+              <option value="0.25">0.25 ppm — Detectable, mild concern</option>
+              <option value="0.5" selected>0.5 ppm — Elevated, take action</option>
+              <option value="1">1.0 ppm — High, urgent</option>
+              <option value="2">2.0 ppm — Very high, critical</option>
+              <option value="4">4.0 ppm — Dangerous, extreme emergency</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ACTION BUTTONS -->
+      <button class="btn-calculate" id="btnCalculate" type="button" aria-label="Calculate conditioner dose">
+        <span aria-hidden="true">🧮</span> Calculate Dose
+      </button>
+
+      <div class="btn-row">
+        <button class="btn-secondary" id="btnReset" type="button" aria-label="Reset all fields">
+          <span aria-hidden="true">↺</span> Reset
+        </button>
+        <button class="btn-secondary" id="btnCopy" type="button" aria-label="Copy results to clipboard" disabled>
+          <span aria-hidden="true">📋</span> Copy
+        </button>
+        <button class="btn-secondary" id="btnPrint" type="button" aria-label="Print results" disabled>
+          <span aria-hidden="true">🖨️</span> Print
+        </button>
+      </div>
+
+    </section>
+
+    <!-- ============================
+         OUTPUTS COLUMN
+         ============================ -->
+    <section class="calc-outputs" aria-label="Calculation results" aria-live="polite">
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-icon" aria-hidden="true">✅</div>
+          <h2>Your Dosage Results</h2>
+        </div>
+        <div class="card-body">
+
+          <!-- Placeholder shown before first calculation -->
+          <div class="result-placeholder" id="resultPlaceholder" aria-hidden="true">
+            <div class="result-placeholder-icon">🪸</div>
+            <p>Fill in your tank details and click <strong>Calculate Dose</strong> to see precise dosing instructions.</p>
+          </div>
+
+          <!-- Results (hidden until calculated) -->
+          <div class="result-content" id="resultContent">
+
+            <div class="product-badge" id="rProductBadge">
+              <span>🧪</span> <span id="rProductName">—</span>
+            </div>
+
+            <!-- Big dose display -->
+            <div class="dose-display">
+              <div class="dose-label">Conditioner Dose Required</div>
+              <div class="dose-value" id="rDoseValue">—<span class="dose-unit">ml</span></div>
+              <div class="dose-drops" id="rDropsLine">≈ <strong id="rDrops">—</strong> drops &nbsp;(20 drops = 1 ml)</div>
+            </div>
+
+            <!-- Emergency max block -->
+            <div class="emergency-block" id="emergencyBlock">
+              <div class="em-title">⚠ Emergency Maximum Dose (5×)</div>
+              <div class="em-value" id="rEmergencyMax">— ml</div>
+              <div class="em-sub">Do not exceed this amount within a 24-hour period.</div>
+            </div>
+
+            <!-- Quick metrics -->
+            <div class="metrics-grid">
+              <div class="metric-card">
+                <div class="m-label">Tank Size</div>
+                <div class="m-value" id="rTankSize">—</div>
+                <div class="m-sub" id="rTankUnit">gal</div>
+              </div>
+              <div class="metric-card">
+                <div class="m-label">Replacement Water</div>
+                <div class="m-value" id="rReplacement">—</div>
+                <div class="m-sub" id="rReplacementUnit">gal</div>
+              </div>
+            </div>
+
+            <!-- Summary table -->
+            <table class="result-table" aria-label="Calculation summary">
+              <tbody>
+                <tr>
+                  <td>Mode</td>
+                  <td id="rMode">—</td>
+                </tr>
+                <tr>
+                  <td>Water Change</td>
+                  <td id="rWaterChange">—</td>
+                </tr>
+                <tr>
+                  <td>Dose Basis</td>
+                  <td id="rDoseBasis">—</td>
+                </tr>
+                <tr id="rAmmoniaRow" style="display:none;">
+                  <td>Ammonia/Nitrite</td>
+                  <td id="rAmmonia">—</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <hr class="divider">
+
+            <!-- Instructions -->
+            <div class="instructions-block">
+              <div class="instr-title">📋 Instructions</div>
+              <div id="rInstructions">—</div>
+            </div>
+
+            <!-- Educational note -->
+            <div class="edu-note" id="rEduNote">—</div>
+
+            <!-- Action buttons -->
+            <div class="action-buttons">
+              <button class="btn-action" id="rBtnCopy" type="button">
+                <span aria-hidden="true">📋</span> Copy Summary
+              </button>
+              <button class="btn-action" id="rBtnPrint" type="button">
+                <span aria-hidden="true">🖨️</span> Print
+              </button>
+            </div>
+
+          </div><!-- /result-content -->
+
+        </div>
+      </div>
+
+      <!-- WARNINGS PANEL -->
+      <div class="warnings-section" aria-label="Important safety warnings">
+        <h3>⚠ Axolotl Safety Warnings</h3>
+
+        <div class="warning-card danger">
+          <span class="w-icon">🚫</span>
+          <div>
+            <strong>Never use aloe vera conditioners</strong>
+            Products containing aloe vera (e.g., some API formulations) create a mucous-like coating that can harm axolotl gill filaments and damage their delicate skin.
+          </div>
+        </div>
+
+        <div class="warning-card danger">
+          <span class="w-icon">🚫</span>
+          <div>
+            <strong>Never use iodine-based products</strong>
+            Iodine and Betadine are lethal to axolotls even at very low concentrations. Check all labels carefully.
+          </div>
+        </div>
+
+        <div class="warning-card">
+          <span class="w-icon">⚗️</span>
+          <div>
+            <strong>Conditioner ≠ biological filtration</strong>
+            Water conditioners detoxify chlorine and chloramine but do not establish the nitrogen cycle. A cycled filter is essential.
+          </div>
+        </div>
+
+        <div class="warning-card">
+          <span class="w-icon">🔬</span>
+          <div>
+            <strong>Conditioner does not remove nitrate</strong>
+            Regular water changes are still required to keep nitrate below 20 ppm. Test weekly.
+          </div>
+        </div>
+
+        <div class="warning-card">
+          <span class="w-icon">💎</span>
+          <div>
+            <strong>RO/distilled water requires remineralization</strong>
+            Pure RO or distilled water has zero buffering capacity. Use a GH/KH mineral supplement before adding it to your tank.
+          </div>
+        </div>
+
+        <div class="warning-card">
+          <span class="w-icon">🌡️</span>
+          <div>
+            <strong>Match water temperature before adding</strong>
+            Axolotls are sensitive to temperature shock. New water should be within 1–2 °C of existing tank water (target: 16–18 °C / 60–64 °F).
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </div><!-- /calc-grid -->
+
+  <!-- ============================
+       SEO CONTENT SECTION
+       ============================ -->
+  <section class="seo-section" aria-label="Educational content about axolotl water conditioning">
+    <button
+      class="seo-toggle"
+      id="seoToggleBtn"
+      type="button"
+      aria-expanded="false"
+      aria-controls="seoBody"
+    >
+      <div class="seo-toggle-left">
+        <span class="seo-toggle-icon" aria-hidden="true">📖</span>
+        <span>
+          <span class="seo-toggle-text">Why Water Conditioner Dosage Matters for Axolotls</span>
+          <span class="seo-toggle-sub">~5 min read · Click to expand</span>
+        </span>
+      </div>
+      <span class="seo-chevron" id="seoChevron" aria-hidden="true">▼</span>
+    </button>
+
+    <div class="seo-body" id="seoBody" role="region" aria-labelledby="seoToggleBtn">
+
+      <h3>Getting the Dose Right: More Than a Formality</h3>
+      <p>When it comes to axolotl care, few things are as deceptively routine — yet genuinely consequential — as the water conditioner dose. Too little, and your tap water's chlorine or chloramine remains active, burning the delicate, feathery gills that make axolotls so iconic. Too much, and you risk oxygen depletion: some conditioners (including Seachem Prime) work partly by converting toxins into forms that temporarily consume dissolved oxygen. Overdosing repeatedly can stress a healthy axolotl and make a sick one significantly worse.</p>
+      <p>The correct dose is the amount that neutralizes <em>exactly</em> the volume of new water entering the tank — no more, no less. For a 25% water change on a 40-gallon tank, you're treating 10 gallons, not 40. Calculating based on tank volume wastes product and can impair water chemistry. This calculator does the math automatically so that there's no ambiguity.</p>
+
+      <h3>Chlorine vs. Chloramine: Why It Matters</h3>
+      <p>Most municipal water supplies no longer use chlorine alone. Instead, they use <strong>chloramine</strong> — a stable compound formed by bonding chlorine with ammonia. Chloramine is far harder to remove than chlorine: it cannot be eliminated by aeration or letting water sit overnight, and it is not neutralized by basic sodium thiosulfate-based conditioners.</p>
+      <p>High-quality conditioners like <strong>Seachem Prime</strong>, <strong>Fritz Complete</strong>, and <strong>Seachem Safe</strong> are specifically formulated to break the chloramine bond, neutralizing both the chlorine and the released ammonia. If you're using a basic conditioner that only states "dechlorinator," always verify it also addresses chloramine — this is especially important in urban water systems. Call your local water authority or check their annual water quality report if you're unsure what your tap water contains.</p>
+
+      <h3>Why Conditioner Doesn't Replace Cycling</h3>
+      <p>Water conditioner is a water <em>preparation</em> tool, not a filtration system. A new or uncycled aquarium has no established colony of beneficial bacteria (primarily <em>Nitrosomonas</em> and <em>Nitrobacter</em> species) to convert ammonia into nitrite and then nitrate. Adding conditioner to an uncycled tank will momentarily detoxify ammonia, but it will not prevent more ammonia from building up from your axolotl's waste within hours.</p>
+      <p>An axolotl needs a <strong>fully cycled filter</strong> with established bacterial colonies before it is added to the tank. Conditioner is a tool used at water change time to make tap water safe — not a permanent solution to high ammonia or poor water quality. If your ammonia reads above 0 ppm between water changes in an established tank, this signals an imbalance in your biological filtration, not a conditioner dosing issue.</p>
+
+      <h3>Emergency Dosing: When to Use 5× Prime</h3>
+      <p>Seachem Prime's most powerful feature — and its greatest risk if misused — is its emergency dosing capability. At up to five times the normal dose, Prime temporarily detoxifies ammonia and nitrite by binding them in a form that is safe to axolotls but still readable by standard test kits (which is why your test kit may continue to show ammonia even after dosing — this is normal). This emergency window lasts approximately 24–48 hours, giving you time to perform a water change or fix the underlying cause.</p>
+      <p>However, this <strong>5× dose carries real risks in a low-oxygen environment</strong>. Prime's detoxification mechanism consumes dissolved oxygen. In a warm tank, a tank with heavy axolotl load, or a tank without adequate surface agitation, emergency dosing can cause oxygen depletion. Always ensure maximum surface movement during and after emergency dosing, and retest water parameters within 24 hours to assess whether the situation has stabilized or worsened.</p>
+
+      <h3>The Aloe Vera Problem for Axolotls</h3>
+      <p>Many popular fish conditioners — including certain API products and "slime coat" enhancers — contain aloe vera as a coating agent. While this is generally harmless or even beneficial for bony fish, <strong>it is dangerous for axolotls</strong>. Axolotls have extremely permeable, mucus-coated skin and delicate external gill filaments. Aloe vera creates an artificial coating that can disrupt their natural mucous layer, smother gill filaments, and impair the gas exchange they depend on. Always read conditioner labels in full before using any new product. The safest choices specifically developed or verified for axolotls are Seachem Prime, Seachem Safe, and Seachem's own Axolotl Conditioner formulation.</p>
+
+      <h3>Why Regular Water Testing Is Non-Negotiable</h3>
+      <p>No calculator can substitute for regular water testing. The correct dose of conditioner is determined partly by what's in your tap water — and municipal water chemistry changes seasonally, especially after heavy rainfall events that alter reservoir chemistry. Using a quality liquid test kit (API Master Test Kit or equivalent) at least once per week gives you an accurate picture of ammonia, nitrite, nitrate, and pH levels. This data, combined with the correct conditioner dose, forms the foundation of a healthy axolotl environment. Your axolotl's gills will show you when something's wrong — pale, frayed, or curling gills are a sign of water quality stress — but by then, you're already reacting to a problem rather than preventing one. Test proactively, dose precisely, and change water consistently.</p>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- SITE FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <p>Dosing guidelines are based on manufacturer-published formulations. Always read product labels and consult a veterinarian for medical concerns.</p>
+  <p style="margin-top:6px;">Built for axolotl keepers who demand precision. 🦎</p>
+</footer>
+
+<script>
+/* =============================================
+   PRODUCT DATABASE
+   ============================================= */
+const PRODUCTS = {
+  prime: {
+    name: 'Seachem Prime',
+    mlPerGallon: 0.1,          // 1 ml per 10 gallons
+    emergencyMultiplier: 5,
+    notes: [
+      'Add Prime directly to the replacement water before introducing it to the tank.',
+      'Prime temporarily detoxifies ammonia and nitrite for up to 48 hours.'
+    ],
+    chloramine: true,
+    aloe: false
+  },
+  safe: {
+    name: 'Seachem Safe',
+    mlPerGallon: 0.01,         // 0.1 g per 10 gallons; approximated as 0.01 g/gal
+    isGrams: true,
+    gramsPerGallon: 0.01,      // 100 mg per 10 gallons = 10 mg/gal ≈ 0.01 g/gal
+    emergencyMultiplier: 5,
+    notes: [
+      'Safe is a dry powder — measure carefully with a precision scale.',
+      'Dissolve in a small amount of tank water before adding. A tiny amount treats large volumes.'
+    ],
+    chloramine: true,
+    aloe: false
+  },
+  axolotl: {
+    name: 'Seachem Axolotl Conditioner',
+    mlPerGallon: 0.25,         // 2.5 ml per 10 gallons — manufacturer's dosage
+    emergencyMultiplier: null,
+    notes: [
+      'Follow manufacturer dosage for routine water changes.',
+      'Specifically formulated to be safe for axolotls — free from aloe vera.'
+    ],
+    chloramine: true,
+    aloe: false
+  },
+  fritz: {
+    name: 'Fritz Complete',
+    mlPerGallon: 0.5,          // 5 ml per 10 gallons
+    emergencyMultiplier: null,
+    notes: [
+      'Dose replacement water prior to adding it to the tank.',
+      'Fritz Complete neutralizes chloramine and detoxifies ammonia and nitrite.'
+    ],
+    chloramine: true,
+    aloe: false
+  },
+  api: {
+    name: 'API Tap Water Conditioner',
+    mlPerGallon: 0.05,         // 1 ml per 20 gallons
+    emergencyMultiplier: null,
+    notes: [
+      'Add directly to the aquarium or treat replacement water separately.',
+      '⚠ Verify your specific API formulation does NOT contain aloe vera before use with axolotls.'
+    ],
+    chloramine: false,  // Standard API does not fully neutralize chloramine
+    aloe: false         // Note: some API products do — warn user to check
+  },
+  custom: {
+    name: 'Custom Conditioner',
+    mlPerGallon: null,         // calculated from user input
+    emergencyMultiplier: null,
+    notes: [
+      'Follow your product label instructions carefully.',
+      'Ensure your conditioner neutralizes chloramine as well as chlorine.'
+    ],
+    chloramine: null,
+    aloe: null
+  }
+};
+
+/* =============================================
+   UTILITY FUNCTIONS
+   ============================================= */
+
+/** Round to specified decimal places */
+function roundTo(val, decimals = 2) {
+  return Math.round(val * Math.pow(10, decimals)) / Math.pow(10, decimals);
+}
+
+/** Convert liters to gallons */
+function litersToGallons(liters) {
+  return liters / 3.78541;
+}
+
+/** Convert ml to drops (20 drops = 1 ml) */
+function mlToDrops(ml) {
+  return Math.round(ml * 20);
+}
+
+/** Format a number for display — avoids long decimals */
+function formatNum(val, isGrams) {
+  if (isGrams) {
+    // Show grams with more precision for very small amounts
+    if (val < 0.01) return val.toFixed(4) + ' g';
+    if (val < 0.1)  return val.toFixed(3) + ' g';
+    return val.toFixed(2) + ' g';
+  }
+  if (val < 0.1)  return val.toFixed(2);
+  if (val < 10)   return val.toFixed(1);
+  return val.toFixed(0);
+}
+
+/** Format volume for display */
+function fmtVol(val, unit) {
+  const label = unit === 'liters' ? 'L' : 'gal';
+  return roundTo(val, 1) + ' ' + label;
+}
+
+/** Show a toast notification */
+function showToast(msg, duration = 2600) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), duration);
+}
+
+/** Set or clear field validation error */
+function setError(inputId, errorId, message) {
+  const input = document.getElementById(inputId);
+  const err   = document.getElementById(errorId);
+  if (message) {
+    input.setAttribute('aria-invalid', 'true');
+    err.textContent = message;
+    err.classList.add('visible');
+    return false;
+  } else {
+    input.removeAttribute('aria-invalid');
+    err.classList.remove('visible');
+    return true;
+  }
+}
+
+/* =============================================
+   UI STATE HELPERS
+   ============================================= */
+
+function getUnit()            { return document.querySelector('input[name="units"]:checked').value; }
+function getWCType()          { return document.querySelector('input[name="waterChangeType"]:checked').value; }
+function getMode()            { return document.querySelector('input[name="mode"]:checked').value; }
+function getProduct()         { return document.getElementById('productSelect').value; }
+
+function toggleSection(id, show) {
+  const el = document.getElementById(id);
+  if (show) {
+    el.classList.remove('hidden');
+  } else {
+    el.classList.add('hidden');
+  }
+}
+
+/* =============================================
+   EVENT LISTENERS FOR CONDITIONAL FIELDS
+   ============================================= */
+
+// Units → update unit labels
+document.querySelectorAll('input[name="units"]').forEach(radio => {
+  radio.addEventListener('change', () => {
+    const isLit = getUnit() === 'liters';
+    document.getElementById('tankUnitLabel').textContent      = isLit ? 'L' : 'gal';
+    document.getElementById('customVolUnitLabel').textContent = isLit ? 'L' : 'gal';
+  });
+});
+
+// Water change type toggle
+document.querySelectorAll('input[name="waterChangeType"]').forEach(radio => {
+  radio.addEventListener('change', () => {
+    const isCustom = getWCType() === 'custom';
+    toggleSection('sectionPercent',   !isCustom);
+    toggleSection('sectionCustomVol',  isCustom);
+  });
+});
+
+// Mode toggle
+document.querySelectorAll('input[name="mode"]').forEach(radio => {
+  radio.addEventListener('change', () => {
+    toggleSection('sectionEmergency', getMode() === 'emergency');
+  });
+});
+
+// Product toggle
+document.getElementById('productSelect').addEventListener('change', () => {
+  toggleSection('sectionCustomProduct', getProduct() === 'custom');
+});
+
+/* =============================================
+   VALIDATION
+   ============================================= */
+
+function validateInputs() {
+  let valid = true;
+  const unit    = getUnit();
+  const wcType  = getWCType();
+  const product = getProduct();
+
+  // Tank size
+  const tankVal = parseFloat(document.getElementById('tankSize').value);
+  if (!tankVal || tankVal <= 0 || isNaN(tankVal)) {
+    valid = setError('tankSize', 'tankSizeError', 'Please enter a valid tank size greater than 0.') && valid;
+  } else {
+    setError('tankSize', 'tankSizeError', null);
+  }
+
+  // Custom volume
+  if (wcType === 'custom') {
+    const cvVal = parseFloat(document.getElementById('customVolume').value);
+    if (!cvVal || cvVal <= 0 || isNaN(cvVal)) {
+      valid = setError('customVolume', 'customVolumeError', 'Please enter a valid replacement volume greater than 0.') && valid;
+    } else {
+      // Volume cannot exceed tank size
+      const tankGal = unit === 'liters' ? litersToGallons(tankVal) : tankVal;
+      const cvGal   = unit === 'liters' ? litersToGallons(cvVal)   : cvVal;
+      if (cvGal > tankGal) {
+        valid = setError('customVolume', 'customVolumeError', 'Replacement volume cannot exceed tank size.') && valid;
+      } else {
+        setError('customVolume', 'customVolumeError', null);
+      }
+    }
+  }
+
+  // Custom product fields
+  if (product === 'custom') {
+    const cdml = parseFloat(document.getElementById('customDoseML').value);
+    const ctgal = parseFloat(document.getElementById('customTreatsGal').value);
+    if (!cdml || cdml <= 0 || isNaN(cdml)) {
+      valid = setError('customDoseML', 'customDoseMLError', 'Please enter the dose in ml (must be > 0).') && valid;
+    } else {
+      setError('customDoseML', 'customDoseMLError', null);
+    }
+    if (!ctgal || ctgal <= 0 || isNaN(ctgal)) {
+      valid = setError('customTreatsGal', 'customTreatsGalError', 'Please enter the volume this dose treats (must be > 0).') && valid;
+    } else {
+      setError('customTreatsGal', 'customTreatsGalError', null);
+    }
+  }
+
+  return valid;
+}
+
+/* =============================================
+   CALCULATE
+   ============================================= */
+
+let lastResult = null; // Store last result for copy/print
+
+function calculate() {
+  if (!validateInputs()) return;
+
+  const unit     = getUnit();
+  const wcType   = getWCType();
+  const mode     = getMode();
+  const prodKey  = getProduct();
+  const product  = PRODUCTS[prodKey];
+
+  // 1. Tank size in gallons (internal always gallons)
+  let tankRaw = parseFloat(document.getElementById('tankSize').value);
+  let tankGal = unit === 'liters' ? litersToGallons(tankRaw) : tankRaw;
+
+  // 2. Replacement volume in gallons
+  let replGal, replDisplay, pctDisplay;
+  if (wcType === 'percent') {
+    const pct = parseFloat(document.getElementById('wcPercentSelect').value);
+    replGal = tankGal * (pct / 100);
+    pctDisplay = pct + '%';
+    replDisplay = unit === 'liters'
+      ? roundTo(replGal * 3.78541, 2)
+      : roundTo(replGal, 2);
+  } else {
+    let replRaw = parseFloat(document.getElementById('customVolume').value);
+    replGal = unit === 'liters' ? litersToGallons(replRaw) : replRaw;
+    replDisplay = replRaw;
+    pctDisplay = roundTo((replGal / tankGal) * 100, 1) + '%';
+  }
+
+  // 3. Dose basis volume
+  // - Routine: treat replacement water only
+  // - Emergency: treat FULL tank volume
+  const doseVolumeGal = mode === 'emergency' ? tankGal : replGal;
+
+  // 4. Calculate dose
+  let doseML, isGrams = false, doseDisplay, emergencyMaxML = null;
+
+  if (prodKey === 'custom') {
+    const cdml  = parseFloat(document.getElementById('customDoseML').value);
+    const ctgal = parseFloat(document.getElementById('customTreatsGal').value);
+    const mlPerGal = cdml / ctgal;
+    doseML = doseVolumeGal * mlPerGal;
+  } else if (prodKey === 'safe') {
+    // Safe is dosed by weight
+    isGrams = true;
+    const gramsPerGal = product.gramsPerGallon;
+    doseML = doseVolumeGal * gramsPerGal; // "ml" variable reused as grams for Safe
+  } else {
+    doseML = doseVolumeGal * product.mlPerGallon;
+  }
+
+  // 5. Emergency max (5× if applicable)
+  if (mode === 'emergency' && product.emergencyMultiplier) {
+    emergencyMaxML = doseML * product.emergencyMultiplier;
+  }
+
+  // 6. Drops (only meaningful for ml — skip for Safe grams)
+  const drops = isGrams ? null : mlToDrops(doseML);
+
+  // 7. Build instructions
+  const ammoniaPpm = mode === 'emergency'
+    ? parseFloat(document.getElementById('ammoniaPpm').value)
+    : null;
+
+  let instructions = buildInstructions(mode, prodKey, isGrams, ammoniaPpm);
+  let eduNote      = buildEduNote(mode, prodKey, product);
+
+  // 8. Format display values
+  const tankDisplay = unit === 'liters'
+    ? roundTo(tankRaw, 1) + ' L  (' + roundTo(tankGal, 1) + ' gal)'
+    : roundTo(tankGal, 1) + ' gal';
+
+  const replVolumeStr = unit === 'liters'
+    ? roundTo(replDisplay, 1) + ' L  (' + roundTo(replGal, 1) + ' gal)'
+    : roundTo(replGal, 1) + ' gal';
+
+  const doseStr   = isGrams ? formatNum(doseML, true) : formatNum(doseML, false) + ' ml';
+  const dropsStr  = drops !== null ? drops + ' drops' : 'N/A (powder)';
+
+  // 9. Store result
+  lastResult = {
+    tankDisplay,
+    replVolumeStr,
+    pctDisplay,
+    productName : product.name,
+    doseML,
+    doseStr,
+    drops,
+    dropsStr,
+    isGrams,
+    emergencyMaxML,
+    mode,
+    ammoniaPpm,
+    instructions,
+    eduNote,
+    doseVolumeGal
+  };
+
+  // 10. Render to UI
+  renderResults(lastResult);
+}
+
+/* =============================================
+   BUILD INSTRUCTIONS
+   ============================================= */
+function buildInstructions(mode, prodKey, isGrams, ammoniaPpm) {
+  const product = PRODUCTS[prodKey];
+  let lines = [];
+
+  if (mode === 'routine') {
+    lines.push('Treat your replacement water <strong>before</strong> adding it to the aquarium — not the full tank.');
+    if (isGrams) {
+      lines.push('Dissolve the measured Safe powder in a small cup of tank water first, then add to replacement water.');
+    } else {
+      lines.push('Add conditioner to a bucket or container of new tap water and stir gently.');
+    }
+    lines.push('Wait 30–60 seconds, then slowly pour the treated water into your tank.');
+  } else {
+    // Emergency
+    lines.push('<strong>Emergency dosing treats the entire tank volume</strong> to temporarily detoxify ammonia/nitrite.');
+    lines.push('Add the calculated dose directly to the aquarium — ensure your filter and air stone are running for maximum oxygenation.');
+    lines.push('Retest water parameters in <strong>24 hours</strong>. If levels remain high, perform a 30–50% water change with treated water.');
+    if (ammoniaPpm && ammoniaPpm >= 2) {
+      lines.push('⚠ At ' + ammoniaPpm + ' ppm, immediate water change of at least 50% is strongly recommended alongside this dosing.');
+    }
+    if (prodKey === 'prime' || prodKey === 'safe') {
+      lines.push('Note: Prime/Safe temporarily bind ammonia — your test kit may still show ammonia readings. This is normal for 24–48 hours.');
+    }
+  }
+
+  // Add product-specific notes
+  if (product.notes && product.notes.length) {
+    product.notes.forEach(n => lines.push(n));
+  }
+
+  return lines.map(l => '<p style="margin-bottom:6px;">' + l + '</p>').join('');
+}
+
+/* =============================================
+   BUILD EDUCATIONAL NOTE
+   ============================================= */
+function buildEduNote(mode, prodKey, product) {
+  if (mode === 'emergency') {
+    return '<strong>Emergency dosing reminder:</strong> Conditioners temporarily detoxify ammonia but do <em>not</em> remove it. The root cause (overfeeding, dead matter, uncycled filter) must be addressed. Retest within 24 hours and perform a water change if ammonia persists.';
+  }
+  if (!product.chloramine) {
+    return '<strong>Chloramine alert:</strong> Verify that your conditioner neutralizes chloramine — not just chlorine. Standard sodium thiosulfate dechlorinators do not break the chloramine bond. Check your local water report at your municipal water supplier\'s website.';
+  }
+  if (prodKey === 'api') {
+    return '<strong>API note:</strong> Ensure your specific API Tap Water Conditioner formulation does <em>not</em> contain aloe vera before use with axolotls. Check the ingredient list on your bottle — aloe vera is unsafe for axolotls.';
+  }
+  if (prodKey === 'safe') {
+    return '<strong>Dose accuracy:</strong> Seachem Safe is extremely concentrated. A precision scale (0.01 g accuracy) is strongly recommended. Even a small error at this scale is significant.';
+  }
+  return '<strong>Routine dosing:</strong> Treat only the replacement water volume — not the full tank. Untreated tap water only enters your tank during a water change, so that\'s the only volume that needs conditioning.';
+}
+
+/* =============================================
+   RENDER RESULTS TO DOM
+   ============================================= */
+function renderResults(r) {
+  // Toggle visibility
+  document.getElementById('resultPlaceholder').classList.add('hidden');
+  document.getElementById('resultContent').classList.add('visible');
+
+  // Product badge
+  document.getElementById('rProductName').textContent = r.productName;
+
+  // Dose display
+  const doseNum = r.isGrams
+    ? (r.doseML < 0.01 ? r.doseML.toFixed(4) : r.doseML.toFixed(3))
+    : (r.doseML < 0.1 ? r.doseML.toFixed(2) : r.doseML < 10 ? r.doseML.toFixed(1) : Math.round(r.doseML).toString());
+
+  const doseUnit = r.isGrams ? 'g' : 'ml';
+
+  document.getElementById('rDoseValue').innerHTML =
+    doseNum + '<span class="dose-unit">' + doseUnit + '</span>';
+
+  if (r.isGrams) {
+    document.getElementById('rDropsLine').innerHTML =
+      '<span style="opacity:0.6;">Drops measurement does not apply to powder products.</span>';
+  } else {
+    document.getElementById('rDropsLine').innerHTML =
+      '≈ <strong id="rDrops">' + r.drops + '</strong> drops &nbsp;<span style="opacity:0.5;">(20 drops = 1 ml)</span>';
+  }
+
+  // Emergency block
+  const emBlock = document.getElementById('emergencyBlock');
+  if (r.emergencyMaxML !== null) {
+    emBlock.classList.add('visible');
+    document.getElementById('rEmergencyMax').textContent =
+      roundTo(r.emergencyMaxML, 2) + (r.isGrams ? ' g' : ' ml');
+  } else {
+    emBlock.classList.remove('visible');
+  }
+
+  // Metrics
+  document.getElementById('rTankSize').textContent  = r.tankDisplay;
+  document.getElementById('rTankUnit').textContent  = '';
+  document.getElementById('rReplacement').textContent = r.replVolumeStr;
+  document.getElementById('rReplacementUnit').textContent = '';
+
+  // Table
+  document.getElementById('rMode').textContent =
+    r.mode === 'emergency' ? '🚨 Emergency (full tank)' : '🔄 Routine water change';
+  document.getElementById('rWaterChange').textContent = r.pctDisplay;
+  document.getElementById('rDoseBasis').textContent =
+    r.mode === 'emergency'
+      ? 'Full tank volume (emergency)'
+      : 'Replacement water only';
+
+  const amRow = document.getElementById('rAmmoniaRow');
+  if (r.ammoniaPpm !== null) {
+    amRow.style.display = '';
+    document.getElementById('rAmmonia').textContent = r.ammoniaPpm + ' ppm';
+  } else {
+    amRow.style.display = 'none';
+  }
+
+  // Instructions
+  document.getElementById('rInstructions').innerHTML = r.instructions;
+
+  // Edu note
+  document.getElementById('rEduNote').innerHTML = r.eduNote;
+
+  // Enable copy/print buttons
+  document.getElementById('btnCopy').disabled  = false;
+  document.getElementById('btnPrint').disabled = false;
+
+  // Scroll results into view on mobile
+  if (window.innerWidth < 700) {
+    document.getElementById('resultContent').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+/* =============================================
+   COPY RESULTS
+   ============================================= */
+function buildTextSummary(r) {
+  const sep = '─'.repeat(40);
+  let lines = [
+    'AXOLOTL WATER CONDITIONER CALCULATION',
+    sep,
+    'Tank Size        : ' + r.tankDisplay,
+    'Water Change     : ' + r.pctDisplay,
+    'Replacement Water: ' + r.replVolumeStr,
+    'Conditioner      : ' + r.productName,
+    'Dose Required    : ' + r.doseStr,
+    'Drops            : ' + r.dropsStr,
+    'Mode             : ' + (r.mode === 'emergency' ? 'Emergency' : 'Routine Water Change'),
+  ];
+  if (r.emergencyMaxML !== null) {
+    lines.push('Emergency Max    : ' + roundTo(r.emergencyMaxML, 2) + (r.isGrams ? ' g' : ' ml') + ' (5× — do not exceed)');
+  }
+  if (r.ammoniaPpm !== null) {
+    lines.push('Ammonia/Nitrite  : ' + r.ammoniaPpm + ' ppm');
+  }
+  lines.push(sep);
+  // Strip HTML from instructions
+  const instrText = r.instructions.replace(/<[^>]+>/g, '').replace(/\n+/g, ' ').trim();
+  lines.push('INSTRUCTIONS:');
+  lines.push(instrText);
+  lines.push(sep);
+  lines.push('Calculated by: Axolotl Water Conditioner Dosage Calculator');
+  lines.push('Always verify dosing against your product label.');
+  return lines.join('\n');
+}
+
+function copyResults() {
+  if (!lastResult) return;
+  const text = buildTextSummary(lastResult);
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text)
+      .then(() => showToast('✅ Results copied to clipboard!'))
+      .catch(() => fallbackCopy(text));
+  } else {
+    fallbackCopy(text);
+  }
+}
+
+function fallbackCopy(text) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.left = '-9999px';
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand('copy');
+    showToast('✅ Results copied to clipboard!');
+  } catch {
+    showToast('⚠ Copy failed — please copy manually.');
+  }
+  document.body.removeChild(ta);
+}
+
+/* =============================================
+   PRINT
+   ============================================= */
+function printResults() {
+  window.print();
+}
+
+/* =============================================
+   RESET
+   ============================================= */
+function resetCalculator() {
+  // Reset all inputs
+  document.getElementById('tankSize').value        = '';
+  document.getElementById('wcPercentSelect').value = '25';
+  document.getElementById('customVolume').value    = '';
+  document.getElementById('productSelect').value   = 'prime';
+  document.getElementById('customDoseML').value    = '';
+  document.getElementById('customTreatsGal').value = '';
+  document.getElementById('ammoniaPpm').value      = '0.5';
+
+  // Reset radios
+  document.getElementById('unitGal').checked    = true;
+  document.getElementById('wcPercent').checked  = true;
+  document.getElementById('modeRoutine').checked = true;
+
+  // Reset unit labels
+  document.getElementById('tankUnitLabel').textContent      = 'gal';
+  document.getElementById('customVolUnitLabel').textContent = 'gal';
+
+  // Hide conditional sections
+  toggleSection('sectionPercent',       true);
+  toggleSection('sectionCustomVol',     false);
+  toggleSection('sectionEmergency',     false);
+  toggleSection('sectionCustomProduct', false);
+
+  // Clear errors
+  document.querySelectorAll('.field-error').forEach(e => e.classList.remove('visible'));
+  document.querySelectorAll('[aria-invalid]').forEach(e => e.removeAttribute('aria-invalid'));
+
+  // Hide results
+  document.getElementById('resultPlaceholder').classList.remove('hidden');
+  document.getElementById('resultContent').classList.remove('visible');
+  document.getElementById('emergencyBlock').classList.remove('visible');
+
+  // Disable action buttons
+  document.getElementById('btnCopy').disabled  = true;
+  document.getElementById('btnPrint').disabled = true;
+
+  lastResult = null;
+
+  showToast('Calculator reset.');
+  document.getElementById('tankSize').focus();
+}
+
+/* =============================================
+   SEO SECTION TOGGLE
+   ============================================= */
+document.getElementById('seoToggleBtn').addEventListener('click', function () {
+  const body    = document.getElementById('seoBody');
+  const chevron = document.getElementById('seoChevron');
+  const isOpen  = body.classList.contains('open');
+
+  body.classList.toggle('open', !isOpen);
+  chevron.classList.toggle('open', !isOpen);
+  this.setAttribute('aria-expanded', !isOpen);
+});
+
+/* =============================================
+   BUTTON WIRING
+   ============================================= */
+document.getElementById('btnCalculate').addEventListener('click', calculate);
+document.getElementById('btnReset').addEventListener('click', resetCalculator);
+document.getElementById('btnCopy').addEventListener('click', copyResults);
+document.getElementById('btnPrint').addEventListener('click', printResults);
+
+// In-result action buttons
+document.getElementById('rBtnCopy').addEventListener('click', copyResults);
+document.getElementById('rBtnPrint').addEventListener('click', printResults);
+
+// Allow Enter key on number fields to trigger calculate
+document.querySelectorAll('.field-input[type="number"]').forEach(input => {
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') calculate();
+  });
+});
+
+/* =============================================
+   ACCESSIBILITY: ANNOUNCE RESULT TO SCREEN READERS
+   ============================================= */
+// The results section already has aria-live="polite" which handles this automatically
+// when results are rendered.
+
+</script>
+</body>
+</html>
