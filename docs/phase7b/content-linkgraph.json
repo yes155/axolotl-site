@@ -702,8 +702,16 @@
    "to": "/diet/feeder-fish-risks"
   },
   {
+   "from": "/diet/live-vs-frozen-food",
+   "to": "/health/parasite-treatment"
+  },
+  {
    "from": "/diet/overfeeding-and-impaction",
    "to": "/diet/feeding-schedule-by-age"
+  },
+  {
+   "from": "/diet/overfeeding-and-impaction",
+   "to": "/health/impaction-symptoms-treatment"
   },
   {
    "from": "/diet/overfeeding-and-impaction",
@@ -723,7 +731,7 @@
   },
   {
    "from": "/diet/vitamin-and-supplement-needs",
-   "to": "/diet/shrimp-for-axolotls"
+   "to": "/health/malnutrition-signs"
   },
   {
    "from": "/gifts-and-merch",
@@ -1670,12 +1678,36 @@
    "to": "/axolotls/care-guide"
   },
   {
+   "from": "/tools/feeding-schedule-generator",
+   "to": "/diet/feeding-schedule-by-age"
+  },
+  {
+   "from": "/tools/nitrogen-cycle-tracker",
+   "to": "/tank-setup/water-parameters-cycling"
+  },
+  {
    "from": "/tools/symptom-checker",
    "to": "/axolotls/care-guide"
   },
   {
+   "from": "/tools/symptom-checker",
+   "to": "/health/refusing-to-eat"
+  },
+  {
+   "from": "/tools/symptom-checker",
+   "to": "/health/stress-signs"
+  },
+  {
    "from": "/tools/tank-size-calculator",
    "to": "/axolotls/care-guide"
+  },
+  {
+   "from": "/tools/tank-size-calculator",
+   "to": "/tank-setup/tank-size-by-age"
+  },
+  {
+   "from": "/tools/water-conditioner-dosage-calculator",
+   "to": "/tank-setup/water-conditioners"
   }
  ]
 }

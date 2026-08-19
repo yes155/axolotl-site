@@ -6756,7 +6756,7 @@
    "Axolotl Feeding Frequency by Life Stage and Size",
    "Axolotl Care Guide logo"
   ],
-  "words": 1763,
+  "words": 1781,
   "raw_outbound": [
    "/",
    "/about",
@@ -6793,9 +6793,10 @@
    "/diet/blackworms-for-juveniles",
    "/diet/fasting-and-vacation",
    "/diet/overfeeding-and-impaction",
-   "/tank-setup/uneaten-food-and-ammonia"
+   "/tank-setup/uneaten-food-and-ammonia",
+   "/tools/feeding-schedule-generator"
   ],
-  "inbound_count": 8,
+  "inbound_count": 9,
   "outbound_contextual": [
    "/",
    "/about",
@@ -7037,6 +7038,7 @@
    "/diet/feeder-fish-risks",
    "/gifts-and-merch",
    "/health",
+   "/health/parasite-treatment",
    "/legal",
    "/morphs",
    "/privacy",
@@ -7073,6 +7075,7 @@
    "/diet/feeder-fish-risks",
    "/gifts-and-merch",
    "/health",
+   "/health/parasite-treatment",
    "/legal",
    "/morphs",
    "/privacy",
@@ -7165,6 +7168,7 @@
    "/diet/feeding-schedule-by-age",
    "/gifts-and-merch",
    "/health",
+   "/health/impaction-symptoms-treatment",
    "/health/refusing-to-eat",
    "/legal",
    "/morphs",
@@ -7202,6 +7206,7 @@
    "/diet/feeding-schedule-by-age",
    "/gifts-and-merch",
    "/health",
+   "/health/impaction-symptoms-treatment",
    "/health/refusing-to-eat",
    "/legal",
    "/morphs",
@@ -7309,10 +7314,9 @@
   ],
   "_file": "diet\\shrimp-for-axolotls\\index.html",
   "inbound": [
-   "/diet",
-   "/diet/vitamin-and-supplement-needs"
+   "/diet"
   ],
-  "inbound_count": 2,
+  "inbound_count": 1,
   "outbound_contextual": [
    "/",
    "/about",
@@ -7405,9 +7409,9 @@
    "/cost-and-buying",
    "/diet",
    "/diet/best-foods-list",
-   "/diet/shrimp-for-axolotls",
    "/gifts-and-merch",
    "/health",
+   "/health/malnutrition-signs",
    "/legal",
    "/morphs",
    "/privacy",
@@ -7438,9 +7442,9 @@
    "/cost-and-buying",
    "/diet",
    "/diet/best-foods-list",
-   "/diet/shrimp-for-axolotls",
    "/gifts-and-merch",
    "/health",
+   "/health/malnutrition-signs",
    "/legal",
    "/morphs",
    "/privacy",
@@ -9185,10 +9189,11 @@
   ],
   "_file": "health\\impaction-symptoms-treatment\\index.html",
   "inbound": [
+   "/diet/overfeeding-and-impaction",
    "/health",
    "/health/finding-an-exotic-vet"
   ],
-  "inbound_count": 2,
+  "inbound_count": 3,
   "outbound_contextual": [
    "/",
    "/about",
@@ -9409,11 +9414,12 @@
   ],
   "_file": "health\\malnutrition-signs\\index.html",
   "inbound": [
+   "/diet/vitamin-and-supplement-needs",
    "/health",
    "/health/parasite-treatment",
    "/health/refusing-to-eat"
   ],
-  "inbound_count": 3,
+  "inbound_count": 4,
   "outbound_contextual": [
    "/",
    "/about",
@@ -9646,10 +9652,11 @@
   ],
   "_file": "health\\parasite-treatment\\index.html",
   "inbound": [
+   "/diet/live-vs-frozen-food",
    "/health",
    "/health/finding-an-exotic-vet"
   ],
-  "inbound_count": 2,
+  "inbound_count": 3,
   "outbound_contextual": [
    "/",
    "/about",
@@ -9990,7 +9997,7 @@
    "Why Is My Axolotl Refusing to Eat? 12 Causes, Timeline and When to Worry",
    "Axolotl Care Guide logo"
   ],
-  "words": 3347,
+  "words": 3364,
   "raw_outbound": [
    "/",
    "/about",
@@ -10030,9 +10037,10 @@
    "/health/stress-signs",
    "/health/why-axolotl-floating",
    "/tank-setup/substrate-and-impaction",
-   "/tank-setup/temperature"
+   "/tank-setup/temperature",
+   "/tools/symptom-checker"
   ],
-  "inbound_count": 11,
+  "inbound_count": 12,
   "outbound_contextual": [
    "/",
    "/about",
@@ -10337,7 +10345,7 @@
    "Axolotl Stress Signs",
    "Axolotl Care Guide logo"
   ],
-  "words": 576,
+  "words": 596,
   "raw_outbound": [
    "/",
    "/about",
@@ -10370,9 +10378,10 @@
   "_file": "health\\stress-signs\\index.html",
   "inbound": [
    "/health",
-   "/health/curled-gills-stress-signal"
+   "/health/curled-gills-stress-signal",
+   "/tools/symptom-checker"
   ],
-  "inbound_count": 2,
+  "inbound_count": 3,
   "outbound_contextual": [
    "/",
    "/about",
@@ -15215,7 +15224,7 @@
    "Axolotl Tank Size by Age",
    "Axolotl Care Guide logo"
   ],
-  "words": 500,
+  "words": 517,
   "raw_outbound": [
    "/",
    "/about",
@@ -15249,9 +15258,10 @@
   "inbound": [
    "/care-basics/keeping-multiple-axolotls",
    "/tank-setup",
-   "/tank-setup/tank-mates"
+   "/tank-setup/tank-mates",
+   "/tools/tank-size-calculator"
   ],
-  "inbound_count": 3,
+  "inbound_count": 4,
   "outbound_contextual": [
    "/",
    "/about",
@@ -15626,7 +15636,7 @@
    "Axolotl Water Conditioner: Creating Safe Water",
    "Axolotl Care Guide logo"
   ],
-  "words": 4417,
+  "words": 4434,
   "raw_outbound": [
    "/",
    "/about",
@@ -15661,9 +15671,10 @@
   "inbound": [
    "/tank-setup",
    "/tank-setup/acclimating-a-new-axolotl",
-   "/tank-setup/lighting-for-axolotls"
+   "/tank-setup/lighting-for-axolotls",
+   "/tools/water-conditioner-dosage-calculator"
   ],
-  "inbound_count": 3,
+  "inbound_count": 4,
   "outbound_contextual": [
    "/",
    "/about",
@@ -15733,6 +15744,7 @@
    "Weekly Axolotl Tank Maintenance Checklist",
    "Every Week",
    "Every Month",
+   "Frequently Asked Questions",
    "Related guides",
    "Care",
    "Explore",
@@ -15742,18 +15754,28 @@
    "  GH — General Hardness",
    "  KH — Carbonate Hardness"
   ],
-  "faq": [],
-  "faq_schema": false,
+  "faq": [
+   "How long does cycling take for an axolotl tank?",
+   "What should I do if ammonia tests above 0 ppm?",
+   "Is nitrite more dangerous than ammonia?",
+   "When is it safe to return my axolotl from the tub?",
+   "How often should I test during a spike?",
+   "Can I use the nitrogen cycle tracker for maintenance?"
+  ],
+  "faq_schema": true,
   "schema_types": [
    "Article",
-   "Organization"
+   "Organization",
+   "FAQPage",
+   "Question",
+   "Answer"
   ],
   "img_alts": [
    "Axolotl Care Guide logo",
    "Managing Ammonia and Nitrate Spikes in Axolotl Tanks",
    "Axolotl Care Guide logo"
   ],
-  "words": 4924,
+  "words": 5305,
   "raw_outbound": [
    "/",
    "/about",
@@ -15797,9 +15819,10 @@
    "/tank-setup/setup-guide",
    "/tank-setup/uneaten-food-and-ammonia",
    "/tank-setup/water-conditioners",
-   "/tank-setup/why-tank-water-smells"
+   "/tank-setup/why-tank-water-smells",
+   "/tools/nitrogen-cycle-tracker"
   ],
-  "inbound_count": 15,
+  "inbound_count": 16,
   "outbound_contextual": [
    "/",
    "/about",
@@ -16165,7 +16188,8 @@
   "img_alts": [],
   "words": null,
   "raw_outbound": [
-   "/axolotls/care-guide"
+   "/axolotls/care-guide",
+   "/diet/feeding-schedule-by-age"
   ],
   "_file": "tools\\feeding-schedule-generator\\index.html",
   "inbound": [
@@ -16297,7 +16321,8 @@
   ],
   "inbound_count": 125,
   "outbound_contextual": [
-   "/axolotls/care-guide"
+   "/axolotls/care-guide",
+   "/diet/feeding-schedule-by-age"
   ]
  },
  "/tools/nitrogen-cycle-tracker": {
@@ -16335,7 +16360,8 @@
   "words": null,
   "raw_outbound": [
    "/",
-   "/tank-setup"
+   "/tank-setup",
+   "/tank-setup/water-parameters-cycling"
   ],
   "_file": "tools\\nitrogen-cycle-tracker\\index.html",
   "inbound": [
@@ -16468,7 +16494,8 @@
   "inbound_count": 125,
   "outbound_contextual": [
    "/",
-   "/tank-setup"
+   "/tank-setup",
+   "/tank-setup/water-parameters-cycling"
   ]
  },
  "/tools/symptom-checker": {
@@ -16486,7 +16513,9 @@
   "img_alts": [],
   "words": null,
   "raw_outbound": [
-   "/axolotls/care-guide"
+   "/axolotls/care-guide",
+   "/health/refusing-to-eat",
+   "/health/stress-signs"
   ],
   "_file": "tools\\symptom-checker\\index.html",
   "inbound": [
@@ -16618,7 +16647,9 @@
   ],
   "inbound_count": 125,
   "outbound_contextual": [
-   "/axolotls/care-guide"
+   "/axolotls/care-guide",
+   "/health/refusing-to-eat",
+   "/health/stress-signs"
   ]
  },
  "/tools/tank-size-calculator": {
@@ -16636,7 +16667,8 @@
   "img_alts": [],
   "words": null,
   "raw_outbound": [
-   "/axolotls/care-guide"
+   "/axolotls/care-guide",
+   "/tank-setup/tank-size-by-age"
   ],
   "_file": "tools\\tank-size-calculator\\index.html",
   "inbound": [
@@ -16768,7 +16800,8 @@
   ],
   "inbound_count": 125,
   "outbound_contextual": [
-   "/axolotls/care-guide"
+   "/axolotls/care-guide",
+   "/tank-setup/tank-size-by-age"
   ]
  },
  "/tools/water-conditioner-dosage-calculator": {
@@ -16798,7 +16831,9 @@
   "schema_types": [],
   "img_alts": [],
   "words": null,
-  "raw_outbound": [],
+  "raw_outbound": [
+   "/tank-setup/water-conditioners"
+  ],
   "_file": "tools\\water-conditioner-dosage-calculator\\index.html",
   "inbound": [
    "/",
@@ -16928,6 +16963,8 @@
    "/tools"
   ],
   "inbound_count": 125,
-  "outbound_contextual": []
+  "outbound_contextual": [
+   "/tank-setup/water-conditioners"
+  ]
  }
 }

@@ -51,11 +51,11 @@ url	title	cluster	role	primary_intent	primary_attribute	border	words	content_in
 /diet/blackworms-for-juveniles	Preparing Blackworms for Juvenile Axolotls | Axolotl Care Guide	diet	procedural	procedural	food	OUTER	1380	2
 /diet/fasting-and-vacation	How Long Can Axolotls Fast? | Axolotl Care Guide	diet	procedural	procedural	feeding	OUTER	2457	2
 /diet/feeder-fish-risks	The Risks of Feeding Feeder Fish to… | Axolotl Care Guide	diet	explanatory	problem-solving	food	CORE	3702	5
-/diet/feeding-schedule-by-age	Axolotl Feeding Frequency by Life Stage… | Axolotl Care Guide	diet	procedural	procedural	feeding	CORE	1763	8
+/diet/feeding-schedule-by-age	Axolotl Feeding Frequency by Life Stage… | Axolotl Care Guide	diet	procedural	procedural	feeding	CORE	1781	9
 /diet/how-to-hand-feed	How to Hand Feed Your Axolotl Safely | Axolotl Care Guide	diet	procedural	procedural	feeding	CORE	2442	2
 /diet/live-vs-frozen-food	Earthworms vs. Bloodworms: Which Is… | Axolotl Care Guide	diet	comparative	comparative	food	CORE	2493	5
 /diet/overfeeding-and-impaction	Axolotl Obesity: Signs, Causes… | Axolotl Care Guide	diet	diagnostic	problem-solving	feeding	CORE	2891	6
-/diet/shrimp-for-axolotls	Can Axolotls Eat Shrimp? | Axolotl Care Guide	diet	explanatory	definitional	food	CORE	2209	2
+/diet/shrimp-for-axolotls	Can Axolotls Eat Shrimp? | Axolotl Care Guide	diet	explanatory	definitional	food	CORE	2209	1
 /diet/vitamin-and-supplement-needs	Do Axolotls Need Vitamin Supplements? A… | Axolotl Care Guide	diet	explanatory	informational	nutrition	CORE	1023	2
 /gifts-and-merch	Axolotl Toy & Gifts: Plushies, Squishmallows, Apparel & More	gifts-and-merch	hub	navigational	merch	PERIPHERAL	None	124
 /gifts-and-merch/axolotl-squishmallow-guide	Every Axolotl Squishmallow: Archie, Sizes & How to Buy	gifts-and-merch	transactional	transactional	merch	PERIPHERAL	807	4
@@ -69,17 +69,17 @@ url	title	cluster	role	primary_intent	primary_attribute	border	words	content_in
 /health/finding-an-exotic-vet	How to Find an Axolotl Vet: What to Look For & How Much It Costs	health	transactional	transactional	veterinary	OUTER	519	2
 /health/fridging-sick-axolotl	When and How to Fridge a Sick Axolotl | Axolotl Care Guide	health	procedural	procedural	treatment	CORE	2989	4
 /health/fungal-infections-saprolegnia	How to Identify and Treat Axolotl Fungus | Axolotl Care Guide	health	diagnostic	diagnostic	disease	CORE	1791	10
-/health/impaction-symptoms-treatment	Axolotl Impaction: Symptoms, Causes & Treatment	health	diagnostic	diagnostic	digestive	CORE	537	2
+/health/impaction-symptoms-treatment	Axolotl Impaction: Symptoms, Causes & Treatment	health	diagnostic	diagnostic	digestive	CORE	537	3
 /health/limb-regeneration	How Axolotl Limb Regeneration Works & What to Expect	health	explanatory	informational	regeneration	ADJACENT	860	3
-/health/malnutrition-signs	Signs of Malnutrition in Axolotls | Axolotl Care Guide	health	diagnostic	diagnostic	nutrition	CORE	1923	3
+/health/malnutrition-signs	Signs of Malnutrition in Axolotls | Axolotl Care Guide	health	diagnostic	diagnostic	nutrition	CORE	1923	4
 /health/minor-scrapes-and-wounds	Treating Minor Axolotl Scrapes & Wounds: What to Do	health	procedural	procedural	treatment	CORE	933	2
-/health/parasite-treatment	Treating Axolotl Parasites | Axolotl Care Guide	health	diagnostic	diagnostic	disease	CORE	1563	2
+/health/parasite-treatment	Treating Axolotl Parasites | Axolotl Care Guide	health	diagnostic	diagnostic	disease	CORE	1563	3
 /health/quarantine-tub	Axolotl Hospital Quarantine Tub: Setup & Care	health	procedural	procedural	treatment	CORE	1024	5
 /health/red-leg-syndrome	Axolotl Red Leg Disease: Signs, Treatment & Prevention	health	diagnostic	diagnostic	disease	CORE	999	3
-/health/refusing-to-eat	Why Is My Axolotl Refusing to Eat? 12… | Axolotl Care Guide	health	diagnostic	diagnostic	appetite	CORE	3347	11
+/health/refusing-to-eat	Why Is My Axolotl Refusing to Eat? 12… | Axolotl Care Guide	health	diagnostic	diagnostic	appetite	CORE	3364	12
 /health/salt-bath	Axolotl Salt Baths: Treating Fungal… | Axolotl Care Guide	health	procedural	procedural	treatment	CORE	2277	3
 /health/shrinking-gills	Why Are My Axolotl's Gills Shrinking? Causes & Fixes	health	diagnostic	diagnostic	gill size	CORE	1076	2
-/health/stress-signs	Axolotl Stress Signs: Curled Gills, Floating & How to Fix It	health	diagnostic	diagnostic	behavior	CORE	576	2
+/health/stress-signs	Axolotl Stress Signs: Curled Gills, Floating & How to Fix It	health	diagnostic	diagnostic	behavior	CORE	596	3
 /health/why-axolotl-floating	Why Is My Axolotl Floating? Causes and… | Axolotl Care Guide	health	diagnostic	diagnostic	behavior	CORE	1588	3
 /legal	Is It Legal to Own an Axolotl? Laws by State & Country (2026)	legal	hub	navigational	legality	OUTER	None	124
 /legal/california	Are Axolotls Legal in California? Laws & Permits (2026)	legal	location-specific	location-specific	legality	OUTER	726	7
@@ -117,11 +117,11 @@ url	title	cluster	role	primary_intent	primary_attribute	border	words	content_in
 /tank-setup/setup-guide	How to Set Up an Axolotl Tank the Right… | Axolotl Care Guide	tank-setup	procedural	procedural	tank	CORE	2869	9
 /tank-setup/substrate-and-impaction	Choosing the Best Axolotl Substrate | Axolotl Care Guide	tank-setup	explanatory	informational	substrate	CORE	4029	5
 /tank-setup/tank-mates	Can Axolotls Live with Fish? Tank-Mates, Explained	tank-setup	explanatory	informational	housing	CORE	601	2
-/tank-setup/tank-size-by-age	Axolotl Tank Size by Age: How Big of a Tank Do You Need?	tank-setup	explanatory	definitional	size	CORE	500	3
+/tank-setup/tank-size-by-age	Axolotl Tank Size by Age: How Big of a Tank Do You Need?	tank-setup	explanatory	definitional	size	CORE	517	4
 /tank-setup/temperature	How to Keep an Axolotl Tank Cool | Axolotl Care Guide	tank-setup	procedural	procedural	temperature	CORE	5826	5
 /tank-setup/uneaten-food-and-ammonia	Why Uneaten Food Causes Ammonia in an… | Axolotl Care Guide	tank-setup	explanatory	problem-solving	ammonia	CORE	2449	3
-/tank-setup/water-conditioners	Axolotl Water Conditioner: Creating Safe… | Axolotl Care Guide	tank-setup	procedural	procedural	water	CORE	4417	3
-/tank-setup/water-parameters-cycling	Managing Ammonia and Nitrate Spikes in… | Axolotl Care Guide	tank-setup	explanatory	informational	water	CORE	4924	15
+/tank-setup/water-conditioners	Axolotl Water Conditioner: Creating Safe… | Axolotl Care Guide	tank-setup	procedural	procedural	water	CORE	4434	4
+/tank-setup/water-parameters-cycling	Managing Ammonia and Nitrate Spikes in… | Axolotl Care Guide	tank-setup	explanatory	informational	water	CORE	5305	16
 /tank-setup/why-tank-water-smells	Why Does My Axolotl Tank Water Stink? | Axolotl Care Guide	tank-setup	diagnostic	problem-solving	water	CORE	2074	2
 /tools	Axolotl Tools & Calculators	tools	tool	tool/calculator	tools	FUNCTIONAL	None	124
 /tools/feeding-schedule-generator	Axolotl Feeding Schedule Generator	tools	tool	tool/calculator	feeding	OUTER	None	125
