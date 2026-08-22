@@ -1001,7 +1001,7 @@ def convert_docx(path, slug=None):
                 title = t
             break
     if title is None:
-        title = "Axolotl Care Guide"
+        title = "MyAxolotl"
     title = re.sub(r"\s+", " ", title).strip()
     # Drop the title heading if it duplicated as the first body heading
     title_esc = re.escape(title)

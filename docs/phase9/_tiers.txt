@@ -1,0 +1,131 @@
+pages: 124 | tier dist: {1: 21, 3: 59, 2: 44}
+
+TIER 1 21
+   axo /axolotl-in-culture                        HUB                                Axolotls in Pop Culture: Minecraft, Memes & More
+   axo /axolotls                                  HUB                                Axolotls: Complete Care & Biology Guide (2026)
+   bio /biology-and-science                       HUB                                Axolotl Biology: Anatomy, Neoteny & Regeneration Science
+   bre /breeding                                  HUB                                How to Breed Axolotls: Complete Breeding Guide (2026)
+   bre /breeding/color-genetics-punnett-squares     9 in/3 out                       Axolotl Color Genetics: Punnett Squares Explained
+   car /care-basics                               HUB                                Axolotl Care Basics: Facts, Behavior & Beginner Tips
+   cos /cost-and-buying                           HUB                                Axolotl Cost: Price, Monthly Budget & Where to Buy (2026)
+   die /diet                                      HUB                                Axolotl Food: What to Feed & How Often
+   die /diet/feeding-schedule-by-age                11 in/3 out                      Axolotl Feeding Frequency by Life Stage… | Axolotl Care Gu
+   gif /gifts-and-merch                           HUB                                Axolotl Toy & Gifts: Plushies, Squishmallows, Apparel & Mo
+   hea /health                                    HUB                                Axolotl Health Problems: Symptoms & Treatment
+   hea /health/fungal-infections-saprolegnia        10 in/4 out                      How to Identify and Treat Axolotl Fungus | Axolotl Care Gu
+   hea /health/refusing-to-eat                      11 in/2 out                      Why Is My Axolotl Refusing to Eat? 12… | Axolotl Care Guid
+   leg /legal                                     HUB                                Is It Legal to Own an Axolotl? Laws by State & Country (20
+   mor /morphs                                    HUB                                Axolotl Morphs: Colors, Types & Genetics Explained
+   mor /morphs/leucistic                            10 in/6 out                      Leucistic Axolotl: Color, Genetics & How to Spot a Dirty L
+   mor /morphs/wild-type                            9 in/4 out                       Wild Type Axolotl: Color, Genetics & How to Identify One
+   tan /tank-setup                                HUB                                Axolotl Tank Setup Guide: Size, Filter, Substrate, Water
+   tan /tank-setup/setup-guide                      9 in/4 out                       How to Set Up an Axolotl Tank the Right… | Axolotl Care Gu
+   tan /tank-setup/water-parameters-cycling         16 in/2 out                      Managing Ammonia and Nitrate Spikes in… | Axolotl Care Gui
+   too /tools                                     HUB                                Axolotl Tools & Calculators
+
+TIER 2 44
+   axo /axolotl-in-culture/minecraft-axolotls-gui   5 in/3 out                       Minecraft Axolotls: Spawning, Colors & How to Catch Them
+   axo /axolotl-in-culture/why-axolotls-are-sudde   4 in/4 out                       Why Are Axolotls So Popular? The Rise of a Cute Endangered
+   axo /axolotls/care-guide                         7 in/4 out                       Axolotl Care Guide: Tank Setup, Water… | Axolotl Care Guid
+   bio /biology-and-science/anatomy-gills-and-lun   6 in/6 out                       Do Axolotls Have Lungs? Anatomy of Gills & Breathing
+   bio /biology-and-science/conservation-status     5 in/4 out                       Axolotl Conservation Status: Critically Endangered, Explai
+   bio /biology-and-science/is-axolotl-amphibian    4 in/2 out                       Is an Axolotl an Amphibian? Yes - Here's Why
+   bio /biology-and-science/neoteny                 6 in/2 out                       What Is Neoteny? Why Axolotls Never Grow Up
+   bio /biology-and-science/regeneration-and-limb   4 in/4 out                       Axolotl Regeneration: How They Regrow Limbs & Body Parts
+   bio /biology-and-science/wild-habitat-xochimil   4 in/2 out                       Axolotl Habitat: Life in Xochimilco, Mexico City
+   bre /breeding/breeding-triggers-temperature-cy   4 in/2 out                       How to Trigger Axolotl Breeding: Temperature & Light Cycli
+   bre /breeding/egg-and-larvae-care                6 in/4 out                       Axolotl Egg Care: Hatching Time, Setup & Feeding Larvae
+   bre /breeding/raising-juveniles                  6 in/4 out                       Raising Baby Axolotls: Feeding, Growth & Rehoming Juvenile
+   car /care-basics/are-axolotls-good-beginner-pe   5 in/4 out                       Are Axolotls Good Pets for Beginners? Honest Pros & Cons
+   car /care-basics/axolotl-facts                   4 in/3 out                       Axolotl Facts: 25 Amazing Things You Need to Know (2026)
+   cos /cost-and-buying/axolotl-price-by-morph      6 in/3 out                       Axolotl Price by Morph: Cost Guide for Every Color (2026)
+   cos /cost-and-buying/breeder-vs-pet-store        4 in/2 out                       Axolotl Breeder vs Pet Store: Where to Buy (2026)
+   cos /cost-and-buying/choosing-a-reputable-bree   4 in/2 out                       How to Choose an Axolotl Breeder: 12 Questions to Ask
+   cos /cost-and-buying/how-to-choose-a-healthy-a   4 in/2 out                       How to Choose a Healthy Axolotl: Signs to Check Before Buy
+   die /diet/best-foods-list                        7 in/4 out                       What Do Axolotls Eat? The Complete Diet… | Axolotl Care Gu
+   die /diet/feeder-fish-risks                      5 in/2 out                       The Risks of Feeding Feeder Fish to… | Axolotl Care Guide
+   die /diet/live-vs-frozen-food                    5 in/3 out                       Earthworms vs. Bloodworms: Which Is… | Axolotl Care Guide
+   die /diet/overfeeding-and-impaction              6 in/3 out                       Axolotl Obesity: Signs, Causes… | Axolotl Care Guide
+   gif /gifts-and-merch/axolotl-squishmallow-guid   4 in/2 out                       Every Axolotl Squishmallow: Archie, Sizes & How to Buy
+   gif /gifts-and-merch/best-axolotl-toys-and-plu   5 in/3 out                       Best Axolotl Toys & Plushies: Stuffed Animals & More (2026
+   hea /health/black-tea-bath                       4 in/2 out                       Black Tea Bath for Axolotls… | Axolotl Care Guide
+   hea /health/curled-gills-stress-signal           5 in/5 out                       Curled Axolotl Gills & Tail Tip: Stress Signals & Fixes
+   hea /health/fridging-sick-axolotl                4 in/2 out                       When and How to Fridge a Sick Axolotl | Axolotl Care Guide
+   hea /health/malnutrition-signs                   4 in/3 out                       Signs of Malnutrition in Axolotls | Axolotl Care Guide
+   hea /health/quarantine-tub                       5 in/3 out                       Axolotl Hospital Quarantine Tub: Setup & Care
+   hea /health/stress-signs                         4 in/4 out                       Axolotl Stress Signs: Curled Gills, Floating & How to Fix 
+   hea /health/why-axolotl-floating                 4 in/2 out                       Why Is My Axolotl Floating? Causes and… | Axolotl Care Gui
+   leg /legal/california                            7 in/4 out                       Are Axolotls Legal in California? Laws & Permits (2026)
+   leg /legal/canada                                5 in/4 out                       Are Axolotls Legal in Canada? Import Rules by Province (20
+   leg /legal/maine                                 5 in/4 out                       Are Axolotls Legal in Maine? Permit Rules Explained (2026)
+   leg /legal/virginia                              6 in/4 out                       Are Axolotls Legal in Virginia? Laws Explained (2026)
+   mor /morphs/chimera                              6 in/4 out                       Chimera Axolotl: The Rarest Morph, Explained
+   mor /morphs/pigment-cells                        4 in/4 out                       Axolotl Pigment Cells: Chromatophores, Melanophores & More
+   tan /tank-setup/aquarium-chillers                5 in/2 out                       Best Aquarium Chillers for Axolotls | Axolotl Care Guide
+   tan /tank-setup/filtration-for-axolotls          4 in/2 out                       Best Filter for Axolotl Tanks: Types… | Axolotl Care Guide
+   tan /tank-setup/lighting-for-axolotls            4 in/2 out                       Axolotl Tank Lighting Requirements | Axolotl Care Guide
+   tan /tank-setup/substrate-and-impaction          5 in/2 out                       Choosing the Best Axolotl Substrate | Axolotl Care Guide
+   tan /tank-setup/tank-size-by-age                 4 in/4 out                       Axolotl Tank Size by Age: How Big of a Tank Do You Need?
+   tan /tank-setup/temperature                      5 in/2 out                       How to Keep an Axolotl Tank Cool | Axolotl Care Guide
+   tan /tank-setup/water-conditioners               4 in/5 out                       Axolotl Water Conditioner: Creating Safe… | Axolotl Care G
+
+TIER 3 59
+   axo /axolotl-in-culture/adopt-me-axolotl-guide   2 in/3 out                       Axolotl in Adopt Me: How to Get One & All Colors (2026)
+   axo /axolotl-in-culture/axolotl-in-pop-culture   2 in/3 out                       Axolotl in Pop Culture: Memes, Games, TV & Why They're Fam
+   bio /biology-and-science/axolotl-vs-tiger-sala   3 in/2 out                       Axolotl vs Tiger Salamander: Key Differences Explained
+   bio /biology-and-science/lifespan-wild-vs-capt   2 in/2 out                       Axolotl Lifespan: How Long Do Axolotls Live?
+   bre /breeding/genetics-and-inbreeding            3 in/2 out                       Axolotl Genetics & Inbreeding Risk: What Breeders Must Kno
+   bre /breeding/sexing-axolotls                    2 in/2 out                       How to Tell Axolotl Gender: Male vs Female Cloaca Guide
+   car /care-basics/axolotl-age-and-size-chart      2 in/3 out                       Axolotl Age & Size Chart: How Big They Get at Every Stage
+   car /care-basics/axolotl-intelligence-and-bond   2 in/2 out                       Do Axolotls Recognize Their Owners? Bonding & Intelligence
+   car /care-basics/axolotls-and-children           3 in/4 out                       Are Axolotls Good Pets for Kids? What Parents Must Know
+   car /care-basics/behavior                        3 in/3 out                       Axolotl Behavior Explained: What Every Owner Should Know
+   car /care-basics/cost-of-ownership-monthly       3 in/4 out                       Axolotl Monthly Cost: Budget for Food, Water & Supplies (2
+   car /care-basics/handling                        3 in/3 out                       How to Hold an Axolotl: Safe Handling, Netting & Transport
+   car /care-basics/how-to-pronounce-axolotl        2 in/2 out                       How to Pronounce Axolotl: Correct Way & Common Mistakes
+   car /care-basics/keeping-multiple-axolotls       3 in/3 out                       Can Axolotls Live Together? Housing Multiple Axolotls Safe
+   cos /cost-and-buying/red-flags-when-buying       3 in/2 out                       Axolotl Seller Red Flags: How to Spot Scams and Bad Breede
+   cos /cost-and-buying/shipping-live-axolotls      2 in/2 out                       How Are Axolotls Shipped: What to Expect
+   die /diet/axolotl-pellets                        2 in/2 out                       Best Axolotl Pellets and Commercial Foods | Axolotl Care G
+   die /diet/beef-heart                             2 in/2 out                       Can Axolotls Eat Beef Heart? | Axolotl Care Guide
+   die /diet/blackworms-for-juveniles               3 in/3 out                       Preparing Blackworms for Juvenile Axolotls | Axolotl Care 
+   die /diet/fasting-and-vacation                   2 in/2 out                       How Long Can Axolotls Fast? | Axolotl Care Guide
+   die /diet/how-to-hand-feed                       2 in/2 out                       How to Hand Feed Your Axolotl Safely | Axolotl Care Guide
+   die /diet/shrimp-for-axolotls                    2 in/3 out                       Can Axolotls Eat Shrimp? | Axolotl Care Guide
+   die /diet/vitamin-and-supplement-needs           2 in/2 out                       Do Axolotls Need Vitamin Supplements? A… | Axolotl Care Gu
+   gif /gifts-and-merch/best-axolotl-lego-sets      2 in/2 out                       LEGO Axolotl Sets: Minecraft The Axolotl House Explained
+   gif /gifts-and-merch/build-a-bear-axolotl-guid   3 in/2 out                       Build-A-Bear Axolotl: Every Model, Price & How to Customiz
+   hea /health/ammonia-burns                        2 in/3 out                       Axolotl Ammonia Burn: Signs, Stages & Treatment
+   hea /health/finding-an-exotic-vet                2 in/4 out                       How to Find an Axolotl Vet: What to Look For & How Much It
+   hea /health/impaction-symptoms-treatment         3 in/4 out                       Axolotl Impaction: Symptoms, Causes & Treatment
+   hea /health/limb-regeneration                    3 in/3 out                       How Axolotl Limb Regeneration Works & What to Expect
+   hea /health/minor-scrapes-and-wounds             3 in/3 out                       Treating Minor Axolotl Scrapes & Wounds: What to Do
+   hea /health/parasite-treatment                   3 in/5 out                       Treating Axolotl Parasites | Axolotl Care Guide
+   hea /health/red-leg-syndrome                     3 in/3 out                       Axolotl Red Leg Disease: Signs, Treatment & Prevention
+   hea /health/salt-bath                            3 in/2 out                       Axolotl Salt Baths: Treating Fungal… | Axolotl Care Guide
+   hea /health/shrinking-gills                      3 in/4 out                       Why Are My Axolotl's Gills Shrinking? Causes & Fixes
+   leg /legal/hawaii                                2 in/3 out                       Are Axolotls Legal in Hawaii? Import Rules Explained (2026
+   leg /legal/new-jersey                            3 in/3 out                       Are Axolotls Legal in New Jersey? Laws Explained (2026)
+   leg /legal/new-mexico                            2 in/3 out                       Are Axolotls Legal in New Mexico? Import Permit (2026)
+   mor /morphs/blue-and-pink-axolotl-myth           2 in/3 out                       Blue and Pink Axolotls: The Myth Explained (No Blue Morph 
+   mor /morphs/copper                               2 in/4 out                       Copper Axolotl: Color, Genetics & How to Breed Them
+   mor /morphs/enigma-firefly-mac                   3 in/3 out                       Enigma, MAC & Firefly Axolotls: Rare Morphs and the Ethics
+   mor /morphs/gfp-axolotl                          2 in/2 out                       What Is a GFP Axolotl? Care, Setup & Why They Glow
+   mor /morphs/golden-albino                        3 in/3 out                       Golden Albino Axolotl: Genetics, Price & Care Guide
+   mor /morphs/melanoid                             3 in/3 out                       Melanoid Axolotl: Genetics & How to Identify One
+   mor /morphs/morphs-comparison-chart              3 in/3 out                       Axolotl Morphs Comparison Chart: All Colors at a Glance
+   mor /morphs/mosaic                               2 in/3 out                       Mosaic Axolotl: The Patchy Rare Morph, Explained
+   mor /morphs/piebald                              2 in/4 out                       Piebald Axolotl: Genetics, Price & How It's Different
+   tan /tank-setup/acclimating-a-new-axolotl        2 in/3 out                       How to Acclimate a New Axolotl: Step-by-Step
+   tan /tank-setup/canister-vs-sponge-filter        2 in/2 out                       Canister Filters vs. Sponge Filters for… | Axolotl Care Gu
+   tan /tank-setup/gravel-risks                     3 in/2 out                       The Dangers of Sharp Gravel for Axolotls | Axolotl Care Gu
+   tan /tank-setup/hides-and-caves                  3 in/2 out                       Best Hides and Caves for Axolotls | Axolotl Care Guide
+   tan /tank-setup/live-vs-artificial-plants        3 in/2 out                       Live Plants vs. Fake Plants for Axolotl… | Axolotl Care Gu
+   tan /tank-setup/tank-mates                       2 in/3 out                       Can Axolotls Live with Fish? Tank-Mates, Explained
+   tan /tank-setup/uneaten-food-and-ammonia         3 in/2 out                       Why Uneaten Food Causes Ammonia in an… | Axolotl Care Guid
+   tan /tank-setup/why-tank-water-smells            2 in/2 out                       Why Does My Axolotl Tank Water Stink? | Axolotl Care Guide
+   too /tools/feeding-schedule-generator            0 in/2 out                       Axolotl Feeding Schedule Generator
+   too /tools/nitrogen-cycle-tracker                0 in/1 out                       Axolotl Nitrogen Cycle Tracker — Free Tank Cycling Progres
+   too /tools/symptom-checker                       0 in/3 out                       Axolotl Symptom Checker
+   too /tools/tank-size-calculator                  0 in/2 out                       Axolotl Tank Size Calculator
+   too /tools/water-conditioner-dosage-calculator   0 in/1 out                       Axolotl Water Conditioner Dosage Calculator | Precise Dosi

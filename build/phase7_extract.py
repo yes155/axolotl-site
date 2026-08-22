@@ -17,7 +17,7 @@ import html as htmlmod
 ROOT = os.path.dirname(os.path.abspath(__file__))
 PUBLIC = os.path.normpath(os.path.join(ROOT, "..", "public"))
 OUT = os.path.normpath(os.path.join(ROOT, "..", "docs", "phase7"))
-SITE = "https://axolotlcare.example.com"
+SITE = "https://myaxolotl.us"
 
 BLOCK_STRIP = re.compile(r"<(script|style|noscript)[^>]*>.*?</\1>", re.S)
 TAG_RE = re.compile(r"<[^>]+>")

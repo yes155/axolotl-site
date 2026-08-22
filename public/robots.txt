@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://axolotlcare.example.com/sitemap.xml
+Sitemap: https://myaxolotl.us/sitemap.xml

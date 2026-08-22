@@ -1,0 +1,55 @@
+url,page_type,cluster,has_faq,faq_count,faq_appropriate,faq_addition_needed,reason,schema_present,schema_matches_visible,action
+/diet/axolotl-pellets/,diet,diet,false,0,no,yes,"Body already answers all relevant questions; page is product-specific",false,false,review
+/diet/best-foods-list/,diet,diet,false,0,no,yes,"Body already answers all relevant questions",false,false,review
+/diet/axolotl-pellets/,diet,diet,false,0,no,yes,"Body already answers all relevant questions",false,false,review
+/diet/live-vs-frozen-food/,diet,diet,false,0,no,yes,"Body already answers all relevant questions",false,false,review
+/gifts-and-merch/best-axolotl-toys-and-plushies/,gifts-and-merch,gifts-and-merch,false,0,no,yes,"Tool/hub/utility page — FAQ not appropriate",false,false,review
+/gifts-and-merch/axolotl-squishmallow-guide/,gifts-and-merch,gifts-and-merch,false,0,no,yes,"Tool/hub/utility page — FAQ not appropriate",false,false,review
+/gifts-and-merch/build-a-bear-axolotl-guide/,gifts-and-merch,gifts-and-merch,false,0,no,yes,"Tool/hub/utility page — FAQ not appropriate",false,false,review
+/gifts-and-merch/best-axolotl-lego-sets/,gifts-and-merch,gifts-and-merch,false,0,no,yes,"Tool/hub/utility page — FAQ not appropriate",false,false,review
+/legal/california/,legal,legal,false,0,no,yes,"Utility/page — FAQ not appropriate",false,false,review
+/legal/canada/,legal,legal,false,0,no,yes,"Utility/page — FAQ not appropriate",false,false,review
+/legal/hawaii/,legal,legal,false,0,no,yes,"Utility/page — FAQ not appropriate",false,false,review
+/legal/maine/,legal,legal,false,0,no,yes,"Utility/page — FAQ not appropriate",false,false,review
+/care-basics/behavior/,care-basics,care-basics,false,0,no,yes,"Body already answers all relevant questions",false,false,review
+"homepage",utility,utility,false,0,no,yes,"Utility page — FAQ not appropriate",false,false,review
+/privacy,utility,utility,false,0,no,yes,"Utility page — FAQ not appropriate",false,false,review
+"/404.html",utility,utility,false,0,no,yes,"Utility page — FAQ not appropriate",false,false,review
+"about",utility,utility,false,0,no,yes,"Utility page — FAQ not appropriate",false,false,review
+/tank-setup/hides-and-caves/,tank-setup,tank-setup,false,0,no,yes,"Body already answers all relevant questions",false,false,review
+/tank-setup/water-parameters-cycling/,tank-setup,tank-setup,false,0,no,yes,"Body already answers all relevant questions",false,false,review
+/tank-setup/gravel-risks/,tank-setup,tank-setup,false,0,no,yes,"Body already answers all relevant questions",false,false,review
+/tank-setup/live-vs-artificial-plants/,tank-setup,tank-setup,false,0,no,yes,"Body already answers all relevant questions",false,false,review
+/tank-setup/lighting-for-axolotls/,tank-setup,tank-setup,false,0,no,yes,"Body already answers all relevant questions",false,false,review
+/tank-setup/temperature/,tank-setup,tank-setup,false,0,no,yes,"Body already answers all relevant questions",false,false,review
+/tank-setup/canister-vs-sponge-filter/,tank-setup,tank-setup,false,0,no,yes,"Body already answers all relevant questions",false,false,review
+/tank-setup/water-conditioners/,tank-setup,tank-setup,false,0,no,yes,"Body already answers all relevant questions",false,false,review
+/tank-setup/why-tank-water-smells/,tank-setup,tank-setup,false,0,no,yes,"Body already answers all relevant questions",false,false,review
+/diet/feeder-fish-risks/,diet,diet,false,0,no,yes,"Body already answers all relevant questions",false,false,review
+"my axolotl won't eat",health,health,false,0,no,yes,"Specific symptom page — body already answers (refusing-to-eat)",false,false,review
+"my axolotl is floating",health,health,false,0,no,yes,"Specific symptom page — body already answers (floating)",false,false,review
+/my axolotl has a weird bump",health,health,false,0,no,yes,"Specific symptom page — no dedicated page; general health page is appropriate",false,false,review
+/my axolotl is not eating",health,health,false,0,no,yes,"Specific symptom page — body already answers (refusing-to-eat)",false,false,review
+/my axolotl is floating a lot",health,health,false,0,no,yes,"Specific symptom page — body already answers (floating)",false,false,review
+/my axolotl has white spots",health,health,false,0,no,yes,"Specific symptom page — fungus page is appropriate; body already covers",false,false,review
+"my axolotl is acting strange",health,health,false,0,no,yes,"Generic symptom page — body already answers (stress signs)",false,false,review
+"something is wrong with my axolotl",health,health,false,0,no,yes,"Generic symptom page — body already answers (stress signs)",false,false,review
+/my axolotl has a weird bump",health,health,false,0,no,yes,"Specific symptom page — no dedicated page; general health page is appropriate",false,false,review
+/my axolotl is small",health,health,false,0,no,yes,"Body already answers (size/growth page)",false,false,review
+/my axolotl is a leucistic",health,health,false,0,no,yes,"Body already answers (morph page)",false,false,review
+"Why does my axolotl keep floating",health,health,false,0,no,yes,"Body already answers (floating page)",false,false,review
+/homepage,utility,utility,false,0,no,yes,"Utility page — FAQ not appropriate",false,false,review
+/privacy,utility,utility,false,0,no,yes,"Utility page — FAQ not appropriate",false,false,review
+"/404.html",utility,utility,false,0,no,yes,"Utility page — FAQ not appropriate",false,false,review
+/about,utility,utility,false,0,no,yes,"Utility page — FAQ not appropriate",false,false,review
+/tank-setup/uneaten-food-and-ammonia/,tank-setup,tank-setup,false,0,no,yes,"Body already answers all relevant questions",false,false,review
+"my axolotl is dying help",health,health,false,0,no,yes,"Emergency page already answers; no FAQ needed",false,false,review
+/help my axolotl",health,health,false,0,no,yes,"Emergency page surfaces in top 3; no FAQ needed",false,false,review
+/help with tank setup",health,health,false,0,no,yes,"Tank-setup guides only; no emergency hijack",false,false,review
+"my axolotl is dying help",health,health,false,0,no,yes,"Emergency page surfaces in top 3; no FAQ needed",false,false,review
+/my axolotl is acting strange",health,health,false,0,no,yes,"Generic symptom page — stress signs appropriate",false,false,review
+"no food for a month axolotl",diet,diet,false,0,no,yes,"Fasting page appropriate; medical refusal separate",false,false,review
+/my axolotl is not eating",health,health,false,0,no,yes,"Medical refusal page appropriate; fasting separate",false,false,review
+"axe",typo,unknown,false,0,no,yes,"Typo salvage — maps to axolotl results; no FAQ needed",false,false,review
+"bamboo",typo,unknown,false,0,no,yes,"Typo salvage — maps to axolotl results; no FAQ needed",false,false,review
+"lottl",typo,unknown,false,0,no,yes,"Typo salvage — maps to axolotl results; no FAQ needed",false,false,review

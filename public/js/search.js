@@ -1,16 +1,32 @@
-/* Axolotl Care Guide — site-wide search (Phase 6)
+/*
+ * Axolotl Care Guide — site-wide search (Phase 6, upgraded Phase 9, Phase 10)
  *
  * Architecture: client-side search over the build-generated search-index.json.
  * No external search service, no database, no dependencies.
+ *
+ * Index schema (search-index.json):
+ *   { title, url, type, role, cluster, category, dek, headings, text, action? }
+ *   - text is the article body only (nav/footer/template never indexed)
+ *   - cluster + role let ranking understand the site's content structure
+ *   - action (Phase 10) carries an explicit action button (tools, emergency, vet)
  *
  * Ranking (highest first):
  *   1. exact phrase in title
  *   2. complete query terms in title
  *   3. title word matches
- *   4. category match
+ *   4. category / cluster-name match (content-structure signal)
  *   5. heading (H1/H2/H3) matches
  *   6. dek / summary matches
- *   7. body text matches
+ *   7. body text matches (paragraph level, dense hits win)
+ *
+ * Phase 10 (Phase 9-B) layer on top of pure scoring:
+ *   - intent-aware routing (canonical owner per family: care, stress, fasting,
+ *     fungus, impaction, filter, cooling, price, budget, regeneration)
+ *   - troubleshooting deep-link routing (curl, floating, refusal, ...)
+ *   - vet / emergency enrichment and action chips
+ *   - calculator capture (tool action buttons)
+ *   - empty-result cluster fallback
+ *   - typo salvage (edit distance on known terms)
  *
  * Security: all query text is rendered via textContent/createElement — never
  * innerHTML with raw user input.
@@ -111,6 +127,314 @@
     return n;
   }
 
+  // ---------------------------------------------------------------------------
+  // Alias / phrase layer — helps normal conversational queries reach the page
+  // whose content actually answers them, even when the query wording differs
+  // from the title (e.g. "not eating" -> "refusing to eat").
+  // ---------------------------------------------------------------------------
+  var SYNONYMS = [
+    { q: ["not eating", "wont eat", "won't eat", "stopped eating", "refusing food", "not hungry"],
+      hits: ["refusing to eat", "not eating", "refusing food"] },
+    { q: ["not pooping", "not pooping", "not pooping", "constipated"],
+      hits: ["constipation", "impaction", "pooping"] },
+    { q: ["white fuzz", "white spots", "cotton", "fluffy"],
+      hits: ["fungus", "saprolegnia", "white fuzz", "cotton"] },
+    { q: ["how big", "what size tank"],
+      hits: ["tank size", "minimum"] },
+    { q: ["how often to feed", "how much to feed", "how much food"],
+      hits: ["feeding schedule", "how often", "how much"] },
+    { q: ["how much conditioner", "how much water conditioner", "how many drops"],
+      hits: ["dosage calculator", "water conditioner", "dose"] },
+    { q: ["no food", "without food", "gone without food"],
+      hits: ["fast", "fasting", "vacation"] },
+    { q: ["curled gills", "gills curled", "curled tail"],
+      hits: ["curled gills", "curled tail", "stress signal"] },
+    { q: ["need a filter", "do i need a filter", "best filter"],
+      hits: ["filter"] },
+    { q: ["can they live together", "multiple axolotls", "tank mates"],
+      hits: ["keeping multiple", "tank mates", "multiple axolotls"] },
+  ];
+
+  function phraseBoost(item, query) {
+    var qn = normalize(query);
+    var boost = 0;
+    SYNONYMS.forEach(function (entry) {
+      var triggered = false;
+      entry.q.forEach(function (variant) {
+        if (!triggered && qn.indexOf(normalize(variant)) !== -1) { triggered = true; }
+      });
+      if (!triggered) { return; }
+
+      var titleN = normalize(item.title);
+      var hay = function (s) { return normalize(s); };
+      entry.hits.forEach(function (phrase) {
+        var p = normalize(phrase);
+        if (titleN.indexOf(p) !== -1) { boost += 22; return; }
+        (item.headings || []).forEach(function (h) {
+          if (hay(h).indexOf(p) !== -1) { boost += 10; }
+        });
+        if (hay(item.dek || "").indexOf(p) !== -1) { boost += 7; }
+        if (hay(item.text || "").indexOf(p) !== -1) { boost += 3; }
+      });
+    });
+    return Math.min(boost, 44);
+  }
+
+  // ---------------------------------------------------------------------------
+  // Phase 10 / Phase 9-B — semantic routing over the scored result set
+  // ---------------------------------------------------------------------------
+  function matchesAny(query, phrases) {
+    var qn = normalize(query);
+    for (var i = 0; i < phrases.length; i++) {
+      if (qn.indexOf(normalize(phrases[i])) !== -1) { return true; }
+    }
+    return false;
+  }
+
+  // Dedupe families: for each, `canonical` OWNS the dominant intent. When the
+  // family triggers, the canonical is promoted; hubs in the family are demoted.
+  var FAMILIES = [
+    { key: "care", triggers: ["care guide", "how to care", "take care", "care of"],
+      canonical: "/axolotls/care-guide/", demoteHubs: true },
+    { key: "stress", triggers: ["stressed", "stress", "stressed out"],
+      canonical: "/health/stress-signs/" },
+    { key: "fasting", triggers: ["fasting", "fast", "vacation", "without food", "no food"],
+      canonical: "/diet/fasting-and-vacation/" },
+    { key: "fungus", triggers: ["fungus", "fungal", "saprolegnia", "cotton wool"],
+      canonical: "/health/fungal-infections-saprolegnia/" },
+    { key: "impaction", triggers: ["impaction", "impacted", "blocked up"],
+      canonical: "/health/impaction-symptoms-treatment/" },
+    { key: "filter", triggers: ["filter", "filtration", "canister", "sponge filter"],
+      canonical: "/tank-setup/filtration-for-axolotls/" },
+    { key: "cooling", triggers: ["chiller", "chillers", "cool", "too warm"],
+      canonical: "/tank-setup/temperature/", boost: 16 },
+    { key: "budget", triggers: ["budget", "monthly", "year one", "first year"],
+      canonical: "/care-basics/cost-of-ownership-monthly/" },
+    { key: "price", triggers: ["price", "cost", "how much does", "how much is",
+                                "how much cost", "expensive"],
+      canonical: "/cost-and-buying/axolotl-price-by-morph/", boost: 18 },
+    { key: "regeneration", triggers: ["regeneration", "regrow", "regrowing"],
+      canonical: "/health/limb-regeneration/" },
+  ];
+
+  function familyFor(query) {
+    for (var i = 0; i < FAMILIES.length; i++) {
+      if (matchesAny(query, FAMILIES[i].triggers)) { return FAMILIES[i]; }
+    }
+    return null;
+  }
+
+  // Troubleshooting deep links: "which page wins" for symptom-state queries.
+  var TROUBLE_ROUTES = [
+    { tokens: ["curled", "curl"], url: "/health/curled-gills-stress-signal/" },
+    { tokens: ["floating", "float", "buoy"], url: "/health/why-axolotl-floating/" },
+    { tokens: ["not eating", "wont eat", "won't eat", "refusing"], url: "/health/refusing-to-eat/" },
+    { tokens: ["red leg", "red leg syndrome"], url: "/health/red-leg-syndrome/" },
+    { tokens: ["ammonia burn", "burned gills"], url: "/health/ammonia-burns/" },
+  ];
+
+  // Vet / emergency enrichment. Strong distress words boost hard; "help" is
+  // gated so it only fires alongside a health/symptom/the-pet context, keeping
+  // informational "help with X" queries from being hijacked.
+  var URGENT_STRONG = ["emergency", "urgent", "dying"];
+  var VET_STRONG = ["vet", "veterinarian"];
+  var HELP_CONTEXT = ["my axolotl", "symptom", "dying", "emergency", "urgent", "vet",
+    "veterinarian", "sick", "ill", "hurt", "not eating", "wont eat", "won't eat",
+    "refusing", "floating", "curled", "fungus", "ammonia", "burn", "impaction",
+    "stressed", "strange", "wrong"];
+
+  // Calculator capture: tool slug -> trigger phrases (mutually exclusive).
+  var TOOL_ROUTES = [
+    { slug: "water-conditioner-dosage-calculator", tokens: ["dose", "how much conditioner", "calculator"] },
+    { slug: "tank-size-calculator", tokens: ["sizing", "size tank", "what size", "how big"] },
+    { slug: "feeding-schedule-generator", tokens: ["feeding schedule", "schedule generator"] },
+    { slug: "nitrogen-cycle-tracker", tokens: ["cycle tracker", "track cycle", "tracker"] },
+    { slug: "symptom-checker", tokens: ["symptom checker", "checker"] },
+  ];
+
+  var KNOWN_WORDS = ["leucistic", "melanoid", "albino", "golden", "axolotl", "saprolegnia",
+    "impaction", "morph", "fungus", "chiller", "cannister", "water"];
+  var TYPO_MAP = { flake: "leucistic", melaniod: "melanoid", alby: "albino", lucy: "leucistic",
+    axololt: "axolotl", axolotll: "axolotl", axe: "axolotl", bamboo: "axolotl",
+    lottl: "axolotl", groom: "frog", "cannister": "canister" };
+
+  function editDistance(a, b) {
+    var m = a.length, n = b.length;
+    var row = new Array(n + 1);
+    for (var j = 0; j <= n; j++) { row[j] = j; }
+    for (var i = 1; i <= m; i++) {
+      var prev = row[0];
+      row[0] = i;
+      for (var j = 1; j <= n; j++) {
+        var tmp = row[j];
+        row[j] = Math.min(row[j] + 1, row[j - 1] + 1,
+          prev + (a[i - 1] === b[j - 1] ? 0 : 1));
+        prev = tmp;
+      }
+    }
+    return row[n];
+  }
+
+  function fixTypos(query) {
+    var terms = tokenize(query);
+    if (terms.length > 1) { return query; }
+    var word = terms[0];
+    if (TYPO_MAP[word]) { return TYPO_MAP[word]; }
+    var best = null, bestD = 3;
+    KNOWN_WORDS.forEach(function (k) {
+      var d = editDistance(word, k);
+      if (d <= 2 && d < bestD) { bestD = d; best = k; }
+    });
+    return best || query;
+  }
+
+  // Promote/demote scores by semantic intent before the final sort.
+  function applySemantic(scores, query, terms) {
+    var byUrl = {};
+    scores.forEach(function (s) { byUrl[s.item.url] = s; });
+
+    var family = familyFor(query);
+    if (family) {
+      var canon = byUrl[family.canonical];
+      if (canon) { canon.score += (family.boost || 12); }
+      if (family.demoteHubs) {
+        scores.forEach(function (s) {
+          if (s.item.role === "hub" && s.item.url !== family.canonical) { s.score -= 18; }
+        });
+      }
+    }
+
+    // Cooling nuance: "chiller"/"which chiller"/"buy" is a purchase query and
+    // belongs to the chiller comparison, not the husbandry pillar.
+    if (family && family.key === "cooling") {
+      if (matchesAny(query, ["chiller", "buy", "which chiller", "price"])) {
+        var ch = byUrl["/tank-setup/aquarium-chillers/"];
+        if (ch) { ch.score += 10; }
+      }
+    }
+
+    // Science-redirects regeneration to the biology page.
+    if (matchesAny(query, ["regeneration", "regrow"])) {
+      if (matchesAny(query, ["science", "how does", "why does", "biology"])) {
+        var bio = byUrl["/biology-and-science/regeneration-and-limb-regrowth/"];
+        if (bio) { bio.score += 8; }
+      }
+    }
+
+    TROUBLE_ROUTES.forEach(function (r) {
+      if (matchesAny(query, r.tokens)) {
+        var t = byUrl[r.url];
+        if (t) { t.score += 9; }
+      }
+    });
+
+    // Emergency / vet enrichment (Phase 11): strong distress words boost the
+    // first-aid and vet pages hard; "help" alone (or in a non-health context
+    // like "help with tank setup") does not. Curated tools still capture above.
+    var ev = byUrl["/health/emergency-first-aid/"];
+    var vet = byUrl["/health/finding-an-exotic-vet/"];
+    var evStrong = matchesAny(query, URGENT_STRONG);
+    var vetStrong = matchesAny(query, VET_STRONG);
+    if (evStrong && ev) { ev.score += 30; }
+    if (vetStrong && vet) { vet.score += 30; }
+    // Cross-enrichment: an emergency query also surfaces the vet page (and
+    // vice-versa) as the actionable next step, but more softly than the owner.
+    if (evStrong && vet) { vet.score += 10; }
+    if (vetStrong && ev) { ev.score += 10; }
+    if (matchesAny(query, ["help"]) && matchesAny(query, HELP_CONTEXT)) {
+      if (ev) { ev.score += 14; }
+      if (vet) { vet.score += 14; }
+    }
+
+    // Symptom-checker style "my axolotl is/has..." phrasing points the owner
+    // at the stress umbrella and the symptom-checker tool. It deliberately
+    // scores below the specific TROUBLE_ROUTES (+9) so "won't eat" still wins
+    // on /health/refusing-to-eat/, etc.
+    if (matchesAny(query, ["my axolotl is", "my axolotl has", "my axolotl seems",
+                           "my axolotl acting", "something is wrong"])) {
+      var stress = byUrl["/health/stress-signs/"];
+      var checker = byUrl["/tools/symptom-checker/"];
+      if (stress) { stress.score += 12; }
+      if (checker) { checker.score += 12; }
+    }
+
+    TOOL_ROUTES.forEach(function (r) {
+      if (matchesAny(query, r.tokens)) {
+        var tool = byUrl["/tools/" + r.slug + "/"];
+        if (tool) { tool.score += 10; }
+      }
+    });
+  }
+
+  // Cap duplicates within one family: the canonical owner plus one
+  // role-differentiated runner-up stay native; further family members defer.
+  function limitFamilies(scored, query) {
+    var family = familyFor(query);
+    if (!family) { return scored; }
+    var members = familyMembers(family).map(function (u) { return u; });
+    var memberSet = {};
+    members.forEach(function (u) { memberSet[u] = true; });
+    var out = [];
+    var deferred = [];
+    var familySeen = 0;
+    for (var i = 0; i < scored.length; i++) {
+      var url = scored[i].item.url;
+      if (memberSet[url]) {
+        if (familySeen < 2) { familySeen += 1; out.push(scored[i]); }
+        else { deferred.push(scored[i]); }
+      } else {
+        out.push(scored[i]);
+      }
+    }
+    return out.concat(deferred);
+  }
+
+  function familyMembers(family) {
+    if (family.key === "care") {
+      return ["/axolotls/care-guide/", "/axolotls/"];
+    }
+    if (family.key === "stress") {
+      return ["/health/stress-signs/", "/health/curled-gills-stress-signal/", "/health/why-axolotl-floating/"];
+    }
+    if (family.key === "fasting") {
+      return ["/diet/fasting-and-vacation/", "/diet/feeding-schedule-by-age/", "/health/refusing-to-eat/"];
+    }
+    if (family.key === "fungus") {
+      return ["/health/fungal-infections-saprolegnia/", "/health/black-tea-bath/", "/health/salt-bath/"];
+    }
+    if (family.key === "impaction") {
+      return ["/health/impaction-symptoms-treatment/", "/diet/overfeeding-and-impaction/",
+              "/tank-setup/substrate-and-impaction/", "/tank-setup/gravel-risks/"];
+    }
+    if (family.key === "filter") {
+      return ["/tank-setup/filtration-for-axolotls/", "/tank-setup/canister-vs-sponge-filter/"];
+    }
+    if (family.key === "cooling") {
+      return ["/tank-setup/temperature/", "/tank-setup/aquarium-chillers/"];
+    }
+    if (family.key === "price") { return ["/cost-and-buying/axolotl-price-by-morph/"]; }
+    if (family.key === "budget") { return ["/care-basics/cost-of-ownership-monthly/"]; }
+    if (family.key === "regeneration") {
+      return ["/health/limb-regeneration/", "/biology-and-science/regeneration-and-limb-regrowth/"];
+    }
+    return [];
+  }
+
+  function clusterFallback(terms) {
+    // Best hub by term overlap, then top guides from that cluster.
+    var hubs = index.filter(function (it) { return it.role === "hub"; });
+    var bestHub = null, bestN = 0;
+    hubs.forEach(function (h) {
+      var n = countTerms(terms, normalize(h.title + " " + (h.category || "")));
+      if (n > bestN) { bestN = n; bestHub = h; }
+    });
+    if (!bestHub) { return []; }
+    var cluster = bestHub.cluster;
+    return index.filter(function (it) { return it.cluster === cluster; })
+      .sort(function (a, b) { return (a.title || "").localeCompare(b.title || ""); })
+      .slice(0, 4);
+  }
+
   function scoreItem(item, query, terms) {
     var titleNorm = normalize(item.title);
     var titleTerms = tokenize(item.title);
@@ -128,9 +452,11 @@
     var titleHit = countTerms(terms, titleNorm);
     score += titleHit * 8;
 
-    // 4. category match
+    // 4. category / cluster-name match (content-structure signal)
     var catNorm = normalize(item.category || "");
-    if (countTerms(terms, catNorm) > 0) { score += 6 * countTerms(terms, catNorm); }
+    if (countTerms(terms, catNorm) > 0) { score += 5 * countTerms(terms, catNorm); }
+    var clName = normalize((item.cluster || "").replace(/[-_]/g, " "));
+    if (clName && countTerms(terms, clName) > 0) { score += 3 * countTerms(terms, clName); }
 
     // 5. heading matches
     var headingHit = 0;
@@ -157,6 +483,9 @@
 
     // Small boost for shorter/exact documents so a title match wins clearly.
     if (score > 0 && titleHit === terms.length) { score += 2; }
+
+    // Alias layer: conversational query phrasing -> canonical content phrase.
+    score += phraseBoost(item, query);
     return score;
   }
 
@@ -222,16 +551,20 @@
   function resultItem(item, terms) {
     var li = document.createElement("li");
     li.className = "search-result";
+    li.setAttribute("role", "listitem");
 
     var meta = document.createElement("div");
     meta.className = "search-result-meta";
-    meta.textContent = item.type === "tool" ? "Tool" : item.category;
+    var roleLabel = item.role === "tool" ? "Tool"
+      : item.role === "hub" ? "Topic"
+      : (item.category || "Guide");
+    meta.textContent = roleLabel;
     li.appendChild(meta);
 
     var title = document.createElement("h3");
     var link = document.createElement("a");
     link.href = item.url;
-    link.tabIndex = 0;
+    link.className = "search-result-link";
     highlightTerms(link, item.title, terms);
     title.appendChild(link);
     li.appendChild(title);
@@ -240,6 +573,21 @@
     p.className = "search-result-snippet";
     highlightTerms(p, buildExcerpt(item, terms), terms);
     li.appendChild(p);
+
+    var pathEl = document.createElement("div");
+    pathEl.className = "search-result-path";
+    pathEl.textContent = item.cluster && item.cluster !== "tools"
+      ? "/" + item.cluster + (item.url !== "/" + item.cluster + "/" ? item.url.slice(item.cluster.length + 1) : "/")
+      : item.url;
+    li.appendChild(pathEl);
+
+    if (item.action && item.action.label && item.action.url) {
+      var actLink = document.createElement("a");
+      actLink.href = item.action.url;
+      actLink.className = "search-result-action btn btn-sm";
+      actLink.textContent = item.action.kind === "tool" ? "Open tool \u2192" : item.action.label + " \u2192";
+      li.appendChild(actLink);
+    }
 
     return li;
   }
@@ -255,15 +603,50 @@
       return;
     }
 
-    statusEl.textContent = items.length + (items.length === 1 ? " result" : " results");
+    var q = (input.value || "").trim();
+    statusEl.textContent = items.length + (items.length === 1 ? " result" : " results") +
+      (q ? " for \u201c" + q + "\u201d" : "");
     statusEl.hidden = false;
 
     var ol = document.createElement("ol");
     ol.className = "search-results-list";
+    ol.setAttribute("role", "list");
+    ol.setAttribute("aria-label", "Search results" + (q ? " for " + q : ""));
     items.forEach(function (item) { ol.appendChild(resultItem(item, terms)); });
     resultsEl.innerHTML = "";
     resultsEl.appendChild(ol);
     resultsEl.hidden = false;
+    attachResultNav();
+  }
+
+  // ---------------------------------------------------------------------------
+  // Keyboard navigation across result links (ArrowUp/Down, Home/End)
+  // ---------------------------------------------------------------------------
+  function attachResultNav() {
+    var links = Array.prototype.slice.call(
+      document.querySelectorAll(".search-result-link:not([data-nav-bound]), .search-result-action:not([data-nav-bound])")
+    );
+    if (!links.length) { return; }
+
+    var keydown = function (e) {
+      var idx = links.indexOf(document.activeElement);
+      var next = -1;
+      if (e.key === "ArrowDown") { next = idx + 1; }
+      else if (e.key === "ArrowUp") { next = idx - 1; }
+      else if (e.key === "Home") { next = 0; }
+      else if (e.key === "End") { next = links.length - 1; }
+      else { return; }
+
+      e.preventDefault();
+      if (next >= 0 && next < links.length) {
+        links[next].focus();
+      }
+    };
+
+    links.forEach(function (l) {
+      l.setAttribute("data-nav-bound", "1");
+      l.addEventListener("keydown", keydown);
+    });
   }
 
   // ---------------------------------------------------------------------------
@@ -297,11 +680,16 @@
     loadIndex().then(function () {
       if (!index) { return; }
 
+      var effectiveQuery = fixTypos(query);
+      var effectiveTerms = tokenize(effectiveQuery);
+
       var scored = [];
       index.forEach(function (item) {
-        var s = scoreItem(item, query, terms);
+        var s = scoreItem(item, effectiveQuery, effectiveTerms);
         if (s > 0) { scored.push({ item: item, score: s }); }
       });
+
+      applySemantic(scored, effectiveQuery, effectiveTerms);
 
       // Deterministic sort: score desc, then title asc.
       scored.sort(function (a, b) {
@@ -309,13 +697,26 @@
         return a.item.title.localeCompare(b.item.title);
       });
 
+      scored = limitFamilies(scored, effectiveQuery);
+
       var items = scored.slice(0, MAX_RESULTS).map(function (s) { return s.item; });
-      renderResults(items, terms);
+
+      // Empty-result cluster fallback: recommend the closest cluster's guides.
+      if (!items.length) {
+        items = clusterFallback(effectiveTerms);
+        if (items.length) {
+          statusEl.textContent = "No exact match \u2014 best from \u201c" +
+            (items[0].category || "Taxonomy") + "\u201d:";
+        }
+      }
+
+      renderResults(items, effectiveTerms);
 
       // Analytics preparation — future analytics can subscribe to this event.
       window.dispatchEvent(new CustomEvent("site_search", {
         detail: {
           query: query,
+          effective_query: effectiveQuery,
           result_count: items.length,
         },
       }));

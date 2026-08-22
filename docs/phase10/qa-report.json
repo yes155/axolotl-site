@@ -1,0 +1,123 @@
+{
+ "errors": {
+  "broken": [],
+  "canonical": [],
+  "dup_canonical_groups": []
+ },
+ "broken_links": 0,
+ "canonical_issues": 0,
+ "metrics": {
+  "pages_total": 135,
+  "content_pages": 128,
+  "content_edges": 698,
+  "cross_cluster_edges": 334,
+  "avg_outbound": 5.45,
+  "zero_inbound": [
+   "/axolotl-in-culture",
+   "/axolotls",
+   "/biology-and-science",
+   "/breeding",
+   "/care-basics",
+   "/cost-and-buying",
+   "/diet",
+   "/gifts-and-merch",
+   "/health",
+   "/legal",
+   "/morphs",
+   "/tank-setup",
+   "/tools",
+   "/tools/feeding-schedule-generator",
+   "/tools/nitrogen-cycle-tracker",
+   "/tools/symptom-checker",
+   "/tools/tank-size-calculator",
+   "/tools/water-conditioner-dosage-calculator"
+  ],
+  "zero_outbound": [
+   "/authors/farrukh-abdullah",
+   "/editors/ananda-abidin"
+  ],
+  "hubs_no_content_inbound": [
+   "/axolotls",
+   "/tank-setup",
+   "/diet",
+   "/health",
+   "/legal",
+   "/cost-and-buying",
+   "/morphs",
+   "/breeding",
+   "/gifts-and-merch",
+   "/care-basics",
+   "/biology-and-science",
+   "/axolotl-in-culture",
+   "/tools"
+  ],
+  "tools_no_content_inbound": [
+   "/tools/feeding-schedule-generator",
+   "/tools/nitrogen-cycle-tracker",
+   "/tools/symptom-checker",
+   "/tools/tank-size-calculator",
+   "/tools/water-conditioner-dosage-calculator"
+  ],
+  "new_pages_exist": [
+   "/tank-setup/water-change-guide",
+   "/health/emergency-first-aid"
+  ],
+  "role_note_pages": [
+   "/biology-and-science/regeneration-and-limb-regrowth",
+   "/care-basics/are-axolotls-good-beginner-pets",
+   "/care-basics/axolotls-and-children",
+   "/diet/feeding-schedule-by-age",
+   "/diet/overfeeding-and-impaction",
+   "/health/black-tea-bath",
+   "/health/emergency-first-aid",
+   "/health/fungal-infections-saprolegnia",
+   "/health/limb-regeneration",
+   "/health/refusing-to-eat",
+   "/health/salt-bath",
+   "/health/stress-signs",
+   "/tank-setup/aquarium-chillers",
+   "/tank-setup/canister-vs-sponge-filter",
+   "/tank-setup/filtration-for-axolotls",
+   "/tank-setup/gravel-risks",
+   "/tank-setup/substrate-and-impaction",
+   "/tank-setup/temperature"
+  ],
+  "search_actions": [
+   {
+    "url": "/health/finding-an-exotic-vet/",
+    "label": "Find an exotic vet",
+    "kind": "guide"
+   },
+   {
+    "url": "/health/emergency-first-aid/",
+    "label": "Emergency first aid",
+    "kind": "guide"
+   },
+   {
+    "url": "/tools/water-conditioner-dosage-calculator/",
+    "label": "Open tool",
+    "kind": "tool"
+   },
+   {
+    "url": "/tools/feeding-schedule-generator/",
+    "label": "Open tool",
+    "kind": "tool"
+   },
+   {
+    "url": "/tools/nitrogen-cycle-tracker/",
+    "label": "Open tool",
+    "kind": "tool"
+   },
+   {
+    "url": "/tools/symptom-checker/",
+    "label": "Open tool",
+    "kind": "tool"
+   },
+   {
+    "url": "/tools/tank-size-calculator/",
+    "label": "Open tool",
+    "kind": "tool"
+   }
+  ]
+ }
+}

@@ -216,7 +216,7 @@ def main():
                         "|".join(r["flags"])])
 
     # ---- topical-map.md
-    lines = ["# Axolotl Care Guide - Topical Map (Phase 7)", "",
+    lines = ["# MyAxolotl - Topical Map (Phase 7)", "",
              f"Built corpus: **{mapping['page_count']} pages** = "
              f"{mapping['article_count']} articles + 12 hubs + 6 tools + boilerplate.",
              "",

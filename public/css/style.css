@@ -1287,6 +1287,24 @@ blockquote p:last-child {
 .callout-important { background: var(--wash-pink); border-color: var(--primary); }
 .callout-important::before { content: "Important"; color: var(--primary-strong); }
 
+/* Phase 10 role-note — states the page's semantic job + routing links */
+.role-note {
+  margin: 1.8em 0;
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--secondary);
+  border-left: 4px solid var(--secondary);
+  background: var(--wash-aqua);
+  font-size: 0.98rem;
+}
+.role-note ul {
+  margin: 0.5em 0 0;
+  padding-left: 1.2em;
+}
+.role-note a {
+  font-weight: 600;
+}
+
 /* Checklists — only when authored with .checklist */
 .checklist {
   list-style: none;
@@ -1667,6 +1685,14 @@ blockquote p:last-child {
 .search-result-snippet strong {
   color: var(--foreground);
   font-weight: 600;
+}
+
+.search-result-path {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  overflow-wrap: anywhere;
 }
 
 .search-note {

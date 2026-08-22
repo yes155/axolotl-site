@@ -1,0 +1,40 @@
+{
+  "phase": "phase12",
+  "weighted_score": 100,
+  "weighted_total": 100,
+  "threshold": 65,
+  "passed": true,
+  "weights": {
+    "page_inventory": 20,
+    "technical_seo": 20,
+    "titles_h1_meta": 15,
+    "cannibalization_regression": 15,
+    "faq_audit": 15,
+    "structured_data": 10,
+    "internal_link_graph": 5
+  },
+  "errors": {
+    "page_inventory": [],
+    "technical_seo": [],
+    "titles_h1_meta": [],
+    "cannibalization_regression": [],
+    "faq_audit": [],
+    "structured_data": [],
+    "internal_link_graph": []
+  },
+  "metrics": {
+    "pages_total": 132,
+    "indexable_pages": 126,
+    "noindex_pages": 6,
+    "hubs": 12,
+    "articles": 108,
+    "tools": 5,
+    "utility_pages": 15,
+    "sitemap_pages": 131,
+    "search_index_entries": 125
+  },
+  "smoke": {
+    "phase10": {"ok": true, "last_line": "all 20 smoke assertions passed"},
+    "phase11": {"ok": true, "last_line": "all 21 Phase 11 smoke assertions passed"}
+  }
+}

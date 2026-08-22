@@ -1,0 +1,125 @@
+url,cluster,tier,entity,attribute,intent,page_role,completeness_class,has_action,notes
+/axolotl-in-culture,axolotl-in-culture,1,culture-artifact,culture-presence,informational,hub,index,no,Hub: 4 culture articles linked; 0 inbound
+/axolotls,axolotls,1,axolotl,care-overview,informational,hub,index,no,Hub: 1 child (care-guide); title collides with care-guide intent
+/biology-and-science,biology-and-science,1,biology-concept,biology-basics,informational,hub,index,no,Hub: 8 children; authoritative science cluster
+/breeding,breeding,1,breeding-system,breeding-guide,informational,hub,index,no,Hub: 6 children
+/breeding/color-genetics-punnett-squares,breeding,1,breeding-system,genetics,informational,reference,partial,no,T1; 852w; schools the morphs genetics questions; 9 inbound 3 out
+/care-basics,care-basics,1,axolotl,care-basics,informational,hub,index,no,Hub: 10 children; broad/long-tail cluster
+/cost-and-buying,cost-and-buying,1,axolotl,acquisition-cost,informational,hub,index,no,Hub: 6 children
+/diet,diet,1,diet,feeding,informational,hub,index,no,Hub: 12 children; strong cluster
+/diet/feeding-schedule-by-age,diet,1,diet,feeding-frequency,reference,pillar,solid,no,"T1; 1781w, 10 FAQ; canonical 'how often' answer; 11 inbound"
+/gifts-and-merch,gifts-and-merch,1,culture-artifact,merchandise,informational,hub,index,no,Hub: 4 children; low info-value cluster
+/health,health,1,health-condition,health-problems,informational,hub,index,no,Hub: 18 children; highest-scope hub (5k-runner)
+/health/fungal-infections-saprolegnia,health,1,health-condition,fungus,troubleshooting,guide,solid,yes,T1; 1791w; diagnostic+action; 10 inbound 4 out
+/health/refusing-to-eat,health,1,health-condition,appetite-loss,troubleshooting,guide,canonical,yes,"T1; 3364w, 17 FAQ; fasting windows shared w/ diet/fasting"
+/legal,legal,1,legal-jurisdiction,legality,decision,hub,index,no,Hub: 8 children; state/country money intent
+/morphs,morphs,1,morph,morph-types,reference,hub,index,no,Hub: 13 children; highest link-out of all hubs
+/morphs/leucistic,morphs,1,morph,leucistic-morph,informational,article,partial,no,T1; 611w only; flagship morph page is thin vs 10 inbound
+/morphs/wild-type,morphs,1,morph,wild-type-morph,informational,article,partial,no,T1; 881w; thin for its inbound/rank position
+/tank-setup,tank-setup,1,tank-system,setup-equipment,informational,hub,index,no,Hub: 17 children; widest-surface hub
+/tank-setup/setup-guide,tank-setup,1,tank-system,tank-setup-process,procedural,pillar,canonical,yes,T1; step-by-step lifecycle; checklist; canonical setup answer
+/tank-setup/water-parameters-cycling,tank-setup,1,tank-system,water-chemistry,educational,pillar,canonical,yes,T1; 5305w; highest inbound (16) on site; anchor doc
+/tools,tools,1,tools,calculators,reference,hub,index,no,"Hub: 5 calculators, all at 0 inbound (deep nav only)"
+/axolotl-in-culture/minecraft-axolotls-guide,axolotl-in-culture,2,culture-artifact,minecraft-guide,informational,article,thin,no,462w; pop-culture cluster; funnels to real-care hub
+/axolotl-in-culture/why-axolotls-are-suddenly-popular,axolotl-in-culture,2,culture-artifact,popularity,informational,article,partial,no,564w; explorer intent
+/axolotls/care-guide,axolotls,2,axolotl,full-care,informational,pillar,canonical,yes,3060w; flagship pillar; title collides with /axolotls hub
+/biology-and-science/anatomy-gills-and-lungs,biology-and-science,2,biology-concept,respiration,informational,article,partial,no,627w; question-led
+/biology-and-science/conservation-status,biology-and-science,2,biology-concept,conservation,informational,article,partial,no,743w; references Xochimilco page
+/biology-and-science/is-axolotl-amphibian,biology-and-science,2,biology-concept,classification,informational,article,partial,no,614w
+/biology-and-science/neoteny,biology-and-science,2,biology-concept,neoteny,informational,article,thin,no,495w; THIN; lacks owner-facing metamorphosis trigger info
+/biology-and-science/regeneration-and-limb-regrowth,biology-and-science,2,biology-concept,regeneration,informational,article,partial,no,629w; overlaps health/limb-regeneration
+/biology-and-science/wild-habitat-xochimilco,biology-and-science,2,biology-concept,habitat,informational,article,partial,no,627w
+/breeding/breeding-triggers-temperature-cycling,breeding,2,breeding-system,breeding-trigger,procedural,guide,partial,yes,800w; temperature table
+/breeding/egg-and-larvae-care,breeding,2,breeding-system,egg-care,procedural,guide,partial,yes,836w; hatching+larval feeding
+/breeding/raising-juveniles,breeding,2,breeding-system,juvenile-raising,procedural,guide,partial,yes,832w; rehoming+growth milestones
+/care-basics/are-axolotls-good-beginner-pets,care-basics,2,axolotl,suitability,decision,article,partial,no,"1028w; decision intent, pros/cons"
+/care-basics/axolotl-facts,care-basics,2,axolotl,facts,informational,article,partial,no,1047w; 25 facts list
+/cost-and-buying/axolotl-price-by-morph,cost-and-buying,2,axolotl,price,decision,guide,thin,no,544w; THIN; cross-morph price reference needs chart+comparison link
+/cost-and-buying/breeder-vs-pet-store,cost-and-buying,2,axolotl,buying-source,comparative,guide,thin,no,502w; decision/comparative
+/cost-and-buying/choosing-a-reputable-breeder,cost-and-buying,2,axolotl,breeder-selection,decision,guide,partial,yes,670w; 8 FAQ; action checklist
+/cost-and-buying/how-to-choose-a-healthy-axolotl,cost-and-buying,2,axolotl,health-check,procedural,guide,thin,yes,549w; 8-part health check
+/diet/best-foods-list,diet,2,diet,safe-foods,reference,pillar,canonical,no,3041w; canonical 'what to feed'; owns safe/unsafe table
+/diet/feeder-fish-risks,diet,2,diet,feeder-fish,troubleshooting,guide,canonical,no,3702w; thiaminase/parasite depth; long-tail winner
+/diet/live-vs-frozen-food,diet,2,diet,food-type,comparative,guide,solid,no,2493w; earthworm vs bloodworm
+/diet/overfeeding-and-impaction,diet,2,diet,overfeeding,troubleshooting,guide,canonical,no,2891w; BCS scoring; overlaps health/impaction
+/gifts-and-merch/axolotl-squishmallow-guide,gifts-and-merch,2,culture-artifact,merch-squishmallow,informational,article,partial,no,807w; collector intent
+/gifts-and-merch/best-axolotl-toys-and-plushies,gifts-and-merch,2,culture-artifact,merch-toys,informational,article,partial,no,979w; recommended-list intent
+/health/black-tea-bath,health,2,health-condition,treatment-tea-bath,procedural,guide,canonical,yes,2657w; step-by-step; links fungus diagnosis
+/health/curled-gills-stress-signal,health,2,health-condition,stress-gills,troubleshooting,guide,partial,yes,1061w; overlaps stress-signs page
+/health/fridging-sick-axolotl,health,2,health-condition,treatment-fridging,procedural,guide,canonical,yes,2989w; part-1 protocol
+/health/malnutrition-signs,health,2,health-condition,malnutrition,troubleshooting,guide,solid,yes,1923w; BCS chart
+/health/quarantine-tub,health,2,health-condition,quarantine,procedural,guide,partial,yes,1024w; hospital setup
+/health/stress-signs,health,2,health-condition,stress-overview,troubleshooting,article,partial,no,596w; THIN + fully subsumed by curled-gills & floating pages
+/health/why-axolotl-floating,health,2,health-condition,floating,troubleshooting,guide,solid,yes,1588w; position-diagnostic table
+/legal/california,legal,2,legal-jurisdiction,ca-legality,decision,guide,partial,no,726w; restricted-species explainer
+/legal/canada,legal,2,legal-jurisdiction,ca-nada-legality,decision,guide,partial,no,652w; provincial permit matrix
+/legal/maine,legal,2,legal-jurisdiction,me-legality,decision,article,partial,no,598w; Cat-2 permit
+/legal/virginia,legal,2,legal-jurisdiction,va-legality,decision,article,partial,no,927w; legalized 2021 law explainer
+/morphs/chimera,morphs,2,morph,chimera-morph,informational,article,partial,no,818w; chimera NOT a breedable morph
+/morphs/pigment-cells,morphs,2,morph,pigment-biology,informational,article,partial,no,588w; chromatophore primer
+/tank-setup/aquarium-chillers,tank-setup,2,tank-system,chiller-buying,decision,guide,canonical,no,2699w; buying decision; distinct from temperature page
+/tank-setup/filtration-for-axolotls,tank-setup,2,tank-system,filtration,informational,guide,canonical,no,4274w; flow-rate + bio media
+/tank-setup/lighting-for-axolotls,tank-setup,2,tank-system,lighting,informational,guide,canonical,no,4075w; lux ranges
+/tank-setup/substrate-and-impaction,tank-setup,2,tank-system,substrate,informational,guide,canonical,no,4029w; <1mm sand rule; impaction cross-links
+/tank-setup/tank-size-by-age,tank-setup,2,tank-system,tank-size,reference,article,thin,no,517w; chart; overlaps setup-guide tank section
+/tank-setup/temperature,tank-setup,2,tank-system,temperature,informational,pillar,canonical,yes,5826w; canonical temp+cooling; overlaps aquarium-chillers
+/tank-setup/water-conditioners,tank-setup,2,tank-system,conditioners,informational,guide,canonical,no,4434w; aloe/iodine safety table
+/axolotl-in-culture/adopt-me-axolotl-guide,axolotl-in-culture,3,culture-artifact,adopt-me,informational,article,thin,no,517w; game guide
+/axolotl-in-culture/axolotl-in-pop-culture-and-memes,axolotl-in-culture,3,culture-artifact,memes-tv,informational,article,thin,no,439w; overlaps why-popular page
+/biology-and-science/axolotl-vs-tiger-salamander,biology-and-science,3,biology-concept,comparison,comparative,article,partial,no,654w; vs content
+/biology-and-science/lifespan-wild-vs-captivity,biology-and-science,3,biology-concept,lifespan,informational,article,partial,no,639w; extends care-basics value
+/breeding/genetics-and-inbreeding,breeding,3,breeding-system,inbreeding-ethics,informational,article,partial,no,631w; ethics for breeders
+/breeding/sexing-axolotls,breeding,3,breeding-system,sexing,informational,article,partial,no,608w; cloaca diagnostic
+/care-basics/axolotl-age-and-size-chart,care-basics,3,axolotl,size-age,reference,article,partial,no,1030w; chart; complements tank-size-by-age
+/care-basics/axolotl-intelligence-and-bonding,care-basics,3,axolotl,bonding,informational,article,partial,no,1016w
+/care-basics/axolotls-and-children,care-basics,3,axolotl,kids-suitability,decision,article,partial,no,986w; decision intent
+/care-basics/behavior,care-basics,3,axolotl,behavior,informational,article,partial,no,895w; overlaps health stress/behavior content
+/care-basics/cost-of-ownership-monthly,care-basics,3,axolotl,monthly-cost,decision,article,partial,no,830w; money intent in care-basics cluster
+/care-basics/handling,care-basics,3,axolotl,handling,procedural,article,partial,yes,798w; net+hold protocol
+/care-basics/how-to-pronounce-axolotl,care-basics,3,axolotl,pronunciation,informational,article,thin,no,524w; micro-intent
+/care-basics/keeping-multiple-axolotls,care-basics,3,axolotl,cohabitation,informational,article,partial,no,712w; size-matching rules
+/cost-and-buying/red-flags-when-buying,cost-and-buying,3,axolotl,scam-redflags,decision,article,partial,yes,552w; action checklist
+/cost-and-buying/shipping-live-axolotls,cost-and-buying,3,axolotl,shipping,procedural,article,thin,yes,524w; unboxing protocol
+/diet/axolotl-pellets,diet,3,diet,pellets,informational,guide,canonical,no,2956w; brand-agnostic criteria
+/diet/beef-heart,diet,3,diet,beef-heart,informational,article,solid,no,1585w; safety verdict + alternatives
+/diet/blackworms-for-juveniles,diet,3,diet,juvenile-food,procedural,article,solid,yes,1380w; rinse/purge/keep protocol
+/diet/fasting-and-vacation,diet,3,diet,fasting,informational,guide,solid,no,2457w; fasting windows shared with refusing-to-eat
+/diet/how-to-hand-feed,diet,3,diet,hand-feeding,procedural,guide,solid,yes,2442w; when NOT to hand feed
+/diet/shrimp-for-axolotls,diet,3,diet,shrimp,informational,article,solid,no,2209w; treat not staple
+/diet/vitamin-and-supplement-needs,diet,3,diet,supplements,informational,article,partial,no,1023w; 'mostly none' verdict + exceptions
+/gifts-and-merch/best-axolotl-lego-sets,gifts-and-merch,3,culture-artifact,merch-lego,informational,article,partial,no,610w
+/gifts-and-merch/build-a-bear-axolotl-guide,gifts-and-merch,3,culture-artifact,merch-bab,informational,article,partial,no,653w
+/health/ammonia-burns,health,3,health-condition,ammonia-burn,troubleshooting,article,partial,yes,951w; 3-stage scale; links water-params
+/health/finding-an-exotic-vet,health,3,health-condition,vet-finding,informational,article,thin,no,519w; ARAV directory
+/health/impaction-symptoms-treatment,health,3,health-condition,impaction,troubleshooting,article,thin,yes,537w; THIN vs scope; overlaps substrate & overfeeding pages
+/health/limb-regeneration,health,3,health-condition,limb-regrowth,informational,article,partial,no,860w; owner+science; overlaps biology regeneration page
+/health/minor-scrapes-and-wounds,health,3,health-condition,wound-care,procedural,article,partial,yes,933w; when to leave alone / vet threshold
+/health/parasite-treatment,health,3,health-condition,parasites,troubleshooting,guide,solid,yes,1563w; internal vs external
+/health/red-leg-syndrome,health,3,health-condition,red-leg,troubleshooting,article,partial,yes,999w; bacterial emergency
+/health/salt-bath,health,3,health-condition,treatment-salt,procedural,guide,solid,yes,2277w; last-resort protocol; links tea-bath
+/health/shrinking-gills,health,3,health-condition,shrinking-gills,troubleshooting,article,partial,yes,1076w; cause-first diagnostic
+/legal/hawaii,legal,3,legal-jurisdiction,hi-legality,decision,article,partial,no,557w; plant-quarantine import rule
+/legal/new-jersey,legal,3,legal-jurisdiction,nj-legality,decision,article,partial,no,991w; outright ban + exceptions
+/legal/new-mexico,legal,3,legal-jurisdiction,nm-legality,decision,article,partial,no,951w; import permit only
+/morphs/blue-and-pink-axolotl-myth,morphs,3,morph,blue-myth,troubleshooting,article,thin,no,512w; scam debunk; buyer-protection intent
+/morphs/copper,morphs,3,morph,copper-morph,informational,article,partial,no,558w
+/morphs/enigma-firefly-mac,morphs,3,morph,rare-morphs,informational,article,partial,no,618w; ethics-sensitive
+/morphs/gfp-axolotl,morphs,3,morph,gfp-morph,informational,article,partial,no,566w; glow mechanism + care
+/morphs/golden-albino,morphs,3,morph,golden-albino,informational,article,thin,no,535w
+/morphs/melanoid,morphs,3,morph,melanoid-morph,informational,article,partial,no,626w
+/morphs/morphs-comparison-chart,morphs,3,morph,morph-comparison,reference,article,thin,no,466w; THIN central comparison; should be the consolidator
+/morphs/mosaic,morphs,3,morph,mosaic-morph,informational,article,partial,no,588w; chimney-diff content
+/morphs/piebald,morphs,3,morph,piebald-morph,informational,article,partial,no,587w
+/tank-setup/acclimating-a-new-axolotl,tank-setup,3,tank-system,acclimation,procedural,article,partial,yes,639w; drip method; links quarantine-tub
+/tank-setup/canister-vs-sponge-filter,tank-setup,3,tank-system,filter-comparison,comparative,guide,canonical,no,6117w; overlaps filtration-for-axolotls
+/tank-setup/gravel-risks,tank-setup,3,tank-system,gravel-danger,troubleshooting,guide,canonical,no,2647w; impaction chain; substrate alternative links
+/tank-setup/hides-and-caves,tank-setup,3,tank-system,decor-hides,informational,guide,canonical,no,4355w; stress-reduction chain
+/tank-setup/live-vs-artificial-plants,tank-setup,3,tank-system,plants,comparative,guide,canonical,no,3125w; softness-first reasoning
+/tank-setup/tank-mates,tank-setup,3,tank-system,tank-mates,informational,article,partial,no,601w; honest 'mostly no' verdict
+/tank-setup/uneaten-food-and-ammonia,tank-setup,3,tank-system,ammonia-source,troubleshooting,guide,solid,no,2449w; feeding↔water link
+/tank-setup/why-tank-water-smells,tank-setup,3,tank-system,odor-diagnostics,troubleshooting,guide,solid,no,2074w; smell→cause map
+/tools/feeding-schedule-generator,tools,3,tools,calculator,reference,calculator,interactive,no,
+/tools/nitrogen-cycle-tracker,tools,3,tools,calculator,reference,calculator,interactive,no,
+/tools/symptom-checker,tools,3,tools,calculator,reference,calculator,interactive,no,
+/tools/tank-size-calculator,tools,3,tools,calculator,reference,calculator,interactive,no,
+/tools/water-conditioner-dosage-calculator,tools,3,tools,calculator,reference,calculator,interactive,no,

@@ -1,0 +1,4139 @@
+{
+ "generated_for": "phase8",
+ "nodes": [
+  {
+   "url": "/",
+   "cluster": "meta",
+   "type": ""
+  },
+  {
+   "url": "/404.html",
+   "cluster": "meta",
+   "type": ""
+  },
+  {
+   "url": "/about",
+   "cluster": "meta",
+   "type": ""
+  },
+  {
+   "url": "/axolotl-in-culture",
+   "cluster": "axolotl-in-culture",
+   "type": ""
+  },
+  {
+   "url": "/axolotl-in-culture/adopt-me-axolotl-guide",
+   "cluster": "axolotl-in-culture",
+   "type": ""
+  },
+  {
+   "url": "/axolotl-in-culture/axolotl-in-pop-culture-and-memes",
+   "cluster": "axolotl-in-culture",
+   "type": ""
+  },
+  {
+   "url": "/axolotl-in-culture/minecraft-axolotls-guide",
+   "cluster": "axolotl-in-culture",
+   "type": ""
+  },
+  {
+   "url": "/axolotl-in-culture/why-axolotls-are-suddenly-popular",
+   "cluster": "axolotl-in-culture",
+   "type": ""
+  },
+  {
+   "url": "/axolotls",
+   "cluster": "axolotls",
+   "type": ""
+  },
+  {
+   "url": "/axolotls/care-guide",
+   "cluster": "axolotls",
+   "type": ""
+  },
+  {
+   "url": "/biology-and-science",
+   "cluster": "biology-and-science",
+   "type": ""
+  },
+  {
+   "url": "/biology-and-science/anatomy-gills-and-lungs",
+   "cluster": "biology-and-science",
+   "type": ""
+  },
+  {
+   "url": "/biology-and-science/axolotl-vs-tiger-salamander",
+   "cluster": "biology-and-science",
+   "type": ""
+  },
+  {
+   "url": "/biology-and-science/conservation-status",
+   "cluster": "biology-and-science",
+   "type": ""
+  },
+  {
+   "url": "/biology-and-science/is-axolotl-amphibian",
+   "cluster": "biology-and-science",
+   "type": ""
+  },
+  {
+   "url": "/biology-and-science/lifespan-wild-vs-captivity",
+   "cluster": "biology-and-science",
+   "type": ""
+  },
+  {
+   "url": "/biology-and-science/neoteny",
+   "cluster": "biology-and-science",
+   "type": ""
+  },
+  {
+   "url": "/biology-and-science/regeneration-and-limb-regrowth",
+   "cluster": "biology-and-science",
+   "type": ""
+  },
+  {
+   "url": "/biology-and-science/wild-habitat-xochimilco",
+   "cluster": "biology-and-science",
+   "type": ""
+  },
+  {
+   "url": "/breeding",
+   "cluster": "breeding",
+   "type": ""
+  },
+  {
+   "url": "/breeding/breeding-triggers-temperature-cycling",
+   "cluster": "breeding",
+   "type": ""
+  },
+  {
+   "url": "/breeding/color-genetics-punnett-squares",
+   "cluster": "breeding",
+   "type": ""
+  },
+  {
+   "url": "/breeding/egg-and-larvae-care",
+   "cluster": "breeding",
+   "type": ""
+  },
+  {
+   "url": "/breeding/genetics-and-inbreeding",
+   "cluster": "breeding",
+   "type": ""
+  },
+  {
+   "url": "/breeding/raising-juveniles",
+   "cluster": "breeding",
+   "type": ""
+  },
+  {
+   "url": "/breeding/sexing-axolotls",
+   "cluster": "breeding",
+   "type": ""
+  },
+  {
+   "url": "/care-basics",
+   "cluster": "care-basics",
+   "type": ""
+  },
+  {
+   "url": "/care-basics/are-axolotls-good-beginner-pets",
+   "cluster": "care-basics",
+   "type": ""
+  },
+  {
+   "url": "/care-basics/axolotl-age-and-size-chart",
+   "cluster": "care-basics",
+   "type": ""
+  },
+  {
+   "url": "/care-basics/axolotl-facts",
+   "cluster": "care-basics",
+   "type": ""
+  },
+  {
+   "url": "/care-basics/axolotl-intelligence-and-bonding",
+   "cluster": "care-basics",
+   "type": ""
+  },
+  {
+   "url": "/care-basics/axolotls-and-children",
+   "cluster": "care-basics",
+   "type": ""
+  },
+  {
+   "url": "/care-basics/behavior",
+   "cluster": "care-basics",
+   "type": ""
+  },
+  {
+   "url": "/care-basics/cost-of-ownership-monthly",
+   "cluster": "care-basics",
+   "type": ""
+  },
+  {
+   "url": "/care-basics/handling",
+   "cluster": "care-basics",
+   "type": ""
+  },
+  {
+   "url": "/care-basics/how-to-pronounce-axolotl",
+   "cluster": "care-basics",
+   "type": ""
+  },
+  {
+   "url": "/care-basics/keeping-multiple-axolotls",
+   "cluster": "care-basics",
+   "type": ""
+  },
+  {
+   "url": "/contact",
+   "cluster": "meta",
+   "type": ""
+  },
+  {
+   "url": "/cost-and-buying",
+   "cluster": "cost-and-buying",
+   "type": ""
+  },
+  {
+   "url": "/cost-and-buying/axolotl-price-by-morph",
+   "cluster": "cost-and-buying",
+   "type": ""
+  },
+  {
+   "url": "/cost-and-buying/breeder-vs-pet-store",
+   "cluster": "cost-and-buying",
+   "type": ""
+  },
+  {
+   "url": "/cost-and-buying/choosing-a-reputable-breeder",
+   "cluster": "cost-and-buying",
+   "type": ""
+  },
+  {
+   "url": "/cost-and-buying/how-to-choose-a-healthy-axolotl",
+   "cluster": "cost-and-buying",
+   "type": ""
+  },
+  {
+   "url": "/cost-and-buying/red-flags-when-buying",
+   "cluster": "cost-and-buying",
+   "type": ""
+  },
+  {
+   "url": "/cost-and-buying/shipping-live-axolotls",
+   "cluster": "cost-and-buying",
+   "type": ""
+  },
+  {
+   "url": "/diet",
+   "cluster": "diet",
+   "type": ""
+  },
+  {
+   "url": "/diet/axolotl-pellets",
+   "cluster": "diet",
+   "type": ""
+  },
+  {
+   "url": "/diet/beef-heart",
+   "cluster": "diet",
+   "type": ""
+  },
+  {
+   "url": "/diet/best-foods-list",
+   "cluster": "diet",
+   "type": ""
+  },
+  {
+   "url": "/diet/blackworms-for-juveniles",
+   "cluster": "diet",
+   "type": ""
+  },
+  {
+   "url": "/diet/fasting-and-vacation",
+   "cluster": "diet",
+   "type": ""
+  },
+  {
+   "url": "/diet/feeder-fish-risks",
+   "cluster": "diet",
+   "type": ""
+  },
+  {
+   "url": "/diet/feeding-schedule-by-age",
+   "cluster": "diet",
+   "type": ""
+  },
+  {
+   "url": "/diet/how-to-hand-feed",
+   "cluster": "diet",
+   "type": ""
+  },
+  {
+   "url": "/diet/live-vs-frozen-food",
+   "cluster": "diet",
+   "type": ""
+  },
+  {
+   "url": "/diet/overfeeding-and-impaction",
+   "cluster": "diet",
+   "type": ""
+  },
+  {
+   "url": "/diet/shrimp-for-axolotls",
+   "cluster": "diet",
+   "type": ""
+  },
+  {
+   "url": "/diet/vitamin-and-supplement-needs",
+   "cluster": "diet",
+   "type": ""
+  },
+  {
+   "url": "/gifts-and-merch",
+   "cluster": "gifts-and-merch",
+   "type": ""
+  },
+  {
+   "url": "/gifts-and-merch/axolotl-squishmallow-guide",
+   "cluster": "gifts-and-merch",
+   "type": ""
+  },
+  {
+   "url": "/gifts-and-merch/best-axolotl-lego-sets",
+   "cluster": "gifts-and-merch",
+   "type": ""
+  },
+  {
+   "url": "/gifts-and-merch/best-axolotl-toys-and-plushies",
+   "cluster": "gifts-and-merch",
+   "type": ""
+  },
+  {
+   "url": "/gifts-and-merch/build-a-bear-axolotl-guide",
+   "cluster": "gifts-and-merch",
+   "type": ""
+  },
+  {
+   "url": "/health",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/ammonia-burns",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/black-tea-bath",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/curled-gills-stress-signal",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/finding-an-exotic-vet",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/fridging-sick-axolotl",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/fungal-infections-saprolegnia",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/impaction-symptoms-treatment",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/limb-regeneration",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/malnutrition-signs",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/minor-scrapes-and-wounds",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/parasite-treatment",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/quarantine-tub",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/red-leg-syndrome",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/refusing-to-eat",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/salt-bath",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/shrinking-gills",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/stress-signs",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/health/why-axolotl-floating",
+   "cluster": "health",
+   "type": ""
+  },
+  {
+   "url": "/legal",
+   "cluster": "legal",
+   "type": ""
+  },
+  {
+   "url": "/legal/california",
+   "cluster": "legal",
+   "type": ""
+  },
+  {
+   "url": "/legal/canada",
+   "cluster": "legal",
+   "type": ""
+  },
+  {
+   "url": "/legal/hawaii",
+   "cluster": "legal",
+   "type": ""
+  },
+  {
+   "url": "/legal/maine",
+   "cluster": "legal",
+   "type": ""
+  },
+  {
+   "url": "/legal/new-jersey",
+   "cluster": "legal",
+   "type": ""
+  },
+  {
+   "url": "/legal/new-mexico",
+   "cluster": "legal",
+   "type": ""
+  },
+  {
+   "url": "/legal/virginia",
+   "cluster": "legal",
+   "type": ""
+  },
+  {
+   "url": "/morphs",
+   "cluster": "morphs",
+   "type": ""
+  },
+  {
+   "url": "/morphs/blue-and-pink-axolotl-myth",
+   "cluster": "morphs",
+   "type": ""
+  },
+  {
+   "url": "/morphs/chimera",
+   "cluster": "morphs",
+   "type": ""
+  },
+  {
+   "url": "/morphs/copper",
+   "cluster": "morphs",
+   "type": ""
+  },
+  {
+   "url": "/morphs/enigma-firefly-mac",
+   "cluster": "morphs",
+   "type": ""
+  },
+  {
+   "url": "/morphs/gfp-axolotl",
+   "cluster": "morphs",
+   "type": ""
+  },
+  {
+   "url": "/morphs/golden-albino",
+   "cluster": "morphs",
+   "type": ""
+  },
+  {
+   "url": "/morphs/leucistic",
+   "cluster": "morphs",
+   "type": ""
+  },
+  {
+   "url": "/morphs/melanoid",
+   "cluster": "morphs",
+   "type": ""
+  },
+  {
+   "url": "/morphs/morphs-comparison-chart",
+   "cluster": "morphs",
+   "type": ""
+  },
+  {
+   "url": "/morphs/mosaic",
+   "cluster": "morphs",
+   "type": ""
+  },
+  {
+   "url": "/morphs/piebald",
+   "cluster": "morphs",
+   "type": ""
+  },
+  {
+   "url": "/morphs/pigment-cells",
+   "cluster": "morphs",
+   "type": ""
+  },
+  {
+   "url": "/morphs/wild-type",
+   "cluster": "morphs",
+   "type": ""
+  },
+  {
+   "url": "/privacy",
+   "cluster": "meta",
+   "type": ""
+  },
+  {
+   "url": "/search",
+   "cluster": "meta",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup/acclimating-a-new-axolotl",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup/aquarium-chillers",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup/canister-vs-sponge-filter",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup/filtration-for-axolotls",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup/gravel-risks",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup/hides-and-caves",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup/lighting-for-axolotls",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup/live-vs-artificial-plants",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup/setup-guide",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup/substrate-and-impaction",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup/tank-mates",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup/tank-size-by-age",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup/temperature",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup/uneaten-food-and-ammonia",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup/water-conditioners",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup/water-parameters-cycling",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tank-setup/why-tank-water-smells",
+   "cluster": "tank-setup",
+   "type": ""
+  },
+  {
+   "url": "/tools",
+   "cluster": "tools",
+   "type": ""
+  },
+  {
+   "url": "/tools/feeding-schedule-generator",
+   "cluster": "tools",
+   "type": ""
+  },
+  {
+   "url": "/tools/nitrogen-cycle-tracker",
+   "cluster": "tools",
+   "type": ""
+  },
+  {
+   "url": "/tools/symptom-checker",
+   "cluster": "tools",
+   "type": ""
+  },
+  {
+   "url": "/tools/tank-size-calculator",
+   "cluster": "tools",
+   "type": ""
+  },
+  {
+   "url": "/tools/water-conditioner-dosage-calculator",
+   "cluster": "tools",
+   "type": ""
+  }
+ ],
+ "edges": [
+  {
+   "source": "/axolotl-in-culture",
+   "target": "/axolotl-in-culture/adopt-me-axolotl-guide",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "axolotl-in-culture",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotl-in-culture",
+   "target": "/axolotl-in-culture/axolotl-in-pop-culture-and-memes",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "axolotl-in-culture",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotl-in-culture",
+   "target": "/axolotl-in-culture/minecraft-axolotls-guide",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "axolotl-in-culture",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotl-in-culture",
+   "target": "/axolotl-in-culture/why-axolotls-are-suddenly-popular",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "axolotl-in-culture",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotl-in-culture/adopt-me-axolotl-guide",
+   "target": "/axolotl-in-culture/minecraft-axolotls-guide",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "axolotl-in-culture",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotl-in-culture/adopt-me-axolotl-guide",
+   "target": "/care-basics/axolotl-facts",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotl-in-culture/adopt-me-axolotl-guide",
+   "target": "/cost-and-buying/axolotl-price-by-morph",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotl-in-culture/axolotl-in-pop-culture-and-memes",
+   "target": "/axolotl-in-culture/minecraft-axolotls-guide",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "axolotl-in-culture",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotl-in-culture/axolotl-in-pop-culture-and-memes",
+   "target": "/axolotl-in-culture/why-axolotls-are-suddenly-popular",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "axolotl-in-culture",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotl-in-culture/axolotl-in-pop-culture-and-memes",
+   "target": "/gifts-and-merch/axolotl-squishmallow-guide",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "gifts-and-merch",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotl-in-culture/minecraft-axolotls-guide",
+   "target": "/axolotl-in-culture/axolotl-in-pop-culture-and-memes",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "axolotl-in-culture",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotl-in-culture/minecraft-axolotls-guide",
+   "target": "/axolotl-in-culture/why-axolotls-are-suddenly-popular",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "axolotl-in-culture",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotl-in-culture/minecraft-axolotls-guide",
+   "target": "/gifts-and-merch/best-axolotl-toys-and-plushies",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "gifts-and-merch",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotl-in-culture/why-axolotls-are-suddenly-popular",
+   "target": "/axolotl-in-culture/adopt-me-axolotl-guide",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "axolotl-in-culture",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotl-in-culture/why-axolotls-are-suddenly-popular",
+   "target": "/axolotl-in-culture/minecraft-axolotls-guide",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "axolotl-in-culture",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotl-in-culture/why-axolotls-are-suddenly-popular",
+   "target": "/biology-and-science/conservation-status",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotl-in-culture/why-axolotls-are-suddenly-popular",
+   "target": "/care-basics/axolotl-facts",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotls",
+   "target": "/axolotls/care-guide",
+   "source_cluster": "axolotls",
+   "target_cluster": "axolotls",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotls/care-guide",
+   "target": "/tank-setup/aquarium-chillers",
+   "source_cluster": "axolotls",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotls/care-guide",
+   "target": "/tank-setup/setup-guide",
+   "source_cluster": "axolotls",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotls/care-guide",
+   "target": "/tank-setup/substrate-and-impaction",
+   "source_cluster": "axolotls",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotls/care-guide",
+   "target": "/tank-setup/water-parameters-cycling",
+   "source_cluster": "axolotls",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science",
+   "target": "/biology-and-science/anatomy-gills-and-lungs",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science",
+   "target": "/biology-and-science/axolotl-vs-tiger-salamander",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science",
+   "target": "/biology-and-science/conservation-status",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science",
+   "target": "/biology-and-science/is-axolotl-amphibian",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science",
+   "target": "/biology-and-science/lifespan-wild-vs-captivity",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science",
+   "target": "/biology-and-science/neoteny",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science",
+   "target": "/biology-and-science/regeneration-and-limb-regrowth",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science",
+   "target": "/biology-and-science/wild-habitat-xochimilco",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/anatomy-gills-and-lungs",
+   "target": "/biology-and-science/is-axolotl-amphibian",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/anatomy-gills-and-lungs",
+   "target": "/biology-and-science/neoteny",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/anatomy-gills-and-lungs",
+   "target": "/biology-and-science/wild-habitat-xochimilco",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/anatomy-gills-and-lungs",
+   "target": "/health/shrinking-gills",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "health",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/anatomy-gills-and-lungs",
+   "target": "/health/stress-signs",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "health",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/anatomy-gills-and-lungs",
+   "target": "/health/why-axolotl-floating",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "health",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/axolotl-vs-tiger-salamander",
+   "target": "/biology-and-science/is-axolotl-amphibian",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/axolotl-vs-tiger-salamander",
+   "target": "/biology-and-science/neoteny",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/conservation-status",
+   "target": "/axolotl-in-culture/why-axolotls-are-suddenly-popular",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "axolotl-in-culture",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/conservation-status",
+   "target": "/biology-and-science/lifespan-wild-vs-captivity",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/conservation-status",
+   "target": "/biology-and-science/neoteny",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/conservation-status",
+   "target": "/biology-and-science/wild-habitat-xochimilco",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/is-axolotl-amphibian",
+   "target": "/biology-and-science/anatomy-gills-and-lungs",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/is-axolotl-amphibian",
+   "target": "/biology-and-science/axolotl-vs-tiger-salamander",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/lifespan-wild-vs-captivity",
+   "target": "/biology-and-science/conservation-status",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/lifespan-wild-vs-captivity",
+   "target": "/biology-and-science/wild-habitat-xochimilco",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/neoteny",
+   "target": "/biology-and-science/axolotl-vs-tiger-salamander",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/neoteny",
+   "target": "/biology-and-science/is-axolotl-amphibian",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/regeneration-and-limb-regrowth",
+   "target": "/biology-and-science/anatomy-gills-and-lungs",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/regeneration-and-limb-regrowth",
+   "target": "/biology-and-science/neoteny",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/regeneration-and-limb-regrowth",
+   "target": "/health/limb-regeneration",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/regeneration-and-limb-regrowth",
+   "target": "/health/minor-scrapes-and-wounds",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "health",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/wild-habitat-xochimilco",
+   "target": "/biology-and-science/conservation-status",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/biology-and-science/wild-habitat-xochimilco",
+   "target": "/biology-and-science/neoteny",
+   "source_cluster": "biology-and-science",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding",
+   "target": "/breeding/breeding-triggers-temperature-cycling",
+   "source_cluster": "breeding",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding",
+   "target": "/breeding/color-genetics-punnett-squares",
+   "source_cluster": "breeding",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding",
+   "target": "/breeding/egg-and-larvae-care",
+   "source_cluster": "breeding",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding",
+   "target": "/breeding/genetics-and-inbreeding",
+   "source_cluster": "breeding",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding",
+   "target": "/breeding/raising-juveniles",
+   "source_cluster": "breeding",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding",
+   "target": "/breeding/sexing-axolotls",
+   "source_cluster": "breeding",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding/breeding-triggers-temperature-cycling",
+   "target": "/breeding/egg-and-larvae-care",
+   "source_cluster": "breeding",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding/breeding-triggers-temperature-cycling",
+   "target": "/breeding/sexing-axolotls",
+   "source_cluster": "breeding",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding/color-genetics-punnett-squares",
+   "target": "/breeding/genetics-and-inbreeding",
+   "source_cluster": "breeding",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding/color-genetics-punnett-squares",
+   "target": "/morphs/chimera",
+   "source_cluster": "breeding",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding/color-genetics-punnett-squares",
+   "target": "/morphs/wild-type",
+   "source_cluster": "breeding",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding/egg-and-larvae-care",
+   "target": "/breeding/breeding-triggers-temperature-cycling",
+   "source_cluster": "breeding",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding/egg-and-larvae-care",
+   "target": "/breeding/raising-juveniles",
+   "source_cluster": "breeding",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding/egg-and-larvae-care",
+   "target": "/diet/feeding-schedule-by-age",
+   "source_cluster": "breeding",
+   "target_cluster": "diet",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding/egg-and-larvae-care",
+   "target": "/diet/shrimp-for-axolotls",
+   "source_cluster": "breeding",
+   "target_cluster": "diet",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding/genetics-and-inbreeding",
+   "target": "/breeding/color-genetics-punnett-squares",
+   "source_cluster": "breeding",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding/genetics-and-inbreeding",
+   "target": "/breeding/raising-juveniles",
+   "source_cluster": "breeding",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding/raising-juveniles",
+   "target": "/breeding/egg-and-larvae-care",
+   "source_cluster": "breeding",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding/raising-juveniles",
+   "target": "/breeding/genetics-and-inbreeding",
+   "source_cluster": "breeding",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding/raising-juveniles",
+   "target": "/diet/blackworms-for-juveniles",
+   "source_cluster": "breeding",
+   "target_cluster": "diet",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding/raising-juveniles",
+   "target": "/diet/feeding-schedule-by-age",
+   "source_cluster": "breeding",
+   "target_cluster": "diet",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding/sexing-axolotls",
+   "target": "/breeding/breeding-triggers-temperature-cycling",
+   "source_cluster": "breeding",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/breeding/sexing-axolotls",
+   "target": "/breeding/raising-juveniles",
+   "source_cluster": "breeding",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics",
+   "target": "/care-basics/are-axolotls-good-beginner-pets",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics",
+   "target": "/care-basics/axolotl-age-and-size-chart",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics",
+   "target": "/care-basics/axolotl-facts",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics",
+   "target": "/care-basics/axolotl-intelligence-and-bonding",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics",
+   "target": "/care-basics/axolotls-and-children",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics",
+   "target": "/care-basics/behavior",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics",
+   "target": "/care-basics/cost-of-ownership-monthly",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics",
+   "target": "/care-basics/handling",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics",
+   "target": "/care-basics/how-to-pronounce-axolotl",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics",
+   "target": "/care-basics/keeping-multiple-axolotls",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/are-axolotls-good-beginner-pets",
+   "target": "/care-basics/axolotls-and-children",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/are-axolotls-good-beginner-pets",
+   "target": "/care-basics/cost-of-ownership-monthly",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/are-axolotls-good-beginner-pets",
+   "target": "/cost-and-buying/breeder-vs-pet-store",
+   "source_cluster": "care-basics",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/are-axolotls-good-beginner-pets",
+   "target": "/tank-setup/setup-guide",
+   "source_cluster": "care-basics",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/axolotl-age-and-size-chart",
+   "target": "/breeding/egg-and-larvae-care",
+   "source_cluster": "care-basics",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/axolotl-age-and-size-chart",
+   "target": "/care-basics/are-axolotls-good-beginner-pets",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/axolotl-age-and-size-chart",
+   "target": "/diet/feeding-schedule-by-age",
+   "source_cluster": "care-basics",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/axolotl-facts",
+   "target": "/biology-and-science/conservation-status",
+   "source_cluster": "care-basics",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/axolotl-facts",
+   "target": "/biology-and-science/regeneration-and-limb-regrowth",
+   "source_cluster": "care-basics",
+   "target_cluster": "biology-and-science",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/axolotl-facts",
+   "target": "/care-basics/how-to-pronounce-axolotl",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/axolotl-intelligence-and-bonding",
+   "target": "/care-basics/behavior",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/axolotl-intelligence-and-bonding",
+   "target": "/care-basics/handling",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/axolotls-and-children",
+   "target": "/care-basics/are-axolotls-good-beginner-pets",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/axolotls-and-children",
+   "target": "/care-basics/handling",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/axolotls-and-children",
+   "target": "/cost-and-buying/how-to-choose-a-healthy-axolotl",
+   "source_cluster": "care-basics",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/axolotls-and-children",
+   "target": "/tank-setup/setup-guide",
+   "source_cluster": "care-basics",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/behavior",
+   "target": "/care-basics/axolotl-intelligence-and-bonding",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/behavior",
+   "target": "/health/curled-gills-stress-signal",
+   "source_cluster": "care-basics",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/behavior",
+   "target": "/health/why-axolotl-floating",
+   "source_cluster": "care-basics",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/cost-of-ownership-monthly",
+   "target": "/care-basics/are-axolotls-good-beginner-pets",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/cost-of-ownership-monthly",
+   "target": "/cost-and-buying/axolotl-price-by-morph",
+   "source_cluster": "care-basics",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/cost-of-ownership-monthly",
+   "target": "/tank-setup/aquarium-chillers",
+   "source_cluster": "care-basics",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/cost-of-ownership-monthly",
+   "target": "/tank-setup/setup-guide",
+   "source_cluster": "care-basics",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/handling",
+   "target": "/care-basics/axolotls-and-children",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/handling",
+   "target": "/care-basics/keeping-multiple-axolotls",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/handling",
+   "target": "/tank-setup/setup-guide",
+   "source_cluster": "care-basics",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/how-to-pronounce-axolotl",
+   "target": "/axolotls/care-guide",
+   "source_cluster": "care-basics",
+   "target_cluster": "axolotls",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/how-to-pronounce-axolotl",
+   "target": "/care-basics/axolotl-facts",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/keeping-multiple-axolotls",
+   "target": "/care-basics/are-axolotls-good-beginner-pets",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/keeping-multiple-axolotls",
+   "target": "/care-basics/behavior",
+   "source_cluster": "care-basics",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/care-basics/keeping-multiple-axolotls",
+   "target": "/tank-setup/tank-size-by-age",
+   "source_cluster": "care-basics",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying",
+   "target": "/cost-and-buying/axolotl-price-by-morph",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying",
+   "target": "/cost-and-buying/breeder-vs-pet-store",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying",
+   "target": "/cost-and-buying/choosing-a-reputable-breeder",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying",
+   "target": "/cost-and-buying/how-to-choose-a-healthy-axolotl",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying",
+   "target": "/cost-and-buying/red-flags-when-buying",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying",
+   "target": "/cost-and-buying/shipping-live-axolotls",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying/axolotl-price-by-morph",
+   "target": "/care-basics/cost-of-ownership-monthly",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying/axolotl-price-by-morph",
+   "target": "/morphs/leucistic",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying/axolotl-price-by-morph",
+   "target": "/morphs/wild-type",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying/breeder-vs-pet-store",
+   "target": "/cost-and-buying/choosing-a-reputable-breeder",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying/breeder-vs-pet-store",
+   "target": "/cost-and-buying/shipping-live-axolotls",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying/choosing-a-reputable-breeder",
+   "target": "/cost-and-buying/breeder-vs-pet-store",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying/choosing-a-reputable-breeder",
+   "target": "/cost-and-buying/red-flags-when-buying",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying/how-to-choose-a-healthy-axolotl",
+   "target": "/cost-and-buying/choosing-a-reputable-breeder",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying/how-to-choose-a-healthy-axolotl",
+   "target": "/cost-and-buying/red-flags-when-buying",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying/red-flags-when-buying",
+   "target": "/cost-and-buying/choosing-a-reputable-breeder",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying/red-flags-when-buying",
+   "target": "/cost-and-buying/how-to-choose-a-healthy-axolotl",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying/shipping-live-axolotls",
+   "target": "/cost-and-buying/breeder-vs-pet-store",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/cost-and-buying/shipping-live-axolotls",
+   "target": "/cost-and-buying/how-to-choose-a-healthy-axolotl",
+   "source_cluster": "cost-and-buying",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet",
+   "target": "/diet/axolotl-pellets",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet",
+   "target": "/diet/beef-heart",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet",
+   "target": "/diet/best-foods-list",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet",
+   "target": "/diet/blackworms-for-juveniles",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet",
+   "target": "/diet/fasting-and-vacation",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet",
+   "target": "/diet/feeder-fish-risks",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet",
+   "target": "/diet/feeding-schedule-by-age",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet",
+   "target": "/diet/how-to-hand-feed",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet",
+   "target": "/diet/live-vs-frozen-food",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet",
+   "target": "/diet/overfeeding-and-impaction",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet",
+   "target": "/diet/shrimp-for-axolotls",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet",
+   "target": "/diet/vitamin-and-supplement-needs",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/axolotl-pellets",
+   "target": "/diet/best-foods-list",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/axolotl-pellets",
+   "target": "/diet/live-vs-frozen-food",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/beef-heart",
+   "target": "/diet/feeder-fish-risks",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/beef-heart",
+   "target": "/diet/overfeeding-and-impaction",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/best-foods-list",
+   "target": "/diet/axolotl-pellets",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/best-foods-list",
+   "target": "/diet/feeding-schedule-by-age",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/best-foods-list",
+   "target": "/diet/how-to-hand-feed",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/best-foods-list",
+   "target": "/diet/live-vs-frozen-food",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/blackworms-for-juveniles",
+   "target": "/breeding/raising-juveniles",
+   "source_cluster": "diet",
+   "target_cluster": "breeding",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/blackworms-for-juveniles",
+   "target": "/diet/feeding-schedule-by-age",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/blackworms-for-juveniles",
+   "target": "/diet/overfeeding-and-impaction",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/fasting-and-vacation",
+   "target": "/diet/blackworms-for-juveniles",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/fasting-and-vacation",
+   "target": "/diet/feeding-schedule-by-age",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/feeder-fish-risks",
+   "target": "/diet/beef-heart",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/feeder-fish-risks",
+   "target": "/diet/live-vs-frozen-food",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/feeding-schedule-by-age",
+   "target": "/breeding/raising-juveniles",
+   "source_cluster": "diet",
+   "target_cluster": "breeding",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/feeding-schedule-by-age",
+   "target": "/diet/best-foods-list",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/feeding-schedule-by-age",
+   "target": "/diet/overfeeding-and-impaction",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/how-to-hand-feed",
+   "target": "/diet/best-foods-list",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/how-to-hand-feed",
+   "target": "/diet/fasting-and-vacation",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/live-vs-frozen-food",
+   "target": "/diet/best-foods-list",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/live-vs-frozen-food",
+   "target": "/diet/feeder-fish-risks",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/live-vs-frozen-food",
+   "target": "/health/parasite-treatment",
+   "source_cluster": "diet",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/overfeeding-and-impaction",
+   "target": "/diet/feeding-schedule-by-age",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/overfeeding-and-impaction",
+   "target": "/health/impaction-symptoms-treatment",
+   "source_cluster": "diet",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/overfeeding-and-impaction",
+   "target": "/health/refusing-to-eat",
+   "source_cluster": "diet",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/shrimp-for-axolotls",
+   "target": "/breeding/egg-and-larvae-care",
+   "source_cluster": "diet",
+   "target_cluster": "breeding",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/shrimp-for-axolotls",
+   "target": "/diet/best-foods-list",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/shrimp-for-axolotls",
+   "target": "/diet/feeder-fish-risks",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/vitamin-and-supplement-needs",
+   "target": "/diet/best-foods-list",
+   "source_cluster": "diet",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/diet/vitamin-and-supplement-needs",
+   "target": "/health/malnutrition-signs",
+   "source_cluster": "diet",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/gifts-and-merch",
+   "target": "/gifts-and-merch/axolotl-squishmallow-guide",
+   "source_cluster": "gifts-and-merch",
+   "target_cluster": "gifts-and-merch",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/gifts-and-merch",
+   "target": "/gifts-and-merch/best-axolotl-lego-sets",
+   "source_cluster": "gifts-and-merch",
+   "target_cluster": "gifts-and-merch",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/gifts-and-merch",
+   "target": "/gifts-and-merch/best-axolotl-toys-and-plushies",
+   "source_cluster": "gifts-and-merch",
+   "target_cluster": "gifts-and-merch",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/gifts-and-merch",
+   "target": "/gifts-and-merch/build-a-bear-axolotl-guide",
+   "source_cluster": "gifts-and-merch",
+   "target_cluster": "gifts-and-merch",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/gifts-and-merch/axolotl-squishmallow-guide",
+   "target": "/gifts-and-merch/best-axolotl-toys-and-plushies",
+   "source_cluster": "gifts-and-merch",
+   "target_cluster": "gifts-and-merch",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/gifts-and-merch/axolotl-squishmallow-guide",
+   "target": "/gifts-and-merch/build-a-bear-axolotl-guide",
+   "source_cluster": "gifts-and-merch",
+   "target_cluster": "gifts-and-merch",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/gifts-and-merch/best-axolotl-lego-sets",
+   "target": "/axolotl-in-culture/minecraft-axolotls-guide",
+   "source_cluster": "gifts-and-merch",
+   "target_cluster": "axolotl-in-culture",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/gifts-and-merch/best-axolotl-lego-sets",
+   "target": "/gifts-and-merch/best-axolotl-toys-and-plushies",
+   "source_cluster": "gifts-and-merch",
+   "target_cluster": "gifts-and-merch",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/gifts-and-merch/best-axolotl-toys-and-plushies",
+   "target": "/gifts-and-merch/axolotl-squishmallow-guide",
+   "source_cluster": "gifts-and-merch",
+   "target_cluster": "gifts-and-merch",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/gifts-and-merch/best-axolotl-toys-and-plushies",
+   "target": "/gifts-and-merch/best-axolotl-lego-sets",
+   "source_cluster": "gifts-and-merch",
+   "target_cluster": "gifts-and-merch",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/gifts-and-merch/best-axolotl-toys-and-plushies",
+   "target": "/gifts-and-merch/build-a-bear-axolotl-guide",
+   "source_cluster": "gifts-and-merch",
+   "target_cluster": "gifts-and-merch",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/gifts-and-merch/build-a-bear-axolotl-guide",
+   "target": "/gifts-and-merch/axolotl-squishmallow-guide",
+   "source_cluster": "gifts-and-merch",
+   "target_cluster": "gifts-and-merch",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/gifts-and-merch/build-a-bear-axolotl-guide",
+   "target": "/gifts-and-merch/best-axolotl-toys-and-plushies",
+   "source_cluster": "gifts-and-merch",
+   "target_cluster": "gifts-and-merch",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/ammonia-burns",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/black-tea-bath",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/curled-gills-stress-signal",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/finding-an-exotic-vet",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/fridging-sick-axolotl",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/fungal-infections-saprolegnia",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/impaction-symptoms-treatment",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/limb-regeneration",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/malnutrition-signs",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/minor-scrapes-and-wounds",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/parasite-treatment",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/quarantine-tub",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/red-leg-syndrome",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/refusing-to-eat",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/salt-bath",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/shrinking-gills",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/stress-signs",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health",
+   "target": "/health/why-axolotl-floating",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/ammonia-burns",
+   "target": "/health/curled-gills-stress-signal",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/ammonia-burns",
+   "target": "/health/quarantine-tub",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/ammonia-burns",
+   "target": "/tank-setup/water-parameters-cycling",
+   "source_cluster": "health",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/black-tea-bath",
+   "target": "/health/fridging-sick-axolotl",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/black-tea-bath",
+   "target": "/health/fungal-infections-saprolegnia",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/curled-gills-stress-signal",
+   "target": "/biology-and-science/anatomy-gills-and-lungs",
+   "source_cluster": "health",
+   "target_cluster": "biology-and-science",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/curled-gills-stress-signal",
+   "target": "/health/ammonia-burns",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/curled-gills-stress-signal",
+   "target": "/health/shrinking-gills",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/curled-gills-stress-signal",
+   "target": "/health/stress-signs",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/curled-gills-stress-signal",
+   "target": "/tank-setup/water-parameters-cycling",
+   "source_cluster": "health",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/finding-an-exotic-vet",
+   "target": "/health/fungal-infections-saprolegnia",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/finding-an-exotic-vet",
+   "target": "/health/impaction-symptoms-treatment",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/finding-an-exotic-vet",
+   "target": "/health/parasite-treatment",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/finding-an-exotic-vet",
+   "target": "/health/red-leg-syndrome",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/fridging-sick-axolotl",
+   "target": "/health/black-tea-bath",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/fridging-sick-axolotl",
+   "target": "/health/fungal-infections-saprolegnia",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/fungal-infections-saprolegnia",
+   "target": "/biology-and-science/anatomy-gills-and-lungs",
+   "source_cluster": "health",
+   "target_cluster": "biology-and-science",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/fungal-infections-saprolegnia",
+   "target": "/health/black-tea-bath",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/fungal-infections-saprolegnia",
+   "target": "/health/fridging-sick-axolotl",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/fungal-infections-saprolegnia",
+   "target": "/health/salt-bath",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/impaction-symptoms-treatment",
+   "target": "/diet/overfeeding-and-impaction",
+   "source_cluster": "health",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/impaction-symptoms-treatment",
+   "target": "/health/fridging-sick-axolotl",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/impaction-symptoms-treatment",
+   "target": "/health/refusing-to-eat",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/impaction-symptoms-treatment",
+   "target": "/tank-setup/substrate-and-impaction",
+   "source_cluster": "health",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/limb-regeneration",
+   "target": "/biology-and-science/regeneration-and-limb-regrowth",
+   "source_cluster": "health",
+   "target_cluster": "biology-and-science",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/limb-regeneration",
+   "target": "/health/fungal-infections-saprolegnia",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/limb-regeneration",
+   "target": "/health/minor-scrapes-and-wounds",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/malnutrition-signs",
+   "target": "/biology-and-science/regeneration-and-limb-regrowth",
+   "source_cluster": "health",
+   "target_cluster": "biology-and-science",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/malnutrition-signs",
+   "target": "/diet/vitamin-and-supplement-needs",
+   "source_cluster": "health",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/malnutrition-signs",
+   "target": "/health/refusing-to-eat",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/minor-scrapes-and-wounds",
+   "target": "/health/fungal-infections-saprolegnia",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/minor-scrapes-and-wounds",
+   "target": "/health/limb-regeneration",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/minor-scrapes-and-wounds",
+   "target": "/health/salt-bath",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/parasite-treatment",
+   "target": "/diet/live-vs-frozen-food",
+   "source_cluster": "health",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/parasite-treatment",
+   "target": "/health/fungal-infections-saprolegnia",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/parasite-treatment",
+   "target": "/health/malnutrition-signs",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/parasite-treatment",
+   "target": "/health/quarantine-tub",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/parasite-treatment",
+   "target": "/tank-setup/water-parameters-cycling",
+   "source_cluster": "health",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/quarantine-tub",
+   "target": "/health/fungal-infections-saprolegnia",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/quarantine-tub",
+   "target": "/health/red-leg-syndrome",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/quarantine-tub",
+   "target": "/health/refusing-to-eat",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/red-leg-syndrome",
+   "target": "/health/finding-an-exotic-vet",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/red-leg-syndrome",
+   "target": "/health/fungal-infections-saprolegnia",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/red-leg-syndrome",
+   "target": "/health/quarantine-tub",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/refusing-to-eat",
+   "target": "/diet/overfeeding-and-impaction",
+   "source_cluster": "health",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/refusing-to-eat",
+   "target": "/health/malnutrition-signs",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/salt-bath",
+   "target": "/health/black-tea-bath",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/salt-bath",
+   "target": "/health/fungal-infections-saprolegnia",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/shrinking-gills",
+   "target": "/biology-and-science/anatomy-gills-and-lungs",
+   "source_cluster": "health",
+   "target_cluster": "biology-and-science",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/shrinking-gills",
+   "target": "/health/curled-gills-stress-signal",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/shrinking-gills",
+   "target": "/tank-setup/temperature",
+   "source_cluster": "health",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/shrinking-gills",
+   "target": "/tank-setup/water-parameters-cycling",
+   "source_cluster": "health",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/stress-signs",
+   "target": "/health/curled-gills-stress-signal",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/stress-signs",
+   "target": "/health/refusing-to-eat",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/stress-signs",
+   "target": "/health/why-axolotl-floating",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/stress-signs",
+   "target": "/tank-setup/water-parameters-cycling",
+   "source_cluster": "health",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/why-axolotl-floating",
+   "target": "/health/refusing-to-eat",
+   "source_cluster": "health",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/health/why-axolotl-floating",
+   "target": "/tank-setup/water-parameters-cycling",
+   "source_cluster": "health",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal",
+   "target": "/legal/california",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal",
+   "target": "/legal/canada",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal",
+   "target": "/legal/hawaii",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal",
+   "target": "/legal/maine",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal",
+   "target": "/legal/new-jersey",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal",
+   "target": "/legal/new-mexico",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal",
+   "target": "/legal/virginia",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/california",
+   "target": "/axolotls/care-guide",
+   "source_cluster": "legal",
+   "target_cluster": "axolotls",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/california",
+   "target": "/legal/canada",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/california",
+   "target": "/legal/new-jersey",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/california",
+   "target": "/legal/virginia",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/canada",
+   "target": "/axolotls/care-guide",
+   "source_cluster": "legal",
+   "target_cluster": "axolotls",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/canada",
+   "target": "/legal/california",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/canada",
+   "target": "/legal/maine",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/canada",
+   "target": "/legal/virginia",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/hawaii",
+   "target": "/legal/california",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/hawaii",
+   "target": "/legal/canada",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/hawaii",
+   "target": "/legal/maine",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/maine",
+   "target": "/legal/california",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/maine",
+   "target": "/legal/canada",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/maine",
+   "target": "/legal/hawaii",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/maine",
+   "target": "/legal/virginia",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/new-jersey",
+   "target": "/legal/california",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/new-jersey",
+   "target": "/legal/canada",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/new-jersey",
+   "target": "/legal/virginia",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/new-mexico",
+   "target": "/legal/california",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/new-mexico",
+   "target": "/legal/maine",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/new-mexico",
+   "target": "/legal/virginia",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/virginia",
+   "target": "/legal/california",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/virginia",
+   "target": "/legal/maine",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/virginia",
+   "target": "/legal/new-jersey",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/legal/virginia",
+   "target": "/legal/new-mexico",
+   "source_cluster": "legal",
+   "target_cluster": "legal",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs",
+   "target": "/morphs/blue-and-pink-axolotl-myth",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs",
+   "target": "/morphs/chimera",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs",
+   "target": "/morphs/copper",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs",
+   "target": "/morphs/enigma-firefly-mac",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs",
+   "target": "/morphs/gfp-axolotl",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs",
+   "target": "/morphs/golden-albino",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs",
+   "target": "/morphs/leucistic",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs",
+   "target": "/morphs/melanoid",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs",
+   "target": "/morphs/morphs-comparison-chart",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs",
+   "target": "/morphs/mosaic",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs",
+   "target": "/morphs/piebald",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs",
+   "target": "/morphs/pigment-cells",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs",
+   "target": "/morphs/wild-type",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/blue-and-pink-axolotl-myth",
+   "target": "/morphs/leucistic",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/blue-and-pink-axolotl-myth",
+   "target": "/morphs/morphs-comparison-chart",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/blue-and-pink-axolotl-myth",
+   "target": "/morphs/wild-type",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/chimera",
+   "target": "/breeding/color-genetics-punnett-squares",
+   "source_cluster": "morphs",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/chimera",
+   "target": "/morphs/enigma-firefly-mac",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/chimera",
+   "target": "/morphs/mosaic",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/chimera",
+   "target": "/morphs/wild-type",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/copper",
+   "target": "/breeding/breeding-triggers-temperature-cycling",
+   "source_cluster": "morphs",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/copper",
+   "target": "/breeding/color-genetics-punnett-squares",
+   "source_cluster": "morphs",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/copper",
+   "target": "/breeding/egg-and-larvae-care",
+   "source_cluster": "morphs",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/copper",
+   "target": "/morphs/pigment-cells",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/enigma-firefly-mac",
+   "target": "/morphs/chimera",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/enigma-firefly-mac",
+   "target": "/morphs/leucistic",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/enigma-firefly-mac",
+   "target": "/morphs/pigment-cells",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/gfp-axolotl",
+   "target": "/morphs/golden-albino",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/gfp-axolotl",
+   "target": "/morphs/leucistic",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/golden-albino",
+   "target": "/breeding/color-genetics-punnett-squares",
+   "source_cluster": "morphs",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/golden-albino",
+   "target": "/morphs/gfp-axolotl",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/golden-albino",
+   "target": "/morphs/leucistic",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/leucistic",
+   "target": "/breeding/color-genetics-punnett-squares",
+   "source_cluster": "morphs",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/leucistic",
+   "target": "/cost-and-buying/axolotl-price-by-morph",
+   "source_cluster": "morphs",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/leucistic",
+   "target": "/morphs/blue-and-pink-axolotl-myth",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/leucistic",
+   "target": "/morphs/golden-albino",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/leucistic",
+   "target": "/morphs/melanoid",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/leucistic",
+   "target": "/morphs/wild-type",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/melanoid",
+   "target": "/morphs/leucistic",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/melanoid",
+   "target": "/morphs/pigment-cells",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/melanoid",
+   "target": "/morphs/wild-type",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/morphs-comparison-chart",
+   "target": "/cost-and-buying/axolotl-price-by-morph",
+   "source_cluster": "morphs",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/morphs-comparison-chart",
+   "target": "/morphs/leucistic",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/morphs-comparison-chart",
+   "target": "/morphs/wild-type",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/mosaic",
+   "target": "/morphs/chimera",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/mosaic",
+   "target": "/morphs/morphs-comparison-chart",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/mosaic",
+   "target": "/morphs/piebald",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/piebald",
+   "target": "/breeding/color-genetics-punnett-squares",
+   "source_cluster": "morphs",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/piebald",
+   "target": "/morphs/chimera",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/piebald",
+   "target": "/morphs/leucistic",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/piebald",
+   "target": "/morphs/wild-type",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/pigment-cells",
+   "target": "/breeding/color-genetics-punnett-squares",
+   "source_cluster": "morphs",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/pigment-cells",
+   "target": "/morphs/copper",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/pigment-cells",
+   "target": "/morphs/enigma-firefly-mac",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/pigment-cells",
+   "target": "/morphs/melanoid",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/wild-type",
+   "target": "/breeding/color-genetics-punnett-squares",
+   "source_cluster": "morphs",
+   "target_cluster": "breeding",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/wild-type",
+   "target": "/cost-and-buying/axolotl-price-by-morph",
+   "source_cluster": "morphs",
+   "target_cluster": "cost-and-buying",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/wild-type",
+   "target": "/morphs/chimera",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/morphs/wild-type",
+   "target": "/morphs/leucistic",
+   "source_cluster": "morphs",
+   "target_cluster": "morphs",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup",
+   "target": "/tank-setup/acclimating-a-new-axolotl",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup",
+   "target": "/tank-setup/aquarium-chillers",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup",
+   "target": "/tank-setup/canister-vs-sponge-filter",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup",
+   "target": "/tank-setup/filtration-for-axolotls",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup",
+   "target": "/tank-setup/gravel-risks",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup",
+   "target": "/tank-setup/hides-and-caves",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup",
+   "target": "/tank-setup/lighting-for-axolotls",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup",
+   "target": "/tank-setup/live-vs-artificial-plants",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup",
+   "target": "/tank-setup/setup-guide",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup",
+   "target": "/tank-setup/substrate-and-impaction",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup",
+   "target": "/tank-setup/tank-mates",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup",
+   "target": "/tank-setup/tank-size-by-age",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup",
+   "target": "/tank-setup/temperature",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup",
+   "target": "/tank-setup/uneaten-food-and-ammonia",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup",
+   "target": "/tank-setup/water-conditioners",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup",
+   "target": "/tank-setup/water-parameters-cycling",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup",
+   "target": "/tank-setup/why-tank-water-smells",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/acclimating-a-new-axolotl",
+   "target": "/health/quarantine-tub",
+   "source_cluster": "tank-setup",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/acclimating-a-new-axolotl",
+   "target": "/tank-setup/water-conditioners",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/acclimating-a-new-axolotl",
+   "target": "/tank-setup/water-parameters-cycling",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/aquarium-chillers",
+   "target": "/tank-setup/setup-guide",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/aquarium-chillers",
+   "target": "/tank-setup/temperature",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/canister-vs-sponge-filter",
+   "target": "/tank-setup/filtration-for-axolotls",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/canister-vs-sponge-filter",
+   "target": "/tank-setup/temperature",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/filtration-for-axolotls",
+   "target": "/tank-setup/canister-vs-sponge-filter",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/filtration-for-axolotls",
+   "target": "/tank-setup/water-parameters-cycling",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/gravel-risks",
+   "target": "/tank-setup/live-vs-artificial-plants",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/gravel-risks",
+   "target": "/tank-setup/substrate-and-impaction",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/hides-and-caves",
+   "target": "/tank-setup/lighting-for-axolotls",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/hides-and-caves",
+   "target": "/tank-setup/live-vs-artificial-plants",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/lighting-for-axolotls",
+   "target": "/tank-setup/hides-and-caves",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/lighting-for-axolotls",
+   "target": "/tank-setup/water-conditioners",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/live-vs-artificial-plants",
+   "target": "/tank-setup/hides-and-caves",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/live-vs-artificial-plants",
+   "target": "/tank-setup/lighting-for-axolotls",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/setup-guide",
+   "target": "/tank-setup/filtration-for-axolotls",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/setup-guide",
+   "target": "/tank-setup/substrate-and-impaction",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/setup-guide",
+   "target": "/tank-setup/temperature",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/setup-guide",
+   "target": "/tank-setup/water-parameters-cycling",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/substrate-and-impaction",
+   "target": "/health/refusing-to-eat",
+   "source_cluster": "tank-setup",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/substrate-and-impaction",
+   "target": "/tank-setup/gravel-risks",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/tank-mates",
+   "target": "/care-basics/keeping-multiple-axolotls",
+   "source_cluster": "tank-setup",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/tank-mates",
+   "target": "/diet/feeder-fish-risks",
+   "source_cluster": "tank-setup",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/tank-mates",
+   "target": "/tank-setup/tank-size-by-age",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/tank-size-by-age",
+   "target": "/care-basics/axolotl-age-and-size-chart",
+   "source_cluster": "tank-setup",
+   "target_cluster": "care-basics",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/tank-size-by-age",
+   "target": "/tank-setup/gravel-risks",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/tank-size-by-age",
+   "target": "/tank-setup/setup-guide",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/tank-size-by-age",
+   "target": "/tank-setup/tank-mates",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/temperature",
+   "target": "/health/refusing-to-eat",
+   "source_cluster": "tank-setup",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/temperature",
+   "target": "/tank-setup/aquarium-chillers",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/uneaten-food-and-ammonia",
+   "target": "/diet/feeding-schedule-by-age",
+   "source_cluster": "tank-setup",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/uneaten-food-and-ammonia",
+   "target": "/tank-setup/water-parameters-cycling",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/water-conditioners",
+   "target": "/tank-setup/acclimating-a-new-axolotl",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/water-conditioners",
+   "target": "/tank-setup/aquarium-chillers",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/water-conditioners",
+   "target": "/tank-setup/filtration-for-axolotls",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/water-conditioners",
+   "target": "/tank-setup/lighting-for-axolotls",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/water-conditioners",
+   "target": "/tank-setup/water-parameters-cycling",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/water-parameters-cycling",
+   "target": "/tank-setup/uneaten-food-and-ammonia",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/water-parameters-cycling",
+   "target": "/tank-setup/why-tank-water-smells",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/why-tank-water-smells",
+   "target": "/tank-setup/uneaten-food-and-ammonia",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tank-setup/why-tank-water-smells",
+   "target": "/tank-setup/water-parameters-cycling",
+   "source_cluster": "tank-setup",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tools",
+   "target": "/diet/feeding-schedule-by-age",
+   "source_cluster": "tools",
+   "target_cluster": "diet",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tools",
+   "target": "/health/refusing-to-eat",
+   "source_cluster": "tools",
+   "target_cluster": "health",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tools",
+   "target": "/tank-setup/setup-guide",
+   "source_cluster": "tools",
+   "target_cluster": "tank-setup",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tools",
+   "target": "/tank-setup/water-parameters-cycling",
+   "source_cluster": "tools",
+   "target_cluster": "tank-setup",
+   "phase8": true,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tools/feeding-schedule-generator",
+   "target": "/axolotls/care-guide",
+   "source_cluster": "tools",
+   "target_cluster": "axolotls",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tools/feeding-schedule-generator",
+   "target": "/diet/feeding-schedule-by-age",
+   "source_cluster": "tools",
+   "target_cluster": "diet",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tools/nitrogen-cycle-tracker",
+   "target": "/tank-setup/water-parameters-cycling",
+   "source_cluster": "tools",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tools/symptom-checker",
+   "target": "/axolotls/care-guide",
+   "source_cluster": "tools",
+   "target_cluster": "axolotls",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tools/symptom-checker",
+   "target": "/health/refusing-to-eat",
+   "source_cluster": "tools",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tools/symptom-checker",
+   "target": "/health/stress-signs",
+   "source_cluster": "tools",
+   "target_cluster": "health",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tools/tank-size-calculator",
+   "target": "/axolotls/care-guide",
+   "source_cluster": "tools",
+   "target_cluster": "axolotls",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tools/tank-size-calculator",
+   "target": "/tank-setup/tank-size-by-age",
+   "source_cluster": "tools",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/tools/water-conditioner-dosage-calculator",
+   "target": "/tank-setup/water-conditioners",
+   "source_cluster": "tools",
+   "target_cluster": "tank-setup",
+   "phase8": false,
+   "relationship": "contextual (existing)"
+  },
+  {
+   "source": "/axolotls/care-guide",
+   "target": "/legal",
+   "source_cluster": "axolotls",
+   "target_cluster": "legal",
+   "phase8": true,
+   "relationship": "ownership decision -> legal status -> jurisdiction",
+   "note": "rendered; excluded from content-linkgraph because target is template-filtered (site-wide footer/nav)"
+  },
+  {
+   "source": "/axolotl-in-culture/adopt-me-axolotl-guide",
+   "target": "/legal",
+   "source_cluster": "axolotl-in-culture",
+   "target_cluster": "legal",
+   "phase8": true,
+   "relationship": "virtual ownership -> real-world legality",
+   "note": "rendered; excluded from content-linkgraph because target is template-filtered (site-wide footer/nav)"
+  }
+ ]
+}

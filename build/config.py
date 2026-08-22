@@ -6,11 +6,49 @@ hub-and-spoke structure defined in axolotl_topical_map.xml.
 
 # ── Site identity ──────────────────────────────────────────────────────────
 # CHANGE THIS once you buy your domain:
-SITE_URL = "https://axolotlcare.example.com"
-SITE_NAME = "Axolotl Care Guide"
+SITE_URL = "https://myaxolotl.us"
+SITE_NAME = "MyAxolotl"
 SITE_TAGLINE = "Evidence-based axolotl care, tank setup, diet, and health guides."
 SITE_LOGO = "/images/axolotl-logo.jpg"
 SITE_FAVICON = "/images/axolotl-favicon.jpg"
+
+PEOPLE = {
+    "author": {
+        "name": "Farrukh Abdullah",
+        "role": "Researcher & Writer",
+        "slug": "authors/farrukh-abdullah",
+        "meta": "Researcher and writer for MyAxolotl.",
+        "summary": "Farrukh Abdullah researches and writes the MyAxolotl guides.",
+        "focus": "Practical husbandry, tank setup, diet, and health explanations.",
+        "links": [
+            ("LinkedIn", "https://www.linkedin.com/in/farrukh-abdullah-5a218424/"),
+            ("Email", "mailto:f.abdullah79@gmail.com"),
+        ],
+        "email": "f.abdullah79@gmail.com",
+        "sameAs": ["https://www.linkedin.com/in/farrukh-abdullah-5a218424/"],
+    },
+    "editor": {
+        "name": "Ananda Abidin",
+        "role": "Editor",
+        "slug": "editors/ananda-abidin",
+        "meta": "Editor for MyAxolotl.",
+        "summary": "Ananda Abidin edits MyAxolotl guides for clarity and editorial consistency.",
+        "focus": "Editorial review, structure, and consistency.",
+        "links": [
+            ("LinkedIn", "https://www.linkedin.com/in/ananda-abidin/"),
+        ],
+        "sameAs": ["https://www.linkedin.com/in/ananda-abidin/"],
+        "experience": [
+            {
+                "organization": "Axohub Indonesia",
+                "role": "Content Writer & Video Editor",
+                "dates": "May 2025 – November 2025",
+                "duration": "7 months",
+                "location": "Malang, East Java, Indonesia",
+            },
+        ],
+    },
+}
 
 # Source folder containing the .docx articles
 SOURCE_DIR = r"C:\Users\HomePC\Documents\axolotls"
@@ -18,12 +56,12 @@ SOURCE_DIR = r"C:\Users\HomePC\Documents\axolotls"
 # ── Core hubs (from topical map) ───────────────────────────────────────────
 HUBS = {
     "axolotls": {
-        "title": "Axolotls: The Complete Guide to Care, Biology, and Ownership",
-        "title_tag": "Axolotls: Complete Care & Biology Guide (2026)",
-        "meta": "Everything about axolotls - care, diet, legality, morphs, breeding, and the science behind their regeneration. Start here.",
-        "h1": "Axolotls: The Complete Guide",
-        "intro": "Everything about axolotls in one place - from setting up your first tank to feeding, health, and the fascinating biology of the animal that never grows up.",
-        "keywords": ["axolotls", "axolotl", "axolotl care"],
+        "title": "All Axolotl Guides: Care, Tank Setup, Diet, Health & More",
+        "title_tag": "Axolotl Guides Index: Care, Tank, Diet, Health & Genetics",
+        "meta": "Browse every axolotl guide in one place - complete care, tank setup, diet, health, morphs, breeding, cost, legality, and the science behind them.",
+        "h1": "All Axolotl Guides",
+        "intro": "This is the index to every guide on the site - the complete care guide, tank setup, diet, health, morphs, breeding, cost, legality, and the science behind them. New here? Start with the full care guide.",
+        "keywords": ["axolotl guides", "axolotl care", "axolotl care guide"],
         "cat": "Care",
     },
     "tank-setup": {
@@ -764,10 +802,14 @@ TOOLS = {
 # Internal linking map (source_slug -> [target_slug, ...]) applied to article
 # pages automatically. Keys/values are slugs from ARTICLES (without leading /).
 LINKING = {
+    # Flagship guide anchors the ownership -> legal-status gateway (phase 8).
+    "axolotls/care-guide": ["legal"],
     "tank-setup/setup-guide": ["tank-setup/substrate-and-impaction", "tank-setup/filtration-for-axolotls",
                                "tank-setup/temperature", "tank-setup/water-parameters-cycling"],
-    "tank-setup/substrate-and-impaction": ["health/refusing-to-eat", "tank-setup/gravel-risks"],
-    "tank-setup/gravel-risks": ["tank-setup/substrate-and-impaction", "tank-setup/live-vs-artificial-plants"],
+    "tank-setup/substrate-and-impaction": ["health/refusing-to-eat", "tank-setup/gravel-risks",
+                                           "health/impaction-symptoms-treatment"],
+    "tank-setup/gravel-risks": ["tank-setup/substrate-and-impaction", "tank-setup/live-vs-artificial-plants",
+                                "health/impaction-symptoms-treatment"],
     "tank-setup/filtration-for-axolotls": ["tank-setup/canister-vs-sponge-filter", "tank-setup/water-parameters-cycling"],
     "tank-setup/canister-vs-sponge-filter": ["tank-setup/filtration-for-axolotls"],
     "tank-setup/water-parameters-cycling": ["tank-setup/why-tank-water-smells", "tank-setup/uneaten-food-and-ammonia"],
@@ -786,33 +828,41 @@ LINKING = {
     "tank-setup/tank-mates": ["tank-setup/tank-size-by-age", "diet/feeder-fish-risks",
                               "care-basics/keeping-multiple-axolotls"],
     "tank-setup/acclimating-a-new-axolotl": ["tank-setup/water-parameters-cycling",
-                                             "health/quarantine-tub", "tank-setup/water-conditioners"],
+                                             "health/quarantine-tub", "tank-setup/water-conditioners",
+                                             "cost-and-buying/shipping-live-axolotls"],
     "diet": ["diet/best-foods-list", "diet/feeding-schedule-by-age", "diet/overfeeding-and-impaction"],
     "diet/best-foods-list": ["diet/feeding-schedule-by-age", "diet/live-vs-frozen-food", "diet/axolotl-pellets",
                              "diet/how-to-hand-feed"],
-    "diet/feeding-schedule-by-age": ["diet/best-foods-list", "diet/overfeeding-and-impaction"],
+    "diet/feeding-schedule-by-age": ["diet/best-foods-list", "diet/overfeeding-and-impaction",
+                                     "breeding/raising-juveniles"],
     "diet/axolotl-pellets": ["diet/best-foods-list", "diet/live-vs-frozen-food"],
     "diet/live-vs-frozen-food": ["diet/best-foods-list", "diet/feeder-fish-risks", "health/parasite-treatment"],
     "diet/feeder-fish-risks": ["diet/beef-heart", "diet/live-vs-frozen-food"],
     "diet/beef-heart": ["diet/feeder-fish-risks"],
     "diet/overfeeding-and-impaction": ["health/refusing-to-eat", "health/impaction-symptoms-treatment", "diet/feeding-schedule-by-age"],
-    "diet/blackworms-for-juveniles": ["diet/feeding-schedule-by-age"],
+    "diet/blackworms-for-juveniles": ["diet/feeding-schedule-by-age", "diet/overfeeding-and-impaction",
+                                      "breeding/raising-juveniles"],
     "diet/fasting-and-vacation": ["diet/feeding-schedule-by-age"],
     "diet/how-to-hand-feed": ["diet/best-foods-list"],
-    "diet/shrimp-for-axolotls": ["diet/best-foods-list", "diet/feeder-fish-risks"],
+    "diet/shrimp-for-axolotls": ["diet/best-foods-list", "diet/feeder-fish-risks",
+                                 "breeding/egg-and-larvae-care"],
     "diet/vitamin-and-supplement-needs": ["diet/best-foods-list", "health/malnutrition-signs"],
     "health": ["health/refusing-to-eat", "health/fungal-infections-saprolegnia", "health/parasite-treatment"],
     "health/refusing-to-eat": ["diet/overfeeding-and-impaction", "health/malnutrition-signs"],
-    "health/malnutrition-signs": ["health/refusing-to-eat", "diet/vitamin-and-supplement-needs"],
+    "health/malnutrition-signs": ["health/refusing-to-eat", "diet/vitamin-and-supplement-needs",
+                                  "biology-and-science/regeneration-and-limb-regrowth"],
     "health/parasite-treatment": ["health/fungal-infections-saprolegnia"],
-    "health/fungal-infections-saprolegnia": ["health/black-tea-bath", "health/salt-bath", "health/fridging-sick-axolotl"],
+    "health/fungal-infections-saprolegnia": ["health/black-tea-bath", "health/salt-bath", "health/fridging-sick-axolotl",
+                                             "biology-and-science/anatomy-gills-and-lungs"],
     "health/black-tea-bath": ["health/fungal-infections-saprolegnia", "health/fridging-sick-axolotl"],
     "health/fridging-sick-axolotl": ["health/black-tea-bath", "health/fungal-infections-saprolegnia"],
     "health/salt-bath": ["health/fungal-infections-saprolegnia", "health/black-tea-bath"],
     "health/why-axolotl-floating": ["health/refusing-to-eat", "tank-setup/water-parameters-cycling"],
     "health/curled-gills-stress-signal": ["health/shrinking-gills", "health/ammonia-burns",
-                                          "tank-setup/water-parameters-cycling", "health/stress-signs"],
-    "health/limb-regeneration": ["health/minor-scrapes-and-wounds", "health/fungal-infections-saprolegnia"],
+                                          "tank-setup/water-parameters-cycling", "health/stress-signs",
+                                          "biology-and-science/anatomy-gills-and-lungs"],
+    "health/limb-regeneration": ["health/minor-scrapes-and-wounds", "health/fungal-infections-saprolegnia",
+                                 "biology-and-science/regeneration-and-limb-regrowth"],
     "health/ammonia-burns": ["health/curled-gills-stress-signal", "health/quarantine-tub",
                              "tank-setup/water-parameters-cycling"],
     "health/red-leg-syndrome": ["health/quarantine-tub", "health/fungal-infections-saprolegnia",
@@ -820,15 +870,25 @@ LINKING = {
     "health/quarantine-tub": ["health/red-leg-syndrome", "health/refusing-to-eat",
                               "health/fungal-infections-saprolegnia"],
     "health/shrinking-gills": ["health/curled-gills-stress-signal", "tank-setup/temperature",
-                               "tank-setup/water-parameters-cycling"],
+                               "tank-setup/water-parameters-cycling", "biology-and-science/anatomy-gills-and-lungs"],
     "health/minor-scrapes-and-wounds": ["health/limb-regeneration", "health/fungal-infections-saprolegnia",
                                         "health/salt-bath"],
     "health/finding-an-exotic-vet": ["health/red-leg-syndrome", "health/impaction-symptoms-treatment",
-                                     "health/fungal-infections-saprolegnia", "health/parasite-treatment"],
+                                     "health/fungal-infections-saprolegnia", "health/parasite-treatment",
+                                     "health/emergency-first-aid"],
     "health/stress-signs": ["health/curled-gills-stress-signal", "health/why-axolotl-floating",
                             "health/refusing-to-eat", "tank-setup/water-parameters-cycling"],
     "health/impaction-symptoms-treatment": ["health/refusing-to-eat", "health/fridging-sick-axolotl",
-                                            "diet/overfeeding-and-impaction", "tank-setup/substrate-and-impaction"],
+                                            "diet/overfeeding-and-impaction", "tank-setup/substrate-and-impaction",
+                                            "tank-setup/gravel-risks"],
+    "health/emergency-first-aid": ["health/finding-an-exotic-vet", "health/refusing-to-eat",
+                                   "health/red-leg-syndrome", "health/ammonia-burns",
+                                   "health/why-axolotl-floating", "health/fungal-infections-saprolegnia",
+                                   "health/fridging-sick-axolotl"],
+    "tank-setup/water-change-guide": ["tank-setup/water-parameters-cycling", "tank-setup/water-conditioners",
+                                      "tank-setup/why-tank-water-smells", "tank-setup/uneaten-food-and-ammonia",
+                                      "tank-setup/temperature", "tank-setup/setup-guide",
+                                      "health/emergency-first-aid"],
     "gifts-and-merch": ["gifts-and-merch/best-axolotl-toys-and-plushies",
                         "gifts-and-merch/axolotl-squishmallow-guide",
                         "gifts-and-merch/build-a-bear-axolotl-guide",
@@ -859,11 +919,13 @@ LINKING = {
     "morphs/morphs-comparison-chart": ["morphs/wild-type", "morphs/leucistic",
                                        "cost-and-buying/axolotl-price-by-morph"],
     "morphs/mosaic": ["morphs/chimera", "morphs/morphs-comparison-chart", "morphs/piebald"],
-    "breeding/egg-and-larvae-care": ["breeding/raising-juveniles", "breeding/breeding-triggers-temperature-cycling"],
+    "breeding/egg-and-larvae-care": ["breeding/raising-juveniles", "breeding/breeding-triggers-temperature-cycling",
+                                     "diet/shrimp-for-axolotls", "diet/feeding-schedule-by-age"],
     "breeding/genetics-and-inbreeding": ["breeding/color-genetics-punnett-squares", "breeding/raising-juveniles"],
     "breeding/breeding-triggers-temperature-cycling": ["breeding/sexing-axolotls", "breeding/egg-and-larvae-care"],
     "breeding/sexing-axolotls": ["breeding/breeding-triggers-temperature-cycling"],
-    "breeding/raising-juveniles": ["breeding/egg-and-larvae-care", "breeding/genetics-and-inbreeding"],
+    "breeding/raising-juveniles": ["breeding/egg-and-larvae-care", "breeding/genetics-and-inbreeding",
+                                   "diet/feeding-schedule-by-age", "diet/blackworms-for-juveniles"],
     "breeding/color-genetics-punnett-squares": ["morphs/wild-type", "morphs/chimera", "breeding/genetics-and-inbreeding"],
     "legal": ["legal/california", "legal/canada", "legal/virginia", "legal/new-jersey"],
     "legal/california": ["legal/virginia", "legal/new-jersey", "legal/canada", "axolotls/care-guide"],
@@ -900,7 +962,8 @@ LINKING = {
                                               "tank-setup/tank-size-by-age", "care-basics/behavior"],
     "biology-and-science/anatomy-gills-and-lungs": ["biology-and-science/neoteny",
                                                     "biology-and-science/is-axolotl-amphibian",
-                                                    "biology-and-science/wild-habitat-xochimilco"],
+                                                    "biology-and-science/wild-habitat-xochimilco",
+                                                    "health/shrinking-gills"],
     "biology-and-science/axolotl-vs-tiger-salamander": ["biology-and-science/neoteny",
                                                         "biology-and-science/is-axolotl-amphibian"],
     "biology-and-science/conservation-status": ["biology-and-science/wild-habitat-xochimilco",
@@ -913,7 +976,8 @@ LINKING = {
                                                        "biology-and-science/wild-habitat-xochimilco"],
     "biology-and-science/regeneration-and-limb-regrowth": ["health/limb-regeneration",
                                                            "biology-and-science/neoteny",
-                                                           "biology-and-science/anatomy-gills-and-lungs"],
+                                                           "biology-and-science/anatomy-gills-and-lungs",
+                                                           "health/minor-scrapes-and-wounds"],
     "biology-and-science/neoteny": ["biology-and-science/axolotl-vs-tiger-salamander",
                                     "biology-and-science/is-axolotl-amphibian"],
     "biology-and-science/wild-habitat-xochimilco": ["biology-and-science/conservation-status",
@@ -931,7 +995,8 @@ LINKING = {
     "cost-and-buying/red-flags-when-buying": ["cost-and-buying/choosing-a-reputable-breeder",
                                               "cost-and-buying/how-to-choose-a-healthy-axolotl"],
     "cost-and-buying/shipping-live-axolotls": ["cost-and-buying/breeder-vs-pet-store",
-                                               "cost-and-buying/how-to-choose-a-healthy-axolotl"],
+                                               "cost-and-buying/how-to-choose-a-healthy-axolotl",
+                                               "tank-setup/acclimating-a-new-axolotl"],
     "axolotl-in-culture": ["axolotl-in-culture/minecraft-axolotls-guide",
                            "axolotl-in-culture/axolotl-in-pop-culture-and-memes",
                            "axolotl-in-culture/why-axolotls-are-suddenly-popular",
@@ -951,8 +1016,370 @@ LINKING = {
                                                   "cost-and-buying/axolotl-price-by-morph"],
 }
 
-# Author / publisher info (shown on articles, in schema)
-AUTHOR = {
-    "name": "Axolotl Care Guide Editors",
-    "email": "contact@axolotlcare.example.com",
+# Phase 8 semantic inline anchors: (phrase, target, anchor_label, replace_all).
+# The phrase must already exist verbatim in the article body; the anchor label is
+# the natural in-sentence text that becomes the link (identical to the phrase so
+# no prose is rewritten). replace_all=true is used only where every occurrence of
+# the phrase carries the same relationship (verified before adding).
+SEMANTIC_INLINE = {
+    "axolotls/care-guide": [
+        ("Check your specific state and city before you buy", "/legal/",
+         "Check your specific state and city before you buy", True),
+        ("Check your specific state and city before buying", "/legal/",
+         "Check your specific state and city before buying", True),
+    ],
+    "axolotl-in-culture/adopt-me-axolotl-guide": [
+        ("check your local laws first", "/legal/", "check your local laws first", False),
+    ],
+    "biology-and-science/anatomy-gills-and-lungs": [
+        ("health indicator", "/health/stress-signs/", "health indicator", False),
+        ("Surface gulping", "/health/why-axolotl-floating/", "surface gulping", False),
+    ],
 }
+
+# ---------------------------------------------------------------------------
+# Phase 10 semantic-SEO layer
+# ---------------------------------------------------------------------------
+
+# Standfirst (intro) overrides. Used to re-scope a page's dominant intent
+# without touching its docx-sourced body (cannibalization role splits).
+INTRO_OVERRIDES = {
+    "tank-setup/filtration-for-axolotls": (
+        "Before choosing a filter you need the principles: why axolotls need gentle, low-flow "
+        "filtration, how waste becomes ammonia, and which filter families exist. This guides the "
+        "options; the head-to-head canister-versus-sponge decision has its own dedicated guide."
+    ),
+    "biology-and-science/regeneration-and-limb-regrowth": (
+        "This is the science page: why axolotls can regenerate limbs, organs, and even parts of "
+        "the brain, at the cellular level. Owners looking for what to do when a limb is damaged "
+        "should read the practical owner's guide instead."
+    ),
+    "health/limb-regeneration": (
+        "An owner-facing guide to axolotl limb regeneration: what to expect, how to protect a "
+        "healing limb, and when to worry. For the underlying biology, see the science page."
+    ),
+}
+
+# Role callouts inserted directly under an article's intro. These state the
+# page's semantic job (and where the neighbouring page lives) so intent split
+# is visible to both readers and engines without new prose in the docx.
+ROLE_CALLOUTS = {
+    "health/stress-signs": (
+        '<div class="role-note"><strong>Which stress sign are you seeing?</strong> '
+        "Stress covers many signs and each has its own deep guide. "
+        '<a href="/health/curled-gills-stress-signal/">Curled or tightly curled gills</a> – gill and '
+        'tail posture. <a href="/health/why-axolotl-floating/">Floating or bloating</a> – buoyancy. '
+        '<a href="/health/refusing-to-eat/">Not eating</a> – appetite loss. '
+        "Always test your <a href=\"/tank-setup/water-parameters-cycling/\">water quality</a> first."
+        "</div>"
+    ),
+    "diet/feeding-schedule-by-age": (
+        '<div class="role-note"><strong>Planning a fast?</strong> If you are asking how long an '
+        "axolotl can go without food (vacation or planned fasting), the "
+        '<a href="/diet/fasting-and-vacation/">fasting and vacation guide</a> has the single '
+        "duration reference. This page covers the normal lifecycle feeding schedule.</div>"
+    ),
+    "health/refusing-to-eat": (
+        '<div class="role-note"><strong>Refusing food vs planned fasting.</strong> If you '
+        "deliberately let your axolotl fast, see the "
+        '<a href="/diet/fasting-and-vacation/">planned fasting guide</a>. If eating has stopped '
+        "unexpectedly, you are in the right place for the medical diagnosis.</div>"
+    ),
+    "tank-setup/temperature": (
+        '<div class="role-note"><strong>Managing heat.</strong> This is the husbandry guide for '
+        "keeping the tank cool. If you are deciding which chiller to buy instead, the "
+        '<a href="/tank-setup/aquarium-chillers/">chiller comparison</a> covers the purchase '
+        "decision.</div>"
+    ),
+    "tank-setup/aquarium-chillers": (
+        '<div class="role-note"><strong>This is a buying decision.</strong> For non-purchase ways '
+        "to cool a tank, or to check whether you need a chiller at all, "
+        '<a href="/tank-setup/temperature/">the temperature guide</a> covers husbandry first.</div>'
+    ),
+    "tank-setup/filtration-for-axolotls": (
+        '<div class="role-note"><strong>Principles and options.</strong> Read this first to '
+        "understand axolotl filtration biology and the filter families. For the single "
+        "canister-versus-sponge decision, use the "
+        '<a href="/tank-setup/canister-vs-sponge-filter/">dedicated comparison</a>.</div>'
+    ),
+    "tank-setup/canister-vs-sponge-filter": (
+        '<div class="role-note"><strong>Exactly the decision you came for.</strong> For the full '
+        "range of filter options and the biology behind flow, start with the "
+        '<a href="/tank-setup/filtration-for-axolotls/">filtration overview</a>.</div>'
+    ),
+    "health/fungal-infections-saprolegnia": (
+        '<div class="role-note"><strong>Which treatment fits your case?</strong> Mild, early '
+        "fungus &rarr; <a href=\"/health/black-tea-bath/\">black tea bath</a>. Widespread or "
+        "resistant case &rarr; <a href=\"/health/salt-bath/\">salt bath</a>. Confirm the severity "
+        "here before treating.</div>"
+    ),
+    "health/black-tea-bath": (
+        '<div class="role-note"><strong>A mild, first-line treatment.</strong> Use only for mild, '
+        "early fungal infections after reading the "
+        '<a href="/health/fungal-infections-saprolegnia/">fungus diagnosis guide</a>.</div>'
+    ),
+    "health/salt-bath": (
+        '<div class="role-note"><strong>Reserved for severe cases.</strong> Salt baths are '
+        "stressful &mdash; confirm the case is severe with the "
+        '<a href="/health/fungal-infections-saprolegnia/">fungus diagnosis guide</a> before '
+        "starting.</div>"
+    ),
+    "diet/overfeeding-and-impaction": (
+        '<div class="role-note"><strong>Worried about impaction?</strong> The canonical diagnosis '
+        "and treatment guide covers every cause and what to do: "
+        '<a href="/health/impaction-symptoms-treatment/">impaction symptoms and treatment</a>.</div>'
+    ),
+    "tank-setup/substrate-and-impaction": (
+        '<div class="role-note"><strong>Substrate is one common cause of impaction.</strong> '
+        "For diagnosis and treatment of impaction itself, "
+        '<a href="/health/impaction-symptoms-treatment/">start with the canonical guide</a>.</div>'
+    ),
+    "tank-setup/gravel-risks": (
+        '<div class="role-note"><strong>Gravel is a leading impaction cause.</strong> If your '
+        "axolotl may have swallowed gravel, see "
+        '<a href="/health/impaction-symptoms-treatment/">impaction symptoms and treatment</a>.</div>'
+    ),
+    "care-basics/are-axolotls-good-beginner-pets": (
+        '<div class="role-note"><strong>Thinking about the true cost?</strong> The complete '
+        "numbers &mdash; setup, monthly, and first year &mdash; live on the cost owner: "
+        '<a href="/care-basics/cost-of-ownership-monthly/">cost of owning an axolotl per month</a>.</div>'
+    ),
+    "care-basics/axolotls-and-children": (
+        '<div class="role-note"><strong>Budget matters for families.</strong> See the full cost '
+        "picture before deciding: "
+        '<a href="/care-basics/cost-of-ownership-monthly/">monthly cost of an axolotl</a>.</div>'
+    ),
+    "biology-and-science/regeneration-and-limb-regrowth": (
+        '<div class="role-note"><strong>The science lane.</strong> This page explains how limb '
+        "regeneration works. Owners with an injured axolotl should use the practical guide: "
+        '<a href="/health/limb-regeneration/">axolotl limb regeneration for owners</a>.</div>'
+    ),
+    "health/limb-regeneration": (
+        '<div class="role-note"><strong>The owner lane.</strong> What to do when your axolotl '
+        "loses part of a limb. For how regeneration works at the cellular level, read "
+        '<a href="/biology-and-science/regeneration-and-limb-regrowth/">the regeneration science</a>.</div>'
+    ),
+    "health/emergency-first-aid": (
+        '<div class="role-note"><strong>Urgent?</strong> If the axolotl needs a vet now, find '
+        'one: <a href="/health/finding-an-exotic-vet/">exotic vet guide</a>. Everything below '
+        "stabilises the animal while you get help.</div>"
+    ),
+}
+
+# Extra sections appended to the body of existing articles (surgeon-level
+# content layer; the .docx source is untouched). Format: heading text + HTML.
+EXTRA_SECTIONS = {
+    "morphs/leucistic": [
+        ("How Rare Is a Leucistic Axolotl, and What Does One Cost?", """
+<p>The leucistic is one of the two most common morphs in the pet trade, so it is neither rare nor expensive. Pets start around $25&ndash;$60, rising only for specific lines or high-quality dirty-lucy patterns. Compare every morph's pricing in the <a href="/cost-and-buying/axolotl-price-by-morph/">price-by-morph guide</a>, or see all morphs side by side in the <a href="/morphs/morphs-comparison-chart/">comparison chart</a>.</p>"""),
+        ("Leucistic vs Golden Albino at a Glance", """
+<p>Both morphs look pale pink to white, which is why they are confused. The easy difference is the eyes: leucistic axolotls keep dark eyes, while golden albino axolotls have red or pink eyes because they cannot make melanin at all. Leucistic animals also keep their natural pigment cells everywhere except the skin, which is limited to the gills and the occasional spot. Read the full breakdown on the <a href="/morphs/golden-albino/">golden albino</a> page.</p>"""),
+    ],
+    "morphs/wild-type": [
+        ("Wild Type Variants and Color Intensity", """
+<p>"Wild type" is a range, not a single shade. Wild-type axolotls carry all three pigment-cell types &mdash; melanophores, xanthophores, and iridophores &mdash; and the balance of those cells decides whether an individual reads dark black-brown, olive, or a brighter "high-yellow" animal. This is the same three-cell mechanism covered in the <a href="/morphs/pigment-cells/">pigment-cells guide</a>, and it means no two wild types are exactly the same colour.</p>"""),
+        ("Rarity, Price, and Availability", """
+<p>The wild type is the baseline and one of the cheapest morphs to buy, usually from around $25. Because they are the natural form, they are widely available from reputable breeders and pet stores. Prices sit on the <a href="/cost-and-buying/axolotl-price-by-morph/">price-by-morph page</a>; for buyer advice see <a href="/cost-and-buying/breeder-vs-pet-store/">breeder vs pet store</a>.</p>"""),
+        ("The Wild Population Behind the Pet", """
+<p>Wild-type is the colour of the wild axolotl &mdash; but the wild population is critically endangered and survives only in the canals of Xochimilco near Mexico City. Pet wild types are captive-bred, never taken from the wild. For the animal's true situation, see <a href="/biology-and-science/wild-habitat-xochimilco/">the Xochimilco habitat</a> and <a href="/biology-and-science/conservation-status/">conservation status</a>.</p>"""),
+    ],
+    "breeding/color-genetics-punnett-squares": [
+        ("Limitations of Punnett Squares", """
+<p>Punnett squares predict outcomes at a single locus, which makes them the right tool for the classic diallelic genes (leucistic, albino, melanoid, axanthic). They cannot predict how an animal will look when genetics play out unpredictably: <a href="/morphs/chimera/">chimeras</a> arise from fused embryos (two separate animals in one), <a href="/morphs/mosaic/">mosaics</a> from a mutation in one embryonic cell line, and GFP and copper intensity vary with polygenic modifiers rather than one gene. For those cases the biology is covered in <a href="/morphs/pigment-cells/">the pigment-cells guide</a>.</p>"""),
+        ("Worked Example: Leucistic x Albino (Two-Gene Cross)", """
+<p>Each gene resolves independently. For the white locus, a leucistic parent (d/d) bred to a wild-color carrier (D/d) gives <strong>50% leucistic</strong> and <strong>50% wild colour</strong> for that locus. The albino locus works the same way as a separate diallelic recessive. So a single pairing reads as two independent 50/50 flips: roughly a quarter of the clutch can end up showing the albino trait, a quarter leucistic, a quarter leucistic+albino (both recessives), and a quarter visibly wild type &mdash; before considering pigment intensity, which Punnett squares do not model.</p>"""),
+    ],
+    "biology-and-science/neoteny": [
+        ("My Axolotl Is Metamorphosing &mdash; What Should I Do?", """
+<p>Healthy axolotls stay neotenic their whole lives. When an axolotl begins to metamorphose &mdash; resorbing gills, developing eyelids, losing the fin &#8212; it is almost always because something forced the thyroid hormone system to kick in, most often induced metamorphosis (iodine exposure) rather than a natural event.</p>
+<p><strong>Metamorphosis is generally not reversible</strong>, so the priority is keeping the animal comfortable through the change and getting veterinary help. A metamorphosed axolotl can no longer live fully aquatic the same way: it needs a setup with both land and deeper water areas, damp cover, and careful humidity, and it eats the same carnivorous diet on land. The animal may also show behaviour changes &mdash; see <a href="/biology-and-science/axolotl-vs-tiger-salamander/">axolotl vs tiger salamander</a> for what a metamorphosed salamander is closer to.</p>
+<p>Do not try to "fix" it with unproven treatments. Get guidance from an <a href="/health/finding-an-exotic-vet/">exotic veterinarian</a> promptly, and keep water quality and temperature in the safe range while the animal transitions.</p>"""),
+    ],
+    "tank-setup/water-parameters-cycling": [
+        ("How to Test Tank Water Correctly", """
+<p>Liquid test kits beat test strips for accuracy: strips are convenient for a quick ammonia check but unreliable for borderline numbers. Test at least ammonia and nitrite, and ideally nitrate and pH, and always test the same time of day relative to feeding. During cycling test daily; in a stable cycled tank, test once a week and always after a water change, illness, or a new animal. Log every reading &mdash; the <a href="/tools/nitrogen-cycle-tracker/">nitrogen cycle tracker</a> is built for exactly this and will show you your trend line.</p>"""),
+    ],
+    "care-basics/cost-of-ownership-monthly": [
+        ("First-Year Budget: The Real Year-One Cost", """
+<p>The first year costs far more than the animal itself. A rough plan, using the numbers on <a href="/cost-and-buying/axolotl-price-by-morph/">price by morph</a> and the <a href="/tank-setup/setup-guide/">setup guide</a>:</p>
+<ul>
+<li><strong>Purchase:</strong> $25&ndash;$150+ depending on morph (pets from roughly $25; rare morphs climb much higher).</li>
+<li><strong>Tank setup:</strong> a 40-gallon breeder-style tank, stand, filter, lid, lighting, hides, and substrate &mdash; the largest single line item.</li>
+<li><strong>Water care gear:</strong> test kit, buckets, and conditioner for the year.</li>
+<li><strong>Food:</strong> monthly cost of worms or pellets times twelve.</li>
+<li><strong>Emergency reserve:</strong> keep enough for an <a href="/health/finding-an-exotic-vet/">exotic vet visit</a> &mdash; the one cost most first-time owners forget.</li>
+</ul>
+<p>Expect the first-year total to land well above the monthly figure you planned on &mdash; that is normal, and after year one the recurring cost is much smaller.</p>"""),
+    ],
+    "morphs/morphs-comparison-chart": [
+        ("At a Glance: All Nine Morphs Side by Side", """
+<table>
+<tr><th>Morph</th><th>Body colour</th><th>Eyes</th><th>Rarity</th><th>Read more</th></tr>
+<tr><td>Wild type</td><td>Dark brown / olive speckled</td><td>Dark</td><td>Common</td><td><a href="/morphs/wild-type/">Wild type</a></td></tr>
+<tr><td>Leucistic</td><td>Pale pink / white</td><td>Dark</td><td>Common</td><td><a href="/morphs/leucistic/">Leucistic</a></td></tr>
+<tr><td>Melanoid</td><td>Black / dark grey</td><td>Dark</td><td>Common</td><td><a href="/morphs/melanoid/">Melanoid</a></td></tr>
+<tr><td>Golden albino</td><td>Pale gold / white</td><td>Red / pink</td><td>Common</td><td><a href="/morphs/golden-albino/">Golden albino</a></td></tr>
+<tr><td>Copper</td><td>Copper / tan</td><td>Varies</td><td>Uncommon</td><td><a href="/morphs/copper/">Copper</a></td></tr>
+<tr><td>GFP</td><td>Glows green under UV</td><td>Varies</td><td>Uncommon</td><td><a href="/morphs/gfp-axolotl/">GFP</a></td></tr>
+<tr><td>Piebald</td><td>Dark with white patches</td><td>Dark</td><td>Rare</td><td><a href="/morphs/piebald/">Piebald</a></td></tr>
+<tr><td>Mosaic</td><td>Patchwork of two+ colours</td><td>Varies</td><td>Rare</td><td><a href="/morphs/mosaic/">Mosaic</a></td></tr>
+<tr><td>Chimera</td><td>Two fused animals on one body</td><td>Varies</td><td>Rarest</td><td><a href="/morphs/chimera/">Chimera</a></td></tr>
+</table>
+<p>Prices by morph are on the <a href="/cost-and-buying/axolotl-price-by-morph/">price-by-morph page</a>.</p>"""),
+    ],
+    "health/impaction-symptoms-treatment": [
+        ("Impaction vs Constipation: Know the Difference", """
+<p>Impaction is a physical blockage of the digestive tract &mdash; most often by swallowed substrate &mdash; and constipation is slow or stalled passage of waste. Both show as a bloated belly and reduced appetite, but impaction is the emergency: a blocked axolotl stops passing waste entirely and can go downhill fast. If you suspect impaction, do not feed, do not heat, and see the treatment steps on this page &mdash; then ask a vet.</p>"""),
+        ("Which Cause Is Behind the Blockage?", """
+<p>Three causes cover most impactions, and each has its own deep-dive guide:</p>
+<ul>
+<li><strong>Overfeeding</strong> &mdash; too much food or too-large prey. <a href="/diet/overfeeding-and-impaction/">Overfeeding and impaction</a>.</li>
+<li><strong>Substrate</strong> &mdash; coarse or loose substrate swallowed with food. <a href="/tank-setup/substrate-and-impaction/">Substrate guide</a>.</li>
+<li><strong>Sharp gravel</strong> &mdash; the classic danger. <a href="/tank-setup/gravel-risks/">Gravel risks</a>.</li>
+</ul>"""),
+    ],
+}
+
+# Build-level (HTML-authored) new pages. These exist nowhere in SOURCE_DIR and
+# are inserted as full articles during the build. HARD-STOP-exempt: each fills
+# a genuine entity/attribute/intent cell (procedural + decision), not a keyword.
+CONFIG_ARTICLES = {
+    "tank-setup/water-change-guide": {
+        "slug": "tank-setup/water-change-guide",
+        "hub": "tank-setup",
+        "title": "How to Do an Axolotl Water Change Step by Step",
+        "title_tag": "Axolotl Water Change: Step-by-Step Guide",
+        "meta": "A complete step-by-step guide to changing your axolotl's water - how often, how much to remove, how to treat and match replacement water, and the mistakes that stress gills.",
+        "intro": "A complete step-by-step guide to changing your axolotl's tank water - how often, how much to remove, and how to treat and match replacement water without stressing the animal.",
+        "num": 210,
+        "headings": [
+            "How Often Should You Change the Water?",
+            "What You Need Before You Start",
+            "Step 1: Test the Tank Water",
+            "Step 2: Prepare and Dechlorinate Replacement Water",
+            "Step 3: Match the Temperature",
+            "Step 4: Remove Water from the Tank",
+            "Step 5: Add Fresh Water Slowly",
+            "Step 6: Test Again and Log the Readings",
+            "Common Mistakes to Avoid",
+            "When a Water Change Is Not the Answer",
+        ],
+        "body": """
+<p>Regular water changes are the most important routine maintenance task in an axolotl tank. Waste breaks down into ammonia and nitrates that even a cycled filter cannot fully remove, and a consistent change schedule keeps toxins low and gills healthy.</p>
+<h2>How Often Should You Change the Water?</h2>
+<p>The change schedule has four cases.</p>
+<ul>
+<li><strong>Cycling tank:</strong> daily or every other day for the first 4&ndash;6 weeks, until the cycle finishes.</li>
+<li><strong>Adults in a cycled tank:</strong> a 20&ndash;25% change once a week.</li>
+<li><strong>Juveniles:</strong> two to three times a week &mdash; they eat more relative to their size and add more waste.</li>
+<li><strong>After a spike:</strong> ammonia or nitrite spikes call for a larger or repeated change; see <a href="/tank-setup/water-parameters-cycling/">managing ammonia and nitrate spikes</a>.</li>
+</ul>
+<h2>What You Need Before You Start</h2>
+<p>You need four things ready before touching the tank: a siphon or bucket, water conditioner, thermometer, and an ammonia test kit. Prepare them all first so the axolotl is disturbed for the shortest possible time.</p>
+<ul>
+<li>A bucket or siphon reserved for axolotl use only (washed with water, never detergent).</li>
+<li>Water conditioner &mdash; <a href="/tank-setup/water-conditioners/">the water-conditioner guide</a>.</li>
+<li>A thermometer to match temperature.</li>
+<li>A test kit for ammonia, nitrite, and nitrate.</li>
+</ul>
+<h2>Step 1: Test the Tank Water</h2>
+<p>Test ammonia, nitrite, pH, and temperature before changing anything. The test tells you how big a change is actually needed and gives a before-reading to compare after.</p>
+<h2>Step 2: Prepare and Dechlorinate Replacement Water</h2>
+<p>Fill your bucket with fresh tap water and treat it with water conditioner at the label dose. The conditioner removes chlorine and chloramine instantly; untreated tap water damages gills and slime coat.</p>
+<h2>Step 3: Match the Temperature</h2>
+<p>Bring the replacement water to the same temperature as the tank (60&ndash;68&deg;F / 15&ndash;20&deg;C). A swing of more than 2&ndash;3&deg;F (1&ndash;2&deg;C) stresses the axolotl and can trigger floating or illness; see <a href="/tank-setup/temperature/">keeping the tank cool</a>.</p>
+<h2>Step 4: Remove Water from the Tank</h2>
+<p>Use a siphon or a clean cup, drawing water from the top of the tank while keeping the siphon above the substrate so you neither vacuum up the axolotl nor rearrange clean sand. Never drop the water level below about half the tank in one go.</p>
+<h2>Step 5: Add Fresh Water Slowly</h2>
+<p>Pour the replacement water against the glass or a baffle, never directly onto the axolotl. Slow addition keeps temperature and chemistry even and avoids frightening the animal.</p>
+<h2>Step 6: Test Again and Log the Readings</h2>
+<p>Retest ammonia and nitrite about an hour later. In a cycled tank the numbers stay unchanged or lower; the <a href="/tools/nitrogen-cycle-tracker/">nitrogen cycle tracker</a> logs trends between changes.</p>
+<h2>Common Mistakes to Avoid</h2>
+<p>Four mistakes cause most water-change harm.</p>
+<ul>
+<li><strong>Skipping the conditioner</strong> &mdash; tap-water chlorine is a common cause of gill damage.</li>
+<li><strong>Changing the whole tank at once</strong> &mdash; massive changes destabilize chemistry.</li>
+<li><strong>Ignoring the smell</strong> &mdash; an ammonia-smelling tank needs testing and more frequent changes; see <a href="/tank-setup/why-tank-water-smells/">why the tank water stinks</a>.</li>
+<li><strong>Leaving uneaten food</strong> &mdash; rotting food becomes this week's ammonia spike; <a href="/tank-setup/uneaten-food-and-ammonia/">manage uneaten food</a>.</li>
+</ul>
+<h2>When a Water Change Is Not the Answer</h2>
+<p>A water change is still the first step for every axolotl, and almost always enough. When the animal looks actively stressed &mdash; floating uncontrollably, refusing food, reddened skin, or severe gill damage &mdash; the <a href="/health/emergency-first-aid/">emergency first-aid guide</a> decides whether it needs immediate care.</p>
+""",
+    },
+    "health/emergency-first-aid": {
+        "slug": "health/emergency-first-aid",
+        "hub": "health",
+        "title": "Axolotl Emergency Guide: First Aid & Triage",
+        "title_tag": "Axolotl Emergency & First Aid: Triage, Urgent Signs, What to Do",
+        "meta": "The emergency triage guide for axolotls: which signs are urgent, what to do first, what NOT to do, and when to see a vet now.",
+        "intro": "The triage guide for axolotl emergencies: how to tell urgent from not-urgent, what to do in the first minutes, what NOT to do, and when to call an exotic vet immediately.",
+        "num": 211,
+        "headings": [
+            "Is It an Emergency? Use This Severity Ladder",
+            "First Steps for Any Stressed or Sick Axolotl",
+            "Red Flags That Need a Vet Now",
+            "What NOT to Do in an Emergency",
+            "Emergency Care by Sickness",
+            "Aftercare and Prevention",
+        ],
+        "body": """
+<p>Some axolotl problems require a vet immediately; most do not. This guide ranks how urgent each situation is, gives the first steps to take, and marks the line where you must get help. For a vet near you, start with the <a href="/health/finding-an-exotic-vet/">exotic vet guide</a>.</p>
+<h2>Is It an Emergency? Use This Severity Ladder</h2>
+<p>The severity ladder has three tiers.</p>
+<ul>
+<li><strong>Urgent (act now):</strong> heavy labored breathing at the surface, visible bleeding or a torn wound, a belly that is hard and bloated, uncontrollable floating, reddening or peeling skin, or a total refusal to eat with these signs. Do a quick water test and get help.</li>
+<li><strong>Watch closely (same day):</strong> curled gills, constant hiding, clamped or receding gills, floating that comes and goes, reduced appetite &mdash; test water first; many are a water-quality problem.</li>
+<li><strong>Monitor (no panic):</strong> low activity for a short period, a single bad smell in the tank, or a small nip &mdash; fix water and watch.</li>
+</ul>
+<h2>First Steps for Any Stressed or Sick Axolotl</h2>
+<p>Four first steps apply to any sick or stressed axolotl.</p>
+<ol>
+<li>Test ammonia and nitrite immediately &mdash; water chemistry is behind most emergencies; see <a href="/tank-setup/water-parameters-cycling/">managing ammonia and nitrate spikes</a>.</li>
+<li>Do a partial water change and confirm the temperature is in the safe range (60&ndash;68&deg;F) &mdash; follow the <a href="/tank-setup/water-change-guide/">water-change guide</a>.</li>
+<li>Stop feeding until the situation is understood &mdash; an impacted or stressed axolotl needs a rest, not food.</li>
+<li>Move nothing yet; observe for 30&ndash;60 minutes before isolating.</li>
+</ol>
+<h2>Red Flags That Need a Vet Now</h2>
+<p>Six signs call for a vet now.</p>
+<ul>
+<li>Heavy gasping at the surface combined with limp gills.</li>
+<li>Blood, an open wound, or skin sloughing.</li>
+<li>Extreme bloating with a rigid body.</li>
+<li>A hard, swollen belly that is clearly an impaction &mdash; <a href="/health/impaction-symptoms-treatment/">impaction symptoms and treatment</a>.</li>
+<li>Reddening skin that spreads quickly &mdash; <a href="/health/red-leg-syndrome/">red leg syndrome</a>.</li>
+<li>A sudden, severe appetite loss lasting more than 72 hours &mdash; <a href="/health/refusing-to-eat/">refusing to eat</a>.</li>
+</ul>
+<p>Find and call an <a href="/health/finding-an-exotic-vet/">exotic veterinarian</a> &mdash; call ahead so they are ready for you.</p>
+<h2>What NOT to Do in an Emergency</h2>
+<ul>
+<li>Do not shock the animal with a huge or ultra-cold water change.</li>
+<li>Do not dose "human" or unidentified medications.</li>
+<li>Do not do a tea bath or salt bath without a diagnosis &mdash; the <a href="/health/fungal-infections-saprolegnia/">fungus diagnosis guide</a> decides which, if any, treatment.</li>
+<li>Do not move the axolotl to completely different water without acclimation &mdash; see <a href="/tank-setup/acclimating-a-new-axolotl/">acclimating a new axolotl</a>.</li>
+<li>Do not raise temperature to "speed up" recovery &mdash; axolotls need cool water.</li>
+</ul>
+<h2>Emergency Care by Sickness</h2>
+<p>Once you have stabilised the water and identified the condition, follow the right deep guide:</p>
+<ul>
+<li><strong>Ammonia burns or curled gills:</strong> <a href="/health/ammonia-burns/">ammonia burns</a> and <a href="/health/curled-gills-stress-signal/">curled gills</a>.</li>
+<li><strong>Severe fungus:</strong> <a href="/health/fungal-infections-saprolegnia/">fungal infections</a>.</li>
+<li><strong>Floating:</strong> <a href="/health/why-axolotl-floating/">why is my axolotl floating</a>.</li>
+<li><strong>Not eating:</strong> <a href="/health/refusing-to-eat/">refusing to eat</a>.</li>
+<li><strong>Bleeding or injury:</strong> <a href="/health/minor-scrapes-and-wounds/">minor scrapes and wounds</a>.</li>
+</ul>
+<h2>Aftercare and Prevention</h2>
+<p>Once stable, keep the animal quiet and isolated while it recovers &mdash; <a href="/health/quarantine-tub/">quarantine tub</a> &mdash; and keep ammonia and nitrite at zero. Most medical reminders are husbandry reminders: stable cool temperature, gentle filtration, and a routine/weekly change cycle prevent the overwhelming majority of emergencies.</p>
+""",
+    },
+}
+
+# Search action metadata (Phase 9-B): index entries that carry an explicit
+# action button / route. Tools get their action automatically in build.py.
+SEARCH_ACTIONS = {
+    "health/emergency-first-aid": {"label": "Emergency first aid", "kind": "guide"},
+    "health/finding-an-exotic-vet": {"label": "Find an exotic vet", "kind": "guide"},
+}
+
+# Author / publisher info (shown on articles, in schema)
+AUTHOR = PEOPLE["author"]
+EDITOR = PEOPLE["editor"]

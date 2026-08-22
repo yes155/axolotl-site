@@ -1,0 +1,15 @@
+OLD FILE
+path: C:\Users\HomePC\Documents\axolotl-site\docs\phase12\faq-audit.csv
+bytes: 6903
+sha256: 2161085877def2676138efd31bf2376ff7ba4e7f4cd65e6e85a75387686730ce
+rows: 54
+unique_urls: 48
+
+NEW FILE
+path: C:\Users\HomePC\Documents\axolotl-site\docs\phase12\faq-audit-regenerated-v3.csv
+bytes: 14282
+sha256: be118457ed8e0ba6aeb52df80557dc7a850362827a8c2a82245267e039c93f6b
+rows: 132
+unique_urls: 132
+
+CONTENT IDENTICAL: NO

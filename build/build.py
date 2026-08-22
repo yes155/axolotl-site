@@ -64,12 +64,12 @@ QUICK_FACTS = [
 ]
 
 HOME = {
-    "title_tag": "My Axolotl - Everything You Need to Know About Axolotls",
+    "title_tag": "MyAxolotl - Everything You Need to Know About Axolotls",
     "meta": "Everything about axolotls: care, feeding, habitat, genetics, morphs, breeding, and their history in Mexico. Your trusted axolotl guide.",
-    "h1": "My Axolotl &mdash; Everything You Need to Know About Axolotls",
+    "h1": "MyAxolotl &mdash; Everything You Need to Know About Axolotls",
     "hero_img": "/images/axolotl-home.webp",
     "hero_alt": "Axolotl in a planted aquarium tank",
-    "hero_text": "Discover the fascinating world of axolotls&mdash;from <strong>axolotl care, feeding, and habitat</strong> to genetics, colors, morphs, breeding, and their incredible history in Mexico. Whether you&rsquo;re a new axolotl owner or an experienced enthusiast, <strong>My Axolotl</strong> is your trusted guide to understanding and caring for these unique aquatic salamanders.",
+    "hero_text": "Discover the fascinating world of axolotls&mdash;from <strong>axolotl care, feeding, and habitat</strong> to genetics, colors, morphs, breeding, and their incredible history in Mexico. Whether you&rsquo;re a new axolotl owner or an experienced enthusiast, <strong>MyAxolotl</strong> is your trusted guide to understanding and caring for these unique aquatic salamanders.",
     "hero_tagline": "<strong>Learn. Care. Love Axolotls.</strong>",
     "featured": ["axolotls/care-guide", "tank-setup/setup-guide", "diet/best-foods-list", "health/refusing-to-eat"],
     "picks": ["health/refusing-to-eat", "tank-setup/water-parameters-cycling",
@@ -83,20 +83,50 @@ HOME = {
 SIMPLE = {
     "about": {
         "title": "About",
-        "meta": "About this axolotl care site.",
-        "body": "<p>We publish practical, evidence-based axolotl care guides based on current husbandry knowledge and experienced keeper practices.</p>",
+        "meta": "About MyAxolotl and the people behind it.",
+        "schema": "AboutPage",
+        "body": """
+<p>MyAxolotl publishes practical axolotl care guides, tools, and reference pages. The site is designed to answer the questions keepers actually ask: how to set up a safe tank, what to feed, how to spot illness, and when to seek an exotic vet.</p>
+<p>Research and writing are handled by <a href="/authors/farrukh-abdullah/">Farrukh Abdullah</a>. Editorial review is handled by <a href="/editors/ananda-abidin/">Ananda Abidin</a>.</p>
+<p>Start with the <a href="/axolotls/care-guide/">care guide</a>, then use the <a href="/editorial-policy/">editorial policy</a> to understand how the site is maintained.</p>
+""",
     },
     "privacy": {
         "title": "Privacy Policy",
-        "meta": "Privacy policy for this site.",
-        "body": "<p>This site collects no personal information beyond standard analytics and advertising cookies. Contact <a href=\"mailto:contact@axolotlcare.example.com\">contact@axolotlcare.example.com</a> with any privacy questions.</p>",
+        "meta": "Privacy policy for MyAxolotl.",
+        "schema": "WebPage",
+        "body": """
+<p>MyAxolotl does not require accounts or user profiles to read the guides.</p>
+<p>The site may use standard analytics and advertising cookies to understand traffic and support the work. If you have a privacy question, contact <a href="mailto:f.abdullah79@gmail.com">Farrukh Abdullah</a>.</p>
+""",
     },
     "contact": {
         "title": "Contact",
-        "meta": "Contact us.",
-        "body": "<p>Questions or corrections? Email <a href=\"mailto:contact@axolotlcare.example.com\">contact@axolotlcare.example.com</a>.</p>",
+        "meta": "Contact MyAxolotl for corrections or questions.",
+        "schema": "ContactPage",
+        "body": """
+<p>Questions, corrections, or sourcing notes should go to <a href="mailto:f.abdullah79@gmail.com">f.abdullah79@gmail.com</a>.</p>
+<p>You can also reach <a href="https://www.linkedin.com/in/farrukh-abdullah-5a218424/">Farrukh Abdullah on LinkedIn</a> or review editorial workflow on the <a href="/editorial-policy/">editorial policy</a> page.</p>
+""",
+    },
+    "editorial-policy": {
+        "title": "Editorial Policy",
+        "meta": "How MyAxolotl researches, reviews, and updates care guidance.",
+        "schema": "WebPage",
+        "body": """
+<p>MyAxolotl separates research from editing so the care advice stays clear and accountable.</p>
+<ol>
+<li><strong>Research and drafting:</strong> Farrukh Abdullah writes the guides and keeps claims grounded in husbandry evidence.</li>
+<li><strong>Editorial review:</strong> Ananda Abidin checks structure, clarity, and consistency.</li>
+<li><strong>Transparency:</strong> The site does not invent credentials, awards, publications, or photos.</li>
+<li><strong>Corrections:</strong> Confirmed errors are corrected and pages are updated when better husbandry guidance becomes available.</li>
+</ol>
+<p>If you spot an issue, use the <a href="/contact/">contact page</a> or email <a href="mailto:f.abdullah79@gmail.com">Farrukh Abdullah</a>.</p>
+""",
     },
 }
+
+PROFILE_PAGES = config.PEOPLE
 
 # One-line descriptions used for tool cards and the search index.
 TOOL_DESCS = {
@@ -251,7 +281,7 @@ def _generate_placeholder(title, slug):
         lw = draw.textlength(ln, font=font)
         draw.text(((w - lw) / 2, y), ln, fill=(255, 255, 255), font=font)
         y += 56
-    brand = "Axolotl Care Guide"
+    brand = config.SITE_NAME
     lw = draw.textlength(brand, font=font_sm)
     draw.text(((w - lw) / 2, int(h * 0.86)), brand, fill=(220, 245, 247), font=font_sm)
     ensure_dir(IMG_DIR)
@@ -328,6 +358,44 @@ def build_articles():
             "featured": cfg.get("featured", False),
             "lastmod": TODAY,
         }
+
+    # Build-level (HTML-authored) articles from config.
+    for slug, cfg in config.CONFIG_ARTICLES.items():
+        articles[slug] = {
+            "slug": cfg["slug"],
+            "file": "",
+            "num": int(cfg.get("num", 900)),
+            "hub": cfg.get("hub", "axolotls"),
+            "title": cfg["title"],
+            "title_tag": title_tag_for(cfg["title"], cfg),
+            "meta": cfg.get("meta", ""),
+            "intro": cfg.get("intro", ""),
+            "body_html": cfg["body"],
+            "headings": [(2, h) for h in cfg.get("headings", [])],
+            "faq": cfg.get("faq", []),
+            "embedded": {},
+            "words": words_from(cfg["body"]),
+            "featured": cfg.get("featured", False),
+            "lastmod": TODAY,
+        }
+
+    # Phase 10 semantic layer: standfirst overrides, role callouts, section
+    # expansions (applied to all articles, docx- or config-sourced alike).
+    for slug, a in articles.items():
+        intro_ovr = config.INTRO_OVERRIDES.get(slug)
+        if intro_ovr:
+            a["intro"] = intro_ovr
+        callout = config.ROLE_CALLOUTS.get(slug)
+        if callout:
+            fm = re.search(r"</p>", a["body_html"])
+            if fm:
+                pos = fm.end()
+                a["body_html"] = (a["body_html"][:pos] + callout
+                                  + a["body_html"][pos:])
+        for heading, html in config.EXTRA_SECTIONS.get(slug, []):
+            a["body_html"] += f"<h2>{heading}</h2>{html}"
+            a["headings"].append((2, heading))
+        a["words"] = words_from(a["body_html"])
     return articles
 
 
@@ -536,6 +604,7 @@ def footer():
         f'<p class="footer-tagline">{esc(config.SITE_TAGLINE)}</p>'
         '<ul class="footer-mini">'
         '<li><a href="/about/">About</a></li>'
+        '<li><a href="/editorial-policy/">Editorial policy</a></li>'
         '<li><a href="/privacy/">Privacy</a></li>'
         '<li><a href="/contact/">Contact</a></li>'
         "</ul></div>"
@@ -637,6 +706,15 @@ def process_article_body(a):
     if fm:
         body = body[:fm.start()] + strip_first(fm) + body[fm.end():]
 
+    # Phase 8: semantic inline anchors (verified phrases -> contextual links).
+    for phrase, href, anchor, replace_all in config.SEMANTIC_INLINE.get(a["slug"], []):
+        if phrase not in body:
+            print(f"  !! inline anchor phrase not found in {a['slug']}: {phrase!r}")
+            continue
+        rx = re.compile(r"(?<![A-Za-z0-9])" + re.escape(phrase) + r"(?![A-Za-z0-9])")
+        link = f'<a href="{href}">{html.escape(anchor)}</a>'
+        body = rx.sub(lambda _m: link, body) if replace_all else rx.sub(link, body, count=1)
+
     # Assign s0..sN ids to every h2/h3/h4.
     counter = {"i": 0}
 
@@ -707,12 +785,17 @@ def related_section(slug, articles):
         href = f"/{hub_key}/"
         picks.append((href, hub["title"]))
         hrefs.add(href)
+    # Resolve LINKING targets across articles, hubs, and tools.
+    title_map = {f"/{a['slug']}/": a["title"] for a in articles.values()}
+    for k, h in config.HUBS.items():
+        title_map.setdefault(f"/{k}/", h["title"])
+    for t in config.TOOLS.values():
+        title_map.setdefault(f"/{t['slug']}/", t["title"])
     for t in config.LINKING.get(slug, []):
-        if t in articles and t != slug:
-            href = f"/{t}/"
-            if href not in hrefs:
-                hrefs.add(href)
-                picks.append((href, articles[t]["title"]))
+        href = f"/{t}/"
+        if t != slug and href in title_map and href not in hrefs:
+            hrefs.add(href)
+            picks.append((href, title_map[href]))
     # Fallback 1: siblings in the same hub, nearest in reading order first.
     if len(picks) < 3:
         siblings = sorted(
@@ -752,6 +835,50 @@ def share_row(url, title):
     )
 
 
+def person_schema(person, url):
+    same_as = person.get("sameAs", [])
+    node = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "ProfilePage",
+                "name": person["name"],
+                "description": person["meta"],
+                "url": url,
+                "mainEntity": {"@id": url + "#person"},
+            },
+            {
+                "@type": "Person",
+                "@id": url + "#person",
+                "name": person["name"],
+                "jobTitle": person["role"],
+                "description": person["summary"],
+                "url": url,
+                "worksFor": {"@type": "Organization", "name": config.SITE_NAME, "url": config.SITE_URL},
+            },
+        ],
+    }
+    if same_as:
+        node["@graph"][1]["sameAs"] = same_as
+    if person.get("email"):
+        node["@graph"][1]["email"] = f"mailto:{person['email']}"
+    return json.dumps(node, ensure_ascii=False, separators=(",", ":"))
+
+
+def static_page_schema(key, cfg, url):
+    schema_type = cfg.get("schema", "WebPage")
+    node = {
+        "@context": "https://schema.org",
+        "@type": schema_type,
+        "name": cfg["title"],
+        "description": cfg["meta"],
+        "url": url,
+    }
+    if key == "about":
+        node["about"] = {"@type": "Organization", "name": config.SITE_NAME, "url": config.SITE_URL}
+    return json.dumps(node, ensure_ascii=False, separators=(",", ":"))
+
+
 def article_schema(a, url):
     nodes = [{
         "@context": "https://schema.org",
@@ -760,7 +887,20 @@ def article_schema(a, url):
         "description": a["meta"],
         "datePublished": a["lastmod"],
         "dateModified": a["lastmod"],
-        "author": {"@type": "Organization", "name": config.AUTHOR["name"]},
+        "author": {
+            "@type": "Person",
+            "name": config.AUTHOR["name"],
+            "url": config.SITE_URL + "/" + config.AUTHOR["slug"] + "/",
+            "jobTitle": config.AUTHOR["role"],
+            "sameAs": config.AUTHOR.get("sameAs", []),
+        },
+        "editor": {
+            "@type": "Person",
+            "name": config.EDITOR["name"],
+            "url": config.SITE_URL + "/" + config.EDITOR["slug"] + "/",
+            "jobTitle": config.EDITOR["role"],
+            "sameAs": config.EDITOR.get("sameAs", []),
+        },
         "publisher": {"@type": "Organization", "name": config.SITE_NAME},
         "mainEntityOfPage": url,
         "wordCount": a["words"],
@@ -972,13 +1112,16 @@ def render_article(slug, a, articles, img_map):
     url = config.SITE_URL + f"/{slug}/"
     img = img_map.get(slug, {"url": "/images/axolotl-home.webp", "alt": a["title"]})
     toc = render_toc(a["headings"])
+    author_url = "/" + config.AUTHOR["slug"] + "/"
+    editor_url = "/" + config.EDITOR["slug"] + "/"
     body = (
         f'<div class="container article-page">'
         f"{breadcrumbs(a['hub'])}"
         '<header class="article-head">'
         f'<h1>{esc(a["title"])}</h1>'
         f'<p class="standfirst">{esc(a["intro"])}</p>'
-        f'<div class="article-byline">By {esc(config.AUTHOR["name"])} &middot; '
+        f'<div class="article-byline">By <a href="{author_url}">{esc(config.AUTHOR["name"])}</a> &middot; '
+        f'Edited by <a href="{editor_url}">{esc(config.EDITOR["name"])}</a> &middot; '
         f'Updated {a["lastmod"]} &middot; {a["words"]:,} words</div>'
         "</header>"
         f'<figure class="article-hero"><img class="hero-img" src="{esc(img["url"])}" '
@@ -1001,7 +1144,44 @@ def render_simple(key, cfg):
         f'<div class="container page article-layout"><h1>{esc(cfg["title"])}</h1>'
         f'<div class="article-body">{cfg["body"]}</div></div>'
     )
-    return page_html(cfg["title"], cfg["meta"], url, body)
+    return page_html(cfg["title"], cfg["meta"], url, body,
+                     og_type="website",
+                     json_ld=static_page_schema(key, cfg, url))
+
+
+def render_profile(key, person):
+    url = config.SITE_URL + f"/{person['slug']}/"
+    links = "".join(
+        f'<li><a href="{esc(href)}">{esc(label)}</a></li>'
+        for label, href in person.get("links", [])
+    )
+    experience = ""
+    if person.get("experience"):
+        rows = "".join(
+            "<li>"
+            f"<strong>{esc(exp['organization'])}</strong>"
+            f"<span>{esc(exp['role'])}</span>"
+            f"<span>{esc(exp['dates'])}</span>"
+            f"<span>{esc(exp['duration'])}</span>"
+            f"<span>{esc(exp['location'])}</span>"
+            "</li>"
+            for exp in person["experience"]
+        )
+        experience = f'<h2>Experience</h2><ul>{rows}</ul>'
+    extra = f'<div class="article-body">{experience}</div>' if experience else ""
+    body = (
+        '<div class="container page article-layout">'
+        f'<h1>{esc(person["name"])}</h1>'
+        f'<p class="standfirst">{esc(person["meta"])}</p>'
+        f'<div class="callout"><p><strong>Role:</strong> {esc(person["role"])}</p>'
+        f'<p>{esc(person["summary"])}</p>'
+        f'<p><strong>Focus:</strong> {esc(person["focus"])}</p>'
+        f'<ul>{links}</ul></div>'
+        f"{extra}"
+        '</div>'
+    )
+    return page_html(person["name"], person["meta"], url, body, "/about/",
+                     og_type="profile", json_ld=person_schema(person, url))
 
 
 def render_tools_index():
@@ -1013,6 +1193,17 @@ def render_tools_index():
         '<span class="read-more">Open tool &rarr;</span></a>'
         for t in config.TOOLS.values()
     )
+    # Knowledge behind the tools — grounds each utility in the guide it comes from.
+    start_here = [
+        ("/tank-setup/setup-guide/", "Tank Setup Guide", "The step-by-step setup every tool assumes"),
+        ("/tank-setup/water-parameters-cycling/", "Water Parameters & Cycling", "The science behind ppm, ammonia, and nitrite readings"),
+        ("/diet/feeding-schedule-by-age/", "Feeding Frequency by Life Stage", "The age-and-size schedule the generator follows"),
+        ("/health/refusing-to-eat/", "Why Is My Axolotl Refusing to Eat?", "What the symptom checker points you to first"),
+    ]
+    start_links = "".join(
+        f'<li><a class="start-here-link" href="{h}">{esc(t)}</a><span class="start-here-note">{esc(n)}</span></li>'
+        for h, t, n in start_here
+    )
     body = (
         '<section class="hub-hero"><div class="container">'
         '<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; Tools</nav>'
@@ -1021,7 +1212,10 @@ def render_tools_index():
         "</div></section>"
         f'<div class="container page">'
         '<h2 class="sr-only">All axolotl tools</h2>'
-        f'<div class="tool-grid">{cards}</div></div>'
+        f'<div class="tool-grid">{cards}</div>'
+        '<section class="tools-starthere" aria-labelledby="tools-start-title">'
+        '<h2 id="tools-start-title" class="section-title">Start with the knowledge behind these tools</h2>'
+        f'<ul class="tools-starthere-list">{start_links}</ul></section></div>'
     )
     return page_html("Axolotl Tools & Calculators",
                      "Free axolotl calculators: tank size, water conditioner dose, feeding schedule, nitrogen cycle tracker, symptom checker.",
@@ -1088,8 +1282,29 @@ def strip_html_to_text(body_html):
     return txt.strip()
 
 
+def _tool_subtitle(fname):
+    """Extract the one-line subtitle from a self-contained tool page source."""
+    try:
+        src = os.path.join(SRC, fname)
+        with open(src, encoding="utf-8", errors="ignore") as fh:
+            h = fh.read()
+        m = re.search(r'class="subtitle"[^>]*>(.*?)</p>', h, re.S)
+        if m:
+            return re.sub(r"<[^>]+>", " ", m.group(1)).strip()
+    except OSError:
+        pass
+    return ""
+
+
 def build_search_index(articles):
-    """Write search-index.json for client-side search."""
+    """Write search-index.json for client-side search (Phase 9).
+
+    Each entry carries structured metadata so the client can rank and render
+    semantically: title, description (dek), url, cluster, page type, headings,
+    and the plain-text article body.  Template chrome (nav/footer/cookie text)
+    is never included because the text is derived from the article body HTML
+    only — header, footer, and sidebar markup live in the page shell, not here.
+    """
     items = []
 
     def add_entry(entry):
@@ -1097,38 +1312,82 @@ def build_search_index(articles):
         items.append(entry)
 
     for slug, a in articles.items():
-        add_entry({
+        entry = {
             "title": a["title"],
             "url": f"/{slug}/",
             "type": "article",
+            "role": "article",
+            "cluster": a["hub"],
             "category": config.HUBS[a["hub"]]["cat"],
             "dek": a["intro"],
             "headings": [text for _, text in a["headings"]],
             "text": strip_html_to_text(a["body_html"]),
-        })
+        }
+        act = config.SEARCH_ACTIONS.get(slug)
+        if act:
+            entry["action"] = {"label": act["label"], "url": f"/{slug}/",
+                               "kind": act["kind"]}
+        add_entry(entry)
 
     for key, hub in config.HUBS.items():
         kw = " ".join(hub.get("keywords", []))
+        cluster_titles = [a["title"] for slug, a in articles.items()
+                          if a["hub"] == key]
         add_entry({
             "title": hub["title"],
             "url": f"/{key}/",
             "type": "hub",
+            "role": "hub",
+            "cluster": key,
             "category": hub["cat"],
             "dek": hub["intro"],
             "headings": [],
-            "text": f"{hub['intro']} {kw}".strip(),
+            "text": f"{hub['intro']} {kw} {chr(10)}" +
+                    chr(10).join(sorted(set(cluster_titles))).strip(),
         })
 
     for fname, t in config.TOOLS.items():
         stem = t["slug"].split("/")[-1]
+        desc = TOOL_DESCS.get(stem, "Free interactive tool for axolotl keepers.")
+        subtitle = _tool_subtitle(fname)
+        text = f"{t['title']}. {desc} {subtitle}".strip()
         add_entry({
             "title": t["title"],
             "url": f"/{t['slug']}/",
             "type": "tool",
+            "role": "tool",
+            "cluster": "tools",
             "category": "Tools",
-            "dek": TOOL_DESCS.get(stem, "Free interactive tool for axolotl keepers."),
+            "dek": desc,
+            "headings": [t["title"]],
+            "text": text,
+            "action": {"label": "Open tool", "url": f"/{t['slug']}/", "kind": "tool"},
+        })
+
+    for key, page in SIMPLE.items():
+        add_entry({
+            "title": page["title"],
+            "url": f"/{key}/",
+            "type": "page",
+            "role": "page",
+            "cluster": "site",
+            "category": "Site",
+            "dek": page["meta"],
             "headings": [],
-            "text": TOOL_DESCS.get(stem, "Free interactive tool for axolotl keepers."),
+            "text": strip_html_to_text(page["body"]),
+        })
+
+    for person in PROFILE_PAGES.values():
+        add_entry({
+            "title": person["name"],
+            "url": f"/{person['slug']}/",
+            "type": "profile",
+            "role": "profile",
+            "cluster": "site",
+            "category": "Site",
+            "dek": person["meta"],
+            "headings": [],
+            "text": person["summary"],
         })
 
     seen = set()
@@ -1169,6 +1428,18 @@ def copy_tools():
         ensure_dir(dst_dir)
         with open(src, "rb") as fh:
             data = fh.read()
+        text = data.decode("utf-8", errors="ignore")
+        if '<link rel="canonical"' not in text:
+            tag = f'<link rel="canonical" href="{config.SITE_URL}/{t["slug"]}/">'
+            text = text.replace("</head>", tag + "</head>", 1)
+        if 'name="description"' not in text:
+            desc = TOOL_DESCS.get(fname, TOOL_DESCS.get(t["slug"].split("/")[-1],
+                                                        "Free interactive tool for axolotl keepers."))
+            meta = (f'<meta name="description" content="{esc(desc)}">'
+                    f'<meta property="og:description" content="{esc(desc)}">'
+                    f'<meta name="twitter:description" content="{esc(desc)}">')
+            text = text.replace("</head>", meta + "</head>", 1)
+        data = text.encode("utf-8")
         with open(os.path.join(dst_dir, "index.html"), "wb") as fh:
             fh.write(data)
         written.append(t["slug"])
@@ -1204,9 +1475,15 @@ def write_sitemap(articles):
     locs = [base]
     entries = [(base, 0.9)]
     entries += [(base + "/search/", 0.4)]
-    entries += [(base + "/about/", 0.3)]
-    entries += [(base + "/privacy/", 0.2)]
-    entries += [(base + "/contact/", 0.3)]
+    for key in SIMPLE:
+        prio = 0.3
+        if key == "privacy":
+            prio = 0.2
+        elif key == "editorial-policy":
+            prio = 0.25
+        entries += [(base + f"/{key}/", prio)]
+    for person in PROFILE_PAGES.values():
+        entries += [(base + f"/{person['slug']}/", 0.3)]
     entries += [(base + "/tools/", 0.6)]
     for k in config.HUBS:
         entries += [(config.SITE_URL + f"/{k}/", 0.8)]
@@ -1236,13 +1513,13 @@ def write_sitemap(articles):
 
 def write_site_files():
     with open(os.path.join(PUBLIC, "robots.txt"), "w", encoding="utf-8") as fh:
-        fh.write("User-agent: *\nAllow: /\n\nSitemap: https://axolotlcare.example.com/sitemap.xml\n")
+        fh.write(f"User-agent: *\nAllow: /\n\nSitemap: {config.SITE_URL}/sitemap.xml\n")
     with open(os.path.join(PUBLIC, "ads.txt"), "w", encoding="utf-8") as fh:
         fh.write("google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0\nthis-is-an-adstxt-verification-marker\n")
     sec_dir = os.path.join(PUBLIC, ".well-known")
     ensure_dir(sec_dir)
     with open(os.path.join(sec_dir, "security.txt"), "w", encoding="utf-8") as fh:
-        fh.write("Contact: mailto:contact@axolotlcare.example.com\nPreferred-Languages: en\nExpires: 2027-01-01\n")
+        fh.write(f"Contact: mailto:{config.AUTHOR['email']}\nPreferred-Languages: en\nExpires: 2027-01-01\n")
 
 
 # ---------------------------------------------------------------------------
@@ -1267,13 +1544,15 @@ def main():
     for slug, a in articles.items():
         write_page(slug, "index.html", render_article(slug, a, articles, img_map))
 
-    print("5/6  Rendering tools, simple pages, search, 404 ...")
+    print("5/6  Rendering tools, people, simple pages, search, 404 ...")
     write_page("tools", "index.html", render_tools_index())
     copy_tools()
     copy_downloads(articles)
     write_page("search", "index.html", render_search())
     for key, cfg in SIMPLE.items():
         write_page(key, "index.html", render_simple(key, cfg))
+    for key, person in PROFILE_PAGES.items():
+        write_page(person["slug"], "index.html", render_profile(key, person))
     write_page(".", "404.html", render_404())
 
     print("6/6  Writing search index, sitemap, robots, ads, security, report ...")
@@ -1285,7 +1564,7 @@ def main():
     total_words = sum(a["words"] for a in articles.values())
     hub_keyed = len([s for s in articles if s in config.HUBS])
     pages = 1 + len(config.HUBS) + (len(articles) - hub_keyed) \
-        + 1 + len(config.TOOLS) + len(SIMPLE) + 1
+        + 1 + len(config.TOOLS) + len(SIMPLE) + len(PROFILE_PAGES) + 1
     report = {
         "generated": TODAY,
         "site_url": config.SITE_URL,

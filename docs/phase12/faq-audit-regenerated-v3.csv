@@ -1,0 +1,133 @@
+url,page_type,cluster,has_faq,faq_count,faq_appropriate,faq_addition_needed,reason,schema_present,schema_matches_visible,action
+/,homepage,utility,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/404.html,utility,utility,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/about/,utility,utility,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/axolotl-in-culture/,hub,axolotl-in-culture,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/axolotl-in-culture/adopt-me-axolotl-guide/,article,axolotl-in-culture,true,3,yes,no,Visible FAQ present,true,true,keep
+/axolotl-in-culture/axolotl-in-pop-culture-and-memes/,article,axolotl-in-culture,true,3,yes,no,Visible FAQ present,true,true,keep
+/axolotl-in-culture/minecraft-axolotls-guide/,article,axolotl-in-culture,true,3,yes,no,Visible FAQ present,true,true,keep
+/axolotl-in-culture/why-axolotls-are-suddenly-popular/,article,axolotl-in-culture,true,3,yes,no,Visible FAQ present,true,true,keep
+/axolotls/,hub,axolotls,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/axolotls/care-guide/,article,axolotls,true,7,yes,no,Visible FAQ present,true,true,keep
+/biology-and-science/,hub,biology-and-science,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/biology-and-science/anatomy-gills-and-lungs/,article,biology-and-science,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/biology-and-science/axolotl-vs-tiger-salamander/,article,biology-and-science,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/biology-and-science/conservation-status/,article,biology-and-science,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/biology-and-science/is-axolotl-amphibian/,article,biology-and-science,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/biology-and-science/lifespan-wild-vs-captivity/,article,biology-and-science,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/biology-and-science/neoteny/,article,biology-and-science,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/biology-and-science/regeneration-and-limb-regrowth/,article,biology-and-science,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/biology-and-science/wild-habitat-xochimilco/,article,biology-and-science,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/breeding/,hub,breeding,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/breeding/breeding-triggers-temperature-cycling/,article,breeding,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/breeding/color-genetics-punnett-squares/,article,breeding,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/breeding/egg-and-larvae-care/,article,breeding,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/breeding/genetics-and-inbreeding/,article,breeding,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/breeding/raising-juveniles/,article,breeding,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/breeding/sexing-axolotls/,article,breeding,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/care-basics/,hub,care-basics,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/care-basics/are-axolotls-good-beginner-pets/,article,care-basics,true,4,yes,no,Visible FAQ present,true,true,keep
+/care-basics/axolotl-age-and-size-chart/,article,care-basics,true,4,yes,no,Visible FAQ present,true,true,keep
+/care-basics/axolotl-facts/,article,care-basics,true,4,yes,no,Visible FAQ present,true,true,keep
+/care-basics/axolotl-intelligence-and-bonding/,article,care-basics,true,4,yes,no,Visible FAQ present,true,true,keep
+/care-basics/axolotls-and-children/,article,care-basics,true,4,yes,no,Visible FAQ present,true,true,keep
+/care-basics/behavior/,article,care-basics,false,0,yes,yes,A - FAQ WOULD ADD UNIQUE USER VALUE,false,true,add
+/care-basics/cost-of-ownership-monthly/,article,care-basics,false,0,yes,yes,A - FAQ WOULD ADD UNIQUE USER VALUE,false,true,add
+/care-basics/handling/,article,care-basics,false,0,yes,yes,A - FAQ WOULD ADD UNIQUE USER VALUE,false,true,add
+/care-basics/how-to-pronounce-axolotl/,article,care-basics,false,0,yes,yes,A - FAQ WOULD ADD UNIQUE USER VALUE,false,true,add
+/care-basics/keeping-multiple-axolotls/,article,care-basics,false,0,yes,yes,A - FAQ WOULD ADD UNIQUE USER VALUE,false,true,add
+/contact/,utility,utility,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/cost-and-buying/,hub,cost-and-buying,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/cost-and-buying/axolotl-price-by-morph/,article,cost-and-buying,false,0,yes,yes,A - FAQ WOULD ADD UNIQUE USER VALUE,false,true,add
+/cost-and-buying/breeder-vs-pet-store/,article,cost-and-buying,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/cost-and-buying/choosing-a-reputable-breeder/,article,cost-and-buying,true,8,yes,no,Visible FAQ present,true,true,keep
+/cost-and-buying/how-to-choose-a-healthy-axolotl/,article,cost-and-buying,true,2,yes,no,Visible FAQ present,true,true,keep
+/cost-and-buying/red-flags-when-buying/,article,cost-and-buying,true,2,yes,no,Visible FAQ present,true,true,keep
+/cost-and-buying/shipping-live-axolotls/,article,cost-and-buying,true,2,yes,no,Visible FAQ present,true,true,keep
+/diet/,hub,diet,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/diet/axolotl-pellets/,article,diet,false,0,yes,yes,A - FAQ WOULD ADD UNIQUE USER VALUE,false,true,add
+/diet/beef-heart/,article,diet,true,10,yes,no,Visible FAQ present,true,true,keep
+/diet/best-foods-list/,article,diet,false,0,yes,yes,A - FAQ WOULD ADD UNIQUE USER VALUE,false,true,add
+/diet/blackworms-for-juveniles/,article,diet,true,5,yes,no,Visible FAQ present,true,true,keep
+/diet/fasting-and-vacation/,article,diet,true,11,yes,no,Visible FAQ present,true,true,keep
+/diet/feeder-fish-risks/,article,diet,true,13,yes,no,Visible FAQ present,true,true,keep
+/diet/feeding-schedule-by-age/,article,diet,true,10,yes,no,Visible FAQ present,true,true,keep
+/diet/how-to-hand-feed/,article,diet,true,6,yes,no,Visible FAQ present,true,true,keep
+/diet/live-vs-frozen-food/,article,diet,true,8,yes,no,Visible FAQ present,true,true,keep
+/diet/overfeeding-and-impaction/,article,diet,true,10,yes,no,Visible FAQ present,true,true,keep
+/diet/shrimp-for-axolotls/,article,diet,true,7,yes,no,Visible FAQ present,true,true,keep
+/diet/vitamin-and-supplement-needs/,article,diet,true,4,yes,no,Visible FAQ present,true,true,keep
+/gifts-and-merch/,hub,gifts-and-merch,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/gifts-and-merch/axolotl-squishmallow-guide/,article,gifts-and-merch,false,0,no,no,C - PAGE INTENT DOES NOT NEED FAQ,false,true,none
+/gifts-and-merch/best-axolotl-lego-sets/,article,gifts-and-merch,false,0,no,no,C - PAGE INTENT DOES NOT NEED FAQ,false,true,none
+/gifts-and-merch/best-axolotl-toys-and-plushies/,article,gifts-and-merch,false,0,no,no,C - PAGE INTENT DOES NOT NEED FAQ,false,true,none
+/gifts-and-merch/build-a-bear-axolotl-guide/,article,gifts-and-merch,false,0,no,no,C - PAGE INTENT DOES NOT NEED FAQ,false,true,none
+/health/,hub,health,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/health/ammonia-burns/,article,health,true,5,yes,no,Visible FAQ present,true,true,keep
+/health/black-tea-bath/,article,health,true,11,yes,no,Visible FAQ present,true,true,keep
+/health/curled-gills-stress-signal/,article,health,true,5,yes,no,Visible FAQ present,true,true,keep
+/health/emergency-first-aid/,article,health,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/health/finding-an-exotic-vet/,article,health,true,4,yes,no,Visible FAQ present,true,true,keep
+/health/fridging-sick-axolotl/,article,health,true,10,yes,no,Visible FAQ present,true,true,keep
+/health/fungal-infections-saprolegnia/,article,health,true,4,yes,no,Visible FAQ present,true,true,keep
+/health/impaction-symptoms-treatment/,article,health,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/health/limb-regeneration/,article,health,true,6,yes,no,Visible FAQ present,true,true,keep
+/health/malnutrition-signs/,article,health,true,7,yes,no,Visible FAQ present,true,true,keep
+/health/minor-scrapes-and-wounds/,article,health,true,5,yes,no,Visible FAQ present,true,true,keep
+/health/parasite-treatment/,article,health,true,8,yes,no,Visible FAQ present,true,true,keep
+/health/quarantine-tub/,article,health,true,5,yes,no,Visible FAQ present,true,true,keep
+/health/red-leg-syndrome/,article,health,true,5,yes,no,Visible FAQ present,true,true,keep
+/health/refusing-to-eat/,article,health,true,17,yes,no,Visible FAQ present,true,true,keep
+/health/salt-bath/,article,health,true,9,yes,no,Visible FAQ present,true,true,keep
+/health/shrinking-gills/,article,health,true,6,yes,no,Visible FAQ present,true,true,keep
+/health/stress-signs/,article,health,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/health/why-axolotl-floating/,article,health,true,7,yes,no,Visible FAQ present,true,true,keep
+/legal/,hub,legal,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/legal/california/,article,legal,false,0,yes,yes,A - FAQ WOULD ADD UNIQUE USER VALUE,false,true,add
+/legal/canada/,article,legal,false,0,yes,yes,A - FAQ WOULD ADD UNIQUE USER VALUE,false,true,add
+/legal/hawaii/,article,legal,false,0,yes,yes,A - FAQ WOULD ADD UNIQUE USER VALUE,false,true,add
+/legal/maine/,article,legal,false,0,yes,yes,A - FAQ WOULD ADD UNIQUE USER VALUE,false,true,add
+/legal/new-jersey/,article,legal,true,4,yes,no,Visible FAQ present,true,true,keep
+/legal/new-mexico/,article,legal,true,4,yes,no,Visible FAQ present,true,true,keep
+/legal/virginia/,article,legal,true,5,yes,no,Visible FAQ present,true,true,keep
+/morphs/,hub,morphs,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/morphs/blue-and-pink-axolotl-myth/,article,morphs,true,3,yes,no,Visible FAQ present,true,true,keep
+/morphs/chimera/,article,morphs,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/morphs/copper/,article,morphs,true,4,yes,no,Visible FAQ present,true,true,keep
+/morphs/enigma-firefly-mac/,article,morphs,true,4,yes,no,Visible FAQ present,true,true,keep
+/morphs/gfp-axolotl/,article,morphs,true,4,yes,no,Visible FAQ present,true,true,keep
+/morphs/golden-albino/,article,morphs,true,4,yes,no,Visible FAQ present,true,true,keep
+/morphs/leucistic/,article,morphs,true,4,yes,no,Visible FAQ present,true,true,keep
+/morphs/melanoid/,article,morphs,true,4,yes,no,Visible FAQ present,true,true,keep
+/morphs/morphs-comparison-chart/,article,morphs,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/morphs/mosaic/,article,morphs,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/morphs/piebald/,article,morphs,true,4,yes,no,Visible FAQ present,true,true,keep
+/morphs/pigment-cells/,article,morphs,true,4,yes,no,Visible FAQ present,true,true,keep
+/morphs/wild-type/,article,morphs,false,0,no,no,B - BODY ALREADY ANSWERS RELEVANT QUESTIONS,false,true,none
+/privacy/,utility,utility,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/search/,utility,utility,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/tank-setup/,hub,tank-setup,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/tank-setup/acclimating-a-new-axolotl/,article,tank-setup,false,0,yes,yes,A - FAQ WOULD ADD UNIQUE USER VALUE,false,true,add
+/tank-setup/aquarium-chillers/,article,tank-setup,true,4,yes,no,Visible FAQ present,true,true,keep
+/tank-setup/canister-vs-sponge-filter/,article,tank-setup,true,11,yes,no,Visible FAQ present,true,true,keep
+/tank-setup/filtration-for-axolotls/,article,tank-setup,true,6,yes,no,Visible FAQ present,true,true,keep
+/tank-setup/gravel-risks/,article,tank-setup,true,7,yes,no,Visible FAQ present,true,true,keep
+/tank-setup/hides-and-caves/,article,tank-setup,true,11,yes,no,Visible FAQ present,true,true,keep
+/tank-setup/lighting-for-axolotls/,article,tank-setup,true,9,yes,no,Visible FAQ present,true,true,keep
+/tank-setup/live-vs-artificial-plants/,article,tank-setup,true,10,yes,no,Visible FAQ present,true,true,keep
+/tank-setup/setup-guide/,article,tank-setup,true,5,yes,no,Visible FAQ present,true,true,keep
+/tank-setup/substrate-and-impaction/,article,tank-setup,true,9,yes,no,Visible FAQ present,true,true,keep
+/tank-setup/tank-mates/,article,tank-setup,false,0,yes,yes,A - FAQ WOULD ADD UNIQUE USER VALUE,false,true,add
+/tank-setup/tank-size-by-age/,article,tank-setup,false,0,yes,yes,A - FAQ WOULD ADD UNIQUE USER VALUE,false,true,add
+/tank-setup/temperature/,article,tank-setup,true,10,yes,no,Visible FAQ present,true,true,keep
+/tank-setup/uneaten-food-and-ammonia/,article,tank-setup,true,3,yes,no,Visible FAQ present,true,true,keep
+/tank-setup/water-change-guide/,article,tank-setup,false,0,yes,yes,A - FAQ WOULD ADD UNIQUE USER VALUE,false,true,add
+/tank-setup/water-conditioners/,article,tank-setup,true,6,yes,no,Visible FAQ present,true,true,keep
+/tank-setup/water-parameters-cycling/,article,tank-setup,true,6,yes,no,Visible FAQ present,true,true,keep
+/tank-setup/why-tank-water-smells/,article,tank-setup,true,8,yes,no,Visible FAQ present,true,true,keep
+/tools/,utility,utility,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/tools/feeding-schedule-generator/,tool,tools,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/tools/nitrogen-cycle-tracker/,tool,tools,true,6,yes,no,"Visible FAQ present; semantically appropriate tool support, but JSON-LD is incomplete",true,true,keep
+/tools/symptom-checker/,tool,tools,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/tools/tank-size-calculator/,tool,tools,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none
+/tools/water-conditioner-dosage-calculator/,tool,tools,false,0,no,no,E - TOOL/HUB/UTILITY - FAQ NOT APPROPRIATE,false,true,none

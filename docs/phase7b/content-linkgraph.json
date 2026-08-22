@@ -127,10 +127,6 @@
   },
   {
    "from": "/axolotls/care-guide",
-   "to": "/health/refusing-to-eat"
-  },
-  {
-   "from": "/axolotls/care-guide",
    "to": "/tank-setup/aquarium-chillers"
   },
   {
@@ -188,6 +184,18 @@
   {
    "from": "/biology-and-science/anatomy-gills-and-lungs",
    "to": "/biology-and-science/wild-habitat-xochimilco"
+  },
+  {
+   "from": "/biology-and-science/anatomy-gills-and-lungs",
+   "to": "/health/shrinking-gills"
+  },
+  {
+   "from": "/biology-and-science/anatomy-gills-and-lungs",
+   "to": "/health/stress-signs"
+  },
+  {
+   "from": "/biology-and-science/anatomy-gills-and-lungs",
+   "to": "/health/why-axolotl-floating"
   },
   {
    "from": "/biology-and-science/axolotl-vs-tiger-salamander",
@@ -250,6 +258,10 @@
    "to": "/health/limb-regeneration"
   },
   {
+   "from": "/biology-and-science/regeneration-and-limb-regrowth",
+   "to": "/health/minor-scrapes-and-wounds"
+  },
+  {
    "from": "/biology-and-science/wild-habitat-xochimilco",
    "to": "/biology-and-science/conservation-status"
   },
@@ -310,6 +322,14 @@
    "to": "/breeding/raising-juveniles"
   },
   {
+   "from": "/breeding/egg-and-larvae-care",
+   "to": "/diet/feeding-schedule-by-age"
+  },
+  {
+   "from": "/breeding/egg-and-larvae-care",
+   "to": "/diet/shrimp-for-axolotls"
+  },
+  {
    "from": "/breeding/genetics-and-inbreeding",
    "to": "/breeding/color-genetics-punnett-squares"
   },
@@ -324,6 +344,14 @@
   {
    "from": "/breeding/raising-juveniles",
    "to": "/breeding/genetics-and-inbreeding"
+  },
+  {
+   "from": "/breeding/raising-juveniles",
+   "to": "/diet/blackworms-for-juveniles"
+  },
+  {
+   "from": "/breeding/raising-juveniles",
+   "to": "/diet/feeding-schedule-by-age"
   },
   {
    "from": "/breeding/sexing-axolotls",
@@ -655,6 +683,10 @@
   },
   {
    "from": "/diet/blackworms-for-juveniles",
+   "to": "/breeding/raising-juveniles"
+  },
+  {
+   "from": "/diet/blackworms-for-juveniles",
    "to": "/diet/feeding-schedule-by-age"
   },
   {
@@ -676,6 +708,10 @@
   {
    "from": "/diet/feeder-fish-risks",
    "to": "/diet/live-vs-frozen-food"
+  },
+  {
+   "from": "/diet/feeding-schedule-by-age",
+   "to": "/breeding/raising-juveniles"
   },
   {
    "from": "/diet/feeding-schedule-by-age",
@@ -716,6 +752,10 @@
   {
    "from": "/diet/overfeeding-and-impaction",
    "to": "/health/refusing-to-eat"
+  },
+  {
+   "from": "/diet/shrimp-for-axolotls",
+   "to": "/breeding/egg-and-larvae-care"
   },
   {
    "from": "/diet/shrimp-for-axolotls",
@@ -879,6 +919,10 @@
   },
   {
    "from": "/health/curled-gills-stress-signal",
+   "to": "/biology-and-science/anatomy-gills-and-lungs"
+  },
+  {
+   "from": "/health/curled-gills-stress-signal",
    "to": "/health/ammonia-burns"
   },
   {
@@ -919,6 +963,10 @@
   },
   {
    "from": "/health/fungal-infections-saprolegnia",
+   "to": "/biology-and-science/anatomy-gills-and-lungs"
+  },
+  {
+   "from": "/health/fungal-infections-saprolegnia",
    "to": "/health/black-tea-bath"
   },
   {
@@ -947,11 +995,19 @@
   },
   {
    "from": "/health/limb-regeneration",
+   "to": "/biology-and-science/regeneration-and-limb-regrowth"
+  },
+  {
+   "from": "/health/limb-regeneration",
    "to": "/health/fungal-infections-saprolegnia"
   },
   {
    "from": "/health/limb-regeneration",
    "to": "/health/minor-scrapes-and-wounds"
+  },
+  {
+   "from": "/health/malnutrition-signs",
+   "to": "/biology-and-science/regeneration-and-limb-regrowth"
   },
   {
    "from": "/health/malnutrition-signs",
@@ -1032,6 +1088,10 @@
   {
    "from": "/health/salt-bath",
    "to": "/health/fungal-infections-saprolegnia"
+  },
+  {
+   "from": "/health/shrinking-gills",
+   "to": "/biology-and-science/anatomy-gills-and-lungs"
   },
   {
    "from": "/health/shrinking-gills",
@@ -1671,6 +1731,22 @@
   },
   {
    "from": "/tank-setup/why-tank-water-smells",
+   "to": "/tank-setup/water-parameters-cycling"
+  },
+  {
+   "from": "/tools",
+   "to": "/diet/feeding-schedule-by-age"
+  },
+  {
+   "from": "/tools",
+   "to": "/health/refusing-to-eat"
+  },
+  {
+   "from": "/tools",
+   "to": "/tank-setup/setup-guide"
+  },
+  {
+   "from": "/tools",
    "to": "/tank-setup/water-parameters-cycling"
   },
   {

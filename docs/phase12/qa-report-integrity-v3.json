@@ -1,0 +1,104 @@
+{
+  "project": "yes155/axolotl-site",
+  "source": {
+    "public_root": "C:\\Users\\HomePC\\Documents\\axolotl-site\\public",
+    "method": "programmatic HTML scan"
+  },
+  "counts": {
+    "audited_pages": 132,
+    "articles": 108,
+    "hubs": 12,
+    "tools": 5,
+    "utilities_other": 7,
+    "pages_with_faq": 67,
+    "pages_without_faq": 65,
+    "faq_additions_recommended": 16,
+    "correctly_without_faq": 49,
+    "review_required": 0,
+    "duplicate_urls": 0,
+    "invalid_urls": 0,
+    "schema_mismatches": 0,
+    "schema_mismatch_urls": [],
+    "faq_coverage_percent": 50.76,
+    "content_page_faq_coverage_percent": 53.6,
+    "A_to_F": {
+      "A": 16,
+      "B": 22,
+      "C": 4,
+      "D": 0,
+      "E": 23,
+      "F": 0
+    }
+  },
+  "assertions": {
+    "row_count": 132,
+    "unique_url_count": 132,
+    "duplicate_url_count": 0,
+    "invalid_url_count": 0,
+    "with_faq": 67,
+    "without_faq": 65,
+    "a_to_f_without_faq": 65,
+    "faq_additions_recommended": 16,
+    "schema_mismatches": 0,
+    "schema_mismatch_urls": [],
+    "passes": {
+      "row_count_equals_unique_url_count": true,
+      "duplicate_url_count_zero": true,
+      "invalid_url_count_zero": true,
+      "with_faq_plus_without_faq_equals_row_count": true,
+      "a_to_f_equals_without_faq": true,
+      "faq_presence_consistent": true,
+      "schema_consistent": true
+    }
+  },
+  "smoke": {
+    "phase10": {
+      "command": [
+        "node",
+        "build/phase10_search_smoke.mjs"
+      ],
+      "ok": true,
+      "returncode": 0,
+      "last_line": "all 20 smoke assertions passed",
+      "output_tail": [
+        "[PASS] emergency: \"emergency\" (eff: emergency)",
+        "        top: /health/emergency-first-aid/, /health/finding-an-exotic-vet/, /tank-setup/temperature/, /health/refusing-to-eat/, /health/fridging-sick-axolotl/",
+        "[PASS] find vet: \"find a vet\" (eff: find a vet)",
+        "        top: /health/finding-an-exotic-vet/, /health/emergency-first-aid/, /legal/new-mexico/, /tank-setup/temperature/, /health/why-axolotl-floating/",
+        "all 20 smoke assertions passed"
+      ]
+    },
+    "phase11": {
+      "command": [
+        "node",
+        "build/phase11_search_smoke.mjs"
+      ],
+      "ok": true,
+      "returncode": 0,
+      "last_line": "all 21 Phase 11 smoke assertions passed",
+      "output_tail": [
+        "[PASS] fungus still: \"white fungus on axolotl\" (eff: white fungus on axolotl)",
+        "        top: /health/fungal-infections-saprolegnia/, /health/salt-bath/, /health/ammonia-burns/, /health/minor-scrapes-and-wounds/, /biology-and-science/conservation-status/",
+        "[PASS] symptom checker tool still: \"symptom checker\" (eff: symptom checker)",
+        "        top: /tools/symptom-checker/, /health/impaction-symptoms-treatment/, /diet/feeder-fish-risks/, /health/refusing-to-eat/, /health/salt-bath/",
+        "all 21 Phase 11 smoke assertions passed"
+      ]
+    },
+    "phase11_qa": {
+      "command": [
+        "python",
+        "build/phase11_qa.py"
+      ],
+      "ok": true,
+      "returncode": 0,
+      "last_line": "dead search actions: []",
+      "output_tail": [
+        "  [ok] tools_descriptions",
+        "  [ok] search_actions",
+        "broken: 0 | canonical: []",
+        "tools missing desc: []",
+        "dead search actions: []"
+      ]
+    }
+  }
+}
