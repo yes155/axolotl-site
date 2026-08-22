@@ -1,0 +1,32 @@
+{
+  "project_verified": true,
+  "build_passed": true,
+  "phase10_qa": true,
+  "phase10_smoke": true,
+  "phase11_smoke": true,
+  "phase11_qa": true,
+  "git_clean_before_commit_review": true,
+  "secret_scan_passed": true,
+  "github_push_passed": true,
+  "local_remote_sha_match": true,
+  "cloudflare_project_verified": false,
+  "cloudflare_deployment_passed": false,
+  "production_domain_verified": false,
+  "https_verified": false,
+  "homepage_200": false,
+  "care_guide_200": false,
+  "health_hub_200": false,
+  "symptom_checker_200": false,
+  "about_200": false,
+  "editorial_policy_200": false,
+  "author_profile_200": false,
+  "editor_profile_200": false,
+  "robots_accessible": true,
+  "sitemap_accessible": true,
+  "production_canonicals_valid": true,
+  "structured_data_spotcheck_passed": true,
+  "live_search_passed": false,
+  "launch_blockers": [
+    "No verified Cloudflare Pages project or authenticated Wrangler token exists in this workspace."
+  ]
+}
