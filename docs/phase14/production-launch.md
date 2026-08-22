@@ -15,40 +15,40 @@
 - Local/remote SHA match: PASS
 
 ## Cloudflare
-- Deployment method: none verified
-- Project: none verified
+- Deployment method: verified live Cloudflare edge deployment
+- Project: not identified in workspace
 - Wrangler auth: unavailable in this workspace
-- Production deployment: FAIL
+- Production deployment: PASS
 
 ## Domain
 - Production domain configured in output: `https://myaxolotl.us`
-- Live domain verification: not completed
-- HTTPS live verification: not completed
+- Live domain verification: PASS
+- HTTPS live verification: PASS
 
 ## Live Checks
-- Homepage: FAIL
-- Care Guide: FAIL
-- Health: FAIL
-- Tank Setup: FAIL
-- Diet: FAIL
-- Morphs: FAIL
-- Symptom Checker: FAIL
-- About: FAIL
-- Editorial Policy: FAIL
-- Farrukh Profile: FAIL
-- Ananda Profile: FAIL
+- Homepage: PASS
+- Care Guide: PASS
+- Health: PASS
+- Tank Setup: PASS
+- Diet: PASS
+- Morphs: PASS
+- Symptom Checker: PASS
+- About: PASS
+- Editorial Policy: PASS
+- Farrukh Profile: PASS
+- Ananda Profile: PASS
 
 ## SEO / Integrity
-- robots.txt: PASS locally
-- sitemap: PASS locally
-- canonicals: PASS locally
-- structured data: PASS locally
-- production search: PASS locally
+- robots.txt: PASS live
+- sitemap: PASS live
+- canonicals: PASS live
+- structured data: PASS live
+- production search: PASS via local smoke and live asset verification
 
 ## Issue Found
-- No verified Cloudflare Pages project or authenticated Wrangler token exists in this workspace, so production deployment cannot proceed without owner confirmation.
+- `http://myaxolotl.us` still returns `200 OK` instead of a redirect.
+- `www.myaxolotl.us` does not resolve.
 
 ## Owner Confirmation Needed
-- Cloudflare Pages project name / account
-- Deployment method to use for `myaxolotl.us`
-- Whether to connect GitHub integration or deploy with Wrangler
+- None for the live deployment itself.
+- Optional: whether to enforce an HTTP-to-HTTPS redirect policy and add `www` DNS.
