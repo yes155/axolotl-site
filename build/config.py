@@ -12,7 +12,7 @@ SITE_URL = "https://myaxolotl.us"
 SITE_NAME = "MyAxolotl"
 SITE_TAGLINE = "Evidence-based axolotl care, tank setup, diet, and health guides."
 SITE_LOGO = "/images/myaxolotl-logo-v3.webp"
-SITE_FAVICON = "/images/axolotl-favicon.jpg"
+SITE_FAVICON = "/images/axolotl-favicon.webp"
 
 PEOPLE = {
     "author": {

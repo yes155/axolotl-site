@@ -503,7 +503,7 @@ def build_site_assets():
         print(f"  !! logo set from '{os.path.basename(logo)}'")
 
     fav = None
-    for cand in ("site-logo.png", "axolotl fevicon.jpg", "axolotl logo.jpg"):
+    for cand in ("axolotl.us - site fevicon.png", "site-logo.png", "axolotl fevicon.jpg", "axolotl logo.jpg"):
         p = os.path.join(SRC, cand)
         if os.path.exists(p):
             fav = p
