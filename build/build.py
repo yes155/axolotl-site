@@ -450,6 +450,8 @@ def build_image_map(articles):
                     with open(featured["src"], "rb") as fh:
                         optimize_image(fh.read(), dst)
                 featured["alt"] = _seo_alt_from_title(a["title"])
+                if slug == "axolotls/care-guide":
+                    featured["alt"] = "Dark axolotl in a properly set up aquarium with cool water, fine sand, plants and a hide"
                 img_map[slug] = featured
             except Exception as e:
                 print("  !! img fail", slug, e)
