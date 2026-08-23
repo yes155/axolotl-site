@@ -4,6 +4,8 @@ Site configuration. Maps every source .docx article into the
 hub-and-spoke structure defined in axolotl_topical_map.xml.
 """
 
+from pathlib import Path
+
 # ── Site identity ──────────────────────────────────────────────────────────
 # CHANGE THIS once you buy your domain:
 SITE_URL = "https://myaxolotl.us"
@@ -51,7 +53,8 @@ PEOPLE = {
 }
 
 # Source folder containing the .docx articles
-SOURCE_DIR = r"C:\Users\HomePC\Documents\axolotls"
+ROOT = Path(__file__).resolve().parent.parent
+SOURCE_DIR = ROOT.parent / "axolotls"
 
 # ── Core hubs (from topical map) ───────────────────────────────────────────
 HUBS = {

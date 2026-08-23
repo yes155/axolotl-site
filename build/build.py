@@ -19,6 +19,7 @@ import json
 import html
 from datetime import date
 from urllib.parse import quote
+from pathlib import Path
 
 from PIL import Image
 
@@ -28,11 +29,12 @@ from docx2html import convert_docx, words_from
 # ---------------------------------------------------------------------------
 # Paths / constants
 # ---------------------------------------------------------------------------
-BUILD_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT = Path(__file__).resolve().parent.parent
+BUILD_DIR = ROOT / "build"
 SRC = config.SOURCE_DIR
-PUBLIC = os.path.normpath(os.path.join(BUILD_DIR, "..", "public"))
-IMG_DIR = os.path.join(PUBLIC, "images")
-TOOLS_DIR = os.path.join(PUBLIC, "tools")
+PUBLIC = ROOT / "public"
+IMG_DIR = PUBLIC / "images"
+TOOLS_DIR = PUBLIC / "tools"
 TODAY = date.today().isoformat()
 YEAR = date.today().year
 
@@ -155,7 +157,7 @@ def esc(text):
 
 
 def ensure_dir(path):
-    os.makedirs(path, exist_ok=True)
+    Path(path).mkdir(parents=True, exist_ok=True)
 
 
 def write_page(rel_dir, filename, text):
@@ -495,9 +497,9 @@ def build_site_assets():
             logo = p
             break
     if logo:
+        logo_out = os.path.join(IMG_DIR, os.path.basename(config.SITE_LOGO))
         with open(logo, "rb") as fh:
-            optimize_image(fh.read(), os.path.join(IMG_DIR, "axolotl-logo.webp"),
-                           quality=88, max_side=400)
+            optimize_image(fh.read(), logo_out, quality=88, max_side=400)
         print(f"  !! logo set from '{os.path.basename(logo)}'")
 
     fav = None
@@ -558,8 +560,8 @@ def header(active_href=""):
 
     return (
         '<header class="site-header"><div class="header-inner">'
-        f'<a class="brand" href="/"><img class="logo-img" src="/images/axolotl-logo.webp" '
-        f'alt="{esc(config.SITE_NAME)} logo" width="48" height="32">'
+        f'<a class="brand" href="/"><img class="logo-img" src="{esc(config.SITE_LOGO)}" '
+        f'alt="{esc(config.SITE_NAME)} logo" width="60" height="40">'
         f'<span class="brand-name">{esc(config.SITE_NAME)}</span></a>'
         '<nav class="main-nav" aria-label="Main">'
         f'<ul class="nav-primary">{primary}'
@@ -598,7 +600,7 @@ def footer():
         f'<footer class="site-footer"><div class="container">'
         '<div class="footer-grid">'
         '<div class="footer-col footer-brand">'
-        f'<a class="footer-logo" href="/"><img class="logo-img" src="/images/axolotl-logo.webp" '
+        f'<a class="footer-logo" href="/"><img class="logo-img" src="{esc(config.SITE_LOGO)}" '
         f'alt="{esc(config.SITE_NAME)} logo" width="48" height="32">'
         f'<span>{esc(config.SITE_NAME)}</span></a>'
         f'<p class="footer-tagline">{esc(config.SITE_TAGLINE)}</p>'
