@@ -1070,6 +1070,130 @@ def render_home(articles, img_map):
 
 
 def render_hub(key, hub, articles, img_map):
+    if key == "axolotls":
+        page_title = "Axolotl Care: Tank Setup, Diet, Health & More"
+        page_meta = "Start with the complete axolotl care guide or explore specific care topics like tank setup, care basics, diet, health, cost, tools, and supporting guides."
+        page_h1 = "Axolotl Care"
+        page_intro = "Start with the complete care guide, or explore specific care topics below if you already know what you need."
+        guide = articles["axolotls/care-guide"]
+        guide_img = img_map["axolotls/care-guide"]
+
+        def hub_tile(href, title, desc, meta):
+            return (
+                f'<a class="hub-card" href="{href}">'
+                f'<div class="meta">{esc(meta)}</div>'
+                f'<h3>{esc(title)}</h3>'
+                f'<p>{esc(desc)}</p>'
+                f'<span class="read-more">Explore {esc(title)} &rarr;</span>'
+                "</a>"
+            )
+
+        featured = (
+            '<a class="start-primary care-hub-featured" href="/axolotls/care-guide/">'
+            f'<img class="thumb" src="{esc(guide_img["url"])}" alt="{esc(guide_img["alt"])}" '
+            'loading="lazy" width="640" height="360">'
+            '<div class="card-body">'
+            '<div class="meta">Foundational guide</div>'
+            f'<h3>{esc(guide["title"])}</h3>'
+            f'<p>{esc(guide["intro"])}</p>'
+            '<span class="read-more">Start here &rarr;</span>'
+            "</div></a>"
+        )
+
+        primary_cards = [
+            hub_tile(
+                "/tank-setup/",
+                "Tank Setup",
+                "Build a cool, stable habitat with the right tank size, substrate, filtration, temperature, and water changes.",
+                "Primary care topic",
+            ),
+            hub_tile(
+                "/care-basics/",
+                "Care Basics & Water",
+                "Beginner axolotl knowledge, behavior, handling, and the water-quality fundamentals that shape every care decision.",
+                "Primary care topic",
+            ),
+            hub_tile(
+                "/diet/",
+                "Diet & Feeding",
+                "Learn what axolotls eat, how often to feed, and how to avoid overfeeding and impaction.",
+                "Primary care topic",
+            ),
+            hub_tile(
+                "/health/",
+                "Health",
+                "Spot warning signs early and respond to common problems like fungus, parasites, stress, and refusal to eat.",
+                "Primary care topic",
+            ),
+            hub_tile(
+                "/tools/",
+                "Tools",
+                "Use calculators and checkers for conditioning, feeding, tank size, and symptom triage.",
+                "Support tool",
+            ),
+            hub_tile(
+                "/cost-and-buying/",
+                "Cost & Buying",
+                "Plan the initial setup, monthly budget, morph prices, and safe places to buy.",
+                "Primary care topic",
+            ),
+        ]
+
+        secondary_cards = [
+            hub_tile(
+                "/biology-and-science/",
+                "Biology",
+                "Understand the science behind neoteny, regeneration, and the wild habitat.",
+                "Supporting topic",
+            ),
+            hub_tile(
+                "/morphs/",
+                "Morphs",
+                "Compare colors, patterns, and the genetics behind each morph.",
+                "Supporting topic",
+            ),
+            hub_tile(
+                "/breeding/",
+                "Breeding",
+                "Learn conditioning, courtship, eggs, larvae, and breeding ethics.",
+                "Supporting topic",
+            ),
+            hub_tile(
+                "/legal/",
+                "Legal",
+                "Check where axolotls are restricted and what the rules mean for owners.",
+                "Supporting topic",
+            ),
+        ]
+
+        body = (
+            f'<section class="hub-hero"><div class="container">'
+            f'<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a>'
+            f' &rsaquo; {esc(hub["cat"])}'
+            f'</nav><h1>{esc(page_h1)}</h1>'
+            f'<p class="hub-intro">{esc(page_intro)}</p>'
+            f'</div></section>'
+            f'<div class="container page">'
+            f'{featured}'
+            '<section class="section" aria-labelledby="primary-care-title">'
+            '<div class="section-head">'
+            '<h2 id="primary-care-title" class="section-title">Primary Care Topics</h2>'
+            '<p class="section-note">Start with these six routes through care.</p>'
+            '</div>'
+            f'<div class="grid-3">{"".join(primary_cards)}</div>'
+            '</section>'
+            '<section class="section" aria-labelledby="supporting-topics-title">'
+            '<div class="section-head">'
+            '<h2 id="supporting-topics-title" class="section-title">Supporting Topics</h2>'
+            '<p class="section-note">Context for the broader care journey.</p>'
+            '</div>'
+            f'<div class="grid-4">{"".join(secondary_cards)}</div>'
+            '</section>'
+            '</div>'
+        )
+        return page_html(page_title, page_meta, config.SITE_URL + "/axolotls/",
+                         body, "/axolotls/", "website", guide_img["url"])
+
     guides = sorted(
         [a for a in articles.values() if a["hub"] == key],
         key=lambda a: a["num"],
@@ -1106,7 +1230,6 @@ def render_hub(key, hub, articles, img_map):
     )
     return page_html(hub["title_tag"], hub["meta"], config.SITE_URL + f"/{key}/",
                      body, f"/{key}/", "website")
-
 
 def render_article(slug, a, articles, img_map):
     url = config.SITE_URL + f"/{slug}/"

@@ -691,6 +691,10 @@ img {
   aspect-ratio: 16 / 10;
 }
 
+.care-hub-featured {
+  margin-bottom: 32px;
+}
+
 .start-primary h3 {
   font-size: 1.55rem;
 }
@@ -842,6 +846,48 @@ img {
   margin: 0 0 14px;
   color: var(--muted-foreground);
   font-size: 0.92rem;
+}
+
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.hub-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+  color: inherit;
+}
+
+.hub-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.18rem;
+}
+
+.hub-card p {
+  margin: 0 0 14px;
+  color: var(--muted-foreground);
+  font-size: 0.93rem;
+}
+
+.hub-card .read-more {
+  margin-top: auto;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--link);
+}
+
+.hub-card:hover .read-more {
+  color: var(--link-hover);
 }
 
 /* --- CTA band ---------------------------------------------------------------- */
@@ -1849,6 +1895,10 @@ blockquote p:last-child {
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .hub-card {
+    padding: 24px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1899,6 +1949,10 @@ blockquote p:last-child {
   .grid-4,
   .topic-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hub-card {
+    padding: 22px;
   }
 
   .tool-grid {
