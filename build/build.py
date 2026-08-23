@@ -491,7 +491,7 @@ def build_site_assets():
         print("  !! homepage hero set from 'axolotl featured image for homepage.png'")
 
     logo = None
-    for cand in ("site-logo.png", "axolotl logo.jpg"):
+    for cand in ("axolotl.us -  site logo.png", "site-logo.png", "axolotl logo.jpg"):
         p = os.path.join(SRC, cand)
         if os.path.exists(p):
             logo = p

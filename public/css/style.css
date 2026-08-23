@@ -269,9 +269,14 @@ img {
   display: block;
   width: 48px;
   height: 32px;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-  background: var(--muted);
+  object-fit: contain;
+  border-radius: 0;
+  background: transparent;
+}
+
+.site-header .logo-img {
+  width: 60px;
+  height: 40px;
 }
 
 .main-nav {
@@ -1892,6 +1897,11 @@ blockquote p:last-child {
   .fact-list {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
+  }
+
+  .site-header .logo-img {
+    width: 54px;
+    height: 36px;
   }
 
   .footer-grid {
