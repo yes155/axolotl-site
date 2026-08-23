@@ -9,7 +9,7 @@ hub-and-spoke structure defined in axolotl_topical_map.xml.
 SITE_URL = "https://myaxolotl.us"
 SITE_NAME = "MyAxolotl"
 SITE_TAGLINE = "Evidence-based axolotl care, tank setup, diet, and health guides."
-SITE_LOGO = "/images/axolotl-logo.jpg"
+SITE_LOGO = "/images/myaxolotl-logo-v2.webp"
 SITE_FAVICON = "/images/axolotl-favicon.jpg"
 
 PEOPLE = {
