@@ -483,12 +483,12 @@ def build_site_assets():
     """Create homepage hero + logo + favicon from the provided brand files."""
     ensure_dir(IMG_DIR)
 
-    home = os.path.join(SRC, "axolotl featured image for homepage.png")
+    home = os.path.join(SRC, "hero.png")
     if os.path.exists(home):
         with open(home, "rb") as fh:
             optimize_image(fh.read(), os.path.join(IMG_DIR, "axolotl-home.webp"),
                            quality=80, max_side=1600)
-        print("  !! homepage hero set from 'axolotl featured image for homepage.png'")
+        print("  !! homepage hero set from 'hero.png'")
 
     logo = None
     for cand in ("axolotl.us -  site logo.png", "site-logo.png", "axolotl logo.jpg"):
@@ -941,10 +941,10 @@ def render_home(articles, img_map):
             "</div></article>"
         )
 
-    # 1. Hero — two-column: text left, image right
+    # 1. Hero — full-width background image with text overlay
     hero = (
-        '<section class="hero">'
-        '<div class="container hero-grid">'
+        '<section class="hero hero-home" style="--hero-image:url(/images/axolotl-home.webp)">'
+        '<div class="container hero-shell">'
         '<div class="hero-copy">'
         f'<h1>{HOME["h1"]}</h1>'
         f'<p class="hero-text">{HOME["hero_text"]}</p>'
@@ -953,8 +953,6 @@ def render_home(articles, img_map):
         f'<a class="btn" href="/{HOME["featured"][0]}/">Start with the care guide</a>'
         '<a class="btn btn-ghost" href="/tools/">Browse tools</a>'
         "</div></div>"
-        f'<div class="hero-media"><img class="hero-featured" src="{HOME["hero_img"]}" '
-        f'alt="{esc(HOME["hero_alt"])}" width="1600" height="900"></div>'
         "</div></section>"
     )
 
