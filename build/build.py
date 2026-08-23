@@ -983,6 +983,8 @@ def render_home(articles, img_map):
         f'<div class="meta">{esc(config.HUBS[a["hub"]]["cat"])} &middot; Start here</div>'
         f'<h3>{esc(a["title"])}</h3>'
         f'<p>{esc(a["intro"])}</p>'
+        '<p>Axolotls aren\'t hard because they\'re fragile in some vague way &mdash; they\'re hard because the margin for error on water temperature and water chemistry is narrow.</p>'
+        '<p>Cold water, zero ammonia and nitrite, the right substrate, a real worm-and-pellet diet, and a chiller if your house runs warm.</p>'
         '<span class="read-more">Begin here &rarr;</span>'
         "</div></a>"
     )

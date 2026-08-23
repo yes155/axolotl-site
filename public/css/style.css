@@ -659,12 +659,12 @@ img {
   text-align: right;
 }
 
-/* Start Here — asymmetric primary/secondary */
+/* Start Here — balanced primary/secondary */
 .start-grid {
   display: grid;
   grid-template-columns: 1.25fr 1fr;
   gap: 24px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .start-primary {
