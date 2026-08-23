@@ -476,7 +476,7 @@ img {
 }
 
 .hero-home {
-  min-height: clamp(560px, 64vw, 760px);
+  min-height: clamp(470px, 54vw, 640px);
   background: #07131a;
 }
 
@@ -499,8 +499,8 @@ img {
   display: flex;
   align-items: center;
   min-height: inherit;
-  padding-top: clamp(56px, 7vw, 96px);
-  padding-bottom: clamp(56px, 7vw, 96px);
+  padding-top: clamp(36px, 4.5vw, 72px);
+  padding-bottom: clamp(36px, 4.5vw, 72px);
 }
 
 .hero-copy {
@@ -1810,7 +1810,7 @@ blockquote p:last-child {
   }
 
   .hero-home {
-    min-height: clamp(520px, 82vw, 720px);
+    min-height: clamp(470px, 76vw, 660px);
   }
 
   .hero-home::before {
@@ -1861,7 +1861,7 @@ blockquote p:last-child {
   }
 
   .hero-home {
-    min-height: clamp(500px, 86vw, 660px);
+    min-height: clamp(460px, 82vw, 620px);
   }
 
   .hero-home::before {
@@ -1879,7 +1879,7 @@ blockquote p:last-child {
 
 @media (max-width: 720px) {
   .hero-home {
-    min-height: clamp(420px, 92vw, 560px);
+    min-height: clamp(420px, 88vw, 540px);
   }
 
   .hero-shell {
