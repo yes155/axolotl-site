@@ -1040,8 +1040,7 @@ img {
   display: block;
   width: 100%;
   max-width: var(--feature);
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
+  height: auto;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   border: 6px solid var(--card);
