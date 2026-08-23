@@ -983,8 +983,9 @@ def render_home(articles, img_map):
         f'<div class="meta">{esc(config.HUBS[a["hub"]]["cat"])} &middot; Start here</div>'
         f'<h3>{esc(a["title"])}</h3>'
         f'<p>{esc(a["intro"])}</p>'
-        '<p>Axolotls aren\'t hard because they\'re fragile in some vague way &mdash; they\'re hard because the margin for error on water temperature and water chemistry is narrow.</p>'
-        '<p>Cold water, zero ammonia and nitrite, the right substrate, a real worm-and-pellet diet, and a chiller if your house runs warm.</p>'
+        '<p>An axolotl is a salamander that never grows up &mdash; at least not on the outside. Most amphibians go through metamorphosis and move onto land; axolotls skip that step, staying aquatic and reaching full sexual maturity while still looking like a larva. Biologists call this neoteny.</p>'
+        '<p>The cause is one missing hormonal signal: the pituitary never tells the thyroid to release enough thyroxine, the hormone that triggers metamorphosis in other amphibians. Labs can force the change with hormone injections or high iodine doses, but it almost never happens on its own at home &mdash; and when it does, it usually signals hybridization with a tiger salamander or serious environmental stress, not a milestone.</p>'
+        '<p>That larval body also makes their skin unkeratinized and highly absorbent &mdash; useful in the wild, risky in a tank, because anything in the water gets into the animal, good or bad. Their skeleton is cartilage, not bone, which is part of why a hard substrate bump or rough handling does real damage.</p>'
         '<span class="read-more">Begin here &rarr;</span>'
         "</div></a>"
     )
