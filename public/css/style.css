@@ -664,7 +664,7 @@ img {
   display: grid;
   grid-template-columns: 1.25fr 1fr;
   gap: 24px;
-  align-items: stretch;
+  align-items: start;
 }
 
 .start-primary {
