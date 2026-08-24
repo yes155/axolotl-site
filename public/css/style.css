@@ -929,39 +929,39 @@ img {
 }
 
 .section.topics .hub-card:nth-child(4n + 1) {
-  background: rgba(135, 206, 235, 0.12);
-  border-color: rgba(28, 123, 160, 0.14);
+  background: rgba(135, 206, 235, 0.18);
+  border-color: rgba(28, 123, 160, 0.16);
 }
 
 .section.topics .hub-card:nth-child(4n + 2) {
-  background: rgba(255, 192, 203, 0.16);
-  border-color: rgba(194, 24, 91, 0.12);
+  background: rgba(255, 192, 203, 0.2);
+  border-color: rgba(194, 24, 91, 0.14);
 }
 
 .section.topics .hub-card:nth-child(4n + 3) {
-  background: rgba(221, 217, 196, 0.38);
-  border-color: rgba(126, 138, 110, 0.14);
+  background: rgba(221, 217, 196, 0.52);
+  border-color: rgba(126, 138, 110, 0.16);
 }
 
 .section.topics .hub-card:nth-child(4n + 4) {
-  background: rgba(247, 244, 234, 0.94);
-  border-color: rgba(164, 158, 140, 0.14);
+  background: rgba(247, 244, 234, 0.98);
+  border-color: rgba(164, 158, 140, 0.16);
 }
 
 .section.topics .hub-card:nth-child(4n + 1):hover {
-  border-color: rgba(28, 123, 160, 0.24);
+  border-color: rgba(28, 123, 160, 0.3);
 }
 
 .section.topics .hub-card:nth-child(4n + 2):hover {
-  border-color: rgba(194, 24, 91, 0.2);
+  border-color: rgba(194, 24, 91, 0.26);
 }
 
 .section.topics .hub-card:nth-child(4n + 3):hover {
-  border-color: rgba(126, 138, 110, 0.24);
+  border-color: rgba(126, 138, 110, 0.3);
 }
 
 .section.topics .hub-card:nth-child(4n + 4):hover {
-  border-color: rgba(164, 158, 140, 0.24);
+  border-color: rgba(164, 158, 140, 0.3);
 }
 
 /* --- CTA band ---------------------------------------------------------------- */
