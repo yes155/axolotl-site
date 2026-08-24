@@ -109,44 +109,6 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .section.topics .hub-card:nth-child(4n + 1) {
-    background: rgba(18, 57, 68, 0.92);
-    border-color: rgba(135, 206, 235, 0.18);
-  }
-
-  .section.topics .hub-card:nth-child(4n + 2) {
-    background: rgba(67, 36, 52, 0.92);
-    border-color: rgba(255, 192, 203, 0.16);
-  }
-
-  .section.topics .hub-card:nth-child(4n + 3) {
-    background: rgba(53, 59, 46, 0.92);
-    border-color: rgba(221, 217, 196, 0.16);
-  }
-
-  .section.topics .hub-card:nth-child(4n + 4) {
-    background: rgba(42, 45, 47, 0.92);
-    border-color: rgba(164, 158, 140, 0.16);
-  }
-
-  .section.topics .hub-card:nth-child(4n + 1):hover {
-    border-color: rgba(135, 206, 235, 0.28);
-  }
-
-  .section.topics .hub-card:nth-child(4n + 2):hover {
-    border-color: rgba(255, 192, 203, 0.24);
-  }
-
-  .section.topics .hub-card:nth-child(4n + 3):hover {
-    border-color: rgba(221, 217, 196, 0.24);
-  }
-
-  .section.topics .hub-card:nth-child(4n + 4):hover {
-    border-color: rgba(164, 158, 140, 0.24);
-  }
-}
-
 /* --- Base ------------------------------------------------------------------ */
 *,
 *::before,
@@ -928,40 +890,94 @@ img {
   color: var(--link-hover);
 }
 
-.section.topics .hub-card:nth-child(4n + 1) {
-  background: rgba(135, 206, 235, 0.18);
+.section.topics .hub-card:nth-child(4n + 1),
+.section.topics .card:nth-child(4n + 1) {
+  background: #E1F1F2;
   border-color: rgba(28, 123, 160, 0.16);
 }
 
-.section.topics .hub-card:nth-child(4n + 2) {
-  background: rgba(255, 192, 203, 0.2);
+.section.topics .hub-card:nth-child(4n + 2),
+.section.topics .card:nth-child(4n + 2) {
+  background: #F8E4E9;
   border-color: rgba(194, 24, 91, 0.14);
 }
 
-.section.topics .hub-card:nth-child(4n + 3) {
-  background: rgba(221, 217, 196, 0.52);
+.section.topics .hub-card:nth-child(4n + 3),
+.section.topics .card:nth-child(4n + 3) {
+  background: #E7EFE2;
   border-color: rgba(126, 138, 110, 0.16);
 }
 
-.section.topics .hub-card:nth-child(4n + 4) {
-  background: rgba(247, 244, 234, 0.98);
+.section.topics .hub-card:nth-child(4n + 4),
+.section.topics .card:nth-child(4n + 4) {
+  background: #F3E9D9;
   border-color: rgba(164, 158, 140, 0.16);
 }
 
-.section.topics .hub-card:nth-child(4n + 1):hover {
+.section.topics .hub-card:nth-child(4n + 1):hover,
+.section.topics .card:nth-child(4n + 1):hover {
   border-color: rgba(28, 123, 160, 0.3);
 }
 
-.section.topics .hub-card:nth-child(4n + 2):hover {
+.section.topics .hub-card:nth-child(4n + 2):hover,
+.section.topics .card:nth-child(4n + 2):hover {
   border-color: rgba(194, 24, 91, 0.26);
 }
 
-.section.topics .hub-card:nth-child(4n + 3):hover {
+.section.topics .hub-card:nth-child(4n + 3):hover,
+.section.topics .card:nth-child(4n + 3):hover {
   border-color: rgba(126, 138, 110, 0.3);
 }
 
-.section.topics .hub-card:nth-child(4n + 4):hover {
+.section.topics .hub-card:nth-child(4n + 4):hover,
+.section.topics .card:nth-child(4n + 4):hover {
   border-color: rgba(164, 158, 140, 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  .section.topics .hub-card:nth-child(4n + 1),
+  .section.topics .card:nth-child(4n + 1) {
+    background: rgba(18, 57, 68, 0.92);
+    border-color: rgba(135, 206, 235, 0.18);
+  }
+
+  .section.topics .hub-card:nth-child(4n + 2),
+  .section.topics .card:nth-child(4n + 2) {
+    background: rgba(67, 36, 52, 0.92);
+    border-color: rgba(255, 192, 203, 0.16);
+  }
+
+  .section.topics .hub-card:nth-child(4n + 3),
+  .section.topics .card:nth-child(4n + 3) {
+    background: rgba(53, 59, 46, 0.92);
+    border-color: rgba(221, 217, 196, 0.16);
+  }
+
+  .section.topics .hub-card:nth-child(4n + 4),
+  .section.topics .card:nth-child(4n + 4) {
+    background: rgba(42, 45, 47, 0.92);
+    border-color: rgba(164, 158, 140, 0.16);
+  }
+
+  .section.topics .hub-card:nth-child(4n + 1):hover,
+  .section.topics .card:nth-child(4n + 1):hover {
+    border-color: rgba(135, 206, 235, 0.28);
+  }
+
+  .section.topics .hub-card:nth-child(4n + 2):hover,
+  .section.topics .card:nth-child(4n + 2):hover {
+    border-color: rgba(255, 192, 203, 0.24);
+  }
+
+  .section.topics .hub-card:nth-child(4n + 3):hover,
+  .section.topics .card:nth-child(4n + 3):hover {
+    border-color: rgba(221, 217, 196, 0.24);
+  }
+
+  .section.topics .hub-card:nth-child(4n + 4):hover,
+  .section.topics .card:nth-child(4n + 4):hover {
+    border-color: rgba(164, 158, 140, 0.24);
+  }
 }
 
 /* --- CTA band ---------------------------------------------------------------- */
