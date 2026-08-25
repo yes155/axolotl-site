@@ -188,6 +188,7 @@ ARTICLES = {
         "slug": "axolotls/care-guide",
         "hub": "axolotls",
         "featured": True,
+        "title_override": "Axolotl Care Guide: Tank, Water, Diet & Health",
     },
     "2-How to Set Up an Axolotl Tank the Right Way.docx": {
         "slug": "tank-setup/setup-guide",
@@ -207,12 +208,12 @@ ARTICLES = {
     "5- Managing Ammonia and Nitrate Spikes in Axolotl Tanks.docx": {
         "slug": "tank-setup/water-parameters-cycling",
         "hub": "tank-setup",
-        "title_override": "Managing Ammonia and Nitrate Spikes in Axolotl Tanks",
+        "title_override": "Ammonia & Nitrate Spikes in Axolotl Tanks",
     },
     "7 - Best axolotl filters.docx": {
         "slug": "tank-setup/filtration-for-axolotls",
         "hub": "tank-setup",
-        "title_override": "Best Filter for Axolotl Tanks: Types, Sizing & Top Picks",
+        "title_override": "Best Axolotl Tank Filters: Types & Sizing",
     },
     "8- How to keep axolotl tank cool safe.docx": {
         "slug": "tank-setup/temperature",
@@ -272,12 +273,13 @@ ARTICLES = {
     "19 - Earthworms vs. Bloodworms Which Is Better for Axolotl.docx": {
         "slug": "diet/live-vs-frozen-food",
         "hub": "diet",
-        "title_override": "Earthworms vs. Bloodworms: Which Is Better for Axolotls?",
+        "title_override": "Earthworms vs. Bloodworms: Best for Axolotls?",
     },
     "20 - Why Is My Axolotl Refusing to Eat.docx": {
         "slug": "health/refusing-to-eat",
         "hub": "health",
         "featured": True,
+        "title_override": "Axolotl Not Eating? Causes & When to Worry",
     },
     "21 - The Risks of Feeding Feeder Fish to Axolotls.docx": {
         "slug": "diet/feeder-fish-risks",
@@ -291,7 +293,7 @@ ARTICLES = {
     "23 - Dealing with Axolotl Obesity.docx": {
         "slug": "diet/overfeeding-and-impaction",
         "hub": "diet",
-        "title_override": "Axolotl Obesity: Signs, Causes, Treatment, and Prevention",
+        "title_override": "Axolotl Obesity: Signs, Causes & Treatment",
     },
     "24 - Black worms for juveniles.docx": {
         "slug": "diet/blackworms-for-juveniles",
@@ -316,6 +318,7 @@ ARTICLES = {
     "28 - Do Axolotls Need Vitamin Supplements.docx": {
         "slug": "diet/vitamin-and-supplement-needs",
         "hub": "diet",
+        "title_override": "Do Axolotls Need Vitamin Supplements?",
     },
     "29 - Cleaning Uneaten Food to Prevent Ammonia.docx": {
         "slug": "tank-setup/uneaten-food-and-ammonia",
@@ -349,7 +352,7 @@ ARTICLES = {
     "35 - axolotl salt bath.docx": {
         "slug": "health/salt-bath",
         "hub": "health",
-        "title_override": "Axolotl Salt Baths: Treating Fungal Infections Safely",
+        "title_override": "Axolotl Salt Baths for Fungal Infections",
     },
     "36 - Why is My Axolotl Floating Continuously.docx": {
         "slug": "health/why-axolotl-floating",
