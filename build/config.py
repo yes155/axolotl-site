@@ -1385,6 +1385,31 @@ CONFIG_ARTICLES = {
     },
 }
 
+# Persisted article dates: the 106 DOCX-backed pages first appeared in the
+# launch commit, and the two config-authored pages first appeared later in the
+# same public repo history.
+DOCX_ARTICLE_DATE_PUBLISHED = "2026-08-22"
+DOCX_ARTICLE_DATE_MODIFIED = DOCX_ARTICLE_DATE_PUBLISHED
+CONFIG_ARTICLE_DATE_PUBLISHED = "2026-08-22"
+CONFIG_ARTICLE_DATE_MODIFIED = CONFIG_ARTICLE_DATE_PUBLISHED
+
+
+def _stamp_article_dates(entries, published, modified=None, published_source=None, modified_source=None):
+    modified = modified or published
+    for cfg in entries.values():
+        cfg.setdefault("date_published", published)
+        cfg.setdefault("date_modified", modified)
+        if published_source is not None:
+            cfg.setdefault("date_published_source", published_source)
+        if modified_source is not None:
+            cfg.setdefault("date_modified_source", modified_source)
+
+
+_stamp_article_dates(ARTICLES, DOCX_ARTICLE_DATE_PUBLISHED, DOCX_ARTICLE_DATE_MODIFIED,
+                     published_source="git:924cb99")
+_stamp_article_dates(CONFIG_ARTICLES, CONFIG_ARTICLE_DATE_PUBLISHED,
+                     CONFIG_ARTICLE_DATE_MODIFIED, published_source="git:924cb99")
+
 # Search action metadata (Phase 9-B): index entries that carry an explicit
 # action button / route. Tools get their action automatically in build.py.
 SEARCH_ACTIONS = {

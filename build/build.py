@@ -402,8 +402,10 @@ def build_articles():
             "embedded": r["embedded"],
             "words": words_from(r["body_html"]),
             "featured": cfg.get("featured", False),
-            "lastmod": TODAY,
+            "date_published": cfg.get("date_published", TODAY),
+            "date_modified": cfg.get("date_modified", cfg.get("date_published", TODAY)),
         }
+        articles[slug]["lastmod"] = articles[slug]["date_modified"]
 
     # Build-level (HTML-authored) articles from config.
     for slug, cfg in config.CONFIG_ARTICLES.items():
@@ -422,8 +424,10 @@ def build_articles():
             "embedded": {},
             "words": words_from(cfg["body"]),
             "featured": cfg.get("featured", False),
-            "lastmod": TODAY,
+            "date_published": cfg.get("date_published", TODAY),
+            "date_modified": cfg.get("date_modified", cfg.get("date_published", TODAY)),
         }
+        articles[slug]["lastmod"] = articles[slug]["date_modified"]
 
     # Phase 10 semantic layer: standfirst overrides, role callouts, section
     # expansions (applied to all articles, docx- or config-sourced alike).
@@ -941,8 +945,8 @@ def article_schema(a, url):
         "@type": "Article",
         "headline": a["title"],
         "description": a["meta"],
-        "datePublished": a["lastmod"],
-        "dateModified": a["lastmod"],
+        "datePublished": a["date_published"],
+        "dateModified": a["date_modified"],
         "author": {
             "@type": "Person",
             "name": config.AUTHOR["name"],
@@ -1302,7 +1306,7 @@ def render_article(slug, a, articles, img_map):
         f'<p class="standfirst">{esc(a["intro"])}</p>'
         f'<div class="article-byline">By <a href="{author_url}">{esc(config.AUTHOR["name"])}</a> &middot; '
         f'Edited by <a href="{editor_url}">{esc(config.EDITOR["name"])}</a> &middot; '
-        f'Updated {a["lastmod"]} &middot; {a["words"]:,} words</div>'
+        f'Updated {a["date_modified"]} &middot; {a["words"]:,} words</div>'
         "</header>"
         f'<figure class="article-hero"><img class="hero-img" src="{esc(img["url"])}" '
         f'alt="{esc(img["alt"])}" width="1200" height="800"></figure>'
@@ -1672,14 +1676,19 @@ def write_sitemap(articles):
     for a in articles.values():
         entries += [(config.SITE_URL + f"/{a['slug']}/", 0.8)]
 
+    article_lastmod = {
+        config.SITE_URL + f"/{a['slug']}/": a["date_modified"]
+        for a in articles.values()
+    }
     seen = set()
     rows = []
     for loc, prio in entries:
         if loc in seen:
             continue
         seen.add(loc)
+        lastmod = article_lastmod.get(loc, TODAY)
         rows.append(
-            f"  <url><loc>{loc}</loc><lastmod>{TODAY}</lastmod>"
+            f"  <url><loc>{loc}</loc><lastmod>{lastmod}</lastmod>"
             f"<changefreq>monthly</changefreq><priority>{prio}</priority></url>"
         )
     sitemap = (
