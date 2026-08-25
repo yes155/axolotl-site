@@ -334,9 +334,9 @@ def _wpc_overrides(html):
     if len(parts) == len(_WPC_STEPS):
         for lead in _WPC_STEPS:
             html = re.sub(rf"<p>{re.escape(lead)}\. (.*?)</p>",
-                          "<OL_STEP>", html, count=1, flags=re.S)
-        html = re.sub(r"<OL_STEP>", f"<ol>\n{''.join(parts)}\n</ol>",
-                      html, count=1)
+                           "<OL_STEP>", html, count=1, flags=re.S)
+        html = _expand_placeholder_list(html, "<OL_STEP>",
+                                        f"<ol>\n{''.join(parts)}\n</ol>")
     # 3. Ammonia-spike causes -> ordered list (matches "in order of frequency")
     items = []
     for starts in _WPC_CAUSES:
@@ -348,8 +348,8 @@ def _wpc_overrides(html):
         for starts in _WPC_CAUSES:
             html2 = re.sub(rf"<p>{re.escape(starts)}.*?</p>",
                            "<UL_CAUSE>", html2, count=1, flags=re.S)
-        html2 = re.sub(r"<UL_CAUSE>",
-                       f"<ol>\n{''.join(items)}\n</ol>", html2, count=1)
+        html2 = _expand_placeholder_list(html2, "<UL_CAUSE>",
+                                         f"<ol>\n{''.join(items)}\n</ol>")
         html = html2
     # 4. Nitrogen-cycle crash causes -> ordered list
     crash_items = []
@@ -362,8 +362,8 @@ def _wpc_overrides(html):
         for starts in _WPC_CRASHES:
             html2 = re.sub(rf"<p>{re.escape(starts)}.*?</p>",
                            "<UL_CRASH>", html2, count=1, flags=re.S)
-        html2 = re.sub(r"<UL_CRASH>",
-                       f"<ol>\n{''.join(crash_items)}\n</ol>", html2, count=1)
+        html2 = _expand_placeholder_list(html2, "<UL_CRASH>",
+                                         f"<ol>\n{''.join(crash_items)}\n</ol>")
         html = html2
     # 5. Prevention foundations -> ordered list ("The four foundations…")
     prev_items = []
@@ -376,10 +376,15 @@ def _wpc_overrides(html):
         for starts in _WPC_PREVENTION:
             html2 = re.sub(rf"<p>{re.escape(starts)}.*?</p>",
                            "<UL_PREV>", html2, count=1, flags=re.S)
-        html2 = re.sub(r"<UL_PREV>",
-                       f"<ol>\n{''.join(prev_items)}\n</ol>", html2, count=1)
+        html2 = _expand_placeholder_list(html2, "<UL_PREV>",
+                                         f"<ol>\n{''.join(prev_items)}\n</ol>")
         html = html2
     return html
+
+
+def _expand_placeholder_list(html, placeholder, replacement):
+    html = html.replace(placeholder, replacement, 1)
+    return html.replace(placeholder, "")
 
 
 def _to_label_list(html, labels, placeholder, ordered=False):
@@ -399,8 +404,8 @@ def _to_label_list(html, labels, placeholder, ordered=False):
         html2 = re.sub(rf"<p>{re.escape(lab)}:? (.*?)</p>",
                        placeholder, html2, count=1, flags=re.S)
     tag = "ol" if ordered else "ul"
-    return re.sub(placeholder,
-                  f"<{tag}>\n{''.join(items)}\n</{tag}>", html2, count=1)
+    return _expand_placeholder_list(
+        html2, placeholder, f"<{tag}>\n{''.join(items)}\n</{tag}>")
 
 
 _TEMP_LOCATIONS = [
@@ -480,8 +485,8 @@ def _to_label_list2(html, labels, placeholder, ordered=False):
         html2 = re.sub(rf"<p>{re.escape(lab)} (.*?)</p>",
                        placeholder, html2, count=1, flags=re.S)
     tag = "ol" if ordered else "ul"
-    return re.sub(placeholder,
-                  f"<{tag}>\n{''.join(items)}\n</{tag}>", html2, count=1)
+    return _expand_placeholder_list(
+        html2, placeholder, f"<{tag}>\n{''.join(items)}\n</{tag}>")
 
 
 def _wc_overrides(html):
