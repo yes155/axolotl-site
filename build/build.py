@@ -615,6 +615,12 @@ def footer():
         f"{care}{explore}"
         f'<div class="footer-col"><h2 class="footer-col-title">Tools</h2><ul>{tools}</ul></div>'
         "</div>"
+        '<ul class="footer-mini footer-social">'
+        + ''.join(
+            f'<li><a href="{esc(url)}">{esc(label)}</a></li>'
+            for label, url in config.SOCIAL_LINKS
+        )
+        + '</ul>'
         '<div class="footer-bottom">'
         f'<span>&copy; {YEAR} {esc(config.SITE_NAME)}. All rights reserved.</span>'
         '<span>Made for axolotl keepers everywhere.</span>'
@@ -879,7 +885,12 @@ def static_page_schema(key, cfg, url):
         "url": url,
     }
     if key == "about":
-        node["about"] = {"@type": "Organization", "name": config.SITE_NAME, "url": config.SITE_URL}
+        node["about"] = {
+            "@type": "Organization",
+            "name": config.SITE_NAME,
+            "url": config.SITE_URL,
+            "sameAs": config.ORGANIZATION_SAME_AS,
+        }
     return json.dumps(node, ensure_ascii=False, separators=(",", ":"))
 
 

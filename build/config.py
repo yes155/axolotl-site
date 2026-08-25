@@ -14,6 +14,15 @@ SITE_TAGLINE = "Evidence-based axolotl care, tank setup, diet, and health guides
 SITE_LOGO = "/images/myaxolotl-logo-v3.webp"
 SITE_FAVICON = "/images/axolotl-favicon.webp"
 
+SOCIAL_LINKS = [
+    ("Facebook", "https://www.facebook.com/myaxolotl.us/"),
+    ("Instagram", "https://www.instagram.com/myaxolotl.us/"),
+    ("Pinterest", "https://www.pinterest.com/myaxolotls/"),
+    ("Discord", "https://discord.gg/MXUQwDgdgJ"),
+]
+
+ORGANIZATION_SAME_AS = [url for label, url in SOCIAL_LINKS if label != "Discord"]
+
 PEOPLE = {
     "author": {
         "name": "Farrukh Abdullah",
