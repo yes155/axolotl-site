@@ -1061,6 +1061,11 @@ INTRO_OVERRIDES = {
         "filtration, how waste becomes ammonia, and which filter families exist. This guides the "
         "options; the head-to-head canister-versus-sponge decision has its own dedicated guide."
     ),
+    "tank-setup/aquarium-chillers": (
+        "Axolotls require water between 60–68°F (15–20°C) to survive long-term, and most US homes "
+        "maintain ambient temperatures of 68–78°F — which drives tank water above the safe ceiling "
+        "without active cooling equipment."
+    ),
     "biology-and-science/regeneration-and-limb-regrowth": (
         "This is the science page: why axolotls can regenerate limbs, organs, and even parts of "
         "the brain, at the cellular level. Owners looking for what to do when a limb is damaged "
