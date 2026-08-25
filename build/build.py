@@ -156,6 +156,50 @@ def esc(text):
     return html.escape(str(text), quote=True)
 
 
+SOCIAL_ICON_SVGS = {
+    "Facebook": (
+        '<svg class="footer-social-icon" aria-hidden="true" focusable="false" '
+        'viewBox="0 0 24 24" width="21" height="21" fill="currentColor">'
+        '<path d="M14.5 8H16V5.5h-1.8C11.8 5.5 10 7.3 10 9.7V11H8v3h2v7h3v-7h2.4l.6-3H13v-1.2c0-.9.6-1.8 1.5-1.8z"/>'
+        '</svg>'
+    ),
+    "Instagram": (
+        '<svg class="footer-social-icon" aria-hidden="true" focusable="false" '
+        'viewBox="0 0 24 24" width="21" height="21" fill="none" '
+        'stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'
+        '<rect x="4.5" y="4.5" width="15" height="15" rx="4"/>'
+        '<circle cx="12" cy="12" r="3.5"/>'
+        '<circle cx="16.7" cy="7.3" r="1" fill="currentColor" stroke="none"/>'
+        '</svg>'
+    ),
+    "Pinterest": (
+        '<svg class="footer-social-icon" aria-hidden="true" focusable="false" '
+        'viewBox="0 0 24 24" width="21" height="21" fill="none" '
+        'stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'
+        '<circle cx="12" cy="12" r="8.5"/>'
+        '<path d="M11 17.5 12.2 13c-1.3-.1-2.4-.7-2.4-2.5 0-2 1.6-3.4 3.8-3.4 2.4 0 3.8 1.4 3.8 3.4 0 2.2-1.5 4.1-3.8 4.1-.5 0-.9-.1-1.3-.3l-.7 2.5H11z" fill="currentColor" stroke="none"/>'
+        '</svg>'
+    ),
+    "Discord": (
+        '<svg class="footer-social-icon" aria-hidden="true" focusable="false" '
+        'viewBox="0 0 24 24" width="21" height="21" fill="none" '
+        'stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'
+        '<path d="M7.4 8.3h9.2c2.4 0 4.4 2 4.4 4.4v1.1c0 2.4-2 4.4-4.4 4.4H7.4C5 18.2 3 16.2 3 13.8v-1.1c0-2.4 2-4.4 4.4-4.4z"/>'
+        '<path d="M9 12.5h.01M15 12.5h.01" stroke-width="2.6"/>'
+        '<path d="M8.8 10.9c.8-.4 1.7-.6 3.2-.6s2.4.2 3.2.6"/>'
+        '</svg>'
+    ),
+}
+
+
+def social_link(label, url):
+    icon = SOCIAL_ICON_SVGS[label]
+    return (
+        f'<li><a class="footer-social-link" href="{esc(url)}" aria-label="{esc(label)}" '
+        f'title="{esc(label)}">{icon}<span class="sr-only">{esc(label)}</span></a></li>'
+    )
+
+
 def ensure_dir(path):
     Path(path).mkdir(parents=True, exist_ok=True)
 
@@ -616,10 +660,7 @@ def footer():
         f'<div class="footer-col"><h2 class="footer-col-title">Tools</h2><ul>{tools}</ul></div>'
         "</div>"
         '<ul class="footer-mini footer-social">'
-        + ''.join(
-            f'<li><a href="{esc(url)}">{esc(label)}</a></li>'
-            for label, url in config.SOCIAL_LINKS
-        )
+        + ''.join(social_link(label, url) for label, url in config.SOCIAL_LINKS)
         + '</ul>'
         '<div class="footer-bottom">'
         f'<span>&copy; {YEAR} {esc(config.SITE_NAME)}. All rights reserved.</span>'
