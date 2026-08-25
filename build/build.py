@@ -180,6 +180,13 @@ SOCIAL_ICON_SVGS = {
         '<path d="M11 17.5 12.2 13c-1.3-.1-2.4-.7-2.4-2.5 0-2 1.6-3.4 3.8-3.4 2.4 0 3.8 1.4 3.8 3.4 0 2.2-1.5 4.1-3.8 4.1-.5 0-.9-.1-1.3-.3l-.7 2.5H11z" fill="currentColor" stroke="none"/>'
         '</svg>'
     ),
+    "X": (
+        '<svg class="footer-social-icon" aria-hidden="true" focusable="false" '
+        'viewBox="0 0 24 24" width="21" height="21" fill="none" '
+        'stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+        '<path d="M6 5l12 14M18 5L6 19"/>'
+        '</svg>'
+    ),
     "Discord": (
         '<svg class="footer-social-icon" aria-hidden="true" focusable="false" '
         'viewBox="0 0 24 24" width="21" height="21" fill="none" '
@@ -664,7 +671,7 @@ def footer():
         f'<div class="footer-col"><h2 class="footer-col-title">Tools</h2><ul>{tools}</ul></div>'
         "</div>"
         '<ul class="footer-mini footer-social">'
-        + ''.join(social_link(label, url) for label, url in config.SOCIAL_LINKS)
+        + ''.join(social_link(label, url) for label, url in (*config.SOCIAL_LINKS, ("X", config.X_PROFILE_URL)))
         + '</ul>'
         '<div class="footer-bottom">'
         f'<span>&copy; {YEAR} {esc(config.SITE_NAME)}. All rights reserved.</span>'
