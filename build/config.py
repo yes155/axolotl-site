@@ -189,6 +189,7 @@ ARTICLES = {
         "hub": "axolotls",
         "featured": True,
         "title_override": "Axolotl Care Guide: Tank, Water, Diet & Health",
+        "meta_override": "Axolotls are cold-water amphibians that need stable tanks, clean water, the right diet, and careful health management.",
     },
     "2-How to Set Up an Axolotl Tank the Right Way.docx": {
         "slug": "tank-setup/setup-guide",
@@ -199,11 +200,13 @@ ARTICLES = {
         "slug": "tank-setup/aquarium-chillers",
         "hub": "tank-setup",
         "title_override": "Best Aquarium Chillers for Axolotls",
+        "meta_override": "Axolotls need 60–68°F water. Learn when a chiller is necessary, how to size one, and which compressor models suit typical home tanks.",
     },
     "4- Choosing best Axolotl subtrate.docx": {
         "slug": "tank-setup/substrate-and-impaction",
         "hub": "tank-setup",
         "title_override": "Choosing the Best Axolotl Substrate",
+        "meta_override": "Fine sand under 1 mm is safest for adult axolotls; juveniles under 6 inches should stay on bare-bottom tanks to reduce impaction risk.",
     },
     "5- Managing Ammonia and Nitrate Spikes in Axolotl Tanks.docx": {
         "slug": "tank-setup/water-parameters-cycling",
@@ -229,16 +232,19 @@ ARTICLES = {
         "slug": "tank-setup/water-conditioners",
         "hub": "tank-setup",
         "title_override": "Axolotl Water Conditioner: Creating Safe Water",
+        "meta_override": "Use an axolotl-safe water conditioner to remove chlorine and chloramine from tap water, with correct dosing for each water change.",
     },
     "11- axolotl lighting requirements.docx": {
         "slug": "tank-setup/lighting-for-axolotls",
         "hub": "tank-setup",
         "title_override": "Axolotl Tank Lighting Requirements",
+        "meta_override": "Axolotl tanks need low-intensity, indirect light around 100–400 lux with a consistent 10–12-hour photoperiod on a timer.",
     },
     "12 - Best hides and caves for axolotls.docx": {
         "slug": "tank-setup/hides-and-caves",
         "hub": "tank-setup",
         "title_override": "Best Hides and Caves for Axolotls",
+        "meta_override": "Axolotls need a dark, smooth, fully enclosed hide; terracotta, PVC pipe, and fired ceramic are practical, safe choices.",
     },
     "13 - The Dangers of Sharp Gravel for Axolotls.docx": {
         "slug": "tank-setup/gravel-risks",
@@ -254,6 +260,7 @@ ARTICLES = {
         "slug": "tank-setup/why-tank-water-smells",
         "hub": "tank-setup",
         "title_override": "Why Does My Axolotl Tank Water Stink?",
+        "meta_override": "A healthy axolotl tank should smell faint and earthy. Strong odors can signal ammonia, a stalled cycle, dirty filtration, waste, or anaerobic pockets.",
     },
     "16 - What Do Axolotls Eat.docx": {
         "slug": "diet/best-foods-list",
@@ -289,6 +296,7 @@ ARTICLES = {
     "22 - Can Axolotls Eat Beef Heart.docx": {
         "slug": "diet/beef-heart",
         "hub": "diet",
+        "meta_override": "Axolotls can eat beef heart, but its poor mineral balance and high fat make it unsuitable as a regular staple food.",
     },
     "23 - Dealing with Axolotl Obesity.docx": {
         "slug": "diet/overfeeding-and-impaction",
@@ -304,6 +312,7 @@ ARTICLES = {
         "slug": "diet/fasting-and-vacation",
         "hub": "diet",
         "title_override": "How Long Can Axolotls Fast?",
+        "meta_override": "Adult axolotls can fast up to 14 days; juveniles and hatchlings need shorter limits based on age, condition, and tank temperature.",
     },
     "26 - How to Hand Feed axolotls.docx": {
         "slug": "diet/how-to-hand-feed",
@@ -314,6 +323,7 @@ ARTICLES = {
         "slug": "diet/shrimp-for-axolotls",
         "hub": "diet",
         "title_override": "Can Axolotls Eat Shrimp?",
+        "meta_override": "Axolotls can eat shrimp as an occasional treat, but it should not replace staple foods such as earthworms and quality sinking pellets.",
     },
     "28 - Do Axolotls Need Vitamin Supplements.docx": {
         "slug": "diet/vitamin-and-supplement-needs",
@@ -338,6 +348,7 @@ ARTICLES = {
     "32 - How to Identify and Treat Axolotl Fungus.docx": {
         "slug": "health/fungal-infections-saprolegnia",
         "hub": "health",
+        "meta_override": "Learn how to recognize cotton-like Saprolegnia growth, correct water and stress factors, and know when an axolotl needs veterinary care.",
     },
     "33 - The Black Tea Bath Protocol for Axolotls.docx": {
         "slug": "health/black-tea-bath",
@@ -418,6 +429,7 @@ ARTICLES = {
         "hub": "morphs",
         "title_override": "Melanoid Axolotl: The Dark Morph",
         "title_tag": "Melanoid Axolotl: Genetics & How to Identify One",
+        "meta_override": "The melanoid axolotl is a near-black morph with no metallic shine. Learn how to distinguish it from a dark wild-type axolotl.",
     },
     "48 - Golden Albino Axolotl.docx": {
         "slug": "morphs/golden-albino",
@@ -436,24 +448,28 @@ ARTICLES = {
         "hub": "morphs",
         "title_override": "Copper Axolotl",
         "title_tag": "Copper Axolotl: Color, Genetics & How to Breed Them",
+        "meta_override": "The copper axolotl is a brown-orange morph with reddish gills and light eyes caused by a recessive Tyrp1 mutation.",
     },
     "51 - Piebald Axolotl.docx": {
         "slug": "morphs/piebald",
         "hub": "morphs",
         "title_override": "Piebald Axolotl: The Patchy Morph",
         "title_tag": "Piebald Axolotl: Genetics, Price & How It's Different",
+        "meta_override": "A piebald axolotl has a dark body with irregular white patches. Learn how it differs from leucistic and chimera axolotls.",
     },
     "52 - Understanding Axolotl Pigment Cells.docx": {
         "slug": "morphs/pigment-cells",
         "hub": "morphs",
         "title_override": "Understanding Axolotl Pigment Cells",
         "title_tag": "Axolotl Pigment Cells: Chromatophores, Melanophores & More",
+        "meta_override": "Axolotl color comes from melanophores, xanthophores, and iridophores, which explain how common morphs and axanthic traits appear.",
     },
     "53 - Enigma MAC and Firefly Axolotls.docx": {
         "slug": "morphs/enigma-firefly-mac",
         "hub": "morphs",
         "title_override": "Enigma, MAC and Firefly Axolotls",
         "title_tag": "Enigma, MAC & Firefly Axolotls: Rare Morphs and the Ethics Debate",
+        "meta_override": "Enigma, MAC, and firefly axolotls are rare, controversial morphs. Compare how they are produced, their rarity, cost, and ethical concerns.",
     },
     "54 - Axolotl Curled Gills Stress Signal.docx": {
         "slug": "health/curled-gills-stress-signal",
