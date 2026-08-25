@@ -843,6 +843,48 @@ def breadcrumbs(hub_key):
     )
 
 
+def breadcrumb_items_for_hub(key):
+    hub = config.HUBS[key]
+    label = hub["cat"]
+    return [("Home", "/"), (label, f"/{key}/")]
+
+
+def breadcrumb_items_for_article(a):
+    return breadcrumb_items_for_hub(a["hub"])
+
+
+def breadcrumb_list_node(items):
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": i,
+                "name": name,
+                "item": config.SITE_URL + href,
+            }
+            for i, (name, href) in enumerate(items, 1)
+        ],
+    }
+
+
+def breadcrumb_list_schema(items):
+    return json.dumps(breadcrumb_list_node(items), ensure_ascii=False, separators=(",", ":"))
+
+
+def add_breadcrumb_list_schema(json_ld, items):
+    breadcrumb_node = breadcrumb_list_node(items)
+    if not json_ld:
+        return json.dumps(breadcrumb_node, ensure_ascii=False, separators=(",", ":"))
+    data = json.loads(json_ld)
+    if "@graph" in data:
+        data["@graph"].append(breadcrumb_node)
+        return json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+    return json.dumps({"@context": "https://schema.org", "@graph": [data, breadcrumb_node]},
+                      ensure_ascii=False, separators=(",", ":"))
+
+
 def related_section(slug, articles):
     hub_key = slug.split("/")[0]
     hub = config.HUBS.get(hub_key)
@@ -1264,8 +1306,9 @@ def render_hub(key, hub, articles, img_map):
             '</section>'
             '</div>'
         )
+        json_ld = breadcrumb_list_schema(breadcrumb_items_for_hub(key))
         return page_html(page_title, page_meta, config.SITE_URL + "/axolotls/",
-                         body, "/axolotls/", "website", guide_img["url"])
+                         body, "/axolotls/", "website", guide_img["url"], json_ld)
 
     guides = sorted(
         [a for a in articles.values() if a["hub"] == key],
@@ -1301,8 +1344,9 @@ def render_hub(key, hub, articles, img_map):
         f'<div class="chip-row">{related}</div></div>'
         "</div>"
     )
+    json_ld = breadcrumb_list_schema(breadcrumb_items_for_hub(key))
     return page_html(hub["title_tag"], hub["meta"], config.SITE_URL + f"/{key}/",
-                     body, f"/{key}/", "website")
+                     body, f"/{key}/", "website", None, json_ld)
 
 def render_article(slug, a, articles, img_map):
     url = config.SITE_URL + f"/{slug}/"
@@ -1330,8 +1374,9 @@ def render_article(slug, a, articles, img_map):
         "</div></div></div>"
     )
     active = "/" + slug.split("/")[0] + "/"
+    json_ld = add_breadcrumb_list_schema(article_schema(a, url), breadcrumb_items_for_article(a))
     return page_html(a["title_tag"], a["meta"], url, body, active,
-                     "article", img["url"], article_schema(a, url))
+                     "article", img["url"], json_ld)
 
 
 def render_simple(key, cfg):
@@ -1413,9 +1458,10 @@ def render_tools_index():
         '<h2 id="tools-start-title" class="section-title">Start with the knowledge behind these tools</h2>'
         f'<ul class="tools-starthere-list">{start_links}</ul></section></div>'
     )
+    json_ld = breadcrumb_list_schema([("Home", "/"), ("Tools", "/tools/")])
     return page_html("Axolotl Tools & Calculators",
                      "Free axolotl calculators: tank size, water conditioner dose, feeding schedule, nitrogen cycle tracker, symptom checker.",
-                     url, body, "/tools/")
+                     url, body, "/tools/", "website", None, json_ld)
 
 
 def render_search():
@@ -1459,9 +1505,10 @@ def render_search():
         "</div>"
         '<script src="/js/search.js" defer></script>'
     )
+    json_ld = breadcrumb_list_schema([("Home", "/"), ("Search", "/search/")])
     return page_html("Search Axolotl Guides",
                      "Search every axolotl guide — care, tank setup, diet, health, breeding, morphs, and more.",
-                     url, body, "/search/", "website")
+                     url, body, "/search/", "website", None, json_ld)
 
 
 def strip_html_to_text(body_html):
