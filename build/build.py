@@ -697,6 +697,11 @@ def page_html(title, meta, canonical, content, active_href="",
         f'<meta property="og:url" content="{esc(og_url)}">\n'
         f'<meta property="og:image" content="{esc(og_image)}">\n'
         '<meta name="twitter:card" content="summary_large_image">\n'
+        f'<meta name="twitter:title" content="{esc(title)}">\n'
+        f'<meta name="twitter:description" content="{esc(meta)}">\n'
+        f'<meta name="twitter:image" content="{esc(og_image)}">\n'
+        f'<meta name="twitter:site" content="{esc(config.X_HANDLE)}">\n'
+        f'<meta name="twitter:creator" content="{esc(config.X_HANDLE)}">\n'
         '<link rel="icon" href="/images/axolotl-favicon.webp" type="image/webp">\n'
         '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
@@ -1623,6 +1628,52 @@ def copy_tools():
                     f'<meta property="og:description" content="{esc(desc)}">'
                     f'<meta name="twitter:description" content="{esc(desc)}">')
             text = text.replace("</head>", meta + "</head>", 1)
+        page_url = config.SITE_URL + f"/{t['slug']}/"
+        fallback_image = config.SITE_URL + "/images/axolotl-home.webp"
+        x_handle = "@myaxolotls"
+
+        def find_meta(attr_name, attr_kind):
+            patterns = (
+                rf'<meta\b[^>]*\b{attr_kind}="{re.escape(attr_name)}"[^>]*\bcontent="([^"]*)"',
+                rf'<meta\b[^>]*\bcontent="([^"]*)"[^>]*\b{attr_kind}="{re.escape(attr_name)}"',
+            )
+            for pattern in patterns:
+                m = re.search(pattern, text, re.I)
+                if m:
+                    return html.unescape(m.group(1))
+            return None
+
+        social_title = find_meta("og:title", "property") or find_meta("title", "name")
+        if not social_title:
+            m = re.search(r'<title>(.*?)</title>', text, re.I | re.S)
+            social_title = html.unescape(re.sub(r'\s+', ' ', m.group(1)).strip()) if m else t["slug"].split("/")[-1]
+        social_desc = (find_meta("og:description", "property") or
+                       find_meta("description", "name") or
+                       TOOL_DESCS.get(fname, TOOL_DESCS.get(t["slug"].split("/")[-1],
+                                                           "Free interactive tool for axolotl keepers.")))
+        social_image = find_meta("og:image", "property") or fallback_image
+        if not social_image.startswith("http"):
+            social_image = config.SITE_URL + social_image if social_image.startswith("/") else fallback_image
+        social_tags = (
+            r'<meta\b[^>]*(?:property="og:(?:title|description|type|url|site_name|image)"|'
+            r'name="twitter:(?:card|title|description|image|site|creator)")[^>]*>'
+        )
+        text = re.sub(social_tags, "", text, flags=re.I)
+        inject = (
+            f'<meta property="og:title" content="{esc(social_title)}">\n'
+            f'<meta property="og:description" content="{esc(social_desc)}">\n'
+            '<meta property="og:type" content="website">\n'
+            f'<meta property="og:url" content="{esc(page_url)}">\n'
+            f'<meta property="og:site_name" content="{esc(config.SITE_NAME)}">\n'
+            f'<meta property="og:image" content="{esc(social_image)}">\n'
+            '<meta name="twitter:card" content="summary_large_image">\n'
+            f'<meta name="twitter:title" content="{esc(social_title)}">\n'
+            f'<meta name="twitter:description" content="{esc(social_desc)}">\n'
+            f'<meta name="twitter:image" content="{esc(social_image)}">\n'
+            f'<meta name="twitter:site" content="{esc(x_handle)}">\n'
+            f'<meta name="twitter:creator" content="{esc(x_handle)}">\n'
+        )
+        text = text.replace("</head>", inject + "</head>", 1)
         data = text.encode("utf-8")
         with open(os.path.join(dst_dir, "index.html"), "wb") as fh:
             fh.write(data)

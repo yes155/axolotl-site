@@ -13,6 +13,8 @@ SITE_NAME = "MyAxolotl"
 SITE_TAGLINE = "Evidence-based axolotl care, tank setup, diet, and health guides."
 SITE_LOGO = "/images/myaxolotl-logo-v3.webp"
 SITE_FAVICON = "/images/axolotl-favicon.webp"
+X_HANDLE = "@myaxolotls"
+X_PROFILE_URL = "https://x.com/myaxolotls"
 
 SOCIAL_LINKS = [
     ("Facebook", "https://www.facebook.com/myaxolotl.us/"),
@@ -21,7 +23,7 @@ SOCIAL_LINKS = [
     ("Discord", "https://discord.gg/MXUQwDgdgJ"),
 ]
 
-ORGANIZATION_SAME_AS = [url for label, url in SOCIAL_LINKS if label != "Discord"]
+ORGANIZATION_SAME_AS = [url for label, url in SOCIAL_LINKS if label != "Discord"] + [X_PROFILE_URL]
 
 PEOPLE = {
     "author": {
