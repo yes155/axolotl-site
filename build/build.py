@@ -1014,13 +1014,35 @@ def static_page_schema(key, cfg, url):
         "url": url,
     }
     if key == "about":
-        node["about"] = {
-            "@type": "Organization",
-            "name": config.SITE_NAME,
-            "url": config.SITE_URL,
-            "sameAs": config.ORGANIZATION_SAME_AS,
-        }
+            node["about"] = {
+                "@type": "Organization",
+                "name": config.SITE_NAME,
+                "url": config.SITE_URL,
+                "sameAs": config.ORGANIZATION_SAME_AS,
+            }
     return json.dumps(node, ensure_ascii=False, separators=(",", ":"))
+
+
+FAQ_OVERRIDES = {
+    "diet/best-foods-list": [
+        ("Can axolotls eat fish?", "Axolotls can eat small fish occasionally, but fish raised as feeder stock carry a meaningful disease and parasite risk, so most keepers limit fish to rare treats from a trusted source rather than a regular food."),
+        ("Can axolotls eat shrimp?", "Axolotls can eat brine shrimp and mysis shrimp as a supplement, particularly at the hatchling stage, though shrimp alone don't supply enough mass to serve as a primary adult food."),
+        ("Can axolotls eat pellets every day?", "Axolotls can eat pellets daily as part of a mixed diet, provided the pellets supply at least 40% protein and the axolotl also receives earthworms or another whole-prey food regularly to cover the calcium pellets fall short on."),
+        ("Can axolotls eat mealworms or crickets?", "Axolotls should not eat mealworms or crickets as a regular food, because the chitin exoskeleton in both is indigestible and raises the risk of intestinal impaction."),
+        ("How long can an axolotl go without food?", "A healthy adult axolotl can go up to two weeks without food with no lasting harm, since its metabolism slows significantly at typical tank temperatures, though juveniles tolerate fasting periods far less well due to their faster growth-driven metabolism."),
+        ("Why is my axolotl refusing food?", "An axolotl most often refuses food because of elevated ammonia or nitrite, a water temperature above 68°F, or a recently digested large meal — checking water parameters is the first step before assuming illness."),
+        ("Can axolotls eat frozen food straight from the freezer?", "Axolotls should not eat food straight from the freezer; frozen bloodworms or brine shrimp need full thawing in a small cup of tank water first, since a cold food mass can shock the axolotl's temperature-sensitive system."),
+        ("How much should I feed a juvenile axolotl?", "A juvenile axolotl should receive 1–2 chopped earthworms or an equivalent portion of pellets once or twice daily, scaled down in size so each piece is no wider than the gap between its eyes."),
+        ("Can axolotls overeat?", "Axolotls can overeat, and doing so regularly leads to obesity and a higher risk of constipation, since their feeding response doesn't reliably signal fullness the way it does in many other animals."),
+        ("What does it mean if my axolotl is floating after eating?", "Floating shortly after eating usually means the axolotl swallowed air during a surface feeding and will resolve within hours; floating that continues past a day, especially with a swollen belly, points toward impaction instead."),
+    ],
+}
+
+
+def faq_items_for_article(a):
+    if a.get("faq"):
+        return a["faq"]
+    return FAQ_OVERRIDES.get(a["slug"], [])
 
 
 def article_schema(a, url):
@@ -1049,13 +1071,14 @@ def article_schema(a, url):
         "mainEntityOfPage": url,
         "wordCount": a["words"],
     }]
-    if a["faq"]:
+    faq_items = faq_items_for_article(a)
+    if faq_items:
         nodes.append({
             "@type": "FAQPage",
             "mainEntity": [
                 {"@type": "Question", "name": q,
                  "acceptedAnswer": {"@type": "Answer", "text": ans}}
-                for q, ans in a["faq"]
+                for q, ans in faq_items
             ],
         })
     if len(nodes) == 1:
