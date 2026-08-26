@@ -285,6 +285,7 @@ ARTICLES = {
         "slug": "diet/live-vs-frozen-food",
         "hub": "diet",
         "title_override": "Earthworms vs. Bloodworms: Best for Axolotls?",
+        "meta_override": "Compare earthworms, bloodworms, and frozen foods for axolotls so you can pick the safest staple and best occasional treats.",
     },
     "20 - Why Is My Axolotl Refusing to Eat.docx": {
         "slug": "health/refusing-to-eat",
@@ -311,6 +312,7 @@ ARTICLES = {
         "slug": "diet/blackworms-for-juveniles",
         "hub": "diet",
         "title_override": "Preparing Blackworms for Juvenile Axolotls",
+        "meta_override": "Learn how to rinse, store, and prepare blackworms for juvenile axolotls, including safe size, feeding, and cleanliness checks.",
     },
     "25 - Vacation Prep.docx": {
         "slug": "diet/fasting-and-vacation",
@@ -322,6 +324,7 @@ ARTICLES = {
         "slug": "diet/how-to-hand-feed",
         "hub": "diet",
         "title_override": "How to Hand Feed Your Axolotl Safely",
+        "meta_override": "Learn how to hand-feed your axolotl safely, from choosing the right food to timing, technique, and when to avoid hand-feeding.",
     },
     "27 - Shrimps for axolotls.docx": {
         "slug": "diet/shrimp-for-axolotls",
