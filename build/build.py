@@ -1725,6 +1725,10 @@ def copy_tools():
         with open(src, "rb") as fh:
             data = fh.read()
         text = data.decode("utf-8", errors="ignore")
+        title_override = t.get("title_override")
+        if title_override:
+            text = re.sub(r'<title>.*?</title>', f'<title>{esc(title_override)}</title>',
+                          text, count=1, flags=re.I | re.S)
         if '<link rel="canonical"' not in text:
             tag = f'<link rel="canonical" href="{config.SITE_URL}/{t["slug"]}/">'
             text = text.replace("</head>", tag + "</head>", 1)
@@ -1750,7 +1754,7 @@ def copy_tools():
                     return html.unescape(m.group(1))
             return None
 
-        social_title = find_meta("og:title", "property") or find_meta("title", "name")
+        social_title = title_override or find_meta("og:title", "property") or find_meta("title", "name")
         if not social_title:
             m = re.search(r'<title>(.*?)</title>', text, re.I | re.S)
             social_title = html.unescape(re.sub(r'\s+', ' ', m.group(1)).strip()) if m else t["slug"].split("/")[-1]

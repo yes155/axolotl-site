@@ -195,6 +195,7 @@ ARTICLES = {
         "slug": "tank-setup/setup-guide",
         "hub": "tank-setup",
         "featured": True,
+        "meta_override": "Set up an axolotl tank correctly with the right tank size, filtration, substrate, lighting, temperature, and cycling before adding your axolotl.",
     },
     "3- Best aquarium chillers for  axolots.docx": {
         "slug": "tank-setup/aquarium-chillers",
@@ -272,11 +273,13 @@ ARTICLES = {
         "slug": "diet/feeding-schedule-by-age",
         "hub": "diet",
         "title_override": "Axolotl Feeding Frequency by Life Stage and Size",
+        "meta_override": "Find an axolotl feeding schedule by age and size, with frequency and portion guidance for hatchlings, juveniles, subadults, and adults.",
     },
     "18 - Best Axolotl Pellets and Commercial Foods.docx": {
         "slug": "diet/axolotl-pellets",
         "hub": "diet",
         "title_override": "Best Axolotl Pellets and Commercial Foods",
+        "meta_override": "Compare high-protein axolotl pellets and commercial foods, including protein targets, ingredients, and how they fit alongside earthworms.",
     },
     "19 - Earthworms vs. Bloodworms Which Is Better for Axolotl.docx": {
         "slug": "diet/live-vs-frozen-food",
@@ -809,6 +812,7 @@ TOOLS = {
     "axolotl-calculator for water conditioner dose.html": {
         "slug": "tools/water-conditioner-dosage-calculator",
         "title": "Axolotl Water Conditioner Dosage Calculator",
+        "title_override": "Axolotl Water Conditioner Dosage Calculator | MyAxolotl",
         "cat": "Tools",
     },
     "axolotl-feeding-schedule-generator.html": {
