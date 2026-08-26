@@ -794,6 +794,26 @@ def process_article_body(a):
 
     body = re.sub(r"<h([234])([^>]*)>", add_id, body)
 
+    # The source DOCX contains several repeated links to the same cycling page.
+    # Keep the strongest contextual edge and remove the duplicate anchors /
+    # editorial bridge paragraph at render time so the source file can stay external.
+    if a.get("slug") == "tank-setup/water-conditioners":
+        body = body.replace(
+            '<a href="/tank-setup/water-parameters-cycling/">axolotl water parameters guide</a>',
+            "axolotl water parameters guide",
+        )
+        body = body.replace(
+            '<a href="/tank-setup/water-parameters-cycling/">axolotl emergency water problems guide</a>',
+            "axolotl emergency water problems guide",
+        )
+        body = re.sub(
+            r'<p>Contextual bridges:.*?</p>',
+            "",
+            body,
+            count=1,
+            flags=re.S,
+        )
+
     return body
 
 
