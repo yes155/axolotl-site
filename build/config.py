@@ -855,7 +855,7 @@ LINKING = {
     "tank-setup/canister-vs-sponge-filter": ["tank-setup/filtration-for-axolotls"],
     "tank-setup/water-parameters-cycling": ["tank-setup/why-tank-water-smells", "tank-setup/uneaten-food-and-ammonia"],
     "tank-setup/why-tank-water-smells": ["tank-setup/water-parameters-cycling", "tank-setup/uneaten-food-and-ammonia"],
-    "tank-setup/uneaten-food-and-ammonia": ["tank-setup/water-parameters-cycling", "diet/feeding-schedule-by-age"],
+    "tank-setup/uneaten-food-and-ammonia": ["tank-setup/setup-guide"],
     "tank-setup/temperature": ["tank-setup/aquarium-chillers", "health/refusing-to-eat"],
     "tank-setup/aquarium-chillers": ["tank-setup/temperature"],
     "tank-setup/water-conditioners": ["tank-setup/acclimating-a-new-axolotl",

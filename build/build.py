@@ -832,6 +832,24 @@ def process_article_body(a):
             'quarantine a new axolotl in a <a href="/health/quarantine-tub/">separate tub</a> for 2-4 weeks',
         )
 
+    if a.get("slug") == "tank-setup/uneaten-food-and-ammonia":
+        body = body.replace(
+            "In a properly cycled tank, another group of beneficial bacteria",
+            'In a <a href="/tank-setup/water-parameters-cycling/">properly cycled tank</a>, another group of beneficial bacteria',
+        )
+        body = body.replace(
+            "Perform a 20–30% partial water change with dechlorinated, temperature-matched water.",
+            'Perform a <a href="/tank-setup/water-change-guide/">20–30% partial water change</a> with dechlorinated, temperature-matched water.',
+        )
+        body = body.replace(
+            "Your biological filter is home to billions of beneficial nitrifying bacteria.",
+            'Your <a href="/tank-setup/filtration-for-axolotls/">biological filter</a> is home to billions of beneficial nitrifying bacteria.',
+        )
+        body = body.replace(
+            "Feed appropriate portions, remove leftovers as soon as possible",
+            '<a href="/diet/feeding-schedule-by-age/">Feed appropriate portions</a>, remove leftovers as soon as possible',
+        )
+
     return body
 
 
