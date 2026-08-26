@@ -885,6 +885,29 @@ def add_breadcrumb_list_schema(json_ld, items):
                       ensure_ascii=False, separators=(",", ":"))
 
 
+TANK_SETUP_HUB_ORDER = {
+    "tank-setup/setup-guide": 0,
+    "tank-setup/tank-size-by-age": 1,
+    "tank-setup/water-parameters-cycling": 2,
+    "tank-setup/temperature": 3,
+    "tank-setup/filtration-for-axolotls": 4,
+    "tank-setup/canister-vs-sponge-filter": 5,
+    "tank-setup/substrate-and-impaction": 6,
+    "tank-setup/water-change-guide": 7,
+    "tank-setup/water-conditioners": 8,
+    "tank-setup/hides-and-caves": 9,
+    "tank-setup/lighting-for-axolotls": 10,
+    "tank-setup/aquarium-chillers": 11,
+    "tank-setup/canister-vs-sponge-filter": 12,
+    "tank-setup/gravel-risks": 13,
+    "tank-setup/live-vs-artificial-plants": 14,
+    "tank-setup/tank-mates": 15,
+    "tank-setup/acclimating-a-new-axolotl": 16,
+    "tank-setup/uneaten-food-and-ammonia": 17,
+    "tank-setup/why-tank-water-smells": 18,
+}
+
+
 def html_fragment_to_text(fragment):
     return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", fragment))).strip()
 
@@ -1363,10 +1386,14 @@ def render_hub(key, hub, articles, img_map):
         return page_html(page_title, page_meta, config.SITE_URL + "/axolotls/",
                          body, "/axolotls/", "website", guide_img["url"], json_ld)
 
-    guides = sorted(
-        [a for a in articles.values() if a["hub"] == key],
-        key=lambda a: a["num"],
-    )
+    hub_articles = [a for a in articles.values() if a["hub"] == key]
+    if key == "tank-setup":
+        guides = sorted(
+            hub_articles,
+            key=lambda a: (TANK_SETUP_HUB_ORDER.get(a["slug"], 9999), a["num"]),
+        )
+    else:
+        guides = sorted(hub_articles, key=lambda a: a["num"])
     if not guides:
         listing = ('<div class="hub-empty"><h2>Guides coming soon</h2>'
                    "<p>This section is being written. Start with the "
