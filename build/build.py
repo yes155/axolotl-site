@@ -885,6 +885,36 @@ def add_breadcrumb_list_schema(json_ld, items):
                       ensure_ascii=False, separators=(",", ":"))
 
 
+def html_fragment_to_text(fragment):
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", fragment))).strip()
+
+
+def tool_breadcrumb_items(text, page_href, title):
+    nav = re.search(r'<nav\b[^>]*aria-label="Breadcrumb"[^>]*>(.*?)</nav>', text, re.I | re.S)
+    if nav:
+        nav_html = nav.group(1)
+        anchors = list(re.finditer(r'<a\b[^>]*href="([^"]+)"[^>]*>(.*?)</a>', nav_html, re.I | re.S))
+        if anchors:
+            items = [(html_fragment_to_text(m.group(2)), m.group(1)) for m in anchors]
+            tail = html_fragment_to_text(re.sub(r'<a\b[^>]*>.*?</a>', ' ', nav_html, flags=re.I | re.S))
+            tail = re.sub(r'[›]+', ' ', tail)
+            tail = re.sub(r'\s+', ' ', tail).strip()
+            if tail:
+                items.append((tail, page_href))
+            return items
+
+    context_patterns = (
+        r'Companion tool to the full <a href="([^"]+)">([^<]+)</a>',
+        r'Read the full dosing and safety guide: <a href="([^"]+)">([^<]+)</a>',
+    )
+    for pattern in context_patterns:
+        m = re.search(pattern, text, re.I | re.S)
+        if m:
+            return [("Home", "/"), (html_fragment_to_text(m.group(2)), m.group(1)), (title, page_href)]
+
+    return [("Home", "/"), (title, page_href)]
+
+
 def related_section(slug, articles):
     hub_key = slug.split("/")[0]
     hub = config.HUBS.get(hub_key)
@@ -1713,6 +1743,12 @@ def copy_tools():
             r'name="twitter:(?:card|title|description|image|site|creator)")[^>]*>'
         )
         text = re.sub(social_tags, "", text, flags=re.I)
+        if 'BreadcrumbList' not in text:
+            h1 = re.search(r'<h1\b[^>]*>(.*?)</h1>', text, re.I | re.S)
+            tool_title = html_fragment_to_text(h1.group(1)) if h1 else t["title"]
+            breadcrumb_items = tool_breadcrumb_items(text, f'/{t["slug"]}/', tool_title)
+            breadcrumb_json = breadcrumb_list_schema(breadcrumb_items)
+            text = text.replace("</head>", f'<script type="application/ld+json">{breadcrumb_json}</script>\n</head>', 1)
         inject = (
             f'<meta property="og:title" content="{esc(social_title)}">\n'
             f'<meta property="og:description" content="{esc(social_desc)}">\n'
