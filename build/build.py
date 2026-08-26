@@ -850,6 +850,24 @@ def process_article_body(a):
             '<a href="/diet/feeding-schedule-by-age/">Feed appropriate portions</a>, remove leftovers as soon as possible',
         )
 
+    if a.get("slug") == "tank-setup/why-tank-water-smells":
+        body = body.replace(
+            "because the nitrogen cycle has not yet established enough beneficial bacteria",
+            'because the <a href="/tank-setup/water-parameters-cycling/">nitrogen cycle</a> has not yet established enough beneficial bacteria',
+        )
+        body = body.replace(
+            "A water change of 25–50%, using dechlorinated water matched to the tank's existing temperature, brings ammonia down",
+            'A <a href="/tank-setup/water-change-guide/">water change of 25–50%</a>, using dechlorinated water matched to the tank\'s existing temperature, brings ammonia down',
+        )
+        body = body.replace(
+            "Yes — a dirty filter causes tank odor",
+            'Yes — a <a href="/tank-setup/filtration-for-axolotls/">dirty filter</a> causes tank odor',
+        )
+        body = body.replace(
+            "Overfeeding causes tank odor when uneaten food decomposes on the tank floor",
+            'Overfeeding causes tank odor when <a href="/tank-setup/uneaten-food-and-ammonia/">uneaten food</a> decomposes on the tank floor',
+        )
+
     return body
 
 
