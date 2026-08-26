@@ -814,6 +814,24 @@ def process_article_body(a):
             flags=re.S,
         )
 
+    if a.get("slug") == "tank-setup/acclimating-a-new-axolotl":
+        body = body.replace(
+            "A shipped axolotl that spent over 24 hours in its bag",
+            'A <a href="/cost-and-buying/shipping-live-axolotls/">shipped axolotl</a> that spent over 24 hours in its bag',
+        )
+        body = body.replace(
+            "the tank must be fully cycled with ammonia at 0 ppm",
+            'the tank must be <a href="/tank-setup/water-parameters-cycling/">fully cycled</a> with ammonia at 0 ppm',
+        )
+        body = body.replace(
+            "Dechlorinate the water with a conditioner",
+            'Dechlorinate the water with a <a href="/tank-setup/water-conditioners/">conditioner</a>',
+        )
+        body = body.replace(
+            "quarantine a new axolotl in a separate tub for 2-4 weeks",
+            'quarantine a new axolotl in a <a href="/health/quarantine-tub/">separate tub</a> for 2-4 weeks',
+        )
+
     return body
 
 
