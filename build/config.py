@@ -266,6 +266,7 @@ ARTICLES = {
         "slug": "diet/best-foods-list",
         "hub": "diet",
         "featured": True,
+        "meta_override": "Best axolotl foods include earthworms, quality sinking pellets, blackworms, and suitable occasional treats. Compare nutrition, safety, and feeding use.",
     },
     "17 -how often should you feed an axolotl.docx": {
         "slug": "diet/feeding-schedule-by-age",
