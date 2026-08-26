@@ -1,0 +1,180 @@
+name: Diet Semantic Cleanup Temp
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: ${{ github.head_ref == 'chatgpt-diet-trigger' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Apply Diet semantic cleanup
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          config = Path('build/config.py')
+          text = config.read_text(encoding='utf-8')
+
+          replacements = [
+              ('    "diet/beef-heart": ["diet/feeder-fish-risks"],',
+               '    "diet/beef-heart": ["diet/best-foods-list", "diet/live-vs-frozen-food"],'),
+              ('    "diet/feeder-fish-risks": ["diet/beef-heart", "diet/live-vs-frozen-food"],',
+               '    "diet/feeder-fish-risks": ["diet/best-foods-list", "diet/live-vs-frozen-food", "health/parasite-treatment"],'),
+              ('    "diet/blackworms-for-juveniles": ["diet/feeding-schedule-by-age", "diet/overfeeding-and-impaction",\n                                      "breeding/raising-juveniles"],',
+               '    "diet/blackworms-for-juveniles": ["diet/feeding-schedule-by-age", "diet/best-foods-list",\n                                      "breeding/raising-juveniles"],'),
+              ('    "diet/fasting-and-vacation": ["diet/feeding-schedule-by-age"],',
+               '    "diet/fasting-and-vacation": ["diet/feeding-schedule-by-age", "health/refusing-to-eat"],'),
+              ('    "diet/how-to-hand-feed": ["diet/best-foods-list"],',
+               '    "diet/how-to-hand-feed": ["diet/best-foods-list", "diet/feeding-schedule-by-age"],'),
+              ('    "diet/shrimp-for-axolotls": ["diet/best-foods-list", "diet/feeder-fish-risks",\n                                 "breeding/egg-and-larvae-care"],',
+               '    "diet/shrimp-for-axolotls": ["diet/best-foods-list", "diet/feeding-schedule-by-age",\n                                 "diet/live-vs-frozen-food"],'),
+          ]
+          for old, new in replacements:
+              count = text.count(old)
+              if count != 1:
+                  raise RuntimeError(f'build/config.py expected 1 match, found {count}: {old[:70]}')
+              text = text.replace(old, new)
+
+          role_anchor = 'ROLE_CALLOUTS = {\n    "health/stress-signs": ('
+          role_entry = '''ROLE_CALLOUTS = {
+    "diet/best-foods-list": (
+        '<div class="role-note"><strong>Use this as the food-choice overview.</strong> '
+        'Once you know the safe staples, use the <a href="/diet/feeding-schedule-by-age/">feeding schedule</a> '
+        'for frequency and portions, the <a href="/diet/live-vs-frozen-food/">live vs. frozen comparison</a> '
+        'for format choice, and the <a href="/diet/axolotl-pellets/">pellet guide</a> for commercial foods.</div>'
+    ),
+    "health/stress-signs": ('''
+          if text.count(role_anchor) != 1:
+              raise RuntimeError('Could not locate ROLE_CALLOUTS insertion point')
+          text = text.replace(role_anchor, role_entry)
+          config.write_text(text, encoding='utf-8')
+
+          role_html = ('<div class="role-note"><strong>Use this as the food-choice overview.</strong> '
+                       'Once you know the safe staples, use the <a href="/diet/feeding-schedule-by-age/">feeding schedule</a> '
+                       'for frequency and portions, the <a href="/diet/live-vs-frozen-food/">live vs. frozen comparison</a> '
+                       'for format choice, and the <a href="/diet/axolotl-pellets/">pellet guide</a> for commercial foods.</div>')
+
+          best = Path('public/diet/best-foods-list/index.html')
+          best_text = best.read_text(encoding='utf-8')
+          if role_html in best_text:
+              raise RuntimeError('Diet overview role note already present')
+          marker = '<div class="article-body">'
+          start = best_text.find(marker)
+          if start < 0:
+              raise RuntimeError('best-foods-list article body not found')
+          end = best_text.find('</p>', start)
+          if end < 0:
+              raise RuntimeError('best-foods-list first paragraph not found')
+          end += 4
+          best.write_text(best_text[:end] + role_html + best_text[end:], encoding='utf-8')
+
+          related = {
+              'public/diet/beef-heart/index.html': [
+                  ('/diet/', 'Axolotl Diet &amp; Feeding Guide'),
+                  ('/diet/best-foods-list/', 'What Do Axolotls Eat? The Complete Diet Guide'),
+                  ('/diet/live-vs-frozen-food/', 'Earthworms vs. Bloodworms: Best for Axolotls?'),
+              ],
+              'public/diet/feeder-fish-risks/index.html': [
+                  ('/diet/', 'Axolotl Diet &amp; Feeding Guide'),
+                  ('/diet/best-foods-list/', 'What Do Axolotls Eat? The Complete Diet Guide'),
+                  ('/diet/live-vs-frozen-food/', 'Earthworms vs. Bloodworms: Best for Axolotls?'),
+                  ('/health/parasite-treatment/', 'Treating Axolotl Parasites'),
+              ],
+              'public/diet/blackworms-for-juveniles/index.html': [
+                  ('/diet/', 'Axolotl Diet &amp; Feeding Guide'),
+                  ('/diet/feeding-schedule-by-age/', 'Axolotl Feeding Frequency by Life Stage and Size'),
+                  ('/diet/best-foods-list/', 'What Do Axolotls Eat? The Complete Diet Guide'),
+                  ('/breeding/raising-juveniles/', 'Raising Baby Axolotls (Juveniles) to Adulthood'),
+              ],
+              'public/diet/fasting-and-vacation/index.html': [
+                  ('/diet/', 'Axolotl Diet &amp; Feeding Guide'),
+                  ('/diet/feeding-schedule-by-age/', 'Axolotl Feeding Frequency by Life Stage and Size'),
+                  ('/health/refusing-to-eat/', 'Axolotl Not Eating? Causes &amp; When to Worry'),
+              ],
+              'public/diet/how-to-hand-feed/index.html': [
+                  ('/diet/', 'Axolotl Diet &amp; Feeding Guide'),
+                  ('/diet/best-foods-list/', 'What Do Axolotls Eat? The Complete Diet Guide'),
+                  ('/diet/feeding-schedule-by-age/', 'Axolotl Feeding Frequency by Life Stage and Size'),
+              ],
+              'public/diet/shrimp-for-axolotls/index.html': [
+                  ('/diet/', 'Axolotl Diet &amp; Feeding Guide'),
+                  ('/diet/best-foods-list/', 'What Do Axolotls Eat? The Complete Diet Guide'),
+                  ('/diet/feeding-schedule-by-age/', 'Axolotl Feeding Frequency by Life Stage and Size'),
+                  ('/diet/live-vs-frozen-food/', 'Earthworms vs. Bloodworms: Best for Axolotls?'),
+              ],
+          }
+
+          rx = re.compile(r'<section class="related"><h2>Related guides</h2><ul>.*?</ul></section>', re.S)
+          for path, links in related.items():
+              p = Path(path)
+              page = p.read_text(encoding='utf-8')
+              items = ''.join(f'<li><a href="{href}">{label}</a></li>' for href, label in links)
+              section = f'<section class="related"><h2>Related guides</h2><ul>{items}</ul></section>'
+              page, count = rx.subn(section, page, count=1)
+              if count != 1:
+                  raise RuntimeError(f'{path}: related section replacement count {count}')
+              p.write_text(page, encoding='utf-8')
+
+          expected = sorted([
+              'build/config.py',
+              'public/diet/beef-heart/index.html',
+              'public/diet/best-foods-list/index.html',
+              'public/diet/blackworms-for-juveniles/index.html',
+              'public/diet/fasting-and-vacation/index.html',
+              'public/diet/feeder-fish-risks/index.html',
+              'public/diet/how-to-hand-feed/index.html',
+              'public/diet/shrimp-for-axolotls/index.html',
+          ])
+          print('Diet semantic cleanup applied.')
+          PY
+
+      - name: Verify scope and commit
+        shell: bash
+        run: |
+          python -m py_compile build/config.py
+          git diff --check
+          actual="$(git diff --name-only | sort)"
+          expected="$(printf '%s\n' \
+            build/config.py \
+            public/diet/beef-heart/index.html \
+            public/diet/best-foods-list/index.html \
+            public/diet/blackworms-for-juveniles/index.html \
+            public/diet/fasting-and-vacation/index.html \
+            public/diet/feeder-fish-risks/index.html \
+            public/diet/how-to-hand-feed/index.html \
+            public/diet/shrimp-for-axolotls/index.html | sort)"
+          if [ "$actual" != "$expected" ]; then
+            echo "Unexpected file scope"
+            echo "Actual:"
+            echo "$actual"
+            exit 1
+          fi
+          git diff --stat
+          git config user.name "MyAxolotl Diet Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add build/config.py \
+            public/diet/beef-heart/index.html \
+            public/diet/best-foods-list/index.html \
+            public/diet/blackworms-for-juveniles/index.html \
+            public/diet/fasting-and-vacation/index.html \
+            public/diet/feeder-fish-risks/index.html \
+            public/diet/how-to-hand-feed/index.html \
+            public/diet/shrimp-for-axolotls/index.html
+          git commit -m "Clarify Diet page roles and handoff links"
+          git push origin HEAD:main
