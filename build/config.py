@@ -875,15 +875,15 @@ LINKING = {
                                      "breeding/raising-juveniles"],
     "diet/axolotl-pellets": ["diet/best-foods-list", "diet/live-vs-frozen-food"],
     "diet/live-vs-frozen-food": ["diet/best-foods-list", "diet/feeder-fish-risks", "health/parasite-treatment"],
-    "diet/feeder-fish-risks": ["diet/beef-heart", "diet/live-vs-frozen-food"],
-    "diet/beef-heart": ["diet/feeder-fish-risks"],
+    "diet/feeder-fish-risks": ["diet/best-foods-list", "diet/live-vs-frozen-food", "health/parasite-treatment"],
+    "diet/beef-heart": ["diet/best-foods-list", "diet/live-vs-frozen-food"],
     "diet/overfeeding-and-impaction": ["health/refusing-to-eat", "health/impaction-symptoms-treatment", "diet/feeding-schedule-by-age"],
-    "diet/blackworms-for-juveniles": ["diet/feeding-schedule-by-age", "diet/overfeeding-and-impaction",
+    "diet/blackworms-for-juveniles": ["diet/feeding-schedule-by-age", "diet/best-foods-list",
                                       "breeding/raising-juveniles"],
-    "diet/fasting-and-vacation": ["diet/feeding-schedule-by-age"],
-    "diet/how-to-hand-feed": ["diet/best-foods-list"],
-    "diet/shrimp-for-axolotls": ["diet/best-foods-list", "diet/feeder-fish-risks",
-                                 "breeding/egg-and-larvae-care"],
+    "diet/fasting-and-vacation": ["diet/feeding-schedule-by-age", "health/refusing-to-eat"],
+    "diet/how-to-hand-feed": ["diet/best-foods-list", "diet/feeding-schedule-by-age"],
+    "diet/shrimp-for-axolotls": ["diet/best-foods-list", "diet/feeding-schedule-by-age",
+                                 "diet/live-vs-frozen-food"],
     "diet/vitamin-and-supplement-needs": ["diet/best-foods-list", "health/malnutrition-signs"],
     "health": ["health/refusing-to-eat", "health/fungal-infections-saprolegnia", "health/parasite-treatment"],
     "health/refusing-to-eat": ["diet/overfeeding-and-impaction", "health/malnutrition-signs"],
@@ -1104,6 +1104,12 @@ INTRO_OVERRIDES = {
 # page's semantic job (and where the neighbouring page lives) so intent split
 # is visible to both readers and engines without new prose in the docx.
 ROLE_CALLOUTS = {
+    "diet/best-foods-list": (
+        '<div class="role-note"><strong>Use this as the food-choice overview.</strong> '
+        'Once you know the safe staples, use the <a href="/diet/feeding-schedule-by-age/">feeding schedule</a> '
+        'for frequency and portions, the <a href="/diet/live-vs-frozen-food/">live vs. frozen comparison</a> '
+        'for format choice, and the <a href="/diet/axolotl-pellets/">pellet guide</a> for commercial foods.</div>'
+    ),
     "health/stress-signs": (
         '<div class="role-note"><strong>Which stress sign are you seeing?</strong> '
         "Stress covers many signs and each has its own deep guide. "
