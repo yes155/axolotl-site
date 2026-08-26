@@ -891,7 +891,6 @@ TANK_SETUP_HUB_ORDER = {
     "tank-setup/water-parameters-cycling": 2,
     "tank-setup/temperature": 3,
     "tank-setup/filtration-for-axolotls": 4,
-    "tank-setup/canister-vs-sponge-filter": 5,
     "tank-setup/substrate-and-impaction": 6,
     "tank-setup/water-change-guide": 7,
     "tank-setup/water-conditioners": 8,
@@ -1412,6 +1411,25 @@ def render_hub(key, hub, articles, img_map):
         f'<a class="topic-chip" href="/{k}/">{esc(h["cat"])}</a>'
         for k, h in config.HUBS.items() if k != key
     )
+
+    setup_order = ""
+    if key == "tank-setup":
+        setup_order = (
+            '<section class="role-note" aria-labelledby="setup-order-title">'
+            '<strong id="setup-order-title">Recommended setup order</strong>'
+            '<p>Use the main setup guide as the overview, then work through these prerequisites before your axolotl goes into the tank.</p>'
+            '<ol>'
+            '<li>Start with the <a href="/tank-setup/setup-guide/">complete tank setup guide</a>.</li>'
+            '<li><a href="/tank-setup/tank-size-by-age/">Choose the tank size</a> and a <a href="/tank-setup/substrate-and-impaction/">safe substrate</a>.</li>'
+            '<li>Add suitable <a href="/tank-setup/filtration-for-axolotls/">filtration</a> and <a href="/tank-setup/water-conditioners/">condition the water</a>.</li>'
+            '<li><a href="/tank-setup/water-parameters-cycling/">Cycle the tank</a> and stabilize the <a href="/tank-setup/temperature/">water temperature</a>.</li>'
+            '<li>Add <a href="/tank-setup/hides-and-caves/">hides</a> and set up <a href="/tank-setup/lighting-for-axolotls/">low-stress lighting</a>.</li>'
+            '<li>When the habitat is stable, follow the <a href="/tank-setup/acclimating-a-new-axolotl/">acclimation guide</a>.</li>'
+            '</ol>'
+            '<p>After introduction, use the <a href="/tank-setup/water-change-guide/">water-change guide</a> for routine maintenance.</p>'
+            '</section>'
+        )
+
     body = (
         f'<section class="hub-hero"><div class="container">'
         f'<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a>'
@@ -1419,7 +1437,7 @@ def render_hub(key, hub, articles, img_map):
         f'<h1>{esc(hub["h1"])}</h1>'
         f'<p class="hub-intro">{esc(hub["intro"])}</p>'
         "</div></section>"
-        f'<div class="container page">{listing}'
+        f'<div class="container page">{setup_order}{listing}'
         '<div class="hub-related"><h2 class="section-title">Related Topics</h2>'
         f'<div class="chip-row">{related}</div></div>'
         "</div>"

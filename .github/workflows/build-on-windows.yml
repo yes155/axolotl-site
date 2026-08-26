@@ -1,0 +1,91 @@
+name: Build MyAxolotl on Windows
+
+on:
+  push:
+    branches:
+      - chatgpt-work
+    paths:
+      - 'build/**'
+      - '.github/rebuild-trigger'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: myaxolotl-build-chatgpt-work
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: ${{ !contains(github.event.head_commit.message || '', '[skip build]') }}
+    runs-on: [self-hosted, Windows, X64]
+
+    steps:
+      - name: Checkout working branch
+        uses: actions/checkout@v4
+        with:
+          ref: chatgpt-work
+          fetch-depth: 0
+
+      - name: Verify external DOCX source
+        shell: powershell
+        run: |
+          if (-not $env:AXOLOTL_SOURCE_DIR) {
+            throw "AXOLOTL_SOURCE_DIR is not set on the self-hosted runner."
+          }
+          if (-not (Test-Path -LiteralPath $env:AXOLOTL_SOURCE_DIR)) {
+            throw "AXOLOTL_SOURCE_DIR does not exist: $env:AXOLOTL_SOURCE_DIR"
+          }
+          Write-Host "Using DOCX source: $env:AXOLOTL_SOURCE_DIR"
+
+      - name: Map external DOCX source to expected build path
+        shell: powershell
+        run: |
+          $expected = Join-Path (Split-Path $env:GITHUB_WORKSPACE -Parent) "axolotls"
+          if (Test-Path -LiteralPath $expected) {
+            $item = Get-Item -LiteralPath $expected -Force
+            if ($item.Attributes -band [IO.FileAttributes]::ReparsePoint) {
+              cmd /c rmdir "${expected}"
+              if ($LASTEXITCODE -ne 0) { throw "Failed to remove previous DOCX source junction." }
+            } else {
+              throw "Expected source path already exists and is not a junction: $expected"
+            }
+          }
+          cmd /c mklink /J "${expected}" "${env:AXOLOTL_SOURCE_DIR}"
+          if ($LASTEXITCODE -ne 0) { throw "Failed to create DOCX source junction." }
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        shell: powershell
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build site
+        shell: powershell
+        run: python build/build.py
+
+      - name: Show generated diff
+        shell: powershell
+        run: |
+          git status --short
+          git diff --stat
+
+      - name: Commit generated output
+        shell: powershell
+        run: |
+          $changes = git status --porcelain
+          if (-not $changes) {
+            Write-Host "No generated changes to commit."
+            exit 0
+          }
+          git config user.name "MyAxolotl Build Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "chore(build): regenerate public output [skip build]"
+          git push origin HEAD:chatgpt-work
