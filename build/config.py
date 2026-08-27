@@ -740,7 +740,8 @@ ARTICLES = {
         "slug": "axolotl-in-culture/axolotl-in-pop-culture-and-memes",
         "hub": "axolotl-in-culture",
         "title_override": "Axolotl in Pop Culture and Memes",
-        "title_tag": "Axolotl in Pop Culture: Memes, Games, TV & Why They're Famous",
+        "title_tag": "Axolotl in Pop Culture: Memes, Games, TV & Media",
+        "meta_override": "Where axolotls appear in pop culture, from Minecraft and memes to TV, merchandise, and science headlines, with links to deeper guides for each topic.",
     },
     "98 - Minecraft Axolotls Guide.docx": {
         "slug": "axolotl-in-culture/minecraft-axolotls-guide",
@@ -1055,7 +1056,7 @@ LINKING = {
                            "axolotl-in-culture/adopt-me-axolotl-guide"],
     "axolotl-in-culture/minecraft-axolotls-guide": ["axolotl-in-culture/axolotl-in-pop-culture-and-memes",
                                                     "axolotl-in-culture/why-axolotls-are-suddenly-popular",
-                                                    "gifts-and-merch/best-axolotl-toys-and-plushies"],
+                                                    "morphs/blue-and-pink-axolotl-myth"],
     "axolotl-in-culture/axolotl-in-pop-culture-and-memes": ["axolotl-in-culture/why-axolotls-are-suddenly-popular",
                                                             "axolotl-in-culture/minecraft-axolotls-guide",
                                                             "gifts-and-merch/axolotl-squishmallow-guide"],
@@ -1064,8 +1065,8 @@ LINKING = {
                                                              "care-basics/axolotl-facts",
                                                              "axolotl-in-culture/adopt-me-axolotl-guide"],
     "axolotl-in-culture/adopt-me-axolotl-guide": ["axolotl-in-culture/minecraft-axolotls-guide",
-                                                  "care-basics/axolotl-facts",
-                                                  "cost-and-buying/axolotl-price-by-morph"],
+                                                  "care-basics/are-axolotls-good-beginner-pets",
+                                                  "morphs/blue-and-pink-axolotl-myth"],
 }
 
 # Phase 8 semantic inline anchors: (phrase, target, anchor_label, replace_all).
@@ -1211,6 +1212,16 @@ ROLE_CALLOUTS = {
         '<div class="role-note"><strong>Budget matters for families.</strong> See the full cost '
         "picture before deciding: "
         '<a href="/care-basics/cost-of-ownership-monthly/">monthly cost of an axolotl</a>.</div>'
+    ),
+    "axolotl-in-culture/axolotl-in-pop-culture-and-memes": (
+        '<div class="role-note"><strong>This page maps where axolotls appear in culture.</strong> '
+        'Use it for games, memes, media, merchandise, and science-news examples. For the causal question of why popularity surged, read '
+        '<a href="/axolotl-in-culture/why-axolotls-are-suddenly-popular/">why axolotls became so popular</a>.</div>'
+    ),
+    "axolotl-in-culture/why-axolotls-are-suddenly-popular": (
+        '<div class="role-note"><strong>This page owns the popularity question.</strong> '
+        'It explains the forces behind the surge in attention. For a catalog of where axolotls show up in games, memes, media, and merch, use '
+        '<a href="/axolotl-in-culture/axolotl-in-pop-culture-and-memes/">the pop-culture guide</a>.</div>'
     ),
     "biology-and-science/conservation-status": (
         '<div class="role-note"><strong>This page owns the wild-conservation question.</strong> '

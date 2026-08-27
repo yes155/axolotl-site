@@ -905,6 +905,20 @@ def process_article_body(a):
             continue
         body = body.replace(old, new, 1)
 
+    if a.get("slug") == "axolotl-in-culture/axolotl-in-pop-culture-and-memes":
+        body = body.replace(
+            '<details class="faq-item"><summary>Why are axolotls suddenly everywhere?</summary><div class="faq-answer"><p>The 2021 Minecraft update introduced them to millions of players, and their uniquely cute appearance plus regeneration-science headlines did the rest. Cuteness created the demand and science kept the story going.</p></div></details>\n',
+            "",
+            1,
+        )
+
+    if a.get("slug") == "axolotl-in-culture/minecraft-axolotls-guide":
+        body = body.replace(
+            "<p>Yes, the game's pink axolotl looks just like a real leucistic axolotl, complete with feathery external gills. The other four game colors also match real morphs and genetic variants.</p>",
+            '<p>Yes, but the game mixes real inspiration with fictional colors. The pink variant resembles a real leucistic axolotl, and the brown and gold variants echo real appearances, while cyan and especially blue are game colors; <a href="/morphs/blue-and-pink-axolotl-myth/">no true blue axolotl morph exists in real life</a>.</p>',
+            1,
+        )
+
     # The source DOCX contains several repeated links to the same cycling page.
     # Keep the strongest contextual edge and remove the duplicate anchors /
     # editorial bridge paragraph at render time so the source file can stay external.
@@ -1268,6 +1282,15 @@ FAQ_OVERRIDES = {
         ("How much should I feed a juvenile axolotl?", "A juvenile axolotl should receive 1–2 chopped earthworms or an equivalent portion of pellets once or twice daily, scaled down in size so each piece is no wider than the gap between its eyes."),
         ("Can axolotls overeat?", "Axolotls can overeat, and doing so regularly leads to obesity and a higher risk of constipation, since their feeding response doesn't reliably signal fullness the way it does in many other animals."),
         ("What does it mean if my axolotl is floating after eating?", "Floating shortly after eating usually means the axolotl swallowed air during a surface feeding and will resolve within hours; floating that continues past a day, especially with a swollen belly, points toward impaction instead."),
+    ],
+    "axolotl-in-culture/axolotl-in-pop-culture-and-memes": [
+        ("Are axolotls as friendly as they look?", "Real axolotls are calm, gentle pets, but they are delicate and are handled rarely, so they are look-don't-touch companions. Their pop-culture smile is real, but so is their sensitivity to stress."),
+        ("Can I get axolotl merch?", "Yes, plushies, Squishmallows, LEGO sets, mugs, and apparel are widely available, and our axolotl gifts guide lists the best picks. Merch is a large part of why the animal stayed famous after the games."),
+    ],
+    "axolotl-in-culture/minecraft-axolotls-guide": [
+        ("How do you get a blue axolotl in Minecraft?", "Breed two axolotls for a roughly 1-in-1200 chance of a blue baby, or breed two blue axolotls for a guaranteed blue baby. Blue axolotls only come from breeding, never from natural spawning."),
+        ("Can axolotls in Minecraft die?", "Yes, they can die from suffocation on land or from taking damage, but they play dead to escape when low on health. Carry a bucket and keep them in water to protect them."),
+        ("Are Minecraft axolotls based on real ones?", "Yes, but the game mixes real inspiration with fictional colors. The pink variant resembles a real leucistic axolotl, and the brown and gold variants echo real appearances, while cyan and especially blue are game colors; no true blue axolotl morph exists in real life."),
     ],
     "legal/new-jersey": [
         ("Can I buy an axolotl from a pet store in New Jersey?", "No, selling axolotls is prohibited in New Jersey, so pet stores and breeders in the state do not sell them. The official restricted-species list bars the sale of axolotls for any reason."),
