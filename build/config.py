@@ -137,7 +137,7 @@ HUBS = {
         "title_tag": "How to Breed Axolotls: Complete Breeding Guide (2026)",
         "meta": "How to breed axolotls successfully - conditioning, courtship, egg care, raising larvae, and the genetics and ethics every breeder needs to know.",
         "h1": "Axolotl Breeding Guide",
-        "intro": "Breeding axolotls is a rewarding but demanding process. This guide walks you through conditioning your breeders, getting a successful spawn, raising hundreds of larvae, and breeding ethically with an understanding of the genetics.",
+        "intro": "Breeding axolotls starts before courtship. Confirm sex and maturity, check that the adults are healthy and not closely related, and plan how you will manage eggs, live food, grow-out space, and rehoming before attempting a spawn.",
         "keywords": ["breeding axolotls", "axolotl eggs", "axolotl larvae", "axolotl breeding"],
         "cat": "Breeding",
     },
@@ -961,14 +961,24 @@ LINKING = {
                                        "breeding/color-genetics-punnett-squares",
                                        "cost-and-buying/axolotl-price-by-morph"],
     "morphs/mosaic": ["morphs/chimera", "morphs/piebald", "morphs/morphs-comparison-chart"],
-    "breeding/egg-and-larvae-care": ["breeding/raising-juveniles", "breeding/breeding-triggers-temperature-cycling",
-                                     "diet/shrimp-for-axolotls", "diet/feeding-schedule-by-age"],
-    "breeding/genetics-and-inbreeding": ["breeding/color-genetics-punnett-squares", "breeding/raising-juveniles"],
-    "breeding/breeding-triggers-temperature-cycling": ["breeding/sexing-axolotls", "breeding/egg-and-larvae-care"],
-    "breeding/sexing-axolotls": ["breeding/breeding-triggers-temperature-cycling"],
-    "breeding/raising-juveniles": ["breeding/egg-and-larvae-care", "breeding/genetics-and-inbreeding",
-                                   "diet/feeding-schedule-by-age", "diet/blackworms-for-juveniles"],
-    "breeding/color-genetics-punnett-squares": ["morphs/wild-type", "morphs/chimera", "breeding/genetics-and-inbreeding"],
+    "breeding/sexing-axolotls": ["breeding/genetics-and-inbreeding",
+                                 "breeding/breeding-triggers-temperature-cycling"],
+    "breeding/genetics-and-inbreeding": ["breeding/sexing-axolotls",
+                                        "breeding/color-genetics-punnett-squares",
+                                        "breeding/breeding-triggers-temperature-cycling"],
+    "breeding/color-genetics-punnett-squares": ["breeding/genetics-and-inbreeding",
+                                               "morphs/morphs-comparison-chart",
+                                               "breeding/breeding-triggers-temperature-cycling"],
+    "breeding/breeding-triggers-temperature-cycling": ["breeding/sexing-axolotls",
+                                                       "breeding/genetics-and-inbreeding",
+                                                       "breeding/egg-and-larvae-care"],
+    "breeding/egg-and-larvae-care": ["breeding/breeding-triggers-temperature-cycling",
+                                     "breeding/raising-juveniles",
+                                     "diet/feeding-schedule-by-age"],
+    "breeding/raising-juveniles": ["breeding/egg-and-larvae-care",
+                                   "diet/feeding-schedule-by-age",
+                                   "diet/blackworms-for-juveniles",
+                                   "breeding/genetics-and-inbreeding"],
     "legal": ["legal/california", "legal/canada", "legal/virginia", "legal/new-jersey"],
     "legal/california": ["legal/virginia", "legal/new-jersey", "legal/canada", "axolotls/care-guide"],
     "legal/canada": ["legal/california", "legal/virginia", "legal/maine", "axolotls/care-guide"],
@@ -1218,6 +1228,26 @@ ROLE_CALLOUTS = {
         'for inheritance, use <a href="/breeding/color-genetics-punnett-squares/">color genetics</a>; '
         'and for market ranges, see <a href="/cost-and-buying/axolotl-price-by-morph/">price by morph</a>.</div>'
     ),
+    "breeding/genetics-and-inbreeding": (
+        '<div class="role-note"><strong>This page decides whether a pair should be bred.</strong> '
+        'For predicting offspring colors rather than pair suitability, use '
+        '<a href="/breeding/color-genetics-punnett-squares/">the color-genetics guide</a>.</div>'
+    ),
+    "breeding/color-genetics-punnett-squares": (
+        '<div class="role-note"><strong>This page predicts inherited color outcomes.</strong> '
+        'Before planning a cross, use <a href="/breeding/genetics-and-inbreeding/">genetics and inbreeding risk</a> '
+        'to decide whether the pair is suitable to breed at all.</div>'
+    ),
+    "breeding/egg-and-larvae-care": (
+        '<div class="role-note"><strong>This page owns the egg-to-first-feeding stage.</strong> '
+        'Once larvae are feeding and growing, continue with '
+        '<a href="/breeding/raising-juveniles/">juvenile grow-out and rehoming</a>.</div>'
+    ),
+    "breeding/raising-juveniles": (
+        '<div class="role-note"><strong>This page owns post-hatch grow-out.</strong> '
+        'For incubation, hatching, and the first feeding window, start with '
+        '<a href="/breeding/egg-and-larvae-care/">egg and early-larval care</a>.</div>'
+    ),
     "health/emergency-first-aid": (
         '<div class="role-note"><strong>Urgent?</strong> If the axolotl needs a vet now, find '
         'one: <a href="/health/finding-an-exotic-vet/">exotic vet guide</a>. Everything below '
@@ -1228,6 +1258,19 @@ ROLE_CALLOUTS = {
 # Extra sections appended to the body of existing articles (surgeon-level
 # content layer; the .docx source is untouched). Format: heading text + HTML.
 EXTRA_SECTIONS = {
+    "breeding/raising-juveniles": [
+        ("Live Food to Juvenile Diet: Transition Milestones", """
+<p>The main transition is from movement-triggered live prey to foods a growing juvenile can recognize and swallow. Use size and feeding response rather than a fixed calendar:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Stage</th><th>Approx. size</th><th>Main food</th><th>Feeding pattern</th><th>Next step</th></tr></thead>
+<tbody>
+<tr><td>Yolk-sac stage</td><td>Newly hatched</td><td>No food until the yolk is absorbed</td><td>First 24&ndash;72 hours</td><td>Prepare live food before active feeding begins</td></tr>
+<tr><td>Early larva</td><td>About 1&ndash;2 cm</td><td>Live baby brine shrimp, daphnia, or moina</td><td>Once or twice daily</td><td>Keep prey small and remove dead food promptly</td></tr>
+<tr><td>Food transition</td><td>About 2.5&ndash;4 cm</td><td>Continue live food while introducing finely chopped bloodworm, small pellets, or tiny earthworm pieces</td><td>Twice daily while growing</td><td>Introduce one new food at a time and confirm it is being eaten</td></tr>
+<tr><td>Juvenile grow-out</td><td>Above the early transition stage</td><td>Appropriately sized worms and pellets; <a href="/diet/blackworms-for-juveniles/">prepared blackworms</a> are another juvenile option</td><td>Follow body size and growth</td><td>Use the <a href="/diet/feeding-schedule-by-age/">feeding schedule by age and size</a> as the routine-feeding reference</td></tr>
+</tbody></table></div>
+<p>The goal is not to stop live food on a particular birthday. Keep enough familiar live prey in the rotation until each juvenile consistently accepts the replacement food.</p>"""),
+    ],
     "morphs/leucistic": [
         ("How Rare Is a Leucistic Axolotl, and What Does One Cost?", """
 <p>The leucistic is one of the two most common morphs in the pet trade, so it is neither rare nor expensive. Pets start around $25&ndash;$60, rising only for specific lines or high-quality dirty-lucy patterns. Compare every morph's pricing in the <a href="/cost-and-buying/axolotl-price-by-morph/">price-by-morph guide</a>, or see all morphs side by side in the <a href="/morphs/morphs-comparison-chart/">comparison chart</a>.</p>"""),

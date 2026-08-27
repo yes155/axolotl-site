@@ -1108,6 +1108,16 @@ MORPHS_HUB_ORDER = {
 }
 
 
+BREEDING_HUB_ORDER = {
+    "breeding/sexing-axolotls": 0,
+    "breeding/genetics-and-inbreeding": 1,
+    "breeding/color-genetics-punnett-squares": 2,
+    "breeding/breeding-triggers-temperature-cycling": 3,
+    "breeding/egg-and-larvae-care": 4,
+    "breeding/raising-juveniles": 5,
+}
+
+
 def html_fragment_to_text(fragment):
     return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", fragment))).strip()
 
@@ -1616,6 +1626,11 @@ def render_hub(key, hub, articles, img_map):
             hub_articles,
             key=lambda a: (MORPHS_HUB_ORDER.get(a["slug"], 9999), a["num"]),
         )
+    elif key == "breeding":
+        guides = sorted(
+            hub_articles,
+            key=lambda a: (BREEDING_HUB_ORDER.get(a["slug"], 9999), a["num"]),
+        )
     else:
         guides = sorted(hub_articles, key=lambda a: a["num"])
     if not guides:
@@ -1652,6 +1667,21 @@ def render_hub(key, hub, articles, img_map):
             '<li>When the habitat is stable, follow the <a href="/tank-setup/acclimating-a-new-axolotl/">acclimation guide</a>.</li>'
             '</ol>'
             '<p>After introduction, use the <a href="/tank-setup/water-change-guide/">water-change guide</a> for routine maintenance.</p>'
+            '</section>'
+        )
+    elif key == "breeding":
+        setup_order = (
+            '<section class="role-note" aria-labelledby="breeding-order-title">'
+            '<strong id="breeding-order-title">Recommended breeding order</strong>'
+            '<p>Plan the full clutch before attempting a spawn. Breeding is a sequence, not a single event.</p>'
+            '<ol>'
+            '<li><a href="/breeding/sexing-axolotls/">Confirm the sex and maturity</a> of both adults.</li>'
+            '<li><a href="/breeding/genetics-and-inbreeding/">Check relatedness, health, and breeding suitability</a>.</li>'
+            '<li>If morph outcomes matter, review <a href="/breeding/color-genetics-punnett-squares/">color genetics</a> before pairing.</li>'
+            '<li>Only then use the <a href="/breeding/breeding-triggers-temperature-cycling/">breeding-triggers guide</a>.</li>'
+            '<li>After spawning, move to <a href="/breeding/egg-and-larvae-care/">egg and early-larval care</a>.</li>'
+            '<li>Once the larvae are feeding and growing, continue with <a href="/breeding/raising-juveniles/">juvenile grow-out and rehoming</a>.</li>'
+            '</ol>'
             '</section>'
         )
 
