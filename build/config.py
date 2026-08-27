@@ -1019,9 +1019,8 @@ LINKING = {
     "biology-and-science/axolotl-vs-tiger-salamander": ["biology-and-science/neoteny",
                                                         "biology-and-science/is-axolotl-amphibian"],
     "biology-and-science/conservation-status": ["biology-and-science/wild-habitat-xochimilco",
-                                                "biology-and-science/neoteny",
-                                                "axolotl-in-culture/why-axolotls-are-suddenly-popular",
-                                                "biology-and-science/lifespan-wild-vs-captivity"],
+                                                "cost-and-buying/choosing-a-reputable-breeder",
+                                                "axolotls/care-guide"],
     "biology-and-science/is-axolotl-amphibian": ["biology-and-science/anatomy-gills-and-lungs",
                                                  "biology-and-science/axolotl-vs-tiger-salamander"],
     "biology-and-science/lifespan-wild-vs-captivity": ["biology-and-science/conservation-status",
@@ -1033,7 +1032,8 @@ LINKING = {
     "biology-and-science/neoteny": ["biology-and-science/axolotl-vs-tiger-salamander",
                                     "biology-and-science/is-axolotl-amphibian"],
     "biology-and-science/wild-habitat-xochimilco": ["biology-and-science/conservation-status",
-                                                    "biology-and-science/neoteny"],
+                                                    "tank-setup/setup-guide",
+                                                    "tank-setup/temperature"],
     "cost-and-buying": ["cost-and-buying/axolotl-price-by-morph", "cost-and-buying/breeder-vs-pet-store",
                         "cost-and-buying/how-to-choose-a-healthy-axolotl"],
     "cost-and-buying/axolotl-price-by-morph": ["morphs/wild-type", "morphs/leucistic",
@@ -1212,6 +1212,18 @@ ROLE_CALLOUTS = {
         "picture before deciding: "
         '<a href="/care-basics/cost-of-ownership-monthly/">monthly cost of an axolotl</a>.</div>'
     ),
+    "biology-and-science/conservation-status": (
+        '<div class="role-note"><strong>This page owns the wild-conservation question.</strong> '
+        'It covers status, population decline, threats, and recovery work. For the physical ecology of the last wild habitat, use '
+        '<a href="/biology-and-science/wild-habitat-xochimilco/">the Xochimilco habitat guide</a>; '
+        'for captive care, use <a href="/axolotls/care-guide/">the axolotl care guide</a>.</div>'
+    ),
+    "biology-and-science/wild-habitat-xochimilco": (
+        '<div class="role-note"><strong>This page owns the habitat question.</strong> '
+        'It explains where wild axolotls live and the conditions of Xochimilco. For population status, threats, and conservation work, use '
+        '<a href="/biology-and-science/conservation-status/">the conservation-status guide</a>; '
+        'for translating those conditions into a home tank, use <a href="/tank-setup/setup-guide/">the tank-setup guide</a>.</div>'
+    ),
     "biology-and-science/regeneration-and-limb-regrowth": (
         '<div class="role-note"><strong>The science lane.</strong> This page explains how limb '
         "regeneration works. Owners with an injured axolotl should use the practical guide: "
@@ -1258,6 +1270,15 @@ ROLE_CALLOUTS = {
 # Extra sections appended to the body of existing articles (surgeon-level
 # content layer; the .docx source is untouched). Format: heading text + HTML.
 EXTRA_SECTIONS = {
+    "biology-and-science/conservation-status": [
+        ("What Can Pet Axolotl Owners Do?", """
+<p>Pet keeping and wild conservation are separate jobs. The most useful owner actions are to keep captive axolotls out of natural waterways, buy only captive-bred animals from reputable sources, and support habitat work in Xochimilco rather than treating hobby breeding as a substitute for conserving the wild population.</p>
+<ul>
+<li><strong>Never release a pet axolotl.</strong> Captive animals do not belong in local waterways.</li>
+<li><strong>Choose a responsible source.</strong> Use the <a href="/cost-and-buying/choosing-a-reputable-breeder/">reputable breeder guide</a> before buying.</li>
+<li><strong>Keep the conservation target clear.</strong> The wild population depends on protecting and restoring <a href="/biology-and-science/wild-habitat-xochimilco/">Xochimilco habitat</a>, not on producing more pet morphs.</li>
+</ul>"""),
+    ],
     "breeding/raising-juveniles": [
         ("Live Food to Juvenile Diet: Transition Milestones", """
 <p>The main transition is from movement-triggered live prey to foods a growing juvenile can recognize and swallow. Use size and feeding response rather than a fixed calendar:</p>
