@@ -645,6 +645,7 @@ ARTICLES = {
         "hub": "care-basics",
         "title_override": "How to Pronounce Axolotl",
         "title_tag": "How to Pronounce Axolotl: Correct Way & Common Mistakes",
+        "date_modified": "2026-08-27",
     },
     "81 - Can Axolotls Live Together.docx": {
         "slug": "care-basics/keeping-multiple-axolotls",
@@ -1106,6 +1107,11 @@ SEMANTIC_INLINE = {
 # Standfirst (intro) overrides. Used to re-scope a page's dominant intent
 # without touching its docx-sourced body (cannibalization role splits).
 INTRO_OVERRIDES = {
+    "care-basics/how-to-pronounce-axolotl": (
+        "In modern English, pronounce axolotl as ACK-suh-lot-ul, with the stress "
+        "on the first syllable. The Nahuatl source word and Spanish ajolote sound "
+        "different, so this guide keeps the three forms separate."
+    ),
     "tank-setup/filtration-for-axolotls": (
         "Before choosing a filter you need the principles: why axolotls need gentle, low-flow "
         "filtration, how waste becomes ammonia, and which filter families exist. This guides the "
@@ -1151,6 +1157,39 @@ INTRO_OVERRIDES = {
 # The source files remain the editorial record; these bodies define the public
 # semantic role until the external source is revised.
 BODY_OVERRIDES = {
+    "care-basics/how-to-pronounce-axolotl": """
+<p><strong>In modern English, pronounce axolotl as ACK-suh-lot-ul, with the stress on ACK.</strong> Cambridge gives the British pronunciation as /ˈæk.sə.lɒt.əl/ and the American pronunciation as /ˈæk.sə.lɑː.t̬əl/. Both use four syllables and first-syllable stress.</p>
+<h2>What Is the English Syllable Breakdown?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Part</th><th>Say it like</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td>Ax</td><td><strong>ACK</strong></td><td>This syllable carries the stress.</td></tr>
+<tr><td>o</td><td>suh</td><td>Use a short, unstressed vowel.</td></tr>
+<tr><td>lot</td><td>lot</td><td>The vowel varies slightly between British and American English.</td></tr>
+<tr><td>l</td><td>ul</td><td>Finish lightly rather than forcing a separate “t-l” cluster.</td></tr>
+</tbody></table></div>
+<p>Say the parts slowly as ACK-suh-lot-ul, then join them without adding a fifth syllable. Normal accent differences can change the vowel in “lot,” but they do not move the primary stress away from the first syllable in the cited English dictionary forms.</p>
+<h2>What Are the Most Common English Mistakes?</h2>
+<ul>
+<li><strong>Moving the stress:</strong> ack-suh-LOT-ul does not match the cited British or American dictionary stress.</li>
+<li><strong>Reading every letter separately:</strong> ax-oh-lot-oh-tul adds sounds that are not in the English dictionary form.</li>
+<li><strong>Forcing the ending:</strong> English speakers can finish with a light “t-ul” sound; they do not need to reproduce the Nahuatl final consonant.</li>
+</ul>
+<h2>Is the English Pronunciation the Same as Nahuatl?</h2>
+<p><strong>No. The English pronunciation is an established loanword pronunciation, not a reproduction of the Nahuatl source.</strong> The Online Nahuatl Dictionary records <em>axolotl</em> with the IPA spelling /ɑːʃoːloːtɬ/. In that form, the “x” represents a “sh” sound, and the final /tɬ/ is a lateral affricate that English does not normally use.</p>
+<p>The spelling therefore follows two different sound systems. In English <em>axolotl</em>, the opening letters are pronounced “ack-s.” In the recorded Nahuatl form, the “x” is closer to English “sh.” Explaining the English “x” as an “ks” sound is useful only for the modern English word, not for Nahuatl pronunciation.</p>
+<h2>How Do You Pronounce Axolotl in Spanish?</h2>
+<p><strong>The usual Spanish word is <em>ajolote</em>, pronounced approximately ah-ho-LO-teh.</strong> The Real Academia Española traces <em>ajolote</em> to Nahuatl <em>axolotl</em>. Spanish changes the spelling as well as the sounds, so <em>ajolote</em> should not be used as the syllable guide for the English word.</p>
+<h2>What Does the Word Axolotl Mean?</h2>
+<p><strong><em>Axolotl</em> is a Nahuatl name for the animal.</strong> Popular literal glosses such as “water dog” and “water monster” vary by source and depend on a proposed analysis of the word. The dictionaries cited here establish the Nahuatl origin, but they do not support treating one of those English glosses as the single settled translation.</p>
+<h2>How Can You Remember the English Pronunciation?</h2>
+<p>Start with the stressed word “ACK,” add “suh,” and finish with “lot-ul”: ACK-suh-lot-ul. If the stress lands on the first syllable and the word has four syllables, the result matches the cited modern English pronunciation.</p>
+<div class="references-box"><h2>Pronunciation Sources</h2><ul>
+<li><a href="https://dictionary.cambridge.org/pronunciation/english/axolotl">Cambridge Dictionary: English pronunciation of axolotl</a></li>
+<li><a href="https://nahuatl.wired-humanities.org/content/axolotl">Online Nahuatl Dictionary: axolotl</a></li>
+<li><a href="https://dle.rae.es/ajolote">Real Academia Española: ajolote</a></li>
+</ul><p>The respelling on this page is an English reading aid. IPA gives the more precise dictionary forms.</p></div>
+""",
     "health/finding-an-exotic-vet": """
 <p>An axolotl may need a veterinarian who is comfortable with aquatic amphibians. The goal is not to find a clinic with a particular label; it is to confirm that a named veterinarian can assess an axolotl, interpret husbandry records, and arrange appropriate diagnostics or referral.</p>
 <h2>Where to Look for an Axolotl Veterinarian</h2>
