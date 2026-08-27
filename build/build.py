@@ -917,11 +917,13 @@ def process_article_body(a):
             continue
         body = body.replace(old, new, 1)
 
-    if a.get("slug") in {
-        "health/finding-an-exotic-vet",
-        "health/refusing-to-eat",
-        "health/fridging-sick-axolotl",
-    }:
+    if a.get("slug") in FAQ_OVERRIDES and (
+        a.get("slug", "").startswith("cost-and-buying/") or a.get("slug") in {
+            "health/finding-an-exotic-vet",
+            "health/refusing-to-eat",
+            "health/fridging-sick-axolotl",
+        }
+    ):
         faq_items = FAQ_OVERRIDES[a["slug"]]
         faq_heading = re.search(
             r'<section class="faq">\s*(<h2[^>]*>Frequently Asked Questions</h2>).*?</section>',
@@ -1330,6 +1332,27 @@ def static_page_schema(key, cfg, url):
 
 
 FAQ_OVERRIDES = {
+    "cost-and-buying/choosing-a-reputable-breeder": [
+        ("How do I verify that an axolotl breeder is real?", "Confirm the seller's identity and contact details, request current media of the exact animal with an agreed identifier, reverse-search listing photos, review recent sales history, and keep the listing and written terms before paying."),
+        ("Should an axolotl breeder show the parents?", "Parent photos and records are useful when available, but a missing photo alone does not prove a scam. Ask what parentage is known, what is uncertain, and how the breeder records pairings."),
+        ("What water information should a breeder provide?", "Ask for measured temperature, ammonia, nitrite, nitrate, and pH, plus the date of the readings. A statement that the water is perfect is not a measurement."),
+        ("What payment method should I avoid?", "Do not pay an animal seller with gift cards. Review the buyer-protection rules for any card, marketplace, transfer, or payment service before sending money."),
+    ],
+    "cost-and-buying/how-to-choose-a-healthy-axolotl": [
+        ("What does a healthy axolotl look like before purchase?", "Look for proportionate body condition, intact skin, balanced posture, coordinated movement, a documented feeding history, and measured water quality. These observations reduce uncertainty but do not diagnose health."),
+        ("Do small or curled gills prove an axolotl is sick?", "No. Gill appearance can change with anatomy, activity, flow, injury, and environment. A marked or recent change deserves questions, but one gill feature cannot diagnose a disease."),
+        ("Should the seller feed the axolotl in front of me?", "A recent feeding video or written feeding record is useful, but one refused meal during a short visit does not prove illness. Repeated appetite change combined with other warning signs matters more."),
+    ],
+    "cost-and-buying/red-flags-when-buying": [
+        ("How do I know whether an axolotl listing is fake?", "Request new media of the exact animal with a date or agreed identifier, reverse-search the listing photos, confirm seller identity, and compare the age, size, morph, and markings across every message."),
+        ("Is a cheap axolotl always a scam?", "No. Rehomes, sales, local pickup, and common morphs can cost less. A low price means you should verify the animal, seller, current market, and written terms; it is not proof by itself."),
+        ("Why should I refuse gift-card payment?", "The Federal Trade Commission warns that gift cards are for gifts, not payments. Once a seller receives the card number and PIN, recovery can be difficult or impossible."),
+    ],
+    "cost-and-buying/shipping-live-axolotls": [
+        ("How long does axolotl shipping take?", "Responsible US sellers commonly use a carrier service scheduled for next-day delivery and avoid weekends and holidays. The seller should state the carrier, service, ship date, expected arrival, and delay terms before payment."),
+        ("Is it safe to buy an axolotl online?", "Shipping can be completed responsibly when the route is legal, the carrier accepts amphibians, packaging is compliant, weather is suitable, and the recipient is ready. No shipment is risk-free, so verify the written plan and arrival policy."),
+        ("Should I add tank water to an overnight shipping bag?", "Do not assume a long mixing process is appropriate for an overnight-shipped animal. Follow the seller's written axolotl-specific protocol, avoid prolonged time in opened transport water, transfer promptly to the prepared setup, and discard the shipping water."),
+    ],
     "health/finding-an-exotic-vet": [
         ("How do I find a veterinarian who sees axolotls?", "Start with the Association of Reptile and Amphibian Veterinarians directory, veterinary teaching hospitals, and local exotic-animal clinics. Call to confirm that a named veterinarian currently examines axolotls or aquatic salamanders."),
         ("Can my regular veterinarian help?", "Some general-practice veterinarians may have relevant experience or be able to consult with and refer to an amphibian-experienced colleague. Ask the clinic to confirm its current capability rather than assuming from the clinic label."),

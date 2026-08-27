@@ -706,36 +706,48 @@ ARTICLES = {
         "hub": "cost-and-buying",
         "title_override": "Axolotl Price by Morph",
         "title_tag": "Axolotl Price by Morph: Cost Guide for Every Color (2026)",
+        "meta_override": "August 2026 US axolotl price snapshot by morph, with current listing examples, shipping costs, and checks that matter more than the advertised color.",
+        "date_modified": "2026-08-27",
     },
     "91 - Axolotl Breeder vs Pet Store.docx": {
         "slug": "cost-and-buying/breeder-vs-pet-store",
         "hub": "cost-and-buying",
         "title_override": "Axolotl Breeder vs Pet Store",
         "title_tag": "Axolotl Breeder vs Pet Store: Where to Buy (2026)",
+        "meta_override": "Compare axolotl breeders, exotic pet stores, marketplaces, and local rehomes by records, husbandry, guarantees, inspection, and shipping risk.",
+        "date_modified": "2026-08-27",
     },
     "92 - How to Choose an Axolotl Breeder.docx": {
         "slug": "cost-and-buying/choosing-a-reputable-breeder",
         "hub": "cost-and-buying",
         "title_override": "How to Choose a Reputable Axolotl Breeder",
         "title_tag": "How to Choose an Axolotl Breeder: 12 Questions to Ask",
+        "meta_override": "Use 12 practical questions to verify an axolotl breeder's husbandry, parentage records, current animal photos, shipping terms, and support.",
+        "date_modified": "2026-08-27",
     },
     "93 - How to Choose a Healthy Axolotl.docx": {
         "slug": "cost-and-buying/how-to-choose-a-healthy-axolotl",
         "hub": "cost-and-buying",
         "title_override": "How to Choose a Healthy Axolotl",
         "title_tag": "How to Choose a Healthy Axolotl: Signs to Check Before Buying",
+        "meta_override": "Check an axolotl's body condition, skin, gills, movement, appetite history, and water records before buying, without diagnosing disease from a photo.",
+        "date_modified": "2026-08-27",
     },
     "94 - Axolotl Seller Red Flags.docx": {
         "slug": "cost-and-buying/red-flags-when-buying",
         "hub": "cost-and-buying",
         "title_override": "Axolotl Seller Red Flags",
         "title_tag": "Axolotl Seller Red Flags: How to Spot Scams and Bad Breeders",
+        "meta_override": "Spot axolotl seller scams by verifying the exact animal, written terms, traceable payment, husbandry records, identity, and shipping plan.",
+        "date_modified": "2026-08-27",
     },
     "95 - How Axolotls Are Shipped.docx": {
         "slug": "cost-and-buying/shipping-live-axolotls",
         "hub": "cost-and-buying",
         "title_override": "How Axolotls Are Shipped",
         "title_tag": "How Are Axolotls Shipped: What to Expect",
+        "meta_override": "Learn how captive-bred axolotls are packaged and shipped, what carrier and weather details to verify, and what to do when the box arrives.",
+        "date_modified": "2026-08-27",
     },
     "96 - Axolotl Adopt Me Guide.docx": {
         "slug": "axolotl-in-culture/adopt-me-axolotl-guide",
@@ -1107,6 +1119,37 @@ SEMANTIC_INLINE = {
 # Standfirst (intro) overrides. Used to re-scope a page's dominant intent
 # without touching its docx-sourced body (cannibalization role splits).
 INTRO_OVERRIDES = {
+    "cost-and-buying/axolotl-price-by-morph": (
+        "As of August 27, 2026, common captive-bred axolotls in current US listings are "
+        "usually advertised around $50–$100 before shipping. Morph, age, lineage, seller, "
+        "and delivery cost change the total, so these figures are a market snapshot rather "
+        "than guaranteed prices."
+    ),
+    "cost-and-buying/breeder-vs-pet-store": (
+        "A specialist breeder is often the easiest source to verify, but the seller type "
+        "alone does not prove quality. Compare the exact animal, water records, feeding "
+        "history, written terms, and shipping or pickup plan."
+    ),
+    "cost-and-buying/choosing-a-reputable-breeder": (
+        "Choose an axolotl breeder by the records and conditions they can show, not by "
+        "follower count or a polished storefront. Ask the same 12 questions before paying "
+        "for any animal."
+    ),
+    "cost-and-buying/how-to-choose-a-healthy-axolotl": (
+        "Before buying, look for normal body condition, intact skin, balanced movement, "
+        "recent feeding records, and measured water quality. Appearance can reveal warning "
+        "signs, but a photo cannot diagnose an axolotl."
+    ),
+    "cost-and-buying/red-flags-when-buying": (
+        "The strongest seller red flags are identity or animal details that cannot be "
+        "verified, pressure to pay quickly, unsafe husbandry, vague written terms, and "
+        "payment methods that remove buyer protection."
+    ),
+    "cost-and-buying/shipping-live-axolotls": (
+        "A responsible shipment starts before the box is packed: the route must be legal, "
+        "the carrier must accept amphibians, the weather must be suitable, and the recipient "
+        "must be ready for the delivery."
+    ),
     "care-basics/how-to-pronounce-axolotl": (
         "In modern English, pronounce axolotl as ACK-suh-lot-ul, with the stress "
         "on the first syllable. The Nahuatl source word and Spanish ajolote sound "
@@ -1157,6 +1200,224 @@ INTRO_OVERRIDES = {
 # The source files remain the editorial record; these bodies define the public
 # semantic role until the external source is revised.
 BODY_OVERRIDES = {
+    "cost-and-buying/axolotl-price-by-morph": """
+<p><strong>As of August 27, 2026, current US listings place many common captive-bred axolotls around $50&ndash;$100 before shipping.</strong> A morph name does not set a fixed price. Size, sex, lineage records, unusual patterning, seller, location, and delivery charges can move the total substantially.</p>
+<h2>What Do Axolotls Cost by Morph in 2026?</h2>
+<p>The ranges below are working US listing ranges observed across current breeder and marketplace pages. They describe asking prices, not completed-sale averages or guarantees.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Morph or listing type</th><th>Observed working range</th><th>What changes the price</th></tr></thead>
+<tbody>
+<tr><td>Wild type</td><td>$50&ndash;$90</td><td>Size, sex, seller, and whether shipping is included</td></tr>
+<tr><td>Leucistic</td><td>$60&ndash;$110</td><td>Patterning, GFP status, size, and current stock</td></tr>
+<tr><td>Melanoid or golden albino</td><td>$60&ndash;$120</td><td>Seller, age, size, and additional traits</td></tr>
+<tr><td>Copper or axanthic</td><td>$65&ndash;$160</td><td>Lineage, expression, size, and combined recessive traits</td></tr>
+<tr><td>GFP combinations</td><td>$75&ndash;$200+</td><td>The base morph, fluorescence status, size, and seller</td></tr>
+<tr><td>Hypomelanistic or stacked-trait listings</td><td>$150&ndash;$400+</td><td>Scarcity, documented lineage, phenotype, and seller</td></tr>
+<tr><td>Mosaic or chimera-labelled animals</td><td>No stable band; often several hundred dollars</td><td>Each animal is unusual, labels are sometimes disputed, and listings are sparse</td></tr>
+</tbody></table></div>
+<p>A current MorphMarket listing showed a juvenile copper at $65, while another adult copper was listed at $150 before shipping. Current GFP leucistic listings included examples near $65, $75, $90, $110, and $125. Mosaic-labelled examples ranged from $75 to $1,000, which is why a single “mosaic price” is misleading.</p>
+<h2>How Much Does Shipping Add?</h2>
+<p><strong>Current US listing examples add roughly $20&ndash;$100 for shipping and packaging.</strong> MorphMarket listings commonly show shipping bands around $20&ndash;$80. One large retailer lists $47.95 for priority overnight delivery plus a $12 packaging fee, while another advertises $20 flat-rate overnight shipping.</p>
+<p>Compare the delivered total, not the animal price alone. A $65 axolotl with $75 shipping costs more than an $85 local animal, and local pickup avoids transit risk.</p>
+<h2>Why Do Prices Vary So Much?</h2>
+<ul>
+<li><strong>Morph and combined traits:</strong> common single-trait animals usually have more supply than uncommon combinations.</li>
+<li><strong>Size and confirmed sex:</strong> older animals cost more to raise, and confirmed adults may be priced differently.</li>
+<li><strong>Individual appearance:</strong> unusual spotting, gill color, or symmetry can raise an asking price even within one morph.</li>
+<li><strong>Documentation:</strong> clear parentage, hatch date, feeding history, and current photos make the listing easier to assess.</li>
+<li><strong>Delivery:</strong> overnight service, insulated packaging, weather holds, and rural surcharges change the final total.</li>
+</ul>
+<h2>Does a Higher Price Mean a Healthier Axolotl?</h2>
+<p><strong>No. Price reflects the listing and market, not a medical assessment.</strong> Use the <a href="/cost-and-buying/how-to-choose-a-healthy-axolotl/">healthy-axolotl buyer checklist</a> and ask for measured water parameters, a feeding history, current media of the exact animal, and written arrival terms. A cheaper common morph with good records can be a better purchase than an expensive animal with vague history.</p>
+<h2>How Should You Use These Price Ranges?</h2>
+<p>Use the table to build a budget and identify listings that need more questions. Do not treat the lower edge as a price a seller must match. Before paying, confirm that ownership and transport are legal at the origin and destination, then compare the delivered cost across several current listings.</p>
+<div class="references-box"><h2>August 2026 Market Sources</h2><ul>
+<li><a href="https://www.morphmarket.com/us/c/amphibians/axolotls">MorphMarket: current US axolotl listings</a></li>
+<li><a href="https://axolotlplanet.com/collections/axolotls">Axolotl Planet: current axolotl catalog</a></li>
+<li><a href="https://www.gillywateraquatics.com/shop-axolotls">Gillywater Aquatics: current axolotl listings</a></li>
+<li><a href="https://axolotlsuperstore.com/">Axolotl Superstore: current prices and shipping</a></li>
+<li><a href="https://www.bigappleherp.com/products/axolotl-for-sale">Big Apple Herp: current animal and shipping prices</a></li>
+</ul><p>MyAxolotl sampled publicly displayed asking prices on August 27, 2026. Stock, sales, and shipping charges can change without notice.</p></div>
+""",
+    "cost-and-buying/breeder-vs-pet-store": """
+<p><strong>A reputable specialist breeder is often easier to evaluate than a general pet store, but no seller type guarantees a healthy axolotl.</strong> Compare the exact animal, its care records, the water it is kept in, the written terms, and the handoff plan.</p>
+<h2>How Do Breeders and Pet Stores Compare?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Source</th><th>Main advantage</th><th>Main limitation</th><th>Best verification step</th></tr></thead>
+<tbody>
+<tr><td>Specialist breeder</td><td>May provide parentage, hatch date, feeding history, and support</td><td>Quality varies; online purchases may require shipping</td><td>Ask for current media and written husbandry and arrival terms</td></tr>
+<tr><td>Independent exotic pet store</td><td>You can inspect the animal and holding system in person</td><td>Staff knowledge and supplier records vary</td><td>Ask who bred the animal and see measured water results</td></tr>
+<tr><td>Marketplace breeder</td><td>Many sellers and prices can be compared</td><td>The platform does not replace seller verification</td><td>Review identity, history, policies, and the exact listing</td></tr>
+<tr><td>Local rehome</td><td>Local pickup and a known individual animal</td><td>Records and support may be limited</td><td>Confirm current care, reason for rehoming, and equipment needs</td></tr>
+</tbody></table></div>
+<h2>When Is a Breeder the Better Choice?</h2>
+<p>Choose a breeder when the seller can show useful records: the hatch date or age estimate, foods accepted, measured temperature and water chemistry, parentage or lineage notes where available, and current photos or video of the exact axolotl. A breeder should also explain what happens if delivery is delayed or the animal arrives in poor condition.</p>
+<p>Specialization is useful only when the records support it. A large social following, a long morph list, or a claim of “health-tested” animals is not a substitute for specific evidence.</p>
+<h2>When Can a Pet Store Be a Good Option?</h2>
+<p>An independent exotic pet store can be a reasonable choice when its axolotl system is cool, clean, uncrowded, and managed separately from warm tropical displays. The University of Kentucky Ambystoma Genetic Stock Center keeps axolotls at 60&ndash;65°F (15&ndash;18°C), which gives buyers a useful reference for evaluating the store's temperature.</p>
+<p>Ask the store who supplied the animal, how long it has been there, what it eats, and what the current ammonia and nitrite readings are. If staff cannot retrieve those details, treat the missing information as uncertainty rather than assuming the animal is healthy.</p>
+<h2>Which Source Is Usually Cheaper?</h2>
+<p><strong>Compare delivered cost instead of assuming one channel is cheaper.</strong> A breeder may have a lower animal price but add overnight delivery and packaging. A local store may charge more but avoid shipping. Rehomes can be inexpensive, but equipment or veterinary assessment may add cost.</p>
+<h2>What Should Every Seller Provide?</h2>
+<ul>
+<li>Current photos or video of the exact animal</li>
+<li>A recent feeding history and the food currently accepted</li>
+<li>Measured temperature, ammonia, and nitrite information</li>
+<li>Any available age, parentage, morph, and health-history records</li>
+<li>Written payment, pickup or shipping, and live-arrival terms</li>
+<li>A direct answer about whether the animal is captive-bred</li>
+</ul>
+<p>Use the <a href="/cost-and-buying/choosing-a-reputable-breeder/">12-question breeder checklist</a> for a seller interview and the <a href="/cost-and-buying/how-to-choose-a-healthy-axolotl/">buyer health checklist</a> for the animal itself.</p>
+<div class="references-box"><h2>Sources</h2><ul><li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li></ul></div>
+""",
+    "cost-and-buying/choosing-a-reputable-breeder": """
+<p><strong>Choose an axolotl breeder by what the breeder can document and show.</strong> A professional-looking site or popular account may help you find a seller, but current animal records, husbandry answers, identity, and written terms are stronger evidence.</p>
+<h2>What 12 Questions Should You Ask an Axolotl Breeder?</h2>
+<ol>
+<li>Is this axolotl captive-bred, and did you breed it yourself?</li>
+<li>What is its hatch date or best age estimate?</li>
+<li>Can you send a current photo or short video of this exact animal?</li>
+<li>What foods does it currently accept, and when did it last eat?</li>
+<li>What are its current water temperature, ammonia, nitrite, nitrate, and pH readings?</li>
+<li>Has it shown any recent injury, appetite, buoyancy, skin, or gill changes?</li>
+<li>What parentage or lineage records are available?</li>
+<li>How do you prevent accidental or poorly planned close-relative pairings?</li>
+<li>How long do you observe new or returned animals separately from established stock?</li>
+<li>What support do you provide after pickup or delivery?</li>
+<li>What are the written live-arrival, delay, and claim terms?</li>
+<li>Which carrier and service will be used, and what weather conditions trigger a hold?</li>
+</ol>
+<p>A useful answer includes numbers, dates, photos, or a written policy. “Perfect water,” “premium genetics,” and “guaranteed healthy” are marketing phrases unless the seller explains what they mean.</p>
+<h2>What Should a Breeder's Husbandry Show?</h2>
+<p>Look for cool, dechlorinated water; measured water chemistry; appropriate space; low waste accumulation; secure containers; and animals separated when size or breeding risk requires it. The University of Kentucky Ambystoma Genetic Stock Center reports keeping axolotls at 60&ndash;65°F (15&ndash;18°C). A breeder does not need to copy a laboratory system, but should be able to explain how temperature and water quality are monitored.</p>
+<h2>How Should You Assess Genetics and Parentage?</h2>
+<p><strong>Ask for records without expecting a promise of genetic perfection.</strong> Captive axolotl lineages can be incomplete, and a morph name does not prove health or unrelated ancestry. A responsible breeder should distinguish known parentage from assumptions and explain why a pairing was chosen.</p>
+<p>Do not rely on claims that one pedigree guarantees a long lifespan or that every close-relative pairing produces visible defects. The practical buyer question is whether the breeder keeps accurate records, avoids careless repeat pairings, and states uncertainty honestly.</p>
+<h2>How Do You Verify the Seller?</h2>
+<ul>
+<li>Confirm the seller's name, contact details, and consistent sales history.</li>
+<li>Reverse-search listing photos and request new media with a date or agreed identifier.</li>
+<li>Read recent reviews, including how the seller handled delays or problems.</li>
+<li>Keep the listing, invoice, written policy, and messages before paying.</li>
+<li>Use a payment method with applicable buyer protection.</li>
+</ul>
+<p>Community feedback can reveal patterns, but one anonymous complaint or endorsement should not decide the purchase by itself.</p>
+<h2>Which Answers Should Stop the Purchase?</h2>
+<p>Walk away if the seller cannot show the animal, refuses basic husbandry questions, uses unsafe water or substrate, misrepresents the route's legality, changes written terms after payment, or demands gift cards. The Federal Trade Commission warns that gift cards are for gifts, not payments.</p>
+<section class="faq"><h2>Frequently Asked Questions</h2></section>
+<div class="references-box"><h2>Sources</h2><ul>
+<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
+<li><a href="https://consumer.ftc.gov/articles/avoiding-and-reporting-gift-card-scams">Federal Trade Commission: Avoiding and Reporting Gift Card Scams</a></li>
+</ul></div>
+""",
+    "cost-and-buying/how-to-choose-a-healthy-axolotl": """
+<p><strong>Before buying an axolotl, check body condition, skin, gills, movement, recent feeding, and the water it is living in.</strong> These observations can identify reasons to pause a purchase, but they cannot diagnose a disease from a photo or short visit.</p>
+<h2>What Should You Check Before Buying?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Check</th><th>Reassuring observation</th><th>Reason to pause and ask more</th></tr></thead>
+<tbody>
+<tr><td>Body condition</td><td>Proportionate body and tail with no marked wasting or sudden swelling</td><td>Very thin body, pronounced asymmetry, or unexplained swelling</td></tr>
+<tr><td>Skin</td><td>Intact surface appropriate for the morph</td><td>Open wounds, bleeding, ulcers, heavy shedding, or attached growth</td></tr>
+<tr><td>Gills</td><td>Gill tissue present with no obvious damage or attached material</td><td>Rapid change, injury, unusual discharge, or severe deterioration</td></tr>
+<tr><td>Posture and movement</td><td>Balanced position and coordinated movement when the animal moves on its own</td><td>Persistent inability to stay upright, uncontrolled floating, or poor coordination</td></tr>
+<tr><td>Feeding history</td><td>Seller can name the food, portion, and last accepted meal</td><td>No recent record, repeated refusal, or sudden change without explanation</td></tr>
+<tr><td>Water records</td><td>Seller provides measured temperature, ammonia, and nitrite</td><td>Only says the water is “fine” or cannot provide readings</td></tr>
+</tbody></table></div>
+<h2>Can Gills or Skin Diagnose an Illness?</h2>
+<p><strong>No single visible feature diagnoses an axolotl illness.</strong> Gill size and posture vary with anatomy, activity, flow, and environment. White material can have more than one cause. Redness, lesions, lethargy, appetite change, and abnormal position are clinical signs that require context and sometimes veterinary testing.</p>
+<p>The Merck Veterinary Manual notes that amphibian infections can produce overlapping signs and may require microscopy, culture, histology, or other diagnostics. Treat a concerning sign as a reason not to complete the purchase until the seller explains it or an exotics-experienced veterinarian assesses it.</p>
+<h2>Should You Tap the Glass or Demand a Feeding Demonstration?</h2>
+<p><strong>Do not tap the glass to test an axolotl.</strong> Observe undisturbed movement and breathing, and ask the seller for a recent feeding video or written feeding history. An axolotl may not eat on demand during a brief visit, so one refused meal does not prove illness.</p>
+<p>A repeated appetite change combined with weight loss, abnormal posture, skin damage, or poor water records is more meaningful than one moment of behavior.</p>
+<h2>What Records Should You Request?</h2>
+<ul>
+<li>A current photo or video of the exact axolotl</li>
+<li>Hatch date or age estimate and current length</li>
+<li>Food type, feeding frequency, and last accepted meal</li>
+<li>Current temperature, ammonia, nitrite, nitrate, and pH</li>
+<li>Recent injury, treatment, appetite, buoyancy, or skin history</li>
+<li>Written pickup, shipping, and live-arrival terms</li>
+</ul>
+<h2>What Should You Do After Choosing an Axolotl?</h2>
+<p>Prepare a fully cycled, temperature-appropriate setup before pickup or delivery. If other axolotls are already present, use a separate observation or quarantine setup and discuss an appropriate plan with an exotics-experienced veterinarian. Use the <a href="/tank-setup/acclimating-a-new-axolotl/">new-axolotl acclimation guide</a> for the handoff.</p>
+<section class="faq"><h2>Frequently Asked Questions</h2></section>
+<div class="references-box"><h2>Sources and Scope</h2><ul>
+<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/infectious-diseases-of-amphibians">Merck Veterinary Manual: Infectious Diseases of Amphibians</a></li>
+</ul><p>This page is a pre-purchase observation checklist, not a veterinary diagnosis.</p></div>
+""",
+    "cost-and-buying/red-flags-when-buying": """
+<p><strong>The strongest axolotl seller red flags are facts that cannot be verified, unsafe care, pressure to pay quickly, missing written terms, and payment methods that remove buyer protection.</strong> One unusual detail deserves a question; a pattern of contradictions is a reason to stop.</p>
+<h2>Which Red Flags Should Stop an Axolotl Purchase?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Red flag</th><th>Why it matters</th><th>What to request</th></tr></thead>
+<tbody>
+<tr><td>Seller cannot show the exact animal</td><td>The listing may use stolen, old, or unrelated media</td><td>A new photo or video with a date or agreed identifier</td></tr>
+<tr><td>Water claims have no readings</td><td>“Perfect water” cannot be checked</td><td>Temperature, ammonia, nitrite, nitrate, and pH</td></tr>
+<tr><td>Details change between messages</td><td>Age, morph, size, or history may be misrepresented</td><td>A written invoice describing the animal</td></tr>
+<tr><td>Pressure to pay immediately</td><td>Urgency can prevent verification</td><td>Time to review terms and confirm identity</td></tr>
+<tr><td>No written arrival or delay policy</td><td>Buyer and seller may disagree after a shipping problem</td><td>Claim window, required evidence, exclusions, and remedy</td></tr>
+<tr><td>Gift-card payment demanded</td><td>Gift-card numbers transfer value with little recovery protection</td><td>A normal, traceable payment method</td></tr>
+</tbody></table></div>
+<h2>How Do You Verify the Exact Animal?</h2>
+<p>Ask for a current photo or short video that shows the full animal and an agreed identifier, such as the date or your initials on paper beside the container. Reverse-image search the listing photo. Compare markings, size, and gill shape across the seller's media.</p>
+<p>A seller does not have to accept an unscheduled video call to be legitimate. The important point is whether the seller can provide fresh, specific evidence and answer consistent questions.</p>
+<h2>Is a Low Price Automatically a Scam?</h2>
+<p><strong>No. A low price is a prompt to verify the listing, not proof of fraud.</strong> Rehomes, sales, local pickup, and common morphs can cost less. Compare the price with several current listings for the same morph, size, and delivery method, then verify the animal and terms.</p>
+<p>Rare labels deserve extra scrutiny because “mosaic,” “chimera,” “GFP,” and stacked-trait names can be misunderstood or misused. A high price also does not prove the label or the animal's health.</p>
+<h2>Which Payment Methods Are Risky?</h2>
+<p>The Federal Trade Commission says gift cards are for gifts, not payments. Do not send gift-card numbers to an animal seller. Be cautious with wire transfers, cryptocurrency, and friends-and-family transfers because recovery or purchase protection may be limited.</p>
+<p>Before paying, read the protection rules for the exact payment method and transaction type. Save the listing, invoice, seller identity, policy, and messages.</p>
+<h2>When Should You Walk Away?</h2>
+<p>End the purchase if the seller will not verify the animal, cannot describe its current care, demands an unsafe payment method, changes the deal after payment, or proposes an illegal or carrier-prohibited route. Another listing is cheaper than recovering from a scam or unsafe shipment.</p>
+<section class="faq"><h2>Frequently Asked Questions</h2></section>
+<div class="references-box"><h2>Consumer Source</h2><ul><li><a href="https://consumer.ftc.gov/articles/avoiding-and-reporting-gift-card-scams">Federal Trade Commission: Avoiding and Reporting Gift Card Scams</a></li></ul></div>
+""",
+    "cost-and-buying/shipping-live-axolotls": """
+<p><strong>Axolotls are commonly sent in a sealed, leak-resistant primary container inside an insulated outer box using a carrier service that accepts amphibians.</strong> Safe shipping depends on legal routing, approved packaging, weather, service timing, and a recipient who can receive the box promptly.</p>
+<h2>What Should You Confirm Before an Axolotl Ships?</h2>
+<ul>
+<li>Ownership and transport are legal at the origin, destination, and any relevant jurisdiction.</li>
+<li>The named carrier accepts amphibians under the seller's account and packaging arrangement.</li>
+<li>The service is scheduled to avoid weekends, holidays, and known delay periods.</li>
+<li>The seller has checked temperatures along the route and defined weather-hold limits.</li>
+<li>You will be available for delivery or approved hub pickup.</li>
+<li>The live-arrival and carrier-delay terms are in writing.</li>
+</ul>
+<p>FedEx states that harmless amphibians can be shipped, but requires packaging approval and directs live-animal shipments to overnight services Monday through Thursday for weekday arrival. UPS lists amphibians among accepted live animals and requires next-day service, compliant packaging, and no Friday or pre-holiday tender. Carrier rules can change, so the seller must verify the current policy for the actual shipment.</p>
+<h2>How Is an Axolotl Packaged?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Layer</th><th>Purpose</th><th>What the buyer should verify</th></tr></thead>
+<tbody>
+<tr><td>Primary container</td><td>Contains the axolotl and water without leaking</td><td>Secure closure and enough room for the animal</td></tr>
+<tr><td>Secondary containment</td><td>Reduces leak risk if the first layer fails</td><td>Seller can describe the bagging or container method</td></tr>
+<tr><td>Insulation and cushioning</td><td>Limits temperature change and movement</td><td>Box suits the route, season, and animal size</td></tr>
+<tr><td>Temperature control when needed</td><td>Offsets route conditions</td><td>Pack choice follows forecast and tested packaging, not season alone</td></tr>
+<tr><td>Outer box and label</td><td>Protects the shipment and identifies live contents</td><td>Carrier-compliant box, label, and service</td></tr>
+</tbody></table></div>
+<p>A heat or cold pack is not automatically correct because the calendar says winter or summer. The shipper must account for the forecast, route, box insulation, pack placement, and risk of direct contact.</p>
+<h2>What Should the Live-Arrival Policy Say?</h2>
+<p><strong>A live-arrival policy should define the claim window, evidence, exclusions, and remedy before payment.</strong> Check whether carrier delay, missed delivery, unsafe destination weather, address errors, and hub pickup are covered. A guarantee is a contract term, not proof that the packing method is safe.</p>
+<p>If the policy requires an unboxing video, prepare to film the sealed box, shipping label, opening, and animal without breaks. Contact the seller within the stated window if anything is wrong.</p>
+<h2>What Should You Do When the Box Arrives?</h2>
+<ol>
+<li>Bring the package indoors immediately and inspect it for damage or leakage.</li>
+<li>Record the opening if the written policy requires evidence.</li>
+<li>Check the animal and water temperature without prolonged handling.</li>
+<li>Follow the seller's written axolotl-specific arrival instructions and use a prepared, cycled observation or quarantine setup.</li>
+<li>For an overnight-shipped animal, avoid leaving it in opened transport water for a long mixing process. Transfer it promptly under the applicable protocol and discard the shipping water.</li>
+<li>Contact the seller and an exotics-experienced veterinarian promptly if the axolotl is injured, unresponsive, unable to remain upright, or otherwise in severe distress.</li>
+</ol>
+<p>The detailed handoff belongs in the <a href="/tank-setup/acclimating-a-new-axolotl/">new-axolotl acclimation guide</a>. The shipping page covers the seller, carrier, package, and arrival terms.</p>
+<h2>What Temperature Should the Shipment Protect?</h2>
+<p>The University of Kentucky Ambystoma Genetic Stock Center reports keeping axolotls at 60&ndash;65°F (15&ndash;18°C) and warns against temperatures above about 72°F (22°C). A shipper should use a tested packaging plan that limits unsafe exposure rather than promise that the box will hold one exact temperature for the entire route.</p>
+<section class="faq"><h2>Frequently Asked Questions</h2></section>
+<div class="references-box"><h2>Carrier and Husbandry Sources</h2><ul>
+<li><a href="https://www.fedex.com/en-us/shipping/how-to-ship-live-animals.html">FedEx: How to Ship Live Animals</a></li>
+<li><a href="https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/prohibited-items/plants-and-animals">UPS: How to Ship Plants and Live Animals</a></li>
+<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
+</ul></div>
+""",
     "care-basics/how-to-pronounce-axolotl": """
 <p><strong>In modern English, pronounce axolotl as ACK-suh-lot-ul, with the stress on ACK.</strong> Cambridge gives the British pronunciation as /ˈæk.sə.lɒt.əl/ and the American pronunciation as /ˈæk.sə.lɑː.t̬əl/. Both use four syllables and first-syllable stress.</p>
 <h2>What Is the English Syllable Breakdown?</h2>
