@@ -461,8 +461,8 @@ def build_articles():
                 pos = fm.end()
                 a["body_html"] = (a["body_html"][:pos] + callout
                                   + a["body_html"][pos:])
-        for heading, html in config.EXTRA_SECTIONS.get(slug, []):
-            a["body_html"] += f"<h2>{heading}</h2>{html}"
+        for heading, section_html in config.EXTRA_SECTIONS.get(slug, []):
+            a["body_html"] += f"<h2>{heading}</h2>{section_html}"
             a["headings"].append((2, heading))
         a["words"] = words_from(a["body_html"])
     return articles
