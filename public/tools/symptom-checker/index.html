@@ -162,16 +162,16 @@
   }
   footer a { color: var(--teal); }
 </style>
-<link rel="canonical" href="https://myaxolotl.us/tools/symptom-checker/"><meta name="description" content="Match your axolotl&#x27;s symptoms to likely causes and the right first step to take."><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://myaxolotl.us/"},{"@type":"ListItem","position":2,"name":"Axolotl Care Guide","item":"https://myaxolotl.us/axolotls/care-guide/"},{"@type":"ListItem","position":3,"name":"Axolotl Symptom Checker","item":"https://myaxolotl.us/tools/symptom-checker/"}]}</script>
+<link rel="canonical" href="https://myaxolotl.us/tools/symptom-checker/"><meta name="description" content="Review observed axolotl symptoms, possible explanations, safe first checks, and signs that need veterinary care."><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://myaxolotl.us/"},{"@type":"ListItem","position":2,"name":"Axolotl Care Guide","item":"https://myaxolotl.us/axolotls/care-guide/"},{"@type":"ListItem","position":3,"name":"Axolotl Symptom Checker","item":"https://myaxolotl.us/tools/symptom-checker/"}]}</script>
 <meta property="og:title" content="Axolotl Symptom Checker">
-<meta property="og:description" content="Match your axolotl&#x27;s symptoms to likely causes and the right first step to take.">
+<meta property="og:description" content="Review observed axolotl symptoms, possible explanations, safe first checks, and signs that need veterinary care.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://myaxolotl.us/tools/symptom-checker/">
 <meta property="og:site_name" content="MyAxolotl">
 <meta property="og:image" content="https://myaxolotl.us/images/axolotl-home.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Axolotl Symptom Checker">
-<meta name="twitter:description" content="Match your axolotl&#x27;s symptoms to likely causes and the right first step to take.">
+<meta name="twitter:description" content="Review observed axolotl symptoms, possible explanations, safe first checks, and signs that need veterinary care.">
 <meta name="twitter:image" content="https://myaxolotl.us/images/axolotl-home.webp">
 <meta name="twitter:site" content="@myaxolotls">
 <meta name="twitter:creator" content="@myaxolotls">
@@ -180,11 +180,11 @@
 <div class="wrap">
   <header>
     <h1>Axolotl Symptom Checker</h1>
-    <p class="subtitle">Select what you're seeing to get the likely cause and a concrete next step.</p>
+    <p class="subtitle">Select what you're seeing to review possible explanations, first checks, and when veterinary care may be needed.</p>
   </header>
 
   <div class="disclaimer">
-    This tool gives general guidance based on commonly observed patterns. It is not a substitute for veterinary diagnosis — when in doubt, or if a symptom is marked urgent, contact an exotics-experienced vet.
+    This tool cannot diagnose an axolotl from one symptom. It groups observations with possible explanations and safe first checks. Check water parameters and temperature first for many signs, and contact an exotics-experienced vet for severe, sudden, persistent, or worsening problems.
   </div>
 
   <div id="symptom-list"></div>
@@ -206,7 +206,7 @@ const categories = [
         label: "White, cottony fuzz on body or gills",
         cause: "Fungal infection (Saprolegnia)",
         detail: "Usually triggered by warm water or a scrape in the mucus layer that left an opening for fungus to take hold.",
-        action: "Move to cool isolation water and try a diluted black tea bath. Skip salt baths — they can burn the skin and disrupt thyroid function.",
+        action: "Check temperature and water parameters first and review the fungal-infection guide before attempting treatment. Contact an exotics-experienced vet if the growth is spreading or the axolotl is deteriorating.",
         urgent: false
       },
       {
@@ -214,7 +214,7 @@ const categories = [
         label: "Small white spots with rapid, labored breathing",
         cause: "Ich (a parasitic infection)",
         detail: "Different from fungal fuzz — these are discrete spots rather than a cottony mass, paired with visibly faster gill movement.",
-        action: "Quarantine immediately if housed with other animals. Use a commercial ich remedy labeled safe for scaleless species — many standard fish treatments are toxic to amphibians.",
+        action: "Separate from tank mates if practical, check water parameters, and contact an exotics-experienced vet before using medication. Many fish treatments are unsafe for amphibians.",
         urgent: false
       },
       {
@@ -222,7 +222,7 @@ const categories = [
         label: "Pale or shrunken gills",
         cause: "Ammonia or nitrite burns, not infection",
         detail: "Damaged gill tissue from toxin exposure rather than a pathogen.",
-        action: "Test ammonia and nitrite immediately. If nitrite poisoning (methemoglobinemia) is suspected, a methylene blue bath is the actual antidote — clean water alone won't reverse it.",
+        action: "Test ammonia, nitrite, nitrate, pH, and temperature immediately. Correct abnormal water conditions using the water-quality guides, and seek veterinary help if breathing is labored or the gills keep worsening.",
         urgent: false
       },
       {
@@ -238,7 +238,7 @@ const categories = [
         label: "Cloudy eyes",
         cause: "Bacterial infection",
         detail: "Often appears alongside reddened skin or open sores when the infection is more advanced.",
-        action: "Improve water quality immediately and consider a commercial antibacterial remedy. Consult an aquatic specialist or exotics vet if it doesn't improve within a few days.",
+        action: "Check water parameters and inspect for injury or other symptoms. Contact an exotics-experienced vet if the cloudiness persists, worsens, or appears with sores or marked lethargy.",
         urgent: false
       },
       {
@@ -304,7 +304,7 @@ const categories = [
         label: "Persistent floating, tail tilted up",
         cause: "Gut impaction",
         detail: "Often caused by swallowed gravel or substrate, or simple overfeeding.",
-        action: "Start a 72-hour fast. If fridging is used to slow digestion further, cap it at 3 weeks.",
+        action: "Check water parameters, recent feeding, stool, belly swelling, and substrate exposure. Compare the floating and impaction guides, and seek veterinary care if the axolotl cannot submerge, is swollen, or is deteriorating.",
         urgent: false
       },
       {
@@ -355,14 +355,14 @@ function selectSymptom(id) {
   const tagClass = s.urgent ? "tag urgent" : "tag";
   const cardClass = s.urgent ? "result-card urgent" : "result-card";
   const vetButton = s.urgent
-    ? '<a class="vet-cta" href="#vet-resources">Find an exotics vet near you →</a>'
+    ? '<a class="vet-cta" href="/health/finding-an-exotic-vet/">Find an exotics vet near you →</a>'
     : '';
   resultEl.innerHTML =
     '<div class="' + cardClass + '">' +
-      '<span class="' + tagClass + '">' + (s.urgent ? "Contact a vet" : "Likely cause") + '</span>' +
+      '<span class="' + tagClass + '">' + (s.urgent ? "Vet attention recommended" : "Possible explanation") + '</span>' +
       '<p class="result-cause">' + s.cause + '</p>' +
       '<p class="result-detail">' + s.detail + '</p>' +
-      '<p class="result-label">Next step</p>' +
+      '<p class="result-label">First checks</p>' +
       '<p class="result-action">' + s.action + '</p>' +
       vetButton +
     '</div>';

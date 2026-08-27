@@ -135,7 +135,7 @@ TOOL_DESCS = {
     "water-conditioner-dosage-calculator": "Work out exactly how many drops or ml of water conditioner you need for your tank volume.",
     "feeding-schedule-generator": "Generate a daily feeding schedule tailored to your axolotl's age and size.",
     "nitrogen-cycle-tracker": "Track ammonia, nitrite, and nitrate as your new tank cycles before adding your axolotl.",
-    "symptom-checker": "Match your axolotl's symptoms to likely causes and the right first step to take.",
+    "symptom-checker": "Review observed axolotl symptoms, possible explanations, safe first checks, and signs that need veterinary care.",
     "tank-size-calculator": "Find the minimum tank size for your axolotl based on its length and number of axolotls.",
 }
 
@@ -2048,6 +2048,33 @@ def copy_tools():
         with open(src, "rb") as fh:
             data = fh.read()
         text = data.decode("utf-8", errors="ignore")
+        if t["slug"] == "tools/symptom-checker":
+            symptom_replacements = [
+                ("Select what you're seeing to get the likely cause and a concrete next step.",
+                 "Select what you're seeing to review possible explanations, first checks, and when veterinary care may be needed."),
+                ("This tool gives general guidance based on commonly observed patterns. It is not a substitute for veterinary diagnosis — when in doubt, or if a symptom is marked urgent, contact an exotics-experienced vet.",
+                 "This tool cannot diagnose an axolotl from one symptom. It groups observations with possible explanations and safe first checks. Check water parameters and temperature first for many signs, and contact an exotics-experienced vet for severe, sudden, persistent, or worsening problems."),
+                ('(s.urgent ? "Contact a vet" : "Likely cause")',
+                 '(s.urgent ? "Vet attention recommended" : "Possible explanation")'),
+                ("'<p class=\"result-label\">Next step</p>' +",
+                 "'<p class=\"result-label\">First checks</p>' +"),
+                ('href="#vet-resources"', 'href="/health/finding-an-exotic-vet/"'),
+                ('action: "Move to cool isolation water and try a diluted black tea bath. Skip salt baths — they can burn the skin and disrupt thyroid function."',
+                 'action: "Check temperature and water parameters first and review the fungal-infection guide before attempting treatment. Contact an exotics-experienced vet if the growth is spreading or the axolotl is deteriorating."'),
+                ('action: "Quarantine immediately if housed with other animals. Use a commercial ich remedy labeled safe for scaleless species — many standard fish treatments are toxic to amphibians."',
+                 'action: "Separate from tank mates if practical, check water parameters, and contact an exotics-experienced vet before using medication. Many fish treatments are unsafe for amphibians."'),
+                ('action: "Test ammonia and nitrite immediately. If nitrite poisoning (methemoglobinemia) is suspected, a methylene blue bath is the actual antidote — clean water alone won\'t reverse it."',
+                 'action: "Test ammonia, nitrite, nitrate, pH, and temperature immediately. Correct abnormal water conditions using the water-quality guides, and seek veterinary help if breathing is labored or the gills keep worsening."'),
+                ('action: "Improve water quality immediately and consider a commercial antibacterial remedy. Consult an aquatic specialist or exotics vet if it doesn\'t improve within a few days."',
+                 'action: "Check water parameters and inspect for injury or other symptoms. Contact an exotics-experienced vet if the cloudiness persists, worsens, or appears with sores or marked lethargy."'),
+                ('action: "Start a 72-hour fast. If fridging is used to slow digestion further, cap it at 3 weeks."',
+                 'action: "Check water parameters, recent feeding, stool, belly swelling, and substrate exposure. Compare the floating and impaction guides, and seek veterinary care if the axolotl cannot submerge, is swollen, or is deteriorating."'),
+            ]
+            for old, new in symptom_replacements:
+                if old not in text:
+                    print("  !! symptom-checker safeguard phrase not found:", old[:80])
+                    continue
+                text = text.replace(old, new, 1)
         title_override = t.get("title_override")
         if title_override:
             text = re.sub(r'<title>.*?</title>', f'<title>{esc(title_override)}</title>',
