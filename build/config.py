@@ -937,23 +937,30 @@ LINKING = {
                                                    "gifts-and-merch/best-axolotl-toys-and-plushies"],
     "gifts-and-merch/best-axolotl-lego-sets": ["gifts-and-merch/best-axolotl-toys-and-plushies",
                                                "axolotl-in-culture/minecraft-axolotls-guide"],
-    "morphs/wild-type": ["morphs/chimera", "breeding/color-genetics-punnett-squares", "morphs/leucistic",
-                         "cost-and-buying/axolotl-price-by-morph"],
-    "morphs/chimera": ["morphs/wild-type", "morphs/enigma-firefly-mac", "morphs/mosaic"],
-    "morphs/leucistic": ["morphs/melanoid", "morphs/golden-albino", "morphs/wild-type",
-                         "cost-and-buying/axolotl-price-by-morph", "morphs/blue-and-pink-axolotl-myth"],
-    "morphs/melanoid": ["morphs/leucistic", "morphs/wild-type", "morphs/pigment-cells"],
-    "morphs/golden-albino": ["morphs/leucistic", "morphs/gfp-axolotl", "breeding/color-genetics-punnett-squares"],
-    "morphs/gfp-axolotl": ["morphs/golden-albino", "morphs/leucistic"],
-    "morphs/copper": ["morphs/pigment-cells", "breeding/color-genetics-punnett-squares", "breeding/egg-and-larvae-care"],
-    "morphs/piebald": ["morphs/leucistic", "morphs/chimera", "morphs/wild-type"],
-    "morphs/pigment-cells": ["morphs/melanoid", "morphs/copper", "morphs/enigma-firefly-mac"],
-    "morphs/enigma-firefly-mac": ["morphs/pigment-cells", "morphs/chimera", "morphs/leucistic"],
-    "morphs/blue-and-pink-axolotl-myth": ["morphs/wild-type", "morphs/leucistic",
-                                          "morphs/morphs-comparison-chart"],
-    "morphs/morphs-comparison-chart": ["morphs/wild-type", "morphs/leucistic",
+    "morphs/wild-type": ["morphs/pigment-cells", "morphs/morphs-comparison-chart",
+                         "breeding/color-genetics-punnett-squares", "cost-and-buying/axolotl-price-by-morph"],
+    "morphs/chimera": ["morphs/mosaic", "morphs/morphs-comparison-chart", "morphs/pigment-cells"],
+    "morphs/leucistic": ["morphs/golden-albino", "morphs/pigment-cells",
+                         "morphs/morphs-comparison-chart", "cost-and-buying/axolotl-price-by-morph"],
+    "morphs/melanoid": ["morphs/pigment-cells", "morphs/wild-type",
+                        "breeding/color-genetics-punnett-squares"],
+    "morphs/golden-albino": ["morphs/leucistic", "morphs/pigment-cells",
+                             "breeding/color-genetics-punnett-squares"],
+    "morphs/gfp-axolotl": ["morphs/morphs-comparison-chart",
+                           "breeding/color-genetics-punnett-squares",
+                           "cost-and-buying/axolotl-price-by-morph"],
+    "morphs/copper": ["morphs/pigment-cells", "breeding/color-genetics-punnett-squares",
+                      "cost-and-buying/axolotl-price-by-morph"],
+    "morphs/piebald": ["morphs/pigment-cells", "morphs/mosaic", "morphs/leucistic"],
+    "morphs/pigment-cells": ["morphs/morphs-comparison-chart",
+                             "breeding/color-genetics-punnett-squares", "morphs/melanoid"],
+    "morphs/enigma-firefly-mac": ["morphs/pigment-cells", "morphs/copper", "morphs/melanoid"],
+    "morphs/blue-and-pink-axolotl-myth": ["morphs/morphs-comparison-chart",
+                                          "morphs/leucistic", "morphs/gfp-axolotl"],
+    "morphs/morphs-comparison-chart": ["morphs/pigment-cells",
+                                       "breeding/color-genetics-punnett-squares",
                                        "cost-and-buying/axolotl-price-by-morph"],
-    "morphs/mosaic": ["morphs/chimera", "morphs/morphs-comparison-chart", "morphs/piebald"],
+    "morphs/mosaic": ["morphs/chimera", "morphs/piebald", "morphs/morphs-comparison-chart"],
     "breeding/egg-and-larvae-care": ["breeding/raising-juveniles", "breeding/breeding-triggers-temperature-cycling",
                                      "diet/shrimp-for-axolotls", "diet/feeding-schedule-by-age"],
     "breeding/genetics-and-inbreeding": ["breeding/color-genetics-punnett-squares", "breeding/raising-juveniles"],
@@ -1204,6 +1211,12 @@ ROLE_CALLOUTS = {
         '<div class="role-note"><strong>The owner lane.</strong> What to do when your axolotl '
         "loses part of a limb. For how regeneration works at the cellular level, read "
         '<a href="/biology-and-science/regeneration-and-limb-regrowth/">the regeneration science</a>.</div>'
+    ),
+    "morphs/morphs-comparison-chart": (
+        '<div class="role-note"><strong>Use this page to identify and compare a morph.</strong> '
+        'For why the colors differ, read <a href="/morphs/pigment-cells/">pigment-cell biology</a>; '
+        'for inheritance, use <a href="/breeding/color-genetics-punnett-squares/">color genetics</a>; '
+        'and for market ranges, see <a href="/cost-and-buying/axolotl-price-by-morph/">price by morph</a>.</div>'
     ),
     "health/emergency-first-aid": (
         '<div class="role-note"><strong>Urgent?</strong> If the axolotl needs a vet now, find '

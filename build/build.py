@@ -1091,6 +1091,22 @@ TANK_SETUP_HUB_ORDER = {
     "tank-setup/why-tank-water-smells": 18,
 }
 
+MORPHS_HUB_ORDER = {
+    "morphs/morphs-comparison-chart": 0,
+    "morphs/pigment-cells": 1,
+    "morphs/wild-type": 2,
+    "morphs/leucistic": 3,
+    "morphs/melanoid": 4,
+    "morphs/golden-albino": 5,
+    "morphs/copper": 6,
+    "morphs/gfp-axolotl": 7,
+    "morphs/piebald": 8,
+    "morphs/mosaic": 9,
+    "morphs/chimera": 10,
+    "morphs/enigma-firefly-mac": 11,
+    "morphs/blue-and-pink-axolotl-myth": 12,
+}
+
 
 def html_fragment_to_text(fragment):
     return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", fragment))).strip()
@@ -1594,6 +1610,11 @@ def render_hub(key, hub, articles, img_map):
         guides = sorted(
             hub_articles,
             key=lambda a: (TANK_SETUP_HUB_ORDER.get(a["slug"], 9999), a["num"]),
+        )
+    elif key == "morphs":
+        guides = sorted(
+            hub_articles,
+            key=lambda a: (MORPHS_HUB_ORDER.get(a["slug"], 9999), a["num"]),
         )
     else:
         guides = sorted(hub_articles, key=lambda a: a["num"])
