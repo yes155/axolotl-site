@@ -107,10 +107,10 @@ HUBS = {
     },
     "legal": {
         "title": "Is It Legal to Own an Axolotl?",
-        "title_tag": "Is It Legal to Own an Axolotl? Laws by State & Country (2026)",
-        "meta": "Where are axolotls legal to own? State-by-state and country-by-country rules on keeping an axolotl, including permit requirements and restricted areas.",
+        "title_tag": "Axolotl Laws: Ownership & Import Rules by Location (2026)",
+        "meta": "Axolotl ownership and import rules vary by location. Check permits and restricted areas, then verify current rules with the relevant wildlife authority.",
         "h1": "Is It Legal to Own an Axolotl?",
-        "intro": "Axolotls are banned or restricted in several U.S. states and a growing list of countries because they are an endangered species. This guide explains exactly where you can and cannot legally keep one, and how to verify the law where you live.",
+        "intro": "Axolotl ownership and import rules vary by state and country. Restrictions can come from exotic-wildlife, invasive-species, disease-control, conservation, and import laws. This guide explains the main rules and how to verify the current law where you live.",
         "keywords": ["is it legal to own an axolotl", "axolotl illegal", "axolotl legal states", "axolotl permit"],
         "cat": "Legal",
     },

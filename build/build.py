@@ -794,6 +794,117 @@ def process_article_body(a):
 
     body = re.sub(r"<h([234])([^>]*)>", add_id, body)
 
+    # Correct the scope of the 2025 federal injurious-wildlife rule on
+    # mainland U.S. legal pages. USFWS guidance after USARK v. Zinke confirms
+    # that 18 U.S.C. 42(a) does not generally prohibit transport between
+    # States within the continental United States; import and transport
+    # between the enumerated jurisdictions remain restricted.
+    legal_replacements = {
+        "legal/california": [
+            (
+                "<p><strong>Yes. Since January 25, 2025, the United States Fish and Wildlife Service lists the genus Ambystoma as injurious wildlife under the Lacey Act.</strong> The listing prohibits importing axolotls into the United States and shipping them between states, except under a federal permit for scientific, educational, medical, or zoological purposes. This means the axolotl trade now has to move entirely within a single state.</p>",
+                "<p><strong>Yes, but the federal rule does not ban transport between states within the continental United States.</strong> Since January 25, 2025, the U.S. Fish and Wildlife Service has listed the genus <em>Ambystoma</em> as injurious wildlife under the Lacey Act. The rule prohibits import into the United States and transport between the continental United States and jurisdictions such as Hawaii, the District of Columbia, Puerto Rico, and U.S. territories. California's own restricted-species law is what prevents ordinary pet owners from bringing or keeping an axolotl in the state.</p>",
+            ),
+            (
+                "<p><strong>Yes. Importing an axolotl into California without a permit violates state law, and since January 25, 2025, shipping the animal across state lines at all violates the federal injurious wildlife rule.</strong> Both permit layers apply. You cannot legally order an axolotl from out of state as a pet.</p>",
+                "<p><strong>Yes. Importing an axolotl into California without the required state authorization violates California law.</strong> The 2025 federal injurious-wildlife listing does not itself prohibit transport between states within the continental United States, but it does restrict international import and transport between the continental United States and certain other U.S. jurisdictions. For a California pet owner, the state restriction is enough to make an ordinary out-of-state purchase unlawful.</p>",
+            ),
+        ],
+        "legal/maine": [
+            (
+                "<p><strong>Yes. Since January 25, 2025, the genus Ambystoma is listed as injurious wildlife under the federal Lacey Act, so shipping an axolotl into Maine from another state violates federal law without a federal permit.</strong> The federal listing covers scientific, educational, medical, or zoological purposes only. This means new axolotls for Maine effectively come from in-state sources.</p>",
+                "<p><strong>Yes, but the federal listing does not prohibit transport between states within the continental United States.</strong> Since January 25, 2025, <em>Ambystoma</em> has been listed as injurious wildlife under the Lacey Act, which restricts import into the United States and transport between the continental United States and certain other U.S. jurisdictions. A shipment into Maine from another continental U.S. state is therefore governed primarily by Maine's own import-permit rules.</p>",
+            ),
+            (
+                "<p><strong>You can import an axolotl into Maine from another state only with a Wildlife Importation Permit, and since 2025 federal law additionally prohibits interstate shipping without a federal injurious wildlife permit.</strong> Both permits are required. In practice, new axolotls for Maine come from in-state breeders.</p>",
+                "<p><strong>You can import an axolotl into Maine from another state only if you meet Maine's Wildlife Importation Permit requirements.</strong> The 2025 federal injurious-wildlife rule does not generally require a federal permit for transport between states within the continental United States. Confirm the current Maine permit requirements before arranging any shipment.</p>",
+            ),
+        ],
+        "legal/new-jersey": [
+            (
+                "<p><strong>Yes, federal law bans axolotl shipments into New Jersey, because the genus Ambystoma became injurious wildlife under the Lacey Act on January 25, 2025.</strong> The U.S. Fish and Wildlife Service final rule (90 FR 1898) prohibits importing axolotls into the United States and shipping them across state lines except under a federal permit for scientific, educational, medical, or zoological purposes.</p>",
+                "<p><strong>Federal law lists <em>Ambystoma</em> as injurious wildlife, but it does not generally prohibit transport between states within the continental United States.</strong> The rule, effective January 25, 2025, restricts import into the United States and transport between the continental United States and certain other U.S. jurisdictions. New Jersey's own rules remain the controlling restriction for an ordinary pet shipment into the state.</p>",
+            ),
+            (
+                "<p>The federal rule makes the state ban effectively airtight. Even if New Jersey relaxed its rules, moving axolotls across state lines remains federally prohibited.</p>",
+                "<p>So the practical answer for a New Jersey resident does not change: follow the state's restricted-species rules and confirm current requirements with NJDEP before arranging any purchase or transfer.</p>",
+            ),
+            (
+                "<p>No, shipping an axolotl into New Jersey violates state restricted-species law, and since January 25, 2025, it also violates the federal injurious-wildlife rule. The shipment itself is the offense, before the animal even arrives.</p>",
+                "<p>No, not as an ordinary pet shipment if New Jersey's restricted-species rules prohibit the import or possession. The 2025 federal injurious-wildlife listing does not itself ban transport between continental U.S. states, so the controlling issue here is New Jersey law.</p>",
+            ),
+            (
+                "<p>Yes, several neighboring states allow axolotls, but the federal interstate-shipping ban applies everywhere, so an out-of-state purchase cannot be shipped to you. Legal status varies by state, so confirm the destination state's rules before planning any move.</p>",
+                "<p>Legal status varies by state. The 2025 federal injurious-wildlife listing does not generally ban transport between states within the continental United States, but each origin and destination state can impose its own possession, sale, and import restrictions. Confirm both states' current rules before planning a move or purchase.</p>",
+            ),
+        ],
+        "legal/new-mexico": [
+            (
+                "<tr><td>Federal permit proof</td><td>Confirms Lacey Act compliance</td></tr>",
+                "<tr><td>Applicable federal documentation</td><td>Confirms any federal requirements that apply to the route or specimen</td></tr>",
+            ),
+            (
+                "<p><strong>The New Mexico importation permit application requires a containment plan, a veterinary health certificate, proof of federal permits, documentation that the animal is disease-free, and proof of county or municipal authorization.</strong> The containment plan shows how the animal will be housed so it cannot escape, because the state's goal is keeping non-native species out of the environment.</p>",
+                "<p><strong>The New Mexico importation process requires a containment plan, health documentation, city or county approval, and proof that any necessary federal permits have been obtained.</strong> The containment plan shows how the animal will be housed so it cannot escape, because the state's goal is keeping non-native species out of the environment.</p>",
+            ),
+            (
+                "<p>Because federal law now restricts interstate shipping (below), the practical source of new axolotls in New Mexico is breeders already located in the state. An in-state purchase avoids both the state importation permit and the federal shipping restriction.</p>",
+                "<p>An in-state purchase avoids New Mexico's importation-permit process. The 2025 federal injurious-wildlife listing does not generally prohibit transport between states within the continental United States, so an out-of-state purchase still turns on New Mexico's import rules rather than a blanket federal interstate ban.</p>",
+            ),
+            (
+                "<p><strong>Yes, federal law prohibits shipping axolotls into New Mexico, because the genus Ambystoma became injurious wildlife under the Lacey Act on January 25, 2025.</strong> The U.S. Fish and Wildlife Service final rule (90 FR 1898) prohibits importing axolotls into the United States and shipping them across state lines except under a federal permit for scientific, educational, medical, or zoological purposes.</p>",
+                "<p><strong>Yes, but the 2025 federal injurious-wildlife listing does not generally ban transport between states within the continental United States.</strong> It restricts import into the United States and transport between the continental United States and certain other U.S. jurisdictions. For a shipment from another continental U.S. state into New Mexico, the state importation rules remain the key permit requirement.</p>",
+            ),
+            (
+                "<p>The federal rule overlaps with the state importation permit. A New Mexico importer satisfies both: a state permit for importation and federal authorization for the interstate shipment.</p>",
+                "<p>International imports and movements involving Hawaii, the District of Columbia, Puerto Rico, or U.S. territories can trigger separate federal restrictions, so confirm the route with the relevant authorities before arranging transport.</p>",
+            ),
+            (
+                "<p>No, shipping an axolotl into New Mexico without an importation permit violates state law, and the interstate shipment itself now violates the federal injurious-wildlife rule. Buy from an in-state breeder instead.</p>",
+                "<p>You may arrange an out-of-state purchase only if you satisfy New Mexico's current importation requirements. The 2025 federal injurious-wildlife listing does not itself ban transport between continental U.S. states, but international or other enumerated-jurisdiction movements can be federally restricted.</p>",
+            ),
+            (
+                "<p>The application requires a containment plan, a veterinary health certificate, proof of federal permits, disease-free documentation, and proof of county or municipal authorization. Each document goes into the application before the Department of Game and Fish reviews it.</p>",
+                "<p>The application can require a containment plan, veterinary or disease documentation, and any federal or local approvals that apply. Confirm the current checklist with the New Mexico Department of Game and Fish before filing.</p>",
+            ),
+            (
+                "<p>Yes, buying from a breeder already located in New Mexico avoids the importation permit and the federal shipping ban. In-state sources supply axolotls without either approval requirement.</p>",
+                "<p>Yes. Buying from an in-state breeder avoids New Mexico's importation-permit process. If buying out of state, confirm the current state permit requirements before shipment.</p>",
+            ),
+        ],
+        "legal/virginia": [
+            (
+                "<p>The federal interstate rule does not block in-state sales. Breeding and selling within Virginia stays under state control, while shipping animals across state lines falls under the federal injurious-wildlife rule.</p>",
+                "<p>The federal injurious-wildlife listing does not generally prohibit transport between states within the continental United States. Virginia's state rules therefore remain central for in-state possession and sale, while international imports and movements involving other enumerated U.S. jurisdictions can trigger federal restrictions.</p>",
+            ),
+            (
+                "<p><strong>Yes, federal law now limits how axolotls reach Virginia, because the genus Ambystoma became injurious wildlife under the Lacey Act on January 25, 2025.</strong> The U.S. Fish and Wildlife Service final rule (90 FR 1898) prohibits importing axolotls into the United States and shipping them across state lines except under a federal permit for scientific, educational, medical, or zoological purposes.</p>",
+                "<p><strong>Yes, but the federal rule does not generally prohibit transport between states within the continental United States.</strong> Since January 25, 2025, the genus <em>Ambystoma</em> has been listed as injurious wildlife under the Lacey Act. The rule restricts import into the United States and transport between the continental United States and certain other U.S. jurisdictions.</p>",
+            ),
+            (
+                "<p>The practical effect for Virginia buyers is simple: buy from a breeder or store already located in Virginia. An out-of-state shipment violates the federal rule even though Virginia's state law permits importation.</p>",
+                "<p>For a shipment from another continental U.S. state into Virginia, federal injurious-wildlife law does not create a blanket interstate ban. Virginia's own rules and any applicable origin-state requirements still need to be checked before transport.</p>",
+            ),
+            (
+                "<p>State law allows it, but the January 25, 2025 federal injurious-wildlife rule prohibits shipping axolotls across state lines without a federal permit. Buy in-state instead.</p>",
+                "<p>Virginia state law allows axolotls, and the 2025 federal injurious-wildlife listing does not generally prohibit transport between states within the continental United States. Check the origin state's rules, Virginia's current rules, and the route before arranging shipment.</p>",
+            ),
+            (
+                "<p>No, a hobbyist keeping an axolotl inside Virginia needs no federal permit, because the Lacey Act restriction targets interstate transport and import, not in-state possession. Federal permits apply to importers and shippers moving animals across state lines.</p>",
+                "<p>No federal injurious-wildlife permit is required merely to possess an axolotl in Virginia, and such a permit is not generally required for transport between continental U.S. states. Federal restrictions still apply to international import and movements between the continental United States and certain other U.S. jurisdictions.</p>",
+            ),
+            (
+                "<p>Buy from a breeder or pet store already located in Virginia, because in-state sales are legal and an out-of-state shipment violates the federal rule. Ask the seller to confirm the animal was bred in-state.</p>",
+                "<p>You can buy from an in-state seller or potentially from an out-of-state seller if the shipment complies with the laws of the origin and destination states. The 2025 federal listing does not itself create a blanket ban on transport between continental U.S. states.</p>",
+            ),
+        ],
+    }
+    for old, new in legal_replacements.get(a.get("slug"), []):
+        if old not in body:
+            print(f"  !! legal correction phrase not found in {a['slug']}: {old[:80]!r}")
+            continue
+        body = body.replace(old, new, 1)
+
     # The source DOCX contains several repeated links to the same cycling page.
     # Keep the strongest contextual edge and remove the duplicate anchors /
     # editorial bridge paragraph at render time so the source file can stay external.
@@ -1132,13 +1243,32 @@ FAQ_OVERRIDES = {
         ("Can axolotls overeat?", "Axolotls can overeat, and doing so regularly leads to obesity and a higher risk of constipation, since their feeding response doesn't reliably signal fullness the way it does in many other animals."),
         ("What does it mean if my axolotl is floating after eating?", "Floating shortly after eating usually means the axolotl swallowed air during a surface feeding and will resolve within hours; floating that continues past a day, especially with a swollen belly, points toward impaction instead."),
     ],
+    "legal/new-jersey": [
+        ("Can I buy an axolotl from a pet store in New Jersey?", "No, selling axolotls is prohibited in New Jersey, so pet stores and breeders in the state do not sell them. The official restricted-species list bars the sale of axolotls for any reason."),
+        ("Can I have an axolotl shipped to New Jersey from another state?", "No, not as an ordinary pet shipment if New Jersey's restricted-species rules prohibit the import or possession. The 2025 federal injurious-wildlife listing does not itself ban transport between continental U.S. states, so the controlling issue here is New Jersey law."),
+        ("Are axolotls legal in states near New Jersey?", "Legal status varies by state. The 2025 federal injurious-wildlife listing does not generally ban transport between states within the continental United States, but each origin and destination state can impose its own possession, sale, and import restrictions. Confirm both states' current rules before planning a move or purchase."),
+        ("Is the New Jersey ban new?", "No, New Jersey has long restricted larval salamanders, and the current rules trace to the exotic-wildlife regulations at N.J.A.C. 7:25-4. The possession statute N.J.S.A. 23:4-63.3 continues to require an NJDEP permit for exotic animals. This page is a plain-English summary and not legal advice. Contact the New Jersey Division of Fish and Wildlife to confirm current law before taking any action."),
+    ],
+    "legal/new-mexico": [
+        ("Can I buy an axolotl online and have it shipped to New Mexico?", "You may arrange an out-of-state purchase only if you satisfy New Mexico's current importation requirements. The 2025 federal injurious-wildlife listing does not itself ban transport between continental U.S. states, but international or other enumerated-jurisdiction movements can be federally restricted."),
+        ("What documents do I need for the permit?", "The application can require a containment plan, veterinary or disease documentation, and any federal or local approvals that apply. Confirm the current checklist with the New Mexico Department of Game and Fish before filing."),
+        ("Where do I apply for the importation permit?", "Apply through the New Mexico Department of Game and Fish, which issues importation permits under 19.35.7 NMAC. Contact the department directly for the current application forms and fee schedule."),
+        ("Are there alternatives to importing an axolotl?", "Yes. Buying from an in-state breeder avoids New Mexico's importation-permit process. If buying out of state, confirm the current state permit requirements before shipment. This page is a plain-English summary and not legal advice. Confirm current requirements with the New Mexico Department of Game and Fish before importing any animal."),
+    ],
+    "legal/virginia": [
+        ("Can I have an axolotl shipped to Virginia from another state?", "Virginia state law allows axolotls, and the 2025 federal injurious-wildlife listing does not generally prohibit transport between states within the continental United States. Check the origin state's rules, Virginia's current rules, and the route before arranging shipment."),
+        ("Are axolotls legal in all of Virginia?", "Yes, the state regulations apply uniformly across Virginia, so possession is legal in every county and city unless a local ordinance says otherwise. Confirm local codes before purchase."),
+        ("Is it legal to take an axolotl from the wild in Virginia?", "No, and it is irrelevant, because no wild axolotl population exists in Virginia, and releasing the species into the wild is illegal. Captive-bred animals are the only legal source."),
+        ("Do I need a federal permit to keep an axolotl in Virginia?", "No federal injurious-wildlife permit is required merely to possess an axolotl in Virginia, and such a permit is not generally required for transport between continental U.S. states. Federal restrictions still apply to international import and movements between the continental United States and certain other U.S. jurisdictions."),
+        ("Where can I buy an axolotl in Virginia?", "You can buy from an in-state seller or potentially from an out-of-state seller if the shipment complies with the laws of the origin and destination states. The 2025 federal listing does not itself create a blanket ban on transport between continental U.S. states. This page is a plain-English summary and not legal advice. Confirm current rules with the Virginia Department of Wildlife Resources before acting."),
+    ],
 }
 
 
 def faq_items_for_article(a):
-    if a.get("faq"):
-        return a["faq"]
-    return FAQ_OVERRIDES.get(a["slug"], [])
+    if a["slug"] in FAQ_OVERRIDES:
+        return FAQ_OVERRIDES[a["slug"]]
+    return a.get("faq", [])
 
 
 def article_schema(a, url):
