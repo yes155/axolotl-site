@@ -97,11 +97,11 @@ HUBS = {
         "cat": "Diet",
     },
     "health": {
-        "title": "Axolotl Health & Illness: Recognizing and Treating Problems",
-        "title_tag": "Axolotl Health Problems: Symptoms & Treatment",
-        "meta": "Recognize the signs of a sick axolotl and learn how to treat the most common health problems - fungus, parasites, malnutrition, and more.",
+        "title": "Axolotl Health: Symptoms, First Checks & When to See a Vet",
+        "title_tag": "Axolotl Health: Symptoms, First Checks & Vet Warning Signs",
+        "meta": "Learn how to observe axolotl health signs, check water and temperature first, and recognize problems that need an exotics-experienced veterinarian.",
         "h1": "Axolotl Health & Illness Guide",
-        "intro": "Recognizing, preventing, and treating physical problems in a live axolotl. Most axolotl illnesses trace back to water quality, diet, or husbandry - and this is where you learn to spot them early.",
+        "intro": "Use these guides to observe symptoms, check water quality and temperature first, and understand when an axolotl needs prompt veterinary care. A single sign cannot diagnose a disease, and medication or intensive supportive care should be guided by an exotics-experienced veterinarian.",
         "keywords": ["axolotl health", "sick axolotl", "axolotl fungus", "axolotl parasites"],
         "cat": "Health",
     },
@@ -292,6 +292,9 @@ ARTICLES = {
         "hub": "health",
         "featured": True,
         "title_override": "Axolotl Not Eating? Causes & When to Worry",
+        "title_tag": "Axolotl Not Eating? First Checks & Vet Warning Signs",
+        "meta_override": "Learn what to check when an axolotl stops eating, which warning signs need prompt veterinary care, and which risky home treatments to avoid.",
+        "date_modified": "2026-08-27",
     },
     "21 - The Risks of Feeding Feeder Fish to Axolotls.docx": {
         "slug": "diet/feeder-fish-risks",
@@ -365,7 +368,10 @@ ARTICLES = {
     "34 - When and how to fridge axolotl.docx": {
         "slug": "health/fridging-sick-axolotl",
         "hub": "health",
-        "title_override": "When and How to Fridge a Sick Axolotl",
+        "title_override": "Fridging an Axolotl: Risks & Veterinary Guidance",
+        "title_tag": "Fridging an Axolotl: Risks & When a Vet May Use It",
+        "meta_override": "Understand why fridging is not routine home treatment, what risks household refrigerators create, and what to ask if an amphibian vet recommends it.",
+        "date_modified": "2026-08-27",
     },
     "35 - axolotl salt bath.docx": {
         "slug": "health/salt-bath",
@@ -777,7 +783,9 @@ ARTICLES = {
         "slug": "health/finding-an-exotic-vet",
         "hub": "health",
         "title_override": "Finding an Exotic Vet for Axolotls",
-        "title_tag": "How to Find an Axolotl Vet: What to Look For & How Much It Costs",
+        "title_tag": "How to Find an Axolotl Vet: Search & Screening Guide",
+        "meta_override": "Find and screen a veterinarian with amphibian experience, prepare useful records, and understand emergency, teletriage, and cost questions.",
+        "date_modified": "2026-08-27",
     },
     "104 - Axolotl Stress Signs.docx": {
         "slug": "health/stress-signs",
@@ -894,7 +902,8 @@ LINKING = {
     "health/fungal-infections-saprolegnia": ["health/black-tea-bath", "health/salt-bath", "health/fridging-sick-axolotl",
                                              "biology-and-science/anatomy-gills-and-lungs"],
     "health/black-tea-bath": ["health/fungal-infections-saprolegnia", "health/fridging-sick-axolotl"],
-    "health/fridging-sick-axolotl": ["health/black-tea-bath", "health/fungal-infections-saprolegnia"],
+    "health/fridging-sick-axolotl": ["health/emergency-first-aid", "health/finding-an-exotic-vet",
+                                      "health/impaction-symptoms-treatment", "tank-setup/temperature"],
     "health/salt-bath": ["health/fungal-infections-saprolegnia", "health/black-tea-bath"],
     "health/why-axolotl-floating": ["health/refusing-to-eat", "tank-setup/water-parameters-cycling"],
     "health/curled-gills-stress-signal": ["health/shrinking-gills", "health/ammonia-burns",
@@ -1116,11 +1125,138 @@ INTRO_OVERRIDES = {
         "An owner-facing guide to axolotl limb regeneration: what to expect, how to protect a "
         "healing limb, and when to worry. For the underlying biology, see the science page."
     ),
+    "health/emergency-first-aid": (
+        "Use this page to assess urgency and take safe first steps while arranging veterinary "
+        "help. It cannot identify a disease from one sign and does not replace an "
+        "exotics-experienced veterinarian."
+    ),
+    "health/finding-an-exotic-vet": (
+        "Use this guide to locate and screen a veterinarian with amphibian experience, prepare "
+        "for the visit, and understand that availability and costs vary by clinic and location."
+    ),
+    "health/fridging-sick-axolotl": (
+        "Fridging is not routine home treatment. This page explains the risks and the questions "
+        "to ask if an exotics-experienced veterinarian specifically recommends controlled "
+        "refrigeration for an individual axolotl."
+    ),
+    "health/refusing-to-eat": (
+        "Unexpected appetite loss is an observation, not a diagnosis. Check water parameters, "
+        "temperature, recent feeding, stool, body condition, and other signs first; seek "
+        "veterinary care promptly for severe, worsening, or persistent changes."
+    ),
 }
 
-# Role callouts inserted directly under an article's intro. These state the
-# page's semantic job (and where the neighbouring page lives) so intent split
-# is visible to both readers and engines without new prose in the docx.
+# Full render-time replacements for Health pages whose external DOCX source is
+# either overly prescriptive or too absolute for safe owner-facing guidance.
+# The source files remain the editorial record; these bodies define the public
+# semantic role until the external source is revised.
+BODY_OVERRIDES = {
+    "health/finding-an-exotic-vet": """
+<p>An axolotl may need a veterinarian who is comfortable with aquatic amphibians. The goal is not to find a clinic with a particular label; it is to confirm that a named veterinarian can assess an axolotl, interpret husbandry records, and arrange appropriate diagnostics or referral.</p>
+<h2>Where to Look for an Axolotl Veterinarian</h2>
+<p>Start with the <a href="https://arav.org/find-a-vet/">Association of Reptile and Amphibian Veterinarians Find a Vet directory</a>. You can also call veterinary teaching hospitals, zoo or wildlife medicine services, and local exotic-animal clinics. A directory listing is a starting point, not proof that a clinic currently sees axolotls, so confirm by phone.</p>
+<p>If the nearest suitable clinic is far away, ask a local veterinarian whether they can consult with or refer to an amphibian-experienced colleague. Some clinics may offer teletriage or remote follow-up where local rules permit it, but an examination or diagnostics may still need to happen in person.</p>
+<h2>Questions to Ask Before Booking</h2>
+<p>Ask the receptionist to check with the veterinarian rather than relying on the clinic name alone:</p>
+<ul>
+<li>Does a named veterinarian currently examine axolotls or other aquatic salamanders?</li>
+<li>Can the clinic evaluate water-quality records and collect appropriate samples if needed?</li>
+<li>What should you bring, and how should the axolotl be transported?</li>
+<li>Does the clinic handle urgent cases, or where does it refer after hours?</li>
+<li>Can it provide a written estimate for the exam and likely diagnostics?</li>
+</ul>
+<p>A clinic that does not see axolotls may still be able to direct you to one that does. Establishing that contact before an emergency makes escalation faster.</p>
+<h2>What to Prepare for the Appointment</h2>
+<p>Bring a short timeline of the problem and objective husbandry records. Useful information includes current and recent ammonia, nitrite, nitrate, pH, and water-temperature readings; tank volume; filtration and cycling history; water-change routine; substrate; tank mates; diet; last meal; last observed stool; recent additions or treatments; and clear photos or video of the change.</p>
+<p>Ask the clinic how to transport the animal. Avoid unnecessary handling, sudden temperature changes, and improvised medications or baths before the appointment unless the treating veterinarian gives specific instructions.</p>
+<h2>Costs and Remote Advice</h2>
+<p>Exam, emergency, diagnostic, imaging, and medication costs vary by clinic and location. Ask what the initial exam includes, whether an emergency surcharge applies, and when the clinic can provide an estimate. A price quoted by another owner or an old article is not a reliable budget for an individual case.</p>
+<p>Remote contact can help a clinic judge urgency or prepare for arrival, but photos and water readings cannot replace every physical examination or diagnostic test. The veterinarian should decide what is sufficient for the case and what local professional rules allow.</p>
+<h2>When to Call Promptly</h2>
+<p>Use the <a href="/health/emergency-first-aid/">emergency first-aid guide</a> when signs are sudden, severe, or worsening. Breathing difficulty, inability to remain upright, uncontrolled bleeding, major injury, marked swelling, rapid deterioration, or extensive skin damage warrant urgent contact. Persistent appetite loss, weight loss, abnormal buoyancy, skin or gill changes, and recurrent problems also deserve veterinary assessment even when water and temperature have been corrected.</p>
+<p>A symptom is not a diagnosis. Record what you can observe and let the veterinarian determine whether the cause is environmental, infectious, traumatic, nutritional, obstructive, or something else.</p>
+<section class="faq"><h2>Frequently Asked Questions</h2></section>
+<div class="references-box"><h2>Sources and Scope</h2><ul>
+<li><a href="https://arav.org/find-a-vet/">Association of Reptile and Amphibian Veterinarians: Find a Vet</a></li>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/clinical-techniques-in-amphibians">Merck Veterinary Manual: Clinical Techniques in Amphibians</a></li>
+</ul><p>This guide helps owners locate care and prepare records. It does not diagnose a condition or replace a veterinarian.</p></div>
+""",
+    "health/fridging-sick-axolotl": """
+<p>Fridging means keeping an axolotl in deliberately colder water under a controlled care plan. It is not a routine home treatment for appetite loss, floating, bloating, constipation, fungus, heat stress, or an axolotl that simply appears unwell.</p>
+<h2>What Controlled Cooling Can and Cannot Do</h2>
+<p>Axolotls are ectotherms, so water temperature affects their metabolism. That fact explains why a veterinarian may sometimes consider controlled cooling as supportive care. It does not show that cooling will remove a swallowed object, identify an infection, cure a skin lesion, or correct the cause of abnormal buoyancy.</p>
+<p>Several unrelated problems can produce the same visible signs. Bloating, reduced stool, floating, and appetite loss can raise concern, but they do not confirm impaction or tell an owner to use a refrigerator. A veterinarian needs the animal's history, examination findings, and sometimes imaging or laboratory testing to judge the cause and the safest response.</p>
+<h2>Why a Household Refrigerator Is Risky</h2>
+<p>Household refrigerators are designed for food, not aquatic patients. Water can cool differently from the appliance display, and shelves may have cold spots, cycling swings, vibration, darkness, and limited space for safe observation. An unsuitable temperature, transition, duration, or water-change plan can add stress, worsen water quality, or delay needed care.</p>
+<p>Freezing is never safe. Do not use ice, a freezer, or an improvised rapid-cooling method. Do not copy a generic temperature or number of days from a forum, social post, or timetable: there is no universal protocol that is safe for every cause, age, body condition, or refrigerator.</p>
+<h2>What to Do Before Considering Fridging</h2>
+<ol>
+<li>Check measured water parameters and temperature; do not infer them from how the tank looks.</li>
+<li>Record appetite, stool, belly shape, buoyancy, posture, breathing, skin and gill changes, injuries, and recent tank changes.</li>
+<li>Correct a measured husbandry problem with the established <a href="/tank-setup/water-parameters-cycling/">water-quality</a> or <a href="/tank-setup/temperature/">temperature</a> guide.</li>
+<li>Use the <a href="/health/emergency-first-aid/">emergency guide</a> for severe or rapidly worsening signs and contact an <a href="/health/finding-an-exotic-vet/">amphibian-experienced veterinarian</a>.</li>
+</ol>
+<p>A properly maintained hospital tub may sometimes provide temporary isolation, but tubbing and fridging are not interchangeable. The need for either depends on the animal, the water, the suspected cause, and the ability to maintain safe conditions.</p>
+<h2>If a Veterinarian Recommends Controlled Cooling</h2>
+<p>Ask for an individual written plan before starting. It should state:</p>
+<ul>
+<li>the purpose of cooling and what other treatment or testing is planned;</li>
+<li>the exact measured water-temperature range and how quickly to transition;</li>
+<li>the container, water preparation, water-change, and monitoring requirements;</li>
+<li>whether food should be offered and how body condition will be tracked;</li>
+<li>the review time, expected response, stop criteria, and emergency contact;</li>
+<li>how to return the axolotl to normal housing without a sudden temperature change.</li>
+</ul>
+<p>If the plan is unclear, call the treating clinic rather than substituting an online protocol. A veterinarian's recommendation for one axolotl does not become a general rule for another.</p>
+<h2>Monitoring and Escalation</h2>
+<p>Follow the veterinarian's monitoring schedule and record measured water temperature, water changes, waste, posture, buoyancy, breathing, skin and gill appearance, and any treatment given. Contact the clinic if the measurements leave the prescribed range, the animal deteriorates, new signs appear, or the equipment cannot maintain the plan.</p>
+<p>Do not extend controlled cooling because a generic timetable has not expired. The treating veterinarian should decide when to review, change, or stop the plan and how to transition the animal back to its normal environment.</p>
+<section class="faq"><h2>Frequently Asked Questions</h2></section>
+<div class="references-box"><h2>Sources and Scope</h2><ul>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5487785/">A retrospective study of diseases in <em>Ambystoma mexicanum</em></a></li>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/environment-and-husbandry-for-amphibians">Merck Veterinary Manual: Environment and Husbandry for Amphibians</a></li>
+</ul><p>These sources support careful temperature and husbandry management. They do not provide a universal household-refrigerator prescription; this page therefore limits fridging to an individual veterinary plan.</p></div>
+""",
+    "health/refusing-to-eat": """
+<p>An axolotl not eating is an observation, not a diagnosis. One missed meal can occur without illness, especially in an adult, but an unusual or continuing change deserves measured water and temperature checks plus attention to body condition and other signs.</p>
+<h2>Check for Urgent Warning Signs First</h2>
+<p>Contact an amphibian-experienced veterinarian promptly when appetite loss appears with breathing difficulty, inability to remain upright or submerge, a firm or worsening swelling, major injury, uncontrolled bleeding, extensive skin damage, marked lethargy, rapid weight loss, or other rapid deterioration. Use the <a href="/health/emergency-first-aid/">emergency first-aid guide</a> while arranging help.</p>
+<p>Duration matters, but it cannot set the same emergency threshold for every axolotl. Age, normal feeding schedule, body condition, temperature, and accompanying signs all change the level of concern. Juveniles normally feed more frequently than adults, so an unusual feeding change in a juvenile deserves quicker attention.</p>
+<h2>What to Record and Check First</h2>
+<ol>
+<li><strong>Water:</strong> record ammonia, nitrite, nitrate, and pH from a reliable test. Check the tank, source water, and recent cycling or filter changes.</li>
+<li><strong>Temperature:</strong> use a water thermometer and note recent peaks or swings, not only the reading at one moment.</li>
+<li><strong>Feeding:</strong> record the last accepted meal, normal schedule, food type, portion size, freshness, and whether the axolotl refuses every food or only one item.</li>
+<li><strong>Waste and exposure:</strong> note the last observed stool and any access to gravel, coarse substrate, tank-mate food, or loose objects.</li>
+<li><strong>Other signs:</strong> record body condition, belly shape, buoyancy, posture, breathing, activity, injuries, and skin or gill changes. Photos and short videos can help a veterinarian compare changes over time.</li>
+</ol>
+<p>Normal results do not rule out illness, and one abnormal result does not prove it is the only cause. Similar signs may come from husbandry stress, food presentation, swallowed material, injury, infection, parasites, or other disease.</p>
+<h2>Common Contexts to Consider</h2>
+<ul>
+<li><strong>Measured husbandry changes:</strong> unsafe water chemistry, excessive heat, strong flow, recent cycling disruption, or abrupt environmental change can reduce feeding.</li>
+<li><strong>Food presentation:</strong> stale, oversized, tough, or unfamiliar food may be refused even when another appropriate staple is accepted.</li>
+<li><strong>Stress or competition:</strong> recent transport, repeated handling, bright exposure, or a tank mate may change feeding behavior.</li>
+<li><strong>Digestive or substrate concern:</strong> appetite loss with abnormal swelling, reduced stool, or buoyancy changes needs assessment; those signs do not confirm impaction by themselves.</li>
+<li><strong>Illness, injury, or recovery:</strong> infection, parasites, mouth injury, systemic illness, or recent treatment may affect appetite and often require veterinary evaluation.</li>
+</ul>
+<p>This list is not ranked and cannot identify the cause from symptoms alone.</p>
+<h2>Safe Steps While You Observe</h2>
+<p>Correct a measured water or temperature problem using the <a href="/tank-setup/water-parameters-cycling/">water-quality guide</a> and <a href="/tank-setup/temperature/">temperature guide</a>. Keep conditions stable, reduce unnecessary handling, remove uneaten food, and offer a fresh, familiar staple in an appropriate size at the normal feeding time. Do not repeatedly change foods in one session.</p>
+<p>Do not force-feed, raise the water temperature to speed digestion, start medication, give a bath, or fridge the axolotl based only on appetite loss or bloating. Those actions can add stress, obscure the clinical picture, or delay the care needed for the actual cause.</p>
+<h2>When to Contact a Veterinarian</h2>
+<p>Seek immediate help for the urgent warning signs above. For a stable axolotl, contact an <a href="/health/finding-an-exotic-vet/">exotics-experienced veterinarian</a> when refusal persists beyond the animal's normal pattern, recurs, is accompanied by weight or body-condition loss, or continues after a measured husbandry problem has been corrected.</p>
+<p>Provide the clinic with the recorded water values, temperature history, feeding and stool timeline, photos, tank details, substrate exposure, and any products already used. That evidence is more useful than assigning a diagnosis at home.</p>
+<h2>Planned Fasting Is a Different Question</h2>
+<p>If food was deliberately withheld for travel or a planned absence and the axolotl otherwise appears normal, use the <a href="/diet/fasting-and-vacation/">planned fasting and vacation guide</a>. This page covers an unexpected change in appetite, not routine adult feeding intervals.</p>
+<section class="faq"><h2>Frequently Asked Questions</h2></section>
+<div class="references-box"><h2>Sources and Scope</h2><ul>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/environment-and-husbandry-for-amphibians">Merck Veterinary Manual: Environment and Husbandry for Amphibians</a></li>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/clinical-techniques-in-amphibians">Merck Veterinary Manual: Clinical Techniques in Amphibians</a></li>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5487785/">A retrospective study of diseases in <em>Ambystoma mexicanum</em></a></li>
+</ul><p>This guide supports observation and escalation. It does not diagnose the cause of appetite loss or prescribe treatment.</p></div>
+""",
+}
+
 ROLE_CALLOUTS = {
     "diet/best-foods-list": (
         '<div class="role-note"><strong>Use this as the food-choice overview.</strong> '
@@ -1144,10 +1280,11 @@ ROLE_CALLOUTS = {
         "duration reference. This page covers the normal lifecycle feeding schedule.</div>"
     ),
     "health/refusing-to-eat": (
-        '<div class="role-note"><strong>Refusing food vs planned fasting.</strong> If you '
+        '<div class="role-note"><strong>Unexpected appetite loss, not a diagnosis.</strong> If you '
         "deliberately let your axolotl fast, see the "
         '<a href="/diet/fasting-and-vacation/">planned fasting guide</a>. If eating has stopped '
-        "unexpectedly, you are in the right place for the medical diagnosis.</div>"
+        "unexpectedly, use this page for observations and safe first checks. Severe, worsening, "
+        "or persistent changes need an <a href=\"/health/finding-an-exotic-vet/\">exotics-experienced veterinarian</a>.</div>"
     ),
     "tank-setup/temperature": (
         '<div class="role-note"><strong>Managing heat.</strong> This is the husbandry guide for '
@@ -1272,9 +1409,22 @@ ROLE_CALLOUTS = {
         '<a href="/breeding/egg-and-larvae-care/">egg and early-larval care</a>.</div>'
     ),
     "health/emergency-first-aid": (
-        '<div class="role-note"><strong>Urgent?</strong> If the axolotl needs a vet now, find '
-        'one: <a href="/health/finding-an-exotic-vet/">exotic vet guide</a>. Everything below '
-        "stabilises the animal while you get help.</div>"
+        '<div class="role-note"><strong>Urgency guide, not a diagnosis.</strong> Use the page for '
+        "safe first checks and red-flag routing. If the axolotl needs a vet now, use the "
+        '<a href="/health/finding-an-exotic-vet/">exotic-vet guide</a>. Do not start medication, '
+        "baths, or intensive cooling from one observed sign.</div>"
+    ),
+    "health/finding-an-exotic-vet": (
+        '<div class="role-note"><strong>This page owns the care-escalation step.</strong> It helps '
+        "you find and screen an amphibian-experienced veterinarian. For deciding how urgent the "
+        'current signs are, start with the <a href="/health/emergency-first-aid/">emergency guide</a>.</div>'
+    ),
+    "health/fridging-sick-axolotl": (
+        '<div class="role-note"><strong>Veterinarian-directed supportive care only.</strong> '
+        "A household refrigerator is not a general treatment for floating, constipation, fungus, "
+        "or appetite loss. Use the <a href=\"/health/emergency-first-aid/\">emergency guide</a> "
+        "for safe first checks and the <a href=\"/health/finding-an-exotic-vet/\">vet guide</a> "
+        "before considering fridging.</div>"
     ),
 }
 
@@ -1448,6 +1598,7 @@ CONFIG_ARTICLES = {
         "meta": "The emergency triage guide for axolotls: which signs are urgent, what to do first, what NOT to do, and when to see a vet now.",
         "intro": "The triage guide for axolotl emergencies: how to tell urgent from not-urgent, what to do in the first minutes, what NOT to do, and when to call an exotic vet immediately.",
         "num": 211,
+        "date_modified": "2026-08-27",
         "headings": [
             "Is It an Emergency? Use This Severity Ladder",
             "First Steps for Any Stressed or Sick Axolotl",
@@ -1462,16 +1613,16 @@ CONFIG_ARTICLES = {
 <p>The severity ladder has three tiers.</p>
 <ul>
 <li><strong>Urgent (act now):</strong> heavy labored breathing at the surface, visible bleeding or a torn wound, a belly that is hard and bloated, uncontrollable floating, reddening or peeling skin, or a total refusal to eat with these signs. Do a quick water test and get help.</li>
-<li><strong>Watch closely (same day):</strong> curled gills, constant hiding, clamped or receding gills, floating that comes and goes, reduced appetite &mdash; test water first; many are a water-quality problem.</li>
-<li><strong>Monitor (no panic):</strong> low activity for a short period, a single bad smell in the tank, or a small nip &mdash; fix water and watch.</li>
+<li><strong>Watch closely (same day):</strong> curled gills, constant hiding, clamped or receding gills, floating that comes and goes, or reduced appetite &mdash; test water and temperature, record the signs, and escalate if they persist or worsen.</li>
+<li><strong>Monitor:</strong> a brief change in activity without other warning signs &mdash; verify husbandry, reduce disturbance, and keep records rather than assuming a diagnosis.</li>
 </ul>
 <h2>First Steps for Any Stressed or Sick Axolotl</h2>
 <p>Four first steps apply to any sick or stressed axolotl.</p>
 <ol>
-<li>Test ammonia and nitrite immediately &mdash; water chemistry is behind most emergencies; see <a href="/tank-setup/water-parameters-cycling/">managing ammonia and nitrate spikes</a>.</li>
-<li>Do a partial water change and confirm the temperature is in the safe range (60&ndash;68&deg;F) &mdash; follow the <a href="/tank-setup/water-change-guide/">water-change guide</a>.</li>
-<li>Stop feeding until the situation is understood &mdash; an impacted or stressed axolotl needs a rest, not food.</li>
-<li>Move nothing yet; observe for 30&ndash;60 minutes before isolating.</li>
+<li>Test ammonia, nitrite, nitrate, and pH, and record the measured water temperature. Water and temperature problems are important possibilities, but they are not the only causes; see the <a href="/tank-setup/water-parameters-cycling/">water-quality guide</a>.</li>
+<li>If a measured value is unsafe, follow the <a href="/tank-setup/water-change-guide/">water-change guide</a> and <a href="/tank-setup/temperature/">temperature guide</a> without creating a sudden temperature or chemistry swing.</li>
+<li>Do not force-feed or start medication while the cause is unclear. Record the last meal, stool, behavior, and any recent tank changes for the veterinarian.</li>
+<li>Avoid unnecessary handling. If the water is unsafe or a tank mate poses an immediate risk, move the axolotl gently to a prepared, temperature-matched tub.</li>
 </ol>
 <h2>Red Flags That Need a Vet Now</h2>
 <p>Six signs call for a vet now.</p>
@@ -1479,21 +1630,21 @@ CONFIG_ARTICLES = {
 <li>Heavy gasping at the surface combined with limp gills.</li>
 <li>Blood, an open wound, or skin sloughing.</li>
 <li>Extreme bloating with a rigid body.</li>
-<li>A hard, swollen belly that is clearly an impaction &mdash; <a href="/health/impaction-symptoms-treatment/">impaction symptoms and treatment</a>.</li>
+<li>A hard or rapidly enlarging swollen belly, which can have several causes &mdash; see the <a href="/health/impaction-symptoms-treatment/">impaction observation guide</a>.</li>
 <li>Reddening skin that spreads quickly &mdash; <a href="/health/red-leg-syndrome/">red leg syndrome</a>.</li>
-<li>A sudden, severe appetite loss lasting more than 72 hours &mdash; <a href="/health/refusing-to-eat/">refusing to eat</a>.</li>
+<li>Sudden appetite loss with bloating, abnormal floating, marked lethargy, injury, or rapid weight loss &mdash; <a href="/health/refusing-to-eat/">refusing to eat</a>.</li>
 </ul>
 <p>Find and call an <a href="/health/finding-an-exotic-vet/">exotic veterinarian</a> &mdash; call ahead so they are ready for you.</p>
 <h2>What NOT to Do in an Emergency</h2>
 <ul>
 <li>Do not shock the animal with a huge or ultra-cold water change.</li>
 <li>Do not dose "human" or unidentified medications.</li>
-<li>Do not do a tea bath or salt bath without a diagnosis &mdash; the <a href="/health/fungal-infections-saprolegnia/">fungus diagnosis guide</a> decides which, if any, treatment.</li>
+<li>Do not start a tea bath or salt bath from one observed sign. Use the <a href="/health/fungal-infections-saprolegnia/">fungus observation guide</a> and seek veterinary guidance for spreading growth, skin damage, or deterioration.</li>
 <li>Do not move the axolotl to completely different water without acclimation &mdash; see <a href="/tank-setup/acclimating-a-new-axolotl/">acclimating a new axolotl</a>.</li>
 <li>Do not raise temperature to "speed up" recovery &mdash; axolotls need cool water.</li>
 </ul>
 <h2>Emergency Care by Sickness</h2>
-<p>Once you have stabilised the water and identified the condition, follow the right deep guide:</p>
+<p>Once the water is stable, use the guide that matches the sign you can observe. These pages explain possibilities and escalation points; they do not confirm a diagnosis:</p>
 <ul>
 <li><strong>Ammonia burns or curled gills:</strong> <a href="/health/ammonia-burns/">ammonia burns</a> and <a href="/health/curled-gills-stress-signal/">curled gills</a>.</li>
 <li><strong>Severe fungus:</strong> <a href="/health/fungal-infections-saprolegnia/">fungal infections</a>.</li>
@@ -1502,7 +1653,7 @@ CONFIG_ARTICLES = {
 <li><strong>Bleeding or injury:</strong> <a href="/health/minor-scrapes-and-wounds/">minor scrapes and wounds</a>.</li>
 </ul>
 <h2>Aftercare and Prevention</h2>
-<p>Once stable, keep the animal quiet and isolated while it recovers &mdash; <a href="/health/quarantine-tub/">quarantine tub</a> &mdash; and keep ammonia and nitrite at zero. Most medical reminders are husbandry reminders: stable cool temperature, gentle filtration, and a routine/weekly change cycle prevent the overwhelming majority of emergencies.</p>
+<p>Once stable, reduce disturbance and continue monitoring. Use a <a href="/health/quarantine-tub/">quarantine tub</a> when isolation is needed and it can be maintained with temperature-matched, dechlorinated water. Stable cool temperature, gentle filtration, and consistent water care reduce many husbandry-related health risks, but persistent or worsening signs still need veterinary assessment.</p>
 """,
     },
 }

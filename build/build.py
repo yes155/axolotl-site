@@ -439,6 +439,18 @@ def build_articles():
     # Phase 10 semantic layer: standfirst overrides, role callouts, section
     # expansions (applied to all articles, docx- or config-sourced alike).
     for slug, a in articles.items():
+        body_ovr = config.BODY_OVERRIDES.get(slug)
+        if body_ovr:
+            a["body_html"] = body_ovr
+            a["headings"] = [
+                (
+                    int(level),
+                    html.unescape(re.sub(r"<[^>]+>", "", heading)).strip(),
+                )
+                for level, heading in re.findall(
+                    r"<h([234])[^>]*>(.*?)</h\1>", body_ovr, flags=re.S
+                )
+            ]
         intro_ovr = config.INTRO_OVERRIDES.get(slug)
         if intro_ovr:
             a["intro"] = intro_ovr
@@ -905,6 +917,31 @@ def process_article_body(a):
             continue
         body = body.replace(old, new, 1)
 
+    if a.get("slug") in {
+        "health/finding-an-exotic-vet",
+        "health/refusing-to-eat",
+        "health/fridging-sick-axolotl",
+    }:
+        faq_items = FAQ_OVERRIDES[a["slug"]]
+        faq_heading = re.search(
+            r'<section class="faq">\s*(<h2[^>]*>Frequently Asked Questions</h2>).*?</section>',
+            body,
+            flags=re.S,
+        )
+        if faq_heading:
+            faq_html = "".join(
+                '<details class="faq-item"><summary>' + esc(question) +
+                '</summary><div class="faq-answer"><p>' + esc(answer) +
+                '</p></div></details>'
+                for question, answer in faq_items
+            )
+            replacement = (
+                '<section class="faq">' + faq_heading.group(1) + faq_html + '</section>'
+            )
+            body = body[:faq_heading.start()] + replacement + body[faq_heading.end():]
+        else:
+            print(f"  !! visible FAQ section not found in {a['slug']}")
+
     if a.get("slug") == "axolotl-in-culture/axolotl-in-pop-culture-and-memes":
         body = body.replace(
             '<details class="faq-item"><summary>Why are axolotls suddenly everywhere?</summary><div class="faq-answer"><p>The 2021 Minecraft update introduced them to millions of players, and their uniquely cute appearance plus regeneration-science headlines did the rest. Cuteness created the demand and science kept the story going.</p></div></details>\n',
@@ -1131,6 +1168,28 @@ BREEDING_HUB_ORDER = {
     "breeding/raising-juveniles": 5,
 }
 
+HEALTH_HUB_ORDER = {
+    "health/emergency-first-aid": 0,
+    "health/stress-signs": 1,
+    "health/finding-an-exotic-vet": 2,
+    "health/refusing-to-eat": 3,
+    "health/why-axolotl-floating": 4,
+    "health/curled-gills-stress-signal": 5,
+    "health/ammonia-burns": 6,
+    "health/fungal-infections-saprolegnia": 7,
+    "health/impaction-symptoms-treatment": 8,
+    "health/red-leg-syndrome": 9,
+    "health/minor-scrapes-and-wounds": 10,
+    "health/parasite-treatment": 11,
+    "health/malnutrition-signs": 12,
+    "health/shrinking-gills": 13,
+    "health/limb-regeneration": 14,
+    "health/quarantine-tub": 15,
+    "health/black-tea-bath": 16,
+    "health/salt-bath": 17,
+    "health/fridging-sick-axolotl": 18,
+}
+
 
 def html_fragment_to_text(fragment):
     return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", fragment))).strip()
@@ -1271,6 +1330,30 @@ def static_page_schema(key, cfg, url):
 
 
 FAQ_OVERRIDES = {
+    "health/finding-an-exotic-vet": [
+        ("How do I find a veterinarian who sees axolotls?", "Start with the Association of Reptile and Amphibian Veterinarians directory, veterinary teaching hospitals, and local exotic-animal clinics. Call to confirm that a named veterinarian currently examines axolotls or aquatic salamanders."),
+        ("Can my regular veterinarian help?", "Some general-practice veterinarians may have relevant experience or be able to consult with and refer to an amphibian-experienced colleague. Ask the clinic to confirm its current capability rather than assuming from the clinic label."),
+        ("Can an online veterinarian diagnose my axolotl?", "A clinic may use teletriage or remote follow-up where local rules allow it, but photos and water readings cannot replace every examination or diagnostic test. The veterinarian should decide whether an in-person visit is needed."),
+        ("How much does an axolotl vet visit cost?", "Costs vary by clinic, location, urgency, and the diagnostics or treatment required. Ask what the initial exam includes, whether emergency fees apply, and when the clinic can provide a written estimate."),
+        ("What should I bring to the appointment?", "Bring measured water parameters and temperature history, tank and filtration details, a feeding and stool timeline, recent changes or products used, and clear photos or video. Follow the clinic's transport instructions."),
+    ],
+    "health/refusing-to-eat": [
+        ("Why is my axolotl floating and not eating?", "Floating with appetite loss can occur with poor water quality, temperature stress, swallowed material, constipation, infection, or other problems. Test water and temperature first, record belly shape and buoyancy, and seek prompt veterinary care if the axolotl cannot submerge, is swollen, is losing condition, or is worsening."),
+        ("How quickly should I act when a juvenile stops eating?", "A juvenile normally feeds more often than an adult, so an unusual missed-feeding pattern deserves prompt water, temperature, food-size, stool, and body-condition checks. There is no single hour count that diagnoses an emergency; severe signs, weight loss, or continued refusal need an exotics-experienced veterinarian."),
+        ("Why is my axolotl refusing worms or pellets?", "Check whether the food is fresh, appropriately sized, fully thawed when relevant, and familiar to the animal. If the axolotl is refusing all foods rather than one item, move back to water, temperature, stool, body condition, and other health observations."),
+        ("What signs make appetite loss urgent?", "Treat appetite loss as urgent when it appears with breathing difficulty, persistent abnormal floating, a firm or worsening swelling, injury, skin damage, marked lethargy, rapid weight loss, or other rapid deterioration. Contact an exotics-experienced veterinarian rather than waiting for a fixed number of days."),
+        ("Can stress stop an axolotl from eating?", "Stress can reduce feeding, but it should not be assumed from appetite loss alone. Check water chemistry, temperature, flow, lighting, tank mates, recent handling, and physical signs, then seek veterinary advice if the pattern persists or worsens."),
+        ("Why does my axolotl spit food out?", "Food may be too large, tough, stale, or unfamiliar, but repeated spitting can also accompany mouth injury, stress, or illness. Offer an appropriately sized familiar food without force-feeding and investigate further if the behavior continues."),
+        ("Can poor filtration reduce appetite?", "Poor filtration can allow ammonia or nitrite to rise, which can affect behavior and appetite. Confirm with a liquid water test rather than assuming filtration is the cause, then correct unsafe readings with the water-quality and cycling guides."),
+    ],
+    "health/fridging-sick-axolotl": [
+        ("How long can you fridge an axolotl?", "There is no universal safe duration. If an exotics-experienced veterinarian recommends controlled refrigeration, follow that veterinarian's temperature, monitoring, review, and stop criteria for the individual axolotl."),
+        ("Can axolotls go in a household refrigerator?", "A household refrigerator can have cold spots and temperature swings and should not be treated as routine medical equipment. Do not place an axolotl in one unless an exotics-experienced veterinarian has recommended it and supplied a specific plan."),
+        ("Why might a veterinarian consider controlled cooling?", "Cooling changes an ectothermic animal's metabolism and may sometimes be used as supportive care. It does not remove an obstruction, diagnose an infection, or cure floating, bloating, fungus, or appetite loss."),
+        ("Do bloating, floating, or not eating mean I should fridge my axolotl?", "No. Each sign has multiple possible causes, and none confirms that refrigeration is appropriate. Test water and temperature, record the full set of observations, and use the emergency and exotic-vet guides for escalation."),
+        ("Should I fridge my axolotl or put it in a hospital tub?", "A symptom alone cannot choose between normal housing, temporary tubbing, or veterinarian-directed cooling. Correct unsafe husbandry conditions first, use a properly maintained tub only when isolation is needed, and obtain veterinary advice for severe, worsening, or persistent signs."),
+        ("Is freezing an axolotl ever safe?", "No. Freezing damages tissue and is never a treatment. Controlled refrigeration is also not routine home care and should be used only under a veterinarian-directed plan."),
+    ],
     "diet/best-foods-list": [
         ("Can axolotls eat fish?", "Axolotls can eat small fish occasionally, but fish raised as feeder stock carry a meaningful disease and parasite risk, so most keepers limit fish to rare treats from a trusted source rather than a regular food."),
         ("Can axolotls eat shrimp?", "Axolotls can eat brine shrimp and mysis shrimp as a supplement, particularly at the hatchling stage, though shrimp alone don't supply enough mass to serve as a primary adult food."),
@@ -1654,6 +1737,11 @@ def render_hub(key, hub, articles, img_map):
             hub_articles,
             key=lambda a: (BREEDING_HUB_ORDER.get(a["slug"], 9999), a["num"]),
         )
+    elif key == "health":
+        guides = sorted(
+            hub_articles,
+            key=lambda a: (HEALTH_HUB_ORDER.get(a["slug"], 9999), a["num"]),
+        )
     else:
         guides = sorted(hub_articles, key=lambda a: a["num"])
     if not guides:
@@ -1704,6 +1792,28 @@ def render_hub(key, hub, articles, img_map):
             '<li>Only then use the <a href="/breeding/breeding-triggers-temperature-cycling/">breeding-triggers guide</a>.</li>'
             '<li>After spawning, move to <a href="/breeding/egg-and-larvae-care/">egg and early-larval care</a>.</li>'
             '<li>Once the larvae are feeding and growing, continue with <a href="/breeding/raising-juveniles/">juvenile grow-out and rehoming</a>.</li>'
+            '</ol>'
+            '</section>'
+        )
+    elif key == "health":
+        setup_order = (
+            '<section class="role-note" aria-labelledby="health-path-title">'
+            '<strong id="health-path-title">Start with urgency, then the observed sign</strong>'
+            '<p>One symptom cannot diagnose an axolotl. Use this order so environmental checks '
+            'and veterinary escalation come before treatment pages.</p>'
+            '<ol>'
+            '<li>For severe, sudden, or rapidly worsening signs, open the '
+            '<a href="/health/emergency-first-aid/">emergency first-aid guide</a> and '
+            '<a href="/health/finding-an-exotic-vet/">find an amphibian-experienced veterinarian</a>.</li>'
+            '<li>For non-urgent changes, test '
+            '<a href="/tank-setup/water-parameters-cycling/">water parameters</a> and check '
+            '<a href="/tank-setup/temperature/">temperature</a> first.</li>'
+            '<li>Use the guide for the sign you can observe, such as '
+            '<a href="/health/refusing-to-eat/">appetite loss</a>, '
+            '<a href="/health/why-axolotl-floating/">floating</a>, or '
+            '<a href="/health/curled-gills-stress-signal/">curled gills</a>.</li>'
+            '<li>Use bath, medication, or intensive-cooling pages only after the problem and '
+            'the need for that intervention have been clarified.</li>'
             '</ol>'
             '</section>'
         )
