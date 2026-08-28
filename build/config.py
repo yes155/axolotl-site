@@ -1994,4 +1994,4 @@ SEARCH_ACTIONS = {
 AUTHOR = PEOPLE["author"]
 EDITOR = PEOPLE["editor"]
 
-# Build trigger: retry the Cost & Buying production build.
+# Build trigger: retry Cost & Buying after clearing the stale queued job.
