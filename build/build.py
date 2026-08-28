@@ -487,6 +487,26 @@ def build_image_map(articles):
     }
 
     for slug, a in articles.items():
+        override = config.HERO_IMAGE_OVERRIDES.get(slug)
+        if override:
+            src = config.HERO_IMAGE_DIR / override["file"]
+            if not src.exists():
+                raise FileNotFoundError(f"Missing hero override for {slug}: {src}")
+            dst = os.path.join(IMG_DIR, override["file"])
+            with open(src, "rb") as fh:
+                optimize_image(fh.read(), dst, quality=86, max_side=1600)
+            img_map[slug] = {
+                "url": f'/images/{override["file"]}',
+                "alt": override["alt"],
+                "caption": override.get("caption", ""),
+                "description": override.get("description", ""),
+                "credit": override.get("credit", ""),
+                "width": override.get("width", 1600),
+                "height": override.get("height", 900),
+                "override": True,
+            }
+            continue
+
         n = a["num"]
         cands = []
         for f in sorted(by_num.get(n, []), key=_image_sort_key):
@@ -1426,8 +1446,8 @@ def faq_items_for_article(a):
     return a.get("faq", [])
 
 
-def article_schema(a, url):
-    nodes = [{
+def article_schema(a, url, img=None):
+    article_node = {
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": a["title"],
@@ -1451,7 +1471,30 @@ def article_schema(a, url):
         "publisher": {"@type": "Organization", "name": config.SITE_NAME},
         "mainEntityOfPage": url,
         "wordCount": a["words"],
-    }]
+    }
+    if img and img.get("override"):
+        image_url = img["url"]
+        if not image_url.startswith("http"):
+            image_url = config.SITE_URL + image_url
+        image_object = {
+            "@type": "ImageObject",
+            "url": image_url,
+            "contentUrl": image_url,
+            "name": img.get("alt", a["title"]),
+            "representativeOfPage": True,
+        }
+        if img.get("description"):
+            image_object["description"] = img["description"]
+        if img.get("caption"):
+            image_object["caption"] = img["caption"]
+        if img.get("credit"):
+            image_object["creditText"] = img["credit"]
+        if img.get("width"):
+            image_object["width"] = img["width"]
+        if img.get("height"):
+            image_object["height"] = img["height"]
+        article_node["image"] = image_object
+    nodes = [article_node]
     faq_items = faq_items_for_article(a)
     if faq_items:
         nodes.append({
@@ -1863,6 +1906,11 @@ def render_article(slug, a, articles, img_map):
     toc = render_toc(a["headings"])
     author_url = "/" + config.AUTHOR["slug"] + "/"
     editor_url = "/" + config.EDITOR["slug"] + "/"
+    figcaption = ""
+    if img.get("caption"):
+        figcaption = f'<figcaption>{esc(img["caption"])}</figcaption>'
+    image_width = img.get("width", 1200)
+    image_height = img.get("height", 800)
     body = (
         f'<div class="container article-page">'
         f"{breadcrumbs(a['hub'])}"
@@ -1874,7 +1922,8 @@ def render_article(slug, a, articles, img_map):
         f'Updated {a["date_modified"]} &middot; {a["words"]:,} words</div>'
         "</header>"
         f'<figure class="article-hero"><img class="hero-img" src="{esc(img["url"])}" '
-        f'alt="{esc(img["alt"])}" width="1200" height="800"></figure>'
+        f'alt="{esc(img["alt"])}" width="{image_width}" height="{image_height}">'
+        f'{figcaption}</figure>'
         '<div class="article-grid">'
         f'<aside class="article-toc">{toc}</aside>'
         f'<div class="article-main"><div class="article-body">{process_article_body(a)}</div>'
@@ -1883,7 +1932,7 @@ def render_article(slug, a, articles, img_map):
         "</div></div></div>"
     )
     active = "/" + slug.split("/")[0] + "/"
-    json_ld = add_breadcrumb_list_schema(article_schema(a, url), breadcrumb_items_for_article(a))
+    json_ld = add_breadcrumb_list_schema(article_schema(a, url, img), breadcrumb_items_for_article(a))
     return page_html(a["title_tag"], a["meta"], url, body, active,
                      "article", img["url"], json_ld)
 

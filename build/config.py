@@ -67,6 +67,33 @@ PEOPLE = {
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE_DIR = ROOT.parent / "axolotls"
 
+# Article-specific hero assets live in the repository so external DOCX builds
+# cannot replace them with generated placeholders. Add each approved hero here
+# with descriptive metadata and an HTML text anchor for any fact in the image.
+HERO_IMAGE_DIR = ROOT / "build" / "hero-images"
+HERO_IMAGE_OVERRIDES = {
+    "health/stress-signs": {
+        "file": "axolotl-stress-signs-observation-guide.webp",
+        "alt": (
+            "Wild-type, albino and golden albino axolotls beside observation "
+            "cues for gill posture, tail posture and buoyancy"
+        ),
+        "caption": (
+            "Compare gill posture, tail posture and buoyancy with the axolotl's "
+            "normal baseline. One sign alone does not diagnose illness; check "
+            "water parameters and temperature first."
+        ),
+        "description": (
+            "Three-panel educational hero showing wild-type, albino and golden "
+            "albino axolotls with neutral observation prompts for gill posture, "
+            "tail posture and buoyancy."
+        ),
+        "credit": "MyAxolotl; real-photo morph references from Wikimedia Commons (CC0)",
+        "width": 1600,
+        "height": 900,
+    },
+}
+
 # ── Core hubs (from topical map) ───────────────────────────────────────────
 HUBS = {
     "axolotls": {
@@ -805,6 +832,7 @@ ARTICLES = {
         "hub": "health",
         "title_override": "Axolotl Stress Signs",
         "title_tag": "Axolotl Stress Signs: Curled Gills, Floating & How to Fix It",
+        "date_modified": "2026-08-28",
     },
     "105 - Axolotl Impaction Symptoms and Treatment.docx": {
         "slug": "health/impaction-symptoms-treatment",
