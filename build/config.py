@@ -1993,3 +1993,5 @@ SEARCH_ACTIONS = {
 # Author / publisher info (shown on articles, in schema)
 AUTHOR = PEOPLE["author"]
 EDITOR = PEOPLE["editor"]
+
+# Build trigger: retry the Cost & Buying production build.
