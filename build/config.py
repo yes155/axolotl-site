@@ -72,6 +72,26 @@ SOURCE_DIR = ROOT.parent / "axolotls"
 # with descriptive metadata and an HTML text anchor for any fact in the image.
 HERO_IMAGE_DIR = ROOT / "build" / "hero-images"
 HERO_IMAGE_OVERRIDES = {
+    "diet/overfeeding-and-impaction": {
+        "file": "axolotl-obesity-body-condition-guide.webp",
+        "alt": (
+            "Wild-type axolotl beside a food bowl and guidance on healthy body "
+            "proportions, adult feeding frequency and occasional high-fat treats"
+        ),
+        "caption": (
+            "Assess body condition from above after digestion: a healthy "
+            "abdomen is approximately as wide as the head. Most adults maintain "
+            "condition on two or three meals per week, with high-fat foods kept "
+            "as occasional treats."
+        ),
+        "description": (
+            "Educational axolotl-obesity graphic showing body-proportion, "
+            "adult feeding-frequency and high-fat treat guidance."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "tank-setup/aquarium-chillers": {
         "file": "axolotl-aquarium-chillers.webp",
         "alt": (
