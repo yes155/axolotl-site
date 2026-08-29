@@ -92,6 +92,251 @@ HERO_IMAGE_OVERRIDES = {
         "width": 1600,
         "height": 900,
     },
+    "morphs/blue-and-pink-axolotl-myth": {
+        "file": "axolotl-blue-pink-color-myth.webp",
+        "alt": (
+            "Pale axolotl under blue aquarium lighting beside an explanation "
+            "that no true blue axolotl morph is recognized"
+        ),
+        "caption": (
+            "No established axolotl morph is naturally bright blue. Blue-looking "
+            "photos usually result from colored lighting or editing, while pink "
+            "appearance is common in pale leucistic and albino morphs."
+        ),
+        "description": (
+            "Myth-busting axolotl color graphic distinguishing lighting effects "
+            "from recognized pale morphs."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "morphs/chimera": {
+        "file": "chimera-axolotl-bilateral-color-split.webp",
+        "alt": (
+            "Split-colored chimera axolotl illustrating two genetically distinct "
+            "cell populations divided along the body"
+        ),
+        "caption": (
+            "A chimera can form when two early embryos fuse, producing genetically "
+            "distinct cell populations. It is a developmental event rather than a "
+            "predictably inherited morph."
+        ),
+        "description": (
+            "Educational chimera axolotl graphic showing a bilateral color split "
+            "and its developmental origin."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "morphs/copper": {
+        "file": "copper-axolotl-morph.webp",
+        "alt": (
+            "Copper axolotl with an orange-brown body, reddish gills and pale eyes "
+            "beside recessive color-genetics notes"
+        ),
+        "caption": (
+            "Copper axolotls have a warm orange-brown appearance associated with "
+            "recessive variation affecting melanin production. Their husbandry is "
+            "the same as for other axolotl color morphs."
+        ),
+        "description": (
+            "Copper axolotl morph profile showing its characteristic color, eyes "
+            "and recessive inheritance."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "morphs/enigma-firefly-mac": {
+        "file": "rare-axolotl-morphs-enigma-firefly-mac.webp",
+        "alt": (
+            "Rare axolotl appearance comparison labeled Enigma, firefly and MAC "
+            "with notes on origin and inheritance"
+        ),
+        "caption": (
+            "Names such as Enigma, firefly and MAC describe different rare "
+            "appearances or breeding lines. Firefly is produced through tissue "
+            "grafting and is not a standard heritable color morph."
+        ),
+        "description": (
+            "Comparison graphic explaining three rare axolotl appearance labels "
+            "and why their origins and inheritance differ."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "morphs/gfp-axolotl": {
+        "file": "gfp-axolotl-uv-fluorescence.webp",
+        "alt": (
+            "GFP axolotl fluorescing green under blue light beside notes about "
+            "the dominant transgene and normal routine care"
+        ),
+        "caption": (
+            "The GFP transgene produces green fluorescence under suitable blue "
+            "excitation light. A GFP axolotl has the same routine husbandry needs "
+            "as other morphs and does not require special lighting."
+        ),
+        "description": (
+            "GFP axolotl graphic explaining blue-light fluorescence, transgene "
+            "inheritance and ordinary husbandry needs."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "morphs/golden-albino": {
+        "file": "golden-albino-axolotl-morph.webp",
+        "alt": (
+            "Golden albino axolotl with a yellow-gold body, pink gills and pale "
+            "red eyes beside pigment notes"
+        ),
+        "caption": (
+            "Golden albinos lack dark melanin but retain yellow pigment, producing "
+            "a gold body and pale red eyes. Color does not change their core "
+            "husbandry requirements."
+        ),
+        "description": (
+            "Golden albino axolotl morph profile showing its yellow pigment, pale "
+            "eyes and standard care needs."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "morphs/leucistic": {
+        "file": "leucistic-axolotl-morph.webp",
+        "alt": (
+            "Leucistic axolotl with a pale body, dark eyes and pink external gills "
+            "beside identifying features"
+        ),
+        "caption": (
+            "Leucistic axolotls have reduced body pigmentation but retain dark "
+            "eyes. The dark eyes help distinguish them from albino morphs."
+        ),
+        "description": (
+            "Leucistic axolotl morph profile highlighting its pale body, dark eyes "
+            "and pink gills."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "morphs/melanoid": {
+        "file": "melanoid-axolotl-morph.webp",
+        "alt": (
+            "Dark melanoid axolotl with an even black-brown body and no metallic "
+            "eye ring beside pigment-cell notes"
+        ),
+        "caption": (
+            "Melanoid axolotls have abundant dark pigment and lack reflective "
+            "iridophores, so they do not show the metallic shine or gold eye ring "
+            "typical of a wild type."
+        ),
+        "description": (
+            "Melanoid axolotl morph profile showing uniform dark pigmentation and "
+            "the absence of reflective iridophores."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "morphs/morphs-comparison-chart": {
+        "file": "axolotl-morph-comparison-chart.webp",
+        "alt": (
+            "Comparison chart of wild type, leucistic, melanoid, golden albino, "
+            "copper, GFP, piebald, mosaic and chimera axolotls"
+        ),
+        "caption": (
+            "Compare axolotl appearances by body and eye color, reflective shine, "
+            "fluorescence and pattern distribution. Rarity and individual patterns "
+            "can vary between breeding populations."
+        ),
+        "description": (
+            "Nine-panel axolotl morph comparison chart covering common colors, "
+            "fluorescent GFP and uncommon patterned appearances."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "morphs/mosaic": {
+        "file": "mosaic-axolotl-morph.webp",
+        "alt": (
+            "Mosaic axolotl with irregular dark and pale patches beside notes on "
+            "cell populations and inheritance"
+        ),
+        "caption": (
+            "Mosaic axolotls show irregular patchwork from genetically different "
+            "cell populations. The pattern is not predictably inherited, and "
+            "appearance alone cannot confirm its developmental mechanism."
+        ),
+        "description": (
+            "Mosaic axolotl profile showing irregular color patches and explaining "
+            "their variable developmental origin."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "morphs/piebald": {
+        "file": "piebald-axolotl-morph.webp",
+        "alt": (
+            "Piebald axolotl with a dark base and irregular unpigmented patches "
+            "beside comparison notes"
+        ),
+        "caption": (
+            "Piebald patterning combines pigmented and unpigmented areas. It differs "
+            "from a dirty leucistic's pale base with dark spots and from a chimera's "
+            "often bilateral division."
+        ),
+        "description": (
+            "Piebald axolotl profile explaining its contrasting patches and how it "
+            "differs from dirty leucistic and chimera appearances."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "morphs/pigment-cells": {
+        "file": "axolotl-pigment-cells-color-genetics.webp",
+        "alt": (
+            "Wild-type axolotl with callouts for melanophores, xanthophores and "
+            "reflective iridophores"
+        ),
+        "caption": (
+            "Axolotl color comes from three main pigment-cell groups: dark "
+            "melanophores, yellow-orange xanthophores and reflective iridophores."
+        ),
+        "description": (
+            "Axolotl pigment-cell diagram identifying the three chromatophore "
+            "groups that combine to produce color and shine."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "morphs/wild-type": {
+        "file": "wild-type-axolotl-natural-color.webp",
+        "alt": (
+            "Wild-type axolotl with olive-brown skin, dark and yellow speckles and "
+            "a reflective gold eye ring"
+        ),
+        "caption": (
+            "Wild-type axolotls combine dark melanophores, yellow xanthophores and "
+            "reflective iridophores. The resulting olive-brown pattern and gold eye "
+            "ring distinguish them from melanoids."
+        ),
+        "description": (
+            "Wild-type axolotl morph profile showing natural camouflage colors, "
+            "speckling and reflective eye-ring features."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "tank-setup/aquarium-chillers": {
         "file": "axolotl-aquarium-chillers.webp",
         "alt": (
