@@ -72,6 +72,216 @@ SOURCE_DIR = ROOT.parent / "axolotls"
 # with descriptive metadata and an HTML text anchor for any fact in the image.
 HERO_IMAGE_DIR = ROOT / "build" / "hero-images"
 HERO_IMAGE_OVERRIDES = {
+    "health/curled-gills-stress-signal": {
+        "file": "axolotl-curled-gills-posture-comparison.webp",
+        "alt": (
+            "Two axolotls comparing relaxed and curled gill and tail posture "
+            "beside water and temperature first-check guidance"
+        ),
+        "caption": (
+            "Compare gill and tail posture with the axolotl's normal baseline. "
+            "A forward curl can occur with stress, so test water parameters and "
+            "temperature before drawing conclusions."
+        ),
+        "description": (
+            "Wild-type and leucistic axolotls demonstrate relaxed and curled "
+            "posture with a water-and-temperature first-check reminder."
+        ),
+        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
+        "width": 1600,
+        "height": 900,
+    },
+    "health/minor-scrapes-and-wounds": {
+        "file": "axolotl-minor-wounds-tank-safety-check.webp",
+        "alt": (
+            "Top-down axolotl tank safety inspection showing smooth decor, a "
+            "covered filter intake and warning signs after a scrape"
+        ),
+        "caption": (
+            "Check tank decor and filter intakes after a scrape. Spreading "
+            "redness, swelling, persistent bleeding, or rapid deterioration "
+            "needs veterinary assessment."
+        ),
+        "description": (
+            "Top-down aquarium inspection showing two axolotl morphs, smooth "
+            "decor, a covered intake and wound-escalation warning signs."
+        ),
+        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
+        "width": 1600,
+        "height": 900,
+    },
+    "health/shrinking-gills": {
+        "file": "axolotl-shrinking-gills-photo-comparison.webp",
+        "alt": (
+            "Baseline, later and current photos comparing gill fullness in "
+            "leucistic and axanthic axolotls"
+        ),
+        "caption": (
+            "Use repeat photos from the same angle to track gill changes. Test "
+            "ammonia, nitrite, and temperature because appearance alone does "
+            "not identify the cause."
+        ),
+        "description": (
+            "Photo-record comparison for tracking axolotl gill changes against "
+            "the animal's own baseline instead of diagnosing from one image."
+        ),
+        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
+        "width": 1600,
+        "height": 900,
+    },
+    "health/limb-regeneration": {
+        "file": "axolotl-limb-regeneration-stages.webp",
+        "alt": (
+            "Copper axolotl and four-panel limb regeneration sequence from "
+            "wound epidermis through blastema and patterned outgrowth"
+        ),
+        "caption": (
+            "Axolotl limb regeneration progresses through wound epidermis, "
+            "blastema formation, and patterned outgrowth. Healing speed varies "
+            "with the injury and husbandry conditions."
+        ),
+        "description": (
+            "Scientific four-panel sequence explaining the wound epidermis, "
+            "blastema and patterned-outgrowth stages of axolotl limb regeneration."
+        ),
+        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
+        "width": 1600,
+        "height": 900,
+    },
+    "health/salt-bath": {
+        "file": "axolotl-salt-bath-veterinary-safety.webp",
+        "alt": (
+            "Axolotl salt bath safety checklist showing a treatment container, "
+            "salt, timer and thermometer"
+        ),
+        "caption": (
+            "Salt baths should be veterinarian-directed: the diagnosis, "
+            "concentration, exposure time, and observation plan determine "
+            "whether they are appropriate."
+        ),
+        "description": (
+            "Veterinary-safety checklist for axolotl salt baths with treatment "
+            "equipment and diagnosis, concentration and observation gates."
+        ),
+        "credit": "MyAxolotl; morphology reference sourced from Wikimedia Commons",
+        "width": 1600,
+        "height": 900,
+    },
+    "health/impaction-symptoms-treatment": {
+        "file": "axolotl-impaction-substrate-risk-signs.webp",
+        "alt": (
+            "Dark and golden albino axolotls on fine sand beside a swallowable "
+            "gravel warning and nonspecific impaction signs"
+        ),
+        "caption": (
+            "Loss of appetite and swelling are nonspecific signs. Remove "
+            "swallowable gravel and seek veterinary assessment for persistent "
+            "or worsening symptoms."
+        ),
+        "description": (
+            "Aquarium substrate comparison showing fine sand, swallowable "
+            "gravel risk and the limits of diagnosing impaction from appearance."
+        ),
+        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
+        "width": 1600,
+        "height": 900,
+    },
+    "health/red-leg-syndrome": {
+        "file": "axolotl-red-leg-symptoms-vet-triage.webp",
+        "alt": (
+            "Wild-type, leucistic and copper axolotls beside a leg and belly "
+            "observation map for rapid redness"
+        ),
+        "caption": (
+            "Skin color varies by morph. Rapid new redness with lethargy or "
+            "other decline is a veterinary warning sign, not a diagnosis from "
+            "appearance."
+        ),
+        "description": (
+            "Three-morph comparison and anatomical observation map explaining "
+            "why rapidly changing redness needs veterinary assessment."
+        ),
+        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
+        "width": 1600,
+        "height": 900,
+    },
+    "health/quarantine-tub": {
+        "file": "axolotl-quarantine-hospital-tub-setup.webp",
+        "alt": (
+            "Top-down axolotl hospital tub setup with two tubs, thermometer, "
+            "secure vented lid, hide and dedicated tools"
+        ),
+        "caption": (
+            "A hospital tub uses clean dechlorinated, temperature-matched "
+            "water, a bare bottom, a secure vented lid, a smooth hide, and "
+            "dedicated tools."
+        ),
+        "description": (
+            "Top-down checklist showing the core equipment for a controlled "
+            "axolotl hospital or quarantine tub."
+        ),
+        "credit": "MyAxolotl; morphology reference sourced from Wikimedia Commons",
+        "width": 1600,
+        "height": 900,
+    },
+    "health/finding-an-exotic-vet": {
+        "file": "find-axolotl-exotic-vet-checklist.webp",
+        "alt": (
+            "Desk with an axolotl veterinarian search, call questions, "
+            "transport checklist and two morph reference photos"
+        ),
+        "caption": (
+            "Locate an amphibian-experienced veterinarian before an emergency "
+            "and ask whether the clinic treats axolotls, offers urgent care, "
+            "and has transport instructions."
+        ),
+        "description": (
+            "Planning desk showing an exotic-vet search, screening questions "
+            "and an axolotl transport-preparation checklist."
+        ),
+        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
+        "width": 1600,
+        "height": 900,
+    },
+    "health/emergency-first-aid": {
+        "file": "axolotl-emergency-first-aid-triage.webp",
+        "alt": (
+            "Axolotl emergency triage station with water tests, thermometer, "
+            "transport tub and urgent veterinary warning signs"
+        ),
+        "caption": (
+            "In an axolotl emergency, test water and temperature first. "
+            "Breathing difficulty, uncontrolled bleeding, or inability to "
+            "remain upright needs urgent veterinary care."
+        ),
+        "description": (
+            "Urgency-first axolotl triage station combining husbandry checks, "
+            "transport preparation and veterinary red flags."
+        ),
+        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
+        "width": 1600,
+        "height": 900,
+    },
+    "health/ammonia-burns": {
+        "file": "axolotl-ammonia-exposure-water-test.webp",
+        "alt": (
+            "Ammonia and nitrite test comparison beside dechlorinated water "
+            "and copper, golden albino and dark axolotl reference cards"
+        ),
+        "caption": (
+            "Ammonia and nitrite should read 0 ppm. Move an exposed axolotl "
+            "from contaminated water into clean, dechlorinated, "
+            "temperature-matched water while arranging veterinary help if "
+            "signs are severe."
+        ),
+        "description": (
+            "Water-quality emergency visual showing zero-ammonia and "
+            "zero-nitrite targets, clean replacement water and three morphs."
+        ),
+        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
+        "width": 1600,
+        "height": 900,
+    },
     "health/stress-signs": {
         "file": "axolotl-stress-signs-observation-guide.webp",
         "alt": (
@@ -404,6 +614,7 @@ ARTICLES = {
         "slug": "health/salt-bath",
         "hub": "health",
         "title_override": "Axolotl Salt Baths for Fungal Infections",
+        "date_modified": "2026-08-29",
     },
     "36 - Why is My Axolotl Floating Continuously.docx": {
         "slug": "health/why-axolotl-floating",
@@ -516,42 +727,49 @@ ARTICLES = {
         "hub": "health",
         "title_override": "Axolotl Curled Gills and Tail Tips: Understanding a Stress Signal",
         "title_tag": "Curled Axolotl Gills & Tail Tip: Stress Signals & Fixes",
+        "date_modified": "2026-08-29",
     },
     "55 - Understanding Axolotl Limb Regeneration.docx": {
         "slug": "health/limb-regeneration",
         "hub": "health",
         "title_override": "Understanding Axolotl Limb Regeneration",
         "title_tag": "How Axolotl Limb Regeneration Works & What to Expect",
+        "date_modified": "2026-08-29",
     },
     "56 - How to Treat Axolotl Ammonia Burns.docx": {
         "slug": "health/ammonia-burns",
         "hub": "health",
         "title_override": "How to Treat Axolotl Ammonia Burns",
         "title_tag": "Axolotl Ammonia Burn: Signs, Stages & Treatment",
+        "date_modified": "2026-08-29",
     },
     "57 - Recognizing Red Leg Syndrome in Axolotls.docx": {
         "slug": "health/red-leg-syndrome",
         "hub": "health",
         "title_override": "Recognizing Red Leg Syndrome in Axolotls",
         "title_tag": "Axolotl Red Leg Disease: Signs, Treatment & Prevention",
+        "date_modified": "2026-08-29",
     },
     "58 - Setting Up a Hospital Quarantine Tub for Axolotls.docx": {
         "slug": "health/quarantine-tub",
         "hub": "health",
         "title_override": "Setting Up an Axolotl Hospital Quarantine Tub",
         "title_tag": "Axolotl Hospital Quarantine Tub: Setup & Care",
+        "date_modified": "2026-08-29",
     },
     "59 - The Causes of Shrinking Axolotl Gills.docx": {
         "slug": "health/shrinking-gills",
         "hub": "health",
         "title_override": "The Causes of Shrinking Axolotl Gills",
         "title_tag": "Why Are My Axolotl's Gills Shrinking? Causes & Fixes",
+        "date_modified": "2026-08-29",
     },
     "60 - Treating Minor Scrapes and Wounds on Axolotls.docx": {
         "slug": "health/minor-scrapes-and-wounds",
         "hub": "health",
         "title_override": "Treating Minor Scrapes and Wounds on Axolotls",
         "title_tag": "Treating Minor Axolotl Scrapes & Wounds: What to Do",
+        "date_modified": "2026-08-29",
     },
     "61 - Best Axolotl Toys and Plushies.docx": {
         "slug": "gifts-and-merch/best-axolotl-toys-and-plushies",
@@ -825,7 +1043,7 @@ ARTICLES = {
         "title_override": "Finding an Exotic Vet for Axolotls",
         "title_tag": "How to Find an Axolotl Vet: Search & Screening Guide",
         "meta_override": "Find and screen a veterinarian with amphibian experience, prepare useful records, and understand emergency, teletriage, and cost questions.",
-        "date_modified": "2026-08-27",
+        "date_modified": "2026-08-29",
     },
     "104 - Axolotl Stress Signs.docx": {
         "slug": "health/stress-signs",
@@ -839,6 +1057,7 @@ ARTICLES = {
         "hub": "health",
         "title_override": "Axolotl Impaction Symptoms and Treatment",
         "title_tag": "Axolotl Impaction: Symptoms, Causes & Treatment",
+        "date_modified": "2026-08-29",
     },
     "106 - Axolotl Tank Size by Age.docx": {
         "slug": "tank-setup/tank-size-by-age",
@@ -1926,7 +2145,7 @@ CONFIG_ARTICLES = {
         "meta": "The emergency triage guide for axolotls: which signs are urgent, what to do first, what NOT to do, and when to see a vet now.",
         "intro": "The triage guide for axolotl emergencies: how to tell urgent from not-urgent, what to do in the first minutes, what NOT to do, and when to call an exotic vet immediately.",
         "num": 211,
-        "date_modified": "2026-08-27",
+        "date_modified": "2026-08-29",
         "headings": [
             "Is It an Emergency? Use This Severity Ladder",
             "First Steps for Any Stressed or Sick Axolotl",
