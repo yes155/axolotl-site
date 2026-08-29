@@ -337,6 +337,120 @@ HERO_IMAGE_OVERRIDES = {
         "width": 1600,
         "height": 900,
     },
+    "breeding/breeding-triggers-temperature-cycling": {
+        "file": "axolotl-breeding-temperature-cycling.webp",
+        "alt": (
+            "Adult axolotls in a breeding tank beside seasonal temperature and "
+            "day-length cues for courtship"
+        ),
+        "caption": (
+            "Stable seasonal changes in water temperature and day length can "
+            "coincide with axolotl courtship. Avoid abrupt thermal shocks and "
+            "keep breeding animals within safe husbandry conditions."
+        ),
+        "description": (
+            "Axolotl breeding-cue graphic showing a conditioned pair, gradual "
+            "seasonal changes and temperature-safety guidance."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "breeding/color-genetics-punnett-squares": {
+        "file": "axolotl-color-genetics-punnett-square.webp",
+        "alt": (
+            "Four axolotl color morphs beside a Punnett square explaining "
+            "dominant, recessive and carrier inheritance"
+        ),
+        "caption": (
+            "A Punnett square models one gene at a time. For a single recessive "
+            "trait, two carriers predict a 25 percent homozygous-recessive chance "
+            "per offspring, not a guaranteed clutch ratio."
+        ),
+        "description": (
+            "Axolotl color-genetics graphic combining multiple morphs with a "
+            "single-locus Punnett-square example."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "breeding/egg-and-larvae-care": {
+        "file": "axolotl-eggs-larvae-care.webp",
+        "alt": (
+            "Developing axolotl embryos inside eggs beside incubation, water-care "
+            "and first-food guidance"
+        ),
+        "caption": (
+            "Axolotl embryo development speeds up as incubation temperature rises. "
+            "Keep the water clean, inspect eggs daily, and prepare live food before "
+            "the larvae finish absorbing their yolk."
+        ),
+        "description": (
+            "Axolotl egg-and-larvae graphic showing developing embryos, incubation "
+            "care and the transition to live baby brine shrimp."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "breeding/genetics-and-inbreeding": {
+        "file": "axolotl-genetic-diversity-inbreeding-risk.webp",
+        "alt": (
+            "Leucistic axolotl beside a pedigree chart and genetic-diversity "
+            "guidance for breeding decisions"
+        ),
+        "caption": (
+            "The historic laboratory axolotl population began with a small founder "
+            "group. Appearance cannot reveal relatedness, so pedigree records and "
+            "healthy, unrelated breeding stock matter."
+        ),
+        "description": (
+            "Axolotl genetic-diversity graphic using a pedigree to explain founder "
+            "effects, inbreeding risk and responsible pair selection."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "breeding/raising-juveniles": {
+        "file": "raising-baby-axolotls-growth-stages.webp",
+        "alt": (
+            "Several juvenile axolotls at different sizes beside feeding, size "
+            "separation and growth-stage guidance"
+        ),
+        "caption": (
+            "Newly feeding larvae need appropriately sized live food. Grade growing "
+            "juveniles by size to reduce biting, maintain clean water, and rehome "
+            "only after feeding and growth are stable."
+        ),
+        "description": (
+            "Juvenile axolotl growth graphic showing multiple animals with first "
+            "foods, size separation, limb development and rehoming milestones."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "breeding/sexing-axolotls": {
+        "file": "male-female-axolotl-sexing-guide.webp",
+        "alt": (
+            "Adult male and female axolotls viewed from above with their cloacae "
+            "highlighted for comparison"
+        ),
+        "caption": (
+            "A mature male develops an enlarged, side-bulging cloaca. A small cloaca "
+            "can indicate a female or an immature animal, and body shape alone is "
+            "not a reliable sexing method."
+        ),
+        "description": (
+            "Male-versus-female axolotl sexing graphic focused on the cloaca while "
+            "warning against decisions based only on body shape."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "tank-setup/aquarium-chillers": {
         "file": "axolotl-aquarium-chillers.webp",
         "alt": (
