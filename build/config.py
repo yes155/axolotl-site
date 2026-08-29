@@ -72,6 +72,139 @@ SOURCE_DIR = ROOT.parent / "axolotls"
 # with descriptive metadata and an HTML text anchor for any fact in the image.
 HERO_IMAGE_DIR = ROOT / "build" / "hero-images"
 HERO_IMAGE_OVERRIDES = {
+    "tank-setup/aquarium-chillers": {
+        "file": "axolotl-aquarium-chillers.webp",
+        "alt": (
+            "Golden albino axolotl tank connected to a compressor aquarium "
+            "chiller with a digital thermometer and water-flow diagram"
+        ),
+        "caption": (
+            "A compressor chiller can stabilize an axolotl tank through warm "
+            "weather. Match the unit to the tank volume and required flow rate, "
+            "then verify the water temperature with a separate thermometer."
+        ),
+        "description": (
+            "Educational aquarium-chiller graphic showing a golden albino "
+            "axolotl, compressor unit, circulation loop and temperature checks."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "tank-setup/water-change-guide": {
+        "file": "axolotl-water-change-guide.webp",
+        "alt": (
+            "Golden albino axolotl beside a siphon, replacement-water tub and "
+            "five-step aquarium water-change guide"
+        ),
+        "caption": (
+            "For routine maintenance, test the water, siphon waste, condition "
+            "and temperature-match the replacement water, then refill slowly. "
+            "Ammonia or nitrite spikes may require larger or repeated changes."
+        ),
+        "description": (
+            "Step-by-step axolotl water-change graphic showing preparation, "
+            "siphoning, routine amounts, temperature matching and slow refilling."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "tank-setup/water-conditioners": {
+        "file": "axolotl-water-conditioners.webp",
+        "alt": (
+            "Leucistic axolotl beside an unbranded water conditioner with "
+            "chlorine, chloramine, ammonia and nitrite treatment callouts"
+        ),
+        "caption": (
+            "Treat new tap water at the product's label dose to neutralize "
+            "chlorine and chloramine. Some conditioners temporarily detoxify "
+            "ammonia or nitrite, but they do not replace a cycled biofilter."
+        ),
+        "description": (
+            "Axolotl water-conditioner graphic explaining tap-water treatment "
+            "and ingredient checks for chlorine, chloramine and heavy metals."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "tank-setup/tank-size-by-age": {
+        "file": "axolotl-tank-size-by-age.webp",
+        "alt": (
+            "Wild-type axolotl beside tank-size guidance for baby, juvenile, "
+            "adult and paired axolotls"
+        ),
+        "caption": (
+            "Tank volume should increase as an axolotl grows: 5-10 gallons for "
+            "a small grow-out setup, 20 gallons for a juvenile, 20-40 gallons "
+            "for one adult, and at least a 40-gallon breeder for a pair."
+        ),
+        "description": (
+            "Life-stage tank-size comparison for baby, juvenile and adult "
+            "axolotls, emphasizing long tanks and usable floor space."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "tank-setup/tank-mates": {
+        "file": "axolotl-tank-mates.webp",
+        "alt": (
+            "Melanoid and leucistic axolotls together with tank-mate safety "
+            "notes about fish, shrimp, snails and adult tank size"
+        ),
+        "caption": (
+            "Axolotls are safest alone or with a similarly sized axolotl in "
+            "adequate space. Fish may nip exposed gills, while shrimp and "
+            "snails may be swallowed."
+        ),
+        "description": (
+            "Tank-mate risk graphic comparing same-size axolotls with fish, "
+            "shrimp and snails in a planted aquarium."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "tank-setup/acclimating-a-new-axolotl": {
+        "file": "acclimating-a-new-axolotl.webp",
+        "alt": (
+            "Leucistic axolotl in a dim aquarium beside acclimation steps for "
+            "temperature matching and transfer without transport water"
+        ),
+        "caption": (
+            "For a local pickup, dim the lights, match the temperature and add "
+            "tank water gradually before transferring the axolotl without the "
+            "transport water. Overnight shipping requires a faster method."
+        ),
+        "description": (
+            "Step-by-step acclimation graphic showing a floating bag, timed "
+            "water additions and transfer into a prepared axolotl tank."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "tank-setup/water-parameters-cycling": {
+        "file": "axolotl-water-parameters-nitrogen-cycle.webp",
+        "alt": (
+            "Leucistic axolotl beside aquarium test tubes and target readings "
+            "for ammonia, nitrite, nitrate, pH and temperature"
+        ),
+        "caption": (
+            "A cycled axolotl tank should test at 0 ppm ammonia and 0 ppm "
+            "nitrite. Track nitrate, pH and temperature as trends because a "
+            "single test does not show whether conditions are stable."
+        ),
+        "description": (
+            "Axolotl water-parameter graphic with liquid test tubes and target "
+            "readings for monitoring the aquarium nitrogen cycle."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "health/curled-gills-stress-signal": {
         "file": "axolotl-curled-gills-posture-comparison.webp",
         "alt": (
