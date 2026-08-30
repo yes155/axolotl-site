@@ -451,6 +451,12 @@ def build_articles():
                     r"<h([234])[^>]*>(.*?)</h\1>", body_ovr, flags=re.S
                 )
             ]
+        for old, new in config.BODY_TEXT_REPLACEMENTS.get(slug, []):
+            if old not in a["body_html"]:
+                raise ValueError(
+                    f"Body text replacement source not found for {slug}: {old!r}"
+                )
+            a["body_html"] = a["body_html"].replace(old, new)
         intro_ovr = config.INTRO_OVERRIDES.get(slug)
         if intro_ovr:
             a["intro"] = intro_ovr

@@ -91,6 +91,82 @@ HERO_IMAGE_OVERRIDES = {
         "width": 1600,
         "height": 900,
     },
+    "axolotl-in-culture/adopt-me-axolotl-guide": {
+        "file": "adopt-me-axolotl-guide.webp",
+        "alt": (
+            "Pink virtual Adopt Me axolotl beside notes about legendary rarity, "
+            "trading, neon forms and the care needs of real axolotls"
+        ),
+        "caption": (
+            "The Adopt Me axolotl was introduced as a premium Pet Shop pet. "
+            "Players currently obtain it mainly through trading unless the game "
+            "returns it to the shop; availability and trade value can change."
+        ),
+        "description": (
+            "Adopt Me axolotl guide graphic explaining current acquisition, "
+            "virtual forms and the difference between a game pet and real care."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "axolotl-in-culture/axolotl-in-pop-culture-and-memes": {
+        "file": "axolotl-pop-culture-and-memes.webp",
+        "alt": (
+            "Leucistic axolotl surrounded by examples of games, memes, media, "
+            "merchandise and science coverage"
+        ),
+        "caption": (
+            "Axolotls circulate between games, memes, merchandise and science "
+            "coverage. Their recognizable gills and apparent smile make them easy "
+            "to adapt into friendly characters and reaction images."
+        ),
+        "description": (
+            "Axolotl pop-culture graphic connecting games, memes, merchandise, "
+            "media and science attention."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "axolotl-in-culture/minecraft-axolotls-guide": {
+        "file": "minecraft-axolotls-guide.webp",
+        "alt": (
+            "Minecraft-style axolotls in five colors with lush-cave spawning, "
+            "blue-variant breeding and water-bucket guidance"
+        ),
+        "caption": (
+            "Minecraft axolotls spawn in water in lush caves and appear in five "
+            "color variants. The rare blue variant is obtained through breeding, "
+            "with a 1-in-1,200 chance for each baby."
+        ),
+        "description": (
+            "Minecraft axolotl guide graphic covering lush-cave spawning, five "
+            "colors, the rare blue variant and bucket collection."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "axolotl-in-culture/why-axolotls-are-suddenly-popular": {
+        "file": "why-axolotls-are-popular.webp",
+        "alt": (
+            "Wild-type axolotl with four popularity factors: Minecraft, internet "
+            "memes, regeneration science and endangered status"
+        ),
+        "caption": (
+            "Axolotl popularity grew through the 2021 Minecraft update, a highly "
+            "recognizable face, continuing regeneration research and public concern "
+            "for a species listed as Critically Endangered in the wild."
+        ),
+        "description": (
+            "Axolotl-popularity timeline combining gaming, internet culture, "
+            "regeneration science and conservation awareness."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "diet/overfeeding-and-impaction": {
         "file": "axolotl-obesity-body-condition-guide.webp",
         "alt": (
@@ -2195,6 +2271,8 @@ ARTICLES = {
         "hub": "axolotl-in-culture",
         "title_override": "Axolotl in Adopt Me: How to Get One",
         "title_tag": "Axolotl in Adopt Me: How to Get One & All Colors (2026)",
+        "meta_override": "How to get an axolotl in Adopt Me through current trading or a future Pet Shop return, plus its forms and how the virtual pet differs from real care.",
+        "date_modified": "2026-08-30",
     },
     "97 - Axolotl in Pop Culture and Memes.docx": {
         "slug": "axolotl-in-culture/axolotl-in-pop-culture-and-memes",
@@ -2562,6 +2640,11 @@ SEMANTIC_INLINE = {
 # Standfirst (intro) overrides. Used to re-scope a page's dominant intent
 # without touching its docx-sourced body (cannibalization role splits).
 INTRO_OVERRIDES = {
+    "axolotl-in-culture/adopt-me-axolotl-guide": (
+        "The Adopt Me axolotl is a legendary virtual pet originally sold through "
+        "the Pet Shop. Players now usually obtain it by trading unless the game "
+        "returns it to the shop."
+    ),
     "cost-and-buying/axolotl-price-by-morph": (
         "As of August 27, 2026, common captive-bred axolotls in current US listings are "
         "usually advertised around $50–$100 before shipping. Morph, age, lineage, seller, "
@@ -2636,6 +2719,34 @@ INTRO_OVERRIDES = {
         "temperature, recent feeding, stool, body condition, and other signs first; seek "
         "veterinary care promptly for severe, worsening, or persistent changes."
     ),
+}
+
+# Targeted corrections for externally stored DOCX text. Each source phrase is
+# matched verbatim at build time so a future source revision cannot be silently
+# overwritten by an outdated replacement.
+BODY_TEXT_REPLACEMENTS = {
+    "axolotl-in-culture/adopt-me-axolotl-guide": [
+        (
+            "Players who want one either hatch it during its event or trade for it afterward.",
+            "The pet was originally sold through the Pet Shop, and players now usually obtain it by trading unless it returns to the shop.",
+        ),
+        (
+            "There are 3 ways to get one: hatch it from a pet egg during its limited-time event, trade for it with other players, or buy it from the pet shop when it is re-released.",
+            "The current route is trading with another player. The axolotl was originally sold as a premium Pet Shop pet, so it may also be available if Adopt Me returns it to the shop.",
+        ),
+        (
+            "The axolotl appears during special events, so obtaining it is easiest while it is available.",
+            "Availability changes with game updates, so check the current in-game Pet Shop before relying on an older guide.",
+        ),
+        (
+            "Hatch it from a pet egg during its limited-time event.",
+            "Check whether it has returned to the in-game Pet Shop.",
+        ),
+        (
+            "Trade, hatch, or buy in pet shop",
+            "Trade, or buy in the Pet Shop if re-released",
+        ),
+    ],
 }
 
 # Full render-time replacements for Health pages whose external DOCX source is
