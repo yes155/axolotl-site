@@ -72,6 +72,44 @@ SOURCE_DIR = ROOT.parent / "axolotls"
 # with descriptive metadata and an HTML text anchor for any fact in the image.
 HERO_IMAGE_DIR = ROOT / "build" / "hero-images"
 HERO_IMAGE_OVERRIDES = {
+    "tank-setup/setup-guide": {
+        "file": "2-axolotl-tank-setup.webp",
+        "alt": (
+            "Leucistic axolotl in a planted aquarium with fine sand, a hide, "
+            "gentle filtration and cool-water equipment"
+        ),
+        "caption": (
+            "A suitable axolotl tank provides ample floor space, cool dechlorinated "
+            "water, an established biofilter, low flow, safe substrate and at least "
+            "one hide."
+        ),
+        "description": (
+            "Axolotl tank-setup hero showing a leucistic axolotl in a planted, "
+            "filtered aquarium with fine sand and a hide."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "diet/best-foods-list": {
+        "file": "16-best-foods-for-axolotls.webp",
+        "alt": (
+            "Dark axolotl above suitable food options including worms, shrimp "
+            "and sinking pellets"
+        ),
+        "caption": (
+            "Earthworms or nightcrawlers and suitable sinking axolotl pellets are "
+            "dependable staples, while smaller foods such as blackworms or brine "
+            "shrimp are more useful for juveniles."
+        ),
+        "description": (
+            "Best-foods guide hero showing a dark axolotl with worms, shrimp and "
+            "sinking pellets arranged below it."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "axolotls/care-guide": {
         "file": "1-axolotl-care-guide-attached.webp",
         "alt": (
