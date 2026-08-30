@@ -641,6 +641,158 @@ HERO_IMAGE_OVERRIDES = {
         "width": 1600,
         "height": 900,
     },
+    "biology-and-science/anatomy-gills-and-lungs": {
+        "file": "axolotl-anatomy-gills-lungs.webp",
+        "alt": (
+            "Leucistic axolotl with labeled external gills, lungs and "
+            "skin-based oxygen absorption"
+        ),
+        "caption": (
+            "Axolotls exchange gases through external gills, skin and simple "
+            "lungs. Gill movement can increase water flow, while occasional "
+            "surface gulps use the lungs."
+        ),
+        "description": (
+            "Axolotl respiratory-anatomy graphic labeling external gills, "
+            "internal lungs and oxygen-absorbing skin."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "biology-and-science/axolotl-vs-tiger-salamander": {
+        "file": "axolotl-vs-tiger-salamander.webp",
+        "alt": (
+            "Aquatic axolotl beside a terrestrial tiger salamander with "
+            "neoteny and metamorphosis differences"
+        ),
+        "caption": (
+            "Axolotls normally remain aquatic and retain larval traits, while "
+            "tiger salamanders typically metamorphose into terrestrial adults. "
+            "They are related but distinct species."
+        ),
+        "description": (
+            "Axolotl-versus-tiger-salamander comparison showing different "
+            "adult forms, habitats and developmental pathways."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "biology-and-science/conservation-status": {
+        "file": "axolotl-conservation-status.webp",
+        "alt": (
+            "Wild-type axolotl in Xochimilco beside Critically Endangered "
+            "status, habitat threats and range map"
+        ),
+        "caption": (
+            "Wild axolotls are restricted to Xochimilco and classified as "
+            "Critically Endangered. Habitat degradation, pollution and "
+            "invasive fish continue to threaten the remaining population."
+        ),
+        "description": (
+            "Axolotl conservation graphic connecting the IUCN status with "
+            "Xochimilco, habitat loss and invasive-species pressure."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "biology-and-science/is-axolotl-amphibian": {
+        "file": "axolotl-amphibian-classification.webp",
+        "alt": (
+            "Golden axolotl beside an amphibian classification chart and "
+            "features that distinguish it from fish"
+        ),
+        "caption": (
+            "The axolotl is an amphibian: a salamander in the order Caudata. "
+            "It remains fully aquatic and retains larval features as a "
+            "reproductive adult."
+        ),
+        "description": (
+            "Axolotl classification graphic identifying the species as a "
+            "neotenic aquatic salamander rather than a fish."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "biology-and-science/lifespan-wild-vs-captivity": {
+        "file": "axolotl-lifespan-wild-vs-captivity.webp",
+        "alt": (
+            "Captive leucistic axolotl and wild-type axolotl compared on "
+            "lifespan timelines and environmental pressures"
+        ),
+        "caption": (
+            "Lifespan estimates vary. Captive axolotls often live longer when "
+            "temperature, water quality, diet and veterinary care are stable; "
+            "wild animals face habitat and predation pressures."
+        ),
+        "description": (
+            "Wild-versus-captive axolotl lifespan comparison emphasizing "
+            "husbandry and environmental factors rather than guaranteed ages."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "biology-and-science/regeneration-and-limb-regrowth": {
+        "file": "axolotl-regeneration-science.webp",
+        "alt": (
+            "Axolotl limb regeneration sequence showing wound closure, "
+            "blastema formation, patterning and growth"
+        ),
+        "caption": (
+            "Axolotl regeneration proceeds through wound closure, formation "
+            "of a blastema, tissue patterning and growth. Regeneration is "
+            "powerful but not unlimited, and injury prevention remains essential."
+        ),
+        "description": (
+            "Scientific axolotl-regeneration graphic illustrating the major "
+            "stages of limb regrowth and biological limits."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "biology-and-science/neoteny": {
+        "file": "axolotl-neoteny-explained.webp",
+        "alt": (
+            "Axolotl neoteny diagram comparing retained larval traits with "
+            "salamander metamorphosis"
+        ),
+        "caption": (
+            "Neoteny allows an axolotl to reach sexual maturity while retaining "
+            "larval traits such as external gills, a finned tail and an aquatic "
+            "lifestyle."
+        ),
+        "description": (
+            "Axolotl neoteny graphic comparing its lifelong larval features "
+            "with the metamorphic pathway of other salamanders."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "biology-and-science/wild-habitat-xochimilco": {
+        "file": "axolotl-wild-habitat-xochimilco.webp",
+        "alt": (
+            "Wild-type axolotl in a Xochimilco canal beside a Mexico City map "
+            "and habitat features"
+        ),
+        "caption": (
+            "Wild axolotls are native to the Xochimilco canal system south of "
+            "Mexico City. Shallow vegetated water, chinampa landscapes and "
+            "remaining refuges define this restricted habitat."
+        ),
+        "description": (
+            "Axolotl habitat graphic showing Xochimilco's location, canals, "
+            "vegetation and the species' narrow native range."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "tank-setup/aquarium-chillers": {
         "file": "axolotl-aquarium-chillers.webp",
         "alt": (
