@@ -1040,6 +1040,82 @@ HERO_IMAGE_OVERRIDES = {
         "width": 1600,
         "height": 900,
     },
+    "gifts-and-merch/best-axolotl-toys-and-plushies": {
+        "file": "best-axolotl-toys-and-plushies.webp",
+        "alt": (
+            "Axolotl plush toys and activity toys arranged as gift ideas by age, "
+            "play style and budget"
+        ),
+        "caption": (
+            "Match an axolotl toy to the recipient's age and intended use, then "
+            "check the current product label for age guidance. Prices and stock "
+            "vary by retailer, size and design."
+        ),
+        "description": (
+            "Axolotl toy-and-plush gift guide showing cuddly, reversible, "
+            "interactive and fidget-style options."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "gifts-and-merch/axolotl-squishmallow-guide": {
+        "file": "axolotl-squishmallow-guide.webp",
+        "alt": (
+            "Archie-style axolotl plush collection ranging from a small clip to "
+            "a 24-inch jumbo size"
+        ),
+        "caption": (
+            "Axolotl Squishmallows are sold in multiple sizes, with 8-inch and "
+            "12-inch versions among the common gift formats. Character selection, "
+            "sizes, retail prices and availability change between sellers."
+        ),
+        "description": (
+            "Axolotl Squishmallow size guide comparing clip, 5-inch, 8-inch, "
+            "12-inch and jumbo plush formats with buying notes."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "gifts-and-merch/build-a-bear-axolotl-guide": {
+        "file": "build-a-bear-axolotl-guide.webp",
+        "alt": (
+            "Build-A-Bear axolotl plush beside clothing, scent, sound and gift-tag "
+            "customization options"
+        ),
+        "caption": (
+            "Build-A-Bear lists the standard pink axolotl separately from optional "
+            "clothing, sounds, scents and gift sets. Prices, colors, seasonal models "
+            "and availability can change, so verify the current official listing."
+        ),
+        "description": (
+            "Build-A-Bear axolotl buying graphic showing the base plush and common "
+            "customization choices with variable-price guidance."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "gifts-and-merch/best-axolotl-lego-sets": {
+        "file": "lego-axolotl-house-set-21247.webp",
+        "alt": (
+            "LEGO Minecraft Axolotl House set 21247 with an axolotl-shaped house, "
+            "underwater scenery and set specifications"
+        ),
+        "caption": (
+            "LEGO Minecraft The Axolotl House is set 21247, rated for ages 7 and "
+            "up, with 242 pieces and a 2023 release year. It is discontinued in "
+            "some markets, so current availability and resale prices vary."
+        ),
+        "description": (
+            "LEGO Axolotl House set guide showing the Minecraft model, set number, "
+            "piece count, age rating and release information."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "tank-setup/aquarium-chillers": {
         "file": "axolotl-aquarium-chillers.webp",
         "alt": (
