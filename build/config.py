@@ -451,6 +451,196 @@ HERO_IMAGE_OVERRIDES = {
         "width": 1600,
         "height": 900,
     },
+    "care-basics/are-axolotls-good-beginner-pets": {
+        "file": "are-axolotls-good-beginner-pets.webp",
+        "alt": (
+            "Leucistic axolotl in a filtered aquarium beside a beginner-readiness "
+            "checklist for temperature and long-term care"
+        ),
+        "caption": (
+            "Axolotls can suit prepared beginners who can cycle the aquarium, "
+            "maintain cool stable water, and commit to long-term care. They are "
+            "not a low-maintenance impulse pet."
+        ),
+        "description": (
+            "Beginner axolotl care graphic showing a leucistic animal, filter, "
+            "thermometer and preparation checklist."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "care-basics/axolotl-age-and-size-chart": {
+        "file": "axolotl-age-and-size-chart.webp",
+        "alt": (
+            "Four axolotl growth stages aligned with a ruler from larva through "
+            "juvenile, subadult and adult"
+        ),
+        "caption": (
+            "Measure from snout to tail tip. Size varies with genetics, diet, "
+            "temperature, health, and individual growth, so stage labels are "
+            "approximate rather than deadlines."
+        ),
+        "description": (
+            "Axolotl age-and-size chart comparing larval, juvenile, subadult and "
+            "adult growth stages against a measurement scale."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "care-basics/axolotl-facts": {
+        "file": "amazing-axolotl-facts.webp",
+        "alt": (
+            "Wild-type axolotl in a Xochimilco collage with fact icons for "
+            "amphibian identity, neoteny, regeneration and conservation"
+        ),
+        "caption": (
+            "Axolotls are fully aquatic salamanders native to Xochimilco. They "
+            "retain larval traits as adults, can regenerate complex tissues, and "
+            "remain critically endangered in the wild."
+        ),
+        "description": (
+            "Axolotl fact graphic connecting the species with Xochimilco, "
+            "amphibian biology, neoteny, regeneration and wild conservation."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "care-basics/axolotl-intelligence-and-bonding": {
+        "file": "axolotl-owner-recognition.webp",
+        "alt": (
+            "Copper axolotl approaching its keeper beside notes on associative "
+            "learning, routines and owner recognition"
+        ),
+        "caption": (
+            "Axolotls can learn feeding cues and become responsive to a familiar "
+            "keeper's movement and routine. This is associative learning, not "
+            "evidence of mammal-like attachment."
+        ),
+        "description": (
+            "Axolotl owner-recognition graphic explaining learned feeding cues, "
+            "familiar routines and the limits of bonding claims."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "care-basics/axolotls-and-children": {
+        "file": "axolotls-as-pets-for-kids.webp",
+        "alt": (
+            "Child and adult observing a leucistic axolotl aquarium beside "
+            "supervision and no-handling guidance"
+        ),
+        "caption": (
+            "An axolotl can be a family pet when an adult manages water quality, "
+            "feeding, and equipment. Children should observe rather than handle "
+            "the animal."
+        ),
+        "description": (
+            "Family axolotl-care graphic showing a child and adult observing the "
+            "tank with supervision and handling-safety reminders."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "care-basics/behavior": {
+        "file": "axolotl-behavior-guide.webp",
+        "alt": (
+            "Melanoid axolotls demonstrating resting, hiding, nocturnal activity "
+            "and frantic-swimming behavior"
+        ),
+        "caption": (
+            "Resting and hiding can be normal, especially during the day. Sudden "
+            "frantic swimming is a reason to check water quality, temperature, "
+            "flow, and other stressors."
+        ),
+        "description": (
+            "Axolotl behavior graphic comparing normal resting and hiding with "
+            "activity patterns and a possible stress response."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "care-basics/cost-of-ownership-monthly": {
+        "file": "axolotl-monthly-ownership-cost.webp",
+        "alt": (
+            "Golden albino axolotl aquarium beside monthly expense categories for "
+            "food, conditioner, supplies and emergency savings"
+        ),
+        "caption": (
+            "Monthly costs vary by location, tank equipment, electricity rates, "
+            "diet, and health needs. Plan for routine supplies plus an emergency "
+            "reserve instead of treating one price as universal."
+        ),
+        "description": (
+            "Axolotl ownership-cost graphic organizing recurring expenses into "
+            "food, water care, supplies and emergency-fund categories."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "care-basics/handling": {
+        "file": "how-to-handle-an-axolotl-safely.webp",
+        "alt": (
+            "Wild-type axolotl being transferred in water beside container, "
+            "minimal-handling and bare-hand safety guidance"
+        ),
+        "caption": (
+            "Avoid routine bare-hand handling. When movement is necessary, a "
+            "water-filled container is generally the safest first choice; keep "
+            "any transfer brief and protect the gills and limbs."
+        ),
+        "description": (
+            "Axolotl transfer-safety graphic emphasizing a water-filled container, "
+            "minimal handling time and protection of delicate skin and gills."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "care-basics/how-to-pronounce-axolotl": {
+        "file": "how-to-pronounce-axolotl.webp",
+        "alt": (
+            "Leucistic axolotl beside the modern English pronunciation "
+            "ACK-suh-lot-ul and notes that Nahuatl and Spanish differ"
+        ),
+        "caption": (
+            "Modern English commonly uses ACK-suh-lot-ul. The Nahuatl source word "
+            "and Spanish ajolote have different pronunciations, so they should not "
+            "be presented as one universal form."
+        ),
+        "description": (
+            "Axolotl pronunciation graphic separating the common modern English "
+            "form from the related Nahuatl and Spanish forms."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "care-basics/keeping-multiple-axolotls": {
+        "file": "can-axolotls-live-together.webp",
+        "alt": (
+            "Three similarly sized axolotls in an aquarium with multiple hides "
+            "beside cohabitation safety checks"
+        ),
+        "caption": (
+            "Cohabitation depends on comparable body size, adequate floor space, "
+            "multiple hides, consistent feeding, and close monitoring. Separate "
+            "animals if biting or persistent stress occurs."
+        ),
+        "description": (
+            "Axolotl cohabitation graphic showing similarly sized animals, several "
+            "hides, adequate space and monitoring for biting or stress."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "tank-setup/aquarium-chillers": {
         "file": "axolotl-aquarium-chillers.webp",
         "alt": (
