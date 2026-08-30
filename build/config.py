@@ -72,6 +72,25 @@ SOURCE_DIR = ROOT.parent / "axolotls"
 # with descriptive metadata and an HTML text anchor for any fact in the image.
 HERO_IMAGE_DIR = ROOT / "build" / "hero-images"
 HERO_IMAGE_OVERRIDES = {
+    "axolotls/care-guide": {
+        "file": "1-axolotl-care-guide-attached.webp",
+        "alt": (
+            "Dark wild-type axolotl in a planted aquarium with cool water, "
+            "fine sand, a hide, filtration and feeding-care symbols"
+        ),
+        "caption": (
+            "A suitable axolotl habitat combines cool stable water, an established "
+            "biofilter, safe substrate and hides, with appropriate feeding and "
+            "routine health observation."
+        ),
+        "description": (
+            "Axolotl care-guide hero showing a wild-type axolotl in a complete "
+            "aquarium with water-quality, habitat, feeding and health cues."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "diet/overfeeding-and-impaction": {
         "file": "axolotl-obesity-body-condition-guide.webp",
         "alt": (
