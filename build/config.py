@@ -793,6 +793,139 @@ HERO_IMAGE_OVERRIDES = {
         "width": 1600,
         "height": 900,
     },
+    "legal/california": {
+        "file": "axolotl-legal-california.webp",
+        "alt": (
+            "California axolotl ownership graphic showing restricted-species "
+            "permit rules and a CDFW verification reminder"
+        ),
+        "caption": (
+            "California treats axolotls as restricted wildlife. CDFW does not "
+            "issue restricted-species permits for ordinary pet ownership; verify "
+            "current state and local rules before acting."
+        ),
+        "description": (
+            "California axolotl legality infographic summarizing restricted "
+            "status, permit limits and current-rule verification."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "legal/canada": {
+        "file": "axolotl-legal-canada.webp",
+        "alt": (
+            "Canada map beside an axolotl and guidance that ownership rules "
+            "vary by province and locality"
+        ),
+        "caption": (
+            "Axolotls are legal to own in most of Canada, but provincial, "
+            "municipal, import and cross-border requirements can differ. Confirm "
+            "the current rules for your location and source."
+        ),
+        "description": (
+            "Canada axolotl ownership graphic emphasizing provincial variation, "
+            "captive-bred sourcing and possible import requirements."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "legal/hawaii": {
+        "file": "axolotl-legal-hawaii.webp",
+        "alt": (
+            "Hawaii axolotl law graphic showing prohibited ownership and import "
+            "restrictions beside an axolotl"
+        ),
+        "caption": (
+            "Hawaii prohibits ordinary private ownership and import of axolotls. "
+            "Confirm current requirements with the Hawaii Department of "
+            "Agriculture before any movement or acquisition."
+        ),
+        "description": (
+            "Hawaii axolotl legality infographic explaining ownership and import "
+            "restrictions and the purpose of island biosecurity."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "legal/maine": {
+        "file": "axolotl-legal-maine.webp",
+        "alt": (
+            "Maine axolotl law graphic showing permit-based ownership and import "
+            "requirements"
+        ),
+        "caption": (
+            "Maine regulates axolotls through permit-based wildlife rules. Verify "
+            "the current possession and import requirements with Maine DIFW "
+            "before acquiring or moving one."
+        ),
+        "description": (
+            "Maine axolotl legality infographic summarizing restricted-species "
+            "category, possession permits and import permits."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "legal/new-jersey": {
+        "file": "axolotl-legal-new-jersey.webp",
+        "alt": (
+            "New Jersey axolotl law graphic showing prohibited private ownership "
+            "and nonnative-species concerns"
+        ),
+        "caption": (
+            "New Jersey does not permit ordinary private ownership of axolotls. "
+            "Confirm current possession and transport rules with the New Jersey "
+            "Division of Fish and Wildlife before acting."
+        ),
+        "description": (
+            "New Jersey axolotl legality infographic explaining private-ownership "
+            "restrictions, ecological concerns and current-rule verification."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "legal/new-mexico": {
+        "file": "axolotl-legal-new-mexico.webp",
+        "alt": (
+            "New Mexico axolotl law graphic showing prohibited private ownership "
+            "and import restrictions"
+        ),
+        "caption": (
+            "New Mexico prohibits ordinary private ownership and import of "
+            "axolotls. Verify the current requirements with the New Mexico "
+            "Department of Game and Fish before acting."
+        ),
+        "description": (
+            "New Mexico axolotl legality infographic summarizing possession and "
+            "import restrictions with a current-rule reminder."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "legal/virginia": {
+        "file": "axolotl-legal-virginia.webp",
+        "alt": (
+            "Virginia axolotl law graphic showing ownership, import and sale "
+            "allowed without a state wildlife permit"
+        ),
+        "caption": (
+            "Virginia currently allows possession, import and sale of axolotls "
+            "without a state wildlife permit, but local rules can still apply. "
+            "Verify current state and local requirements."
+        ),
+        "description": (
+            "Virginia axolotl legality infographic summarizing state permit "
+            "status, allowed activities and local-rule verification."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "tank-setup/aquarium-chillers": {
         "file": "axolotl-aquarium-chillers.webp",
         "alt": (
