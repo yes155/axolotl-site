@@ -926,6 +926,120 @@ HERO_IMAGE_OVERRIDES = {
         "width": 1600,
         "height": 900,
     },
+    "cost-and-buying/axolotl-price-by-morph": {
+        "file": "axolotl-price-by-morph.webp",
+        "alt": (
+            "Six axolotl morphs displayed with example purchase-price ranges "
+            "and reminders that seller, age, lineage, location and shipping affect cost"
+        ),
+        "caption": (
+            "Advertised axolotl prices vary by seller, morph, age, lineage and "
+            "location. Treat displayed ranges as market examples rather than "
+            "guaranteed prices, and include shipping when comparing the total cost."
+        ),
+        "description": (
+            "Axolotl price-by-morph comparison graphic showing common and uncommon "
+            "appearances with variable-price and shipping-cost guidance."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "cost-and-buying/breeder-vs-pet-store": {
+        "file": "axolotl-breeder-vs-pet-store.webp",
+        "alt": (
+            "Axolotl breeder and pet-store comparison with feeding records, "
+            "water-quality questions and written-cost checks"
+        ),
+        "caption": (
+            "Seller type alone does not prove quality. Compare the exact animal, "
+            "feeding and hatch records, measured water conditions, delivered cost "
+            "and written terms before choosing a breeder or pet store."
+        ),
+        "description": (
+            "Breeder-versus-pet-store axolotl buying graphic focused on verifiable "
+            "records, husbandry conditions and transaction terms."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "cost-and-buying/choosing-a-reputable-breeder": {
+        "file": "choosing-a-reputable-axolotl-breeder.webp",
+        "alt": (
+            "Axolotl breeder checklist showing dated animal photos, water records, "
+            "parentage details and written buyer terms"
+        ),
+        "caption": (
+            "Choose a breeder by the evidence they can provide. Request current "
+            "photos, feeding and water records, hatch and parentage information, "
+            "written terms and a payment method with buyer protection."
+        ),
+        "description": (
+            "Reputable axolotl breeder checklist illustrating the records and "
+            "transaction safeguards to verify before payment."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "cost-and-buying/how-to-choose-a-healthy-axolotl": {
+        "file": "choosing-a-healthy-axolotl.webp",
+        "alt": (
+            "Golden albino axolotl with buying checks for body condition, intact "
+            "skin and gills, movement, feeding history and water readings"
+        ),
+        "caption": (
+            "Before buying, observe body condition, skin and gill integrity, "
+            "balanced movement, recent feeding history and measured water quality. "
+            "A photograph can reveal warning signs but cannot diagnose an axolotl."
+        ),
+        "description": (
+            "Healthy-axolotl buying graphic showing observable condition checks and "
+            "the records a prospective owner should request."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "cost-and-buying/red-flags-when-buying": {
+        "file": "axolotl-seller-red-flags.webp",
+        "alt": (
+            "Dark axolotl beside seller red flags including unverifiable animals, "
+            "unsafe payment requests, vague care information and changed terms"
+        ),
+        "caption": (
+            "Pause a purchase when the seller cannot verify the exact animal, "
+            "explain its current care or provide consistent written terms. Avoid "
+            "payment methods that remove ordinary buyer protection."
+        ),
+        "description": (
+            "Axolotl seller-red-flags graphic covering identity, husbandry, payment "
+            "and shipping warning signs."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "cost-and-buying/shipping-live-axolotls": {
+        "file": "shipping-live-axolotls.webp",
+        "alt": (
+            "Axolotl shipping sequence with insulated packaging, delivery tracking, "
+            "unboxing documentation and transfer to a prepared cycled aquarium"
+        ),
+        "caption": (
+            "Before payment, verify the carrier's current live-animal policy, route "
+            "legality and suitable weather. Arrange prompt delivery, document the "
+            "unboxing, and prepare a cycled destination before the animal arrives."
+        ),
+        "description": (
+            "Live-axolotl shipping graphic showing insulated packing, tracking, "
+            "arrival documentation and transfer preparation."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "tank-setup/aquarium-chillers": {
         "file": "axolotl-aquarium-chillers.webp",
         "alt": (
