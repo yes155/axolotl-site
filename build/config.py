@@ -409,6 +409,25 @@ HERO_IMAGE_OVERRIDES = {
         "width": 1600,
         "height": 900,
     },
+    "diet/beef-heart": {
+        "file": "axolotl-beef-heart-feeding-warning.webp",
+        "alt": (
+            "Wild-type axolotl beside beef heart with guidance to offer it only "
+            "occasionally and choose earthworms or axolotl pellets instead"
+        ),
+        "caption": (
+            "Beef heart is not suitable as a staple axolotl food because its "
+            "calcium-to-phosphorus balance is poor. Use earthworms or "
+            "axolotl-formulated pellets for routine feeding."
+        ),
+        "description": (
+            "Educational axolotl feeding graphic explaining why beef heart "
+            "should be occasional rather than a staple food."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "diet/overfeeding-and-impaction": {
         "file": "axolotl-obesity-body-condition-guide.webp",
         "alt": (
