@@ -1566,6 +1566,105 @@ HERO_IMAGE_OVERRIDES = {
         "width": 1600,
         "height": 900,
     },
+    "health/black-tea-bath": {
+        "file": "axolotl-black-tea-bath.webp",
+        "alt": (
+            "Leucistic axolotl in a shallow black tea bath beside a timer, pure "
+            "tea bag and thermometer"
+        ),
+        "caption": (
+            "For mild irritation or early surface fungus, a short 10–15-minute "
+            "bath made with cooled, pure black tea may provide supportive care; "
+            "stop if the axolotl shows distress and seek veterinary help for "
+            "persistent or spreading disease."
+        ),
+        "description": (
+            "Axolotl black-tea-bath guide showing a shallow treatment tub, timer, "
+            "thermometer and pure black tea."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "health/parasite-treatment": {
+        "file": "axolotl-parasite-treatment.webp",
+        "alt": (
+            "Wild-type axolotl in a hospital tub with a magnified parasite and "
+            "quarantine sign"
+        ),
+        "caption": (
+            "Possible parasites require water-quality checks, isolation in a "
+            "clean hospital tub and confirmation by an experienced exotic "
+            "veterinarian before treatment."
+        ),
+        "description": (
+            "Axolotl parasite-treatment graphic showing quarantine, water checks "
+            "and veterinary confirmation."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "health/malnutrition-signs": {
+        "file": "axolotl-malnutrition-signs.webp",
+        "alt": (
+            "Golden albino axolotl beside healthy and underweight body-condition "
+            "comparisons"
+        ),
+        "caption": (
+            "Evaluate body condition from above: a persistently narrow abdomen, "
+            "reduced tail mass, poor growth or low energy can indicate "
+            "undernutrition, but water quality and disease should also be "
+            "investigated."
+        ),
+        "description": (
+            "Axolotl malnutrition-signs graphic comparing healthy and underweight "
+            "body condition."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "health/why-axolotl-floating": {
+        "file": "why-axolotl-floating.webp",
+        "alt": (
+            "Dark axolotl floating near the aquarium surface beside common-cause "
+            "and first-check guidance"
+        ),
+        "caption": (
+            "Floating is a symptom rather than a diagnosis. Check water parameters "
+            "and temperature first; swallowed air, constipation, impaction and "
+            "illness are possible causes, especially when floating persists or "
+            "worsens."
+        ),
+        "description": (
+            "Axolotl floating guide showing a dark axolotl near the surface and "
+            "the first checks owners should make."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "health/fridging-sick-axolotl": {
+        "file": "fridging-sick-axolotl-risks.webp",
+        "alt": (
+            "Leucistic axolotl in a labeled hospital tub beside a refrigerator "
+            "and thermometer"
+        ),
+        "caption": (
+            "Fridging is not routine home treatment. Household refrigerators "
+            "create temperature and water-quality risks, so controlled cooling "
+            "should be used only when an experienced exotic veterinarian "
+            "recommends it."
+        ),
+        "description": (
+            "Axolotl fridging-risk graphic showing a hospital tub, refrigerator, "
+            "thermometers and veterinary-guidance warning."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "health/curled-gills-stress-signal": {
         "file": "axolotl-curled-gills-posture-comparison.webp",
         "alt": (
