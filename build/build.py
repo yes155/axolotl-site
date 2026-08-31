@@ -1890,6 +1890,7 @@ def render_hub(key, hub, articles, img_map):
             '</section>'
         )
 
+    hub_page_class = " hub-diet" if key == "diet" else ""
     body = (
         f'<section class="hub-hero"><div class="container">'
         f'<nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a>'
@@ -1897,7 +1898,7 @@ def render_hub(key, hub, articles, img_map):
         f'<h1>{esc(hub["h1"])}</h1>'
         f'<p class="hub-intro">{esc(hub["intro"])}</p>'
         "</div></section>"
-        f'<div class="container page hub-{key}">{setup_order}{listing}'
+        f'<div class="container page{hub_page_class}">{setup_order}{listing}'
         '<div class="hub-related"><h2 class="section-title">Related Topics</h2>'
         f'<div class="chip-row">{related}</div></div>'
         "</div>"
