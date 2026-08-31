@@ -129,6 +129,171 @@ HERO_IMAGE_OVERRIDES = {
         "width": 1600,
         "height": 900,
     },
+    "tank-setup/live-vs-artificial-plants": {
+        "file": "live-vs-artificial-plants.webp",
+        "alt": (
+            "Leucistic axolotl in a split aquarium comparing live green plants "
+            "with soft artificial plants"
+        ),
+        "caption": (
+            "Live plants can absorb some nitrate and provide cover, while soft "
+            "artificial plants offer low-maintenance shelter without lighting or "
+            "fertilizer needs; avoid sharp plastic edges."
+        ),
+        "description": (
+            "Split-tank comparison of live and artificial plants for an axolotl "
+            "aquarium."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "tank-setup/temperature": {
+        "file": "axolotl-tank-temperature.webp",
+        "alt": (
+            "Blue axolotl in a cooled aquarium with a fan, thermometer and "
+            "aquarium chiller"
+        ),
+        "caption": (
+            "Aim for stable water around 60–64°F (16–18°C); sustained temperatures "
+            "above 68°F (20°C) increase stress, so reliably warm rooms may require "
+            "a chiller."
+        ),
+        "description": (
+            "Axolotl tank-cooling graphic showing target temperature, thermometer, "
+            "fan and chiller."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "tank-setup/canister-vs-sponge-filter": {
+        "file": "canister-vs-sponge-filter.webp",
+        "alt": (
+            "Sponge and canister filters compared beside two wild-type axolotls"
+        ),
+        "caption": (
+            "Sponge filters offer gentle biological filtration, while canisters "
+            "suit larger systems when their output is baffled or dispersed to "
+            "prevent strong current."
+        ),
+        "description": (
+            "Sponge-filter versus canister-filter comparison for axolotl tanks."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "tank-setup/uneaten-food-and-ammonia": {
+        "file": "uneaten-food-and-ammonia.webp",
+        "alt": (
+            "Wild-type axolotl below a four-step diagram showing how uneaten food "
+            "raises ammonia"
+        ),
+        "caption": (
+            "Remove leftovers promptly because decaying food adds waste and can "
+            "drive ammonia above the required 0 ppm."
+        ),
+        "description": (
+            "Uneaten-food and ammonia pathway graphic for an axolotl aquarium."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "tank-setup/filtration-for-axolotls": {
+        "file": "axolotl-tank-filtration.webp",
+        "alt": (
+            "Wild-type axolotl in a filtered aquarium with sponge, baffled "
+            "hang-on-back and canister filter examples"
+        ),
+        "caption": (
+            "Choose filtration for the tank’s volume and waste load, prioritize "
+            "biological capacity, and baffle or disperse the outlet to keep flow "
+            "gentle."
+        ),
+        "description": (
+            "Axolotl filtration guide comparing sponge, hang-on-back and canister "
+            "filters."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "tank-setup/hides-and-caves": {
+        "file": "axolotl-hides-and-caves.webp",
+        "alt": (
+            "Leucistic axolotl beside terracotta pot, slate cave and smooth PVC "
+            "tunnel hides"
+        ),
+        "caption": (
+            "Provide at least one dark, enclosed hide per axolotl and choose smooth "
+            "terracotta, slate or PVC without sharp edges."
+        ),
+        "description": (
+            "Axolotl hide comparison showing a terracotta pot, slate cave and PVC "
+            "tunnel."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "tank-setup/why-tank-water-smells": {
+        "file": "axolotl-tank-water-smell.webp",
+        "alt": (
+            "Leucistic axolotl with examples of a filter, dirty substrate, waste "
+            "and a water test vial"
+        ),
+        "caption": (
+            "A healthy aquarium may smell faintly earthy; strong odors call for "
+            "water testing and checks for trapped waste, uneaten food and dirty "
+            "filter media."
+        ),
+        "description": (
+            "Axolotl tank-odor troubleshooting graphic showing common sources and "
+            "water testing."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "tank-setup/lighting-for-axolotls": {
+        "file": "axolotl-tank-lighting.webp",
+        "alt": (
+            "Dark axolotl in a planted tank with day and night lux-meter readings "
+            "and a timer"
+        ),
+        "caption": (
+            "Use low, indirect light and a consistent 10–12-hour daytime "
+            "photoperiod, leaving the tank dark at night and providing hides."
+        ),
+        "description": (
+            "Axolotl lighting guide showing low daytime light, darkness at night "
+            "and a timer."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "tank-setup/substrate-and-impaction": {
+        "file": "axolotl-substrate-and-impaction.webp",
+        "alt": (
+            "Wild-type and leucistic axolotls above examples of fine sand, bare "
+            "bottom, gravel and large pebbles"
+        ),
+        "caption": (
+            "Fine sand under 1 mm is the safer loose substrate for suitably sized "
+            "axolotls; bare-bottom tanks work for juveniles or quarantine, while "
+            "gravel and swallowable stones pose impaction risk."
+        ),
+        "description": (
+            "Axolotl substrate comparison showing fine sand, bare bottom, gravel "
+            "and large pebbles."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "axolotl-in-culture/adopt-me-axolotl-guide": {
         "file": "adopt-me-axolotl-guide.webp",
         "alt": (
