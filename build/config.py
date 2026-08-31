@@ -110,6 +110,26 @@ HERO_IMAGE_OVERRIDES = {
         "width": 1600,
         "height": 900,
     },
+    "diet/feeding-schedule-by-age": {
+        "file": "axolotl-feeding-frequency-by-life-stage.webp",
+        "alt": (
+            "Hatchling, juvenile and adult axolotls shown with age-specific foods "
+            "and feeding frequencies"
+        ),
+        "caption": (
+            "Hatchlings under 3 in (7.5 cm) eat 2–3 times daily, juveniles 3–7.5 "
+            "in (7.5–19 cm) eat 1–3 times daily, and adults over 7.5 in (19 cm) "
+            "eat every 2–3 days; offer head-width portions and remove leftovers "
+            "within 3–5 minutes."
+        ),
+        "description": (
+            "Axolotl feeding-frequency chart comparing hatchling, juvenile and "
+            "adult schedules, portions and age-appropriate foods."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "axolotls/care-guide": {
         "file": "1-axolotl-care-guide-attached.webp",
         "alt": (
