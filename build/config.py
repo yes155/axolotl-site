@@ -1665,6 +1665,45 @@ HERO_IMAGE_OVERRIDES = {
         "width": 1600,
         "height": 900,
     },
+    "health/refusing-to-eat": {
+        "file": "axolotl-not-eating-first-checks.webp",
+        "alt": (
+            "Dark melanoid axolotl turning away from an offered earthworm beside "
+            "first checks for appetite loss"
+        ),
+        "caption": (
+            "Unexpected appetite loss is a symptom, not a diagnosis. Record water "
+            "values, temperature, food, stool and body condition; seek prompt "
+            "veterinary care for swelling, breathing difficulty or rapid decline."
+        ),
+        "description": (
+            "Axolotl-not-eating guide showing a melanoid axolotl refusing a worm "
+            "and the first husbandry and health checks to make."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
+    "health/fungal-infections-saprolegnia": {
+        "file": "axolotl-fungal-infection-signs.webp",
+        "alt": (
+            "Copper axolotl with a small cotton-like white tuft on its tail shown "
+            "in a magnified inset"
+        ),
+        "caption": (
+            "Cotton-like white or gray tufts can indicate fungal growth. Isolate "
+            "the axolotl in clean, cool hospital water, test ammonia, nitrite and "
+            "temperature, and seek an exotic veterinarian if growth spreads or "
+            "the gills are affected."
+        ),
+        "description": (
+            "Axolotl fungal-infection guide showing a localized cotton-like tail "
+            "tuft, magnified texture and safe first-response guidance."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "health/curled-gills-stress-signal": {
         "file": "axolotl-curled-gills-posture-comparison.webp",
         "alt": (
