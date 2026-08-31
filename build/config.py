@@ -184,6 +184,25 @@ HERO_IMAGE_OVERRIDES = {
         "width": 1600,
         "height": 900,
     },
+    "tank-setup/gravel-risks": {
+        "file": "axolotl-sharp-gravel-risks.webp",
+        "alt": (
+            "Leucistic axolotl on fine sand compared with a dark axolotl on "
+            "sharp gravel"
+        ),
+        "caption": (
+            "Fine sand under 1 mm is safer for suitably sized axolotls, while "
+            "gravel and other swallowable stones can cause impaction; bare-bottom "
+            "tanks are another safe option."
+        ),
+        "description": (
+            "Side-by-side comparison of fine sand and sharp gravel in axolotl "
+            "tanks, highlighting gravel-ingestion and impaction risk."
+        ),
+        "credit": "MyAxolotl original graphic",
+        "width": 1600,
+        "height": 900,
+    },
     "tank-setup/uneaten-food-and-ammonia": {
         "file": "uneaten-food-and-ammonia.webp",
         "alt": (
