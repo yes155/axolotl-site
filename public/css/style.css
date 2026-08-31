@@ -737,6 +737,13 @@ img {
   aspect-ratio: 16 / 9;
 }
 
+/* Diet artwork includes square, 3:2, 2:1, and 16:9 compositions.
+   Keep the uniform card frame without cropping labels or subjects. */
+.hub-diet .card .thumb {
+  object-fit: contain;
+  background: var(--muted);
+}
+
 .card-body {
   padding: 22px;
   display: flex;
