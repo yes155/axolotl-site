@@ -728,10 +728,17 @@ def page_html(title, meta, canonical, content, active_href="",
     schema = ""
     if json_ld:
         schema = f"<script type=\"application/ld+json\">{json_ld}</script>"
+    pinterest_verification = ""
+    if canonical.rstrip("/") == config.SITE_URL.rstrip("/"):
+        pinterest_verification = (
+            '<meta name="p:domain_verify" '
+            'content="c83aa74b9d30d0578a9d912b9cc3c3de"/>\n'
+        )
     return (
         "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n"
         '<meta charset="utf-8">\n'
         '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+        f"{pinterest_verification}"
         f"<title>{esc(title)}</title>\n"
         f'<meta name="description" content="{esc(meta)}">\n'
         f'<link rel="canonical" href="{esc(og_url)}">\n'
