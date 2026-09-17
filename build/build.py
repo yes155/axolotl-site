@@ -459,6 +459,54 @@ def build_articles():
             )
             a["date_modified"] = "2026-09-17"
             a["lastmod"] = a["date_modified"]
+        if slug == "care-basics/keeping-multiple-axolotls":
+            a["meta"] = (
+                "Can axolotls live together? Learn when cannibalism and nipping are most likely, "
+                "why size matching matters, and when larvae, juveniles, or adults should be separated."
+            )
+            a["intro"] = (
+                "Axolotls can sometimes be housed together, but cannibalism and bite injury are "
+                "especially important risks in larvae and young animals. Keep tankmates closely "
+                "matched in size, monitor for nipping, and separate animals when injuries or size "
+                "differences appear."
+            )
+            a["date_modified"] = "2026-09-17"
+            a["lastmod"] = a["date_modified"]
+            old_intro = '<p><strong>Yes, axolotls can live together, but only with matched sizes, enough space, and enough hiding spots.</strong> Two similar-size adults in a 40-gallon tank with several hides coexist for years. Mismatched sizes end in nipped gills, lost limbs, and cannibalism, because an axolotl eats anything that fits in its mouth.</p>'
+            new_intro = '<p><strong>Axolotls can sometimes live together, but compatibility is not guaranteed.</strong> Cannibalism and bite injury are most important in larvae and young axolotls, and a larger individual may try to eat a smaller tankmate. Closely matched size reduces that risk but does not make group housing injury-proof.</p>'
+            if old_intro in a["body_html"]:
+                a["body_html"] = a["body_html"].replace(old_intro, new_intro, 1)
+            old_size = '<p><strong>Size match is the deciding factor because an axolotl eats anything that fits in its mouth.</strong> A small axolotl sharing a tank with a much larger one looks like food, not like a tank mate. Keep cohabiting axolotls within 1 inch (2.5 cm) of each other in length, and separate any individual that pulls ahead.</p>'
+            new_size = '<p><strong>Size matching matters because larger axolotls may bite or attempt to eat smaller ones.</strong> The Ambystoma Genetic Stock Center advises grouping larvae by similar size and separating individuals as growth differences appear. There is not a universal research-based "within 1 inch" cutoff, so use close size matching plus direct observation rather than treating a single measurement as a guarantee.</p>'
+            if old_size in a["body_html"]:
+                a["body_html"] = a["body_html"].replace(old_size, new_size, 1)
+            old_juvenile_row = '<tr><td>Two same-size juveniles</td><td>Yes</td><td>Monitor as they grow</td></tr>'
+            new_juvenile_row = '<tr><td>Two same-size juveniles</td><td>Higher risk</td><td>Size-match closely; separate for nipping or growth differences</td></tr>'
+            if old_juvenile_row in a["body_html"]:
+                a["body_html"] = a["body_html"].replace(old_juvenile_row, new_juvenile_row, 1)
+            old_nips = '<p>Small nips heal within weeks, because axolotls regenerate tissue. Repeated wounds mean separation.</p>'
+            new_nips = '<p><strong>Repeated wounds mean separation.</strong> Axolotls can regenerate damaged tissue, but bite injuries do not always regenerate with normal limb anatomy. Regeneration is therefore not a reason to leave an unsafe pairing together.</p>'
+            if old_nips in a["body_html"]:
+                a["body_html"] = a["body_html"].replace(old_nips, new_nips, 1)
+            old_cannibalism = '<h2>Will axolotls eat each other?</h2>\n<p><strong>Yes, a much larger axolotl eats a smaller one, because it eats anything that fits in its mouth.</strong> This is the reason for the size rule. Keep cohabiting axolotls within 1 inch (2.5 cm) of each other and separate any individual that outgrows the group.</p>'
+            new_cannibalism = '''<h2>Are axolotls cannibalistic, and will they eat each other?</h2>
+<p><strong>Yes, cannibalism and bite injury can occur, especially among larvae and young axolotls.</strong> The Ambystoma Genetic Stock Center describes small larvae as aggressive and cannibalistic, notes that larger larvae will try to eat smaller ones, and reports that young animals commonly nip toes and feet while snapping at movement.</p>
+<p>The risk changes with life stage. The same husbandry guide says juveniles and adults can thrive in a properly maintained aquarium, so cannibalism is not an inevitable adult behavior. However, group housing still requires close size matching and monitoring for repeated bites, wounds, missing toes, or one animal being persistently displaced.</p>
+<p>Bite injury should not be dismissed simply because axolotls regenerate. A study of animals from the Ambystoma Genetic Stock Center found evidence of bite injury in 80% of larvae at the transition from group to solitary housing and estimated that only 43% of bitten larvae would retain four anatomically normal-looking adult limbs. A later histological study likewise found more severe and frequent abnormalities after natural bite injuries than after controlled amputations.</p>
+<p><strong>Sources:</strong> <a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/25745564/">Thompson et al. (2014): bite injury and limb regeneration</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/32394624/">Woltering et al. (2020): limb abnormalities after natural bites</a>.</p>'''
+            if old_cannibalism not in a["body_html"]:
+                raise ValueError("Axolotl cannibalism section marker not found")
+            a["body_html"] = a["body_html"].replace(old_cannibalism, new_cannibalism, 1)
+            old_juveniles = '<p><strong>Yes, same-size juveniles can grow up together, but they need daily monitoring for size gaps.</strong> Juveniles diverge in size within weeks, and the larger one nips or eats the smaller. The moment a gap appears, separate them.</p>'
+            new_juveniles = '<p><strong>Juveniles may be group-housed when closely matched in size, but the bite risk is substantially higher than it is for established adults.</strong> The Ambystoma Genetic Stock Center reports enough nipping among young axolotls that it separates individuals once they reach about 2 inches (5 cm). If juveniles are housed together, sort by size frequently and separate them at the first sign of repeated nipping, wounds, or a widening growth gap.</p>'
+            if old_juveniles in a["body_html"]:
+                a["body_html"] = a["body_html"].replace(old_juveniles, new_juveniles, 1)
+            a["headings"] = [
+                (int(level), html.unescape(re.sub(r"<[^>]+>", "", heading)).strip())
+                for level, heading in re.findall(
+                    r"<h([234])[^>]*>(.*?)</h\1>", a["body_html"], flags=re.S
+                )
+            ]
         if slug == "care-basics/behavior":
             sleep_heading = "<h2>Do axolotls sleep?</h2>"
             activity_marker = "<h2>When is an axolotl most active?</h2>"
