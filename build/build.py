@@ -547,6 +547,44 @@ def build_articles():
                         r"<h([234])[^>]*>(.*?)</h\1>", a["body_html"], flags=re.S
                     )
                 ]
+        if slug == "biology-and-science/conservation-status":
+            predators_heading = "<h2>What predators eat axolotls in the wild?</h2>"
+            threat_marker = "<h2>Why is the axolotl endangered?</h2>"
+            old_predator_sentence = " Before the fish introductions, the axolotl had no significant wild predators."
+            if old_predator_sentence in a["body_html"]:
+                a["body_html"] = a["body_html"].replace(old_predator_sentence, "", 1)
+            a["meta"] = (
+                "The wild axolotl is Critically Endangered in Xochimilco. Learn its "
+                "population status, introduced-fish predation, habitat threats, and "
+                "the conservation work underway."
+            )
+            a["date_modified"] = "2026-09-17"
+            a["lastmod"] = a["date_modified"]
+            if predators_heading not in a["body_html"]:
+                if threat_marker not in a["body_html"]:
+                    raise ValueError("Axolotl predators insertion marker not found")
+                predators_section = '''<h2>What predators eat axolotls in the wild?</h2>
+<p><strong>The best-documented predators of wild axolotls today are introduced fish, especially tilapia; axolotls can also prey on smaller axolotls.</strong> Historically, axolotls functioned as top aquatic predators in their native lake system, so the conservation evidence does not support presenting them as a species with a long list of major native specialist predators.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Predator or pressure</th><th>What the evidence supports</th></tr></thead>
+<tbody>
+<tr><td>Tilapia (introduced)</td><td>UNAM reports that introduced tilapia consume axolotl eggs and small young in Xochimilco.</td></tr>
+<tr><td>Large introduced fish</td><td>Animal Diversity Web reports that large fish may prey on axolotls and that introduced predatory fish contributed to their decline.</td></tr>
+<tr><td>Carp (introduced)</td><td>Carp are a major invasive threat, but the clearest UNAM evidence emphasizes habitat disturbance and increased turbidity rather than treating carp as the main direct predator.</td></tr>
+<tr><td>Other axolotls</td><td>Axolotls can eat smaller conspecifics, so predation can also occur within the species.</td></tr>
+</tbody></table></div>
+<p>This distinction matters for conservation: introduced fish add direct predation pressure while also changing habitat and competing for resources. That is why fish-exclusion refuges and habitat restoration are part of Xochimilco recovery work.</p>
+<p>Popular animal lists sometimes name birds, snakes, or other opportunistic predators, but the conservation sources reviewed here do not identify a specific native bird or reptile as a major documented driver of the wild axolotl's decline. The strongest evidence is for introduced fish pressure.</p>
+<p><strong>Sources:</strong> <a href="https://animaldiversity.org/accounts/Ambystoma_mexicanum/">Animal Diversity Web: <em>Ambystoma mexicanum</em></a>; <a href="https://www.revista.unam.mx/2019v20n1/el-mitico-monstruo-del-lago-la-conservacion-del-ajolote-de-xochimilco/">UNAM: El mítico monstruo del lago</a>; <a href="https://unamglobal.unam.mx/global_revista/al-rescate-del-ajolote-de-xochimilco-con-la-campana-internacional-adoptaxolotl/">UNAM Global: Adoptaxolotl conservation</a>.</p>'''
+                a["body_html"] = a["body_html"].replace(
+                    threat_marker, predators_section + "\n" + threat_marker, 1
+                )
+                a["headings"] = [
+                    (int(level), html.unescape(re.sub(r"<[^>]+>", "", heading)).strip())
+                    for level, heading in re.findall(
+                        r"<h([234])[^>]*>(.*?)</h\1>", a["body_html"], flags=re.S
+                    )
+                ]
         for old, new in config.BODY_TEXT_REPLACEMENTS.get(slug, []):
             if old not in a["body_html"]:
                 raise ValueError(
