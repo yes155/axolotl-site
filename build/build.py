@@ -662,6 +662,23 @@ def build_articles():
                         r"<h([234])[^>]*>(.*?)</h\1>", a["body_html"], flags=re.S
                     )
                 ]
+            collective_heading = "<h2>What is a group of axolotls called?</h2>"
+            if collective_heading not in a["body_html"]:
+                if habitat_marker not in a["body_html"]:
+                    raise ValueError("Axolotl collective-noun insertion marker not found")
+                collective_section = '''<h2>What is a group of axolotls called?</h2>
+<p><strong>There is no standardized special collective noun for axolotls that should be presented as an official zoological term.</strong> In ordinary English, <em>a group of axolotls</em> is the clearest wording.</p>
+<p>English does have special collective nouns for some animals, but the dictionary and zoological references reviewed here do not establish one for axolotls. Research institutions sometimes use <em>colony</em> for a managed breeding or laboratory population; for example, the Ambystoma Genetic Stock Center has historically described research populations as axolotl colonies. That is descriptive facility terminology, not proof that <em>colony</em> is the species' formal collective noun.</p>
+<p><strong>Sources:</strong> <a href="https://www.oxfordlearnersdictionaries.com/definition/english/collective-noun">Oxford Advanced Learner's Dictionary: collective noun</a>; <a href="https://dictionary.cambridge.org/dictionary/english/group">Cambridge Dictionary: group and group words</a>; <a href="https://ambystoma.uky.edu/genetic-stock-center/newsletters/Older_archive/Issues-1-12/archive/Issue%206/07-14armstrong.pdf">Ambystoma Genetic Stock Center archive: Directory of Axolotl Colonies</a>.</p>'''
+                a["body_html"] = a["body_html"].replace(
+                    habitat_marker, collective_section + "\n" + habitat_marker, 1
+                )
+                a["headings"] = [
+                    (int(level), html.unescape(re.sub(r"<[^>]+>", "", heading)).strip())
+                    for level, heading in re.findall(
+                        r"<h([234])[^>]*>(.*?)</h\1>", a["body_html"], flags=re.S
+                    )
+                ]
         if slug == "biology-and-science/wild-habitat-xochimilco":
             adaptations_heading = "<h2>What adaptations help axolotls survive in Xochimilco?</h2>"
             threats_marker = "<h2>What threatens the wild axolotl?</h2>"
