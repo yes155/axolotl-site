@@ -3931,6 +3931,143 @@ def _stamp_article_dates(entries, published, modified=None, published_source=Non
             cfg.setdefault("date_modified_source", modified_source)
 
 
+# Minecraft Culture sub-pillar: keyword-reconciled, research-verified override.
+# This intentionally overrides the external DOCX article at render time so the
+# comprehensive Minecraft coverage survives future builds without creating a
+# duplicate URL or changing the site's core topical architecture.
+CONFIG_ARTICLES['axolotl-in-culture/minecraft-axolotls-guide'] = {
+    "slug": 'axolotl-in-culture/minecraft-axolotls-guide',
+    "num": 98,
+    "hub": "axolotl-in-culture",
+    "title": 'Minecraft Axolotls: Complete Guide',
+    "title_tag": 'Minecraft Axolotls: Food, Breeding, Blue Axolotl & More',
+    "meta": 'What do axolotls eat in Minecraft? Learn feeding, breeding, blue-axolotl odds, lush-cave spawning, taming, despawning, combat and commands.',
+    "intro": 'Minecraft axolotls live in lush caves, breed with Buckets of Tropical Fish, cannot be tamed, and come in five colors. Blue axolotls do not spawn naturally: a baby has a 1-in-1,200 mutation chance, while a blue parent can also pass on its color.',
+    "body": r'''<p><strong>Minecraft axolotls live in lush caves, breed with Buckets of Tropical Fish, cannot be tamed, and come in five colors.</strong> The rare blue variant is the exception: it does not spawn naturally, so survival players obtain it through breeding.</p>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Question</th><th>Quick answer</th></tr></thead>
+<tbody>
+<tr><td>What do axolotls eat in Minecraft?</td><td>Use a <strong>Bucket of Tropical Fish</strong> to feed, lead, and breed them. The loose Tropical Fish item does not work for breeding.</td></tr>
+<tr><td>Can you tame an axolotl?</td><td>No. You can catch one in a water bucket, lead it with a Bucket of Tropical Fish, and breed it, but there is no wolf-style tame state.</td></tr>
+<tr><td>Where do they spawn?</td><td>Underwater in lush caves, with clay beneath the spawning water.</td></tr>
+<tr><td>How rare is blue?</td><td>A bred baby has roughly a 1-in-1,200 blue-mutation chance; blue can also be inherited from a blue parent.</td></tr>
+<tr><td>Do bucketed axolotls despawn?</td><td>Axolotls caught in a water bucket and released again are persistent and do not naturally despawn.</td></tr>
+</tbody></table></div>
+
+<h2>What do axolotls eat in Minecraft?</h2>
+<p><strong>For player feeding, Minecraft axolotls use a Bucket of Tropical Fish, not the ordinary Tropical Fish item.</strong> Use the bucket on an adult axolotl to feed it. Hold the same item and nearby axolotls are tempted to follow you.</p>
+<p>This distinction matters because killing or otherwise obtaining a loose tropical fish gives you a different item. To get the breeding food, scoop a living tropical fish into a water bucket. After the axolotl consumes the fish, the bucket becomes a water bucket again.</p>
+<p>Axolotls also hunt aquatic mobs on their own. That natural hunting behavior is separate from the item used by the player to feed or breed them.</p>
+
+<h2>How do you breed axolotls in Minecraft?</h2>
+<p><strong>Feed two adult axolotls one Bucket of Tropical Fish each.</strong> When both enter love mode, they breed and produce a baby axolotl. In Java Edition the parents have a five-minute breeding cooldown; in Bedrock Edition the cooldown is one minute.</p>
+<ol>
+<li>Find or capture two adult axolotls.</li>
+<li>Collect at least two Buckets of Tropical Fish.</li>
+<li>Use one bucket on each adult.</li>
+<li>Keep the adults close enough to reach each other.</li>
+<li>Wait for the baby to appear.</li>
+</ol>
+<p>A baby normally takes about 20 minutes to become an adult. Buckets of Tropical Fish can also accelerate baby growth.</p>
+
+<h2>How do you get a blue axolotl in Minecraft?</h2>
+<p><strong>In normal survival play, breed axolotls.</strong> Since Java 1.17.1, blue axolotls do not spawn naturally. Breeding gives a baby roughly a <strong>1-in-1,200</strong> mutation chance to become blue; otherwise the baby normally inherits a parent's color.</p>
+<p>Once you have a blue parent, inheritance changes the practical odds because a non-mutated baby can inherit that parent's blue color. Breeding two blue parents therefore produces blue offspring without waiting for another 1-in-1,200 mutation.</p>
+<p>If you are searching lush caves for a naturally spawned blue axolotl, you can stop: the four naturally spawning colors are the ones to look for in the wild.</p>
+
+<h2>Where do axolotls spawn in Minecraft?</h2>
+<p><strong>Axolotls spawn underwater in lush caves where the spawning water has clay beneath it.</strong> Mojang moved axolotl spawning to this lush-cave rule in Java 1.18.</p>
+<p>To find them efficiently, look for an azalea tree on the surface, which can indicate a lush cave below, then explore water pools around clay inside the cave. Bringing empty water buckets lets you capture an axolotl immediately, and a Bucket of Tropical Fish can draw one toward you if it is nearby but hard to see.</p>
+
+<h2>What are the five Minecraft axolotl colors?</h2>
+<p>Minecraft has five vanilla axolotl variants:</p>
+<ol>
+<li><strong>Leucistic (pink/lucy)</strong></li>
+<li><strong>Wild (brown)</strong></li>
+<li><strong>Gold</strong></li>
+<li><strong>Cyan</strong></li>
+<li><strong>Blue</strong></li>
+</ol>
+<p>Pink, brown, gold, and cyan can spawn naturally. Blue is the breeding-only rare variant in normal survival play. Current vanilla Minecraft does <strong>not</strong> have a green axolotl variant.</p>
+<p>The game colors are inspired by real axolotl appearances but are not a one-to-one guide to real morphs. In particular, <a href="/morphs/blue-and-pink-axolotl-myth/">there is no true blue axolotl morph in real life</a>.</p>
+
+<h2>Can you tame an axolotl in Minecraft?</h2>
+<p><strong>No. Minecraft axolotls cannot be tamed.</strong> They do not gain an owner state, sit on command, or behave like tamed wolves and cats. Mojang's Bedrock release notes explicitly distinguish breeding from taming.</p>
+<p>You can still keep one: catch it with a water bucket, release it into a suitable water enclosure, lead it with a Bucket of Tropical Fish, breed it, and take it into aquatic combat. Searching for a special taming food will not unlock a hidden tame mechanic.</p>
+
+<h2>How do you catch an axolotl, and will it despawn?</h2>
+<p><strong>Use a water bucket directly on the axolotl.</strong> This creates a Bucket of Axolotl that preserves the animal for transport. When you place it back into water, a bucket-caught axolotl is persistent and does not naturally despawn.</p>
+<p>Naturally spawned axolotls that have not been made persistent can be subject to normal despawning behavior. If you are collecting colors or building a breeding pool, bucket each axolotl before moving it home rather than simply trying to herd wild spawns over a long distance.</p>
+
+<h2>Can Minecraft axolotls breathe air or live on land?</h2>
+<p><strong>They are amphibious, but they should be kept in water.</strong> Current Bedrock behavior data marks axolotls as able to breathe both water and air, yet it also gives them a drying-out timer of 300 seconds. After about five minutes out of water, an axolotl begins taking drying damage unless rain or water interrupts the timer.</p>
+<p>That means an axolotl does not die on land because it instantly “drowns in air.” The practical danger is drying out. Build transport routes and enclosures so they can stay in water instead of relying on their short land tolerance.</p>
+
+<h2>What do axolotls attack in Minecraft?</h2>
+<p><strong>Axolotls are active aquatic predators.</strong> Current Bedrock behavior data targets the fish family, squid family, and tadpoles, plus drowned, guardians, and elder guardians. Frogs are not in that target list, so the game does not treat adult frogs as a normal axolotl prey target.</p>
+<p>When you kill a mob that an axolotl is fighting, the axolotl can reward you with temporary Regeneration and remove Mining Fatigue. That interaction is why axolotls are especially useful around guardians and ocean monuments.</p>
+<p>Axolotls can also play dead after taking damage, temporarily causing attackers to stop targeting them while the axolotl regenerates.</p>
+
+<h2>What are the Minecraft axolotl summon commands?</h2>
+<p>Commands require cheats or suitable operator permissions. The basic commands are:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Edition</th><th>Command</th><th>Result</th></tr></thead>
+<tbody>
+<tr><td>Java</td><td><code>/summon minecraft:axolotl ~ ~ ~</code></td><td>Summons an axolotl at your position.</td></tr>
+<tr><td>Java — blue</td><td><code>/summon minecraft:axolotl ~ ~ ~ {Variant:4}</code></td><td>Current Java 26.x command tools use the blue variant value 4.</td></tr>
+<tr><td>Bedrock</td><td><code>/summon axolotl ~ ~ ~</code></td><td>Summons a normally generated axolotl.</td></tr>
+<tr><td>Bedrock — blue baby</td><td><code>/summon axolotl ~ ~ ~ 0 0 minecraft:entity_born</code></td><td>Uses the vanilla <code>minecraft:entity_born</code> event; current behavior data adds the blue variant when the summoned baby has no inherited variant.</td></tr>
+</tbody></table></div>
+<p>Command data formats are more version-sensitive than survival mechanics. If a future Java release changes entity NBT or Bedrock command overloads, use the command suggestions for your installed version rather than copying syntax from an old guide.</p>
+
+<h2>When were axolotls added to Minecraft?</h2>
+<p><strong>Axolotls arrived with Caves &amp; Cliffs: Part I (1.17) in June 2021.</strong> Java 1.17.1 then made blue axolotls breeding-only, and Java 1.18 moved natural spawning to water in lush caves above clay blocks.</p>
+<p>For this guide, the core mechanics were rechecked against the current 2026 Java/Bedrock release line and the current Bedrock vanilla behavior data. That matters because older 1.17 guides still repeat the original underground-water spawning rule that Mojang replaced in 1.18.</p>
+
+<h2>How are Minecraft axolotls different from real axolotls?</h2>
+<p>Minecraft gets several recognizable traits right: axolotls are aquatic salamanders, have feathery external gills, and occur in pale, gold, and dark-looking forms. But game mechanics are fictional. Real axolotls do not grant Regeneration, fight guardians, live in buckets, or come in a true blue morph.</p>
+<p>If the game is what introduced you to the animal, use the <a href="/axolotls/care-guide/">real axolotl care guide</a> for husbandry and the <a href="/morphs/morphs-comparison-chart/">morph comparison</a> for real colors.</p>
+
+<h2>Sources and version notes</h2>
+<div class="references"><ul>
+<li><a href="https://feedback.minecraft.net/hc/en-us/articles/4402626897165-Minecraft-Caves-Cliffs-Part-1-1-17-Java">Minecraft Java 1.17: Caves &amp; Cliffs Part I</a></li>
+<li><a href="https://feedback.minecraft.net/hc/en-us/articles/4404449719949-Minecraft-Java-Edition-1-17-1">Minecraft Java 1.17.1</a></li>
+<li><a href="https://feedback.minecraft.net/hc/en-us/articles/4415128577293-Minecraft-Java-Edition-1-18">Minecraft Java 1.18</a></li>
+<li><a href="https://feedback.minecraft.net/hc/en-us/articles/4402427632013-Minecraft-Caves-Cliffs-Part-I-1-17-0-Bedrock">Minecraft Bedrock 1.17.0</a></li>
+<li><a href="https://learn.microsoft.com/en-us/minecraft/creator/reference/source/vanillabehaviorpack_snippets/entities/axolotl?view=minecraft-bedrock-stable">Microsoft Learn: current vanilla axolotl behavior data</a></li>
+<li><a href="https://learn.microsoft.com/en-us/minecraft/creator/commands/commands/summon?view=minecraft-bedrock-stable">Microsoft Learn: /summon command</a></li>
+</ul></div>''',
+    "headings": [
+        'What do axolotls eat in Minecraft?',
+        'How do you breed axolotls in Minecraft?',
+        'How do you get a blue axolotl in Minecraft?',
+        'Where do axolotls spawn in Minecraft?',
+        'What are the five Minecraft axolotl colors?',
+        'Can you tame an axolotl in Minecraft?',
+        'How do you catch an axolotl, and will it despawn?',
+        'Can Minecraft axolotls breathe air or live on land?',
+        'What do axolotls attack in Minecraft?',
+        'What are the Minecraft axolotl summon commands?',
+        'When were axolotls added to Minecraft?',
+        'How are Minecraft axolotls different from real axolotls?',
+        'Sources and version notes',
+    ],
+    "faq": [],
+    "featured": False,
+    "date_published": "2026-08-22",
+    "date_modified": "2026-09-17",
+}
+
+# Correct a cross-page wording conflict discovered during the Minecraft audit:
+# axolotls are bucketable and breedable in Minecraft, but are not tameable.
+BODY_TEXT_REPLACEMENTS.setdefault(
+    "axolotl-in-culture/why-axolotls-are-suddenly-popular", []
+).append((
+    "added axolotls as a tame, bucketable, endlessly cute mob",
+    "added axolotls as bucketable, breedable aquatic mobs",
+))
+
 _stamp_article_dates(ARTICLES, DOCX_ARTICLE_DATE_PUBLISHED, DOCX_ARTICLE_DATE_MODIFIED,
                      published_source="git:924cb99")
 _stamp_article_dates(CONFIG_ARTICLES, CONFIG_ARTICLE_DATE_PUBLISHED,
