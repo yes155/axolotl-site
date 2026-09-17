@@ -500,7 +500,7 @@ def build_articles():
 <tr><td>Plural</td><td><strong>axolotls</strong></td><td>Add <em>s</em> after the full singular spelling.</td></tr>
 <tr><td>Spanish</td><td><strong>ajolote</strong></td><td>This is the Spanish word, not an alternate English spelling.</td></tr>
 </tbody></table></div>
-<p>Common mistakes come from dropping or rearranging letters in the unusual ending. Forms such as <em>axolot</em>, <em>axoltol</em>, and <em>axolotol</em> are not the standard English spelling. As a spelling memory aid—not a pronunciation guide—read the written form as <strong>axo + lotl</strong>.</p>'''
+<p>Common mistakes come from dropping or rearranging letters in the unusual ending. Forms such as <em>axolot</em>, <em>axoltol</em>, and <em>axolotol</em> are not the standard English spelling. As a spelling memory aid—not a pronunciation guide—read the written form as <strong>axo + lotl</strong>.</p>'''
                 a["body_html"] = a["body_html"].replace(
                     syllable_marker, spelling_section + "\n" + syllable_marker, 1
                 )
