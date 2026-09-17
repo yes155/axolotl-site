@@ -4015,11 +4015,11 @@ CONFIG_ARTICLES['axolotl-in-culture/minecraft-axolotls-guide'] = {
 <thead><tr><th>Edition</th><th>Command</th><th>Result</th></tr></thead>
 <tbody>
 <tr><td>Java</td><td><code>/summon minecraft:axolotl ~ ~ ~</code></td><td>Summons an axolotl at your position.</td></tr>
-<tr><td>Java — blue</td><td><code>/summon minecraft:axolotl ~ ~ ~ {Variant:4}</code></td><td>Current Java 26.x command tools use the blue variant value 4.</td></tr>
+<tr><td>Java — blue</td><td><code>/summon minecraft:axolotl ~ ~ ~ {Variant:4}</code></td><td>On current Java 26.x builds, variant value 4 is the blue axolotl.</td></tr>
 <tr><td>Bedrock</td><td><code>/summon axolotl ~ ~ ~</code></td><td>Summons a normally generated axolotl.</td></tr>
-<tr><td>Bedrock — blue baby</td><td><code>/summon axolotl ~ ~ ~ 0 0 minecraft:entity_born</code></td><td>Uses the vanilla <code>minecraft:entity_born</code> event; current behavior data adds the blue variant when the summoned baby has no inherited variant.</td></tr>
 </tbody></table></div>
-<p>Command data formats are more version-sensitive than survival mechanics. If a future Java release changes entity NBT or Bedrock command overloads, use the command suggestions for your installed version rather than copying syntax from an old guide.</p>
+<p><strong>What about a blue-axolotl command in Bedrock?</strong> Older guides commonly recommend <code>/summon axolotl ~ ~ ~ minecraft:entity_born</code>. Current Microsoft behavior documentation defines <code>minecraft:entity_born</code> as the event used when an axolotl is produced through breeding, not as a documented stable blue-variant selector. Because Bedrock spawn-event behavior is version-sensitive, we do not present that older shortcut as a guaranteed current blue command. For a reliable blue axolotl in normal Bedrock gameplay, use breeding; for commands, use the suggestions exposed by your installed version.</p>
+<p>Command data formats are more version-sensitive than survival mechanics. Java's <code>Variant:4</code> syntax remains in current 26.x command references, but recheck command syntax after major technical updates.</p>
 
 <h2>When were axolotls added to Minecraft?</h2>
 <p><strong>Axolotls arrived with Caves &amp; Cliffs: Part I (1.17) in June 2021.</strong> Java 1.17.1 then made blue axolotls breeding-only, and Java 1.18 moved natural spawning to water in lush caves above clay blocks.</p>
@@ -4035,6 +4035,8 @@ CONFIG_ARTICLES['axolotl-in-culture/minecraft-axolotls-guide'] = {
 <li><a href="https://feedback.minecraft.net/hc/en-us/articles/4404449719949-Minecraft-Java-Edition-1-17-1">Minecraft Java 1.17.1</a></li>
 <li><a href="https://feedback.minecraft.net/hc/en-us/articles/4415128577293-Minecraft-Java-Edition-1-18">Minecraft Java 1.18</a></li>
 <li><a href="https://feedback.minecraft.net/hc/en-us/articles/4402427632013-Minecraft-Caves-Cliffs-Part-I-1-17-0-Bedrock">Minecraft Bedrock 1.17.0</a></li>
+<li><a href="https://feedback.minecraft.net/hc/en-us/articles/48913133328013-Minecraft-Java-Edition-26-3">Minecraft Java Edition 26.3</a></li>
+<li><a href="https://feedback.minecraft.net/hc/en-us/articles/48915928859789-Minecraft-Bedrock-Edition-26-51-Hotfix-Changelog">Minecraft Bedrock Edition 26.51</a></li>
 <li><a href="https://learn.microsoft.com/en-us/minecraft/creator/reference/source/vanillabehaviorpack_snippets/entities/axolotl?view=minecraft-bedrock-stable">Microsoft Learn: current vanilla axolotl behavior data</a></li>
 <li><a href="https://learn.microsoft.com/en-us/minecraft/creator/commands/commands/summon?view=minecraft-bedrock-stable">Microsoft Learn: /summon command</a></li>
 </ul></div>''',
