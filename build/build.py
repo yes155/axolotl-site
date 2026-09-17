@@ -519,6 +519,12 @@ def build_articles():
         intro_ovr = config.INTRO_OVERRIDES.get(slug)
         if intro_ovr:
             a["intro"] = intro_ovr
+        if slug == "care-basics/how-to-pronounce-axolotl":
+            a["intro"] = (
+                "Spell axolotl A-X-O-L-O-T-L; the plural is axolotls. In modern "
+                "English, pronounce it ACK-suh-lot-ul, with first-syllable stress. "
+                "Nahuatl and Spanish use different forms."
+            )
         callout = config.ROLE_CALLOUTS.get(slug)
         if callout:
             fm = re.search(r"</p>", a["body_html"])
