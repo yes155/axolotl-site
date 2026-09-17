@@ -510,6 +510,43 @@ def build_articles():
                         r"<h([234])[^>]*>(.*?)</h\1>", a["body_html"], flags=re.S
                     )
                 ]
+        if slug == "care-basics/axolotl-facts":
+            history_heading = "<h2>When were axolotls discovered?</h2>"
+            habitat_marker = "<h2>Where do axolotls live?</h2>"
+            a["meta"] = (
+                "Amazing axolotl facts: regeneration, neoteny, discovery history, "
+                "Xochimilco, and critically endangered status. Here are 25 "
+                "surprising facts for 2026."
+            )
+            a["date_modified"] = "2026-09-17"
+            a["lastmod"] = a["date_modified"]
+            if history_heading not in a["body_html"]:
+                if habitat_marker not in a["body_html"]:
+                    raise ValueError("Axolotl history insertion marker not found")
+                history_section = '''<h2>When were axolotls discovered?</h2>
+<p><strong>There is no single human "discovery" date for the axolotl.</strong> Nahua peoples in the Valley of Mexico knew and named the animal long before European zoological taxonomy. If the question means "when was the axolotl formally described by science?", the key date is <strong>1798</strong>, when George Shaw and Frederick Polydore Nodder described it as <em>Gyrinus mexicanus</em>, the name on which today's <em>Ambystoma mexicanum</em> is based.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Period</th><th>What happened</th><th>Why it matters</th></tr></thead>
+<tbody>
+<tr><td>Pre-Hispanic and colonial Mexico</td><td>The axolotl was already known in Nahua culture; colonial-era natural-history accounts included descriptions of the animal.</td><td>Its human history begins well before European scientific naming.</td></tr>
+<tr><td>1798</td><td>George Shaw and Frederick Polydore Nodder formally described <em>Gyrinus mexicanus</em>.</td><td>This is the clearest date for the species' formal scientific description.</td></tr>
+<tr><td>Early 1800s</td><td>Alexander von Humboldt sent preserved Mexican axolotl specimens to Georges Cuvier in Paris.</td><td>European anatomists began debating whether the gilled animal was a larva or an adult form.</td></tr>
+<tr><td>1863–1864</td><td>Living axolotls were shipped from Mexico to Paris; historical sources date the shipment to 1863 and their arrival and early study to 1864.</td><td>Those animals helped establish the long-running laboratory lineage and research on neoteny.</td></tr>
+</tbody></table></div>
+<h3>Who discovered axolotls?</h3>
+<p><strong>No single scientist can accurately be called the discoverer of axolotls.</strong> The animal was already known in Mexico. Shaw and Nodder are credited with the 1798 formal scientific description; Humboldt later brought preserved specimens to the attention of Cuvier and European naturalists.</p>
+<h3>Where did axolotls come from?</h3>
+<p><strong>Axolotls are native to the lake system of the Valley of Mexico, especially Xochimilco and historically Lake Chalco.</strong> Their surviving wild range is now restricted to Xochimilco. See the <a href="/biology-and-science/wild-habitat-xochimilco/">Xochimilco habitat guide</a> for the modern range and habitat conditions.</p>
+<p><strong>Sources:</strong> <a href="https://amphibiansoftheworld.amnh.org/Amphibia/Caudata/Ambystomatidae/Ambystoma/Ambystoma-mexicanum">American Museum of Natural History: Amphibian Species of the World</a>; <a href="https://ru.historicas.unam.mx/handle/20.500.12525/9239">UNAM Instituto de Investigaciones Históricas: El axólotl</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/25920413/">Reiß, Olsson &amp; Hoßfeld: 150 years of axolotl research</a>; <a href="https://ambystoma.uky.edu/genetic-stock-center/about.php">University of Kentucky Ambystoma Genetic Stock Center</a>.</p>'''
+                a["body_html"] = a["body_html"].replace(
+                    habitat_marker, history_section + "\n" + habitat_marker, 1
+                )
+                a["headings"] = [
+                    (int(level), html.unescape(re.sub(r"<[^>]+>", "", heading)).strip())
+                    for level, heading in re.findall(
+                        r"<h([234])[^>]*>(.*?)</h\1>", a["body_html"], flags=re.S
+                    )
+                ]
         for old, new in config.BODY_TEXT_REPLACEMENTS.get(slug, []):
             if old not in a["body_html"]:
                 raise ValueError(
