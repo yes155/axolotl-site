@@ -1426,11 +1426,7 @@ FAQ_OVERRIDES = {
         ("Are axolotls as friendly as they look?", "Real axolotls are calm, gentle pets, but they are delicate and are handled rarely, so they are look-don't-touch companions. Their pop-culture smile is real, but so is their sensitivity to stress."),
         ("Can I get axolotl merch?", "Yes, plushies, Squishmallows, LEGO sets, mugs, and apparel are widely available, and our axolotl gifts guide lists the best picks. Merch is a large part of why the animal stayed famous after the games."),
     ],
-    "axolotl-in-culture/minecraft-axolotls-guide": [
-        ("How do you get a blue axolotl in Minecraft?", "Breed two axolotls for a roughly 1-in-1200 chance of a blue baby, or breed two blue axolotls for a guaranteed blue baby. Blue axolotls only come from breeding, never from natural spawning."),
-        ("Can axolotls in Minecraft die?", "Yes, they can die from suffocation on land or from taking damage, but they play dead to escape when low on health. Carry a bucket and keep them in water to protect them."),
-        ("Are Minecraft axolotls based on real ones?", "Yes, but the game mixes real inspiration with fictional colors. The pink variant resembles a real leucistic axolotl, and the brown and gold variants echo real appearances, while cyan and especially blue are game colors; no true blue axolotl morph exists in real life."),
-    ],
+    "axolotl-in-culture/minecraft-axolotls-guide": [],
     "legal/new-jersey": [
         ("Can I buy an axolotl from a pet store in New Jersey?", "No, selling axolotls is prohibited in New Jersey, so pet stores and breeders in the state do not sell them. The official restricted-species list bars the sale of axolotls for any reason."),
         ("Can I have an axolotl shipped to New Jersey from another state?", "No, not as an ordinary pet shipment if New Jersey's restricted-species rules prohibit the import or possession. The 2025 federal injurious-wildlife listing does not itself ban transport between continental U.S. states, so the controlling issue here is New Jersey law."),
