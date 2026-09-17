@@ -1,0 +1,15 @@
+priority,semantic_gap,keyword_rows,raw_volume,owner_url,decision
+High,Teeth / oral anatomy,6,3640,/biology-and-science/anatomy-gills-and-lungs/,Expand existing anatomy owner; no standalone teeth page
+High,Freshwater vs saltwater,15,2310,/biology-and-science/wild-habitat-xochimilco/,Add direct freshwater-versus-saltwater section to habitat owner
+High,Spelling,7,2030,/care-basics/how-to-pronounce-axolotl/,Add direct spelling H2 and common misspellings
+High,Discovery / history,5,1330,/care-basics/axolotl-facts/,Add sourced discovery/history section before considering a new page
+High,Wild predators,6,1230,/biology-and-science/conservation-status/,Add direct predators section with native-versus-introduced context
+High,Poisonous / venomous safety,3,770,/care-basics/axolotls-and-children/,Add direct safety answer; no separate page
+Medium,Other anatomy: ears scales nose tongue eyelids,7,600,/biology-and-science/anatomy-gills-and-lungs/,Broaden existing anatomy owner
+Medium,Adaptations,3,470,/biology-and-science/wild-habitat-xochimilco/,Add compact adaptations section; no new page yet
+Medium,Sleep / rest,2,260,/care-basics/behavior/,Add evidence-cautious sleep/rest section
+Medium,Collective noun,1,210,/care-basics/how-to-pronounce-axolotl/,Verify reliable terminology before adding content
+Medium,Cannibalism,1,110,/care-basics/keeping-multiple-axolotls/,Add life-stage nipping and cannibalism context
+Medium,Hibernation,1,110,/care-basics/behavior/,Add short hibernation distinction
+Low,Petco / PetSmart retailer-specific,9,1380,/cost-and-buying/breeder-vs-pet-store/,Do not create volatile retailer pages
+Low,Mudpuppy / olm comparisons,4,220,/biology-and-science/is-axolotl-amphibian/,No standalone page at current demand
