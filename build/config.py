@@ -4090,8 +4090,9 @@ EDITOR = PEOPLE["editor"]
 
 # Keyword-reconciliation fix: strengthen the existing anatomy owner for teeth/oral anatomy.
 INTRO_OVERRIDES['biology-and-science/anatomy-gills-and-lungs'] = (
-    'Axolotls have external gills, simple lungs, oxygen-absorbing skin, and small oral teeth. '
-    'This guide explains how those structures work, including why their teeth are easy to miss and how axolotls breathe underwater.'
+    'Axolotl anatomy includes external gills, simple lungs, permeable skin, small oral teeth, '
+    'lidless eyes, an inner ear and lateral-line system, olfactory organs, and a tongue with taste buds. '
+    'This guide explains how those structures work without splitting closely related anatomy questions into separate pages.'
 )
 BODY_OVERRIDES['biology-and-science/anatomy-gills-and-lungs'] = r'''
 <h2>Do axolotls have teeth?</h2>
@@ -4135,5 +4136,25 @@ BODY_OVERRIDES['biology-and-science/anatomy-gills-and-lungs'] = r'''
 <p><strong>Axolotls have both lungs and gills, plus skin respiration.</strong> The gills and skin dominate underwater, while the lungs allow occasional surface air gulps. All three systems are part of normal axolotl respiratory anatomy.</p>
 <h2>What happens to axolotl gills in poor water?</h2>
 <p><strong>Poor water quality can damage or reduce the condition of external gills.</strong> Ammonia and nitrite are especially concerning because they injure delicate aquatic tissues. If the gills change noticeably, test the water first and correct the underlying husbandry problem rather than treating the gills as a diagnosis by themselves.</p>
-<p>Axolotl anatomy combines structures that look unusual together: oral teeth, external gills, permeable skin, and simple lungs. Each reflects the animal's permanently aquatic salamander biology.</p>
+<h2>What other anatomy do axolotls have?</h2>
+<p>Several common anatomy questions are best answered together because they describe the same paedomorphic aquatic body plan.</p>
+<h3>Do axolotls have ears?</h3>
+<p><strong>Axolotls have an inner ear, but no visible external ear flap.</strong> They also sense water movement through a lateral-line system of mechanoreceptive neuromasts. Research on <em>Ambystoma mexicanum</em> describes both inner-ear sensory hair cells and superficial lateral-line organs, so hearing and water-motion sensing are not limited to a visible outer ear.</p>
+<h3>Do axolotls have eyelids?</h3>
+<p><strong>Normal paedomorphic axolotls do not develop movable eyelids.</strong> The American Museum of Natural History and San Diego Zoo both identify lidless eyes as one of the juvenile traits retained into adulthood.</p>
+<h3>Do axolotls have scales?</h3>
+<p><strong>No. Axolotls do not have fish-like or reptile-like scales.</strong> Their skin is amphibian epidermis with mucus-producing cells and remains important for gas exchange. Histological studies describe specialized epidermal cells and a protective mucus layer rather than scales.</p>
+<h3>Do axolotls have a nose and a sense of smell?</h3>
+<p><strong>Yes. Axolotls have external nostrils, a nasal cavity, an olfactory epithelium, and a vomeronasal system.</strong> Anatomical studies show that their olfactory receptor cells project to the olfactory bulb, and experiments have recorded odor responses from the olfactory epithelium.</p>
+<h3>Do axolotls have a tongue?</h3>
+<p><strong>Yes. Axolotls have a tongue with specialized epithelium and taste buds.</strong> Microscopy studies describe taste buds on the tongue and elsewhere in the oral cavity, with sensory innervation through cranial nerves.</p>
+<div class="references-box"><h3>Anatomy and sensory sources</h3><ul>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/2124588/">Kornblum, Corwin &amp; Trevarrow (1990): inner-ear and lateral-line sensory hair cells</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/8315607/">Northcutt &amp; Bleckmann (1993): axolotl lateral-line neuromasts</a></li>
+<li><a href="https://www.amnh.org/explore/ology/ology-cards/366-axolotl">American Museum of Natural History: retained juvenile traits and lidless eyes</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/7953608/">Eisthen et al. (1994): olfactory and vomeronasal anatomy</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/10609049/">Wistuba &amp; Greven (1999): tongue epithelium and taste buds</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/2630544/">Jarial (1989): epidermal Leydig cells and protective mucus</a></li>
+</ul></div>
+<p>Axolotl anatomy combines structures that look unusual together: oral teeth, external gills, permeable skin, simple lungs, lidless eyes, aquatic sensory organs, and a taste-bearing tongue. Together they reflect the animal's permanently aquatic, paedomorphic salamander biology.</p>
 '''
