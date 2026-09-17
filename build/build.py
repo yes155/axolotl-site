@@ -585,6 +585,52 @@ def build_articles():
                         r"<h([234])[^>]*>(.*?)</h\1>", a["body_html"], flags=re.S
                     )
                 ]
+        if slug == "care-basics/axolotls-and-children":
+            safety_heading = "<h2>Are axolotls poisonous or venomous?</h2>"
+            bite_marker = "<h2>Do axolotls bite children?</h2>"
+            a["meta"] = (
+                "Are axolotls safe around children? Learn whether axolotls are "
+                "poisonous or venomous, the real Salmonella hygiene risk, bite "
+                "safety, handling rules, and parent responsibilities."
+            )
+            a["date_modified"] = "2026-09-17"
+            a["lastmod"] = a["date_modified"]
+            if safety_heading not in a["body_html"]:
+                if bite_marker not in a["body_html"]:
+                    raise ValueError("Axolotl poison-safety insertion marker not found")
+                safety_section = '''<h2>Are axolotls poisonous or venomous?</h2>
+<p><strong>No—pet axolotls are not generally considered poisonous or venomous to people.</strong> The practical human-health concern is not toxin injection or poisoning; it is hygiene around an amphibian and its aquarium water. The CDC notes that reptiles and amphibians can carry <em>Salmonella</em> even when they look healthy, and the germs can spread from the animal, tank water, equipment, and other habitat surfaces.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Question</th><th>Practical answer</th></tr></thead>
+<tbody>
+<tr><td>Are axolotls venomous?</td><td>No known venom-delivery hazard is part of normal axolotl contact or bites.</td></tr>
+<tr><td>Are axolotls poisonous to touch?</td><td>They are not treated as a poisoning hazard in normal pet husbandry. Handling should still be minimized because it can harm the axolotl's delicate skin.</td></tr>
+<tr><td>What is the main human-health risk?</td><td>Germs associated with amphibians and aquarium water, especially <em>Salmonella</em>.</td></tr>
+<tr><td>What should families do?</td><td>Wash hands with soap and running water after tank contact, keep aquarium equipment away from food-preparation areas, and supervise children.</td></tr>
+</tbody></table></div>
+<p>The CDC advises that children younger than 5 should not handle or touch reptiles or amphibians or their environments because they are at higher risk of serious illness from germs such as <em>Salmonella</em>. For older children, observation is safer for the animal than routine handling, and adults should supervise tank maintenance and handwashing.</p>
+<p><strong>Sources:</strong> <a href="https://www.cdc.gov/healthy-pets/about/reptiles-and-amphibians.html">CDC: Reptiles and Amphibians</a>; <a href="https://www.fda.gov/animal-veterinary/animal-health-literacy/salmonella-feeder-rodents-and-pet-reptiles-and-amphibians-tips-you-should-know-prevent-infection">FDA: Salmonella, Reptiles and Amphibians</a>; <a href="https://www.worldwildlife.org/resources/explainers/should-you-keep-an-exotic-animal-as-a-pet-this-guide-can-help-you-tell/">WWF: Responsible Exotic Pet Guide</a>.</p>'''
+                a["body_html"] = a["body_html"].replace(
+                    bite_marker, safety_section + "\n" + bite_marker, 1
+                )
+            old_bite = '<p><strong>No, axolotl bites do not hurt, because the species has small, undeveloped teeth that cannot break skin.</strong> An axolotl may nip a finger it mistakes for food, but the bite is harmless and rare.</p>'
+            new_bite = '<p><strong>Axolotls are not venomous, and a feeding nip is generally a minor physical risk rather than a toxin risk.</strong> Their small teeth are used to grip prey, so children should keep fingers out of the feeding zone and use tongs or drop food into the tank instead.</p>'
+            if old_bite in a["body_html"]:
+                a["body_html"] = a["body_html"].replace(old_bite, new_bite, 1)
+            old_faq_answer = "No, axolotls are gentle, fully aquatic, and harmless, with bites that cannot break skin. The danger runs the other way: children can harm the axolotl."
+            new_faq_answer = "Axolotls are not considered poisonous or venomous, but amphibians and their aquarium water can carry germs such as Salmonella. Children should avoid handling the animal, wash hands after tank contact, and children under 5 should not touch amphibians or their environments."
+            if old_faq_answer in a["body_html"]:
+                a["body_html"] = a["body_html"].replace(old_faq_answer, new_faq_answer, 1)
+            a["faq"] = [
+                (q, new_faq_answer if q == "Are axolotls dangerous to children?" else ans)
+                for q, ans in a["faq"]
+            ]
+            a["headings"] = [
+                (int(level), html.unescape(re.sub(r"<[^>]+>", "", heading)).strip())
+                for level, heading in re.findall(
+                    r"<h([234])[^>]*>(.*?)</h\1>", a["body_html"], flags=re.S
+                )
+            ]
         for old, new in config.BODY_TEXT_REPLACEMENTS.get(slug, []):
             if old not in a["body_html"]:
                 raise ValueError(
