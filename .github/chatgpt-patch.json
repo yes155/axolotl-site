@@ -1,0 +1,10 @@
+{
+  "operations": [
+    {
+      "type": "replace",
+      "path": "build/build.py",
+      "old": "# Article conversion & mapping",
+      "new": "# Article conversion & mapping"
+    }
+  ]
+}
