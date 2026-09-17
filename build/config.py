@@ -4087,3 +4087,53 @@ AUTHOR = PEOPLE["author"]
 EDITOR = PEOPLE["editor"]
 
 # Build trigger: retry Cost & Buying after clearing the stale queued job.
+
+# Keyword-reconciliation fix: strengthen the existing anatomy owner for teeth/oral anatomy.
+INTRO_OVERRIDES['biology-and-science/anatomy-gills-and-lungs'] = (
+    'Axolotls have external gills, simple lungs, oxygen-absorbing skin, and small oral teeth. '
+    'This guide explains how those structures work, including why their teeth are easy to miss and how axolotls breathe underwater.'
+)
+BODY_OVERRIDES['biology-and-science/anatomy-gills-and-lungs'] = r'''
+<h2>Do axolotls have teeth?</h2>
+<p><strong>Yes. Axolotls have real teeth in the mouth and palate, even though the teeth are small and easy to miss.</strong> Research on <em>Ambystoma mexicanum</em> describes organized outer and inner dental arcades and multiple tooth fields rather than a toothless mouth.</p>
+<p>Studies of axolotl dentition also show that replacement teeth continue to develop. The teeth become more numerous as the animal develops, and their structure changes with developmental stage.</p>
+<p>For owners, the practical point is simple: a smooth-looking axolotl mouth does not mean the animal has no teeth. Questions about whether a nip can hurt belong in the <a href="/care-basics/axolotls-and-children/">axolotls and children safety guide</a>; this page covers the anatomy itself.</p>
+<div class="references-box"><h3>Dental anatomy sources</h3><ul>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/11989966/">Wistuba, Greven &amp; Clemen (2002): development of axolotl teeth</a></li>
+<li><a href="https://www.nature.com/articles/s41598-020-66142-2">Scientific Reports (2020): axolotl tooth structure and replacement</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/33505974/">Oral and palatal dentition of axolotl (2021)</a></li>
+</ul></div>
+
+<h2>Do axolotls have lungs?</h2>
+<p><strong>Yes, axolotls have lungs, plus external gills and oxygen-absorbing skin.</strong> They breathe through all three systems, with the feathery external gills and the skin doing most of the work underwater. The lungs are simple sacs used for surface gulps, which makes the axolotl one of the most flexible breathers among amphibians.</p>
+<p>A true amphibian built for a life spent entirely underwater keeps this gill-lung-skin combo its whole life.</p>
+<h2>How do axolotls breathe?</h2>
+<p><strong>Axolotls breathe through three systems at once: external gills, skin, and lungs.</strong> Each system has a specific job:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>System</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td>External gills</td><td>Three feathery gills per side extract oxygen from water</td></tr>
+<tr><td>Skin</td><td>Absorbs oxygen directly through the moist skin</td></tr>
+<tr><td>Lungs</td><td>Simple sacs gulp air at the surface</td></tr>
+<tr><td>Gill flicking</td><td>Moves water over the gill filaments to boost oxygen uptake</td></tr>
+<tr><td>Regeneration</td><td>Gills regrow if damaged or nipped</td></tr>
+</tbody></table></div>
+<p>The gills and skin handle the routine oxygen supply, and the lungs supplement them when the animal surfaces.</p>
+<h2>How many gills does an axolotl have?</h2>
+<p><strong>An axolotl has six external gill stalks, three on each side of the head.</strong> Each stalk carries fine filaments that increase surface area for gas exchange.</p>
+<h2>Why are axolotl gills so large?</h2>
+<p><strong>The gills are large because they provide substantial surface area for underwater gas exchange.</strong> Their feathery filaments expose blood-rich tissue to moving water. Gill condition can also change with stress and water quality, so persistent changes should be interpreted alongside husbandry conditions rather than on appearance alone.</p>
+<h2>Why does my axolotl go to the surface for air?</h2>
+<p><strong>Surface gulping can be normal because axolotls have lungs.</strong> Occasional trips to the surface are not automatically a problem. Frequent gulping or a sudden change should prompt a check of temperature, water quality, and aeration.</p>
+<h2>Can axolotls breathe out of water?</h2>
+<p><strong>Axolotls are fully aquatic and should remain in water.</strong> Their external gills are adapted for underwater gas exchange and can collapse and dry when exposed to air. Lungs allow surface air gulps, but they do not make an axolotl a land animal.</p>
+<h2>What do healthy axolotl gills look like?</h2>
+<p><strong>Healthy gills are typically full and feathery, but normal appearance varies between individuals.</strong> Persistent shrinking, loss of filaments, marked curling, or a sudden change should prompt a check of water quality, temperature, and other stressors rather than a diagnosis from gill shape alone.</p>
+<h2>What is buccal pumping?</h2>
+<p><strong>Buccal pumping is rhythmic movement of the mouth and throat region that helps move water across respiratory surfaces.</strong> It is one part of how aquatic amphibians maintain gas exchange while resting underwater.</p>
+<h2>Do axolotls have lungs or gills?</h2>
+<p><strong>Axolotls have both lungs and gills, plus skin respiration.</strong> The gills and skin dominate underwater, while the lungs allow occasional surface air gulps. All three systems are part of normal axolotl respiratory anatomy.</p>
+<h2>What happens to axolotl gills in poor water?</h2>
+<p><strong>Poor water quality can damage or reduce the condition of external gills.</strong> Ammonia and nitrite are especially concerning because they injure delicate aquatic tissues. If the gills change noticeably, test the water first and correct the underlying husbandry problem rather than treating the gills as a diagnosis by themselves.</p>
+<p>Axolotl anatomy combines structures that look unusual together: oral teeth, external gills, permeable skin, and simple lungs. Each reflects the animal's permanently aquatic salamander biology.</p>
+'''
