@@ -471,6 +471,45 @@ def build_articles():
                         r"<h([234])[^>]*>(.*?)</h\1>", a["body_html"], flags=re.S
                     )
                 ]
+        if slug == "care-basics/how-to-pronounce-axolotl":
+            spelling_heading = "<h2>How do you spell axolotl?</h2>"
+            syllable_marker = "<h2>What Is the English Syllable Breakdown?</h2>"
+            a["title"] = "How to Spell and Pronounce Axolotl"
+            a["title_tag"] = "How to Spell & Pronounce Axolotl: Correct English Guide"
+            a["meta"] = (
+                "How do you spell axolotl? A-X-O-L-O-T-L. Learn the plural, common "
+                "misspellings, and the correct English pronunciation, plus Nahuatl "
+                "and Spanish context."
+            )
+            a["intro"] = (
+                "Spell axolotl A-X-O-L-O-T-L; the plural is axolotls. In modern "
+                "English, pronounce it ACK-suh-lot-ul, with first-syllable stress. "
+                "Nahuatl and Spanish use different forms."
+            )
+            a["date_modified"] = "2026-09-17"
+            a["lastmod"] = a["date_modified"]
+            if spelling_heading not in a["body_html"]:
+                if syllable_marker not in a["body_html"]:
+                    raise ValueError("Axolotl spelling insertion marker not found")
+                spelling_section = '''<h2>How do you spell axolotl?</h2>
+<p><strong>The correct English spelling is <em>axolotl</em>: A-X-O-L-O-T-L.</strong> The plural is <em>axolotls</em>—add <em>s</em> to the complete singular form. <a href="https://dictionary.cambridge.org/dictionary/english/axolotl">Cambridge Dictionary</a> lists the headword as <em>axolotl</em> and uses <em>axolotls</em> in plural examples.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Form</th><th>Correct spelling</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td>Singular</td><td><strong>axolotl</strong></td><td>A-X-O-L-O-T-L</td></tr>
+<tr><td>Plural</td><td><strong>axolotls</strong></td><td>Add <em>s</em> after the full singular spelling.</td></tr>
+<tr><td>Spanish</td><td><strong>ajolote</strong></td><td>This is the Spanish word, not an alternate English spelling.</td></tr>
+</tbody></table></div>
+<p>Common mistakes come from dropping or rearranging letters in the unusual ending. Forms such as <em>axolot</em>, <em>axoltol</em>, and <em>axolotol</em> are not the standard English spelling. As a spelling memory aid—not a pronunciation guide—read the written form as <strong>axo + lotl</strong>.</p>'''
+                a["body_html"] = a["body_html"].replace(
+                    syllable_marker, spelling_section + "\n" + syllable_marker, 1
+                )
+                a["headings"] = [
+                    (int(level), html.unescape(re.sub(r"<[^>]+>", "", heading)).strip())
+                    for level, heading in re.findall(
+                        r"<h([234])[^>]*>(.*?)</h\1>", a["body_html"], flags=re.S
+                    )
+                ]
         for old, new in config.BODY_TEXT_REPLACEMENTS.get(slug, []):
             if old not in a["body_html"]:
                 raise ValueError(
@@ -480,6 +519,12 @@ def build_articles():
         intro_ovr = config.INTRO_OVERRIDES.get(slug)
         if intro_ovr:
             a["intro"] = intro_ovr
+        if slug == "care-basics/how-to-pronounce-axolotl":
+            a["intro"] = (
+                "Spell axolotl A-X-O-L-O-T-L; the plural is axolotls. In modern "
+                "English, pronounce it ACK-suh-lot-ul, with first-syllable stress. "
+                "Nahuatl and Spanish use different forms."
+            )
         callout = config.ROLE_CALLOUTS.get(slug)
         if callout:
             fm = re.search(r"</p>", a["body_html"])
