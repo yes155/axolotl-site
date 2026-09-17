@@ -451,6 +451,14 @@ def build_articles():
                     r"<h([234])[^>]*>(.*?)</h\1>", body_ovr, flags=re.S
                 )
             ]
+        if slug == "biology-and-science/anatomy-gills-and-lungs":
+            a["meta"] = (
+                "Axolotl anatomy explained: gills, lungs, teeth, skin, eyelids, "
+                "inner ear and lateral line, smell, tongue, taste buds, and how "
+                "these aquatic structures work."
+            )
+            a["date_modified"] = "2026-09-17"
+            a["lastmod"] = a["date_modified"]
         if slug == "biology-and-science/wild-habitat-xochimilco":
             freshwater_heading = "<h2>Are axolotls freshwater or saltwater animals?</h2>"
             habitat_marker = "<h2>Why does this habitat suit axolotls?</h2>"
