@@ -555,6 +555,47 @@ def build_articles():
                         r"<h([234])[^>]*>(.*?)</h\1>", a["body_html"], flags=re.S
                     )
                 ]
+        if slug == "biology-and-science/wild-habitat-xochimilco":
+            adaptations_heading = "<h2>What adaptations help axolotls survive in Xochimilco?</h2>"
+            threats_marker = "<h2>What threatens the wild axolotl?</h2>"
+            a["meta"] = (
+                "Axolotl habitat and adaptations explained: Xochimilco freshwater "
+                "canals, neoteny, external gills, tail fin, lateral-line sensing, "
+                "suction feeding, and modern habitat threats."
+            )
+            a["intro"] = (
+                "Wild axolotls survive only in Xochimilco's freshwater canal system "
+                "south of Mexico City. Their permanently aquatic body plan retains "
+                "external gills and a finned tail, while sensory and feeding systems "
+                "help them function in shallow vegetated water."
+            )
+            a["date_modified"] = "2026-09-17"
+            a["lastmod"] = a["date_modified"]
+            if adaptations_heading not in a["body_html"]:
+                if threats_marker not in a["body_html"]:
+                    raise ValueError("Xochimilco adaptations insertion marker not found")
+                adaptations_section = '''<h2>What adaptations help axolotls survive in Xochimilco?</h2>
+<p><strong>Axolotls are adapted to a permanently aquatic life: they mature without losing larval features such as external gills and a finned tail, and they combine aquatic sensing and suction feeding with that body plan.</strong> In evolutionary biology this retention of juvenile traits into reproductive adulthood is called paedomorphosis or neoteny.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Adaptation or retained trait</th><th>How it supports aquatic life</th></tr></thead>
+<tbody>
+<tr><td>Paedomorphosis / neoteny</td><td>Adults remain aquatic instead of completing the usual salamander transition to a terrestrial form.</td></tr>
+<tr><td>External gills</td><td>Large feathery respiratory surfaces support gas exchange while the animal remains submerged.</td></tr>
+<tr><td>Finned tail</td><td>The retained larval-style tail fin supports swimming through shallow canal and lake habitat.</td></tr>
+<tr><td>Lateral-line system</td><td>Mechanoreceptive neuromasts detect water movement around the body; see the <a href="/biology-and-science/anatomy-gills-and-lungs/">anatomy guide</a> for the sensory structures.</td></tr>
+<tr><td>Suction feeding</td><td>Axolotls rapidly expand the mouth and throat region to draw aquatic prey and water inward; research finds this feeding mode from larvae through adults.</td></tr>
+</tbody></table></div>
+<p>These are better-supported aquatic adaptations than generic lists that label every unusual axolotl feature as a habitat adaptation. Regeneration, for example, is a remarkable biological ability, but the sources reviewed here do not establish it as a specific adaptation to Xochimilco's modern canal conditions.</p>
+<p><strong>Sources:</strong> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC28454/">Voss &amp; Shaffer (1997): paedomorphosis as an adaptation for an aquatic life cycle</a>; <a href="https://animaldiversity.org/accounts/Ambystoma_mexicanum/">Animal Diversity Web: development and aquatic traits</a>; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10999947/">Lyons &amp; Arbuckle (2024): evolution of neoteny in <em>Ambystoma</em></a>; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12309904/">Toussaint-Larde et al. (2025): suction-feeding kinematics through axolotl development</a>.</p>'''
+                a["body_html"] = a["body_html"].replace(
+                    threats_marker, adaptations_section + "\n" + threats_marker, 1
+                )
+                a["headings"] = [
+                    (int(level), html.unescape(re.sub(r"<[^>]+>", "", heading)).strip())
+                    for level, heading in re.findall(
+                        r"<h([234])[^>]*>(.*?)</h\1>", a["body_html"], flags=re.S
+                    )
+                ]
         if slug == "biology-and-science/conservation-status":
             predators_heading = "<h2>What predators eat axolotls in the wild?</h2>"
             threat_marker = "<h2>Why is the axolotl endangered?</h2>"
