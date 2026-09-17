@@ -459,6 +459,53 @@ def build_articles():
             )
             a["date_modified"] = "2026-09-17"
             a["lastmod"] = a["date_modified"]
+        if slug == "care-basics/behavior":
+            sleep_heading = "<h2>Do axolotls sleep?</h2>"
+            activity_marker = "<h2>When is an axolotl most active?</h2>"
+            a["meta"] = (
+                "Axolotl behavior explained: normal resting, sleep-like inactivity, "
+                "day-night activity, hiding, floating, stress signals, and what "
+                "evidence says about hibernation."
+            )
+            a["intro"] = (
+                "Axolotls spend long periods resting and may be more active later "
+                "in the day or at night, but activity patterns vary. Axolotl-specific "
+                "sleep research is limited, and there is no good evidence that pet "
+                "axolotls need a hibernation cycle."
+            )
+            a["date_modified"] = "2026-09-17"
+            a["lastmod"] = a["date_modified"]
+            if sleep_heading not in a["body_html"]:
+                if activity_marker not in a["body_html"]:
+                    raise ValueError("Axolotl behavior sleep insertion marker not found")
+                sleep_section = '''<h2>Do axolotls sleep?</h2>
+<p><strong>Axolotls clearly have long periods of rest and behavioral quiescence, but axolotl-specific research has not established mammal-like sleep stages or a reliable number of hours of "sleep" per day.</strong> Reviews of amphibian sleep emphasize that the group is poorly studied and that immobility by itself is not enough to prove a defined sleep state.</p>
+<p>For an owner, the useful distinction is practical: an axolotl that remains still on the bottom for hours can simply be resting. Look at the whole pattern—posture, appetite, water quality, temperature, breathing, and whether the animal becomes responsive—rather than treating stillness alone as illness or trying to measure a human-style sleep schedule.</p>
+<h2>Do axolotls hibernate?</h2>
+<p><strong>There is no good axolotl-specific evidence for a routine hibernation or brumation cycle that pet owners should try to induce.</strong> Axolotls are ectotherms, so cooler water can reduce activity and metabolism, but cold tolerance is not the same thing as a required seasonal dormancy.</p>
+<p>The Ambystoma Genetic Stock Center normally houses axolotls at 16–20°C (61–68°F) and notes that they tolerate cool conditions better than excessive heat. A 2025 field study also found that axolotl movement changed with water temperature, but it did not identify a hibernation state. Keep a pet within an appropriate stable husbandry range rather than deliberately chilling it to make it "hibernate."</p>
+<p><strong>Sources:</strong> <a href="https://pubmed.ncbi.nlm.nih.gov/26031314/">Libourel &amp; Herrel (2016): sleep in amphibians and reptiles</a>; <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12043180/">Ramos et al. (2025): axolotl movement ecology and activity</a>; <a href="https://ambystoma.uky.edu/ambystoma-genetic-stock-center-agsc/f-a-q">Ambystoma Genetic Stock Center FAQ</a>.</p>'''
+                a["body_html"] = a["body_html"].replace(
+                    activity_marker, sleep_section + "\n" + activity_marker, 1
+                )
+            old_activity = '<p><strong>An axolotl is most active at night and in low light.</strong> It hunts as a crepuscular and nocturnal predator, which means the liveliest swimming happens after the lights go out. Dim lighting and a hiding spot bring out natural activity and keep daytime stress low.</p>'
+            new_activity = '<p><strong>Axolotls often become more active later in the day and under lower light, but the pattern is not universally night-only.</strong> A 2025 telemetry study found activity increasing toward the evening and peaking around 9 p.m. in one artificial wetland, while time of day was not a significant predictor of movement in the Xochimilco study site. Earlier Xochimilco experiments also observed more nighttime activity. The safest owner takeaway is to expect substantial daytime resting and frequent evening or low-light activity without treating a different schedule as abnormal by itself.</p>'
+            if old_activity in a["body_html"]:
+                a["body_html"] = a["body_html"].replace(old_activity, new_activity, 1)
+            old_activity_follow = '<p>If your axolotl is calm all day and lively at dusk, that schedule is normal.</p>'
+            new_activity_follow = '<p>A calm daytime axolotl that becomes livelier around dusk can therefore be normal, but individual and habitat differences matter.</p>'
+            if old_activity_follow in a["body_html"]:
+                a["body_html"] = a["body_html"].replace(old_activity_follow, new_activity_follow, 1)
+            old_hide = '<p><strong>Daytime hiding is normal for a nocturnal animal, especially in a new tank.</strong> The adjustment period typically lasts a few days to a week, after which the axolotl comes out more.</p>'
+            new_hide = '<p><strong>Daytime hiding can be normal, especially under bright light or while an axolotl adjusts to a new tank.</strong> Axolotls often spend long periods inactive or sheltered, and research supports increased evening or nighttime activity in some settings without proving that every individual follows a strict nocturnal schedule.</p>'
+            if old_hide in a["body_html"]:
+                a["body_html"] = a["body_html"].replace(old_hide, new_hide, 1)
+            a["headings"] = [
+                (int(level), html.unescape(re.sub(r"<[^>]+>", "", heading)).strip())
+                for level, heading in re.findall(
+                    r"<h([234])[^>]*>(.*?)</h\1>", a["body_html"], flags=re.S
+                )
+            ]
         if slug == "biology-and-science/wild-habitat-xochimilco":
             freshwater_heading = "<h2>Are axolotls freshwater or saltwater animals?</h2>"
             habitat_marker = "<h2>Why does this habitat suit axolotls?</h2>"
