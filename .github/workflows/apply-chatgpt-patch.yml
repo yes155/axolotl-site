@@ -6,7 +6,6 @@ on:
       - chatgpt-work
     paths:
       - '.github/chatgpt-patch.json'
-      - '.github/retry-chatgpt-patch'
 
 permissions:
   contents: write
