@@ -451,6 +451,26 @@ def build_articles():
                     r"<h([234])[^>]*>(.*?)</h\1>", body_ovr, flags=re.S
                 )
             ]
+        if slug == "biology-and-science/wild-habitat-xochimilco":
+            freshwater_heading = "<h2>Are axolotls freshwater or saltwater animals?</h2>"
+            habitat_marker = "<h2>Why does this habitat suit axolotls?</h2>"
+            if freshwater_heading not in a["body_html"]:
+                if habitat_marker not in a["body_html"]:
+                    raise ValueError("Xochimilco freshwater insertion marker not found")
+                freshwater_section = '''<h2>Are axolotls freshwater or saltwater animals?</h2>
+<p><strong>Axolotls are freshwater amphibians, not saltwater or brackish-water animals.</strong> Their native range is the freshwater lake-and-canal system of Xochimilco in the Valley of Mexico. Animal Diversity Web classifies <em>Ambystoma mexicanum</em> as a freshwater species associated with lakes and ponds.</p>
+<p>Freshwater does not mean mineral-free water. The University of Kentucky Ambystoma Genetic Stock Center advises against extremely soft or distilled water and notes that axolotls do well in hard water when chlorine, chloramine, and other harmful treatment chemicals are addressed. Calcium, magnesium, and other dissolved minerals can make freshwater hard without making it marine or brackish.</p>
+<p>For a home aquarium, use properly conditioned freshwater and manage hardness and pH as water-quality parameters rather than adding salt to imitate a marine habitat. See the <a href="/tank-setup/water-parameters-cycling/">water parameters and cycling guide</a> for the practical setup.</p>
+<p><strong>Sources:</strong> <a href="https://animaldiversity.org/accounts/Ambystoma_mexicanum/">Animal Diversity Web: <em>Ambystoma mexicanum</em></a>; <a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a>.</p>'''
+                a["body_html"] = a["body_html"].replace(
+                    habitat_marker, freshwater_section + "\n" + habitat_marker, 1
+                )
+                a["headings"] = [
+                    (int(level), html.unescape(re.sub(r"<[^>]+>", "", heading)).strip())
+                    for level, heading in re.findall(
+                        r"<h([234])[^>]*>(.*?)</h\1>", a["body_html"], flags=re.S
+                    )
+                ]
         for old, new in config.BODY_TEXT_REPLACEMENTS.get(slug, []):
             if old not in a["body_html"]:
                 raise ValueError(
