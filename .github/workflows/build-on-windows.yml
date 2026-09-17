@@ -63,12 +63,12 @@ jobs:
       - name: Install dependencies
         shell: powershell
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          & "$env:pythonLocation\python.exe" -m pip install --upgrade pip
+          & "$env:pythonLocation\python.exe" -m pip install -r requirements.txt
 
       - name: Build site
         shell: powershell
-        run: python build/build.py
+        run: '& "$env:pythonLocation\python.exe" build/build.py'
 
       - name: Show generated diff
         shell: powershell
