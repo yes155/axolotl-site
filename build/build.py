@@ -480,6 +480,18 @@ def build_articles():
             new_size = '<p><strong>Size matching matters because larger axolotls may bite or attempt to eat smaller ones.</strong> The Ambystoma Genetic Stock Center advises grouping larvae by similar size and separating individuals as growth differences appear. There is not a universal research-based "within 1 inch" cutoff, so use close size matching plus direct observation rather than treating a single measurement as a guarantee.</p>'
             if old_size in a["body_html"]:
                 a["body_html"] = a["body_html"].replace(old_size, new_size, 1)
+            old_introduce = '<p><strong>Introduce a new axolotl only when it matches the resident\'s size within 1 inch, and quarantine it separately for 4-6 weeks first.</strong> The quarantine window catches illness before it spreads to the established animal. If the new axolotl outgrows the resident, separate them, because the size gap widens within weeks.</p>'
+            new_introduce = '<p><strong>Introduce a new axolotl only when it is closely matched in size to the resident, and quarantine it separately before cohabitation.</strong> There is no universal research-based one-inch cutoff for compatibility. Keep watching growth after introduction and separate animals if a size gap, repeated nipping, or wounds appear.</p>'
+            if old_introduce in a["body_html"]:
+                a["body_html"] = a["body_html"].replace(old_introduce, new_introduce, 1)
+            old_adult_row = '<tr><td>Two similar-size adults</td><td>Yes</td><td>With space and hides</td></tr>'
+            new_adult_row = '<tr><td>Two similar-size adults</td><td>Possible</td><td>Closely size-match and monitor; bites can still occur</td></tr>'
+            if old_adult_row in a["body_html"]:
+                a["body_html"] = a["body_html"].replace(old_adult_row, new_adult_row, 1)
+            old_multiadult_row = '<tr><td>Three or more adults</td><td>Yes, with care</td><td>Larger tank, more hides</td></tr>'
+            new_multiadult_row = '<tr><td>Three or more adults</td><td>Possible with care</td><td>More space and hides; monitor each animal for injury or displacement</td></tr>'
+            if old_multiadult_row in a["body_html"]:
+                a["body_html"] = a["body_html"].replace(old_multiadult_row, new_multiadult_row, 1)
             old_juvenile_row = '<tr><td>Two same-size juveniles</td><td>Yes</td><td>Monitor as they grow</td></tr>'
             new_juvenile_row = '<tr><td>Two same-size juveniles</td><td>Higher risk</td><td>Size-match closely; separate for nipping or growth differences</td></tr>'
             if old_juvenile_row in a["body_html"]:
