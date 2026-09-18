@@ -5831,6 +5831,70 @@ BODY_OVERRIDES["axolotl-in-culture/axolotl-in-pop-culture-and-memes"] = r'''
 '''
 
 
+
+# Canonical home-aquarium tank-size guidance (2026-09-18).
+# Distinguishes intensive research housing from ordinary pet aquarium planning.
+BODY_OVERRIDES["tank-setup/tank-size-by-age"] = r'''
+<p><strong>For one adult pet axolotl, use a long aquarium of at least 20 gallons; if you are buying a permanent home from scratch, a 40-gallon breeder is MyAxolotl's preferred planning size because it gives substantially more floor area and water volume.</strong> The 40-gallon figure is a practical home-aquarium recommendation, not a scientifically proven biological threshold.</p>
+<div class="role-note"><strong>This page owns tank-size requirements.</strong> Use it for age, body size, usable floor space, water volume and multiple-axolotl planning. For the full build sequence, filtration, cooling, substrate and cycling, use the <a href="/tank-setup/setup-guide/">tank setup guide</a>.</div>
+
+<h2>What size tank does one adult axolotl need?</h2>
+<p>Petco's current axolotl care sheet recommends a minimum habitat size of <strong>20+ gallons for an adult</strong> and specifically says aquarium length is more important than height, making a 20-gallon-long preferable to a 20-gallon-high. MyAxolotl uses that as the practical lower bound for a single adult home aquarium.</p>
+<p><strong>If space and budget allow, choose a 40-gallon breeder instead.</strong> That is a site recommendation rather than a claim that 40 gallons is the only ethical or scientifically validated size. The wider footprint gives an adult more usable bottom area and gives the keeper more water volume in which to dilute waste and buffer maintenance mistakes.</p>
+
+<h2>Why do tank-size recommendations conflict online?</h2>
+<p>They often mix <strong>research housing</strong> with <strong>pet display aquariums</strong>. The 2024 Ambystoma Genetic Stock Center guide says housing-container size should scale with animal number and body size, and its laboratory uses small individual containers within intensive static or recirculating systems. It also states that filtered aquaria can house axolotls at densities far higher than most modern hobby recommendations.</p>
+<p>Those laboratory systems use controlled water chemistry, frequent or automatic water replacement, standardized feeding, routine monitoring and institutional husbandry. A laboratory container is therefore not a sensible “minimum pet tank” citation. A home keeper usually benefits from more water volume and floor area because the system is less intensively managed.</p>
+
+<h2>Tank size by life stage</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Life stage</th><th>How to plan housing</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>Larva / small baby</td><td>Use a manageable grow-out container sized to the animal and your cleaning routine; there is no universal evidence-based gallon minimum for this stage.</td><td>Small animals need easy feeding, observation and frequent maintenance.</td></tr>
+<tr><td>Juvenile</td><td>A temporary grow-out tank can be smaller than the final adult home, but if buying one permanent aquarium, buy the adult-sized footprint early.</td><td>Avoid repeated upgrades and re-cycling.</td></tr>
+<tr><td>One adult</td><td><strong>20-gallon long minimum; 40-gallon breeder preferred by MyAxolotl.</strong></td><td>Length/width provide usable floor space; larger volume is more forgiving for waste and maintenance.</td></tr>
+<tr><td>Two adults</td><td>Do not rely on a simple “X gallons per animal” rule. Use a substantially larger footprint, separate hides and close monitoring; a 40-gallon breeder is a practical starting floor, with larger housing preferred.</td><td>Cohabitation adds territory, waste and bite-risk considerations that gallons alone cannot solve.</td></tr>
+<tr><td>Three or more adults</td><td>Plan a large custom system or separate aquariums rather than multiplying a gallon formula.</td><td>Group management, size matching, feeding and injury monitoring become the limiting factors.</td></tr>
+</tbody></table></div>
+
+<h2>Does floor space matter more than height?</h2>
+<p><strong>Yes for how the animal uses the enclosure, but water volume still matters for system stability.</strong> Axolotls spend much of their time on or near the bottom, so a long, wide aquarium gives more useful space than a tall tank with the same nominal volume. Extra height is not useless—it still adds water—but it should not come at the expense of length and width.</p>
+<p>When comparing two tanks, check both the gallon rating and the actual footprint. Use the <a href="/tools/aquarium-volume-calculator/">Aquarium Volume Calculator</a> if you have dimensions but not a reliable volume figure.</p>
+
+<h2>Is a 20-gallon long enough for one adult?</h2>
+<p><strong>It is a current practical minimum, not the size MyAxolotl would choose when starting from scratch.</strong> A healthy adult can physically fit in a 20-gallon-long aquarium, and Petco currently lists 20+ gallons as the adult minimum. The tradeoff is less floor area, less dilution of waste and less room for hides and equipment.</p>
+<p>A 40-gallon breeder gives a wider footprint and roughly twice the nominal water capacity, which is why this site prefers it as the long-term planning choice when the keeper has room for it.</p>
+
+<h2>What size tank do two axolotls need?</h2>
+<p><strong>There is no evidence-based gallon formula that makes two axolotls automatically compatible.</strong> Closely matched adults can sometimes be housed together, but nipping, feeding competition, breeding behavior and size differences still matter. If two adults share a tank, provide more floor space than you would for one, at least one suitable hide per animal, and a layout that lets them separate.</p>
+<p>MyAxolotl treats a 40-gallon breeder as a <em>starting footprint</em> for two closely size-matched adults, not a guarantee. If bites, repeated displacement, a growing size gap or feeding problems appear, separate the animals. See <a href="/care-basics/keeping-multiple-axolotls/">Can Axolotls Live Together?</a>.</p>
+
+<h2>What size tank do baby and juvenile axolotls need?</h2>
+<p><strong>Do not force babies into a rigid gallon chart.</strong> The 2024 AGSC guide scales containers as animals grow and pairs container size with frequent cleaning. That research model demonstrates the important principle: housing size and maintenance intensity are linked.</p>
+<p>For a pet keeper, a small grow-out setup can make feeding and observation easier, but it must stay clean and temperature-stable. If you already know you will keep the animal to adulthood, buying and cycling the permanent adult aquarium early can be simpler than repeatedly upgrading.</p>
+<p>For the animal's body-size progression rather than aquarium gallons, use <a href="/care-basics/axolotl-age-and-size-chart/">How Big Do Axolotls Get?</a>.</p>
+
+<h2>When should you upgrade the tank?</h2>
+<p>Upgrade before the setup becomes difficult to manage. Warning signs include insufficient floor area for a full-size animal and hides, rapidly accumulating waste, repeated water-quality instability, equipment crowding, or multiple animals that cannot maintain separate resting areas. An arbitrary birthday or body-length cutoff is less useful than those practical constraints.</p>
+
+<h2>What should you measure before buying a tank?</h2>
+<ul>
+<li><strong>External footprint:</strong> confirm the aquarium and stand fit the room.</li>
+<li><strong>Internal length and width:</strong> these determine usable bottom area.</li>
+<li><strong>Actual water depth:</strong> décor, substrate and headspace reduce real water volume.</li>
+<li><strong>Filter and chiller space:</strong> equipment needs clearance and suitable flow routing.</li>
+<li><strong>Loaded weight:</strong> water is heavy; use the <a href="/tools/aquarium-volume-calculator/">Aquarium Volume Calculator</a> to estimate water weight.</li>
+</ul>
+
+<h2>Sources and recommendation note</h2>
+<p><strong>Evidence boundary:</strong> no source reviewed establishes a universal research-derived pet-aquarium gallon threshold. The AGSC 2024 guide is a research-husbandry reference and explicitly scales housing with animal number/body size while using intensive maintenance systems. Petco's current pet-care sheet supplies the clearest current consumer minimum we found: 20+ gallons for one adult, with a long tank preferred over a high tank.</p>
+<ul>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
+<li><a href="https://www.petco.com/pet-education/caresheets/axolotl">Petco: Axolotl Care Guide — 20+ gallon adult minimum</a></li>
+</ul>
+<p><strong>MyAxolotl recommendation:</strong> treat a 20-gallon long as the practical minimum for one adult and a 40-gallon breeder as the preferred long-term home when space and budget permit. That preference is deliberately more conservative than laboratory-density guidance.</p>
+'''
+
 # Build trigger: retry Cost & Buying after clearing the stale queued job.
 
 # Keyword-reconciliation fix: strengthen the existing anatomy owner for teeth/oral anatomy.
