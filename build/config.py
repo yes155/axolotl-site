@@ -2529,6 +2529,7 @@ ARTICLES = {
         "hub": "care-basics",
         "title_override": "What Is an Axolotl? 25 Facts About This Mexican Salamander",
         "title_tag": "What Is an Axolotl? 25 Facts About This Mexican Salamander",
+        "meta_override": "What is an axolotl? Learn the core facts about this Mexican aquatic salamander: classification, neoteny, regeneration, habitat, conservation, lifespan, diet and pet biology.",
         "date_modified": "2026-09-18",
     },
     "75 - Do Axolotls Recognize Their Owners.docx": {
@@ -2542,6 +2543,7 @@ ARTICLES = {
         "hub": "care-basics",
         "title_override": "Are Axolotls Good Pets for Kids?",
         "title_tag": "Are Axolotls Good Pets for Kids? What Parents Must Know",
+        "meta_override": "Are axolotls suitable pets for children? Learn age and maturity considerations, adult responsibility, observation-first handling rules, equipment, feeding supervision and long-term family commitment.",
     },
     "77 - Axolotl Behavior Explained.docx": {
         "slug": "care-basics/behavior",
@@ -5197,6 +5199,307 @@ LINKING.update({
 })
 
 
+
+# ---------------------------------------------------------------------------
+# Keyword-reconciliation new pages — batch 4 (2026-09-18)
+# ---------------------------------------------------------------------------
+
+CONFIG_ARTICLES.update({
+    "care-basics/are-axolotls-poisonous": {
+        "slug": "care-basics/are-axolotls-poisonous",
+        "hub": "care-basics",
+        "title": "Are Axolotls Poisonous or Dangerous? Venom, Bites & Human Safety",
+        "title_tag": "Are Axolotls Poisonous or Dangerous? Venom, Bites & Safety",
+        "meta": "Are axolotls poisonous or venomous? Learn the real human-health risks from bites, handling, tank water and Salmonella, plus safer hygiene around pet axolotls.",
+        "intro": "Pet axolotls are not generally treated as poisonous or venomous animals. The practical human-health risks are ordinary bite or wound hygiene and germs associated with amphibians and aquarium water, especially Salmonella—not toxin injection.",
+        "num": 222,
+        "date_published": "2026-09-18",
+        "date_modified": "2026-09-18",
+        "headings": [
+            "Are axolotls poisonous?",
+            "Are axolotls venomous?",
+            "Can an axolotl bite hurt you?",
+            "Can you get sick from touching an axolotl?",
+            "Can axolotl tank water carry germs?",
+            "Who should be extra careful around amphibians?",
+            "What should you do after an axolotl bite?",
+            "Is it safe to pet or hold an axolotl?",
+            "Axolotl danger myths vs real risks",
+            "Sources",
+        ],
+        "body": r'''
+<p><strong>Pet axolotls are not generally regarded as poisonous or venomous to people.</strong> Standard species and veterinary references focus on their delicate amphibian skin, small teeth, aquatic husbandry and infectious-disease hygiene rather than a toxin-delivery system. The main human-health issue is contact with germs carried by amphibians or their aquarium environment.</p>
+
+<h2>Are axolotls poisonous?</h2>
+<p><strong>There is no established pet-husbandry hazard in which touching an axolotl poisons a person through its skin.</strong> That does not make unnecessary handling a good idea: axolotl skin and slime coat are delicate, so frequent touching can harm the animal even when it is not a poisoning risk to the owner.</p>
+<p>Use <a href="/care-basics/handling/">the axolotl handling guide</a> for situations where an animal genuinely needs to be moved.</p>
+
+<h2>Are axolotls venomous?</h2>
+<p><strong>Axolotls are not treated as venomous salamanders in standard pet or species references.</strong> Venom requires a biological system that delivers toxin into another animal, such as through specialized teeth, spines or stingers. Axolotl oral anatomy is adapted to grip and suction-feed on prey, not to inject venom.</p>
+<p>For the teeth and feeding structures themselves, see <a href="/biology-and-science/anatomy-gills-and-lungs/">axolotl anatomy</a>.</p>
+
+<h2>Can an axolotl bite hurt you?</h2>
+<p>An axolotl may snap at a finger during feeding or when it mistakes movement for prey. The bite is not a venom exposure. Any animal bite can still break or irritate skin, and aquarium water can contain bacteria, so clean a wound rather than dismissing it simply because the animal is small.</p>
+
+<h2>Can you get sick from touching an axolotl?</h2>
+<p><strong>Yes, infection risk is possible through the same route that applies to other amphibians: germs on the animal or in its environment can reach your mouth, food or an open wound.</strong> The CDC states that amphibians can carry <em>Salmonella</em> even when they appear healthy and clean.</p>
+<p>Wash hands with soap and running water after contact with the axolotl, its food, feces, equipment or tank water. Do not clean aquarium equipment in food-preparation areas.</p>
+
+<h2>Can axolotl tank water carry germs?</h2>
+<p>Yes. The CDC specifically includes aquarium water and habitat equipment in its amphibian-hygiene guidance. You do not have to hold the animal for exposure to occur; tank water, decorations, tools and waste can all become contaminated.</p>
+<p>Keep dedicated buckets and aquarium tools separate from kitchen equipment and wash hands after maintenance.</p>
+
+<h2>Who should be extra careful around amphibians?</h2>
+<p>The CDC identifies children under 5, adults 65 and older, and people with weakened immune systems as groups at higher risk of serious illness from germs reptiles and amphibians can carry. The CDC advises that children younger than 5 should not handle or touch amphibians or their environments.</p>
+<p>For family-specific ownership questions, see <a href="/care-basics/axolotls-and-children/">are axolotls good pets for kids?</a>.</p>
+
+<h2>What should you do after an axolotl bite?</h2>
+<ol>
+<li>Rinse and wash the area promptly with warm soapy water.</li>
+<li>Do not put aquarium water or unclean equipment on the wound.</li>
+<li>Watch for increasing redness, warmth, swelling, pain or drainage.</li>
+<li>Seek medical attention for a serious wound or signs of infection, and follow the CDC's bite/scratch guidance for higher-risk individuals.</li>
+</ol>
+<p>The goal is ordinary wound hygiene, not antivenom or “detox” treatment.</p>
+
+<h2>Is it safe to pet or hold an axolotl?</h2>
+<p><strong>Routine petting is unnecessary and can be harder on the axolotl than on the person.</strong> Axolotls are best treated as observation-focused aquatic pets. If you must move one for veterinary care, quarantine or tank safety, minimize contact and use the least stressful transfer method available.</p>
+
+<h2>Axolotl danger myths vs real risks</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Claim</th><th>Better interpretation</th></tr></thead>
+<tbody>
+<tr><td>“Axolotls are poisonous to touch”</td><td>No established poisoning hazard from normal pet contact; handling should still be minimized for the animal.</td></tr>
+<tr><td>“An axolotl bite injects venom”</td><td>Axolotls are not treated as venomous; use ordinary bite/wound hygiene.</td></tr>
+<tr><td>“The tank is harmless if the animal looks healthy”</td><td>Healthy amphibians and their environments can still carry germs such as Salmonella.</td></tr>
+<tr><td>“Kids can handle them if they are gentle”</td><td>CDC advises children under 5 not to touch amphibians or their environments; older children still need hygiene and supervision.</td></tr>
+</tbody></table></div>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.cdc.gov/healthy-pets/about/reptiles-and-amphibians.html">CDC: Reptiles and Amphibians, updated January 13, 2026</a></li>
+<li><a href="https://animaldiversity.org/accounts/Ambystoma_mexicanum/">Animal Diversity Web: Ambystoma mexicanum</a></li>
+<li><a href="/biology-and-science/anatomy-gills-and-lungs/">MyAxolotl: Axolotl Anatomy — Gills, Lungs, Teeth & Body Parts</a></li>
+</ul>
+''',
+        "featured": False,
+    },
+
+    "biology-and-science/axolotl-history-discovery": {
+        "slug": "biology-and-science/axolotl-history-discovery",
+        "hub": "biology-and-science",
+        "title": "When Were Axolotls Discovered? History & Scientific Discovery",
+        "title_tag": "When Were Axolotls Discovered? History & Scientific Discovery",
+        "meta": "Axolotl history from Nahua knowledge to the 1798 scientific description, Humboldt and Cuvier, the 1863–64 Paris shipment, Duméril's neoteny work and the rise of the laboratory axolotl.",
+        "intro": "There is no single honest date when humans 'discovered' axolotls: people in the Valley of Mexico knew and named them long before European taxonomy. If the question means formal scientific description, Shaw and Nodder described Gyrinus mexicanus in 1798, the name on which today's Ambystoma mexicanum is based.",
+        "num": 223,
+        "date_published": "2026-09-18",
+        "date_modified": "2026-09-18",
+        "headings": [
+            "When were axolotls discovered?",
+            "Who knew axolotls before European science?",
+            "What happened in 1798?",
+            "What did Humboldt and Cuvier contribute?",
+            "When did living axolotls reach Europe?",
+            "How did Duméril change axolotl science?",
+            "How did axolotls become laboratory animals?",
+            "Why is 1863 vs 1864 sometimes confusing?",
+            "Axolotl history timeline",
+            "Sources",
+        ],
+        "body": r'''
+<p><strong>No single scientist “discovered” axolotls.</strong> The animal was already known, named and used by peoples of the Valley of Mexico long before European zoologists assigned it a Latin scientific name. The clean historical distinction is between Indigenous/local knowledge and later formal scientific description.</p>
+
+<h2>When were axolotls discovered?</h2>
+<p>If <em>discovered</em> means “formally described in European zoological literature,” the key date is <strong>1798</strong>. The American Museum of Natural History's Amphibian Species of the World lists <em>Gyrinus mexicanus</em> Shaw and Nodder, 1798 as the original combination for the species now called <em>Ambystoma mexicanum</em>.</p>
+<p>That date should not be rewritten as “humans first found axolotls in 1798.” It marks a taxonomic publication, not the beginning of human knowledge of the animal.</p>
+
+<h2>Who knew axolotls before European science?</h2>
+<p>Axolotls were part of the natural and cultural landscape of central Mexico long before modern taxonomy. Their name derives from Nahuatl, and historical Mexican sources document food, medicinal and cultural associations. That earlier knowledge belongs to the species' history even though it did not use the later Linnaean taxonomic system.</p>
+
+<h2>What happened in 1798?</h2>
+<p>George Shaw and Frederick Polydore Nodder published the species under the name <em>Gyrinus mexicanus</em>. Modern taxonomic databases retain Shaw and Nodder, 1798 in the author citation for <em>Ambystoma mexicanum</em>, showing the continuity between the original description and the current valid name.</p>
+<p>Later authors moved the species through several genera and combinations before <em>Ambystoma mexicanum</em> became the accepted name.</p>
+
+<h2>What did Humboldt and Cuvier contribute?</h2>
+<p>At the beginning of the 19th century, Alexander von Humboldt sent preserved Mexican axolotl specimens to Georges Cuvier in Paris. With only preserved material, European anatomists debated whether the strange gilled animal was a larval salamander or an adult form.</p>
+<p>That debate became much easier to investigate once living axolotls reached Paris decades later.</p>
+
+<h2>When did living axolotls reach Europe?</h2>
+<p><strong>Historical sources place the first major living shipment in Paris at the transition between late 1863 and 1864.</strong> The Muséum national d'Histoire naturelle describes the Jardin des Plantes as receiving axolotls in 1863, while modern histories of laboratory axolotls often use 1864 for the arrival and scientific study of the living animals.</p>
+<p>A detailed historical review reports that 34 living Mexican axolotls were brought from Mexico to Europe, with six animals going to Auguste Duméril at the Paris museum. Those animals and their descendants transformed the axolotl from an anatomical curiosity into an experimental organism.</p>
+
+<h2>How did Duméril change axolotl science?</h2>
+<p>Auguste Duméril observed that axolotls could reproduce while retaining their gilled aquatic form. Later, some descendants underwent metamorphic change. These observations forced zoologists to rethink the simple assumption that a permanently gilled animal must be an immature larva.</p>
+<p>Duméril also experimented with the animals and reported regeneration after gill removal, helping launch the long history of axolotl regeneration research.</p>
+
+<h2>How did axolotls become laboratory animals?</h2>
+<p>The Paris animals bred readily and were distributed to other laboratories, zoos and private keepers. A historical review of axolotl research describes the species as one of the oldest self-sustaining laboratory animals, with major roles in developmental biology, embryology, endocrinology and later regeneration research.</p>
+<p>Modern captive research stocks have a complex history, so “all pet axolotls descend from exactly six animals” is too simplistic. The 19th-century Paris lineage is foundational, but later laboratory and breeding histories include additional stock management and crosses.</p>
+
+<h2>Why is 1863 vs 1864 sometimes confusing?</h2>
+<p>Different sources date different parts of the same transfer. Some describe the animals reaching the Paris institution in late 1863; scientific histories often mark 1864 as the point when the first living Mexican axolotls entered the museum research context. The disagreement is therefore usually about which step of the transfer is being dated, not whether living axolotls reached Paris in that period.</p>
+
+<h2>Axolotl history timeline</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Period</th><th>Event</th></tr></thead>
+<tbody>
+<tr><td>Before European taxonomy</td><td>Axolotls were already known and named in the Valley of Mexico.</td></tr>
+<tr><td>1798</td><td>Shaw and Nodder formally described <em>Gyrinus mexicanus</em>.</td></tr>
+<tr><td>Early 1800s</td><td>Humboldt sent preserved specimens to Cuvier in Paris.</td></tr>
+<tr><td>1863–1864</td><td>Living axolotls from Mexico reached Paris and entered sustained scientific study.</td></tr>
+<tr><td>1860s onward</td><td>Duméril studied reproduction, metamorphosis and regeneration; captive colonies spread through Europe.</td></tr>
+<tr><td>20th–21st centuries</td><td>Axolotls became major experimental models for development, genetics and regeneration.</td></tr>
+</tbody></table></div>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://amphibiansoftheworld.amnh.org/Amphibia/Caudata/Ambystomatidae/Ambystoma/Ambystoma-mexicanum">American Museum of Natural History: Amphibian Species of the World — Ambystoma mexicanum</a></li>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9117742/">Reiß: Cut and Paste — the long history of axolotl regeneration research</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/25920413/">Reiß, Olsson & Hoßfeld: 150 years of axolotl research</a></li>
+<li><a href="https://www.mnhn.fr/fr/axolotl">Muséum national d'Histoire naturelle: Axolotl</a></li>
+</ul>
+''',
+        "featured": False,
+    },
+
+    "biology-and-science/axolotl-adaptations": {
+        "slug": "biology-and-science/axolotl-adaptations",
+        "hub": "biology-and-science",
+        "title": "Axolotl Adaptations: How They Feed, Breathe & Survive Underwater",
+        "title_tag": "Axolotl Adaptations: Feeding, Breathing & Aquatic Survival",
+        "meta": "Axolotl adaptations explained: paedomorphosis, external gills, finned tail, lateral-line sensing and suction feeding, plus which famous traits should not automatically be called habitat adaptations.",
+        "intro": "Axolotls are built for a permanently aquatic life. Their most defensible aquatic adaptations and retained traits include paedomorphosis, external gills, a finned tail, mechanosensory lateral-line organs and suction feeding.",
+        "num": 224,
+        "date_published": "2026-09-18",
+        "date_modified": "2026-09-18",
+        "headings": [
+            "What adaptations do axolotls have?",
+            "How does paedomorphosis support aquatic life?",
+            "How do external gills help axolotls breathe?",
+            "How does the tail help an axolotl swim?",
+            "How does the lateral line help an axolotl sense water movement?",
+            "What adaptations do axolotls have for feeding?",
+            "How does suction feeding work?",
+            "Is regeneration an axolotl habitat adaptation?",
+            "How do these traits fit Xochimilco?",
+            "Adaptation vs anatomy vs husbandry",
+            "Sources",
+        ],
+        "body": r'''
+<p><strong>The clearest axolotl adaptations for aquatic life are a permanently aquatic developmental strategy, external gills, a finned tail, specialized water-sensing organs and suction feeding.</strong> These traits work together: the animal remains in water, exchanges gases through aquatic respiratory surfaces, detects movement around its body and rapidly draws prey into the mouth.</p>
+
+<h2>What adaptations do axolotls have?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Adaptation or retained trait</th><th>Function</th></tr></thead>
+<tbody>
+<tr><td>Paedomorphosis / neoteny</td><td>Allows reproductive adulthood while retaining an aquatic body plan.</td></tr>
+<tr><td>External gills</td><td>Provide large exposed respiratory surfaces for gas exchange in water.</td></tr>
+<tr><td>Finned tail</td><td>Supports propulsion and maneuvering underwater.</td></tr>
+<tr><td>Lateral-line neuromasts</td><td>Mechanoreceptors detect water movement around the head and body.</td></tr>
+<tr><td>Suction feeding</td><td>Rapid expansion of the mouth/throat region pulls prey and water inward.</td></tr>
+</tbody></table></div>
+
+<h2>How does paedomorphosis support aquatic life?</h2>
+<p>Axolotls become reproductively mature without completing the usual terrestrial metamorphosis of many salamanders. A 2026 review treats axolotl neoteny as an evolutionary life-history strategy rather than simply “failed development.” By retaining larval features into adulthood, the species keeps the structures associated with its aquatic mode of life.</p>
+<p>For the developmental mechanism, see <a href="/biology-and-science/neoteny/">neoteny</a> and <a href="/biology-and-science/metamorphosis/">axolotl metamorphosis</a>.</p>
+
+<h2>How do external gills help axolotls breathe?</h2>
+<p>Feathery external gills expose a large respiratory surface directly to the surrounding water. Axolotls also use skin and simple lungs, so breathing is not an “external gills only” system. The retained gills are nevertheless one of the most visible features of the aquatic adult body plan.</p>
+<p>For respiratory anatomy, use <a href="/biology-and-science/anatomy-gills-and-lungs/">gills, lungs and skin anatomy</a>.</p>
+
+<h2>How does the tail help an axolotl swim?</h2>
+<p>The tail retains a broad fin associated with the larval aquatic form. Side-to-side body and tail movement provides propulsion, while the limbs contribute to positioning and slow movement along the bottom. The result is a body better suited to submerged movement than to a terrestrial salamander lifestyle.</p>
+
+<h2>How does the lateral line help an axolotl sense water movement?</h2>
+<p>Axolotls possess superficial lateral-line neuromasts on the head and trunk. These are mechanoreceptive organs that respond to water movement. Anatomical studies describe multiple lines of neuromasts and specialized innervation across the head and body.</p>
+<p>This sensory system matters underwater because visual information is only one source of environmental information. Water movement can help an aquatic predator detect nearby movement even in dim or complex habitat.</p>
+
+<h2>What adaptations do axolotls have for feeding?</h2>
+<p><strong>Suction feeding is the best-supported feeding adaptation in the keyword cluster.</strong> Axolotls do not need to chase and chew prey like a terrestrial mammal. Instead, rapid expansion of the oral and throat region creates water flow that draws prey into the mouth.</p>
+
+<h2>How does suction feeding work?</h2>
+<p>A 2025 kinematic study found suction feeding in axolotl larvae, juveniles and adults. The timing and speed of jaw and hyoid movement change with size, but the basic feeding mode persists across development.</p>
+<p>The small teeth help grip prey once it enters the mouth; they are not the main mechanism for capturing it. See <a href="/biology-and-science/anatomy-gills-and-lungs/">axolotl teeth and oral anatomy</a> for the structures.</p>
+
+<h2>Is regeneration an axolotl habitat adaptation?</h2>
+<p><strong>Do not automatically label every famous axolotl trait a Xochimilco adaptation.</strong> Regeneration is a remarkable biological capacity, but the sources used here do not establish limb regeneration specifically as an adaptation to modern Xochimilco canal conditions. It is better covered as a regeneration trait with its own evolutionary and developmental questions.</p>
+<p>See <a href="/biology-and-science/regeneration-and-limb-regrowth/">axolotl regeneration</a>.</p>
+
+<h2>How do these traits fit Xochimilco?</h2>
+<p>Wild axolotls persist in a freshwater canal-and-wetland environment with shallow vegetated water. A permanently aquatic body plan, water-breathing structures, a swimming tail, water-motion sensing and suction feeding are all coherent with life in that setting.</p>
+<p>For the place itself—range, canals, water type and threats—use <a href="/biology-and-science/wild-habitat-xochimilco/">the Xochimilco habitat guide</a>.</p>
+
+<h2>Adaptation vs anatomy vs husbandry</h2>
+<p>This page owns the function question: <em>what traits help an axolotl live and feed underwater?</em></p>
+<ul>
+<li><strong>What body part is this?</strong> → <a href="/biology-and-science/anatomy-gills-and-lungs/">Anatomy</a></li>
+<li><strong>Where do wild axolotls live?</strong> → <a href="/biology-and-science/wild-habitat-xochimilco/">Wild Habitat</a></li>
+<li><strong>How should I build a pet tank?</strong> → <a href="/tank-setup/setup-guide/">Tank Setup</a></li>
+<li><strong>How can they regrow limbs?</strong> → <a href="/biology-and-science/regeneration-and-limb-regrowth/">Regeneration</a></li>
+</ul>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/42489940/">Mussies (2026): Neoteny and Evolutionary Strategy</a></li>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12309904/">Toussaint-Larde et al. (2025): suction-feeding kinematics through axolotl development</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/1484121/">Northcutt et al.: distribution and innervation of axolotl lateral-line organs</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/29879797/">Smith, Lannoo & Armstrong: lateral-line neuromast development</a></li>
+</ul>
+''',
+        "featured": False,
+    },
+})
+
+HERO_IMAGE_OVERRIDES.update({
+    "care-basics/are-axolotls-poisonous": {
+        "file": "axolotls-as-pets-for-kids.webp",
+        "alt": "Adult and child observing an axolotl aquarium with safe no-handling and hygiene guidance",
+        "caption": "Axolotls are not generally treated as poisonous or venomous pets; practical human safety centers on hygiene, bite care and limiting unnecessary handling.",
+        "description": "Axolotl human-safety graphic emphasizing observation, hygiene and minimal handling.",
+        "credit": "MyAxolotl original graphic",
+        "width": 1600, "height": 900,
+    },
+    "biology-and-science/axolotl-history-discovery": {
+        "file": "amazing-axolotl-facts.webp",
+        "alt": "Axolotl in a Xochimilco and science-history collage used to illustrate its cultural and research history",
+        "caption": "Axolotls were known in Mexico long before their 1798 formal scientific description; living animals reached Paris in the 1863–64 period and helped launch modern laboratory research.",
+        "description": "Axolotl history graphic connecting Xochimilco, taxonomy and scientific research.",
+        "credit": "MyAxolotl original graphic",
+        "width": 1600, "height": 900,
+    },
+    "biology-and-science/axolotl-adaptations": {
+        "file": "axolotl-wild-habitat-xochimilco.webp",
+        "alt": "Wild-type axolotl in Xochimilco illustrating aquatic adaptations including gills, tail, sensing and suction feeding",
+        "caption": "Axolotl aquatic adaptations include paedomorphosis, external gills, a finned tail, lateral-line sensing and suction feeding.",
+        "description": "Xochimilco axolotl graphic used to explain aquatic survival and feeding adaptations.",
+        "credit": "MyAxolotl original graphic",
+        "width": 1600, "height": 900,
+    },
+})
+
+LINKING.update({
+    "care-basics/are-axolotls-poisonous": [
+        "care-basics/handling",
+        "care-basics/axolotls-and-children",
+        "biology-and-science/anatomy-gills-and-lungs",
+        "health/finding-an-exotic-vet",
+    ],
+    "biology-and-science/axolotl-history-discovery": [
+        "care-basics/axolotl-facts",
+        "biology-and-science/wild-habitat-xochimilco",
+        "biology-and-science/neoteny",
+        "biology-and-science/regeneration-and-limb-regrowth",
+    ],
+    "biology-and-science/axolotl-adaptations": [
+        "biology-and-science/wild-habitat-xochimilco",
+        "biology-and-science/anatomy-gills-and-lungs",
+        "biology-and-science/neoteny",
+        "biology-and-science/regeneration-and-limb-regrowth",
+    ],
+})
+
+
 # Persisted article dates: the 106 DOCX-backed pages first appeared in the
 # launch commit, and the two config-authored pages first appeared later in the
 # same public repo history.
@@ -5216,6 +5519,21 @@ def _stamp_article_dates(entries, published, modified=None, published_source=Non
         if modified_source is not None:
             cfg.setdefault("date_modified_source", modified_source)
 
+
+
+# Move three now-distinct keyword intents out of broader parent pages.
+BODY_TEXT_REPLACEMENTS.setdefault("care-basics/axolotls-and-children", []).append((
+    "<h2 id=\"s0\">Are axolotls good pets for kids?</h2><p><strong>Yes, axolotls work as pets for kids aged 10 and up, but only with adult supervision of the tank, water, and feeding.</strong> They are not a low-maintenance starter pet, because they need a cycled 20-gallon tank, cool water at 60-64 F (16-18 C), and 10-15 years of care.</p><div class=\"role-note\"><strong>Budget matters for families.</strong> See the full cost picture before deciding: <a href=\"/care-basics/cost-of-ownership-monthly/\">monthly cost of an axolotl</a>.</div><p>The rule for parents is simple: the child can own the pet, but the parent owns the responsibility. Water changes, temperature checks, and cycling stay with the adult.</p><h2 id=\"s1\">At what age can a child care for an axolotl?</h2><p><strong>Axolotls fit kids aged 10 and up, with a recommendation against them for children under 8.</strong> A 10-year-old can feed and observe with supervision, while a younger child risks harming the animal through poking, grabbing, or rough handling.</p><div class=\"table-wrap\"><table>\n<thead><tr><th>Child age</th><th>Suitability</th></tr></thead>\n<tbody>\n<tr><td>Under 8 years</td><td>Too young, needs full adult care</td></tr>\n<tr><td>8-10 years</td><td>Possible with heavy adult involvement</td></tr>\n<tr><td>10-13 years</td><td>Good with adult oversight of tank tasks</td></tr>\n<tr><td>13 years and up</td><td>Best, near-independent routine</td></tr>\n</tbody></table></div><p>Age matters less than maturity. A careful 10-year-old beats an impulsive 13-year-old, so judge the child's ability to follow rules, not the number alone.</p><h2 id=\"s2\">What makes axolotls good for kids?</h2><p><strong>Axolotls make good kids' pets for four reasons: they are fascinating to watch, calm and docile, fully aquatic, and educational.</strong> Gills, color morphs, and feeding behavior hold attention, and the animal is not aggressive or jumpy.</p><p>They also teach real skills. Water chemistry, feeding routines, and patience build responsibility in a way a plush toy cannot, because a living animal depends on the care.</p><h2 id=\"s3\">What are the risks of axolotls for kids?</h2><p><strong>The risks of axolotls for kids come from the animal, not the child: delicate skin, fragile gills, and water that must stay cool and clean.</strong> Axolotls have permeable skin and a largely cartilaginous skeleton, so rough handling or a dropped transfer injures them.</p><div class=\"table-wrap\"><table>\n<thead><tr><th>Risk</th><th>What parents must do</th></tr></thead>\n<tbody>\n<tr><td>Warm water</td><td>Monitor 60-64 F (16-18 C), cool in summer</td></tr>\n<tr><td>Uncycled tank</td><td>Cycle weeks before the axolotl arrives</td></tr>\n<tr><td>Delicate skin</td><td>Keep handling to near zero</td></tr>\n<tr><td>Gills</td><td>Teach never to poke or grab</td></tr>\n<tr><td>Feeding</td><td>Oversee worm and pellet feeding</td></tr>\n<tr><td>Long lifespan</td><td>Commit to 10-15 years of family care</td></tr>\n<tr><td>Water changes</td><td>Run the 20-30% weekly routine yourself</td></tr>\n</tbody></table></div><p>The animal's needs are not negotiable. If a child loses interest, the parent becomes the full caretaker, so decide before purchase who really runs the tank.</p><h2 id=\"s4\">Are axolotls poisonous or venomous?</h2>\n<p><strong>No—pet axolotls are not generally considered poisonous or venomous to people.</strong> The practical human-health concern is not toxin injection or poisoning; it is hygiene around an amphibian and its aquarium water. The CDC notes that reptiles and amphibians can carry <em>Salmonella</em> even when they look healthy, and the germs can spread from the animal, tank water, equipment, and other habitat surfaces.</p>\n<div class=\"table-wrap\"><table>\n<thead><tr><th>Question</th><th>Practical answer</th></tr></thead>\n<tbody>\n<tr><td>Are axolotls venomous?</td><td>No known venom-delivery hazard is part of normal axolotl contact or bites.</td></tr>\n<tr><td>Are axolotls poisonous to touch?</td><td>They are not treated as a poisoning hazard in normal pet husbandry. Handling should still be minimized because it can harm the axolotl's delicate skin.</td></tr>\n<tr><td>What is the main human-health risk?</td><td>Germs associated with amphibians and aquarium water, especially <em>Salmonella</em>.</td></tr>\n<tr><td>What should families do?</td><td>Wash hands with soap and running water after tank contact, keep aquarium equipment away from food-preparation areas, and supervise children.</td></tr>\n</tbody></table></div>\n<p>The CDC advises that children younger than 5 should not handle or touch reptiles or amphibians or their environments because they are at higher risk of serious illness from germs such as <em>Salmonella</em>. For older children, observation is safer for the animal than routine handling, and adults should supervise tank maintenance and handwashing.</p>\n<p><strong>Sources:</strong> <a href=\"https://www.cdc.gov/healthy-pets/about/reptiles-and-amphibians.html\">CDC: Reptiles and Amphibians</a>; <a href=\"https://www.fda.gov/animal-veterinary/animal-health-literacy/salmonella-feeder-rodents-and-pet-reptiles-and-amphibians-tips-you-should-know-prevent-infection\">FDA: Salmonella, Reptiles and Amphibians</a>; <a href=\"https://www.worldwildlife.org/resources/explainers/should-you-keep-an-exotic-animal-as-a-pet-this-guide-can-help-you-tell/\">WWF: Responsible Exotic Pet Guide</a>.</p>\n",
+    '<h2>Are axolotls poisonous or venomous?</h2><p><strong>Axolotls are not generally treated as poisonous or venomous pets.</strong> The more important family-safety issue is hygiene around amphibians and aquarium water. See <a href="/care-basics/are-axolotls-poisonous/">axolotl poison, venom, bite and human-safety guidance</a> for the full answer.</p>'
+))
+BODY_TEXT_REPLACEMENTS.setdefault("care-basics/axolotl-facts", []).append((
+    "<h2 id=\"s0\">What is an axolotl?</h2><p><strong>An axolotl (Ambystoma mexicanum) is a fully aquatic salamander native to Mexico, famous for keeping its larval features for life and regenerating lost body parts.</strong> It is an amphibian, not a fish, and it lives entirely in fresh water.</p><div class=\"role-note\"><strong>This page answers “what is an axolotl?”</strong> For husbandry, use the <a href=\"/axolotls/care-guide/\">care guide</a>; for fish-vs-amphibian classification, use <a href=\"/biology-and-science/is-axolotl-amphibian/\">the classification guide</a>; for where they live, use <a href=\"/biology-and-science/wild-habitat-xochimilco/\">wild habitat</a>.</div><div class=\"table-wrap\"><table>\n<thead><tr><th>Axolotl at a glance</th><th>Detail</th></tr></thead>\n<tbody>\n<tr><td>Scientific name</td><td>Ambystoma mexicanum</td></tr>\n<tr><td>Animal group</td><td>Amphibian (salamander)</td></tr>\n<tr><td>Native habitat</td><td>Xochimilco lake system, Mexico City</td></tr>\n<tr><td>Conservation status</td><td>Critically endangered</td></tr>\n<tr><td>Adult size</td><td>9-12 inches (23-30 cm)</td></tr>\n<tr><td>Captive lifespan</td><td>10-15 years</td></tr>\n<tr><td>Diet</td><td>Carnivore</td></tr>\n</tbody></table></div><h2 id=\"s1\">Why are axolotls famous?</h2><p><strong>Axolotls are famous for regeneration: they regrow limbs, tail, gills, jaw, spinal cord, heart tissue, and parts of the brain, without scarring, for their whole lives.</strong> That ability makes them the vertebrate champions of regeneration and one of the most studied animals in biology.</p><p>Regeneration works through blastema cells, which revert the wound tissue to a less-specialized state and rebuild the missing structure. Because they do not scar, researchers study them for human tissue-repair applications.</p><h2 id=\"s2\">What is neoteny?</h2><p><strong>Neoteny is the retention of juvenile features into adulthood, and axolotls are its classic example because they keep their feathery external gills, finned tail, and aquatic lifestyle for life.</strong> Most amphibians metamorphose into land forms, but the axolotl stays in its larval form unless artificially induced to change.</p><p>That is why pet axolotls always look young. They never leave the water, and a fully grown 12-inch axolotl still breathes through gills like a larva.</p><h2 id=\"s3\">When were axolotls discovered?</h2>\n<p><strong>There is no single human \"discovery\" date for the axolotl.</strong> Nahua peoples in the Valley of Mexico knew and named the animal long before European zoological taxonomy. If the question means \"when was the axolotl formally described by science?\", the key date is <strong>1798</strong>, when George Shaw and Frederick Polydore Nodder described it as <em>Gyrinus mexicanus</em>, the name on which today's <em>Ambystoma mexicanum</em> is based.</p>\n<div class=\"table-wrap\"><table>\n<thead><tr><th>Period</th><th>What happened</th><th>Why it matters</th></tr></thead>\n<tbody>\n<tr><td>Pre-Hispanic and colonial Mexico</td><td>The axolotl was already known in Nahua culture; colonial-era natural-history accounts included descriptions of the animal.</td><td>Its human history begins well before European scientific naming.</td></tr>\n<tr><td>1798</td><td>George Shaw and Frederick Polydore Nodder formally described <em>Gyrinus mexicanus</em>.</td><td>This is the clearest date for the species' formal scientific description.</td></tr>\n<tr><td>Early 1800s</td><td>Alexander von Humboldt sent preserved Mexican axolotl specimens to Georges Cuvier in Paris.</td><td>European anatomists began debating whether the gilled animal was a larva or an adult form.</td></tr>\n<tr><td>1863–1864</td><td>Living axolotls were shipped from Mexico to Paris; historical sources date the shipment to 1863 and their arrival and early study to 1864.</td><td>Those animals helped establish the long-running laboratory lineage and research on neoteny.</td></tr>\n</tbody></table></div>\n<h3 id=\"s4\">Who discovered axolotls?</h3>\n<p><strong>No single scientist can accurately be called the discoverer of axolotls.</strong> The animal was already known in Mexico. Shaw and Nodder are credited with the 1798 formal scientific description; Humboldt later brought preserved specimens to the attention of Cuvier and European naturalists.</p>\n<h3 id=\"s5\">Where did axolotls come from?</h3>\n<p><strong>Axolotls are native to the lake system of the Valley of Mexico, especially Xochimilco and historically Lake Chalco.</strong> Their surviving wild range is now restricted to Xochimilco. See the <a href=\"/biology-and-science/wild-habitat-xochimilco/\">Xochimilco habitat guide</a> for the modern range and habitat conditions.</p>\n<p><strong>Sources:</strong> <a href=\"https://amphibiansoftheworld.amnh.org/Amphibia/Caudata/Ambystomatidae/Ambystoma/Ambystoma-mexicanum\">American Museum of Natural History: Amphibian Species of the World</a>; <a href=\"https://ru.historicas.unam.mx/handle/20.500.12525/9239\">UNAM Instituto de Investigaciones Históricas: El axólotl</a>; <a href=\"https://pubmed.ncbi.nlm.nih.gov/25920413/\">Reiß, Olsson &amp; Hoßfeld: 150 years of axolotl research</a>; <a href=\"https://ambystoma.uky.edu/genetic-stock-center/about.php\">University of Kentucky Ambystoma Genetic Stock Center</a>.</p>\n",
+    '<h2>When were axolotls discovered?</h2><p><strong>Axolotls were known in Mexico long before European taxonomy; 1798 is the key date for their formal scientific description by Shaw and Nodder.</strong> For the full timeline from Nahua knowledge through Humboldt, Cuvier, Paris and the rise of laboratory axolotls, see <a href="/biology-and-science/axolotl-history-discovery/">axolotl history and scientific discovery</a>.</p>'
+))
+BODY_TEXT_REPLACEMENTS.setdefault("biology-and-science/wild-habitat-xochimilco", []).append((
+    "<h2 id=\"s0\">Where do wild axolotls live?</h2>\n<p><strong>Wild axolotls live in exactly one place on Earth: the canals of Xochimilco, south of Mexico City.</strong> The species once ranged across the lakes of the Valley of Mexico, including Lake Chalco and Lake Texcoco, but drainage and urban growth erased those lakes. Lake Chalco was drained in the 1970s, which left Xochimilco's wetland as the last wild refuge.</p><div class=\"role-note\"><strong>This page owns the habitat question.</strong> It explains where wild axolotls live and the conditions of Xochimilco. For population status, threats, and conservation work, use <a href=\"/biology-and-science/conservation-status/\">the conservation-status guide</a>; for translating those conditions into a home tank, use <a href=\"/tank-setup/setup-guide/\">the tank-setup guide</a>.</div>\n<h2 id=\"s1\">What does Xochimilco look like?</h2>\n<p>Xochimilco is a working cultural landscape of shallow canals and chinampas, not a pristine wilderness.</p>\n<ul><li>Roughly 100 miles (160 km) of canals crisscross the wetland.</li><li>Chinampas are artificial farming islands built from mud and vegetation by the Aztecs.</li><li>The canals run about 5 feet (1.5 m) deep with muddy bottoms.</li><li>The water stays cool at altitude and rarely rises above 68 F (20 C).</li><li>Dense aquatic vegetation and root tangles give axolotls cover.</li></ul>\n<p>Mexico City sits at about 7,300 feet (2,200 m) elevation, which keeps the wetland water cool and stable.</p>\n<h2 id=\"s2\">Are axolotls freshwater or saltwater animals?</h2>\n<p><strong>Axolotls are freshwater amphibians, not saltwater or brackish-water animals.</strong> Their native range is the freshwater lake-and-canal system of Xochimilco in the Valley of Mexico. Animal Diversity Web classifies <em>Ambystoma mexicanum</em> as a freshwater species associated with lakes and ponds.</p>\n<p>Freshwater does not mean mineral-free water. The University of Kentucky Ambystoma Genetic Stock Center advises against extremely soft or distilled water and notes that axolotls do well in hard water when chlorine, chloramine, and other harmful treatment chemicals are addressed. Calcium, magnesium, and other dissolved minerals can make freshwater hard without making it marine or brackish.</p>\n<p>For a home aquarium, use properly conditioned freshwater and manage hardness and pH as water-quality parameters rather than adding salt to imitate a marine habitat. See the <a href=\"/tank-setup/water-parameters-cycling/\">water parameters and cycling guide</a> for the practical setup.</p>\n<p><strong>Sources:</strong> <a href=\"https://animaldiversity.org/accounts/Ambystoma_mexicanum/\">Animal Diversity Web: <em>Ambystoma mexicanum</em></a>; <a href=\"https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry\">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a>.</p>\n<h2 id=\"s3\">Why does this habitat suit axolotls?</h2>\n<p>Xochimilco's four conditions match the axolotl's biology exactly: cool water, shallow slow flow, soft cover, and a steady food supply.</p>\n<ul><li>Cool, stable water that rarely exceeds 68 F (20 C) and drops to 43-45 F (6-7 C) in winter.</li><li>Shallow, slow-moving water suited to a bottom-dwelling animal that is a poor open-water swimmer.</li><li>Mud, vegetation, and root tangles for hiding and egg-laying.</li><li>A reliable supply of insects, worms, crustaceans, and small fish.</li></ul>\n<p>Captivity recreates these basics, cool water, gentle filtration, hides, and soft substrate, which is why the wild habitat is the care template.</p>\n<h2 id=\"s4\">What adaptations help axolotls survive in Xochimilco?</h2>\n<p><strong>Axolotls are adapted to a permanently aquatic life: they mature without losing larval features such as external gills and a finned tail, and they combine aquatic sensing and suction feeding with that body plan.</strong> In evolutionary biology this retention of juvenile traits into reproductive adulthood is called paedomorphosis or neoteny.</p>\n<div class=\"table-wrap\"><table>\n<thead><tr><th>Adaptation or retained trait</th><th>How it supports aquatic life</th></tr></thead>\n<tbody>\n<tr><td>Paedomorphosis / neoteny</td><td>Adults remain aquatic instead of completing the usual salamander transition to a terrestrial form.</td></tr>\n<tr><td>External gills</td><td>Large feathery respiratory surfaces support gas exchange while the animal remains submerged.</td></tr>\n<tr><td>Finned tail</td><td>The retained larval-style tail fin supports swimming through shallow canal and lake habitat.</td></tr>\n<tr><td>Lateral-line system</td><td>Mechanoreceptive neuromasts detect water movement around the body; see the <a href=\"/biology-and-science/anatomy-gills-and-lungs/\">anatomy guide</a> for the sensory structures.</td></tr>\n<tr><td>Suction feeding</td><td>Axolotls rapidly expand the mouth and throat region to draw aquatic prey and water inward; research finds this feeding mode from larvae through adults.</td></tr>\n</tbody></table></div>\n<p>These are better-supported aquatic adaptations than generic lists that label every unusual axolotl feature as a habitat adaptation. Regeneration, for example, is a remarkable biological ability, but the sources reviewed here do not establish it as a specific adaptation to Xochimilco's modern canal conditions.</p>\n<p><strong>Sources:</strong> <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC28454/\">Voss &amp; Shaffer (1997): paedomorphosis as an adaptation for an aquatic life cycle</a>; <a href=\"https://animaldiversity.org/accounts/Ambystoma_mexicanum/\">Animal Diversity Web: development and aquatic traits</a>; <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC10999947/\">Lyons &amp; Arbuckle (2024): evolution of neoteny in <em>Ambystoma</em></a>; <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC12309904/\">Toussaint-Larde et al. (2025): suction-feeding kinematics through axolotl development</a>.</p>\n",
+    '<h2>What adaptations help axolotls survive in Xochimilco?</h2><p><strong>Axolotls retain a permanently aquatic body plan with external gills and a finned tail, and they use lateral-line sensing and suction feeding underwater.</strong> See <a href="/biology-and-science/axolotl-adaptations/">axolotl adaptations</a> for the full functional explanation; this page stays focused on Xochimilco habitat and range.</p>'
+))
 
 # Minecraft Culture sub-pillar: keyword-reconciled, research-verified override.
 # This intentionally overrides the external DOCX article at render time so the
