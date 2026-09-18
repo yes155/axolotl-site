@@ -6849,6 +6849,94 @@ for _cfg in ARTICLES.values():
     if _cfg.get("slug") in {"axolotls/care-guide", "tank-setup/setup-guide"}:
         _cfg["date_modified"] = "2026-09-19"
 
+
+BODY_OVERRIDES["tank-setup/water-parameters-cycling"] = r'''
+<p><strong>Axolotl water quality should be managed from measured trends, not a memorized “perfect numbers” table.</strong> In a normal home aquarium, the priorities are a functioning biological filter, no accumulating ammonia or nitrite, controlled nitrate, stable pH, appropriate temperature, and source water that is free of chlorine/chloramine or treated correctly.</p>
+<div class="role-note"><strong>This page owns interpretation and cycling.</strong> For how to take the readings, use <a href="/tank-setup/how-to-test-water/">How to Test Axolotl Water</a>. For the physical maintenance procedure, use <a href="/tank-setup/water-change-guide/">How to Change Axolotl Tank Water</a>.</div>
+
+<h2>Which water parameters should you track?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Parameter</th><th>Why it matters</th><th>How to use it</th></tr></thead>
+<tbody>
+<tr><td>Ammonia</td><td>Primary nitrogenous waste; toxicity rises as pH and temperature change.</td><td>Should not be allowed to accumulate in a functioning occupied aquarium.</td></tr>
+<tr><td>Nitrite</td><td>Intermediate product of nitrification and an indicator of an incomplete/overloaded biofilter.</td><td>Should not accumulate in a mature occupied system.</td></tr>
+<tr><td>Nitrate</td><td>End product that usually builds between water changes.</td><td>Use the trend to set maintenance; current Petco guidance keeps it below 20 ppm.</td></tr>
+<tr><td>pH</td><td>Affects animal physiology and ammonia toxicity; sudden swings also affect the biofilter.</td><td>Prioritize stability and understand your source water rather than chasing one exact decimal.</td></tr>
+<tr><td>Temperature</td><td>Affects metabolism, oxygen demand and water chemistry.</td><td>Interpret on the <a href="/tank-setup/temperature/">Temperature Guide</a>.</td></tr>
+<tr><td>GH / KH / alkalinity</td><td>Describe mineral content and buffering capacity.</td><td>Useful when pH is unstable, source water is very soft/hard, or you are troubleshooting chemistry.</td></tr>
+</tbody></table></div>
+
+<h2>What does the AGSC 2024 guide actually say?</h2>
+<p>The Ambystoma Genetic Stock Center uses a standardized research water formulation made from reverse-osmosis water and salts, buffered to roughly pH 7.1–7.6. The same guide explicitly notes that other laboratories have raised axolotls successfully in conditioned well and municipal water and says municipal chemistry can vary dramatically.</p>
+<p><strong>That means the AGSC recipe is a research standard, not a command that every pet keeper must recreate.</strong> Its most transferable lesson is to know your source water, remove municipal disinfectants appropriately, monitor pH/ammonia/chlorine or chloramine, and respond to measured changes rather than assumptions.</p>
+
+<h2>What should ammonia and nitrite read in an occupied axolotl tank?</h2>
+<p><strong>They should not be allowed to accumulate.</strong> Merck's aquatic-animal guidance states that water should be free of ammonia and nitrite, and current Petco axolotl guidance says axolotls are very sensitive to both. A measurable reading therefore triggers investigation of the biofilter, waste load, source water, feeding and recent maintenance.</p>
+<p>Do not turn a single test-strip color into a diagnosis of “ammonia burn.” Confirm the result, review pH/temperature, and look at the whole animal.</p>
+
+<h2>What nitrate level should you aim for?</h2>
+<p>Nitrate is normally managed through water changes, plant uptake and stocking/feeding control rather than expected to remain at zero. Current Petco axolotl guidance recommends keeping nitrate below 20 ppm. MyAxolotl uses that as a practical consumer ceiling while also watching the individual tank's trend.</p>
+<p><strong>Do not claim that a particular nitrate number automatically causes fungus, gill shrinkage or appetite loss in every axolotl.</strong> A rising nitrate trend is a maintenance signal, but clinical signs still need their own assessment.</p>
+
+<h2>What pH is appropriate?</h2>
+<p>The AGSC's standardized rearing water is buffered around 7.1–7.6, but the same guide states that municipal-water chemistry varies and that other water sources can support axolotls. For a home tank, stability and a biologically functioning system are more useful than repeatedly dosing chemicals to force one exact value.</p>
+<p>If your pH is persistently extreme, rapidly changing, or paired with ammonia problems, investigate source water, alkalinity/KH, substrate/rock chemistry and filtration. Avoid emergency baking-soda recipes without understanding the chemistry you are changing.</p>
+
+<h2>Do GH and KH have universal axolotl target ranges?</h2>
+<p><strong>Not from the sources used by MyAxolotl.</strong> Hardness and alkalinity matter because they influence mineral availability and pH buffering, but we did not find an axolotl-specific veterinary source validating one universal “GH 7–14 / KH 3–8” home target.</p>
+<p>Measure them when your source water is unusually soft/hard, pH is unstable, or you are designing a reproducible water recipe. If you are deliberately remineralizing RO/distilled water, follow a defined formulation rather than improvising salt/bicarbonate doses.</p>
+
+<h2>What is the nitrogen cycle?</h2>
+<p>Biological filtration uses microbial communities to oxidize ammonia through nitrite toward nitrate. A new aquarium does not have enough established biofilm simply because the filter has been switched on for a certain number of days.</p>
+<p>For an axolotl setup, establish the filter before the animal enters. A fishless cycling method uses a controlled ammonia source and repeated testing so you can see the system develop ammonia-processing and nitrite-processing capacity.</p>
+
+<h2>How do you know when a tank is cycled?</h2>
+<p><strong>Use the pattern of repeated test results rather than a fixed “4–8 week” promise.</strong> A mature biofilter should process the waste load without persistent ammonia or nitrite accumulation, while nitrate or other downstream nitrogen products reflect ongoing processing.</p>
+<p>Because hobby cycling methods differ, this page does not prescribe one universal ammonia dose or one 24-hour pass/fail number. Record your method and readings in the <a href="/tools/nitrogen-cycle-tracker/">Nitrogen Cycle Tracker</a>.</p>
+
+<h2>What should you do if ammonia or nitrite appears?</h2>
+<ol>
+<li><strong>Confirm the reading.</strong> Repeat the test correctly and check whether the reagent is in date.</li>
+<li><strong>Measure pH and temperature.</strong> They affect ammonia toxicity and help interpret the situation.</li>
+<li><strong>Remove obvious waste.</strong> Uneaten food, dead organisms or trapped debris may be contributing.</li>
+<li><strong>Protect the animal.</strong> Use an appropriate partial water change and treated replacement water; if the main aquarium cannot be made safe promptly, a temporary holding setup may be needed.</li>
+<li><strong>Investigate the biofilter.</strong> Recent filter-media replacement, chlorine exposure, power loss, medication or overloading can disrupt nitrification.</li>
+<li><strong>Retest and record.</strong> One corrective change is not proof that the system is stable again.</li>
+</ol>
+<p><strong>Do not fridge an axolotl to manage an ammonia spike.</strong> Refrigeration is not a substitute for safe water and biological-filter repair. Use <a href="/health/fridging-sick-axolotl/">the fridging evidence page</a> if a veterinarian has raised that option for a separate clinical reason.</p>
+
+<h2>Should you use an ammonia-binding conditioner?</h2>
+<p>Conditioner products differ. Follow the product label and understand what the test kit measures after treatment. A conditioner can be part of an emergency response, but it does not repair an uncycled or damaged biofilter and does not remove the need for water changes and retesting.</p>
+<p>Use <a href="/tank-setup/water-conditioners/">Water Conditioners</a> for chlorine/chloramine and product-selection questions.</p>
+
+<h2>How often should you test?</h2>
+<p>Test frequently while cycling, after a filter disruption, after unexplained health changes, and after any major change in stocking or maintenance. Merck's 2026 pet-amphibian guidance recommends weekly testing of temperature, pH, hardness, ammonia, nitrite and nitrate in aquatic setups.</p>
+<p>A mature stable tank may not need daily full chemistry panels, but trends are useful: keep a log rather than relying on memory.</p>
+
+<h2>How do water changes fit the nitrogen cycle?</h2>
+<p>Water changes remove dissolved waste and replenish water; they do not replace biological filtration. Routine partial changes and an established biofilter work together.</p>
+<p>The 2024 AGSC guide notes that filtered aquaria still need regular partial changes and monitoring. Follow <a href="/tank-setup/water-change-guide/">the Water Change Guide</a> for the procedure.</p>
+
+<h2>Common interpretation mistakes</h2>
+<ul>
+<li>treating one off-color test as a confirmed emergency without repeating it;</li>
+<li>assuming zero nitrate means the tank must be cycled;</li>
+<li>using elapsed time instead of water-test trends to declare cycling complete;</li>
+<li>forcing pH with bicarbonate without measuring alkalinity/KH and source water;</li>
+<li>copying laboratory ARW chemistry as a universal pet-water requirement;</li>
+<li>assuming a conditioner permanently solves ammonia without restoring the biofilter; and</li>
+<li>diagnosing a health condition from chemistry alone instead of evaluating the animal too.</li>
+</ul>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/laboratory-animals/management-of-laboratory-animals">Merck Veterinary Manual: Management of Laboratory Animals — aquatic water quality</a></li>
+<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/housing-for-amphibians">Merck Veterinary Manual: Housing for Amphibians, updated February 2026</a></li>
+<li><a href="https://www.petco.com/pet-education/caresheets/axolotl">Petco: current Axolotl Care Guide</a></li>
+</ul>
+'''
+
 # Build trigger: retry Cost & Buying after clearing the stale queued job.
 
 # Keyword-reconciliation fix: strengthen the existing anatomy owner for teeth/oral anatomy.
