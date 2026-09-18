@@ -4870,6 +4870,324 @@ LINKING.update({
 })
 
 
+
+# ---------------------------------------------------------------------------
+# Keyword-reconciliation new pages — batch 3 (2026-09-18)
+# ---------------------------------------------------------------------------
+
+CONFIG_ARTICLES.update({
+    "axolotl-in-culture/do-people-eat-axolotls": {
+        "slug": "axolotl-in-culture/do-people-eat-axolotls",
+        "hub": "axolotl-in-culture",
+        "title": "Do People Eat Axolotls? History, Culture & Conservation",
+        "title_tag": "Do People Eat Axolotls? History, Culture & Conservation",
+        "meta": "Were axolotls eaten in Mexico? Learn the historical and cultural record, why the species appeared in food and traditional medicine, and why wild axolotls should not be harvested today.",
+        "intro": "Yes, axolotls have a documented history as food in central Mexico, including pre-Hispanic and later Xochimilco traditions. That historical fact should not be confused with advice to eat wild axolotls today: Ambystoma mexicanum is critically endangered in the wild, and modern conservation measures protect the remaining Xochimilco population.",
+        "num": 219,
+        "date_published": "2026-09-18",
+        "date_modified": "2026-09-18",
+        "headings": [
+            "Did people historically eat axolotls?",
+            "How were axolotls used in pre-Hispanic Mexico?",
+            "Were axolotls still eaten after the colonial period?",
+            "Do people eat axolotls today?",
+            "Why shouldn't wild axolotls be harvested?",
+            "What does the historical food record tell us?",
+            "Axolotls in traditional medicine",
+            "Food history vs pet axolotls",
+            "Sources",
+        ],
+        "body": r'''
+<p><strong>Axolotls have a real food history in Mexico, especially in the lake-and-canal cultures of the Valley of Mexico.</strong> Historical sources and modern Mexican government/university summaries document axolotls as part of local diets before and after the Spanish conquest. That does not mean the remaining wild <em>Ambystoma mexicanum</em> population should be treated as food today.</p>
+
+<h2>Did people historically eat axolotls?</h2>
+<p><strong>Yes.</strong> Mexico's environmental ministry notes that the Mexican axolotl was valued as food from before the colonial period onward. UNAM historical research likewise identifies the axolotl as both a food resource and a culturally significant animal in Nahua history.</p>
+<p>The historical record makes sense in context: the lakes and wetlands around the Valley of Mexico supported fish, frogs, crustaceans, insects, waterfowl and axolotls that formed part of a much broader lacustrine food system.</p>
+
+<h2>How were axolotls used in pre-Hispanic Mexico?</h2>
+<p>Nahuatl-language and colonial-era sources record axolotls among aquatic animals exchanged, presented and eaten. The UNAM Gran Diccionario Náhuatl preserves historical passages listing axolotls alongside fish, frogs, shrimp and other products of the lake environment.</p>
+<p>Modern historical summaries from Xochimilco also describe axolotls among the animal foods used in pre-Hispanic regional cooking. The important point is cultural context: this was part of a living wetland economy, not a novelty food trend detached from the ecosystem.</p>
+
+<h2>Were axolotls still eaten after the colonial period?</h2>
+<p>Yes. Mexican environmental and historical sources describe continued use in soups, stews, tamal-like preparations and traditional remedies over later periods. The record is historical and ethnographic; this page does not reproduce recipes or provide instructions for harvesting or preparing wild animals.</p>
+
+<h2>Do people eat axolotls today?</h2>
+<p><strong>Historical consumption continues to appear in cultural accounts, but the wild Xochimilco axolotl is now a conservation priority rather than an ordinary food resource.</strong> The Xochimilco borough's current cultural material notes that traditional dishes involving protected species such as the axolotl have been adapted or disappeared as protection measures increased.</p>
+<p>Mexico's national aquaculture information also notes that captive culture exists, but production costs make food-industry use difficult and the species is maintained primarily as an ornamental/captive animal rather than a mainstream food product.</p>
+
+<h2>Why shouldn't wild axolotls be harvested?</h2>
+<p>Wild <em>Ambystoma mexicanum</em> survives only in a highly restricted Xochimilco habitat and is critically endangered. Habitat degradation, introduced fish, water-quality pressures and fragmentation already threaten the remaining population.</p>
+<p><strong>Do not collect, buy or eat a wild-caught Xochimilco axolotl.</strong> Conservation depends on protecting habitat and the wild population, not recreating historical harvest practices.</p>
+<p>See <a href="/biology-and-science/conservation-status/">axolotl conservation status</a> and <a href="/biology-and-science/wild-habitat-xochimilco/">wild habitat in Xochimilco</a>.</p>
+
+<h2>What does the historical food record tell us?</h2>
+<p>The record shows that axolotls were embedded in human culture long before they became laboratory animals, internet icons or pets. Food use, traditional medicine, mythology and local ecology all form part of the species' history.</p>
+<p>That matters for interpretation: “Were axolotls eaten?” is a cultural-history question, not a care or husbandry question and not evidence that modern pet axolotls should be treated as food.</p>
+
+<h2>Axolotls in traditional medicine</h2>
+<p>Mexican government sources also document historical use of axolotl preparations in traditional remedies, especially for respiratory complaints. Historical medical use does not establish modern clinical effectiveness, and this page does not recommend axolotl-derived remedies.</p>
+
+<h2>Food history vs pet axolotls</h2>
+<p>Captive pet axolotls belong to a modern husbandry context. If your interest is buying or caring for a pet, use the <a href="/cost-and-buying/where-to-buy-axolotls/">where-to-buy guide</a> and <a href="/axolotls/care-guide/">complete care guide</a>. If your interest is why the animal matters in Mexico, continue to the site's history, culture and conservation coverage.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.gob.mx/semarnat/articulos/ajolote-mexicano-criatura-super-dotada?idiom=es">SEMARNAT: Ajolote mexicano, criatura súper dotada</a></li>
+<li><a href="https://ru.historicas.unam.mx/handle/20.500.12525/9239">UNAM Instituto de Investigaciones Históricas: El axólotl</a></li>
+<li><a href="https://gdn.iib.unam.mx/diccionario/axolotl/174630">UNAM Gran Diccionario Náhuatl: axolotl</a></li>
+<li><a href="https://www.xochimilco.cdmx.gob.mx/que-comer/">Alcaldía Xochimilco: historical regional food traditions</a></li>
+<li><a href="https://sidof.segob.gob.mx/notas/docFuente/5668529">Carta Nacional Acuícola: Ajolote</a></li>
+</ul>
+''',
+        "featured": False,
+    },
+
+    "axolotl-in-culture/minecraft-axolotl-enclosure-builds": {
+        "slug": "axolotl-in-culture/minecraft-axolotl-enclosure-builds",
+        "hub": "axolotl-in-culture",
+        "title": "Minecraft Axolotl Enclosure Builds: Tanks, Caves & Breeding Pools",
+        "title_tag": "Minecraft Axolotl Enclosure Builds: Tanks, Caves & Breeding Pools",
+        "meta": "Build a Minecraft axolotl enclosure that works with current game mechanics: water-first aquarium builds, lush-cave habitats, breeding pools, blue-axolotl setups, escape prevention and decoration ideas.",
+        "intro": "A good Minecraft axolotl enclosure is mostly a water-design problem: keep the mob in or near water, make collection and breeding easy, and decorate around those mechanics. This page focuses on builds; spawning, food, breeding odds and commands stay in the main Minecraft axolotl guide.",
+        "num": 220,
+        "date_published": "2026-09-18",
+        "date_modified": "2026-09-18",
+        "headings": [
+            "What does a Minecraft axolotl enclosure need?",
+            "Build 1: simple glass aquarium",
+            "Build 2: lush-cave axolotl habitat",
+            "Build 3: breeding pool for a blue axolotl",
+            "Build 4: underground viewing tunnel",
+            "Build 5: natural pond enclosure",
+            "How do you stop axolotls drying out?",
+            "Will enclosure axolotls despawn?",
+            "What blocks and decorations work well?",
+            "How large should the enclosure be?",
+            "Common Minecraft axolotl enclosure mistakes",
+            "Sources and version notes",
+        ],
+        "body": r'''
+<p><strong>Minecraft axolotl enclosures should prioritize continuous water access.</strong> Current Bedrock behavior data gives axolotls a five-minute drying timer when they are out of water, so a decorative land-heavy enclosure is less reliable than a water-first aquarium, pond or cave pool.</p>
+
+<h2>What does a Minecraft axolotl enclosure need?</h2>
+<ul>
+<li><strong>Enough water for normal swimming.</strong></li>
+<li><strong>Walls or landscaping that prevent long land wandering.</strong></li>
+<li><strong>Easy bucket access</strong> if you collect colors or move animals.</li>
+<li><strong>A breeding area</strong> if you are trying for the rare blue variant.</li>
+<li><strong>Lighting and blocks that fit the theme</strong> without blocking your own access.</li>
+</ul>
+<p>You do not need to “tame” the axolotl first. Minecraft axolotls are not tameable in the wolf/cat sense; you keep them by bucket transport, enclosure design and breeding.</p>
+
+<h2>Build 1: simple glass aquarium</h2>
+<p>This is the easiest display build.</p>
+<ol>
+<li>Build a rectangular glass tank with a solid floor.</li>
+<li>Fill the usable interior with water rather than leaving large dry ledges.</li>
+<li>Add clay, moss, rooted dirt, stone or other natural-looking blocks for visual texture.</li>
+<li>Use trapdoors, stairs or slabs outside the waterline as decoration without creating an easy path out.</li>
+<li>Add the axolotl with a water bucket.</li>
+</ol>
+<p>A long, low aquarium is easier to view than a tall narrow column. The exact dimensions are aesthetic rather than a hidden game requirement.</p>
+
+<h2>Build 2: lush-cave axolotl habitat</h2>
+<p>For a natural look, recreate the lush-cave theme with clay, moss, dripleaf, azalea, glow berries and irregular stone. Keep the water pool broad and make the land margin steep enough that axolotls quickly return to water if they climb out.</p>
+<p>This build matches the mob's current natural-spawn theme without needing to reproduce every spawn condition inside a player-made enclosure.</p>
+
+<h2>Build 3: breeding pool for a blue axolotl</h2>
+<p>A breeding pool should be functional before it is decorative:</p>
+<ul>
+<li>keep two adults in an easy-to-access water area;</li>
+<li>store Buckets of Tropical Fish nearby;</li>
+<li>leave enough room to see and bucket the baby;</li>
+<li>separate or label colors if you are tracking breeding pairs.</li>
+</ul>
+<p>Current Bedrock behavior data uses a tropical-fish bucket as the breeding item and shows a blue mutation factor of about 1 in 1,200 for a new baby. Once a blue parent exists, inheritance also matters, so a dedicated pool helps you manage repeated breeding efficiently.</p>
+<p>For breeding rules and blue-variant odds, use the <a href="/axolotl-in-culture/minecraft-axolotls-guide/">main Minecraft axolotl guide</a>.</p>
+
+<h2>Build 4: underground viewing tunnel</h2>
+<p>Build the enclosure around a glass tunnel instead of placing the player walkway above the water. Axolotls can swim on both sides while you move through a dry central corridor. This works well for large collections because the animals remain in water while the player gets a close view.</p>
+
+<h2>Build 5: natural pond enclosure</h2>
+<p>A landscaped pond works well in gardens, caves or village builds. Use a deep central water area, short shoreline and perimeter blocks that discourage long wandering. Reeds, mossy stone and clay fit the theme, but avoid designing a broad dry beach that invites the axolotl to stay out of water.</p>
+
+<h2>How do you stop axolotls drying out?</h2>
+<p><strong>Keep water close and make escape paths short.</strong> Microsoft's current Bedrock behavior data sets a drying-out timer of 300 seconds when an axolotl is on land. Rain or returning to water interrupts the drying state.</p>
+<p>The safest design is therefore not an “amphibian terrarium” with a large land section; it is a water enclosure with decorative edges.</p>
+
+<h2>Will enclosure axolotls despawn?</h2>
+<p>Bucket an axolotl before moving it into a permanent collection. The main Minecraft guide covers current persistence behavior in more detail, but bucket collection is the practical way to transport and keep specific colors you care about.</p>
+
+<h2>What blocks and decorations work well?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Theme</th><th>Useful blocks</th></tr></thead>
+<tbody>
+<tr><td>Lush cave</td><td>Moss, clay, stone, dripleaf, azalea, glow berries</td></tr>
+<tr><td>Modern aquarium</td><td>Glass, quartz, sea lanterns, smooth stone</td></tr>
+<tr><td>Natural pond</td><td>Mud, mossy stone, clay, rooted dirt, leaves</td></tr>
+<tr><td>Fantasy display</td><td>Prismarine, tinted glass, froglights, amethyst accents</td></tr>
+</tbody></table></div>
+<p>Decoration does not change breeding odds. Keep the functional water area easy to reach before adding visual complexity.</p>
+
+<h2>How large should the enclosure be?</h2>
+<p>Minecraft does not give axolotls a real-world welfare gallon requirement. Build size is therefore about pathing, visibility, number of mobs and your design goal. A compact breeding pool can be small; a display habitat can be as large as you want.</p>
+
+<h2>Common Minecraft axolotl enclosure mistakes</h2>
+<ul>
+<li>large dry shorelines that let mobs stay out of water;</li>
+<li>decor so dense that you cannot bucket or see babies;</li>
+<li>assuming a special block increases the blue-axolotl mutation chance;</li>
+<li>trying to tame the axolotl instead of using buckets and breeding;</li>
+<li>mixing real axolotl husbandry rules with Minecraft mechanics.</li>
+</ul>
+
+<h2>Sources and version notes</h2>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/minecraft/creator/reference/source/vanillabehaviorpack_snippets/entities/axolotl?view=minecraft-bedrock-stable">Microsoft Learn: current vanilla axolotl behavior data</a></li>
+<li><a href="https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/entitygoals/minecraftbehavior_move_to_water?view=minecraft-bedrock-stable">Microsoft Learn: move-to-water behavior</a></li>
+<li><a href="/axolotl-in-culture/minecraft-axolotls-guide/">MyAxolotl: current Minecraft axolotl mechanics and version notes</a></li>
+</ul>
+''',
+        "featured": False,
+    },
+
+    "axolotl-in-culture/axolotl-names": {
+        "slug": "axolotl-in-culture/axolotl-names",
+        "hub": "axolotl-in-culture",
+        "title": "Axolotl Names: Cute, Funny, Color & Unique Name Ideas",
+        "title_tag": "Axolotl Names: Cute, Funny, Color & Unique Name Ideas",
+        "meta": "Find axolotl name ideas by personality, color and theme: cute names, funny names, food names, science names, Minecraft-inspired names and morph-friendly choices, plus a quick naming method.",
+        "intro": "A useful axolotl name is short enough to remember, distinct from your other pets, and connected to something you actually notice about the animal—its morph, personality, favorite hide, feeding behavior or the story of how you got it.",
+        "num": 221,
+        "date_published": "2026-09-18",
+        "date_modified": "2026-09-18",
+        "headings": [
+            "How do you choose a good axolotl name?",
+            "Cute axolotl names",
+            "Funny axolotl names",
+            "Food-inspired axolotl names",
+            "Pink and leucistic axolotl names",
+            "Dark and melanoid axolotl names",
+            "Golden and albino axolotl names",
+            "Copper axolotl names",
+            "Science-inspired axolotl names",
+            "Water and nature names",
+            "Minecraft-inspired axolotl names",
+            "Gender-neutral axolotl names",
+            "Unique axolotl names",
+            "A quick 3-step naming method",
+        ],
+        "body": r'''
+<p><strong>There is no “correct” axolotl name.</strong> The best names usually come from one memorable trait: color, behavior, food, water, science, a game, or a joke that still makes sense after the novelty wears off.</p>
+
+<h2>How do you choose a good axolotl name?</h2>
+<p>Use three filters:</p>
+<ol>
+<li><strong>Easy to say:</strong> one to three syllables is convenient.</li>
+<li><strong>Easy to distinguish:</strong> avoid a name that sounds almost identical to another pet in the house.</li>
+<li><strong>Connected to the animal:</strong> choose a trait, story or theme you will still recognize later.</li>
+</ol>
+<p>Axolotl sex is often unknown when the animal is young, so gender-neutral names are especially useful.</p>
+
+<h2>Cute axolotl names</h2>
+<p>Bean, Bubbles, Mochi, Pebble, Poppy, Pip, Noodle, Waffle, Sprout, Pudding, Button, Miso, Tofu, Pogo, Gilly, Doodle, Jellybean, Twinkle, Niblet, Pickle.</p>
+
+<h2>Funny axolotl names</h2>
+<p>Sir Gills, Gillbert, Gillian, Professor Wiggle, Water Sausage, Captain Frill, Axolittle, Lotl, Sir Swims-a-Lotl, Snack Inspector, Bubble Boss, Mud Manager, Worm Auditor, Frill Clinton, Tank Sinatra, Gill Nye, Swim Shady, The Axeman, Bucket, Soggy.</p>
+
+<h2>Food-inspired axolotl names</h2>
+<p>Mochi, Dumpling, Nori, Miso, Tofu, Udon, Ramen, Sesame, Pumpkin, Peach, Jelly, Pudding, Cocoa, Truffle, Cinnamon, Nugget, Waffle, Biscuit, Mango, Boba.</p>
+
+<h2>Pink and leucistic axolotl names</h2>
+<p>Blush, Pearl, Rose, Peony, Sakura, Marshmallow, Cloud, Quartz, Petal, Cotton, Opal, Frosting, Lychee, Milkshake, Pinky, Blossom, Moon, Snowdrop, Vanilla, Halo.</p>
+<p>If you are not sure whether a pale animal is leucistic or albino, use the <a href="/morphs/morphs-comparison-chart/">morph comparison</a> rather than naming the genetics from color alone.</p>
+
+<h2>Dark and melanoid axolotl names</h2>
+<p>Onyx, Ink, Shadow, Coal, Pepper, Slate, Eclipse, Obsidian, Raven, Midnight, Smoky, Licorice, Storm, Ash, Soot, Graphite, Nova, Phantom, Noir, Cinder.</p>
+
+<h2>Golden and albino axolotl names</h2>
+<p>Sunny, Goldie, Honey, Saffron, Butter, Lemon, Sol, Amber, Marigold, Custard, Dune, Topaz, Glow, Biscotti, Cornbread, Maple, Dawn, Buttercup, Halo, Gleam.</p>
+
+<h2>Copper axolotl names</h2>
+<p>Penny, Copper, Rusty, Auburn, Maple, Ember, Terra, Cinnamon, Chestnut, Caramel, Bronze, Autumn, Paprika, Brick, Sienna, Toffee, Rooibos, Ginger, Hazel, Sepia.</p>
+
+<h2>Science-inspired axolotl names</h2>
+<p>Darwin, Curie, Tesla, Newton, Ada, Rosalind, Mendel, Neuron, Axon, Glia, Nova, Quark, Pixel, Helix, Vector, Soma, Thyroid, Blastema, Regen, Atlas.</p>
+<p><strong>Blastema</strong> is especially on-theme: it is the mass of proliferating cells involved in limb regeneration. For the biology, see <a href="/biology-and-science/regeneration-and-limb-regrowth/">axolotl regeneration</a>.</p>
+
+<h2>Water and nature names</h2>
+<p>River, Ripple, Brook, Rain, Mist, Delta, Lagoon, Moss, Fern, Willow, Reed, Pebble, Cove, Tide, Dew, Lotus, Lily, Marina, Azul, Aqua.</p>
+
+<h2>Minecraft-inspired axolotl names</h2>
+<p>Lucy, Cyan, Gold, Blue, Lush, Clay, Moss, Bucket, Dripleaf, Glowberry, Azalea, Caves, Pixel, Block, Spawn, Bedrock, Java, Steve, Alex, Mojang.</p>
+<p>For game mechanics rather than naming ideas, see the <a href="/axolotl-in-culture/minecraft-axolotls-guide/">Minecraft axolotl guide</a>.</p>
+
+<h2>Gender-neutral axolotl names</h2>
+<p>Bean, River, Nova, Pixel, Moss, Mochi, Sunny, Echo, Pebble, Sage, Pip, Clover, Orbit, Comet, Nori, Onyx, Indigo, Bubble, Puck, Scout.</p>
+
+<h2>Unique axolotl names</h2>
+<p>Quasar, Vesper, Lumen, Kelp, Orbit, Sumi, Nimbus, Tundra, Rune, Calyx, Zephyr, Mica, Rook, Fable, Brume, Solace, Kumo, Oriel, Nix, Vanta.</p>
+
+<h2>A quick 3-step naming method</h2>
+<ol>
+<li>Choose one category: <strong>color, behavior, food, science, nature, game or joke</strong>.</li>
+<li>Write five names from that category and say each one aloud twice.</li>
+<li>Pick the one that still feels natural after a day rather than the most complicated option.</li>
+</ol>
+<p>If you have several axolotls, use a shared theme—planets, foods, scientists, weather, plants or game blocks—while keeping each individual name clearly different.</p>
+''',
+        "featured": False,
+    },
+})
+
+HERO_IMAGE_OVERRIDES.update({
+    "axolotl-in-culture/do-people-eat-axolotls": {
+        "file": "axolotl-wild-habitat-xochimilco.webp",
+        "alt": "Wild-type axolotl in Xochimilco used to illustrate the species' food history and modern conservation context",
+        "caption": "Axolotls were historically part of the Valley of Mexico's lacustrine food culture, but the remaining wild Xochimilco population is now a conservation priority.",
+        "description": "Xochimilco axolotl graphic connecting historical human use with modern wild-population conservation.",
+        "credit": "MyAxolotl original graphic",
+        "width": 1600, "height": 900,
+    },
+    "axolotl-in-culture/minecraft-axolotl-enclosure-builds": {
+        "file": "minecraft-axolotls-guide.webp",
+        "alt": "Minecraft axolotl habitat with water enclosure, lush-cave blocks and multiple axolotl colors",
+        "caption": "Minecraft axolotl builds work best as water-first aquariums, cave pools or breeding enclosures with easy bucket access.",
+        "description": "Minecraft axolotl build graphic illustrating enclosure and breeding-pool concepts.",
+        "credit": "MyAxolotl original graphic",
+        "width": 1600, "height": 900,
+    },
+    "axolotl-in-culture/axolotl-names": {
+        "file": "axolotl-pop-culture-and-memes.webp",
+        "alt": "Axolotl surrounded by playful theme icons used for naming inspiration",
+        "caption": "Choose an axolotl name from something memorable about the animal: color, behavior, food, nature, science, games or a joke.",
+        "description": "Playful axolotl culture graphic used for a categorized axolotl name-ideas guide.",
+        "credit": "MyAxolotl original graphic",
+        "width": 1600, "height": 900,
+    },
+})
+
+LINKING.update({
+    "axolotl-in-culture/do-people-eat-axolotls": [
+        "biology-and-science/wild-habitat-xochimilco",
+        "biology-and-science/conservation-status",
+        "care-basics/axolotl-facts",
+        "axolotl-in-culture/axolotl-in-pop-culture-and-memes",
+    ],
+    "axolotl-in-culture/minecraft-axolotl-enclosure-builds": [
+        "axolotl-in-culture/minecraft-axolotls-guide",
+        "morphs/blue-and-pink-axolotl-myth",
+        "morphs/morphs-comparison-chart",
+    ],
+    "axolotl-in-culture/axolotl-names": [
+        "morphs/morphs-comparison-chart",
+        "biology-and-science/regeneration-and-limb-regrowth",
+        "axolotl-in-culture/minecraft-axolotls-guide",
+        "axolotl-in-culture/axolotl-in-pop-culture-and-memes",
+    ],
+})
+
+
 # Persisted article dates: the 106 DOCX-backed pages first appeared in the
 # launch commit, and the two config-authored pages first appeared later in the
 # same public repo history.
