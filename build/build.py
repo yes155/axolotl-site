@@ -35,6 +35,7 @@ SRC = config.SOURCE_DIR
 PUBLIC = ROOT / "public"
 IMG_DIR = PUBLIC / "images"
 TOOLS_DIR = PUBLIC / "tools"
+REPO_TOOL_SOURCE_DIR = BUILD_DIR / "tool-sources"
 TODAY = date.today().isoformat()
 YEAR = date.today().year
 
@@ -136,7 +137,9 @@ TOOL_DESCS = {
     "feeding-schedule-generator": "Generate a daily feeding schedule tailored to your axolotl's age and size.",
     "nitrogen-cycle-tracker": "Track ammonia, nitrite, and nitrate as your new tank cycles before adding your axolotl.",
     "symptom-checker": "Review observed axolotl symptoms, possible explanations, safe first checks, and signs that need veterinary care.",
-    "tank-size-calculator": "Find the minimum tank size for your axolotl based on its length and number of axolotls.",
+    "tank-size-calculator": "Plan an axolotl tank by life stage and animal count, with a source-backed adult minimum, preferred home-aquarium size, and clear cohabitation limits.",
+    "chiller-size-calculator": "Estimate an aquarium chiller class from tank volume, temperature pull-down, and heat load.",
+    "aquarium-volume-calculator": "Calculate aquarium US gallons, liters, Imperial gallons, usable water volume, and water weight from tank dimensions.",
 }
 
 # Popular searches shown on the empty search page (label -> query).
@@ -629,9 +632,9 @@ def build_articles():
             history_heading = "<h2>When were axolotls discovered?</h2>"
             habitat_marker = "<h2>Where do axolotls live?</h2>"
             a["meta"] = (
-                "Amazing axolotl facts: regeneration, neoteny, discovery history, "
-                "Xochimilco, and critically endangered status. Here are 25 "
-                "surprising facts for 2026."
+                "What is an axolotl? Learn 25 core facts about this Mexican aquatic "
+                "salamander, including classification, neoteny, regeneration, habitat, "
+                "diet, lifespan, morphs, and conservation."
             )
             a["date_modified"] = "2026-09-17"
             a["lastmod"] = a["date_modified"]
@@ -683,9 +686,9 @@ def build_articles():
             adaptations_heading = "<h2>What adaptations help axolotls survive in Xochimilco?</h2>"
             threats_marker = "<h2>What threatens the wild axolotl?</h2>"
             a["meta"] = (
-                "Axolotl habitat and adaptations explained: Xochimilco freshwater "
-                "canals, neoteny, external gills, tail fin, lateral-line sensing, "
-                "suction feeding, and modern habitat threats."
+                "Where wild axolotls live: Xochimilco's freshwater canals, historic "
+                "Valley of Mexico range, habitat conditions, introduced-fish pressure, "
+                "and the conservation work protecting the remaining wetland."
             )
             a["intro"] = (
                 "Wild axolotls survive only in Xochimilco's freshwater canal system "
@@ -762,9 +765,9 @@ def build_articles():
             safety_heading = "<h2>Are axolotls poisonous or venomous?</h2>"
             bite_marker = "<h2>Do axolotls bite children?</h2>"
             a["meta"] = (
-                "Are axolotls safe around children? Learn whether axolotls are "
-                "poisonous or venomous, the real Salmonella hygiene risk, bite "
-                "safety, handling rules, and parent responsibilities."
+                "Are axolotls good pets for kids? Learn age and maturity considerations, "
+                "adult responsibility, observation-first handling, feeding supervision, "
+                "tank-care duties, and long-term family commitment."
             )
             a["date_modified"] = "2026-09-17"
             a["lastmod"] = a["date_modified"]
@@ -2452,10 +2455,18 @@ def strip_html_to_text(body_html):
     return txt.strip()
 
 
+def _tool_source_path(fname):
+    """Prefer versioned repo-local tool sources, then fall back to the external source folder."""
+    repo_src = REPO_TOOL_SOURCE_DIR / fname
+    if repo_src.exists():
+        return repo_src
+    return Path(SRC) / fname
+
+
 def _tool_subtitle(fname):
     """Extract the one-line subtitle from a self-contained tool page source."""
     try:
-        src = os.path.join(SRC, fname)
+        src = _tool_source_path(fname)
         with open(src, encoding="utf-8", errors="ignore") as fh:
             h = fh.read()
         m = re.search(r'class="subtitle"[^>]*>(.*?)</p>', h, re.S)
@@ -2590,7 +2601,7 @@ def copy_tools():
     """Copy the self-contained tool HTML files verbatim."""
     written = []
     for fname, t in config.TOOLS.items():
-        src = os.path.join(SRC, fname)
+        src = _tool_source_path(fname)
         if not os.path.exists(src):
             print("  !! missing tool:", fname)
             continue

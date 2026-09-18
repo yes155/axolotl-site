@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aquarium Volume Calculator: Gallons & Liters from Dimensions | MyAxolotl</title>
+<meta name="description" content="Calculate aquarium volume from length, width and actual water depth. Get US gallons, liters, Imperial gallons, estimated usable water volume and water weight, plus common aquarium dimensions.">
+<link rel="canonical" href="https://myaxolotl.us/tools/aquarium-volume-calculator/">
+<meta property="og:title" content="Aquarium Volume Calculator">
+<meta property="og:description" content="Convert aquarium dimensions into gallons and liters, then estimate real water volume after substrate and décor displacement.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myaxolotl.us/tools/aquarium-volume-calculator/">
+<meta property="og:site_name" content="MyAxolotl">
+<meta property="og:image" content="https://myaxolotl.us/images/axolotl-home.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aquarium Volume Calculator">
+<meta name="twitter:description" content="Calculate aquarium gallons and liters from tank dimensions and actual fill depth.">
+<meta name="twitter:image" content="https://myaxolotl.us/images/axolotl-home.webp">
+<meta name="twitter:site" content="@myaxolotls">
+<meta name="twitter:creator" content="@myaxolotls">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebApplication",
+      "name":"Aquarium Volume Calculator",
+      "url":"https://myaxolotl.us/tools/aquarium-volume-calculator/",
+      "applicationCategory":"UtilitiesApplication",
+      "operatingSystem":"Any",
+      "description":"Aquarium volume calculator for rectangular tanks using length, width and actual water depth, with gallons/liters conversion and displacement adjustment."
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://myaxolotl.us/"},
+        {"@type":"ListItem","position":2,"name":"Tools","item":"https://myaxolotl.us/tools/"},
+        {"@type":"ListItem","position":3,"name":"Aquarium Volume Calculator","item":"https://myaxolotl.us/tools/aquarium-volume-calculator/"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --ink:#1f2d3d;--teal:#2c6e7f;--teal-dark:#1d4e5a;--teal-light:#e7f1f3;
+  --border:#d7e0e3;--muted:#5b6b73;--bg:#fafcfc;--card:#fff;--warn-bg:#fbf2e1;--warn:#7a5514;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:32px 20px 64px}
+h1{font-size:1.7rem;line-height:1.2;margin:0 0 8px}
+h2{font-size:1.15rem;margin:30px 0 10px}
+.subtitle{color:var(--muted);font-size:.96rem;margin:0 0 26px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:18px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.field{display:flex;flex-direction:column;gap:7px}
+label{font-size:.84rem;font-weight:650;color:var(--muted)}
+input,select{width:100%;border:1px solid var(--border);border-radius:9px;background:#fff;color:var(--ink);font:inherit;padding:11px 12px}
+.row{display:flex;gap:8px;align-items:center}
+.unit{max-width:105px}
+.range-row{display:grid;grid-template-columns:1fr 82px;gap:12px;align-items:center}
+input[type=range]{padding:0}
+.calc-btn{width:100%;border:0;border-radius:10px;background:var(--teal-dark);color:#fff;font:inherit;font-weight:700;padding:12px 16px;margin-top:18px;cursor:pointer}
+.calc-btn:hover{filter:brightness(.96)}
+.result-main{font-size:2.1rem;font-weight:760;color:var(--teal-dark);line-height:1.1;margin:5px 0}
+.result-sub{color:var(--muted);font-size:.9rem}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+.metric{border-top:1px solid var(--border);padding-top:12px}
+.metric strong{display:block;font-size:1rem}
+.metric span{display:block;font-size:.75rem;color:var(--muted);margin-top:2px}
+.note{margin-top:14px;padding:12px 14px;border-radius:9px;background:var(--teal-light);font-size:.86rem}
+.warn{background:var(--warn-bg);color:var(--warn)}
+.ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.cta{display:inline-block;text-decoration:none;color:var(--teal-dark);border:1px solid var(--teal);border-radius:8px;padding:9px 13px;font-size:.84rem;font-weight:650}
+.cta:hover{background:var(--teal-light)}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.84rem}
+th,td{text-align:left;padding:10px;border-bottom:1px solid var(--border);white-space:nowrap}
+th{color:var(--muted);font-size:.76rem}
+.small{font-size:.8rem;color:var(--muted)}
+.sources a,footer a{color:var(--teal-dark)}
+footer{margin-top:38px;padding-top:18px;border-top:1px solid var(--border);font-size:.78rem;color:var(--muted)}
+@media(max-width:700px){
+  .grid{grid-template-columns:1fr}
+  .metrics{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>Aquarium Volume Calculator</h1>
+  <p class="subtitle">Enter the tank's <strong>inside length, inside width, and actual water depth</strong> for the best estimate. The calculator converts the rectangular water column into US gallons, liters, Imperial gallons and water weight, then applies an optional displacement allowance for substrate and décor.</p>
+
+  <section class="card" aria-labelledby="calc-heading">
+    <h2 id="calc-heading" style="margin-top:0">Enter aquarium dimensions</h2>
+    <div class="grid">
+      <div class="field">
+        <label for="length">Inside length</label>
+        <input id="length" type="number" min="0.1" step="0.1" value="36" inputmode="decimal">
+      </div>
+      <div class="field">
+        <label for="width">Inside width</label>
+        <input id="width" type="number" min="0.1" step="0.1" value="18" inputmode="decimal">
+      </div>
+      <div class="field">
+        <label for="height">Actual water depth</label>
+        <input id="height" type="number" min="0.1" step="0.1" value="16" inputmode="decimal">
+      </div>
+    </div>
+
+    <div class="field" style="margin-top:14px;max-width:220px">
+      <label for="unit">Dimension unit</label>
+      <select id="unit">
+        <option value="in">inches</option>
+        <option value="cm">centimeters</option>
+      </select>
+    </div>
+
+    <div class="field" style="margin-top:18px">
+      <label for="displacement">Estimated displacement from substrate, rocks, hides and equipment</label>
+      <div class="range-row">
+        <input id="displacement" type="range" min="0" max="30" step="1" value="10">
+        <input id="displacement-number" type="number" min="0" max="30" step="1" value="10" aria-label="Displacement percent">
+      </div>
+      <div class="small">Use 0% for an empty rectangular water column. Around 5–15% can be a reasonable planning allowance for ordinary décor, but measuring actual filled water is more accurate.</div>
+    </div>
+
+    <button id="calculate" class="calc-btn" type="button">Calculate aquarium volume</button>
+  </section>
+
+  <div id="result" aria-live="polite"></div>
+
+  <section class="card">
+    <h2 style="margin-top:0">Formula</h2>
+    <p class="small"><strong>Inches:</strong> length × width × water depth ÷ 231 = US gallons. <strong>Centimeters:</strong> length × width × water depth ÷ 1,000 = liters. The “estimated usable water” result then subtracts your selected displacement percentage.</p>
+    <p class="small">For a real aquarium, inside dimensions and actual fill depth are better inputs than the box's outside dimensions or the manufacturer's nominal gallon name. Glass thickness, frame height, air gap, substrate and décor all reduce actual water volume.</p>
+  </section>
+
+  <section class="card">
+    <h2 style="margin-top:0">Common rectangular aquarium dimensions</h2>
+    <p class="small">The dimensions below are <strong>Aqueon item dimensions</strong> from its 2025 catalog and are useful for footprint planning. They are not a substitute for measuring your aquarium's inside water column. Other manufacturers can differ.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Nominal size</th><th>Manufacturer item dimensions (L × W × H)</th></tr></thead>
+        <tbody>
+          <tr><td>10 gallon</td><td>20¼ × 10½ × 12 9/16 in</td></tr>
+          <tr><td>20 High</td><td>24¼ × 12½ × 16¾ in</td></tr>
+          <tr><td>20 Long</td><td>30¼ × 12½ × 12¾ in</td></tr>
+          <tr><td>29 gallon</td><td>30¼ × 12½ × 18¾ in</td></tr>
+          <tr><td>40 Breeder</td><td>36¼ × 18¼ × 17 in (approx.)</td></tr>
+          <tr><td>55 gallon</td><td>48¼ × 12¾ × 21 in</td></tr>
+          <tr><td>75 gallon</td><td>48½ × 18½ × 21⅛ in</td></tr>
+          <tr><td>90 gallon</td><td>48½ × 18½ × 25⅛ in</td></tr>
+          <tr><td>125 gallon</td><td>72½ × 18½ × 23⅛ in</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card sources">
+    <h2 style="margin-top:0">Dimension reference</h2>
+    <p class="small">Manufacturer dimensions: <a href="https://www.aqueon.com/-/media/project/oneweb/aqueon/files/us/product-catalog/2025-aqueon-catalog.pdf">Aqueon 2025 product catalog</a> and <a href="https://www.aqueon.com/products/aquariums/standard-glass-rectangle-aquariums">Aqueon Standard Glass Rectangle Aquariums</a>.</p>
+  </section>
+
+  <footer>
+    This calculator estimates rectangular water volume; bowfront, corner, cylinder and irregular aquariums need shape-specific formulas.
+    For axolotl suitability, use the <a href="/tank-setup/tank-size-by-age/">tank-size guide</a> or <a href="/tools/tank-size-calculator/">Axolotl Tank Size Calculator</a>.
+  </footer>
+</main>
+
+<script>
+(function(){
+  const range = document.getElementById("displacement");
+  const number = document.getElementById("displacement-number");
+  range.addEventListener("input", function(){ number.value = range.value; });
+  number.addEventListener("input", function(){
+    let v = Math.max(0, Math.min(30, Number(number.value) || 0));
+    range.value = v;
+  });
+
+  function fmt(n, digits){
+    return Number(n).toLocaleString(undefined,{maximumFractionDigits:digits,minimumFractionDigits:0});
+  }
+
+  function calculate(){
+    const l = Number(document.getElementById("length").value);
+    const w = Number(document.getElementById("width").value);
+    const h = Number(document.getElementById("height").value);
+    const unit = document.getElementById("unit").value;
+    const d = Math.max(0, Math.min(30, Number(number.value) || 0));
+    const result = document.getElementById("result");
+
+    if (![l,w,h].every(Number.isFinite) || l <= 0 || w <= 0 || h <= 0) {
+      result.innerHTML = '<section class="card"><div class="note warn">Enter positive length, width and water-depth values.</div></section>';
+      return;
+    }
+
+    let litersGross;
+    if (unit === "in") {
+      const gallonsGross = l * w * h / 231;
+      litersGross = gallonsGross * 3.785411784;
+    } else {
+      litersGross = l * w * h / 1000;
+    }
+
+    const gallonsGross = litersGross / 3.785411784;
+    const imperialGross = litersGross / 4.54609;
+    const factor = 1 - d / 100;
+    const litersUsable = litersGross * factor;
+    const gallonsUsable = gallonsGross * factor;
+    const imperialUsable = imperialGross * factor;
+    const waterKg = litersUsable;
+    const waterLb = gallonsUsable * 8.345404;
+
+    result.innerHTML =
+      '<section class="card">' +
+        '<div class="small" style="text-transform:uppercase;letter-spacing:.05em">Estimated usable water volume</div>' +
+        '<div class="result-main">' + fmt(gallonsUsable,1) + ' US gal</div>' +
+        '<div class="result-sub">' + fmt(litersUsable,1) + ' liters after ' + fmt(d,0) + '% displacement</div>' +
+        '<div class="metrics">' +
+          '<div class="metric"><strong>' + fmt(gallonsGross,1) + ' gal</strong><span>gross geometric US volume</span></div>' +
+          '<div class="metric"><strong>' + fmt(litersGross,1) + ' L</strong><span>gross geometric liters</span></div>' +
+          '<div class="metric"><strong>' + fmt(imperialUsable,1) + ' Imp gal</strong><span>estimated usable Imperial gallons</span></div>' +
+          '<div class="metric"><strong>' + fmt(waterLb,0) + ' lb / ' + fmt(waterKg,0) + ' kg</strong><span>water weight only</span></div>' +
+        '</div>' +
+        '<div class="note">For dosing conditioner or sizing cooling equipment, use the <strong>estimated usable water volume</strong> if your displacement estimate is realistic. For structural loading, add the tank, stand, substrate, rocks and equipment to the water weight.</div>' +
+        '<div class="ctas">' +
+          '<a class="cta" href="/tools/water-conditioner-dosage-calculator/">Conditioner dose →</a>' +
+          '<a class="cta" href="/tools/chiller-size-calculator/">Chiller size →</a>' +
+          '<a class="cta" href="/tank-setup/tank-size-by-age/">Axolotl tank size →</a>' +
+        '</div>' +
+      '</section>';
+  }
+
+  document.getElementById("calculate").addEventListener("click", calculate);
+  ["length","width","height","unit","displacement-number"].forEach(function(id){
+    document.getElementById(id).addEventListener("change", calculate);
+  });
+  range.addEventListener("change", calculate);
+  calculate();
+})();
+</script>
+</body>
+</html>
