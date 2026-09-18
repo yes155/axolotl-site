@@ -6937,6 +6937,259 @@ BODY_OVERRIDES["tank-setup/water-parameters-cycling"] = r'''
 </ul>
 '''
 
+
+# ---------------------------------------------------------------------------
+# Remaining legacy protocol cleanup (2026-09-19)
+# ---------------------------------------------------------------------------
+
+BODY_OVERRIDES["health/quarantine-tub"] = r'''
+<p><strong>A quarantine or hospital container is a temporary controlled environment, not a treatment by itself.</strong> Its purpose is to separate an animal when isolation is needed, simplify observation, and make water quality easy to measure and manage while the underlying health problem is assessed.</p>
+
+<h2>When is temporary isolation useful?</h2>
+<p>Isolation can be appropriate for a new arrival, an injured animal that must be protected from tank mates, an animal being evaluated for infectious disease, or a patient whose veterinarian wants close observation in a simplified setup.</p>
+<p>It is not automatically necessary for every missed meal, floating episode, fungal-looking patch or minor scrape.</p>
+
+<h2>What should a hospital setup include?</h2>
+<ul>
+<li>a clean, inert container large enough for the animal to rest and turn normally;</li>
+<li>treated water appropriate for the species;</li>
+<li>stable temperature;</li>
+<li>a secure cover when escape is possible;</li>
+<li>a smooth hide when it does not interfere with observation; and</li>
+<li>dedicated equipment that is not shared with other tanks.</li>
+</ul>
+
+<h2>Does an unfiltered tub need complete daily water changes?</h2>
+<p><strong>Not as a universal rule.</strong> An unfiltered container has no established biofilter, so ammonia can accumulate quickly and water replacement may need to be frequent or complete. The correct schedule depends on container volume, animal size, feeding, waste and measured water quality.</p>
+<p>Test the water and change enough to keep conditions safe. If the animal needs prolonged isolation, a properly cycled quarantine aquarium can be easier to stabilize than an indefinitely unfiltered tub.</p>
+
+<h2>Should you add salt, tea or medication to the tub?</h2>
+<p>No product should be added simply because the animal is in quarantine. A hospital container is not a default medication bath. Use medication, saline or another treatment only for a defined indication and preferably under veterinary guidance.</p>
+<p>For white/cottony lesions, use <a href="/health/fungal-infections-saprolegnia/">the fungus guide</a>. For black tea and salt specifically, use the dedicated evidence pages.</p>
+
+<h2>How should you monitor the animal?</h2>
+<p>Record temperature, water chemistry, appetite, fecal production, posture, breathing, swimming, visible lesions and body condition. Photographs taken from the same angle can help show whether a wound or swelling is changing.</p>
+<p>Merck's amphibian clinical guidance emphasizes exactly this kind of history and water-quality record when evaluating an amphibian patient.</p>
+
+<h2>How do you prevent cross-contamination?</h2>
+<ul>
+<li>use separate nets, tubs, siphons and feeding tools;</li>
+<li>wash hands and change gloves between enclosures;</li>
+<li>do not pour quarantine water into an established aquarium; and</li>
+<li>clean/disinfect equipment appropriately before reuse.</li>
+</ul>
+
+<h2>When should quarantine end?</h2>
+<p>Do not use a fixed number of days as the only release criterion. The animal should be clinically appropriate to return, the reason for isolation should be resolved or controlled, and the destination aquarium should be safe. For an infectious-disease concern, follow the veterinarian's quarantine period.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/clinical-techniques-in-amphibians">Merck Veterinary Manual: Clinical Techniques in Amphibians, updated February 2026</a></li>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/environment-and-husbandry-for-amphibians">Merck Veterinary Manual: Environment and Husbandry for Amphibians</a></li>
+</ul>
+'''
+
+BODY_OVERRIDES["health/ammonia-burns"] = r'''
+<p><strong>Ammonia exposure is a water-quality emergency, but “ammonia burn” cannot be staged reliably from redness alone.</strong> Amphibians exposed to inappropriate ammonia may produce excess mucus, become dull in color, show abnormal behavior or attempt to escape; other skin and gill diseases can look similar.</p>
+
+<h2>What should you do first?</h2>
+<ol>
+<li><strong>Test and confirm the water.</strong> Repeat the ammonia result correctly and record pH and temperature.</li>
+<li><strong>Remove the animal from contaminated water when necessary.</strong> Merck's amphibian guidance recommends moving exposed amphibians to clean, dechlorinated, well-oxygenated water.</li>
+<li><strong>Correct the source.</strong> Remove waste, check the biofilter and perform an appropriate water change.</li>
+<li><strong>Retest.</strong> One water change is not proof the system is stable again.</li>
+</ol>
+
+<h2>Can you tell severity from an ammonia number alone?</h2>
+<p>No. Ammonia toxicity depends on total ammonia, pH, temperature, exposure duration and species sensitivity. A chart that assigns “mild/moderate/severe” skin damage to fixed ppm bands gives false certainty.</p>
+<p>The 2024 AGSC guide also notes that ammonia becomes a more serious problem as pH rises and treats elevated ammonia in recirculating research systems as a sign the nitrogen cycle is out of equilibrium.</p>
+
+<h2>Should you use a conditioner?</h2>
+<p>A conditioner may be part of an emergency water-management plan depending on the product, but it does not restore a damaged biofilter. Follow the label and keep testing. Use <a href="/tank-setup/water-conditioners/">Water Conditioners</a> for product-specific questions.</p>
+
+<h2>Should you use tea, salt or methylene blue?</h2>
+<p><strong>Do not add a bath or medication solely because the animal was exposed to ammonia.</strong> Treat the contaminated water first. Secondary infection, gill damage or another diagnosis may require veterinary treatment, but that decision belongs to the specific condition.</p>
+
+<h2>When is veterinary care warranted?</h2>
+<p>Seek prompt amphibian/exotics veterinary care for severe respiratory difficulty, extensive skin damage, uncontrolled bleeding, inability to maintain normal position, marked lethargy, rapid deterioration or signs that persist despite correction of the water problem.</p>
+
+<h2>How do you prevent recurrence?</h2>
+<p>Maintain an established biological filter, remove decomposing waste, test water regularly, avoid replacing mature filter media unnecessarily and investigate any recurring ammonia rise rather than repeatedly treating the symptom.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/amphibians-as-laboratory-animals">Merck Veterinary Manual: Amphibians as Laboratory Animals — ammonia toxicosis</a></li>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
+</ul>
+'''
+
+BODY_OVERRIDES["health/minor-scrapes-and-wounds"] = r'''
+<p><strong>A small superficial scrape may heal with stable clean water and protection from further trauma, but an amphibian wound should not automatically be treated with salt, tea or over-the-counter medication.</strong> Amphibian skin is biologically important and injuries can become infected or be deeper than they first appear.</p>
+
+<h2>What should you do after noticing a scrape?</h2>
+<ol>
+<li>Identify and remove the source of injury if it is safe to do so.</li>
+<li>Measure water quality and temperature.</li>
+<li>Photograph the area in neutral light.</li>
+<li>Reduce unnecessary handling.</li>
+<li>Monitor appetite, swimming, swelling, bleeding and whether the lesion is enlarging.</li>
+</ol>
+
+<h2>When is a wound more than “minor”?</h2>
+<p>Seek veterinary care for ongoing bleeding, deep laceration, exposed tissue, fracture, limb loss, substantial swelling, ulceration, spreading discoloration, respiratory difficulty or rapid decline. Merck's amphibian guidance emphasizes rapid assessment, supportive care and pain management for traumatic injuries.</p>
+
+<h2>Should you use a tea or salt bath?</h2>
+<p>No bath should be the default response to a scrape. White/cotton-like material can have several causes and needs its own assessment. Use <a href="/health/fungal-infections-saprolegnia/">the fungus guide</a> for that differential rather than treating fuzz from appearance alone.</p>
+
+<h2>Should you use an antiseptic or antibiotic?</h2>
+<p>Do not apply human topical products or start antimicrobial medication without veterinary guidance. Amphibian skin is highly permeable, and drug concentration and route matter.</p>
+
+<h2>How do you prevent repeat injuries?</h2>
+<p>Inspect décor, intake guards, tank mates, handling practices and transport containers. Smooth sharp edges, remove trapping hazards and separate incompatible animals when necessary.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/noninfectious-disorders-of-amphibians">Merck Veterinary Manual: Trauma of Amphibians</a></li>
+<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/introduction-to-amphibians">Merck Veterinary Manual: Injuries in Pet Amphibians</a></li>
+</ul>
+'''
+
+BODY_OVERRIDES["health/limb-regeneration"] = r'''
+<p><strong>Axolotls can regenerate lost limb tissue, but an owner should first manage the injury rather than assume regeneration guarantees a good outcome.</strong> The immediate priorities are protection from further trauma, stable husbandry, observation for infection or systemic decline, and veterinary assessment when the injury is significant.</p>
+<div class="role-note"><strong>This is the owner lane.</strong> For the cellular science of regeneration, use <a href="/biology-and-science/regeneration-and-limb-regrowth/">Axolotl Regeneration</a>.</div>
+
+<h2>What should you do after a limb injury?</h2>
+<ol>
+<li>Separate the animal from an aggressive tank mate or the injury source if needed.</li>
+<li>Measure water quality and temperature.</li>
+<li>Document the wound with dated photographs.</li>
+<li>Minimize handling.</li>
+<li>Contact an amphibian-experienced veterinarian for major tissue loss, fracture, uncontrolled bleeding or deterioration.</li>
+</ol>
+
+<h2>Does every lost limb grow back normally?</h2>
+<p>No guarantee should be made. Axolotls have remarkable regenerative capacity, but outcome depends on injury level, tissue condition, health, age and whether complications occur. Regrowth can also differ in shape or function.</p>
+
+<h2>How long does regeneration take?</h2>
+<p>There is no single owner-facing timetable that applies to every injury. Research describes staged regeneration, but the time visible in a pet can vary with injury severity, animal size, temperature and health. Track the trend rather than expecting a fixed number of days or weeks.</p>
+
+<h2>What does a healing limb look like?</h2>
+<p>Early healing can include a wound surface and developing regenerative tissue. A photograph cannot reliably distinguish every normal stage from infection, so use progression, appetite, swelling, odor, bleeding and the animal's overall condition to decide whether veterinary review is needed.</p>
+
+<h2>Should you use salt or black tea on the stump?</h2>
+<p><strong>No treatment bath is required simply because a limb is regenerating.</strong> If a separate fungal or bacterial problem is suspected, diagnose and treat that problem on its own evidence rather than automatically bathing the wound.</p>
+
+<h2>When should you see a veterinarian?</h2>
+<p>Prompt care is appropriate for deep injury, fracture, uncontrolled bleeding, tissue necrosis, severe swelling, rapidly spreading lesions, systemic decline, pain concern or an injury caused by equipment that may have crushed internal tissue.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/noninfectious-disorders-of-amphibians">Merck Veterinary Manual: Trauma of Amphibians</a></li>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/emergency-care-of-amphibians">Merck Veterinary Manual: Emergency Care of Amphibians</a></li>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/husbandry.php">Ambystoma Genetic Stock Center: regeneration resources</a></li>
+</ul>
+'''
+
+BODY_OVERRIDES["diet/feeding-schedule-by-age"] = r'''
+<p><strong>Feeding frequency should become less frequent as an axolotl grows, but there is no universal age-by-age schedule that fits every individual.</strong> Use life stage, body size, food size, body condition, appetite and waste production together.</p>
+<div class="role-note"><strong>This page owns routine feeding cadence.</strong> For planned food gaps use <a href="/diet/fasting-and-vacation/">Fasting & Vacation</a>; for unexpected appetite loss use <a href="/health/refusing-to-eat/">Refusing to Eat</a>.</div>
+
+<h2>What does the AGSC feeding timeline show?</h2>
+<p>The 2024 Ambystoma Genetic Stock Center guide feeds newly feeding larvae daily, then transitions growing animals through live foods and pellets, with adult pelleted food offered about twice weekly in its research system. An older AGSC husbandry guide describes adults around one year old being fed three or four times per week.</p>
+<p><strong>Those examples show the direction of change—not one mandatory home schedule.</strong></p>
+
+<h2>How often should hatchlings and larvae eat?</h2>
+<p>Newly feeding larvae are growing rapidly and are normally offered very small appropriate foods frequently. Follow the <a href="/breeding/egg-and-larvae-care/">Egg & Larvae Care</a> guide for the transition from yolk to active feeding.</p>
+
+<h2>How often should juveniles eat?</h2>
+<p>Juveniles usually need food more frequently than adults because they are growing. Instead of using an exact age cutoff, monitor body condition, growth, appetite and how quickly the animal processes meals.</p>
+<p>Use <a href="/breeding/raising-juveniles/">Baby Axolotl Care</a> for grow-out and size sorting.</p>
+
+<h2>How often should adults eat?</h2>
+<p>Adults are commonly fed only a few times per week rather than every day. AGSC examples range from roughly twice weekly in its 2024 timeline to three or four feedings weekly in an older husbandry guide.</p>
+<p>Your individual may need adjustment based on body condition, reproductive status, food energy density and temperature.</p>
+
+<h2>How much should you feed?</h2>
+<p>There is no validated “pellets per inch” formula for all foods and animals. Offer an appropriate portion, observe body condition over time and adjust gradually. Remove uneaten food before it decomposes and affects water quality.</p>
+
+<h2>What foods work for routine feeding?</h2>
+<p>Appropriately sized earthworms/nightcrawlers and nutritionally suitable sinking pellets are common staples. AGSC uses formulated soft-moist pellets and transitions pellet size as animals grow.</p>
+<p>Use <a href="/diet/best-foods-list/">What Do Axolotls Eat?</a> for food quality and variety.</p>
+
+<h2>How do you know if the schedule is too much or too little?</h2>
+<p>Watch body condition and growth rather than one meal. Persistent weight gain, leftover food, repeated regurgitation or excessive waste suggest the plan may need adjustment. Persistent weight loss, poor growth or appetite change needs review of diet, water quality and health.</p>
+
+<h2>Does feeding frequency determine the water-change schedule?</h2>
+<p>Feeding affects waste load, but there is no fixed rule such as “one adult eating two worms requires a 50% weekly change.” Test the aquarium and let water chemistry, waste accumulation and system capacity set the maintenance plan.</p>
+
+<h2>How long can an axolotl safely fast?</h2>
+<p>This page does not publish a universal “safe fasting period” table because the evidence does not establish one. Planned absences belong on <a href="/diet/fasting-and-vacation/">the fasting/vacation guide</a>.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024 — feeding timeline</a></li>
+<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/food-info.php">Ambystoma Genetic Stock Center: Food Information</a></li>
+</ul>
+'''
+
+BODY_OVERRIDES["tank-setup/substrate-and-impaction"] = r'''
+<p><strong>Choose axolotl substrate by swallowing risk, animal size, cleanliness and the way you feed.</strong> The clearest rule is to avoid loose gravel or stones small enough to enter the mouth during suction feeding.</p>
+<div class="role-note"><strong>This page owns substrate choice and prevention.</strong> If you suspect a gastrointestinal blockage, use <a href="/health/impaction-symptoms-treatment/">the Impaction Guide</a>.</div>
+
+<h2>Why is gravel risky?</h2>
+<p>Axolotls can ingest material while suction-feeding. The 2024 AGSC guide discourages substrate in filtered aquaria because axolotls may ingest small rocks and gravel during feeding, and AGSC food guidance specifically warns about gravel ingestion around pellets.</p>
+<p>That is enough to justify avoiding swallowable gravel without claiming every swallowed particle is inevitably fatal.</p>
+
+<h2>What substrate options are practical?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Option</th><th>Strengths</th><th>Tradeoffs</th></tr></thead>
+<tbody>
+<tr><td>Bare bottom</td><td>No loose substrate to swallow; easy waste removal</td><td>Less natural-looking; surface traction/visual preference vary by setup</td></tr>
+<tr><td>Appropriately fine sand</td><td>Natural appearance and broad continuous surface</td><td>Must be kept clean; particle size and animal size matter</td></tr>
+<tr><td>Large fixed/smooth surfaces</td><td>Can provide traction without loose ingestible particles</td><td>Waste can collect around/under pieces</td></tr>
+<tr><td>Loose gravel / small stones</td><td>Decorative</td><td>Swallowing/foreign-body risk during feeding</td></tr>
+</tbody></table></div>
+
+<h2>Is there one proven safe sand grain size?</h2>
+<p><strong>MyAxolotl does not treat one millimeter cutoff as a universal biological law.</strong> Finer material is generally chosen to reduce the risk posed by coarse ingestible particles, but animal size, feeding method and maintenance also matter.</p>
+<p>For very small juveniles, a bare-bottom grow-out setup can make feeding and waste removal easier.</p>
+
+<h2>Can large river rocks be safe?</h2>
+<p>Objects too large to swallow remove one foreign-body route, but they can trap waste underneath and create difficult cleaning zones. If used, they should be smooth, stable and arranged so the animal cannot become wedged.</p>
+
+<h2>Does substrate cause fungus or ammonia by itself?</h2>
+<p>No. Dirty substrate can trap organic waste and contribute to poor water quality, but it is not accurate to claim that a specific substrate automatically causes fungal infection or a fixed nitrate level. Husbandry, cleaning, stocking and filtration determine the system outcome.</p>
+
+<h2>Should a hospital or quarantine setup be bare?</h2>
+<p>A bare inert surface is often useful in temporary clinical housing because it simplifies cleaning and observation. That does not mean every hospital case requires medication or a fixed complete-water-change schedule.</p>
+<p>See <a href="/health/quarantine-tub/">Quarantine & Hospital Setup</a>.</p>
+
+<h2>How do you feed without increasing substrate ingestion?</h2>
+<p>Place food where it is easy for the animal to find and where suction is less likely to pull in loose material. Feeding dishes or target feeding can help in some setups. Remove leftovers before they decompose.</p>
+
+<h2>What if you think gravel was swallowed?</h2>
+<p>Do not massage the abdomen, give laxatives or fridge the animal as a standard response. Record the exposure, watch appetite/fecal output/body shape and seek veterinary evaluation if symptoms develop or persist. Imaging may be needed to confirm a foreign body.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/food-info.php">Ambystoma Genetic Stock Center: Food Information</a></li>
+<li><a href="https://veterinarypartner.vin.com/default.aspx?catId=253985&amp;id=8030801&amp;ind=1817&amp;objTypeID=1007&amp;pid=19239">Veterinary Partner / VIN: Gastrointestinal Foreign Body or Overload in Amphibians</a></li>
+</ul>
+'''
+
+for _cfg in ARTICLES.values():
+    if _cfg.get("slug") in {
+        "health/quarantine-tub",
+        "health/ammonia-burns",
+        "health/minor-scrapes-and-wounds",
+        "health/limb-regeneration",
+        "diet/feeding-schedule-by-age",
+        "tank-setup/substrate-and-impaction",
+    }:
+        _cfg["date_modified"] = "2026-09-19"
+
 # Build trigger: retry Cost & Buying after clearing the stale queued job.
 
 # Keyword-reconciliation fix: strengthen the existing anatomy owner for teeth/oral anatomy.
