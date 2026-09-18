@@ -2801,6 +2801,12 @@ TOOLS = {
         "title_override": "Axolotl Chiller Size Calculator: Estimate HP & Flow | MyAxolotl",
         "cat": "Tools",
     },
+    "aquarium-volume-calculator.html": {
+        "slug": "tools/aquarium-volume-calculator",
+        "title": "Aquarium Volume Calculator",
+        "title_override": "Aquarium Volume Calculator: Gallons & Liters from Dimensions | MyAxolotl",
+        "cat": "Tools",
+    },
 }
 
 # Internal linking map (source_slug -> [target_slug, ...]) applied to article
@@ -2809,7 +2815,8 @@ LINKING = {
     # Flagship guide anchors the ownership -> legal-status gateway (phase 8).
     "axolotls/care-guide": ["legal"],
     "tank-setup/setup-guide": ["tank-setup/substrate-and-impaction", "tank-setup/filtration-for-axolotls",
-                               "tank-setup/temperature", "tank-setup/water-parameters-cycling"],
+                               "tank-setup/temperature", "tank-setup/water-parameters-cycling",
+                               "tools/aquarium-volume-calculator"],
     "tank-setup/substrate-and-impaction": ["health/refusing-to-eat", "tank-setup/gravel-risks",
                                            "health/impaction-symptoms-treatment"],
     "tank-setup/gravel-risks": ["tank-setup/substrate-and-impaction", "tank-setup/live-vs-artificial-plants",
@@ -2822,12 +2829,14 @@ LINKING = {
     "tank-setup/temperature": ["tank-setup/aquarium-chillers", "tools/chiller-size-calculator", "health/refusing-to-eat"],
     "tank-setup/aquarium-chillers": ["tools/chiller-size-calculator", "tank-setup/temperature"],
     "tank-setup/water-conditioners": ["tank-setup/acclimating-a-new-axolotl",
-                                      "tank-setup/lighting-for-axolotls"],
+                                      "tank-setup/lighting-for-axolotls",
+                                      "tools/aquarium-volume-calculator"],
     "tank-setup/lighting-for-axolotls": ["tank-setup/hides-and-caves"],
     "tank-setup/hides-and-caves": ["tank-setup/live-vs-artificial-plants"],
     "tank-setup/live-vs-artificial-plants": ["tank-setup/hides-and-caves", "tank-setup/lighting-for-axolotls"],
     "tank-setup/tank-size-by-age": ["tank-setup/setup-guide", "tank-setup/gravel-risks",
-                                    "care-basics/axolotl-age-and-size-chart", "tank-setup/tank-mates"],
+                                    "care-basics/axolotl-age-and-size-chart", "tank-setup/tank-mates",
+                                    "tools/aquarium-volume-calculator"],
     "tank-setup/tank-mates": ["tank-setup/tank-size-by-age", "diet/feeder-fish-risks",
                               "care-basics/keeping-multiple-axolotls"],
     "tank-setup/acclimating-a-new-axolotl": ["tank-setup/setup-guide"],
