@@ -6591,6 +6591,264 @@ BODY_OVERRIDES["tank-setup/aquarium-chillers"] = r'''
 </ul>
 '''
 
+
+# ---------------------------------------------------------------------------
+# P0 hub rewrites — care guide + tank setup (2026-09-19)
+# ---------------------------------------------------------------------------
+# These pages are intentionally broad routers. Specialist pages own exact
+# procedures, thresholds, diagnosis, and buying decisions.
+
+INTRO_OVERRIDES["axolotls/care-guide"] = (
+    "Axolotl care is built around a cool, stable aquatic environment, an established "
+    "biological filter, safe housing, appropriate food, regular water testing, and "
+    "early recognition of health changes. This guide gives the whole system in one "
+    "place and routes each specialist task to its canonical page."
+)
+
+INTRO_OVERRIDES["tank-setup/setup-guide"] = (
+    "Set up the aquarium before the axolotl arrives: choose a long tank with enough "
+    "usable floor area, establish gentle biological filtration, make temperature "
+    "control reliable, choose safe substrate and hides, and confirm the nitrogen "
+    "cycle with measured water tests."
+)
+
+BODY_OVERRIDES["axolotls/care-guide"] = r'''
+<p><strong>Good axolotl care is mostly environmental management.</strong> Keep the animal in a cool, stable freshwater aquarium with established biological filtration, gentle circulation, safe surfaces, appropriate food and regular water testing. Avoid trying to diagnose or treat a health problem from one visible sign; measure the environment first and use the specialist health page for the specific symptom.</p>
+<div class="role-note"><strong>This is the overview page.</strong> It owns the broad “how do I care for an axolotl?” question. Tank size, temperature, water chemistry, feeding schedules, specific diseases, legality and buying decisions are owned by the specialist guides linked below.</div>
+
+<h2>Axolotl care at a glance</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Care area</th><th>Practical rule</th><th>Detailed guide</th></tr></thead>
+<tbody>
+<tr><td>Tank</td><td>Use a long aquarium with enough floor area and water volume. Petco currently recommends 20+ gallons for one adult; MyAxolotl prefers a 40-gallon breeder when starting a permanent adult setup if space and budget allow.</td><td><a href="/tank-setup/tank-size-by-age/">Tank Size</a></td></tr>
+<tr><td>Temperature</td><td>Keep water cool and stable; do not rely on how the water feels by hand.</td><td><a href="/tank-setup/temperature/">Temperature</a></td></tr>
+<tr><td>Filtration</td><td>Use established biological filtration with circulation gentle enough that the animal can rest normally.</td><td><a href="/tank-setup/filtration-for-axolotls/">Filtration</a></td></tr>
+<tr><td>Water testing</td><td>Measure ammonia, nitrite, nitrate, pH and temperature regularly instead of judging water by clarity.</td><td><a href="/tank-setup/how-to-test-water/">How to Test Water</a></td></tr>
+<tr><td>Water changes</td><td>Use regular partial water changes and adjust maintenance from measured water quality and waste load.</td><td><a href="/tank-setup/water-change-guide/">Water Change Guide</a></td></tr>
+<tr><td>Substrate</td><td>Avoid loose material that can be swallowed; choose substrate by animal size and setup.</td><td><a href="/tank-setup/substrate-and-impaction/">Substrate Guide</a></td></tr>
+<tr><td>Food</td><td>Feed appropriate animal-based foods in portions and frequency suited to life stage and body condition.</td><td><a href="/diet/best-foods-list/">Diet Guide</a></td></tr>
+<tr><td>Handling</td><td>Treat axolotls as observation-focused aquatic pets; handle only when necessary.</td><td><a href="/care-basics/handling/">Handling</a></td></tr>
+<tr><td>Health</td><td>Record changes, test the environment and follow the page for the specific sign.</td><td><a href="/health/">Health Hub</a></td></tr>
+</tbody></table></div>
+
+<h2>What is an axolotl?</h2>
+<p><em>Ambystoma mexicanum</em> is a Mexican salamander that normally becomes reproductively mature while retaining an aquatic body plan, including external gills. This developmental strategy is commonly described as paedomorphosis or neoteny.</p>
+<p>For the entity definition and core facts, use <a href="/care-basics/axolotl-facts/">What Is an Axolotl?</a>. For fish-versus-amphibian classification, use <a href="/biology-and-science/is-axolotl-amphibian/">Is an Axolotl an Amphibian?</a>.</p>
+
+<h2>Is an axolotl the right pet for you?</h2>
+<p>An axolotl can suit someone who is comfortable maintaining an aquarium and prefers an animal that is watched rather than handled. The main commitment is not daily interaction; it is keeping the environment consistently appropriate over many years.</p>
+<p>Before buying, make sure you can:</p>
+<ul>
+<li>maintain cool water in your actual room through the hottest part of the year;</li>
+<li>test water chemistry and understand the nitrogen cycle;</li>
+<li>provide an appropriately sized aquarium and stand;</li>
+<li>source suitable food consistently;</li>
+<li>arrange exotic/amphibian veterinary care if needed; and</li>
+<li>verify that ownership and transport are legal where you live.</li>
+</ul>
+<p>Use <a href="/care-basics/are-axolotls-good-beginner-pets/">Are Axolotls Good Pets?</a> for the pros, cons and beginner-difficulty decision.</p>
+
+<h2>What size tank does an adult axolotl need?</h2>
+<p><strong>Use the dedicated tank-size page as the source of truth.</strong> Current Petco care guidance recommends a minimum of 20+ gallons for one adult and says length matters more than height. MyAxolotl treats a 20-gallon long as the practical lower bound and prefers a 40-gallon breeder as a more forgiving permanent home when space and budget permit.</p>
+<p>The larger recommendation is a practical site preference, not a claim that one exact gallon number is a universal biological threshold. Animal number, floor area, filtration and husbandry intensity all matter.</p>
+<p>See <a href="/tank-setup/tank-size-by-age/">What Size Tank Does an Axolotl Need?</a>.</p>
+
+<h2>How cool should axolotl water be?</h2>
+<p><strong>Cool and stable matters more than chasing one magic number.</strong> The Ambystoma Genetic Stock Center maintains its research colony in cool water, and current amphibian veterinary guidance emphasizes species-appropriate stable temperature because temperature affects metabolism and immune function.</p>
+<p>For a home aquarium, measure the water continuously or at least daily during warm periods and build a cooling plan around the warmest room conditions you actually experience. A fan, room air conditioning or an aquarium chiller may be appropriate depending on the heat load.</p>
+<p>Use <a href="/tank-setup/temperature/">Axolotl Tank Temperature</a> for the current home target and <a href="/tank-setup/aquarium-chillers/">Aquarium Chillers</a> if active cooling is needed.</p>
+
+<h2>What water quality does an axolotl need?</h2>
+<p>Amphibians absorb water and dissolved substances readily across their skin, so clean water is foundational. Merck's 2026 amphibian guidance advises regular testing of aquatic systems for temperature, pH, hardness, ammonia, nitrite and nitrate, and emphasizes water free from chlorine, ammonia and nitrite.</p>
+<p>Do not use a broad care page to memorize a long table of fixed thresholds. Test the tank, understand the nitrogen cycle and use the specialist page to interpret the actual readings.</p>
+<p>Start with <a href="/tank-setup/how-to-test-water/">How to Test Axolotl Water</a> and then use <a href="/tank-setup/water-parameters-cycling/">Water Parameters & Nitrogen Cycle</a>.</p>
+
+<h2>Does an axolotl need a filter?</h2>
+<p>For a conventional home aquarium, established biological filtration is the normal approach. The goal is enough biological capacity to process nitrogenous waste without creating a strong current across the animal's resting area.</p>
+<p><strong>Do not size the filter from an invented axolotl turnover multiplier.</strong> Filter choice depends on biological-media capacity, actual waste load, mechanical debris capture and whether the output can be made gentle. See <a href="/tank-setup/filtration-for-axolotls/">Do Axolotls Need a Filter?</a> and <a href="/tank-setup/canister-vs-sponge-filter/">Canister vs Sponge</a>.</p>
+
+<h2>How often should you change the water?</h2>
+<p>Regular partial water replacement is still necessary in a filtered aquarium. The 2024 AGSC guide and Merck's 2026 pet-amphibian guidance both support routine weekly partial renewal in established aquatic systems, while the amount needed can change with measured chemistry and waste load.</p>
+<p>Use <a href="/tank-setup/water-change-guide/">How to Change Axolotl Tank Water</a> rather than following an automatic percentage from an overview article.</p>
+
+<h2>What substrate is safe?</h2>
+<p><strong>Avoid loose gravel or objects small enough to be swallowed.</strong> Axolotls use suction feeding and can ingest material around the food. Substrate choice should account for animal size, grain size, cleanliness and the keeper's ability to remove waste.</p>
+<p>The <a href="/tank-setup/substrate-and-impaction/">Substrate Guide</a> owns the safe-choice comparison; <a href="/tank-setup/gravel-risks/">Gravel Risks</a> explains the foreign-body hazard.</p>
+
+<h2>What hides, plants and lighting are appropriate?</h2>
+<p>Provide smooth hiding places and avoid sharp décor or openings that can trap the animal. Axolotls do not need bright display lighting for their own benefit, so any light used for viewing or plants should still leave shaded/refuge areas available.</p>
+<p>For plants and décor, use <a href="/tank-setup/live-vs-artificial-plants/">Live vs Artificial Plants</a> and the <a href="/tank-setup/setup-guide/">Tank Setup Guide</a>.</p>
+
+<h2>What do axolotls eat?</h2>
+<p>Axolotls are carnivorous. Captive diets commonly use appropriately sized earthworms/nightcrawlers and nutritionally suitable sinking pellets, while larvae require much smaller live foods during early development. Feeding frequency changes with life stage, body condition, food size and the individual.</p>
+<p>Use <a href="/diet/best-foods-list/">What Do Axolotls Eat?</a> for food choice and <a href="/diet/feeding-schedule-by-age/">Feeding Schedule by Age</a> for routine frequency.</p>
+
+<h2>Can axolotls live with other animals?</h2>
+<p>Do not add fish or another axolotl simply because the tank has enough gallons. Tank mates can introduce nipping, predation, food competition, disease and ingestion hazards. Multiple axolotls also need close size matching and monitoring.</p>
+<p>Use <a href="/tank-setup/tank-mates/">Axolotl Tank Mates</a> for other species and <a href="/care-basics/keeping-multiple-axolotls/">Can Axolotls Live Together?</a> for same-species cohabitation.</p>
+
+<h2>Can you hold or pet an axolotl?</h2>
+<p>Routine petting is unnecessary. Amphibian skin is biologically important and easily disturbed, so handle only when the animal must be transferred for safety, veterinary care or essential husbandry.</p>
+<p>Use <a href="/care-basics/handling/">Can You Hold an Axolotl?</a> for transfer methods and <a href="/care-basics/are-axolotls-poisonous/">Are Axolotls Poisonous or Dangerous?</a> for human-hygiene and bite questions.</p>
+
+<h2>How do you know when an axolotl is unwell?</h2>
+<p><strong>Look for a change from the animal's normal pattern, not one internet “diagnostic sign.”</strong> Concerning changes can involve appetite, body condition, gills, skin, wounds, buoyancy, swimming, breathing, fecal production or activity. The same sign can have more than one cause.</p>
+<p>When something changes:</p>
+<ol>
+<li>measure temperature and water chemistry;</li>
+<li>record appetite, feces, posture, behavior and recent changes;</li>
+<li>take clear dated photographs if there is a visible lesion;</li>
+<li>follow the specialist page for the specific sign; and</li>
+<li>seek an amphibian-experienced veterinarian for severe, worsening or persistent problems.</li>
+</ol>
+<p>Use <a href="/health/stress-signs/">Axolotl Stress Signs</a> as the symptom router and <a href="/health/emergency-first-aid/">Axolotl Emergency Signs</a> for urgent triage.</p>
+
+<h2>What should routine care look like?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Cadence</th><th>What to do</th></tr></thead>
+<tbody>
+<tr><td>Daily</td><td>Check the animal, temperature and equipment; remove obvious uneaten food/waste.</td></tr>
+<tr><td>Regularly / weekly</td><td>Test water chemistry, review trends and perform routine partial water replacement as needed.</td></tr>
+<tr><td>As needed</td><td>Remove mechanical debris and maintain filter components without unnecessarily replacing mature biological media.</td></tr>
+<tr><td>Before/after changes</td><td>Record new equipment, food, animals, treatments or major maintenance so later health changes have context.</td></tr>
+</tbody></table></div>
+
+<h2>How much does axolotl ownership cost?</h2>
+<p>The animal's purchase price is only one part of ownership. Aquarium, stand, filtration, testing supplies, cooling, food, electricity and veterinary care can exceed the cost of the axolotl itself. Use <a href="/care-basics/cost-of-ownership-monthly/">Monthly Cost of Ownership</a> and <a href="/cost-and-buying/axolotl-price-by-morph/">Axolotl Price by Morph</a>.</p>
+
+<h2>Is it legal to own an axolotl?</h2>
+<p>Rules can change by country, state/province and locality. Do not rely on an old care article or a seller's willingness to ship. Check the current primary-source rules for your jurisdiction before buying or transporting an animal.</p>
+<p>Use the <a href="/legal/">Axolotl Legality Guide</a>.</p>
+
+<h2>Where should a new keeper go next?</h2>
+<p>If you do not yet own the animal, continue in this order:</p>
+<ol>
+<li><a href="/care-basics/are-axolotls-good-beginner-pets/">Decide whether an axolotl fits your household.</a></li>
+<li><a href="/legal/">Check legality.</a></li>
+<li><a href="/tank-setup/setup-guide/">Build and cycle the aquarium.</a></li>
+<li><a href="/cost-and-buying/where-to-buy-axolotls/">Choose a verified seller.</a></li>
+<li><a href="/cost-and-buying/how-to-choose-a-healthy-axolotl/">Inspect the individual animal.</a></li>
+<li><a href="/tank-setup/acclimating-a-new-axolotl/">Move it into the prepared system.</a></li>
+</ol>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
+<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/environment-and-husbandry-for-amphibians">Merck Veterinary Manual: Environment and Husbandry for Amphibians, updated February 2026</a></li>
+<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/housing-for-amphibians">Merck Veterinary Manual: Housing for Amphibians, updated February 2026</a></li>
+<li><a href="https://www.petco.com/pet-education/caresheets/axolotl">Petco: Axolotl Care Guide — current consumer tank-size guidance</a></li>
+</ul>
+'''
+
+BODY_OVERRIDES["tank-setup/setup-guide"] = r'''
+<p><strong>Set up and stabilize the aquarium before the axolotl arrives.</strong> The sequence is: choose a suitable long tank and stand, plan cooling, install gentle biological filtration, choose safe substrate and hides, fill with treated water, establish the nitrogen cycle, and confirm the system with measured water tests.</p>
+<div class="role-note"><strong>This page owns the setup sequence.</strong> Exact tank-size decisions, filter comparison, temperature management, water chemistry and cycling interpretation are handled by their specialist pages so this guide does not create competing rules.</div>
+
+<h2>Step 1: choose the tank before buying equipment</h2>
+<p>For one adult, current Petco care guidance recommends a minimum of 20+ gallons and says length is more important than height. MyAxolotl treats a 20-gallon long as the practical lower bound and prefers a 40-gallon breeder as a more forgiving permanent setup when space and budget permit.</p>
+<p>That preference is not a claim that one exact gallon number is a universal biological threshold. Use <a href="/tank-setup/tank-size-by-age/">What Size Tank Does an Axolotl Need?</a> for the full reasoning, including babies, juveniles and multiple adults.</p>
+
+<h2>Step 2: choose a stable location and stand</h2>
+<p>Place the aquarium where room temperature is easiest to control and where direct sun, radiators and other heat sources will not create avoidable thermal swings. The stand must be level and rated for the filled aquarium's weight.</p>
+<p>If you only know the tank dimensions, use the <a href="/tools/aquarium-volume-calculator/">Aquarium Volume Calculator</a> to estimate water volume and water weight.</p>
+
+<h2>Step 3: plan temperature control for your real room</h2>
+<p><strong>Do not automatically buy a chiller and do not assume a fan will always be enough.</strong> Measure the room and tank through the warmest conditions you expect. Amphibian veterinary guidance emphasizes maintaining a species-appropriate stable temperature and notes that chillers or air conditioning may be needed for aquatic systems.</p>
+<p>Use <a href="/tank-setup/temperature/">Axolotl Tank Temperature</a> for the target and non-purchase cooling methods. If active cooling is required, use <a href="/tank-setup/aquarium-chillers/">Aquarium Chillers</a> and the <a href="/tools/chiller-size-calculator/">Chiller Size Calculator</a>.</p>
+
+<h2>Step 4: install biological filtration with gentle flow</h2>
+<p>A conventional home aquarium should use established biological filtration. The filter needs enough colonized media for the actual waste load while returning water gently enough that the axolotl is not continuously pushed around the tank.</p>
+<p><strong>Do not choose from a fixed “3×,” “5×,” or “10×” turnover rule.</strong> Manufacturer flow ratings do not describe the animal's actual current after media, tubing, spray bars and head loss. Choose by biological capacity, debris capture and controllable return flow.</p>
+<p>Use <a href="/tank-setup/filtration-for-axolotls/">Do Axolotls Need a Filter?</a> and <a href="/tank-setup/canister-vs-sponge-filter/">Canister vs Sponge</a>.</p>
+
+<h2>Step 5: choose safe substrate</h2>
+<p>Avoid swallowable gravel and loose stones. Axolotls feed by suction and can ingest material around food. Bare-bottom housing and appropriately fine sand are common approaches, but the correct choice depends on life stage, grain size and maintenance.</p>
+<p>Use <a href="/tank-setup/substrate-and-impaction/">Choosing the Best Axolotl Substrate</a>. If you are considering gravel, read <a href="/tank-setup/gravel-risks/">Gravel Risks</a> first.</p>
+
+<h2>Step 6: add hides and safe décor</h2>
+<p>Provide at least one smooth refuge large enough for the animal to use comfortably. Avoid sharp edges, small holes where the body can become trapped, unstable rockwork and small detachable objects that could be swallowed.</p>
+<p>Lighting should support viewing or plants without removing the animal's ability to retreat into shade. See <a href="/tank-setup/live-vs-artificial-plants/">Live vs Artificial Plants</a> for plant/decor choices.</p>
+
+<h2>Step 7: use a secure top when escape is possible</h2>
+<p>A secure aquarium cover is useful where an axolotl could leave the tank or where household pets, objects or contaminants could enter it. Choose a cover that works with the cooling/ventilation plan and equipment rather than sealing a warm tank in a way that traps heat.</p>
+
+<h2>Step 8: fill with appropriate treated water</h2>
+<p>Municipal water may contain chlorine or chloramine. Use a conditioner or water-treatment method appropriate to the disinfectant in your supply. Do not assume that simply letting water stand removes chloramine.</p>
+<p>Use <a href="/tank-setup/water-conditioners/">Water Conditioners</a> and the <a href="/tools/water-conditioner-dosage-calculator/">Water Conditioner Dosage Calculator</a> for product-volume math.</p>
+
+<h2>Step 9: establish the biological filter before adding the axolotl</h2>
+<p><strong>Do not use the axolotl as the ammonia source for a new uncycled aquarium.</strong> Establish the biofilter before the animal arrives. A cycling process uses a controlled ammonia source and water testing to demonstrate that the filter community is processing nitrogenous waste.</p>
+<p>Do not declare the tank “cycled” because a certain number of weeks has passed. Confirm the process from measured ammonia, nitrite and nitrate trends. Use <a href="/tank-setup/water-parameters-cycling/">Water Parameters & Nitrogen Cycle</a> and log the readings in the <a href="/tools/nitrogen-cycle-tracker/">Nitrogen Cycle Tracker</a>.</p>
+
+<h2>Step 10: learn to test the water correctly</h2>
+<p>Before the animal arrives, you should be able to measure and record ammonia, nitrite, nitrate, pH and temperature reliably. Clear-looking water can still have unsafe chemistry.</p>
+<p>Use <a href="/tank-setup/how-to-test-water/">How to Test Axolotl Water</a> for sample collection, test-kit technique and color-chart reading.</p>
+
+<h2>Step 11: create a maintenance routine before the tank is occupied</h2>
+<p>Regular testing, waste removal, partial water changes and filter maintenance are part of the setup—not tasks to invent after a problem appears. The 2024 AGSC guide and Merck's 2026 amphibian guidance both support routine partial water replacement in established aquatic systems.</p>
+<p>Use <a href="/tank-setup/water-change-guide/">How to Change Axolotl Tank Water</a>. Do not replace all mature biological media on a routine calendar.</p>
+
+<h2>Step 12: prepare food, transport and acclimation before pickup day</h2>
+<p>Have the animal's normal food ready and know how the seller has been feeding it. Confirm the transport and arrival plan before purchase, especially for shipped animals.</p>
+<p>Use <a href="/cost-and-buying/shipping-live-axolotls/">Shipping Live Axolotls</a> and <a href="/tank-setup/acclimating-a-new-axolotl/">Acclimating a New Axolotl</a>.</p>
+
+<h2>What should be ready before the axolotl arrives?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Item</th><th>Ready when...</th></tr></thead>
+<tbody>
+<tr><td>Tank and stand</td><td>Level, secure and sized for the intended animal count.</td></tr>
+<tr><td>Temperature control</td><td>The tank remains in the planned range under the warmest expected room conditions.</td></tr>
+<tr><td>Filter</td><td>Biological filtration is established and return flow is gentle.</td></tr>
+<tr><td>Water</td><td>Source water is treated appropriately and you know how to test it.</td></tr>
+<tr><td>Nitrogen cycle</td><td>Readings demonstrate a functioning biofilter rather than simply an elapsed timeline.</td></tr>
+<tr><td>Substrate / décor</td><td>No swallowable gravel, sharp edges or trapping hazards.</td></tr>
+<tr><td>Food</td><td>Suitable food is on hand and portion/frequency are understood.</td></tr>
+<tr><td>Emergency plan</td><td>You know the nearest amphibian/exotics vet and have a temporary safe container if transfer is needed.</td></tr>
+</tbody></table></div>
+
+<h2>Common setup mistakes</h2>
+<ul>
+<li>buying the axolotl before the aquarium is cycled;</li>
+<li>using a small tank because the animal is currently a juvenile without planning the adult home;</li>
+<li>choosing a powerful filter that cannot be made gentle;</li>
+<li>using swallowable gravel;</li>
+<li>assuming clear water is chemically safe;</li>
+<li>buying a chiller from tank gallons alone without considering room heat and required pull-down;</li>
+<li>relying on a fixed cycling timeline rather than test results;</li>
+<li>making large last-minute changes immediately before the animal arrives; and</li>
+<li>copying treatment or emergency advice into the setup process instead of keeping the tank stable.</li>
+</ul>
+
+<h2>How should the setup pages fit together?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Your question</th><th>Canonical page</th></tr></thead>
+<tbody>
+<tr><td>How large should the tank be?</td><td><a href="/tank-setup/tank-size-by-age/">Tank Size</a></td></tr>
+<tr><td>Which filter and how much flow?</td><td><a href="/tank-setup/filtration-for-axolotls/">Filtration</a></td></tr>
+<tr><td>Canister or sponge?</td><td><a href="/tank-setup/canister-vs-sponge-filter/">Canister vs Sponge</a></td></tr>
+<tr><td>What temperature?</td><td><a href="/tank-setup/temperature/">Temperature</a></td></tr>
+<tr><td>Do I need a chiller?</td><td><a href="/tank-setup/aquarium-chillers/">Chiller Buying Guide</a></td></tr>
+<tr><td>Which substrate?</td><td><a href="/tank-setup/substrate-and-impaction/">Substrate</a></td></tr>
+<tr><td>How do I test water?</td><td><a href="/tank-setup/how-to-test-water/">Water Testing</a></td></tr>
+<tr><td>What do the readings mean?</td><td><a href="/tank-setup/water-parameters-cycling/">Water Parameters & Cycling</a></td></tr>
+<tr><td>How do I change water?</td><td><a href="/tank-setup/water-change-guide/">Water Change Guide</a></td></tr>
+</tbody></table></div>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
+<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/environment-and-husbandry-for-amphibians">Merck Veterinary Manual: Environment and Husbandry for Amphibians, updated February 2026</a></li>
+<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/housing-for-amphibians">Merck Veterinary Manual: Housing for Amphibians, updated February 2026</a></li>
+<li><a href="https://www.petco.com/pet-education/caresheets/axolotl">Petco: current Axolotl Care Guide</a></li>
+</ul>
+'''
+
+for _cfg in ARTICLES.values():
+    if _cfg.get("slug") in {"axolotls/care-guide", "tank-setup/setup-guide"}:
+        _cfg["date_modified"] = "2026-09-19"
+
 # Build trigger: retry Cost & Buying after clearing the stale queued job.
 
 # Keyword-reconciliation fix: strengthen the existing anatomy owner for teeth/oral anatomy.
