@@ -2108,8 +2108,10 @@ ARTICLES = {
     "3- Best aquarium chillers for  axolots.docx": {
         "slug": "tank-setup/aquarium-chillers",
         "hub": "tank-setup",
-        "title_override": "Best Aquarium Chillers for Axolotls",
-        "meta_override": "Axolotls need 60–68°F water. Learn when a chiller is necessary, how to size one, and which compressor models suit typical home tanks.",
+        "title_override": "Best Aquarium Chillers for Axolotls: Sizing & Buying Guide",
+        "title_tag": "Best Aquarium Chillers for Axolotls: Sizing & Buying Guide",
+        "meta_override": "Choose an aquarium chiller for an axolotl tank by water volume, room heat load, target temperature, flow requirements, installation, noise and operating cost.",
+        "date_modified": "2026-09-18",
     },
     "4- Choosing best Axolotl subtrate.docx": {
         "slug": "tank-setup/substrate-and-impaction",
@@ -2120,12 +2122,18 @@ ARTICLES = {
     "5- Managing Ammonia and Nitrate Spikes in Axolotl Tanks.docx": {
         "slug": "tank-setup/water-parameters-cycling",
         "hub": "tank-setup",
-        "title_override": "Ammonia & Nitrate Spikes in Axolotl Tanks",
+        "title_override": "Axolotl Water Parameters & Nitrogen Cycle",
+        "title_tag": "Axolotl Water Parameters: Ammonia, Nitrite, Nitrate & pH",
+        "meta_override": "Axolotl water parameters and nitrogen cycle explained: ammonia, nitrite, nitrate, pH, cycling, testing, spikes and how to interpret changing aquarium readings.",
+        "date_modified": "2026-09-18",
     },
     "7 - Best axolotl filters.docx": {
         "slug": "tank-setup/filtration-for-axolotls",
         "hub": "tank-setup",
-        "title_override": "Best Axolotl Tank Filters: Types & Sizing",
+        "title_override": "Do Axolotls Need a Filter? Filtration, Flow Rate & Sizing",
+        "title_tag": "Do Axolotls Need a Filter? Filtration, Flow Rate & Sizing",
+        "meta_override": "Do axolotls need a filter? Learn biological filtration, low-flow requirements, filter sizing and how sponge, HOB and canister filters fit different axolotl tanks.",
+        "date_modified": "2026-09-18",
     },
     "8- How to keep axolotl tank cool safe.docx": {
         "slug": "tank-setup/temperature",
@@ -2228,8 +2236,10 @@ ARTICLES = {
     "25 - Vacation Prep.docx": {
         "slug": "diet/fasting-and-vacation",
         "hub": "diet",
-        "title_override": "How Long Can Axolotls Fast?",
-        "meta_override": "Adult axolotls can fast up to 14 days; juveniles and hatchlings need shorter limits based on age, condition, and tank temperature.",
+        "title_override": "How Long Can Axolotls Go Without Food? Fasting & Vacation Guide",
+        "title_tag": "How Long Can Axolotls Go Without Food? Fasting & Vacation Guide",
+        "meta_override": "How long can an axolotl go without food? Learn planned fasting vs appetite loss, vacation feeding, life-stage differences and when not eating becomes a health concern.",
+        "date_modified": "2026-09-18",
     },
     "26 - How to Hand Feed axolotls.docx": {
         "slug": "diet/how-to-hand-feed",
@@ -2266,12 +2276,18 @@ ARTICLES = {
     "32 - How to Identify and Treat Axolotl Fungus.docx": {
         "slug": "health/fungal-infections-saprolegnia",
         "hub": "health",
-        "meta_override": "Learn how to recognize cotton-like Saprolegnia growth, correct water and stress factors, and know when an axolotl needs veterinary care.",
+        "title_override": "Axolotl Fungus: Symptoms, Causes & Treatment",
+        "title_tag": "Axolotl Fungus: Symptoms, Causes & Treatment",
+        "meta_override": "Axolotl fungus guide: what white or cottony growth can look like, possible causes, first checks, treatment decision points and when veterinary assessment is needed.",
+        "date_modified": "2026-09-18",
     },
     "33 - The Black Tea Bath Protocol for Axolotls.docx": {
         "slug": "health/black-tea-bath",
         "hub": "health",
-        "title_override": "Black Tea Bath for Axolotls: Step-by-Step Treatment",
+        "title_override": "Black Tea Bath for Axolotls: When & How to Use One",
+        "title_tag": "Black Tea Bath for Axolotls: When & How to Use One",
+        "meta_override": "Black tea baths for axolotls: what they are, when they may be considered as supportive care, how the procedure works, limits, risks and when to seek veterinary help.",
+        "date_modified": "2026-09-18",
     },
     "34 - When and how to fridge axolotl.docx": {
         "slug": "health/fridging-sick-axolotl",
@@ -2284,8 +2300,10 @@ ARTICLES = {
     "35 - axolotl salt bath.docx": {
         "slug": "health/salt-bath",
         "hub": "health",
-        "title_override": "Axolotl Salt Baths for Fungal Infections",
-        "date_modified": "2026-08-29",
+        "title_override": "Axolotl Salt Bath: When It May Be Used & How It Works",
+        "title_tag": "Axolotl Salt Bath: When It May Be Used & How It Works",
+        "meta_override": "Axolotl salt baths explained: when they may be discussed for selected external problems, why they can irritate amphibian skin, procedure limits and safer escalation.",
+        "date_modified": "2026-09-18",
     },
     "36 - Why is My Axolotl Floating Continuously.docx": {
         "slug": "health/why-axolotl-floating",
@@ -2384,9 +2402,10 @@ ARTICLES = {
     "52 - Understanding Axolotl Pigment Cells.docx": {
         "slug": "morphs/pigment-cells",
         "hub": "morphs",
-        "title_override": "Understanding Axolotl Pigment Cells",
-        "title_tag": "Axolotl Pigment Cells: Chromatophores, Melanophores & More",
-        "meta_override": "Axolotl color comes from melanophores, xanthophores, and iridophores, which explain how common morphs and axanthic traits appear.",
+        "title_override": "Axolotl Pigment Cells & Color Changes: How Their Colors Work",
+        "title_tag": "Axolotl Pigment Cells & Color Changes: How Their Colors Work",
+        "meta_override": "How axolotl colors work: melanophores, xanthophores and iridophores, why morphs look different, how color can appear to change, and where axanthic, melanoid and albino fit.",
+        "date_modified": "2026-09-18",
     },
     "53 - Enigma MAC and Firefly Axolotls.docx": {
         "slug": "morphs/enigma-firefly-mac",
@@ -2567,15 +2586,18 @@ ARTICLES = {
     "80 - How to Pronounce Axolotl.docx": {
         "slug": "care-basics/how-to-pronounce-axolotl",
         "hub": "care-basics",
-        "title_override": "How to Pronounce Axolotl",
-        "title_tag": "How to Pronounce Axolotl: Correct Way & Common Mistakes",
-        "date_modified": "2026-08-27",
+        "title_override": "How to Pronounce and Spell Axolotl: Meaning & Correct Pronunciation",
+        "title_tag": "How to Pronounce and Spell Axolotl: Meaning & Correct Pronunciation",
+        "meta_override": "Learn how to pronounce axolotl in English, spell A-X-O-L-O-T-L, understand the plural, and see how the English form differs from Nahuatl and Spanish ajolote.",
+        "date_modified": "2026-09-18",
     },
     "81 - Can Axolotls Live Together.docx": {
         "slug": "care-basics/keeping-multiple-axolotls",
         "hub": "care-basics",
-        "title_override": "Can Axolotls Live Together?",
-        "title_tag": "Can Axolotls Live Together? Housing Multiple Axolotls Safely",
+        "title_override": "Can Axolotls Live Together? One vs Two Axolotls & Cohabitation",
+        "title_tag": "Can Axolotls Live Together? One vs Two Axolotls & Cohabitation",
+        "meta_override": "Can two axolotls live together? Learn size matching, juvenile nipping and cannibalism risk, space and hides, introduction, monitoring and when animals should be separated.",
+        "date_modified": "2026-09-18",
     },
     "82 - Axolotl Anatomy Gills and Lungs.docx": {
         "slug": "biology-and-science/anatomy-gills-and-lungs",
@@ -2639,10 +2661,10 @@ ARTICLES = {
     "91 - Axolotl Breeder vs Pet Store.docx": {
         "slug": "cost-and-buying/breeder-vs-pet-store",
         "hub": "cost-and-buying",
-        "title_override": "Axolotl Breeder vs Pet Store",
-        "title_tag": "Axolotl Breeder vs Pet Store: Where to Buy (2026)",
-        "meta_override": "Compare axolotl breeders, exotic pet stores, marketplaces, and local rehomes by records, husbandry, guarantees, inspection, and shipping risk.",
-        "date_modified": "2026-08-27",
+        "title_override": "Axolotl Breeder vs Pet Store: Which Buying Option Is Better?",
+        "title_tag": "Axolotl Breeder vs Pet Store: Which Buying Option Is Better?",
+        "meta_override": "Compare buying an axolotl from a specialist breeder vs a pet store by animal records, husbandry visibility, selection, support, pickup or shipping, terms and buyer verification.",
+        "date_modified": "2026-09-18",
     },
     "92 - How to Choose an Axolotl Breeder.docx": {
         "slug": "cost-and-buying/choosing-a-reputable-breeder",
@@ -2671,10 +2693,10 @@ ARTICLES = {
     "95 - How Axolotls Are Shipped.docx": {
         "slug": "cost-and-buying/shipping-live-axolotls",
         "hub": "cost-and-buying",
-        "title_override": "How Axolotls Are Shipped",
-        "title_tag": "How Are Axolotls Shipped: What to Expect",
-        "meta_override": "Learn how captive-bred axolotls are packaged and shipped, what carrier and weather details to verify, and what to do when the box arrives.",
-        "date_modified": "2026-08-27",
+        "title_override": "How Are Axolotls Shipped? Delivery, Unboxing & Arrival Guide",
+        "title_tag": "How Are Axolotls Shipped? Delivery, Unboxing & Arrival Guide",
+        "meta_override": "How live axolotl shipping works: seller and carrier checks, weather planning, packing, delivery timing, unboxing, arrival inspection, acclimation and what to do after a delay.",
+        "date_modified": "2026-09-18",
     },
     "96 - Axolotl Adopt Me Guide.docx": {
         "slug": "axolotl-in-culture/adopt-me-axolotl-guide",
@@ -2687,9 +2709,10 @@ ARTICLES = {
     "97 - Axolotl in Pop Culture and Memes.docx": {
         "slug": "axolotl-in-culture/axolotl-in-pop-culture-and-memes",
         "hub": "axolotl-in-culture",
-        "title_override": "Axolotl in Pop Culture and Memes",
-        "title_tag": "Axolotl in Pop Culture: Memes, Games, TV & Media",
-        "meta_override": "Where axolotls appear in pop culture, from Minecraft and memes to TV, merchandise, and science headlines, with links to deeper guides for each topic.",
+        "title_override": "Axolotl in Pop Culture: Minecraft, Gravity Falls, Literature, Memes & More",
+        "title_tag": "Axolotl in Pop Culture: Minecraft, Gravity Falls, Literature & Memes",
+        "meta_override": "Axolotls in pop culture: Minecraft, Gravity Falls and Bill Cipher, Julio Cortázar, memes, merchandise, science media and the cultural meanings attached to the animal.",
+        "date_modified": "2026-09-18",
     },
     "98 - Minecraft Axolotls Guide.docx": {
         "slug": "axolotl-in-culture/minecraft-axolotls-guide",
@@ -2736,9 +2759,10 @@ ARTICLES = {
     "104 - Axolotl Stress Signs.docx": {
         "slug": "health/stress-signs",
         "hub": "health",
-        "title_override": "Axolotl Stress Signs",
-        "title_tag": "Axolotl Stress Signs: Curled Gills, Floating & How to Fix It",
-        "date_modified": "2026-08-28",
+        "title_override": "Axolotl Stress Signs: How to Tell If Your Axolotl Is Stressed",
+        "title_tag": "Axolotl Stress Signs: How to Tell If Your Axolotl Is Stressed",
+        "meta_override": "Learn common axolotl stress signs and where each symptom should lead next: curled gills, floating, appetite loss, shrinking gills, fungus-like growth, abnormal swimming and water-quality checks.",
+        "date_modified": "2026-09-18",
     },
     "105 - Axolotl Impaction Symptoms and Treatment.docx": {
         "slug": "health/impaction-symptoms-treatment",
