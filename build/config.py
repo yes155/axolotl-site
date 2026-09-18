@@ -6493,6 +6493,104 @@ BODY_OVERRIDES["health/impaction-symptoms-treatment"] = r'''
 </ul>
 '''
 
+
+BODY_OVERRIDES["tank-setup/aquarium-chillers"] = r'''
+<p><strong>An aquarium chiller is useful when room cooling, ventilation and evaporative methods cannot keep an axolotl tank reliably within the temperature range you have chosen for husbandry.</strong> Do not size a chiller from tank gallons alone. Total water volume, warmest room temperature, desired water temperature, pump/light heat, ventilation and the chiller's required water-flow range all affect performance.</p>
+<div class="role-note"><strong>This page owns the chiller buying decision.</strong> For normal axolotl temperature husbandry and non-chiller cooling methods, use <a href="/tank-setup/temperature/">the temperature guide</a>. For a planning estimate, use the <a href="/tools/chiller-size-calculator/">Chiller Size Calculator</a>.</div>
+
+<h2>Does every axolotl tank need a chiller?</h2>
+<p>No. A chiller is equipment for a thermal-control problem, not a universal requirement. The Ambystoma Genetic Stock Center maintains its research colony around 15–17°C using building and auxiliary air cooling. Merck's amphibian husbandry guidance says water chillers and air conditioning should be considered when needed to keep amphibians within their appropriate temperature range.</p>
+<p>If your room and aquarium remain reliably cool without a chiller, adding one only increases cost and complexity. If the tank repeatedly warms beyond your intended range, a correctly sized compressor chiller can provide much more predictable control than emergency cooling.</p>
+
+<h2>What type of aquarium chiller should you consider?</h2>
+<p>For a tank that needs a meaningful, sustained temperature pull-down below a warm room, a compressor-based aquarium chiller is the usual dedicated solution. Thermoelectric/Peltier devices can be useful for small heat loads but their practical cooling capacity depends heavily on ambient conditions and device design.</p>
+<p><strong>Do not choose solely by the label “compressor” or “thermoelectric.”</strong> Compare the manufacturer's actual temperature-pull-down data, rated water volume, flow requirement and ventilation instructions for your setup.</p>
+
+<h2>What determines chiller size?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Factor</th><th>Why it matters</th></tr></thead>
+<tbody>
+<tr><td>Total system water volume</td><td>More water requires more heat removal.</td></tr>
+<tr><td>Warmest room temperature</td><td>A hotter room increases the heat entering the aquarium and the required pull-down.</td></tr>
+<tr><td>Target water temperature</td><td>The larger the difference between ambient and target, the harder the chiller must work.</td></tr>
+<tr><td>Pumps, lights and other equipment</td><td>Electrical equipment can add heat to the system.</td></tr>
+<tr><td>Open vs covered tank</td><td>Evaporation, lighting and ventilation change the heat balance.</td></tr>
+<tr><td>Chiller ventilation</td><td>A compressor unit dumps removed heat into the surrounding room; recirculating hot exhaust reduces performance.</td></tr>
+<tr><td>Actual water flow through the chiller</td><td>The heat exchanger must operate within the manufacturer's specified flow range.</td></tr>
+</tbody></table></div>
+
+<h2>Why tank volume alone is not enough</h2>
+<p>A 40-gallon aquarium in a cool basement does not impose the same cooling load as the same aquarium in a hot upstairs room with pumps and lights adding heat. Manufacturer sizing notes for current aquarium chillers explicitly tell buyers to consider room temperature, desired temperature drop, equipment heat and ventilation—not only gallons.</p>
+<p>This is why a generic table saying “40 gallons = 1/5 HP” is unreliable. The same nominal tank can require different chiller capacity under different conditions.</p>
+
+<h2>How do you use the Chiller Size Calculator?</h2>
+<p>The <a href="/tools/chiller-size-calculator/">Axolotl Chiller Size Calculator</a> asks for tank volume, warmest observed water/room conditions, target temperature and heat load, then returns a planning class. Treat the result as a shortlist, not the final purchase decision.</p>
+<p>Before buying, compare that shortlist with the current manufacturer's sizing chart and flow range for the exact model.</p>
+
+<h2>Why does flow rate matter?</h2>
+<p>Inline chillers require water to pass through the heat exchanger within a specified range. Too little or too much flow can reduce performance or fall outside the manufacturer's operating specification. Pump labels usually quote flow at little or no head pressure, while actual flow drops through tubing, height, bends, filters and fittings.</p>
+<p>Use the chiller manufacturer's <strong>minimum and maximum operating flow</strong> and estimate or measure the real flow through the installed loop.</p>
+
+<h2>Can a canister filter run through a chiller?</h2>
+<p>Sometimes. A canister filter can provide the circulation loop for an inline chiller when the filter's real output remains within the chiller's required flow range after head loss and plumbing restrictions. The filter manufacturer must also permit the plumbing arrangement.</p>
+<p>If the combination falls outside either device's specification, use a separate pump or different plumbing design. Do not choose a canister solely because its box GPH appears to match a chiller.</p>
+
+<h2>How much ventilation does a chiller need?</h2>
+<p><strong>Do not enclose a compressor chiller in a sealed cabinet unless the manufacturer explicitly permits it.</strong> The unit removes heat from aquarium water and rejects that heat into room air. Current JBJ guidance and retailer installation notes both emphasize adequate ventilation and avoiding recirculation of warm exhaust.</p>
+<p>Follow the exact clearance requirements in the model's current manual rather than a generic “12 inches on every side” rule.</p>
+
+<h2>What features should you compare?</h2>
+<ul>
+<li><strong>Pull-down capacity:</strong> can it maintain your target under the warmest expected room conditions?</li>
+<li><strong>Required flow range:</strong> compatible with your real pump/filter flow?</li>
+<li><strong>Heat exchanger material:</strong> suitable for continuous aquarium use.</li>
+<li><strong>Controller range and accuracy:</strong> adequate for the temperature you intend to maintain.</li>
+<li><strong>Ventilation requirements:</strong> practical for where the unit will sit.</li>
+<li><strong>Noise:</strong> check current owner/manufacturer data if bedroom placement matters.</li>
+<li><strong>Warranty and service:</strong> verify current terms at purchase time.</li>
+<li><strong>Replacement parts:</strong> availability of controller, fan, fuse and plumbing components.</li>
+</ul>
+
+<h2>Should you buy one size larger?</h2>
+<p>A modest capacity margin can reduce continuous operation under peak heat load, but “always oversize” is not a universal engineering law. Follow the manufacturer's current sizing method. Some manufacturers recommend moving up when your system sits near the edge of a model's rating or requires a large temperature pull-down.</p>
+<p>Oversizing also affects purchase price, physical size, pump/flow requirements and cycling behavior, so compare the actual model data rather than applying a fixed 1.5× multiplier.</p>
+
+<h2>Can a fan replace a chiller?</h2>
+<p>Surface fans cool water through evaporation. Their effect depends on room temperature, humidity, airflow, tank surface area and evaporation rate, so there is no universal “2–4°F” result. A fan can be enough in some rooms and inadequate in others.</p>
+<p>Test your real tank during the warmest conditions you expect. If temperature cannot be held reliably, move to room air conditioning or a properly sized chiller instead of waiting for a heat emergency.</p>
+
+<h2>How should you install a chiller?</h2>
+<ol>
+<li>Place it on a stable surface with the ventilation clearance specified by its manual.</li>
+<li>Use tubing and fittings approved for the unit.</li>
+<li>Provide water flow within the manufacturer's operating range.</li>
+<li>Check all connections for leaks before unattended operation.</li>
+<li>Use an independent aquarium thermometer to verify the chiller/controller reading.</li>
+<li>Monitor the tank after installation to make sure the return flow is still gentle enough for the axolotl.</li>
+</ol>
+
+<h2>How much does a chiller cost to run?</h2>
+<p>Operating cost depends on the model's real electrical draw, local electricity price and compressor duty cycle. Do not estimate cost from horsepower alone. Use the manufacturer's wattage/amp specification and your own measured or expected run time.</p>
+<p>A simple estimate is:</p>
+<p><strong>kWh per day = device kilowatts × compressor run hours per day</strong></p>
+<p>Then multiply by your electricity price per kWh. Actual duty cycle changes with room temperature, insulation, ventilation and tank heat load.</p>
+
+<h2>How do you maintain a chiller?</h2>
+<p>Follow the model manual. Common tasks include keeping air intakes/condenser surfaces free of dust, checking tubing for restriction or leaks, maintaining the required water flow and confirming temperature with an independent thermometer. Service intervals vary by model and environment.</p>
+
+<h2>Current product example: how to read a specification sheet</h2>
+<p>As of September 2026, JBJ's current Arctica aquarium-series page publishes each model's compressor/output rating, titanium heat exchanger, inlet/outlet sizes and minimum/maximum flow range, and points buyers to a manufacturer chiller-sizing calculator. Those are the kinds of fields you should compare.</p>
+<p><strong>This page does not rank one current model “best overall.”</strong> Model availability, warranty terms, pricing and specifications can change, while the sizing method above remains useful.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024 — colony temperature</a></li>
+<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/environment-and-husbandry-for-amphibians">Merck Veterinary Manual: Environment and Husbandry for Amphibians, updated February 2026</a></li>
+<li><a href="https://www.jbjaquarium.com/temperature-control/arctica-chillers/aquarium-series/">JBJ Aquariums: current Arctica Aquarium Series specifications</a></li>
+</ul>
+'''
+
 # Build trigger: retry Cost & Buying after clearing the stale queued job.
 
 # Keyword-reconciliation fix: strengthen the existing anatomy owner for teeth/oral anatomy.
