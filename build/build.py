@@ -686,9 +686,9 @@ def build_articles():
             adaptations_heading = "<h2>What adaptations help axolotls survive in Xochimilco?</h2>"
             threats_marker = "<h2>What threatens the wild axolotl?</h2>"
             a["meta"] = (
-                "Axolotl habitat and adaptations explained: Xochimilco freshwater "
-                "canals, neoteny, external gills, tail fin, lateral-line sensing, "
-                "suction feeding, and modern habitat threats."
+                "Where wild axolotls live: Xochimilco's freshwater canals, historic "
+                "Valley of Mexico range, habitat conditions, introduced-fish pressure, "
+                "and the conservation work protecting the remaining wetland."
             )
             a["intro"] = (
                 "Wild axolotls survive only in Xochimilco's freshwater canal system "
