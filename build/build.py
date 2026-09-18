@@ -137,7 +137,7 @@ TOOL_DESCS = {
     "feeding-schedule-generator": "Generate a daily feeding schedule tailored to your axolotl's age and size.",
     "nitrogen-cycle-tracker": "Track ammonia, nitrite, and nitrate as your new tank cycles before adding your axolotl.",
     "symptom-checker": "Review observed axolotl symptoms, possible explanations, safe first checks, and signs that need veterinary care.",
-    "tank-size-calculator": "Find the minimum tank size for your axolotl based on its length and number of axolotls.",
+    "tank-size-calculator": "Plan an axolotl tank by life stage and animal count, with a source-backed adult minimum, preferred home-aquarium size, and clear cohabitation limits.",
     "chiller-size-calculator": "Estimate an aquarium chiller class from tank volume, temperature pull-down, and heat load.",
     "aquarium-volume-calculator": "Calculate aquarium US gallons, liters, Imperial gallons, usable water volume, and water weight from tank dimensions.",
 }
