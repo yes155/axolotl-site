@@ -5895,6 +5895,184 @@ BODY_OVERRIDES["tank-setup/tank-size-by-age"] = r'''
 <p><strong>MyAxolotl recommendation:</strong> treat a 20-gallon long as the practical minimum for one adult and a 40-gallon breeder as the preferred long-term home when space and budget permit. That preference is deliberately more conservative than laboratory-density guidance.</p>
 '''
 
+
+# Evidence-bounded fungal-disease cluster (2026-09-18).
+BODY_OVERRIDES["health/fungal-infections-saprolegnia"] = r'''
+<p><strong>A white or cotton-like growth on an axolotl can be consistent with saprolegniasis, but appearance alone does not confirm the organism.</strong> <em>Saprolegnia</em>, <em>Aphanomyces</em> and <em>Achlya</em> are water molds (oomycetes) that can infect the skin or gills of aquatic amphibians. Veterinary diagnosis can involve a skin scraping examined for hyphae and zoospores.</p>
+<div class="role-note"><strong>This page owns the condition and diagnostic pathway.</strong> The <a href="/health/black-tea-bath/">black-tea page</a> explains the evidence limits of a popular hobby practice; the <a href="/health/salt-bath/">salt-bath page</a> explains where saline appears in veterinary guidance. Neither page should replace diagnosis or veterinary care for a worsening lesion.</div>
+
+<h2>What is axolotl saprolegniasis?</h2>
+<p>Saprolegniasis is a disease caused by opportunistic water molds. Merck's veterinary amphibian guidance describes these organisms as affecting the skin and gills of aquatic and larval amphibians. They are often associated with tissue that has already been damaged or whose normal protective surface has been compromised.</p>
+
+<h2>What can saprolegniasis look like?</h2>
+<p>The classic gross finding is a <strong>whitish, cotton-like growth</strong> attached to skin or gill tissue. Older mats can appear greenish because algae can become incorporated. Once the material is removed from water, it may collapse and become much harder to see.</p>
+<p>Other signs can include lethargy, respiratory difficulty, loss of appetite and weight loss, depending on lesion extent. None of those secondary signs is specific to saprolegniasis.</p>
+
+<h2>What can be mistaken for fungus?</h2>
+<p>Not every pale patch, gill change or skin lesion is a water mold. Bacterial disease, other fungal disease, parasites, injury, abnormal shedding or chemical irritation can overlap visually. Merck notes that many amphibian fungal diseases are difficult to distinguish grossly and may require wet mounts, culture, histology or special stains.</p>
+<p><strong>Do not identify “columnaris,” “fungus” or a parasite from one photograph with certainty.</strong> Use photographs to document change, not to substitute for examination.</p>
+
+<h2>Why can Saprolegnia take hold?</h2>
+<p>Veterinary references describe saprolegniasis as opportunistic. Factors associated with disease include:</p>
+<ul>
+<li>previous abrasions or other skin trauma;</li>
+<li>loss or damage of the protective surface layer from chemical irritants;</li>
+<li>poor water quality, including ammonia exposure;</li>
+<li>malnutrition, including vitamin-A problems in some amphibian cases; and</li>
+<li>other conditions that leave tissue damaged or the animal compromised.</li>
+</ul>
+<p>For a pet axolotl, that means a visible lesion should trigger both a health assessment and a husbandry review rather than treatment of the white growth in isolation.</p>
+
+<h2>What should you check first?</h2>
+<ol>
+<li><strong>Record the lesion.</strong> Take clear dated photographs in neutral light.</li>
+<li><strong>Measure water quality.</strong> Record ammonia, nitrite, nitrate, pH and temperature. Use <a href="/tank-setup/how-to-test-water/">How to Test Axolotl Water</a> if needed.</li>
+<li><strong>Look for trauma.</strong> Check tank mates, sharp décor, intake guards and recent handling.</li>
+<li><strong>Review appetite and behavior.</strong> Note weight loss, breathing difficulty, abnormal swimming or rapid decline.</li>
+<li><strong>Contact an amphibian-experienced veterinarian</strong> when the lesion is spreading, involves gills, is accompanied by systemic signs, or the diagnosis is uncertain.</li>
+</ol>
+
+<h2>How is saprolegniasis diagnosed?</h2>
+<p>Merck describes a presumptive diagnosis by finding fungal-like hyphae and thin-walled zoospores on a skin scraping. Depending on the differential diagnosis, a veterinarian may use additional microscopy, culture or histopathology.</p>
+<p>This is why “cottony = definitely Saprolegnia” is too strong for an evidence-based page.</p>
+
+<h2>How is axolotl fungus treated?</h2>
+<p><strong>Treatment depends on the organism, lesion location, extent and the animal's overall condition.</strong> Current veterinary amphibian references emphasize correcting poor water quality and using appropriate topical or systemic antifungal therapy. For localized saprolegniasis, veterinary references also describe debridement and saline application in selected cases.</p>
+<p>Those options require clinical judgment. The concentration, exposure method and medication that is reasonable for one amphibian condition may not be safe for another. This page therefore does not convert veterinary treatments into a universal home recipe.</p>
+
+<h2>Should you use a black tea bath?</h2>
+<p>Black-tea baths are common in axolotl hobby discussions, but the veterinary sources reviewed for this page do not list black tea as a standard treatment for saprolegniasis. That means we should not describe a tea bath as a proven antifungal cure or assign it a fixed treatment timetable.</p>
+<p>See <a href="/health/black-tea-bath/">Black Tea Bath for Axolotls: When & How to Use One</a> for the evidence boundary and questions to ask before using this hobby practice.</p>
+
+<h2>Should you use a salt bath?</h2>
+<p>Saline treatment has a stronger veterinary basis than black tea: Merck's professional amphibian guidance describes salt-water application for localized saprolegniasis. However, that is <strong>not</strong> the same as validating every online “teaspoons per liter for X minutes” protocol for pet axolotls.</p>
+<p>See <a href="/health/salt-bath/">Axolotl Salt Bath: When It May Be Used & How It Works</a> for the distinction between veterinary saline use and improvised home recipes.</p>
+
+<h2>When is veterinary care more urgent?</h2>
+<p>Contact an amphibian-experienced veterinarian promptly when there is respiratory distress, substantial gill involvement, anorexia with deterioration, weight loss, ulceration, rapid spread, repeated recurrence, extensive skin damage, or uncertainty about whether the lesion is fungal at all.</p>
+<p>Use <a href="/health/emergency-first-aid/">Axolotl Emergency Signs</a> for triage and <a href="/health/finding-an-exotic-vet/">Finding an Exotic Vet</a> to locate appropriate care.</p>
+
+<h2>How do you reduce recurrence risk?</h2>
+<p>Prevention is primarily husbandry: stable clean water, safe surfaces, appropriate nutrition, low-stress handling and correction of injuries or tank-mate problems. Treating a visible lesion without correcting the factor that damaged the skin makes recurrence more likely.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/infectious-diseases-of-amphibians">Merck Veterinary Manual: Infectious Diseases of Amphibians — Saprolegniasis</a></li>
+<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/common-infectious-diseases-of-amphibians">Merck Veterinary Manual, pet-owner version: Common Infectious Diseases of Amphibians, updated June 2026</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/35628794/">Saprolegniosis in Amphibians: An Integrated Overview</a></li>
+<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
+</ul>
+'''
+
+BODY_OVERRIDES["health/black-tea-bath"] = r'''
+<p><strong>A black tea bath is a popular axolotl-keeping practice, but it is not a standard veterinary treatment for saprolegniasis in the amphibian references reviewed by MyAxolotl.</strong> Claims that a fixed tea ratio “kills fungus,” repairs the slime coat, or guarantees improvement within a certain number of days go beyond the evidence we found.</p>
+<div class="role-note"><strong>This page explains a procedure's evidence limits; it does not diagnose fungus.</strong> Start with <a href="/health/fungal-infections-saprolegnia/">Axolotl Fungus: Symptoms, Causes & Treatment</a>.</div>
+
+<h2>What is a black tea bath?</h2>
+<p>In the hobby, a black tea bath usually means placing an axolotl temporarily in dechlorinated water containing diluted brewed black tea. The idea is based on plant tannins and their astringent or antimicrobial properties in other contexts.</p>
+<p>The problem is standardization: tea type, brewing strength, dilution, water chemistry and exposure time vary widely between online protocols. We did not find a controlled axolotl clinical study establishing one therapeutic concentration or treatment schedule.</p>
+
+<h2>Is black tea a proven treatment for axolotl fungus?</h2>
+<p><strong>Not from the veterinary evidence reviewed here.</strong> Current Merck amphibian guidance for saprolegniasis discusses diagnosis, hygiene, correcting water quality, saline application in selected localized cases and antifungal medications. It does not list black tea as a standard treatment.</p>
+<p>That absence does not prove that tannin exposure can never have a biological effect. It means MyAxolotl should not present a hobby recipe as though it were a validated veterinary protocol.</p>
+
+<h2>What claims should you be cautious about?</h2>
+<ul>
+<li>“Use exactly a 1:3 tea-to-water ratio.”</li>
+<li>“Ten to fifteen minutes is the proven therapeutic window.”</li>
+<li>“Tea baths cure mild fungus in three days.”</li>
+<li>“Black tea is antibacterial and antifungal at any hobby dilution.”</li>
+<li>“Tea baths repair or tighten an axolotl's slime coat.”</li>
+</ul>
+<p>Those statements require axolotl-specific concentration and outcome data that the sources reviewed here do not provide.</p>
+
+<h2>When might a veterinarian still discuss tannins?</h2>
+<p>A veterinarian may consider environmental or supportive measures that include tannin-containing materials, depending on the animal and condition. If your veterinarian specifically recommends black tea, ask for the exact product, concentration, water volume, exposure duration, frequency and stop criteria rather than substituting a forum recipe.</p>
+
+<h2>What should you do before any bath?</h2>
+<ol>
+<li>Confirm the water temperature and test ammonia, nitrite, nitrate and pH.</li>
+<li>Photograph the lesion or irritation in neutral light.</li>
+<li>Review recent injuries, new tank mates, cleaning chemicals and handling.</li>
+<li>Determine whether the animal has systemic signs such as anorexia, respiratory difficulty, weight loss or abnormal swimming.</li>
+<li>Use veterinary guidance for a spreading or uncertain lesion.</li>
+</ol>
+
+<h2>Can a tea bath delay needed treatment?</h2>
+<p>Yes. The main risk is not only the bath itself; it is losing time while a bacterial, fungal or other lesion progresses under the assumption that “tea will fix it.” Amphibian skin diseases can overlap visually, and the correct treatment may require microscopy or medication.</p>
+
+<h2>What is the safer evidence-based support?</h2>
+<p>Correct poor water quality, keep the animal within an appropriate stable temperature range, minimize unnecessary handling, remove sources of trauma and obtain veterinary assessment when the lesion is spreading or the animal is deteriorating. Those steps are supported more directly than a universal tea-bath recipe.</p>
+
+<h2>When should you contact an exotic veterinarian?</h2>
+<p>Seek veterinary advice for gill involvement, rapidly enlarging lesions, ulceration, respiratory difficulty, substantial appetite loss, weight loss, repeated recurrence, severe lethargy or failure to improve after husbandry problems are corrected.</p>
+<p>Use the <a href="/health/finding-an-exotic-vet/">axolotl vet guide</a> if you do not already have an amphibian-experienced clinician.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/infectious-diseases-of-amphibians">Merck Veterinary Manual: Infectious Diseases of Amphibians</a></li>
+<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/common-infectious-diseases-of-amphibians">Merck Veterinary Manual: Common Infectious Diseases of Amphibians, updated June 2026</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/35628794/">Saprolegniosis in Amphibians: An Integrated Overview</a></li>
+</ul>
+'''
+
+BODY_OVERRIDES["health/salt-bath"] = r'''
+<p><strong>Salt has a documented role in veterinary management of saprolegniasis in amphibians, but that does not validate every axolotl salt-bath recipe found online.</strong> Amphibian skin and gills are highly permeable, so concentration, exposure method, lesion type and the animal's condition matter.</p>
+<div class="role-note"><strong>This page owns the saline-treatment question, not diagnosis.</strong> First review <a href="/health/fungal-infections-saprolegnia/">Axolotl Fungus: Symptoms, Causes & Treatment</a>.</div>
+
+<h2>What is an axolotl salt bath?</h2>
+<p>“Salt bath” is a hobby term for temporary exposure to saline water. In professional amphibian medicine, saline solutions can be used for several different purposes, and Merck specifically describes salt-water application in selected localized cases of saprolegniasis.</p>
+<p>That veterinary statement is much narrower than “all white fuzz should get a salt bath.”</p>
+
+<h2>Does veterinary guidance support salt for saprolegniasis?</h2>
+<p><strong>Yes, in selected cases.</strong> Merck's professional amphibian manual describes localized smaller saprolegniasis infections as potentially being debrided and treated with salt-water application, while also emphasizing correction of poor water quality and the possible use of antifungal medication.</p>
+<p>The pet-owner version is even more conservative: it lists antifungals and dips prescribed by a veterinarian for saprolegniasis.</p>
+
+<h2>Why doesn't MyAxolotl give a teaspoons-per-liter recipe?</h2>
+<p>Because a household spoon recipe can hide several important variables:</p>
+<ul>
+<li>the actual salinity produced by the salt product;</li>
+<li>the duration and frequency of exposure;</li>
+<li>whether the lesion is truly saprolegniasis;</li>
+<li>whether gill or skin tissue is already severely damaged;</li>
+<li>the animal's hydration and systemic condition; and</li>
+<li>differences between a topical saline application, an immersion dip and long-term water chemistry.</li>
+</ul>
+<p>Veterinary references express saline treatment in measured salinity/concentration terms and clinical context, not as one universal household recipe for every pet axolotl.</p>
+
+<h2>Is stronger or longer better?</h2>
+<p><strong>No.</strong> Amphibians exchange water and dissolved substances across permeable skin. Increasing salinity or exposure time can increase osmotic stress and tissue irritation. If a veterinarian prescribes a saline treatment, follow that concentration and exposure schedule rather than “adding a little more” for a stubborn lesion.</p>
+
+<h2>Should salt be added permanently to the axolotl tank?</h2>
+<p>Do not convert a short-term clinical saline treatment into routine aquarium salting. Axolotls are freshwater amphibians, and routine husbandry water chemistry is a different question from a veterinarian-directed treatment exposure. See <a href="/biology-and-science/wild-habitat-xochimilco/">Where Do Axolotls Live?</a> and <a href="/tank-setup/water-parameters-cycling/">Water Parameters & Nitrogen Cycle</a>.</p>
+
+<h2>What should you check before considering saline treatment?</h2>
+<ol>
+<li>Confirm water quality and temperature.</li>
+<li>Document the lesion and whether it is spreading.</li>
+<li>Check for trauma or chemical exposure.</li>
+<li>Review appetite, breathing, weight and behavior.</li>
+<li>Get veterinary guidance when the diagnosis is uncertain or the lesion is more than a small localized surface problem.</li>
+</ol>
+
+<h2>What signs should move you away from DIY treatment?</h2>
+<p>Respiratory difficulty, substantial gill involvement, ulceration, widespread or rapidly progressing lesions, weight loss, marked anorexia, abnormal swimming, severe swelling or repeated recurrence warrant veterinary assessment rather than repeated improvised baths.</p>
+
+<h2>Salt bath vs black tea bath</h2>
+<p>They do not have equal evidence. Veterinary amphibian sources describe saline use for selected saprolegniasis cases. The same sources reviewed by MyAxolotl do not list black tea as a standard treatment. That does not make salt universally appropriate; it means the saline question has a documented clinical basis that still needs correct diagnosis and dosing.</p>
+<p>See <a href="/health/black-tea-bath/">Black Tea Bath for Axolotls</a> for that evidence boundary.</p>
+
+<h2>What may a veterinarian use instead?</h2>
+<p>Depending on diagnosis and severity, veterinarians may correct environmental conditions, debride a localized lesion, use a properly measured saline treatment, or prescribe topical/systemic antifungal medication. The treatment should match the organism and the animal rather than a generic “fungus protocol.”</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/infectious-diseases-of-amphibians">Merck Veterinary Manual: Infectious Diseases of Amphibians — Saprolegniasis</a></li>
+<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/common-infectious-diseases-of-amphibians">Merck Veterinary Manual: Common Infectious Diseases of Amphibians, updated June 2026</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/35628794/">Saprolegniosis in Amphibians: An Integrated Overview</a></li>
+</ul>
+'''
+
 # Build trigger: retry Cost & Buying after clearing the stale queued job.
 
 # Keyword-reconciliation fix: strengthen the existing anatomy owner for teeth/oral anatomy.
