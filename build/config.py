@@ -6148,6 +6148,87 @@ BODY_OVERRIDES["tank-setup/water-change-guide"] = r'''
 </ul>
 '''
 
+
+BODY_OVERRIDES["tank-setup/filtration-for-axolotls"] = r'''
+<p><strong>For a conventional home axolotl aquarium, use biological filtration with gentle water movement.</strong> The filter's most important job is to support the nitrogen cycle so ammonia is converted through nitrite toward nitrate; its output should not create a current that continuously pushes or disturbs the axolotl.</p>
+<div class="role-note"><strong>This page owns filtration principles, sizing logic and flow control.</strong> For the head-to-head purchase decision, use <a href="/tank-setup/canister-vs-sponge-filter/">Canister Filters vs Sponge Filters for Axolotls</a>.</div>
+
+<h2>Do axolotls need a filter?</h2>
+<p><strong>A home aquarium should normally use an established biological filter.</strong> Axolotls can technically be kept in static containers without filtration when water is replaced frequently—research facilities do this under controlled husbandry—but that is a different management system from an ordinary pet aquarium.</p>
+<p>The 2024 Ambystoma Genetic Stock Center guide describes three housing approaches: static housing, filtered aquaria and recirculating systems. For filtered aquaria it recommends low-current power filtration with biological filtration, regular water changes and water-chemistry monitoring.</p>
+
+<h2>What does an axolotl filter actually do?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Filtration role</th><th>What it does</th><th>Priority</th></tr></thead>
+<tbody>
+<tr><td>Biological</td><td>Provides colonized surface area for microbes involved in processing nitrogenous waste</td><td>Essential in a conventional cycled aquarium</td></tr>
+<tr><td>Mechanical</td><td>Captures suspended debris and food/waste particles</td><td>Useful; remove captured waste during maintenance</td></tr>
+<tr><td>Chemical</td><td>Special-purpose media can remove selected dissolved compounds</td><td>Optional; not a substitute for biological filtration or water changes</td></tr>
+</tbody></table></div>
+
+<h2>Why does biological filtration matter?</h2>
+<p>Ammonia is produced in an occupied aquatic system from animal waste and decomposing organic material. In a cycled filter, microbial communities convert ammonia through nitrite toward nitrate. Merck's aquatic-animal guidance identifies ammonia toxicosis as a common problem in systems without an established active biofilter.</p>
+<p>Use <a href="/tank-setup/water-parameters-cycling/">Water Parameters & Nitrogen Cycle</a> for the chemistry and <a href="/tools/nitrogen-cycle-tracker/">the Nitrogen Cycle Tracker</a> for logging.</p>
+
+<h2>Does changing water remove the beneficial bacteria?</h2>
+<p><strong>Routine partial water changes do not mean you must “restart the cycle.”</strong> A functioning biofilter is based on microbial biofilms associated with filtration media and aquarium surfaces, while water changes dilute dissolved waste products. The real risk is destroying or replacing too much established biological media at once or exposing it to conditions that kill the biofilm.</p>
+<p>This is why water changes and biological filtration work together rather than competing with each other.</p>
+
+<h2>How much flow is safe for an axolotl?</h2>
+<p><strong>There is no well-established axolotl GPH multiplier such as “5× target, 10× maximum” in the primary husbandry sources reviewed here.</strong> The defensible rule is functional: keep circulation slow enough that the animal can rest, walk and feed without being continuously displaced or forced to brace against a concentrated jet.</p>
+<p>AGSC explicitly warns that rapidly circulating water is stressful and recommends keeping circulation as slow as possible in continuously circulated systems. A spray bar, baffle, broad outlet or adjustable flow can reduce concentrated current while preserving filtration.</p>
+
+<h2>How do you know the filter flow is too strong?</h2>
+<p>Watch the animal and the tank rather than relying only on the pump's box rating. Reduce or redirect flow if the outlet visibly pushes the axolotl, prevents it from settling normally, blows food away during feeding, or creates a strong current across most of the usable floor area.</p>
+<p>Do not diagnose “flow stress” from curled gills alone; posture changes are nonspecific. Use <a href="/health/curled-gills-stress-signal/">the curled-gills guide</a> if that is the sign that concerns you.</p>
+
+<h2>How should you size a filter?</h2>
+<p>Filter sizing has two independent questions:</p>
+<ol>
+<li><strong>Biological capacity:</strong> can the media support a stable nitrogen cycle for the actual animal and feeding load?</li>
+<li><strong>Outlet behavior:</strong> can the water return be adjusted or dispersed so current remains gentle?</li>
+</ol>
+<p>A filter can have plenty of media but an unsuitable outlet, or a gentle outlet but insufficient biological capacity. Tank volume alone cannot answer both questions.</p>
+
+<h2>Sponge, HOB or canister filter?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Filter type</th><th>Strengths</th><th>Watch for</th></tr></thead>
+<tbody>
+<tr><td>Sponge</td><td>Simple biological filtration, inherently gentle when correctly air-driven, inexpensive</td><td>Mechanical capture is limited; choose enough sponge/media area for the system</td></tr>
+<tr><td>Hang-on-back (HOB)</td><td>Accessible media and good mechanical filtration</td><td>Waterfall/outlet may need baffling or flow reduction</td></tr>
+<tr><td>Canister</td><td>Large customizable media capacity and flexible return plumbing</td><td>Can create strong output if not adjusted/dispersed; more complex maintenance</td></tr>
+</tbody></table></div>
+<p>No one type is automatically “best” for every axolotl tank. The dedicated <a href="/tank-setup/canister-vs-sponge-filter/">Canister vs Sponge</a> page owns that comparison.</p>
+
+<h2>Should you oversize the filter?</h2>
+<p>It can be reasonable to choose more biological-media capacity than the bare minimum, but <strong>do not assume a larger filter rating is automatically safer</strong>. Manufacturer tank ratings are not axolotl-specific, and a higher-capacity filter can also produce stronger flow. If you choose extra media capacity, make sure the return can still be made gentle.</p>
+
+<h2>How do you cycle a new filter?</h2>
+<p>Establish the biological filter before relying on it to process an axolotl's waste. A new filter does not become “cycled” merely because it has run for a set number of days. Cycling is confirmed from the pattern of ammonia, nitrite and nitrate under the method you are using.</p>
+<p>Follow <a href="/tank-setup/water-parameters-cycling/">the cycling guide</a> and do not use the axolotl itself as the ammonia source for an uncycled aquarium.</p>
+
+<h2>How do you maintain filter media?</h2>
+<ul>
+<li>Remove trapped debris before it decomposes in the filter.</li>
+<li>Preserve established biological media when it is still functional.</li>
+<li>Avoid replacing all mature biological media at the same time without a reason and a plan.</li>
+<li>Keep chlorine/chloramine away from established biological media.</li>
+<li>Follow the manufacturer's mechanical-maintenance instructions while protecting the biofilter.</li>
+</ul>
+<p>Filter maintenance frequency depends on debris load and the filter design; use declining flow, visible accumulation and water-quality trends rather than an arbitrary monthly replacement schedule.</p>
+
+<h2>Do you still need water changes with a filter?</h2>
+<p><strong>Yes.</strong> A biological filter processes nitrogenous waste; it does not make water changes obsolete. The 2024 AGSC guide specifies regular partial water replacement even in filtered and recirculating systems. Use <a href="/tank-setup/water-change-guide/">the Axolotl Water Change Guide</a> for the maintenance procedure.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
+<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/laboratory-animals/management-of-laboratory-animals">Merck Veterinary Manual: Management of Laboratory Animals — aquatic water quality and biofiltration</a></li>
+<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/housing-for-amphibians">Merck Veterinary Manual: Housing for Amphibians</a></li>
+</ul>
+'''
+
 # Build trigger: retry Cost & Buying after clearing the stale queued job.
 
 # Keyword-reconciliation fix: strengthen the existing anatomy owner for teeth/oral anatomy.
