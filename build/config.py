@@ -6341,6 +6341,158 @@ BODY_OVERRIDES["tank-setup/canister-vs-sponge-filter"] = r'''
 </ul>
 '''
 
+
+BODY_OVERRIDES["diet/fasting-and-vacation"] = r'''
+<p><strong>There is no well-established research-based number of days that every healthy axolotl can safely go without food.</strong> Age, body condition, normal feeding schedule, temperature, health and recent intake all matter. For vacation planning, use the animal's normal feeding frequency and arrange a competent person to monitor the tank rather than treating an internet “maximum fasting window” as a safety guarantee.</p>
+<div class="role-note"><strong>This page owns planned food gaps and vacations.</strong> If your axolotl has unexpectedly stopped eating, use <a href="/health/refusing-to-eat/">Axolotl Not Eating?</a> instead.</div>
+
+<h2>How often are axolotls normally fed?</h2>
+<p>The Ambystoma Genetic Stock Center's current 2024 research guide feeds newly feeding larvae frequently, then reduces feeding as animals grow; its husbandry timeline lists adult pelleted food about twice weekly in its system. The older AGSC husbandry guide describes adults around one year old being fed three or four times per week.</p>
+<p>Those are husbandry schedules, not proof that an adult can safely be left unfed for a specific number of days. They do show why missing one scheduled adult feeding is a different situation from withholding food from a rapidly growing larva.</p>
+
+<h2>How long can an adult axolotl go without food?</h2>
+<p><strong>Do not use “14 days,” “21 days,” or any other fixed number as a universal safe limit.</strong> We did not find an axolotl study establishing a validated maximum fasting duration for healthy pets. An adult normally fed only a few times each week has more spacing between meals than a larva or small juvenile, but planned absence should still include monitoring of the animal and aquarium.</p>
+<p>A thin adult, an animal recovering from illness, a breeding female, or an axolotl with recent appetite loss should not be treated like a healthy well-conditioned adult simply because they are the same age.</p>
+
+<h2>How long can juvenile or baby axolotls go without food?</h2>
+<p><strong>Young animals should not be assigned a “safe fasting window” from an age chart.</strong> AGSC feeds newly hatched larvae daily once they begin feeding and gradually transitions them to larger foods as they grow. Young animals are actively growing and are normally offered food much more frequently than adults.</p>
+<p>If you will miss normal feedings for a larva or juvenile, arrange a trained sitter rather than planning a multi-day fast around an unsupported number.</p>
+
+<h2>Does cold water make fasting safer?</h2>
+<p>Axolotls are ectotherms, so temperature affects metabolism, but that does not justify deliberately chilling an animal to extend a vacation fast. Keep the aquarium in its normal stable husbandry range. Temperature manipulation can create additional stress and should not be used as a substitute for a feeding or monitoring plan.</p>
+
+<h2>Can you leave an adult axolotl alone for a short trip?</h2>
+<p>A healthy adult whose normal feeding schedule already includes days between meals may not need food every day. The bigger vacation risk is often <strong>lack of monitoring</strong>: filter failure, power outage, rising temperature, a leak or deteriorating water quality can become serious even if missing a meal would not.</p>
+<p>For any absence longer than the gap you normally leave between feedings, arrange someone who can inspect the animal and equipment and follow written instructions.</p>
+
+<h2>What should you do before a vacation?</h2>
+<ol>
+<li><strong>Test the water several days before departure.</strong> Correct problems before the trip rather than making a large last-minute change.</li>
+<li><strong>Perform normal maintenance.</strong> Use the <a href="/tank-setup/water-change-guide/">Water Change Guide</a>; do not invent an oversized “vacation water change.”</li>
+<li><strong>Check the filter and cooling system.</strong> Confirm normal operation without replacing mature biological media just before leaving.</li>
+<li><strong>Remove waste and uneaten food.</strong></li>
+<li><strong>Feed the normal scheduled portion.</strong> Do not double-feed “to store food up.”</li>
+<li><strong>Write sitter instructions.</strong> Include temperature, what to feed, exact portions, what not to add, and who to call.</li>
+</ol>
+
+<h2>Is a pet sitter better than an automatic feeder?</h2>
+<p><strong>For most axolotl vacations, a competent person is more useful than an automatic feeder.</strong> A sitter can see a leak, cooling failure, abnormal posture, dead equipment or spoiled food. Automatic feeders vary in reliability and may dispense food that an axolotl does not eat promptly.</p>
+<p>If a feeder is used, test the exact device and food in advance while you are home. Do not first deploy it on departure day.</p>
+
+<h2>What should the sitter actually do?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Task</th><th>Instruction</th></tr></thead>
+<tbody>
+<tr><td>Temperature</td><td>Read and record the thermometer; contact you if outside the written normal range.</td></tr>
+<tr><td>Animal check</td><td>Confirm normal posture, breathing, movement and absence of injury or major swelling.</td></tr>
+<tr><td>Feeding</td><td>Feed only the pre-portioned amount on the written schedule; remove leftovers.</td></tr>
+<tr><td>Equipment</td><td>Confirm filter and cooling equipment are operating normally.</td></tr>
+<tr><td>Emergency</td><td>Use your vet/contact instructions rather than improvising baths, medication or temperature changes.</td></tr>
+</tbody></table></div>
+
+<h2>Should you overfeed before leaving?</h2>
+<p>No. Give the animal its normal meal on its normal schedule. An extra-large meal can create uneaten food, regurgitation or extra waste and does not create a validated reserve that guarantees a longer safe fast.</p>
+
+<h2>What should you do when you return?</h2>
+<p>Inspect the animal, check temperature and water quality, remove any waste and resume the normal feeding schedule. There is no evidence-based rule that every axolotl must receive a “half-size restart meal” after a certain number of fasting days.</p>
+<p>If the animal is unexpectedly refusing food, losing body condition or showing other signs, switch to <a href="/health/refusing-to-eat/">the appetite-loss health guide</a> rather than continuing to treat the situation as planned fasting.</p>
+
+<h2>When is a feeding gap no longer a vacation question?</h2>
+<p>It becomes a health question when the axolotl refuses food unexpectedly, loses weight or body condition, develops swelling or abnormal buoyancy, has skin/gill changes, becomes markedly lethargic, or continues to decline. Contact an amphibian-experienced veterinarian for concerning or persistent changes.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024 — feeding timeline</a></li>
+<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry — feeding and routine care</a></li>
+</ul>
+<p><strong>Evidence note:</strong> these sources describe feeding schedules; they do not validate a universal maximum fasting duration for pet axolotls.</p>
+'''
+
+BODY_OVERRIDES["health/impaction-symptoms-treatment"] = r'''
+<p><strong>“Impaction” means a gastrointestinal foreign body or blockage, but appetite loss, swelling, reduced feces and abnormal floating do not confirm one from appearance alone.</strong> Amphibians can swallow gravel and other enclosure material, and axolotl foreign bodies have been confirmed and removed using veterinary imaging, endoscopy and surgery.</p>
+<div class="role-note"><strong>This page owns suspected gastrointestinal blockage.</strong> For substrate prevention use <a href="/tank-setup/substrate-and-impaction/">the substrate guide</a>; for gravel specifically use <a href="/tank-setup/gravel-risks/">Gravel Risks</a>. Do not use this page as a reason to fridge or medicate an animal without diagnosis.</div>
+
+<h2>What is axolotl impaction?</h2>
+<p>A gastrointestinal foreign body is a swallowed non-food item that partially or completely obstructs the digestive tract. Veterinary Partner uses the broader amphibian term <em>gastrointestinal foreign body</em> or impaction, while <em>gastrointestinal overload</em> describes excessive food volume distending the stomach.</p>
+<p>Gravel and other enclosure material are recognized amphibian foreign-body risks, and published axolotl case reports document gastric foreign bodies requiring endoscopic or surgical removal.</p>
+
+<h2>What signs can occur with a gastrointestinal blockage?</h2>
+<p>Possible signs include appetite loss, abdominal enlargement, reduced fecal output, abnormal buoyancy, lethargy or other changes in behavior. These signs are <strong>not specific</strong>. Overfeeding, parasites, infection, reproductive problems, fluid accumulation and other disease can look similar.</p>
+<p>That is why “not eating + floating = impaction” is not an adequate diagnosis.</p>
+
+<h2>What makes a foreign body more plausible?</h2>
+<ul>
+<li>known access to swallowable gravel, stones, moss or other enclosure material;</li>
+<li>a witnessed ingestion event;</li>
+<li>persistent abdominal distension after such exposure;</li>
+<li>continuing appetite or fecal changes; or</li>
+<li>diagnostic imaging that identifies a foreign object.</li>
+</ul>
+<p>Absence of visible gravel in feces does not prove there is an obstruction, and absence of feces for a particular number of days does not prove one either.</p>
+
+<h2>Impaction vs constipation: can you tell at home?</h2>
+<p><strong>Not reliably from external signs alone.</strong> “Constipation” is often used informally for slowed fecal passage, while a foreign-body obstruction is a physical blockage. They can overlap in appetite, swelling and fecal changes, but their management may differ substantially.</p>
+<p>A veterinarian may use history, physical examination, fecal testing, radiographs, contrast imaging or ultrasound to distinguish gastrointestinal disease and locate a foreign body.</p>
+
+<h2>Should you fridge an axolotl for impaction?</h2>
+<p><strong>MyAxolotl does not recommend refrigerator fridging as a standard first-line impaction treatment.</strong> We did not find a veterinary source establishing 5°C refrigerator treatment for 1–2 weeks as a validated way to clear an axolotl foreign body. Cooling also slows metabolism and gut activity, so the common claim that extreme cold “makes the blockage pass” should not be presented as established physiology.</p>
+<p>The separate <a href="/health/fridging-sick-axolotl/">fridging guide</a> explains why refrigeration should only be considered when an amphibian-experienced veterinarian specifically recommends it for the individual animal.</p>
+
+<h2>Should you stop feeding?</h2>
+<p>If a true obstruction is strongly suspected, do not force-feed or repeatedly add large meals while arranging veterinary assessment. However, a long unsupervised fast is not a substitute for diagnosis. The correct feeding plan depends on whether the problem is a foreign body, overload, another gastrointestinal disease or something unrelated to the gut.</p>
+
+<h2>What should you do first?</h2>
+<ol>
+<li><strong>Remove access to the suspected foreign material.</strong> Move the animal only if needed to prevent continued ingestion or injury.</li>
+<li><strong>Measure water quality and temperature.</strong> Correct husbandry problems without creating abrupt swings.</li>
+<li><strong>Document the timeline.</strong> Record last normal meal, last observed feces, known ingestion, swelling, buoyancy and weight/body-condition change.</li>
+<li><strong>Do not massage the abdomen.</strong> External pressure on a swallowed hard or sharp object can add risk.</li>
+<li><strong>Do not give human laxatives or improvised medication.</strong></li>
+<li><strong>Contact an amphibian/exotics veterinarian</strong> when signs persist, the animal is worsening, or foreign-body ingestion is likely.</li>
+</ol>
+
+<h2>How does a veterinarian diagnose impaction?</h2>
+<p>Veterinary amphibian guidance describes radiographs, contrast studies and ultrasound as tools for investigating foreign bodies or gastrointestinal distension. Published axolotl cases have used radiography and direct visualization before foreign bodies were removed.</p>
+<p>Dense gravel may be visible on radiographs; other material can be more difficult to detect and may require additional imaging or endoscopy.</p>
+
+<h2>How can a foreign body be treated?</h2>
+<p>Treatment depends on the object's location, size and effect on the animal. Veterinary Partner describes options including decompression, removal through the mouth, endoscopic retrieval and surgical removal. Axolotl case reports document successful endoscopic retrieval and gastric surgery under amphibian anesthesia.</p>
+<p>Those procedures are veterinary interventions, not home techniques.</p>
+
+<h2>When is the situation urgent?</h2>
+<p>Seek prompt veterinary care for severe or increasing abdominal distension, inability to maintain normal position, prolapse, respiratory difficulty, marked lethargy, rapid decline, obvious painful trauma, or a known swallowed foreign body with continuing symptoms.</p>
+<p>Use <a href="/health/emergency-first-aid/">Axolotl Emergency Signs</a> for triage.</p>
+
+<h2>How do you prevent impaction?</h2>
+<p>Prevention is more reliable than home treatment:</p>
+<ul>
+<li>avoid swallowable gravel and loose stones;</li>
+<li>choose substrate using <a href="/tank-setup/substrate-and-impaction/">the substrate guide</a>;</li>
+<li>remove broken décor and small foreign objects;</li>
+<li>feed appropriately sized foods; and</li>
+<li>observe feeding so the axolotl is not repeatedly suctioning food from unsafe material.</li>
+</ul>
+
+<h2>Which page owns each related problem?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Question</th><th>Owner</th></tr></thead>
+<tbody>
+<tr><td>Which substrate should I use?</td><td><a href="/tank-setup/substrate-and-impaction/">Substrate & Impaction Prevention</a></td></tr>
+<tr><td>Why is gravel dangerous?</td><td><a href="/tank-setup/gravel-risks/">Gravel Risks</a></td></tr>
+<tr><td>My axolotl is floating</td><td><a href="/health/why-axolotl-floating/">Floating Guide</a></td></tr>
+<tr><td>My axolotl stopped eating</td><td><a href="/health/refusing-to-eat/">Refusing to Eat</a></td></tr>
+<tr><td>Is my axolotl overfed?</td><td><a href="/diet/overfeeding-and-impaction/">Body Condition / Overfeeding</a></td></tr>
+</tbody></table></div>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://veterinarypartner.vin.com/default.aspx?catId=253985&amp;id=8030801&amp;ind=1817&amp;objTypeID=1007&amp;pid=19239">Veterinary Partner / VIN: Gastrointestinal Foreign Body or Overload in Amphibians</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/31120693/">Burns et al.: Endoscopic removal of a foreign body in a Mexican axolotl</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/21988819/">McMillan & Leece: anesthesia for surgical retrieval of gastric foreign bodies in an axolotl</a></li>
+<li><a href="https://members.arav.org/resource/resmgr/files/proceedings_2016/Chapter_28_-_Clinical_Review.pdf">ARAV clinical review: surgical gastric foreign-body removal in a juvenile Mexican axolotl</a></li>
+</ul>
+'''
+
 # Build trigger: retry Cost & Buying after clearing the stale queued job.
 
 # Keyword-reconciliation fix: strengthen the existing anatomy owner for teeth/oral anatomy.
