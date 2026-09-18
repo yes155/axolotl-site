@@ -2598,7 +2598,7 @@ def render_404():
 # Site files
 # ---------------------------------------------------------------------------
 def copy_tools():
-    """Copy the self-contained tool HTML files verbatim."""
+    """Build tool pages with their interactive source plus the universal site chrome."""
     written = []
     for fname, t in config.TOOLS.items():
         src = _tool_source_path(fname)
@@ -2703,6 +2703,69 @@ def copy_tools():
             f'<meta name="twitter:creator" content="{esc(x_handle)}">\n'
         )
         text = text.replace("</head>", inject + "</head>", 1)
+
+        # Tool sources are intentionally self-contained for their calculators and
+        # interactive JavaScript, but their output must still use the same global
+        # identity, navigation and footer as every other page.
+        if 'href="/css/style.css"' not in text:
+            site_head_assets = (
+                f'<link rel="icon" href="{esc(config.SITE_FAVICON)}" type="image/webp">\n'
+                '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
+                '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
+                '<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;'
+                '9..144,600;9..144,700&family=Poppins:wght@400;500;600;700&display=swap" '
+                'rel="stylesheet">\n'
+                '<link rel="stylesheet" href="/css/style.css">\n'
+            )
+            text = text.replace("</head>", site_head_assets + "</head>", 1)
+
+        # Some legacy tools used site-header/site-footer for their own local
+        # banners. The shared navigation is identified by main-nav/footer-grid,
+        # which avoids mistaking those local elements for the universal chrome.
+        if 'class="main-nav"' not in text:
+            text = text.replace('class="site-header"', 'class="tool-source-header"', 1)
+            site_top = (
+                '<a class="skip-link" href="#main">Skip to content</a>\n'
+                + header("/tools/") + "\n"
+            )
+            text = re.sub(
+                r'(<body\b[^>]*>)',
+                lambda m: m.group(1) + "\n" + site_top,
+                text,
+                count=1,
+                flags=re.I,
+            )
+
+        if not re.search(r'\bid="main"', text, re.I):
+            if re.search(r'<main\b', text, re.I):
+                text = re.sub(r'<main\b', '<main id="main"', text, count=1, flags=re.I)
+            else:
+                text = text.replace(
+                    "</header>",
+                    '</header>\n<span id="main" class="sr-only" tabindex="-1"></span>',
+                    1,
+                )
+
+        if 'class="footer-grid"' not in text:
+            text = text.replace('class="site-footer"', 'class="tool-source-footer"', 1)
+            text = text.replace("</body>", "\n" + footer() + "\n</body>", 1)
+
+        if "var b=document.querySelector('[data-nav-burger]')" not in text:
+            nav_script = (
+                "<script>(function(){"
+                "var b=document.querySelector('[data-nav-burger]'),m=document.querySelector('.mobile-nav');"
+                "if(b&&m){b.addEventListener('click',function(){"
+                "var open=m.classList.toggle('is-open');b.setAttribute('aria-expanded',open?'true':'false');"
+                "b.classList.toggle('is-active',open);document.body.classList.toggle('nav-open',open);});}"
+                "var t=document.querySelector('[data-more-toggle]'),mm=document.querySelector('.more-menu');"
+                "if(t&&mm){t.addEventListener('click',function(e){e.stopPropagation();"
+                "var open=mm.classList.toggle('is-open');t.setAttribute('aria-expanded',open?'true':'false');});"
+                "document.addEventListener('click',function(e){if(!e.target.closest('.more-wrap')){"
+                "mm.classList.remove('is-open');t.setAttribute('aria-expanded','false');}});}"
+                "})();</script>"
+            )
+            text = text.replace("</body>", "\n" + nav_script + "\n</body>", 1)
+
         data = text.encode("utf-8")
         with open(os.path.join(dst_dir, "index.html"), "wb") as fh:
             fh.write(data)
