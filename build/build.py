@@ -35,6 +35,7 @@ SRC = config.SOURCE_DIR
 PUBLIC = ROOT / "public"
 IMG_DIR = PUBLIC / "images"
 TOOLS_DIR = PUBLIC / "tools"
+REPO_TOOL_SOURCE_DIR = BUILD_DIR / "tool-sources"
 TODAY = date.today().isoformat()
 YEAR = date.today().year
 
@@ -137,6 +138,7 @@ TOOL_DESCS = {
     "nitrogen-cycle-tracker": "Track ammonia, nitrite, and nitrate as your new tank cycles before adding your axolotl.",
     "symptom-checker": "Review observed axolotl symptoms, possible explanations, safe first checks, and signs that need veterinary care.",
     "tank-size-calculator": "Find the minimum tank size for your axolotl based on its length and number of axolotls.",
+    "chiller-size-calculator": "Estimate an aquarium chiller class from tank volume, temperature pull-down, and heat load.",
 }
 
 # Popular searches shown on the empty search page (label -> query).
@@ -2452,10 +2454,18 @@ def strip_html_to_text(body_html):
     return txt.strip()
 
 
+def _tool_source_path(fname):
+    """Prefer versioned repo-local tool sources, then fall back to the external source folder."""
+    repo_src = REPO_TOOL_SOURCE_DIR / fname
+    if repo_src.exists():
+        return repo_src
+    return Path(SRC) / fname
+
+
 def _tool_subtitle(fname):
     """Extract the one-line subtitle from a self-contained tool page source."""
     try:
-        src = os.path.join(SRC, fname)
+        src = _tool_source_path(fname)
         with open(src, encoding="utf-8", errors="ignore") as fh:
             h = fh.read()
         m = re.search(r'class="subtitle"[^>]*>(.*?)</p>', h, re.S)
@@ -2590,7 +2600,7 @@ def copy_tools():
     """Copy the self-contained tool HTML files verbatim."""
     written = []
     for fname, t in config.TOOLS.items():
-        src = os.path.join(SRC, fname)
+        src = _tool_source_path(fname)
         if not os.path.exists(src):
             print("  !! missing tool:", fname)
             continue

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Axolotl Chiller Size Calculator: Estimate HP & Flow | MyAxolotl</title>
+<meta name="description" content="Estimate an aquarium chiller class for an axolotl tank from tank volume, temperature pull-down, and heat load. Includes published capacity and flow references.">
+<link rel="canonical" href="https://myaxolotl.us/tools/chiller-size-calculator/">
+<meta property="og:title" content="Axolotl Chiller Size Calculator">
+<meta property="og:description" content="Estimate a practical aquarium chiller class from tank volume, warmest water temperature, target temperature, and heat load.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myaxolotl.us/tools/chiller-size-calculator/">
+<meta property="og:site_name" content="MyAxolotl">
+<meta property="og:image" content="https://myaxolotl.us/images/axolotl-home.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Axolotl Chiller Size Calculator">
+<meta name="twitter:description" content="Estimate a practical aquarium chiller class for an axolotl tank from tank volume and cooling load.">
+<meta name="twitter:image" content="https://myaxolotl.us/images/axolotl-home.webp">
+<meta name="twitter:site" content="@myaxolotls">
+<meta name="twitter:creator" content="@myaxolotls">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebApplication",
+      "name":"Axolotl Chiller Size Calculator",
+      "url":"https://myaxolotl.us/tools/chiller-size-calculator/",
+      "applicationCategory":"UtilitiesApplication",
+      "operatingSystem":"Any",
+      "description":"Estimator for aquarium chiller class using tank volume, observed warm-water temperature, target temperature, and heat load."
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://myaxolotl.us/"},
+        {"@type":"ListItem","position":2,"name":"Tools","item":"https://myaxolotl.us/tools/"},
+        {"@type":"ListItem","position":3,"name":"Axolotl Chiller Size Calculator","item":"https://myaxolotl.us/tools/chiller-size-calculator/"}
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root{
+  --ink:#1f2d3d;--teal:#2c6e7f;--teal-dark:#1d4e5a;--teal-light:#e7f1f3;
+  --border:#d7e0e3;--muted:#5b6b73;--bg:#fafcfc;--card:#fff;
+  --warn-bg:#fbf2e1;--warn:#7a5514;--ok-bg:#edf7ef;--ok:#2e6339;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding:32px 20px 64px}
+h1{font-size:1.65rem;line-height:1.2;margin:0 0 8px}
+h2{font-size:1.15rem;margin:30px 0 10px}
+.subtitle{color:var(--muted);font-size:.96rem;margin:0 0 26px}
+.calc-card,.result-card,.reference-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:18px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px}
+label,.field-title{font-size:.84rem;font-weight:650;color:var(--muted)}
+.input-row{display:flex;gap:8px}
+input,select{width:100%;border:1px solid var(--border);border-radius:9px;background:#fff;color:var(--ink);font:inherit;padding:11px 12px}
+.unit{max-width:92px}
+.heat-options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.heat-btn{border:1px solid var(--border);border-radius:10px;background:#fff;padding:10px 8px;cursor:pointer;color:var(--ink);font:inherit}
+.heat-btn.active{border-color:var(--teal);background:var(--teal-light);font-weight:650}
+.heat-note{font-size:.78rem;color:var(--muted);margin-top:8px}
+.calc-btn{width:100%;border:0;border-radius:10px;background:var(--teal-dark);color:#fff;font:inherit;font-weight:700;padding:12px 16px;margin-top:18px;cursor:pointer}
+.calc-btn:hover{filter:brightness(.96)}
+.result-title{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.result-hp{font-size:2.25rem;font-weight:760;color:var(--teal-dark);line-height:1.1;margin:5px 0}
+.result-sub{color:var(--muted);font-size:.9rem}
+.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.metric{border-top:1px solid var(--border);padding-top:12px}
+.metric strong{display:block;font-size:1rem}
+.metric span{display:block;font-size:.75rem;color:var(--muted);margin-top:2px}
+.reason{margin-top:16px;padding:12px 14px;border-radius:9px;background:var(--teal-light);font-size:.88rem}
+.notice{margin-top:14px;padding:12px 14px;border-radius:9px;background:var(--warn-bg);color:var(--warn);font-size:.84rem}
+.ok{background:var(--ok-bg);color:var(--ok)}
+.ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.cta{display:inline-block;text-decoration:none;color:var(--teal-dark);border:1px solid var(--teal);border-radius:8px;padding:9px 13px;font-size:.84rem;font-weight:650}
+.cta:hover{background:var(--teal-light)}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.84rem}
+th,td{text-align:left;padding:10px;border-bottom:1px solid var(--border);white-space:nowrap}
+th{color:var(--muted);font-size:.76rem}
+.small{font-size:.8rem;color:var(--muted)}
+.sources a{color:var(--teal-dark)}
+footer{margin-top:38px;padding-top:18px;border-top:1px solid var(--border);font-size:.78rem;color:var(--muted)}
+footer a{color:var(--teal-dark)}
+@media(max-width:620px){
+  .grid{grid-template-columns:1fr}
+  .heat-options{grid-template-columns:1fr}
+  .metric-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>Axolotl Chiller Size Calculator</h1>
+  <p class="subtitle">Estimate a sensible chiller class from your tank volume, the warmest water temperature you actually observe, your target temperature, and the tank's extra heat load.</p>
+
+  <section class="calc-card" aria-labelledby="calc-heading">
+    <h2 id="calc-heading" style="margin-top:0">Enter your tank conditions</h2>
+    <div class="grid">
+      <div class="field">
+        <label for="volume">Tank volume</label>
+        <div class="input-row">
+          <input id="volume" type="number" min="5" max="1500" step="1" value="40" inputmode="decimal">
+          <select id="volume-unit" class="unit" aria-label="Tank volume unit">
+            <option value="gal">gallons</option>
+            <option value="l">liters</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="warm">Warmest observed tank water</label>
+        <div class="input-row">
+          <input id="warm" type="number" min="40" max="110" step="0.5" value="74" inputmode="decimal">
+          <select id="temp-unit" class="unit" aria-label="Temperature unit">
+            <option value="f">°F</option>
+            <option value="c">°C</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="target">Target water temperature</label>
+        <div class="input-row">
+          <input id="target" type="number" min="40" max="90" step="0.5" value="64" inputmode="decimal">
+          <span class="unit" id="target-unit" style="display:flex;align-items:center;padding:0 12px;color:var(--muted)">°F</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <span class="field-title">Extra heat load</span>
+        <div class="heat-options" role="group" aria-label="Extra heat load">
+          <button class="heat-btn" type="button" data-heat="low">Low</button>
+          <button class="heat-btn active" type="button" data-heat="normal">Normal</button>
+          <button class="heat-btn" type="button" data-heat="high">High</button>
+        </div>
+        <div class="heat-note">Use High for direct sun, unusually hot equipment, an enclosed cabinet, or other persistent heat sources.</div>
+      </div>
+    </div>
+    <button id="calculate" class="calc-btn" type="button">Estimate chiller size</button>
+  </section>
+
+  <div id="result" aria-live="polite"></div>
+
+  <section class="reference-card">
+    <h2 style="margin-top:0">How the estimator works</h2>
+    <p class="small">The calculator starts with published reservoir-capacity and flow ranges for common compressor chiller classes, then adds headroom when the tank is near the top of a published range, the required temperature drop is large, or the heat load is high. It does not pretend that horsepower alone is an engineering heat-load calculation.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Reference class</th><th>Published volume</th><th>Rated cooling</th><th>Published flow</th></tr></thead>
+        <tbody>
+          <tr><td>1/10 HP</td><td>13–40 gal</td><td>1,020 BTU/h</td><td>132–396 GPH</td></tr>
+          <tr><td>1/4 HP</td><td>40–92 gal</td><td>3,010 BTU/h</td><td>396–925 GPH</td></tr>
+          <tr><td>1/2 HP</td><td>90–172 gal</td><td>4,020 BTU/h</td><td>800–1,600 GPH</td></tr>
+          <tr><td>1 HP</td><td>132–396 gal</td><td>10,050 BTU/h</td><td>1,320–3,900 GPH</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">Different brands can rate similarly named HP classes differently. Always compare the selected model's own performance chart at your required temperature pull-down and verify its allowed flow range.</p>
+  </section>
+
+  <section class="reference-card sources">
+    <h2 style="margin-top:0">Sizing references</h2>
+    <ul class="small">
+      <li><a href="https://s3.amazonaws.com/hydrofarmpubdocs/aach10_25_50_100_instructions.pdf">Active Aqua chiller specifications and performance notes</a></li>
+      <li><a href="https://www.hydrofarm.com/p/active-aqua-chiller-with-power-boost-1-4-hp/aach25hp">Active Aqua 1/4 HP published capacity and flow</a></li>
+      <li><a href="https://www.hydrofarm.com/p/active-aqua-chiller-with-power-boost-1-2-hp/aach50hp">Active Aqua 1/2 HP published capacity and flow</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    Use this as a sizing starting point, not a substitute for the selected manufacturer's performance chart.
+    Read <a href="/tank-setup/temperature/">axolotl tank temperature and cooling</a> first, then compare options in the <a href="/tank-setup/aquarium-chillers/">aquarium chiller buying guide</a>.
+  </footer>
+</main>
+
+<script>
+(function(){
+  const tiers = [
+    {hp:"1/10 HP", min:13, max:40, btu:"1,020 BTU/h", flow:"132–396 GPH", flowL:"500–1,500 L/h"},
+    {hp:"1/4 HP", min:40, max:92, btu:"3,010 BTU/h", flow:"396–925 GPH", flowL:"1,500–3,500 L/h"},
+    {hp:"1/2 HP", min:90, max:172, btu:"4,020 BTU/h", flow:"800–1,600 GPH", flowL:"3,000–6,000 L/h"},
+    {hp:"1 HP", min:132, max:396, btu:"10,050 BTU/h", flow:"1,320–3,900 GPH", flowL:"5,000–15,000 L/h"}
+  ];
+
+  let heat = "normal";
+  const heatButtons = document.querySelectorAll(".heat-btn");
+  heatButtons.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      heat = btn.getAttribute("data-heat");
+      heatButtons.forEach(function(b){ b.classList.toggle("active", b === btn); });
+    });
+  });
+
+  const tempUnit = document.getElementById("temp-unit");
+  const targetUnit = document.getElementById("target-unit");
+  tempUnit.addEventListener("change", function(){
+    const warm = document.getElementById("warm");
+    const target = document.getElementById("target");
+    if (tempUnit.value === "c") {
+      warm.value = ((Number(warm.value) - 32) * 5 / 9).toFixed(1);
+      target.value = ((Number(target.value) - 32) * 5 / 9).toFixed(1);
+      warm.min = 4; warm.max = 43; target.min = 4; target.max = 32;
+      targetUnit.textContent = "°C";
+    } else {
+      warm.value = (Number(warm.value) * 9 / 5 + 32).toFixed(1);
+      target.value = (Number(target.value) * 9 / 5 + 32).toFixed(1);
+      warm.min = 40; warm.max = 110; target.min = 40; target.max = 90;
+      targetUnit.textContent = "°F";
+    }
+  });
+
+  function toGallons(value, unit){ return unit === "l" ? value / 3.785411784 : value; }
+  function toF(value, unit){ return unit === "c" ? value * 9 / 5 + 32 : value; }
+  function fmt(n){ return Math.round(n * 10) / 10; }
+
+  function baseTierIndex(gallons){
+    for (let i=0;i<tiers.length;i++) {
+      if (gallons <= tiers[i].max) return i;
+    }
+    return tiers.length - 1;
+  }
+
+  function calculate(){
+    const volumeRaw = Number(document.getElementById("volume").value);
+    const volumeUnit = document.getElementById("volume-unit").value;
+    const warmRaw = Number(document.getElementById("warm").value);
+    const targetRaw = Number(document.getElementById("target").value);
+    const tUnit = tempUnit.value;
+    const result = document.getElementById("result");
+
+    if (!Number.isFinite(volumeRaw) || volumeRaw <= 0 || !Number.isFinite(warmRaw) || !Number.isFinite(targetRaw)) {
+      result.innerHTML = '<div class="result-card"><div class="notice">Enter valid tank volume and temperature values.</div></div>';
+      return;
+    }
+
+    const gallons = toGallons(volumeRaw, volumeUnit);
+    const warmF = toF(warmRaw, tUnit);
+    const targetF = toF(targetRaw, tUnit);
+    const delta = Math.max(0, warmF - targetF);
+
+    if (gallons > 396) {
+      result.innerHTML = '<div class="result-card"><div class="notice">This estimator is capped at 396 gallons because that is the top published reference range used here. For larger systems, use a manufacturer or HVAC-style heat-load calculation.</div></div>';
+      return;
+    }
+
+    if (delta <= 2 && heat !== "high") {
+      result.innerHTML =
+        '<section class="result-card">' +
+        '<div class="result-title">Result</div>' +
+        '<div class="result-hp" style="font-size:1.55rem">A dedicated chiller may not be necessary</div>' +
+        '<div class="result-sub">Your measured warm-water temperature is within ' + fmt(delta) + '°F of the target. Monitor the tank during the hottest part of the day and compare passive cooling first.</div>' +
+        '<div class="notice ok">If the tank still rises above your chosen target during hot weather, recalculate using that higher observed water temperature.</div>' +
+        '<div class="ctas"><a class="cta" href="/tank-setup/temperature/">See cooling methods →</a></div>' +
+        '</section>';
+      return;
+    }
+
+    let index = baseTierIndex(gallons);
+    const base = tiers[index];
+    const nearCeiling = gallons >= base.max * 0.85;
+    const severeDrop = delta >= 10;
+    const verySevereDrop = delta >= 15;
+    let upsizeReasons = [];
+
+    if (nearCeiling) upsizeReasons.push("tank volume is near the top of the base class");
+    if (severeDrop) upsizeReasons.push("temperature pull-down is " + fmt(delta) + "°F");
+    if (heat === "high") upsizeReasons.push("extra heat load is high");
+
+    if ((nearCeiling || severeDrop || heat === "high") && index < tiers.length - 1) {
+      index += 1;
+    }
+    if (verySevereDrop && heat === "high" && index < tiers.length - 1) {
+      index += 1;
+    }
+
+    const tier = tiers[index];
+    const volumeLabel = volumeUnit === "l"
+      ? fmt(gallons * 3.785411784) + " L (" + fmt(gallons) + " gal)"
+      : fmt(gallons) + " gal";
+    const deltaC = delta * 5 / 9;
+    const reasonText = upsizeReasons.length
+      ? "The result includes extra headroom because " + upsizeReasons.join(", ") + "."
+      : "The result stays within the published capacity class without an extra upsize trigger.";
+
+    const targetWarning = (targetF < 60 || targetF > 68)
+      ? '<div class="notice">Your selected target is outside the 60–68°F range used elsewhere in the MyAxolotl temperature guidance. Recheck the target before buying equipment.</div>'
+      : "";
+
+    result.innerHTML =
+      '<section class="result-card">' +
+      '<div class="result-title">Recommended starting class</div>' +
+      '<div class="result-hp">' + tier.hp + '</div>' +
+      '<div class="result-sub">Use this as the minimum class to compare, then confirm the exact model against its own performance chart.</div>' +
+      '<div class="metric-grid">' +
+        '<div class="metric"><strong>' + tier.btu + '</strong><span>published rated cooling</span></div>' +
+        '<div class="metric"><strong>' + tier.flow + '</strong><span>published flow range</span></div>' +
+        '<div class="metric"><strong>' + tier.min + '–' + tier.max + ' gal</strong><span>published reference volume</span></div>' +
+      '</div>' +
+      '<div class="reason"><strong>Your inputs:</strong> ' + volumeLabel + ', ' + fmt(delta) + '°F (' + fmt(deltaC) + '°C) pull-down, ' + heat + ' extra heat load. ' + reasonText + '</div>' +
+      targetWarning +
+      '<div class="notice">Do not buy from HP alone. Check the exact chiller model\'s temperature-performance chart, allowed flow range, hose size, ventilation clearance, and the hottest room conditions you expect.</div>' +
+      '<div class="ctas">' +
+        '<a class="cta" href="/tank-setup/aquarium-chillers/">Compare chiller options →</a>' +
+        '<a class="cta" href="/tank-setup/temperature/">Review safe cooling →</a>' +
+      '</div>' +
+      '</section>';
+  }
+
+  document.getElementById("calculate").addEventListener("click", calculate);
+  ["volume","volume-unit","warm","target"].forEach(function(id){
+    document.getElementById(id).addEventListener("change", calculate);
+  });
+  calculate();
+})();
+</script>
+</body>
+</html>

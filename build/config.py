@@ -2780,6 +2780,12 @@ TOOLS = {
         "title": "Axolotl Tank Size Calculator",
         "cat": "Tools",
     },
+    "axolotl-chiller-size-calculator.html": {
+        "slug": "tools/chiller-size-calculator",
+        "title": "Axolotl Chiller Size Calculator",
+        "title_override": "Axolotl Chiller Size Calculator: Estimate HP & Flow | MyAxolotl",
+        "cat": "Tools",
+    },
 }
 
 # Internal linking map (source_slug -> [target_slug, ...]) applied to article
@@ -2798,8 +2804,8 @@ LINKING = {
     "tank-setup/water-parameters-cycling": ["tank-setup/why-tank-water-smells", "tank-setup/uneaten-food-and-ammonia"],
     "tank-setup/why-tank-water-smells": ["tank-setup/setup-guide"],
     "tank-setup/uneaten-food-and-ammonia": ["tank-setup/setup-guide"],
-    "tank-setup/temperature": ["tank-setup/aquarium-chillers", "health/refusing-to-eat"],
-    "tank-setup/aquarium-chillers": ["tank-setup/temperature"],
+    "tank-setup/temperature": ["tank-setup/aquarium-chillers", "tools/chiller-size-calculator", "health/refusing-to-eat"],
+    "tank-setup/aquarium-chillers": ["tools/chiller-size-calculator", "tank-setup/temperature"],
     "tank-setup/water-conditioners": ["tank-setup/acclimating-a-new-axolotl",
                                       "tank-setup/lighting-for-axolotls"],
     "tank-setup/lighting-for-axolotls": ["tank-setup/hides-and-caves"],
