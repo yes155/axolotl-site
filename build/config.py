@@ -5714,6 +5714,123 @@ SEARCH_ACTIONS = {
 AUTHOR = PEOPLE["author"]
 EDITOR = PEOPLE["editor"]
 
+
+# ---------------------------------------------------------------------------
+# Canonical body rewrites — stress diagnostics + pop culture (2026-09-18)
+# ---------------------------------------------------------------------------
+
+BODY_OVERRIDES["health/stress-signs"] = r'''
+<p><strong>No single posture or behavior proves that an axolotl is “stressed.”</strong> The useful approach is to notice a change from the animal's normal pattern, check the environment, and then follow the specialist guide for the specific sign. Appetite, gill condition, buoyancy, swimming, skin, posture and water-quality measurements all matter together.</p>
+
+<h2>What are common axolotl stress or illness warning signs?</h2>
+<p>Owners commonly notice changes such as forward-curled gills, an unusually curled tail tip, persistent abnormal floating, reduced appetite, frantic or abnormal swimming, shrinking or damaged gills, skin changes, wounds, or a marked change in activity. These observations are <strong>nonspecific</strong>: several different husbandry or medical problems can produce similar signs.</p>
+<p>The Ambystoma Genetic Stock Center notes that poor husbandry and adverse environmental conditions increase vulnerability to disease, and identifies loss of appetite and gill deterioration as early illness signs. Veterinary amphibian guidance likewise recommends assessing appetite, water quality, temperature, posture, behavior, respiratory effort, equilibrium and fecal production rather than diagnosing from one visible feature.</p>
+
+<h2>Which sign should you follow next?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>What you observe</th><th>What it can tell you</th><th>Best next guide</th></tr></thead>
+<tbody>
+<tr><td>Forward-curled gills or curled tail tip</td><td>A posture change worth checking against water, temperature, flow and recent disturbance; not a diagnosis by itself</td><td><a href="/health/curled-gills-stress-signal/">Curled gills & tail tip</a></td></tr>
+<tr><td>Persistent floating, inability to sink, rolling or loss of equilibrium</td><td>Buoyancy or swimming abnormality that can have multiple causes</td><td><a href="/health/why-axolotl-floating/">Why is my axolotl floating?</a></td></tr>
+<tr><td>Reduced or absent appetite</td><td>Can accompany husbandry problems, illness, gastrointestinal problems or normal feeding variation</td><td><a href="/health/refusing-to-eat/">Axolotl not eating</a></td></tr>
+<tr><td>Shrinking or deteriorating gills</td><td>Gill-health change requiring water, flow, oxygenation and health review</td><td><a href="/health/shrinking-gills/">Shrinking gills</a></td></tr>
+<tr><td>White or cotton-like growth</td><td>Possible surface growth; appearance alone does not confirm the organism</td><td><a href="/health/fungal-infections-saprolegnia/">Axolotl fungus</a></td></tr>
+<tr><td>Swelling plus reduced appetite or suspected swallowed material</td><td>Possible gastrointestinal problem; impaction is only one possibility</td><td><a href="/health/impaction-symptoms-treatment/">Impaction symptoms</a></td></tr>
+<tr><td>Bleeding, open wound, severe swelling, skin sloughing or rapid decline</td><td>Potentially urgent problem</td><td><a href="/health/emergency-first-aid/">Emergency signs & first aid</a></td></tr>
+</tbody></table></div>
+
+<h2>What should you check first?</h2>
+<p><strong>Start with measurements and recent changes.</strong> A veterinarian evaluating an amphibian asks about diet and appetite, temperature, lighting, recent animal introductions, medications, disinfection practices and measured water quality. That same structure is useful at home before you guess at a diagnosis.</p>
+<ol>
+<li><strong>Measure the water temperature.</strong> Do not rely on how the tank feels to your hand.</li>
+<li><strong>Test ammonia, nitrite, nitrate and pH.</strong> Record the actual numbers. Use <a href="/tank-setup/how-to-test-water/">how to test axolotl water</a> if you need the procedure.</li>
+<li><strong>Review recent changes.</strong> New tank mate, filter, cleaning, décor, food, medication, move or power outage can matter.</li>
+<li><strong>Check water flow and disturbance.</strong> AGSC notes that rapid circulation can be stressful; flow should not force an axolotl to constantly brace or move.</li>
+<li><strong>Look at the whole animal.</strong> Appetite, body condition, gills, skin, posture, breathing effort, swimming and fecal production provide more context than one feature alone.</li>
+</ol>
+
+<h2>Do curled gills always mean stress?</h2>
+<p><strong>No single gill position is a validated diagnostic test.</strong> A persistent or new forward curl can be a useful observation, especially when it appears with other changes, but it should lead to a husbandry and health check rather than an automatic conclusion such as “ammonia burn” or “high temperature.”</p>
+<p>Use the <a href="/health/curled-gills-stress-signal/">curled-gills guide</a> for the more specific differential and escalation pathway.</p>
+
+<h2>Is floating always a stress sign?</h2>
+<p><strong>No.</strong> Brief surface visits or temporary buoyancy can occur without disease. Persistent inability to control position, rolling, upside-down floating, or loss of equilibrium is more concerning. Merck's amphibian examination guidance notes that abnormal swimming or inability to maintain equilibrium can indicate neurologic impairment, but other buoyancy and gastrointestinal problems can produce abnormal position too.</p>
+<p>That is why the <a href="/health/why-axolotl-floating/">floating guide</a> owns the differential instead of this general stress page.</p>
+
+<h2>Can water quality or temperature cause stress?</h2>
+<p>Yes. Water quality and temperature are foundational axolotl husbandry variables, so they should be checked whenever behavior or appearance changes. AGSC emphasizes clean water, biological control of ammonia and nitrite in filtered systems, cool temperatures, and low flow. However, <strong>normal test results do not rule out illness</strong>, and an abnormal reading does not prove it is the only cause of the animal's signs.</p>
+<p>Interpret numbers on <a href="/tank-setup/water-parameters-cycling/">Water Parameters & Nitrogen Cycle</a>, and use <a href="/tank-setup/temperature/">the temperature guide</a> for thermal management.</p>
+
+<h2>What should you do after correcting a husbandry problem?</h2>
+<p>Record the correction and keep watching the animal. Do not promise yourself that a sign must disappear within a fixed number of hours or days: recovery depends on the underlying cause, severity and whether there is concurrent disease or injury.</p>
+<p>If the axolotl is worsening, has severe signs, cannot maintain normal position, has an open wound, marked swelling, skin sloughing, significant respiratory difficulty, or continues to decline despite corrected husbandry, seek an amphibian-experienced veterinarian. Use the <a href="/health/finding-an-exotic-vet/">axolotl vet guide</a> if needed.</p>
+
+<h2>Stress signs vs normal behavior</h2>
+<p>Normal resting, hiding, slow walking along the bottom and periods of inactivity belong on the <a href="/care-basics/behavior/">axolotl behavior guide</a>. This page is a health-routing page for <em>changes that concern the owner</em>. Keeping that boundary prevents normal behavior from being mislabeled as disease and prevents a genuinely abnormal sign from being dismissed as “just stress.”</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/clinical-techniques-in-amphibians">Merck Veterinary Manual: Clinical Techniques in Amphibians, updated February 2026</a></li>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/environment-and-husbandry-for-amphibians">Merck Veterinary Manual: Environment and Husbandry for Amphibians</a></li>
+<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
+</ul>
+'''
+
+BODY_OVERRIDES["axolotl-in-culture/axolotl-in-pop-culture-and-memes"] = r'''
+<p><strong>Axolotls appear in modern games, animation fandom, literature, memes, merchandise and science media.</strong> Minecraft is the most obvious mass-market example, but the animal also has a much older literary presence in Julio Cortázar's “Axolotl” and a recurring connection to the mythology surrounding Bill Cipher in <em>Gravity Falls</em>.</p>
+<div class="role-note"><strong>This page owns cultural appearances.</strong> For the separate question of why public interest accelerated, read <a href="/axolotl-in-culture/why-axolotls-are-suddenly-popular/">why axolotls became so popular</a>. For game mechanics, use the <a href="/axolotl-in-culture/minecraft-axolotls-guide/">Minecraft axolotl guide</a>.</div>
+
+<h2>Where do axolotls appear in pop culture?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Medium</th><th>Example</th><th>Why the axolotl matters</th></tr></thead>
+<tbody>
+<tr><td>Video games</td><td>Minecraft</td><td>Axolotls became an interactive mob in Caves & Cliffs Part I in June 2021.</td></tr>
+<tr><td>Animation / fandom</td><td>Gravity Falls</td><td>The word “AXOLOTL” and an Axolotl figure are tied to Bill Cipher lore across the finale-era puzzle/fandom material and later franchise books.</td></tr>
+<tr><td>Literature</td><td>Julio Cortázar, “Axolotl”</td><td>The narrator becomes obsessively identified with axolotls at the Jardin des Plantes in Paris.</td></tr>
+<tr><td>Internet culture</td><td>Memes, reaction images, short videos</td><td>The face, external gills and still posture are easy to anthropomorphize.</td></tr>
+<tr><td>Merchandise</td><td>Plush toys, apparel, figures and gifts</td><td>The simplified “smiling axolotl” silhouette transfers easily to character design.</td></tr>
+<tr><td>Science media</td><td>Regeneration and genome research</td><td>Scientific coverage keeps the real animal visible beyond entertainment.</td></tr>
+</tbody></table></div>
+
+<h2>When did Minecraft add axolotls?</h2>
+<p><strong>Minecraft added axolotls in Caves & Cliffs Part I in June 2021.</strong> Mojang's own retrospective says Part I added axolotls, goats and glow squid to the Overworld, and its later “Taking Inventory” article confirms that axolotls entered Minecraft in the first part of Caves & Cliffs.</p>
+<p>Mojang was already publishing axolotl fan art before release, which shows that the creature was part of the update's community identity before players could encounter it in the finished game. The game uses five color variants and fictional mechanics; those variants should not be treated as a guide to real axolotl morph genetics.</p>
+<p>For spawning, feeding, breeding, blue-variant odds, bucket persistence and commands, use <a href="/axolotl-in-culture/minecraft-axolotls-guide/">Minecraft Axolotls: Complete Guide</a>. For build ideas, use <a href="/axolotl-in-culture/minecraft-axolotl-enclosure-builds/">Minecraft axolotl enclosure builds</a>.</p>
+
+<h2>What is the Gravity Falls axolotl connection?</h2>
+<p><strong>The axolotl is part of the Bill Cipher mythology that fans follow across <em>Gravity Falls</em> and related books.</strong> Fan reference documentation records that Bill's final reversed speech in the series includes the word “AXOLOTL,” and later franchise material develops an Axolotl figure connected with Bill's fate.</p>
+<p>Disney's official publishing catalog confirms that Alex Hirsch's <em>The Book of Bill</em> continues Bill Cipher's story and lore after the television series. Because some details of the Axolotl connection come through ciphers, bonus material and later books, this page separates the basic documented connection from fan theories about what it ultimately means.</p>
+<p><strong>What we should not do:</strong> present a fan theory about the Axolotl as a confirmed biological or mythological explanation for the real animal. The fictional character and the real salamander are separate subjects.</p>
+
+<h2>What is Julio Cortázar's “Axolotl”?</h2>
+<p><strong>“Axolotl” is a short story by Argentine writer Julio Cortázar, first published in 1956.</strong> Literary reference sources describe a narrator who repeatedly watches axolotls at the Jardin des Plantes in Paris until the boundary between human observer and animal becomes unstable.</p>
+<p>The story made the axolotl a literary image decades before modern games and social media. It is therefore useful evidence that the animal's cultural appeal did not begin with Minecraft.</p>
+
+<h2>Why do axolotls work so well as characters and memes?</h2>
+<p>Several visible traits make the animal easy to stylize: a broad head, small eyes, prominent external gills and a mouth line that can look smile-like from a human point of view. Those features are routinely exaggerated into friendly character designs even though a real axolotl's facial expression should not be interpreted as a human emotion.</p>
+<p>That distinction matters on an animal-care site: the “cute smile” is a visual impression, not evidence that an animal is happy, social or asking to be handled.</p>
+
+<h2>How does science contribute to axolotl fame?</h2>
+<p>Axolotls are not only entertainment icons. Their ability to regenerate complex tissues and their long history as laboratory animals repeatedly generate science coverage. That creates a second cultural pathway: someone may first meet the animal through a game or plush toy and then discover regeneration research, or encounter the science first and later recognize the animal in entertainment.</p>
+<p>Read <a href="/biology-and-science/regeneration-and-limb-regrowth/">axolotl regeneration</a> for the biology rather than the pop-culture shorthand.</p>
+
+<h2>Are axolotls important in Mexican culture too?</h2>
+<p>Yes. The axolotl's cultural history is much older than modern fandom. Its Nahuatl name and historical role in the Valley of Mexico connect it to Indigenous and local history, while Xochimilco remains the home of the surviving wild population. Modern internet culture should not erase that geographic and historical context.</p>
+<p>Continue to <a href="/biology-and-science/axolotl-history-discovery/">axolotl history and scientific discovery</a>, <a href="/biology-and-science/wild-habitat-xochimilco/">Xochimilco habitat</a>, and <a href="/axolotl-in-culture/do-people-eat-axolotls/">axolotl food and cultural history</a>.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.minecraft.net/en-us/article/minecraft-live-2021-the-recap">Minecraft: Minecraft Live 2021 recap</a></li>
+<li><a href="https://www.minecraft.net/en-us/article/taking-inventory--bucket-axolotl">Minecraft: Taking Inventory — Bucket of Axolotl</a></li>
+<li><a href="https://www.minecraft.net/en-us/article/caves---cliffs-creative-collection">Minecraft: Caves & Cliffs Creative Collection</a></li>
+<li><a href="https://books.disney.com/book/the-book-of-bill/">Disney Books: The Book of Bill by Alex Hirsch</a></li>
+<li><a href="https://gravityfalls.fandom.com/wiki/The_Axolotl">Gravity Falls Wiki: The Axolotl (secondary fan reference for the series/cipher connection)</a></li>
+<li><a href="https://www.encyclopedia.com/plants-and-animals/animals/vertebrate-zoology/axolotl">Encyclopedia.com: Julio Cortázar's “Axolotl” (1956)</a></li>
+<li><a href="https://www.cambridge.org/core/books/abs/cambridge-history-of-latin-american-literature/twentiethcentury-short-story-in-spanish-america/26D3514B5C208080F9159E450AC198A3">Cambridge History of Latin American Literature: Cortázar bibliography</a></li>
+</ul>
+'''
+
+
 # Build trigger: retry Cost & Buying after clearing the stale queued job.
 
 # Keyword-reconciliation fix: strengthen the existing anatomy owner for teeth/oral anatomy.
