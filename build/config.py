@@ -2331,8 +2331,10 @@ ARTICLES = {
     "44 - Raising Baby Axolotls.docx": {
         "slug": "breeding/raising-juveniles",
         "hub": "breeding",
-        "title_override": "Raising Baby Axolotls (Juveniles) to Adulthood",
-        "title_tag": "Raising Baby Axolotls: Feeding, Growth & Rehoming Juveniles",
+        "title_override": "Baby Axolotl Care: Feeding, Growth & Raising Juveniles",
+        "title_tag": "Baby Axolotl Care: Feeding, Growth & Raising Juveniles",
+        "meta_override": "Baby axolotl care from newly feeding larvae through juvenile grow-out: food transitions, growth, size sorting, water quality, and when young axolotls need separate housing.",
+        "date_modified": "2026-09-18",
     },
     "45 - Axolotl Color Genetics Punnett Squares.docx": {
         "slug": "breeding/color-genetics-punnett-squares",
@@ -2572,8 +2574,9 @@ ARTICLES = {
     "82 - Axolotl Anatomy Gills and Lungs.docx": {
         "slug": "biology-and-science/anatomy-gills-and-lungs",
         "hub": "biology-and-science",
-        "title_override": "Axolotl Anatomy: Gills and Lungs",
-        "title_tag": "Do Axolotls Have Lungs? Anatomy of Gills & Breathing",
+        "title_override": "Axolotl Anatomy: Gills, Lungs, Teeth & Body Parts",
+        "title_tag": "Axolotl Anatomy: Gills, Lungs, Teeth & Body Parts",
+        "date_modified": "2026-09-18",
     },
     "83 - Axolotl vs Tiger Salamander.docx": {
         "slug": "biology-and-science/axolotl-vs-tiger-salamander",
@@ -2695,14 +2698,18 @@ ARTICLES = {
     "100 - Blue and Pink Axolotl Myth.docx": {
         "slug": "morphs/blue-and-pink-axolotl-myth",
         "hub": "morphs",
-        "title_override": "Blue and Pink Axolotl Myth",
-        "title_tag": "Blue and Pink Axolotls: The Myth Explained (No Blue Morph Exists)",
+        "title_override": "Pink, Blue, Purple & Green Axolotls: Which Colors Are Real?",
+        "title_tag": "Pink, Blue, Purple & Green Axolotls: Which Colors Are Real?",
+        "meta_override": "Which axolotl colors are recognized morphs, and which labels come from lighting, GFP fluorescence, editing, or seller terminology? Compare pink, blue, purple, green, yellow, and real morph names.",
+        "date_modified": "2026-09-18",
     },
     "101 - Axolotl Morphs Comparison Chart.docx": {
         "slug": "morphs/morphs-comparison-chart",
         "hub": "morphs",
-        "title_override": "Axolotl Morphs Comparison Chart",
-        "title_tag": "Axolotl Morphs Comparison Chart: All Colors at a Glance",
+        "title_override": "Axolotl Colors & Morphs: Types, Rarity and Comparison Chart",
+        "title_tag": "Axolotl Colors & Morphs: Types, Rarity & Comparison Chart",
+        "meta_override": "Compare axolotl colors and morphs side by side, including wild type, leucistic, melanoid, albino, golden albino, copper, axanthic, GFP, piebald, mosaic, and chimera terminology.",
+        "date_modified": "2026-09-18",
     },
     "102 - Mosaic Axolotl.docx": {
         "slug": "morphs/mosaic",
@@ -2735,8 +2742,10 @@ ARTICLES = {
     "106 - Axolotl Tank Size by Age.docx": {
         "slug": "tank-setup/tank-size-by-age",
         "hub": "tank-setup",
-        "title_override": "Axolotl Tank Size by Age",
-        "title_tag": "Axolotl Tank Size by Age: How Big of a Tank Do You Need?",
+        "title_override": "What Size Tank Does an Axolotl Need? Tank Size by Age & Number",
+        "title_tag": "What Size Tank Does an Axolotl Need? By Age & Number",
+        "meta_override": "Choose axolotl tank size by body length, floor space, water volume, filtration, life stage, and number of animals. Compare baby, juvenile, adult, and multi-axolotl needs.",
+        "date_modified": "2026-09-18",
     },
     "107 - Can Axolotls Live with Fish.docx": {
         "slug": "tank-setup/tank-mates",
@@ -3782,6 +3791,84 @@ EXTRA_SECTIONS = {
 </ul>"""),
     ],
 }
+
+
+# P0 keyword-reconciliation additions (2026-09-18).
+# These sharpen existing page ownership without creating duplicate URLs.
+INTRO_OVERRIDES["breeding/raising-juveniles"] = (
+    "Baby axolotl care changes quickly as larvae begin feeding and grow into juveniles. "
+    "Use this page for post-hatch feeding, growth, size sorting, food transitions, and "
+    "juvenile grow-out; egg incubation and the first hatch window stay in the egg-care guide."
+)
+INTRO_OVERRIDES["tank-setup/tank-size-by-age"] = (
+    "There is no single research-backed gallon number that answers every axolotl tank-size "
+    "question. Use body length, usable floor area, water volume, filtration, life stage, and "
+    "the number of animals together; this page is the site's canonical tank-size reference."
+)
+INTRO_OVERRIDES["morphs/morphs-comparison-chart"] = (
+    "Use this guide to identify and compare axolotl colors and morph terminology side by side. "
+    "It owns the color/type/rarity comparison; pigment-cell biology, inheritance, and pricing "
+    "remain on their specialist pages."
+)
+INTRO_OVERRIDES["morphs/blue-and-pink-axolotl-myth"] = (
+    "Pink, blue, purple, lavender, green, and yellow are common search and seller labels, but "
+    "they do not all map one-to-one to recognized axolotl pigment phenotypes. This guide separates "
+    "standard morph terminology from lighting, fluorescence, editing, and informal color names."
+)
+
+ROLE_CALLOUTS["tank-setup/tank-size-by-age"] = (
+    '<div class="role-note"><strong>This page owns tank-size requirements.</strong> '
+    'Use it for age, body size, floor space, gallon capacity, and multiple-axolotl sizing. '
+    'For the full build sequence, filtration, cooling, substrate, and cycling, use the '
+    '<a href="/tank-setup/setup-guide/">tank setup guide</a>.</div>'
+)
+ROLE_CALLOUTS["breeding/raising-juveniles"] = (
+    '<div class="role-note"><strong>This page owns baby and juvenile grow-out.</strong> '
+    'For eggs, hatching, and the first feeding window, use '
+    '<a href="/breeding/egg-and-larvae-care/">egg and larval care</a>; for routine feeding '
+    'after grow-out, use the <a href="/diet/feeding-schedule-by-age/">feeding schedule</a>.</div>'
+)
+ROLE_CALLOUTS["morphs/blue-and-pink-axolotl-myth"] = (
+    '<div class="role-note"><strong>This page explains informal color labels.</strong> '
+    'For recognized morph identification and rarity, use the '
+    '<a href="/morphs/morphs-comparison-chart/">morph comparison</a>; for the underlying '
+    'biology, use <a href="/morphs/pigment-cells/">pigment cells</a>.</div>'
+)
+
+EXTRA_SECTIONS.setdefault("breeding/raising-juveniles", []).append((
+    "When Is an Axolotl a Larva, Baby, or Juvenile?",
+    """
+<p><strong>Axolotl life-stage labels overlap in everyday use, so size and feeding stage are more useful than a rigid birthday.</strong> The Ambystoma Genetic Stock Center begins feeding newly hatched larvae after the yolk is absorbed, starts supplementing brine shrimp with small pellets at about 4 cm, and reports that young axolotls around 5 cm or longer are commonly separated because size differences and nipping become important.</p>
+<p>For this site, <em>baby axolotl</em> is the broad search term, while <em>larva</em> describes the early post-hatch stage and <em>juvenile</em> describes the later grow-out stage before adulthood. Use feeding response, body size, and development rather than assuming every animal reaches a milestone on the same day.</p>
+<p><strong>Source:</strong> <a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a>.</p>
+"""
+))
+
+EXTRA_SECTIONS.setdefault("morphs/blue-and-pink-axolotl-myth", []).append((
+    "What Do Pink, Purple, Lavender, Green and Yellow Axolotl Labels Mean?",
+    """
+<p><strong>Color words are not always genetic morph names.</strong> The Ambystoma Genetic Stock Center separately documents established pigment mutations and strains such as white/leucistic, albino, melanoid, and axanthic. Seller or social-media labels such as purple, lavender, green, or neon may instead describe how an animal looks under a particular light, a combination of recognized traits, GFP fluorescence, image processing, or informal marketing language.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Search label</th><th>Best interpretation</th><th>Where to continue</th></tr></thead>
+<tbody>
+<tr><td>Pink / white</td><td>Often leucistic; eye color and pigment pattern help distinguish leucistic from albino combinations.</td><td><a href="/morphs/leucistic/">Leucistic axolotl</a></td></tr>
+<tr><td>Yellow / gold</td><td>Often used for golden-albino appearance or other yellow-pigment expression.</td><td><a href="/morphs/golden-albino/">Golden albino</a></td></tr>
+<tr><td>Green / glowing</td><td>May refer to GFP fluorescence rather than a naturally green body pigment.</td><td><a href="/morphs/gfp-axolotl/">GFP axolotl</a></td></tr>
+<tr><td>Blue / purple / lavender</td><td>Do not assume the color word is a standardized genetic morph name; verify the animal's actual phenotype, lineage, and lighting conditions.</td><td><a href="/morphs/morphs-comparison-chart/">Morph comparison</a></td></tr>
+</tbody></table></div>
+<p><strong>Sources:</strong> <a href="https://ambystoma.uky.edu/teachers-materials-menu/teachers-materials-books-menu?id=9">Ambystoma Genetic Stock Center: Mutant Genes</a>; <a href="https://ambystoma.uky.edu/axolotl-research2/12-educationresources/10-axolotl-strains">Ambystoma Genetic Stock Center: Axolotl Strains</a>.</p>
+"""
+))
+
+EXTRA_SECTIONS.setdefault("morphs/morphs-comparison-chart", []).append((
+    "Morph Names vs Color Descriptions",
+    """
+<p>A morph is more useful than a color nickname when it points to a repeatable pigment phenotype or genetic background. The Ambystoma Genetic Stock Center documents standard pigment mutations including albino, axanthic, melanoid, and white, while hobby names also describe combinations, patterns, and transgenic traits. That is why two animals that both look “pink” can belong to different pigment categories, and why a label such as “lavender” should not automatically be treated as a separate genetic morph.</p>
+<p>Use the comparison table to identify visible traits first, then continue to <a href="/morphs/pigment-cells/">pigment-cell biology</a> and <a href="/breeding/color-genetics-punnett-squares/">color genetics</a> when you need the mechanism rather than the appearance.</p>
+<p><strong>Sources:</strong> <a href="https://ambystoma.uky.edu/teachers-materials-menu/teachers-materials-books-menu?id=9">Ambystoma Genetic Stock Center: Mutant Genes</a>; <a href="https://ambystoma.uky.edu/axolotl-research2/12-educationresources/10-axolotl-strains">Ambystoma Genetic Stock Center: Axolotl Strains</a>.</p>
+"""
+))
+
 
 # Build-level (HTML-authored) new pages. These exist nowhere in SOURCE_DIR and
 # are inserted as full articles during the build. HARD-STOP-exempt: each fills
