@@ -4131,6 +4131,516 @@ CONFIG_ARTICLES = {
     },
 }
 
+
+# ---------------------------------------------------------------------------
+# Keyword-reconciliation new pages — batch 1 (2026-09-18)
+# ---------------------------------------------------------------------------
+# These pages fill distinct entity / process / procedural intents. Temporary
+# non-placeholder heroes reuse closely related MyAxolotl original graphics;
+# each can later receive a unique hero without changing its URL or semantic role.
+
+CONFIG_ARTICLES.update({
+    "biology-and-science/metamorphosis": {
+        "slug": "biology-and-science/metamorphosis",
+        "hub": "biology-and-science",
+        "title": "Do Axolotls Turn Into Salamanders? Metamorphosis Explained",
+        "title_tag": "Do Axolotls Turn Into Salamanders? Metamorphosis Explained",
+        "meta": "Axolotl metamorphosis explained: why axolotls normally remain aquatic and paedomorphic, what changes during metamorphosis, and what owners should do if those changes appear.",
+        "intro": "Axolotls are salamanders already, but unlike most salamanders they normally reach adulthood without transforming into a terrestrial form. This page explains paedomorphosis, the rare metamorphic pathway, the body changes involved, and why owners should never try to trigger metamorphosis at home.",
+        "num": 212,
+        "date_published": "2026-09-18",
+        "date_modified": "2026-09-18",
+        "headings": [
+            "Do axolotls turn into salamanders?",
+            "Why do axolotls normally stay aquatic?",
+            "What changes when an axolotl metamorphoses?",
+            "Can an axolotl metamorphose naturally?",
+            "What role do thyroid hormones play?",
+            "Can iodine make an axolotl metamorphose?",
+            "Can metamorphosis be reversed?",
+            "What should you do if a pet axolotl starts metamorphosing?",
+            "Metamorphosis vs neoteny",
+            "Sources",
+        ],
+        "body": r'''
+<p><strong>Axolotls are salamanders from the beginning; the unusual part is that they normally become sexually mature while keeping an aquatic, larval-looking body.</strong> This lifelong retention of juvenile traits is called paedomorphosis or neoteny. A typical axolotl therefore keeps its external gills, finned tail and aquatic lifestyle instead of completing the more familiar salamander transition to a land-adapted form.</p>
+
+<h2>Do axolotls turn into salamanders?</h2>
+<p><strong>They do not need to “turn into” salamanders because <em>Ambystoma mexicanum</em> is already a salamander species.</strong> What people usually mean is: can an axolotl undergo metamorphosis and lose its larval aquatic features? The answer is yes under some circumstances, but that is not the normal developmental route for healthy captive axolotls.</p>
+<p>The standard axolotl life history is paedomorphic. Adults reproduce while retaining external gills and other juvenile traits, which is why an adult axolotl still looks unlike a terrestrial tiger salamander.</p>
+
+<h2>Why do axolotls normally stay aquatic?</h2>
+<p>Research on the axolotl endocrine system shows that its paedomorphosis is associated with low activity of the hypothalamic-pituitary-thyroid pathway that drives metamorphosis in many other amphibians. The tissues can respond to thyroid-hormone signaling, but the normal hormonal cascade does not produce the same metamorphic transition seen in related salamanders.</p>
+<p>This is an evolved life-history strategy, not a sign that an adult axolotl is an unfinished or unhealthy animal.</p>
+
+<h2>What changes when an axolotl metamorphoses?</h2>
+<p>A metamorphosing axolotl progressively shifts toward a more terrestrial salamander body plan. Changes can include:</p>
+<ul>
+<li>reduction or resorption of the external gills;</li>
+<li>reduction of the tail fin;</li>
+<li>changes in skin and body shape;</li>
+<li>development of eyelids;</li>
+<li>changes in head shape and feeding mechanics; and</li>
+<li>a change from a fully aquatic lifestyle toward a form that can use terrestrial habitat.</li>
+</ul>
+<p>These changes happen as an integrated developmental program. They should not be confused with sick or shrinking gills caused by poor water quality, injury, infection, or stress.</p>
+
+<h2>Can an axolotl metamorphose naturally?</h2>
+<p><strong>Rare spontaneous metamorphosis has been reported, but it is not the expected pathway for ordinary pet axolotls.</strong> Laboratory research also shows that the ancestral metamorphic pathway can be activated experimentally because axolotl tissues remain responsive to thyroid-hormone signaling.</p>
+<p>For an owner, the important point is that a sudden change in gills, skin, body shape, or behavior should be evaluated as a health and husbandry problem first rather than assumed to be “natural metamorphosis.”</p>
+
+<h2>What role do thyroid hormones play?</h2>
+<p>Thyroid hormones are central regulators of amphibian metamorphosis. Reviews of axolotl endocrinology describe a functional downstream thyroid-hormone response but reduced upstream stimulation of the pathway compared with metamorphosing relatives. This helps explain why axolotls normally remain paedomorphic even though the body can still respond to experimentally supplied thyroid hormone.</p>
+
+<h2>Can iodine make an axolotl metamorphose?</h2>
+<p><strong>Do not use iodine, thyroid hormone, supplements, foods, chemicals, or temperature manipulation to try to induce metamorphosis in a pet axolotl.</strong> Experimental induction belongs in controlled research settings with defined protocols and animal-care oversight. A search result or anecdote is not a safe husbandry procedure.</p>
+<p>If you are concerned about iodine exposure or a product used in the aquarium, remove the suspected source only if that can be done safely, keep water conditions stable, and discuss the exposure with an amphibian-experienced veterinarian.</p>
+
+<h2>Can metamorphosis be reversed?</h2>
+<p>Once the coordinated metamorphic program is well underway, owners should not assume that returning the animal to ordinary aquarium conditions will reverse it. The practical response is veterinary assessment and preparation for the changing respiratory, skin and habitat needs of the individual rather than trying unproven “reversal” treatments.</p>
+
+<h2>What should you do if a pet axolotl starts metamorphosing?</h2>
+<ol>
+<li><strong>Document the changes.</strong> Take dated photos and note changes in gills, tail fin, eyes, skin, appetite and activity.</li>
+<li><strong>Test the environment.</strong> Record temperature and water-quality readings so ordinary husbandry problems are not mistaken for metamorphosis.</li>
+<li><strong>Do not add hormones, iodine or home remedies.</strong></li>
+<li><strong>Contact an amphibian-experienced veterinarian.</strong> A veterinarian can help distinguish true metamorphic change from disease, injury or environmental stress and advise on housing if the body plan is changing.</li>
+</ol>
+<p>Use the <a href="/health/finding-an-exotic-vet/">axolotl vet guide</a> if you need help finding an appropriate clinician.</p>
+
+<h2>Metamorphosis vs neoteny</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Feature</th><th>Typical axolotl / neoteny</th><th>Metamorphosed form</th></tr></thead>
+<tbody>
+<tr><td>External gills</td><td>Retained into adulthood</td><td>Reduced or lost</td></tr>
+<tr><td>Tail fin</td><td>Broad aquatic fin retained</td><td>Reduced as body plan changes</td></tr>
+<tr><td>Eyelids</td><td>Absent in the typical paedomorphic form</td><td>Develop during metamorphic change</td></tr>
+<tr><td>Habitat</td><td>Fully aquatic</td><td>More terrestrial / semi-terrestrial requirements</td></tr>
+<tr><td>Normal for pet axolotls?</td><td>Yes</td><td>No; uncommon and warrants assessment</td></tr>
+</tbody></table></div>
+<p>For the evolutionary/developmental concept itself, continue to <a href="/biology-and-science/neoteny/">what neoteny means in axolotls</a>.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/29777689/">Crowner et al. (2019): endocrinology of paedomorphosis in the Mexican axolotl</a></li>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6473073/">Voss et al. (2019): thyroid-hormone-dependent development and axolotl paedomorphosis</a></li>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
+</ul>
+''',
+        "featured": False,
+    },
+
+    "biology-and-science/axolotl-life-cycle": {
+        "slug": "biology-and-science/axolotl-life-cycle",
+        "hub": "biology-and-science",
+        "title": "Axolotl Life Cycle: Egg, Larva, Juvenile & Adult Stages",
+        "title_tag": "Axolotl Life Cycle: Egg, Larva, Juvenile & Adult Stages",
+        "meta": "Follow the axolotl life cycle from fertilized egg through embryo, hatchling, larva, juvenile and sexually mature adult, including how neoteny changes the usual salamander pattern.",
+        "intro": "The axolotl life cycle runs from fertilized egg to embryo, hatchling, feeding larva, juvenile and sexually mature adult. Unlike most salamanders, the normal adult remains aquatic and keeps larval traits such as external gills.",
+        "num": 213,
+        "date_published": "2026-09-18",
+        "date_modified": "2026-09-18",
+        "headings": [
+            "What are the stages of the axolotl life cycle?",
+            "Stage 1: fertilized egg and embryo",
+            "Stage 2: hatching",
+            "Stage 3: feeding larva",
+            "Stage 4: juvenile growth",
+            "Stage 5: sexually mature adult",
+            "Why doesn't the normal life cycle end in a land salamander?",
+            "How long does the axolotl life cycle take?",
+            "Life cycle vs care stages",
+            "Sources",
+        ],
+        "body": r'''
+<p><strong>The normal axolotl life cycle is egg → embryo → hatchling → feeding larva → juvenile → sexually mature aquatic adult.</strong> Development does not stop when an axolotl keeps its gills. The species continues to grow, develop limbs, mature its organs and become reproductively mature while retaining several juvenile-looking aquatic traits.</p>
+
+<h2>What are the stages of the axolotl life cycle?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Stage</th><th>What is happening</th><th>Best site guide</th></tr></thead>
+<tbody>
+<tr><td>Egg / embryo</td><td>Cleavage, gastrulation, neurulation, organ formation and pre-hatch development</td><td><a href="/breeding/egg-and-larvae-care/">Egg & larval care</a></td></tr>
+<tr><td>Hatchling</td><td>Newly hatched animal uses remaining yolk before active feeding</td><td><a href="/breeding/egg-and-larvae-care/">Egg & larval care</a></td></tr>
+<tr><td>Feeding larva</td><td>Begins active feeding; limbs continue developing</td><td><a href="/breeding/raising-juveniles/">Baby axolotl care</a></td></tr>
+<tr><td>Juvenile</td><td>Rapid growth, food transitions and increasing need for individual space</td><td><a href="/breeding/raising-juveniles/">Baby axolotl care</a></td></tr>
+<tr><td>Adult</td><td>Sexual maturity while retaining the aquatic body plan</td><td><a href="/care-basics/axolotl-age-and-size-chart/">Age & size chart</a></td></tr>
+</tbody></table></div>
+
+<h2>Stage 1: fertilized egg and embryo</h2>
+<p>Axolotl development begins with a fertilized egg surrounded by protective jelly layers. Classic staging systems divide embryonic development into cleavage, blastula, gastrula, neurula, tailbud and pre-hatch stages. The Ambystoma Genetic Stock Center's staging resources extend from the one-cell egg through stage 44, just after hatching.</p>
+<p>Temperature affects developmental speed, so an embryo should be described by its morphological stage rather than assuming that every clutch reaches a landmark on exactly the same day.</p>
+
+<h2>Stage 2: hatching</h2>
+<p>At hatching, the animal is still using stored yolk. The AGSC husbandry guide describes transferring newly hatched larvae into clean rearing water and waiting for the onset of feeding behavior before offering newly hatched brine shrimp. This separates the hatch event from the true beginning of active feeding.</p>
+
+<h2>Stage 3: feeding larva</h2>
+<p>After yolk reserves are used, the larva becomes an active predator. During this stage the external gills are prominent, the body elongates and the limbs continue developing. Limb-development staging extends beyond hatching because forelimbs and hindlimbs appear and differentiate over time rather than being complete at the moment the animal leaves the egg.</p>
+<p>Larvae also vary in growth rate. Size sorting matters because larger larvae can injure or attempt to eat smaller ones.</p>
+
+<h2>Stage 4: juvenile growth</h2>
+<p>The juvenile period is a practical husbandry stage rather than one single universally fixed age. The AGSC increases individual container size as animals grow and changes foods as body size permits. Research staging papers likewise show that post-hatch development and maturation stretch across months.</p>
+<p>For owners, use the animal's length, feeding ability, body condition and development rather than a rigid “juvenile starts on day X” rule.</p>
+
+<h2>Stage 5: sexually mature adult</h2>
+<p>An adult axolotl reaches reproductive maturity without undergoing the normal terrestrial metamorphosis seen in many related salamanders. A recent developmental review notes that sexual maturity is generally around a year or older, while the time from hatchling to mature adult can vary substantially with density, temperature, nutrition and individual growth.</p>
+<p>Recent gonadal research also shows that reproductive tissues mature progressively over the later larval/juvenile period rather than switching on at one exact age.</p>
+
+<h2>Why doesn't the normal life cycle end in a land salamander?</h2>
+<p><strong>Because paedomorphosis is the normal developmental strategy of <em>Ambystoma mexicanum</em>.</strong> Adults retain external gills, a finned tail and an aquatic lifestyle while becoming reproductively mature. That is why the axolotl life cycle should not be illustrated as “egg → tadpole → ordinary land salamander” unless the figure is specifically explaining experimentally induced or unusual metamorphosis.</p>
+<p>Read <a href="/biology-and-science/metamorphosis/">axolotl metamorphosis</a> for the exceptional pathway and <a href="/biology-and-science/neoteny/">neoteny</a> for the underlying developmental concept.</p>
+
+<h2>How long does the axolotl life cycle take?</h2>
+<p>There is no single clock for every animal. Early embryonic stages are strongly temperature-dependent, while later growth and sexual maturation depend on husbandry, density, genetics, nutrition and sex. A modern staging review follows development from fertilization to immature adult and reports that sexually mature adulthood may take roughly a year or longer, with some animals taking substantially longer under different rearing conditions.</p>
+
+<h2>Life cycle vs care stages</h2>
+<p>This page owns the biological sequence. For day-to-day husbandry:</p>
+<ul>
+<li><strong>Eggs and hatchlings:</strong> <a href="/breeding/egg-and-larvae-care/">egg and larval care</a></li>
+<li><strong>Baby and juvenile grow-out:</strong> <a href="/breeding/raising-juveniles/">baby axolotl care</a></li>
+<li><strong>Body length and growth:</strong> <a href="/care-basics/axolotl-age-and-size-chart/">age and size chart</a></li>
+<li><strong>Feeding frequency:</strong> <a href="/diet/feeding-schedule-by-age/">feeding schedule by age and size</a></li>
+</ul>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ambystoma.uky.edu/education1/embryo-staging-series">Ambystoma Genetic Stock Center: Embryo Staging Series</a></li>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9536427/">Khattak et al. (2022): updated axolotl staging from one-cell embryo to immature adult</a></li>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/Nye%20et%20al%202002.pdf">Nye et al.: extension of normal staging through limb development</a></li>
+</ul>
+''',
+        "featured": False,
+    },
+
+    "morphs/albino": {
+        "slug": "morphs/albino",
+        "hub": "morphs",
+        "title": "Albino Axolotl: Color, Genetics, Types & Identification",
+        "title_tag": "Albino Axolotl: Color, Genetics, Types & Identification",
+        "meta": "Albino axolotl genetics and identification: how the recessive tyrosinase mutation removes melanin, why albinos can look golden, white or pale, and how albino differs from leucistic.",
+        "intro": "An albino axolotl is homozygous for a recessive mutation that disrupts melanin production. Because other pigment systems can remain, albino animals are not all the same color: golden, white-albino and axanthic-albino combinations can look different.",
+        "num": 214,
+        "date_published": "2026-09-18",
+        "date_modified": "2026-09-18",
+        "headings": [
+            "What is an albino axolotl?",
+            "What causes albinism in axolotls?",
+            "What does an albino axolotl look like?",
+            "Golden albino vs albino: what's the difference?",
+            "Albino vs leucistic axolotl",
+            "What is a white albino axolotl?",
+            "What is an axanthic albino axolotl?",
+            "Are albino axolotls rare?",
+            "Do albino axolotls need different care?",
+            "Sources",
+        ],
+        "body": r'''
+<p><strong>Albino axolotls cannot make normal dark melanin because of a recessive mutation affecting the tyrosinase gene.</strong> The term <em>albino</em> describes that loss of melanin production; it does not guarantee one exact body color because yellow pigment, reflective cells and other pigment mutations can change the final appearance.</p>
+
+<h2>What is an albino axolotl?</h2>
+<p>In the laboratory axolotl lineage, the classic albino allele was introduced historically through a cross with an albino tiger salamander. Modern genetic work mapped the albino phenotype to <em>tyrosinase</em> (<em>tyr</em>), a key melanin-synthesis gene. Animals with two copies of the recessive albino allele lack normal melanin production.</p>
+
+<h2>What causes albinism in axolotls?</h2>
+<p>Research identified a disruptive change in the axolotl <em>tyr</em> allele associated with the historic albino phenotype. Because tyrosinase is required for melanin synthesis, the melanophores can be present but cannot produce normal dark melanin.</p>
+<p>Other pigment systems are not automatically removed. That is why an otherwise wild-type albino can still show strong yellow coloration.</p>
+
+<h2>What does an albino axolotl look like?</h2>
+<p>An albino axolotl commonly has pale reddish or pinkish eyes because dark melanin is missing. Body color depends on the other pigment traits present:</p>
+<ul>
+<li><strong>Golden albino:</strong> yellow/gold body with reddish or pink eyes.</li>
+<li><strong>White albino:</strong> pale white/pink body from combining the white phenotype with albinism.</li>
+<li><strong>Axanthic albino:</strong> very pale animal because both melanin and normal yellow/reflective pigment systems are altered.</li>
+</ul>
+<p>This is why “albino = white” is too simple for axolotls.</p>
+
+<h2>Golden albino vs albino: what's the difference?</h2>
+<p><strong>Golden albino is one visible albino combination, not a separate definition of albinism.</strong> The Ambystoma Genetic Stock Center describes an otherwise wild-type albino as yellow with reddish eyes and notes that this appearance is often called a golden albino. The gold comes from retained yellow pigments rather than melanin.</p>
+<p>For the specific yellow-gold phenotype, see the <a href="/morphs/golden-albino/">golden albino axolotl guide</a>.</p>
+
+<h2>Albino vs leucistic axolotl</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Feature</th><th>Albino</th><th>Leucistic / white</th></tr></thead>
+<tbody>
+<tr><td>Main pigment mechanism</td><td>Cannot synthesize normal melanin</td><td>Reduced pigment-cell migration/distribution associated with the white phenotype</td></tr>
+<tr><td>Eyes</td><td>Usually pinkish/reddish because melanin is absent</td><td>Typically dark</td></tr>
+<tr><td>Body color</td><td>Can be yellow/gold, white/pink or very pale depending on other genes</td><td>Usually pale pink-white</td></tr>
+<tr><td>Can combine with other mutations?</td><td>Yes</td><td>Yes</td></tr>
+</tbody></table></div>
+<p>See <a href="/morphs/leucistic/">leucistic axolotl</a> for the white/dark-eye phenotype.</p>
+
+<h2>What is a white albino axolotl?</h2>
+<p>A white albino combines the white phenotype with the albino mutation. It can resemble an ordinary leucistic/white axolotl at first glance, but the eyes are pale or pinkish rather than dark because melanin production is also absent.</p>
+
+<h2>What is an axanthic albino axolotl?</h2>
+<p>An axanthic albino combines albinism with the axanthic mutation. AGSC strain notes describe young animals of this genotype as nearly colorless, with older animals sometimes becoming pale yellow as dietary riboflavins accumulate.</p>
+
+<h2>Are albino axolotls rare?</h2>
+<p><strong>“Albino” is a genetic phenotype, not a permanent market-rarity category.</strong> Albino stocks are well established in captive axolotls and are maintained by the Ambystoma Genetic Stock Center. Local availability and price depend on breeder supply, lineage, additional traits and region rather than on albinism alone.</p>
+<p>Use the <a href="/morphs/morphs-comparison-chart/">morph comparison</a> for appearance and the <a href="/cost-and-buying/axolotl-price-by-morph/">price-by-morph guide</a> for current market context.</p>
+
+<h2>Do albino axolotls need different care?</h2>
+<p>Core husbandry is the same: stable cool water, appropriate filtration, suitable food, safe substrate and hides. Pale animals may be visually more sensitive to bright display lighting, but color does not create a separate temperature, water-chemistry or feeding requirement.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ambystoma.uky.edu/teachers-materials-menu/teachers-materials-books-menu?id=9">Ambystoma Genetic Stock Center: Mutant Genes</a></li>
+<li><a href="https://ambystoma.uky.edu/12-educationresources/10-axolotl-strains">Ambystoma Genetic Stock Center: Axolotl Strains</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/28127056/">Woodcock et al. (2017): identification of the axolotl albino gene</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/3723064/">Frost et al. (1986): analysis of the albino pigment phenotype</a></li>
+</ul>
+''',
+        "featured": False,
+    },
+
+    "morphs/axanthic": {
+        "slug": "morphs/axanthic",
+        "hub": "morphs",
+        "title": "Axanthic Axolotl: Color, Pigment Cells, Genetics & Identification",
+        "title_tag": "Axanthic Axolotl: Color, Genetics & Identification",
+        "meta": "What is an axanthic axolotl? Learn how the recessive axanthic mutation alters yellow pteridine pigment and iridophore development, how axanthic differs from melanoid, and how combinations change appearance.",
+        "intro": "Axanthic axolotls have a recessive pigment phenotype in which normal yellow pteridine pigmentation is lost and iridophore development is also affected. The result is commonly a gray-toned appearance dominated by melanophores, but combinations with albino or other pigment genes can look very different.",
+        "num": 215,
+        "date_published": "2026-09-18",
+        "date_modified": "2026-09-18",
+        "headings": [
+            "What is an axanthic axolotl?",
+            "What causes the axanthic color?",
+            "What does an axanthic axolotl look like?",
+            "Axanthic vs melanoid axolotl",
+            "What is an axanthic albino?",
+            "Is axanthic the same as gray, silver or lavender?",
+            "Are axanthic axolotls rare?",
+            "Do axanthic axolotls need special care?",
+            "Sources",
+        ],
+        "body": r'''
+<p><strong>An axanthic axolotl carries a recessive pigment mutation that disrupts the normal yellow-pigment system and also affects reflective pigment cells.</strong> In the classic axanthic phenotype, melanophores remain, so an otherwise wild-type axanthic animal can look uniformly dark gray rather than yellow-green or olive.</p>
+
+<h2>What is an axanthic axolotl?</h2>
+<p>The name comes from the loss of normal xanthophore pigmentation. Xanthophores are pigment cells associated with yellow/orange coloration. Classic axolotl genetics uses the symbol <em>ax</em> for the recessive axanthic mutation.</p>
+
+<h2>What causes the axanthic color?</h2>
+<p>Microscopy and biochemical studies found unpigmented xanthophore-lineage cells but no detectable pteridine pigments in axanthic skin, suggesting disruption of the pteridine biosynthesis pathway. The same work reported failure of normal iridophore differentiation. Melanophores remained, leaving dark pigment more visually dominant.</p>
+
+<h2>What does an axanthic axolotl look like?</h2>
+<p>An otherwise wild-type axanthic may look charcoal, slate or dark gray because it lacks the usual yellow/reflective contribution that gives wild-type animals their olive or greenish mottling. Appearance still varies with age, lighting, genetic background and other pigment genes.</p>
+<p>Do not identify an axanthic animal from one photo alone. Use eye appearance, reflective shine, known parentage and breeder records where available.</p>
+
+<h2>Axanthic vs melanoid axolotl</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Feature</th><th>Axanthic</th><th>Melanoid</th></tr></thead>
+<tbody>
+<tr><td>Main pigment change</td><td>Yellow pteridine pigment is absent; iridophore development is also affected</td><td>Increased/dominant dark melanophore appearance with loss of iridophores and reduced xanthophores</td></tr>
+<tr><td>Typical impression</td><td>Gray/slate or dark gray</td><td>Deep black/dark brown-gray</td></tr>
+<tr><td>Same mutation?</td><td>No</td><td>No</td></tr>
+<tr><td>Can occur with albino?</td><td>Yes</td><td>Yes</td></tr>
+</tbody></table></div>
+<p>Use the <a href="/morphs/melanoid/">melanoid guide</a> for the separate melanoid phenotype.</p>
+
+<h2>What is an axanthic albino?</h2>
+<p>Axanthic and albino are separate recessive mutations, so an animal can inherit both. In an axanthic albino, melanin is also absent, removing the dark pigment that normally dominates an axanthic animal. AGSC strain descriptions note that young axanthic albinos can be nearly colorless and may become pale yellow later as riboflavins accumulate.</p>
+
+<h2>Is axanthic the same as gray, silver or lavender?</h2>
+<p><strong>No color nickname alone proves axanthic genetics.</strong> Gray, silver and lavender are visual descriptions that may be influenced by lighting, camera processing, other pigment combinations or informal breeder terminology. “Axanthic” is useful when it refers to the actual axanthic phenotype/genetic background rather than simply a cool-toned photograph.</p>
+<p>For informal color labels, see <a href="/morphs/blue-and-pink-axolotl-myth/">pink, blue, purple and green axolotl colors</a>.</p>
+
+<h2>Are axanthic axolotls rare?</h2>
+<p>Market rarity changes with breeder supply and region. The axanthic mutation is a long-described laboratory pigment phenotype, so the word itself does not mean a one-of-a-kind animal. A captive seller may still charge more for particular combinations or lines.</p>
+
+<h2>Do axanthic axolotls need special care?</h2>
+<p>Core care requirements are the same as for other axolotl pigment phenotypes. Color genetics does not create a separate target temperature, nitrogen cycle, feeding schedule or substrate requirement. Evaluate health from body condition, gills, behavior, appetite and measured water quality rather than from the morph name.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ambystoma.uky.edu/teachers-materials-menu/teachers-materials-books-menu?id=9">Ambystoma Genetic Stock Center: Mutant Genes</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/3794587/">Frost, Epp & Robinson (1986): analysis of the axanthic phenotype</a></li>
+<li><a href="https://ambystoma.uky.edu/12-educationresources/10-axolotl-strains">Ambystoma Genetic Stock Center: Axolotl Strains</a></li>
+</ul>
+''',
+        "featured": False,
+    },
+
+    "tank-setup/how-to-test-water": {
+        "slug": "tank-setup/how-to-test-water",
+        "hub": "tank-setup",
+        "title": "How to Test Axolotl Water: Ammonia, Nitrite, Nitrate & pH",
+        "title_tag": "How to Test Axolotl Water: Ammonia, Nitrite, Nitrate & pH",
+        "meta": "Learn how to test axolotl aquarium water consistently: what to measure, how to take a sample, how to use liquid tests or strips correctly, how to read color charts, and what to do after an abnormal result.",
+        "intro": "Good water testing has two separate jobs: obtain a reliable reading, then interpret it. This page owns the testing procedure; the Water Parameters & Cycling guide explains what the readings mean and what aquarium process may be causing them.",
+        "num": 216,
+        "date_published": "2026-09-18",
+        "date_modified": "2026-09-18",
+        "headings": [
+            "What should you test in an axolotl tank?",
+            "Liquid test kit vs test strips",
+            "How to take a water sample",
+            "How to test ammonia",
+            "How to test nitrite and nitrate",
+            "How to test pH",
+            "How to read a color chart accurately",
+            "Common water-testing mistakes",
+            "How often should you test?",
+            "What should you do with the result?",
+            "Sources",
+        ],
+        "body": r'''
+<p><strong>Test the water before trying to diagnose an axolotl from appearance or behavior alone.</strong> A reliable aquarium record normally includes ammonia, nitrite, nitrate, pH and temperature, with additional source-water or hardness testing when your local water chemistry makes it relevant.</p>
+
+<h2>What should you test in an axolotl tank?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Measurement</th><th>Why it matters</th><th>Where to interpret it</th></tr></thead>
+<tbody>
+<tr><td>Ammonia</td><td>Waste and uneaten food enter the nitrogen cycle as ammonia</td><td><a href="/tank-setup/water-parameters-cycling/">Water Parameters & Cycling</a></td></tr>
+<tr><td>Nitrite</td><td>Shows the intermediate stage of biological nitrogen processing</td><td><a href="/tank-setup/water-parameters-cycling/">Water Parameters & Cycling</a></td></tr>
+<tr><td>Nitrate</td><td>Helps track the end product that accumulates between water changes</td><td><a href="/tank-setup/water-parameters-cycling/">Water Parameters & Cycling</a></td></tr>
+<tr><td>pH</td><td>Changes both biological filtration and the toxicity profile of ammonia</td><td><a href="/tank-setup/water-parameters-cycling/">Water Parameters & Cycling</a></td></tr>
+<tr><td>Temperature</td><td>Water temperature affects metabolism, oxygen demand and stress</td><td><a href="/tank-setup/temperature/">Temperature guide</a></td></tr>
+</tbody></table></div>
+
+<h2>Liquid test kit vs test strips</h2>
+<p><strong>Use a testing method that actually measures the parameters you need and follow its instructions exactly.</strong> Multi-parameter strips are fast and convenient, but some products omit ammonia or use a narrower measurement range. Liquid colorimetric kits usually provide individual ammonia, nitrite, nitrate and pH tests but require more steps and careful timing.</p>
+<p>The most important rule is consistency: do not compare readings taken with different products as though every scale and chemistry were identical. If a result is surprising, repeat the test and, when possible, confirm it with a second method or a fresh reagent before making a large correction.</p>
+
+<h2>How to take a water sample</h2>
+<ol>
+<li>Wash your hands and rinse the test vial or sample cup with tank water only.</li>
+<li>Take water from the aquarium itself rather than from the replacement-water bucket.</li>
+<li>Avoid scooping obvious food debris or substrate into the sample unless you are specifically investigating that area.</li>
+<li>Use the exact sample volume required by the test.</li>
+<li>Test promptly instead of leaving an open sample sitting for a long period.</li>
+</ol>
+
+<h2>How to test ammonia</h2>
+<p>Follow the exact reagent order, drop count, mixing method and development time printed for your kit. Some ammonia tests use multiple reagents that must be added in sequence. Read too early or too late and the color may not correspond to the supplied chart.</p>
+<p>The AGSC emphasizes frequent ammonia monitoring in municipal-water systems and filtered/recirculating systems because ammonia interacts with pH and biological filtration. Record the number rather than writing “fine” or “bad” so you can compare trends.</p>
+
+<h2>How to test nitrite and nitrate</h2>
+<p>Nitrite and nitrate tests also depend on the manufacturer's mixing and timing steps. Nitrate tests in particular may require vigorous shaking to resuspend reagents. Skipping that step can produce a misleadingly low result on some kits.</p>
+<p>Measure ammonia, nitrite and nitrate as a set when evaluating the nitrogen cycle. One number by itself cannot show the full direction of the cycle.</p>
+
+<h2>How to test pH</h2>
+<p>Use the pH range that covers your actual water. If a broad kit includes both low-range and high-range pH tests, choose the one whose scale brackets your reading rather than forcing an off-scale color match. Compare tank pH with source-water pH when investigating repeated swings.</p>
+
+<h2>How to read a color chart accurately</h2>
+<ul>
+<li>Use neutral white light rather than colored aquarium LEDs.</li>
+<li>Hold the vial against the background specified by the manufacturer.</li>
+<li>Read at the stated development time.</li>
+<li>If the color falls between two blocks, record it as an approximate range rather than inventing false precision.</li>
+<li>Photographs are useful for trend records but phone cameras can change white balance, so do not rely on a photo alone to match a color chart.</li>
+</ul>
+
+<h2>Common water-testing mistakes</h2>
+<ul>
+<li>expired or contaminated reagents;</li>
+<li>wrong sample volume;</li>
+<li>incorrect drop count;</li>
+<li>not shaking a reagent that requires mixing;</li>
+<li>reading the result outside the specified time window;</li>
+<li>testing only nitrate and assuming ammonia/nitrite must also be safe;</li>
+<li>using colored tank lighting to compare the vial; and</li>
+<li>making a large water-chemistry change from one questionable reading without confirming it.</li>
+</ul>
+
+<h2>How often should you test?</h2>
+<p>Test more frequently during cycling, after a suspected cycle disruption, when an animal is unwell, after a major maintenance change, or when readings have been unstable. A mature stable aquarium can be monitored on a routine schedule, but the schedule should tighten whenever conditions change.</p>
+<p>Use the <a href="/tools/nitrogen-cycle-tracker/">Nitrogen Cycle Tracker</a> to record results and see trends instead of relying on memory.</p>
+
+<h2>What should you do with the result?</h2>
+<p><strong>This page tells you how to obtain the reading; it does not duplicate the full corrective protocol.</strong> Take your confirmed numbers to the <a href="/tank-setup/water-parameters-cycling/">Water Parameters & Cycling guide</a>. If a water change is indicated, follow the <a href="/tank-setup/water-change-guide/">step-by-step Water Change Guide</a>.</p>
+<p>If the axolotl shows severe or rapidly worsening signs as well as abnormal water readings, use the <a href="/health/emergency-first-aid/">emergency triage guide</a> and seek veterinary care when indicated.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024, water-quality section</a></li>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/">Ambystoma Genetic Stock Center</a></li>
+</ul>
+''',
+        "featured": False,
+    },
+})
+
+# Temporary real heroes for the new pages. These deliberately reuse existing
+# MyAxolotl originals so no new URL publishes with an auto-generated placeholder.
+HERO_IMAGE_OVERRIDES.update({
+    "biology-and-science/metamorphosis": {
+        "file": "axolotl-neoteny-explained.webp",
+        "alt": "Axolotl neoteny and metamorphosis diagram comparing the normal aquatic adult with the metamorphic pathway",
+        "caption": "Axolotls normally mature while retaining larval aquatic traits; metamorphosis is an unusual alternative pathway, not a routine pet-care goal.",
+        "description": "Axolotl developmental diagram contrasting paedomorphosis with salamander metamorphosis.",
+        "credit": "MyAxolotl original graphic",
+        "width": 1600, "height": 900,
+    },
+    "biology-and-science/axolotl-life-cycle": {
+        "file": "axolotl-age-and-size-chart.webp",
+        "alt": "Axolotl growth stages from early larva through juvenile and adult",
+        "caption": "Axolotl development continues from embryo and hatchling through larva, juvenile and sexually mature aquatic adult.",
+        "description": "Axolotl growth-stage graphic used to illustrate the post-hatch portion of the life cycle.",
+        "credit": "MyAxolotl original graphic",
+        "width": 1600, "height": 900,
+    },
+    "morphs/albino": {
+        "file": "golden-albino-axolotl-morph.webp",
+        "alt": "Albino axolotl showing pale eyes and reduced dark melanin",
+        "caption": "Albinism removes normal melanin production, while other pigment systems determine whether the animal looks golden, white-pink or very pale.",
+        "description": "Albino axolotl pigment graphic showing the visible effect of reduced melanin.",
+        "credit": "MyAxolotl original graphic",
+        "width": 1600, "height": 900,
+    },
+    "morphs/axanthic": {
+        "file": "axolotl-pigment-cells-color-genetics.webp",
+        "alt": "Axolotl pigment-cell diagram used to explain the axanthic phenotype",
+        "caption": "Axanthic genetics alters the normal yellow pteridine system and reflective pigment-cell development, leaving melanophores visually dominant in a typical axanthic animal.",
+        "description": "Axolotl pigment-cell graphic explaining how axanthic differs from other color phenotypes.",
+        "credit": "MyAxolotl original graphic",
+        "width": 1600, "height": 900,
+    },
+    "tank-setup/how-to-test-water": {
+        "file": "axolotl-water-parameters-nitrogen-cycle.webp",
+        "alt": "Axolotl aquarium water testing with ammonia, nitrite, nitrate and pH test vials",
+        "caption": "Reliable water testing starts with correct sampling, reagent timing and consistent recording before the numbers are interpreted.",
+        "description": "Axolotl water-test graphic showing the core nitrogen-cycle and pH measurements.",
+        "credit": "MyAxolotl original graphic",
+        "width": 1600, "height": 900,
+    },
+})
+
+LINKING.update({
+    "biology-and-science/metamorphosis": [
+        "biology-and-science/neoteny",
+        "biology-and-science/axolotl-life-cycle",
+        "biology-and-science/axolotl-vs-tiger-salamander",
+        "health/finding-an-exotic-vet",
+    ],
+    "biology-and-science/axolotl-life-cycle": [
+        "breeding/egg-and-larvae-care",
+        "breeding/raising-juveniles",
+        "care-basics/axolotl-age-and-size-chart",
+        "biology-and-science/neoteny",
+        "biology-and-science/metamorphosis",
+    ],
+    "morphs/albino": [
+        "morphs/golden-albino",
+        "morphs/leucistic",
+        "morphs/axanthic",
+        "morphs/morphs-comparison-chart",
+        "morphs/pigment-cells",
+    ],
+    "morphs/axanthic": [
+        "morphs/pigment-cells",
+        "morphs/melanoid",
+        "morphs/albino",
+        "morphs/morphs-comparison-chart",
+    ],
+    "tank-setup/how-to-test-water": [
+        "tank-setup/water-parameters-cycling",
+        "tank-setup/water-change-guide",
+        "tools/nitrogen-cycle-tracker",
+        "health/emergency-first-aid",
+    ],
+})
+
+
 # Persisted article dates: the 106 DOCX-backed pages first appeared in the
 # launch commit, and the two config-authored pages first appeared later in the
 # same public repo history.
