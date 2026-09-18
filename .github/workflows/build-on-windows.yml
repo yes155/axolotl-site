@@ -69,6 +69,10 @@ jobs:
         shell: powershell
         run: python build/build.py
 
+      - name: Run pre-publish QA
+        shell: powershell
+        run: python build/qa_site.py
+
       - name: Show generated diff
         shell: powershell
         run: |
