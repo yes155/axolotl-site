@@ -632,9 +632,9 @@ def build_articles():
             history_heading = "<h2>When were axolotls discovered?</h2>"
             habitat_marker = "<h2>Where do axolotls live?</h2>"
             a["meta"] = (
-                "Amazing axolotl facts: regeneration, neoteny, discovery history, "
-                "Xochimilco, and critically endangered status. Here are 25 "
-                "surprising facts for 2026."
+                "What is an axolotl? Learn 25 core facts about this Mexican aquatic "
+                "salamander, including classification, neoteny, regeneration, habitat, "
+                "diet, lifespan, morphs, and conservation."
             )
             a["date_modified"] = "2026-09-17"
             a["lastmod"] = a["date_modified"]
@@ -765,9 +765,9 @@ def build_articles():
             safety_heading = "<h2>Are axolotls poisonous or venomous?</h2>"
             bite_marker = "<h2>Do axolotls bite children?</h2>"
             a["meta"] = (
-                "Are axolotls safe around children? Learn whether axolotls are "
-                "poisonous or venomous, the real Salmonella hygiene risk, bite "
-                "safety, handling rules, and parent responsibilities."
+                "Are axolotls good pets for kids? Learn age and maturity considerations, "
+                "adult responsibility, observation-first handling, feeding supervision, "
+                "tank-care duties, and long-term family commitment."
             )
             a["date_modified"] = "2026-09-17"
             a["lastmod"] = a["date_modified"]
