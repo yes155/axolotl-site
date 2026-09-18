@@ -4641,6 +4641,235 @@ LINKING.update({
 })
 
 
+
+# ---------------------------------------------------------------------------
+# Keyword-reconciliation new pages — batch 2 (2026-09-18)
+# ---------------------------------------------------------------------------
+
+CONFIG_ARTICLES.update({
+    "cost-and-buying/where-to-buy-axolotls": {
+        "slug": "cost-and-buying/where-to-buy-axolotls",
+        "hub": "cost-and-buying",
+        "title": "Where to Buy an Axolotl: Breeders, Pet Stores & Online Options",
+        "title_tag": "Where to Buy an Axolotl: Breeders, Pet Stores & Online Options",
+        "meta": "Where to buy an axolotl in the US: compare specialist breeders, local exotic pet stores, online sellers and rehomes, plus current Petco/PetSmart availability checks and a buyer-verification checklist.",
+        "intro": "The safest place to buy an axolotl is the seller you can verify, not automatically the closest or cheapest seller. Compare specialist breeders, local exotic pet stores, online sellers and responsible rehomes by the exact animal, husbandry records, legal route, written terms and shipping or pickup plan.",
+        "num": 217,
+        "date_published": "2026-09-18",
+        "date_modified": "2026-09-18",
+        "headings": [
+            "Where can you buy an axolotl?",
+            "Buying from a specialist axolotl breeder",
+            "Buying from a local exotic pet store",
+            "Buying an axolotl online",
+            "Where can you buy an axolotl near you?",
+            "Does Petco sell axolotls?",
+            "Does PetSmart sell axolotls?",
+            "What should you verify before paying?",
+            "How do you choose the individual animal?",
+            "What should you know about shipping?",
+            "How much should an axolotl cost?",
+            "Check legality before buying",
+            "Current retailer availability note",
+        ],
+        "body": r'''
+<p><strong>Start with the seller's evidence, not the seller category.</strong> A specialist breeder can be easier to verify because they may have hatch dates, parentage, feeding history and current photos, but a good local store or rehome can also be appropriate when the animal and husbandry records are transparent.</p>
+
+<h2>Where can you buy an axolotl?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Source</th><th>Main advantage</th><th>Main thing to verify</th></tr></thead>
+<tbody>
+<tr><td>Specialist breeder</td><td>Often the best access to lineage, hatch and feeding records</td><td>Actual husbandry, exact-animal photos, written terms and shipping practices</td></tr>
+<tr><td>Local exotic pet store</td><td>You may be able to inspect the animal and tank in person</td><td>Water quality, feeding history, source of the animal and staff knowledge</td></tr>
+<tr><td>Online seller</td><td>Wider choice of morphs and locations</td><td>Identity, current photos, legal shipping route, weather plan and arrival policy</td></tr>
+<tr><td>Responsible rehome / rescue</td><td>Can place an existing animal into an appropriate home</td><td>Health history, reason for rehoming, current setup and quarantine plan</td></tr>
+</tbody></table></div>
+
+<h2>Buying from a specialist axolotl breeder</h2>
+<p>A specialist breeder is useful when you want clear age, lineage or morph information. Do not treat “breeder” as a quality guarantee. Ask for current photos or video of the exact animal, its feeding routine, measured water conditions, hatch or approximate age, and written arrival or pickup terms.</p>
+<p>Use the <a href="/cost-and-buying/choosing-a-reputable-breeder/">12-question axolotl breeder checklist</a> before paying.</p>
+
+<h2>Buying from a local exotic pet store</h2>
+<p>Buying locally lets you inspect the animal and the display system before transport. Look beyond the animal's color. Check whether the tank has appropriate substrate, cool stable water, low-flow filtration, intact animals without obvious wounds, and staff who can answer basic husbandry questions with measured values rather than vague assurances.</p>
+<p>Ask where the axolotl came from and whether the store has recent feeding and water-quality records. A store that cannot answer those questions is harder to evaluate than one that can.</p>
+
+<h2>Buying an axolotl online</h2>
+<p>Online buying adds shipping and transaction risk. Verify the seller's identity, the exact animal, written live-arrival terms, the carrier, delivery timing and the weather plan before payment. Avoid sellers who pressure you to pay immediately, refuse current photos, use only stock images or insist on payment methods with no buyer protection.</p>
+<p>Use <a href="/cost-and-buying/red-flags-when-buying/">axolotl seller red flags</a> before placing an online order.</p>
+
+<h2>Where can you buy an axolotl near you?</h2>
+<p>For “axolotl for sale near me” searches, start with local exotic-aquatic stores and local breeder listings, then verify the seller rather than assuming proximity means quality. Call before driving because live-animal inventory can change quickly.</p>
+<p>Local pickup has one advantage: you can reduce shipping stress and inspect the animal. It does not remove the need for quarantine, acclimation and a fully cycled home tank.</p>
+
+<h2>Does Petco sell axolotls?</h2>
+<p><strong>Petco currently says that various axolotls are available at select Petco locations and on Petco.com, with offerings varying by location.</strong> That statement appears on Petco's current axolotl care sheet. Because live inventory varies, call the specific store or check the current product/location system before planning a purchase.</p>
+<p>Do not rely on the chain name alone. Apply the same health and husbandry checks you would use for any seller.</p>
+<p><strong>Source checked September 18, 2026:</strong> <a href="https://www.petco.com/pet-education/caresheets/axolotl">Petco Axolotl Care Guide — Where to Buy</a>.</p>
+
+<h2>Does PetSmart sell axolotls?</h2>
+<p><strong>We did not confirm a current live-axolotl listing on PetSmart's website during our September 18, 2026 check.</strong> PetSmart's site did surface axolotl-themed merchandise, but that is not evidence of live-animal availability. A local store may have different regional inventory, so call the store directly rather than assuming either yes or no from an old search result.</p>
+<p>This section is intentionally date-stamped because retailer livestock policies and regional availability change.</p>
+
+<h2>What should you verify before paying?</h2>
+<ol>
+<li><strong>The exact animal.</strong> Ask for current photos or video, not only a generic morph image.</li>
+<li><strong>Feeding history.</strong> What food is it eating, how often, and when did it last eat?</li>
+<li><strong>Measured water conditions.</strong> Ask for actual temperature and water-test readings where available.</li>
+<li><strong>Age or hatch information.</strong> Exact records are ideal; an honest approximate age is better than a made-up date.</li>
+<li><strong>Current body condition and injuries.</strong> Look at gills, skin, limbs, belly and movement.</li>
+<li><strong>Written terms.</strong> Know what happens if the animal arrives dead, injured or delayed.</li>
+<li><strong>Legal route.</strong> Confirm that ownership, sale, pickup and any interstate shipment are legal for both ends of the transaction.</li>
+</ol>
+
+<h2>How do you choose the individual animal?</h2>
+<p>Seller quality and animal condition are separate checks. A reputable seller can still have an individual animal that needs treatment or should not be moved yet. Use the <a href="/cost-and-buying/how-to-choose-a-healthy-axolotl/">healthy axolotl buyer checklist</a> to inspect the animal itself.</p>
+
+<h2>What should you know about shipping?</h2>
+<p>Live-animal shipping is highly dependent on carrier rules, origin and destination law, weather and delivery timing. Do not accept vague promises such as “we ship anywhere.” Ask what carrier will be used, whether the seller checks weather at both ends, how the animal is packed, whether a signature or hub pickup is used, and what the live-arrival terms require from you.</p>
+<p>See <a href="/cost-and-buying/shipping-live-axolotls/">how axolotls are shipped</a> before ordering online.</p>
+
+<h2>How much should an axolotl cost?</h2>
+<p>Price depends on morph, size, sex, lineage, seller, region and shipping. Do not use a high price as proof of rarity or health, and do not use a low price as proof of a bargain. Compare current market examples in the <a href="/cost-and-buying/axolotl-price-by-morph/">axolotl price-by-morph guide</a>.</p>
+
+<h2>Check legality before buying</h2>
+<p><strong>Confirm ownership and transport rules before you send money.</strong> State, provincial, local and import rules can differ, and a seller's willingness to ship is not legal advice. Use the <a href="/legal/">axolotl legality hub</a> and then verify the current primary-source rules for your jurisdiction.</p>
+
+<h2>Current retailer availability note</h2>
+<p>This page separates long-term buying guidance from retailer availability because stock changes faster than husbandry principles. Petco's official care sheet was checked on September 18, 2026 and states that axolotls are offered at select locations and Petco.com. A current live-axolotl PetSmart listing was not confirmed in the same check. Recheck retailer sites and call the local store before making a trip.</p>
+''',
+        "featured": False,
+    },
+
+    "health/healthy-axolotl-poop": {
+        "slug": "health/healthy-axolotl-poop",
+        "hub": "health",
+        "title": "Axolotl Poop: What's Normal, Frequency & Warning Signs",
+        "title_tag": "Axolotl Poop: What's Normal, Frequency & Warning Signs",
+        "meta": "Axolotl poop explained without a fake color chart: how to track fecal frequency and consistency, which changes matter with appetite or weight loss, when parasites are possible, and how to collect a fresh sample for a veterinarian.",
+        "intro": "There is no well-established veterinary chart that defines one universal 'normal axolotl poop' color, shape or schedule. The useful approach is to know your animal's baseline, track fecal production with appetite and body condition, and use a fresh veterinary fecal examination when persistent changes raise concern for parasites or gastrointestinal disease.",
+        "num": 218,
+        "date_published": "2026-09-18",
+        "date_modified": "2026-09-18",
+        "headings": [
+            "What does normal axolotl poop look like?",
+            "How often do axolotls poop?",
+            "What should you track?",
+            "Does white or stringy poop mean parasites?",
+            "When can poop changes point to impaction or constipation?",
+            "What signs make a stool change more concerning?",
+            "How does a veterinarian test axolotl poop?",
+            "How do you collect a fresh fecal sample?",
+            "When should you contact a vet?",
+            "Sources",
+        ],
+        "body": r'''
+<p><strong>Do not diagnose an axolotl from stool color alone.</strong> Axolotl-specific veterinary literature does not provide a validated “healthy poop chart” with one correct color, shape or number of bowel movements. Veterinary amphibian references instead emphasize observing fecal production, the animal's overall condition and husbandry, and examining a fresh fecal sample when parasites or gastrointestinal disease are suspected.</p>
+
+<h2>What does normal axolotl poop look like?</h2>
+<p><strong>Use your own healthy animal's repeated baseline rather than an internet color chart.</strong> Diet, meal size, digestion time and how long feces remains in water can change its appearance. Once a sample sits in the aquarium, it can soften, break apart and mix with substrate, food debris or biofilm, making visual interpretation less reliable.</p>
+<p>The most useful question is therefore not “Is this exact shade normal?” but “Is this a persistent change from this axolotl's usual feces, and is it happening with appetite, weight, swelling, behavior or water-quality changes?”</p>
+
+<h2>How often do axolotls poop?</h2>
+<p><strong>There is no single evidence-based bowel-movement schedule for every axolotl.</strong> Frequency varies with age, feeding schedule, meal size, food type, temperature, activity and individual digestion. A juvenile eating more frequently may pass waste on a different schedule from an adult fed only a few times a week.</p>
+<p>Track frequency in relation to meals rather than expecting one bowel movement every fixed number of days.</p>
+
+<h2>What should you track?</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Observation</th><th>Why it helps</th></tr></thead>
+<tbody>
+<tr><td>Date of last meal</td><td>Connects stool timing with feeding frequency and fasting</td></tr>
+<tr><td>Food type and amount</td><td>Diet changes can alter fecal output</td></tr>
+<tr><td>Fecal production</td><td>Shows whether waste is still being passed</td></tr>
+<tr><td>Persistent change in consistency</td><td>More useful than one isolated unusual sample</td></tr>
+<tr><td>Appetite and weight trend</td><td>Helps distinguish an isolated stool change from a broader health problem</td></tr>
+<tr><td>Belly shape / swelling</td><td>Persistent distension plus reduced output may require gastrointestinal assessment</td></tr>
+<tr><td>Water quality and temperature</td><td>Husbandry stress can change appetite, activity and digestion</td></tr>
+</tbody></table></div>
+
+<h2>Does white or stringy poop mean parasites?</h2>
+<p><strong>No single stool appearance proves parasites.</strong> Amphibian feces can contain microorganisms that are not causing disease; Merck/MSD Veterinary Manual specifically notes that gastrointestinal protozoa may be abundant without necessarily indicating illness. At the same time, parasites can be detected in feces and some infections are associated with weight loss, poor appetite or abnormal stool.</p>
+<p>That is why “white/stringy = parasites” is too simplistic. If the change persists or occurs with weight loss, anorexia, weakness, bloating or other signs, a veterinarian can examine a fresh sample rather than treating from appearance alone.</p>
+
+<h2>When can poop changes point to impaction or constipation?</h2>
+<p>A period without visible feces is not enough by itself to diagnose impaction. The concern rises when reduced fecal output occurs with persistent abdominal swelling, loss of appetite, abnormal buoyancy, pain-like behavior, known ingestion of gravel or another foreign material, or progressive decline.</p>
+<p>Use the <a href="/health/impaction-symptoms-treatment/">axolotl impaction guide</a> for suspected blockage and the <a href="/tank-setup/gravel-risks/">gravel-risk guide</a> if swallowable substrate may be involved.</p>
+
+<h2>What signs make a stool change more concerning?</h2>
+<p>Seek veterinary advice sooner when an abnormal fecal pattern is accompanied by:</p>
+<ul>
+<li>persistent loss of appetite;</li>
+<li>progressive weight loss or poor body condition;</li>
+<li>blood-tinged feces;</li>
+<li>visible worms or repeated unusual material;</li>
+<li>persistent or increasing abdominal swelling;</li>
+<li>cloacal prolapse;</li>
+<li>marked lethargy or abnormal swimming; or</li>
+<li>multiple animals in the same collection developing similar signs.</li>
+</ul>
+
+<h2>How does a veterinarian test axolotl poop?</h2>
+<p>Veterinary amphibian workups may use a direct wet mount, flotation, sedimentation or other fecal techniques depending on the suspected organism. A 2026 study of juvenile <em>Ambystoma mexicanum</em> used fecal sedimentation, Faust and modified McMaster methods to detect <em>Eimeria</em> oocysts and nematode eggs, showing why microscopic testing is more informative than visual color matching.</p>
+<p>A positive organism on microscopy still has to be interpreted with the animal's clinical signs because some amphibian gastrointestinal organisms can be present without causing disease.</p>
+
+<h2>How do you collect a fresh fecal sample?</h2>
+<p><strong>If your veterinarian asks for a fecal sample, collect the freshest uncontaminated sample you can.</strong> Use a clean disposable tool and place the sample in a clean leakproof container. Keep it separate from substrate, uneaten food and dirty filter material as much as possible.</p>
+<p>Ask the clinic how quickly they want it delivered and whether it should be refrigerated. Freshness matters for some parasite stages, and the exact handling method depends on the test the veterinarian plans to run.</p>
+
+<h2>When should you contact a vet?</h2>
+<p>One unusual bowel movement in an otherwise normal axolotl is less informative than a persistent change with other clinical signs. Contact an amphibian-experienced veterinarian when stool changes persist, when the animal is losing weight or refusing food, when there is blood or prolapse, or when swelling and reduced output suggest a possible obstruction.</p>
+<p>Use the <a href="/health/finding-an-exotic-vet/">axolotl vet finder</a> for escalation and the <a href="/health/parasite-treatment/">parasite guide</a> for the difference between suspicion and confirmed treatment.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/clinical-techniques-in-amphibians">Merck Veterinary Manual: Clinical Techniques in Amphibians</a></li>
+<li><a href="https://www.msdvetmanual.com/exotic-and-laboratory-animals/amphibians/infectious-diseases-of-amphibians">MSD Veterinary Manual: Infectious Diseases of Amphibians</a></li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/41608998/">2026 study: Eimeria and nematode detection in Ambystoma mexicanum fecal samples</a></li>
+<li><a href="https://veterinarypartner.vin.com/default.aspx?id=8030801&amp;meta=0&amp;pId=19239">Veterinary Partner / VIN: Gastrointestinal Foreign Body or Overload in Amphibians</a></li>
+</ul>
+''',
+        "featured": False,
+    },
+})
+
+HERO_IMAGE_OVERRIDES.update({
+    "cost-and-buying/where-to-buy-axolotls": {
+        "file": "axolotl-breeder-vs-pet-store.webp",
+        "alt": "Axolotl buying-source comparison covering breeders, pet stores, online sellers and verification questions",
+        "caption": "Where you buy matters less than what you can verify: the exact animal, husbandry records, written terms, legal route and shipping or pickup plan.",
+        "description": "Axolotl buying guide graphic comparing breeder, pet-store and online purchase checks.",
+        "credit": "MyAxolotl original graphic",
+        "width": 1600, "height": 900,
+    },
+    "health/healthy-axolotl-poop": {
+        "file": "axolotl-parasite-treatment.webp",
+        "alt": "Axolotl health observation graphic used for fecal and parasite assessment guidance",
+        "caption": "Stool appearance alone cannot diagnose parasites or impaction. Track the animal's baseline and use a fresh veterinary fecal examination when persistent changes occur with other signs.",
+        "description": "Axolotl health graphic emphasizing observation, fresh fecal testing and veterinary confirmation.",
+        "credit": "MyAxolotl original graphic",
+        "width": 1600, "height": 900,
+    },
+})
+
+LINKING.update({
+    "cost-and-buying/where-to-buy-axolotls": [
+        "cost-and-buying/breeder-vs-pet-store",
+        "cost-and-buying/choosing-a-reputable-breeder",
+        "cost-and-buying/how-to-choose-a-healthy-axolotl",
+        "cost-and-buying/red-flags-when-buying",
+        "cost-and-buying/shipping-live-axolotls",
+        "cost-and-buying/axolotl-price-by-morph",
+        "legal",
+    ],
+    "health/healthy-axolotl-poop": [
+        "health/parasite-treatment",
+        "health/impaction-symptoms-treatment",
+        "health/refusing-to-eat",
+        "health/finding-an-exotic-vet",
+        "tank-setup/water-parameters-cycling",
+    ],
+})
+
+
 # Persisted article dates: the 106 DOCX-backed pages first appeared in the
 # launch commit, and the two config-authored pages first appeared later in the
 # same public repo history.
