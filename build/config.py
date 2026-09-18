@@ -2405,9 +2405,9 @@ ARTICLES = {
     "55 - Understanding Axolotl Limb Regeneration.docx": {
         "slug": "health/limb-regeneration",
         "hub": "health",
-        "title_override": "Understanding Axolotl Limb Regeneration",
-        "title_tag": "How Axolotl Limb Regeneration Works & What to Expect",
-        "date_modified": "2026-08-29",
+        "title_override": "My Axolotl Lost a Limb: What Should I Do?",
+        "title_tag": "My Axolotl Lost a Limb: Healing, Regrowth & When to Get Help",
+        "date_modified": "2026-09-18",
     },
     "56 - How to Treat Axolotl Ammonia Burns.docx": {
         "slug": "health/ammonia-burns",
@@ -2513,20 +2513,23 @@ ARTICLES = {
     "72 - Are Axolotls Good Beginner Pets.docx": {
         "slug": "care-basics/are-axolotls-good-beginner-pets",
         "hub": "care-basics",
-        "title_override": "Are Axolotls Good Pets for Beginners?",
-        "title_tag": "Are Axolotls Good Pets for Beginners? Honest Pros & Cons",
+        "title_override": "Are Axolotls Good Pets? Pros, Cons & Beginner Care Difficulty",
+        "title_tag": "Are Axolotls Good Pets? Pros, Cons & Beginner Care Difficulty",
+        "date_modified": "2026-09-18",
     },
     "73 - Axolotl Age and Size Chart.docx": {
         "slug": "care-basics/axolotl-age-and-size-chart",
         "hub": "care-basics",
-        "title_override": "Axolotl Age and Size Chart",
-        "title_tag": "Axolotl Age & Size Chart: How Big They Get at Every Stage",
+        "title_override": "How Big Do Axolotls Get? Age, Size & Growth Chart",
+        "title_tag": "How Big Do Axolotls Get? Age, Size & Growth Chart",
+        "date_modified": "2026-09-18",
     },
     "74 - Amazing Axolotl Facts.docx": {
         "slug": "care-basics/axolotl-facts",
         "hub": "care-basics",
-        "title_override": "Amazing Axolotl Facts",
-        "title_tag": "Axolotl Facts: 25 Amazing Things You Need to Know (2026)",
+        "title_override": "What Is an Axolotl? 25 Facts About This Mexican Salamander",
+        "title_tag": "What Is an Axolotl? 25 Facts About This Mexican Salamander",
+        "date_modified": "2026-09-18",
     },
     "75 - Do Axolotls Recognize Their Owners.docx": {
         "slug": "care-basics/axolotl-intelligence-and-bonding",
@@ -2555,8 +2558,9 @@ ARTICLES = {
     "79 - How to Hold an Axolotl.docx": {
         "slug": "care-basics/handling",
         "hub": "care-basics",
-        "title_override": "How to Hold an Axolotl",
-        "title_tag": "How to Hold an Axolotl: Safe Handling, Netting & Transport",
+        "title_override": "Can You Hold an Axolotl? Safe Handling, Petting & Transport",
+        "title_tag": "Can You Hold an Axolotl? Safe Handling, Petting & Transport",
+        "date_modified": "2026-09-18",
     },
     "80 - How to Pronounce Axolotl.docx": {
         "slug": "care-basics/how-to-pronounce-axolotl",
@@ -2587,8 +2591,9 @@ ARTICLES = {
     "84 - Axolotl Conservation Status.docx": {
         "slug": "biology-and-science/conservation-status",
         "hub": "biology-and-science",
-        "title_override": "Axolotl Conservation Status",
-        "title_tag": "Axolotl Conservation Status: Critically Endangered, Explained",
+        "title_override": "Are Axolotls Endangered? How Many Are Left in the Wild?",
+        "title_tag": "Are Axolotls Endangered? How Many Are Left in the Wild?",
+        "date_modified": "2026-09-18",
     },
     "85 - Is an Axolotl an Amphibian.docx": {
         "slug": "biology-and-science/is-axolotl-amphibian",
@@ -2617,8 +2622,9 @@ ARTICLES = {
     "89 - Axolotl Wild Habitat Xochimilco.docx": {
         "slug": "biology-and-science/wild-habitat-xochimilco",
         "hub": "biology-and-science",
-        "title_override": "Axolotl Wild Habitat: Xochimilco",
-        "title_tag": "Axolotl Habitat: Life in Xochimilco, Mexico City",
+        "title_override": "Where Do Axolotls Live? Wild Habitat in Xochimilco, Mexico",
+        "title_tag": "Where Do Axolotls Live? Wild Habitat in Xochimilco, Mexico",
+        "date_modified": "2026-09-18",
     },
     "90 - Axolotl Price by Morph.docx": {
         "slug": "cost-and-buying/axolotl-price-by-morph",
@@ -3866,6 +3872,74 @@ EXTRA_SECTIONS.setdefault("morphs/morphs-comparison-chart", []).append((
 <p>A morph is more useful than a color nickname when it points to a repeatable pigment phenotype or genetic background. The Ambystoma Genetic Stock Center documents standard pigment mutations including albino, axanthic, melanoid, and white, while hobby names also describe combinations, patterns, and transgenic traits. That is why two animals that both look “pink” can belong to different pigment categories, and why a label such as “lavender” should not automatically be treated as a separate genetic morph.</p>
 <p>Use the comparison table to identify visible traits first, then continue to <a href="/morphs/pigment-cells/">pigment-cell biology</a> and <a href="/breeding/color-genetics-punnett-squares/">color genetics</a> when you need the mechanism rather than the appearance.</p>
 <p><strong>Sources:</strong> <a href="https://ambystoma.uky.edu/teachers-materials-menu/teachers-materials-books-menu?id=9">Ambystoma Genetic Stock Center: Mutant Genes</a>; <a href="https://ambystoma.uky.edu/axolotl-research2/12-educationresources/10-axolotl-strains">Ambystoma Genetic Stock Center: Axolotl Strains</a>.</p>
+"""
+))
+
+
+
+# Second P0 reconciliation pass (2026-09-18): entity, habitat, conservation,
+# growth, suitability, handling, and owner-facing limb recovery.
+INTRO_OVERRIDES["care-basics/are-axolotls-good-beginner-pets"] = (
+    "Axolotls can suit an owner who wants an observation-focused aquatic pet and is willing "
+    "to manage cool, clean water consistently. This page owns the decision question: benefits, "
+    "drawbacks, beginner difficulty, time, equipment, handling limits, and who should reconsider."
+)
+INTRO_OVERRIDES["care-basics/axolotl-age-and-size-chart"] = (
+    "Use this page for the animal's body size and growth: how big axolotls get, how size changes "
+    "through development, and why individuals grow at different rates. Tank capacity belongs to "
+    "the separate tank-size guide."
+)
+INTRO_OVERRIDES["care-basics/axolotl-facts"] = (
+    "An axolotl is Ambystoma mexicanum, a permanently aquatic Mexican salamander best known for "
+    "retaining larval traits such as external gills into adulthood. This page is the broad entity "
+    "definition and routes detailed care, habitat, classification, morph, and conservation questions "
+    "to their specialist guides."
+)
+INTRO_OVERRIDES["care-basics/handling"] = (
+    "Axolotls are observation-focused aquatic pets, so routine touching and petting are not the goal. "
+    "Use this guide for the limited situations when handling, netting, or transport is necessary and "
+    "for safer ways to move an axolotl while minimizing skin and slime-coat disturbance."
+)
+INTRO_OVERRIDES["biology-and-science/wild-habitat-xochimilco"] = (
+    "Wild Ambystoma mexicanum is native to the freshwater lake-and-canal system of Xochimilco in "
+    "the Valley of Mexico. This page owns where axolotls live, where they come from, their freshwater "
+    "habitat, ecological adaptations, and habitat threats."
+)
+INTRO_OVERRIDES["biology-and-science/conservation-status"] = (
+    "Wild axolotls remain in a critical conservation situation in Xochimilco. The most recent published "
+    "density benchmark is still the 2014 estimate of about 36 animals per square kilometre; UNAM reported "
+    "in June 2026 that results from the newer census were still being processed."
+)
+INTRO_OVERRIDES["health/limb-regeneration"] = (
+    "This is the owner-facing injury page: what to do after an axolotl loses part of a limb, how to protect "
+    "the animal during healing, and when veterinary assessment is warranted. The cellular science of "
+    "regeneration stays on the biology page."
+)
+
+ROLE_CALLOUTS["care-basics/axolotl-facts"] = (
+    '<div class="role-note"><strong>This page answers “what is an axolotl?”</strong> '
+    'For husbandry, use the <a href="/axolotls/care-guide/">care guide</a>; for fish-vs-amphibian '
+    'classification, use <a href="/biology-and-science/is-axolotl-amphibian/">the classification guide</a>; '
+    'for where they live, use <a href="/biology-and-science/wild-habitat-xochimilco/">wild habitat</a>.</div>'
+)
+ROLE_CALLOUTS["care-basics/axolotl-age-and-size-chart"] = (
+    '<div class="role-note"><strong>This page owns animal size and growth.</strong> '
+    'If you are choosing aquarium capacity, continue to '
+    '<a href="/tank-setup/tank-size-by-age/">the axolotl tank-size guide</a>.</div>'
+)
+ROLE_CALLOUTS["care-basics/handling"] = (
+    '<div class="role-note"><strong>This page owns touching, petting, moving, netting, and transport.</strong> '
+    'For poison/venom/bite safety, use the dedicated human-safety guide when published; '
+    'for normal interaction and recognition, use <a href="/care-basics/axolotl-intelligence-and-bonding/">bonding and intelligence</a>.</div>'
+)
+
+EXTRA_SECTIONS.setdefault("biology-and-science/conservation-status", []).append((
+    "How Many Wild Axolotls Are Left in 2026?",
+    """
+<p><strong>There is not yet a published 2026 wild headcount that should replace the older benchmark.</strong> UNAM reported in June 2026 that the latest census results were still being processed. The university continues to cite the dramatic decline from roughly 6,000 axolotls per square kilometre in 1998 to about 36 per square kilometre in the 2014 census.</p>
+<p>That number is a <em>density estimate</em>, not a statement that only 36 individual axolotls exist in the world or even in all of Xochimilco. Captive axolotls are numerous, while conservation status refers to the wild population and its habitat.</p>
+<p>The new UNAM census uses traditional fishing surveys together with environmental-DNA methods. Until its results are formally released, this page keeps the 2014 density as the latest published benchmark and labels it by date rather than presenting it as a current 2026 count.</p>
+<p><strong>Current sources:</strong> <a href="https://www.dgcs.unam.mx/boletin/bdboletin/2026_387.html">UNAM, June 28, 2026: new census results still being processed</a>; <a href="https://www.gaceta.unam.mx/levantan-nuevo-censo-del-axolote-en-xochimilco/">Gaceta UNAM: new Xochimilco census</a>; <a href="https://www.ib.unam.mx/ib/adopta-axolotl/">Instituto de Biología UNAM: Adoptaxolotl 2026</a>.</p>
 """
 ))
 
