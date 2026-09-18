@@ -1,7264 +1,684 @@
-# -*- coding: utf-8 -*-
-"""
-Site configuration. Maps every source .docx article into the
-hub-and-spoke structure defined in axolotl_topical_map.xml.
-"""
-
-from pathlib import Path
-
-# â”€â”€ Site identity â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-# CHANGE THIS once you buy your domain:
-SITE_URL = "https://myaxolotl.us"
-SITE_NAME = "MyAxolotl"
-SITE_TAGLINE = "Evidence-based axolotl care, tank setup, diet, and health guides."
-SITE_LOGO = "/images/myaxolotl-logo-v3.webp"
-SITE_FAVICON = "/images/axolotl-favicon.webp"
-X_HANDLE = "@myaxolotls"
-X_PROFILE_URL = "https://x.com/myaxolotls"
-
-SOCIAL_LINKS = [
-    ("Facebook", "https://www.facebook.com/myaxolotl.us/"),
-    ("Instagram", "https://www.instagram.com/myaxolotl.us/"),
-    ("Pinterest", "https://www.pinterest.com/myaxolotls/"),
-    ("Discord", "https://discord.gg/MXUQwDgdgJ"),
-]
-
-ORGANIZATION_SAME_AS = [url for label, url in SOCIAL_LINKS if label != "Discord"] + [X_PROFILE_URL]
-
-PEOPLE = {
-    "author": {
-        "name": "Farrukh Abdullah",
-        "role": "Researcher & Writer",
-        "slug": "authors/farrukh-abdullah",
-        "meta": "Researcher and writer for MyAxolotl.",
-        "summary": "Farrukh Abdullah researches and writes the MyAxolotl guides.",
-        "focus": "Practical husbandry, tank setup, diet, and health explanations.",
-        "links": [
-            ("LinkedIn", "https://www.linkedin.com/in/farrukh-abdullah-5a218424/"),
-            ("Email", "mailto:f.abdullah79@gmail.com"),
-        ],
-        "email": "f.abdullah79@gmail.com",
-        "sameAs": ["https://www.linkedin.com/in/farrukh-abdullah-5a218424/"],
-    },
-    "editor": {
-        "name": "Ananda Abidin",
-        "role": "Editor",
-        "slug": "editors/ananda-abidin",
-        "meta": "Editor for MyAxolotl.",
-        "summary": "Ananda Abidin edits MyAxolotl guides for clarity and editorial consistency.",
-        "focus": "Editorial review, structure, and consistency.",
-        "links": [
-            ("LinkedIn", "https://www.linkedin.com/in/ananda-abidin/"),
-        ],
-        "sameAs": ["https://www.linkedin.com/in/ananda-abidin/"],
-        "experience": [
-            {
-                "organization": "Axohub Indonesia",
-                "role": "Content Writer & Video Editor",
-                "dates": "May 2025 â€“ November 2025",
-                "duration": "7 months",
-                "location": "Malang, East Java, Indonesia",
-            },
-        ],
-    },
-}
-
-# Source folder containing the .docx articles
-ROOT = Path(__file__).resolve().parent.parent
-SOURCE_DIR = ROOT.parent / "axolotls"
-
-# Article-specific hero assets live in the repository so external DOCX builds
-# cannot replace them with generated placeholders. Add each approved hero here
-# with descriptive metadata and an HTML text anchor for any fact in the image.
-HERO_IMAGE_DIR = ROOT / "build" / "hero-images"
-HERO_IMAGE_OVERRIDES = {
-    "tank-setup/setup-guide": {
-        "file": "2-axolotl-tank-setup.webp",
-        "alt": (
-            "Leucistic axolotl in a planted aquarium with fine sand, a hide, "
-            "gentle filtration and cool-water equipment"
-        ),
-        "caption": (
-            "A suitable axolotl tank provides ample floor space, cool dechlorinated "
-            "water, an established biofilter, low flow, safe substrate and at least "
-            "one hide."
-        ),
-        "description": (
-            "Axolotl tank-setup hero showing a leucistic axolotl in a planted, "
-            "filtered aquarium with fine sand and a hide."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "diet/best-foods-list": {
-        "file": "16-best-foods-for-axolotls.webp",
-        "alt": (
-            "Dark axolotl above suitable food options including worms, shrimp "
-            "and sinking pellets"
-        ),
-        "caption": (
-            "Earthworms or nightcrawlers and suitable sinking axolotl pellets are "
-            "dependable staples, while smaller foods such as blackworms or brine "
-            "shrimp are more useful for juveniles."
-        ),
-        "description": (
-            "Best-foods guide hero showing a dark axolotl with worms, shrimp and "
-            "sinking pellets arranged below it."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "diet/feeding-schedule-by-age": {
-        "file": "axolotl-feeding-frequency-by-life-stage.webp",
-        "alt": (
-            "Hatchling, juvenile and adult axolotls shown with age-specific foods "
-            "and feeding frequencies"
-        ),
-        "caption": (
-            "Hatchlings under 3 in (7.5 cm) eat 2â€“3 times daily, juveniles 3â€“7.5 "
-            "in (7.5â€“19 cm) eat 1â€“3 times daily, and adults over 7.5 in (19 cm) "
-            "eat every 2â€“3 days; offer head-width portions and remove leftovers "
-            "within 3â€“5 minutes."
-        ),
-        "description": (
-            "Axolotl feeding-frequency chart comparing hatchling, juvenile and "
-            "adult schedules, portions and age-appropriate foods."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "axolotls/care-guide": {
-        "file": "1-axolotl-care-guide-attached.webp",
-        "alt": (
-            "Dark wild-type axolotl in a planted aquarium with cool water, "
-            "fine sand, a hide, filtration and feeding-care symbols"
-        ),
-        "caption": (
-            "A suitable axolotl habitat combines cool stable water, an established "
-            "biofilter, safe substrate and hides, with appropriate feeding and "
-            "routine health observation."
-        ),
-        "description": (
-            "Axolotl care-guide hero showing a wild-type axolotl in a complete "
-            "aquarium with water-quality, habitat, feeding and health cues."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "tank-setup/live-vs-artificial-plants": {
-        "file": "live-vs-artificial-plants.webp",
-        "alt": (
-            "Leucistic axolotl in a split aquarium comparing live green plants "
-            "with soft artificial plants"
-        ),
-        "caption": (
-            "Live plants can absorb some nitrate and provide cover, while soft "
-            "artificial plants offer low-maintenance shelter without lighting or "
-            "fertilizer needs; avoid sharp plastic edges."
-        ),
-        "description": (
-            "Split-tank comparison of live and artificial plants for an axolotl "
-            "aquarium."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "tank-setup/temperature": {
-        "file": "axolotl-tank-temperature.webp",
-        "alt": (
-            "Blue axolotl in a cooled aquarium with a fan, thermometer and "
-            "aquarium chiller"
-        ),
-        "caption": (
-            "Aim for stable water around 60â€“64Â°F (16â€“18Â°C); sustained temperatures "
-            "above 68Â°F (20Â°C) increase stress, so reliably warm rooms may require "
-            "a chiller."
-        ),
-        "description": (
-            "Axolotl tank-cooling graphic showing target temperature, thermometer, "
-            "fan and chiller."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "tank-setup/canister-vs-sponge-filter": {
-        "file": "canister-vs-sponge-filter.webp",
-        "alt": (
-            "Sponge and canister filters compared beside two wild-type axolotls"
-        ),
-        "caption": (
-            "Sponge filters offer gentle biological filtration, while canisters "
-            "suit larger systems when their output is baffled or dispersed to "
-            "prevent strong current."
-        ),
-        "description": (
-            "Sponge-filter versus canister-filter comparison for axolotl tanks."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "tank-setup/gravel-risks": {
-        "file": "axolotl-sharp-gravel-risks.webp",
-        "alt": (
-            "Leucistic axolotl on fine sand compared with a dark axolotl on "
-            "sharp gravel"
-        ),
-        "caption": (
-            "Fine sand under 1 mm is safer for suitably sized axolotls, while "
-            "gravel and other swallowable stones can cause impaction; bare-bottom "
-            "tanks are another safe option."
-        ),
-        "description": (
-            "Side-by-side comparison of fine sand and sharp gravel in axolotl "
-            "tanks, highlighting gravel-ingestion and impaction risk."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "tank-setup/uneaten-food-and-ammonia": {
-        "file": "uneaten-food-and-ammonia.webp",
-        "alt": (
-            "Wild-type axolotl below a four-step diagram showing how uneaten food "
-            "raises ammonia"
-        ),
-        "caption": (
-            "Remove leftovers promptly because decaying food adds waste and can "
-            "drive ammonia above the required 0 ppm."
-        ),
-        "description": (
-            "Uneaten-food and ammonia pathway graphic for an axolotl aquarium."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "tank-setup/filtration-for-axolotls": {
-        "file": "axolotl-tank-filtration.webp",
-        "alt": (
-            "Wild-type axolotl in a filtered aquarium with sponge, baffled "
-            "hang-on-back and canister filter examples"
-        ),
-        "caption": (
-            "Choose filtration for the tankâ€™s volume and waste load, prioritize "
-            "biological capacity, and baffle or disperse the outlet to keep flow "
-            "gentle."
-        ),
-        "description": (
-            "Axolotl filtration guide comparing sponge, hang-on-back and canister "
-            "filters."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "tank-setup/hides-and-caves": {
-        "file": "axolotl-hides-and-caves.webp",
-        "alt": (
-            "Leucistic axolotl beside terracotta pot, slate cave and smooth PVC "
-            "tunnel hides"
-        ),
-        "caption": (
-            "Provide at least one dark, enclosed hide per axolotl and choose smooth "
-            "terracotta, slate or PVC without sharp edges."
-        ),
-        "description": (
-            "Axolotl hide comparison showing a terracotta pot, slate cave and PVC "
-            "tunnel."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "tank-setup/why-tank-water-smells": {
-        "file": "axolotl-tank-water-smell.webp",
-        "alt": (
-            "Leucistic axolotl with examples of a filter, dirty substrate, waste "
-            "and a water test vial"
-        ),
-        "caption": (
-            "A healthy aquarium may smell faintly earthy; strong odors call for "
-            "water testing and checks for trapped waste, uneaten food and dirty "
-            "filter media."
-        ),
-        "description": (
-            "Axolotl tank-odor troubleshooting graphic showing common sources and "
-            "water testing."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "tank-setup/lighting-for-axolotls": {
-        "file": "axolotl-tank-lighting.webp",
-        "alt": (
-            "Dark axolotl in a planted tank with day and night lux-meter readings "
-            "and a timer"
-        ),
-        "caption": (
-            "Use low, indirect light and a consistent 10â€“12-hour daytime "
-            "photoperiod, leaving the tank dark at night and providing hides."
-        ),
-        "description": (
-            "Axolotl lighting guide showing low daytime light, darkness at night "
-            "and a timer."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "tank-setup/substrate-and-impaction": {
-        "file": "axolotl-substrate-and-impaction.webp",
-        "alt": (
-            "Wild-type and leucistic axolotls above examples of fine sand, bare "
-            "bottom, gravel and large pebbles"
-        ),
-        "caption": (
-            "Fine sand under 1 mm is the safer loose substrate for suitably sized "
-            "axolotls; bare-bottom tanks work for juveniles or quarantine, while "
-            "gravel and swallowable stones pose impaction risk."
-        ),
-        "description": (
-            "Axolotl substrate comparison showing fine sand, bare bottom, gravel "
-            "and large pebbles."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "axolotl-in-culture/adopt-me-axolotl-guide": {
-        "file": "adopt-me-axolotl-guide.webp",
-        "alt": (
-            "Pink virtual Adopt Me axolotl beside notes about legendary rarity, "
-            "trading, neon forms and the care needs of real axolotls"
-        ),
-        "caption": (
-            "The Adopt Me axolotl was introduced as a premium Pet Shop pet. "
-            "Players currently obtain it mainly through trading unless the game "
-            "returns it to the shop; availability and trade value can change."
-        ),
-        "description": (
-            "Adopt Me axolotl guide graphic explaining current acquisition, "
-            "virtual forms and the difference between a game pet and real care."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "axolotl-in-culture/axolotl-in-pop-culture-and-memes": {
-        "file": "axolotl-pop-culture-and-memes.webp",
-        "alt": (
-            "Leucistic axolotl surrounded by examples of games, memes, media, "
-            "merchandise and science coverage"
-        ),
-        "caption": (
-            "Axolotls circulate between games, memes, merchandise and science "
-            "coverage. Their recognizable gills and apparent smile make them easy "
-            "to adapt into friendly characters and reaction images."
-        ),
-        "description": (
-            "Axolotl pop-culture graphic connecting games, memes, merchandise, "
-            "media and science attention."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "axolotl-in-culture/minecraft-axolotls-guide": {
-        "file": "minecraft-axolotls-guide.webp",
-        "alt": (
-            "Minecraft-style axolotls in five colors with lush-cave spawning, "
-            "blue-variant breeding and water-bucket guidance"
-        ),
-        "caption": (
-            "Minecraft axolotls spawn in water in lush caves and appear in five "
-            "color variants. The rare blue variant is obtained through breeding, "
-            "with a 1-in-1,200 chance for each baby."
-        ),
-        "description": (
-            "Minecraft axolotl guide graphic covering lush-cave spawning, five "
-            "colors, the rare blue variant and bucket collection."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "axolotl-in-culture/why-axolotls-are-suddenly-popular": {
-        "file": "why-axolotls-are-popular.webp",
-        "alt": (
-            "Wild-type axolotl with four popularity factors: Minecraft, internet "
-            "memes, regeneration science and endangered status"
-        ),
-        "caption": (
-            "Axolotl popularity grew through the 2021 Minecraft update, a highly "
-            "recognizable face, continuing regeneration research and public concern "
-            "for a species listed as Critically Endangered in the wild."
-        ),
-        "description": (
-            "Axolotl-popularity timeline combining gaming, internet culture, "
-            "regeneration science and conservation awareness."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "diet/beef-heart": {
-        "file": "axolotl-beef-heart-feeding-warning.webp",
-        "alt": (
-            "Wild-type axolotl beside beef heart with guidance to offer it only "
-            "occasionally and choose earthworms or axolotl pellets instead"
-        ),
-        "caption": (
-            "Beef heart is not suitable as a staple axolotl food because its "
-            "calcium-to-phosphorus balance is poor. Use earthworms or "
-            "axolotl-formulated pellets for routine feeding."
-        ),
-        "description": (
-            "Educational axolotl feeding graphic explaining why beef heart "
-            "should be occasional rather than a staple food."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "diet/overfeeding-and-impaction": {
-        "file": "axolotl-obesity-body-condition-guide.webp",
-        "alt": (
-            "Wild-type axolotl beside a food bowl and guidance on healthy body "
-            "proportions, adult feeding frequency and occasional high-fat treats"
-        ),
-        "caption": (
-            "Assess body condition from above after digestion: a healthy "
-            "abdomen is approximately as wide as the head. Most adults maintain "
-            "condition on two or three meals per week, with high-fat foods kept "
-            "as occasional treats."
-        ),
-        "description": (
-            "Educational axolotl-obesity graphic showing body-proportion, "
-            "adult feeding-frequency and high-fat treat guidance."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "morphs/blue-and-pink-axolotl-myth": {
-        "file": "axolotl-blue-pink-color-myth.webp",
-        "alt": (
-            "Pale axolotl under blue aquarium lighting beside an explanation "
-            "that no true blue axolotl morph is recognized"
-        ),
-        "caption": (
-            "No established axolotl morph is naturally bright blue. Blue-looking "
-            "photos usually result from colored lighting or editing, while pink "
-            "appearance is common in pale leucistic and albino morphs."
-        ),
-        "description": (
-            "Myth-busting axolotl color graphic distinguishing lighting effects "
-            "from recognized pale morphs."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "morphs/chimera": {
-        "file": "chimera-axolotl-bilateral-color-split.webp",
-        "alt": (
-            "Split-colored chimera axolotl illustrating two genetically distinct "
-            "cell populations divided along the body"
-        ),
-        "caption": (
-            "A chimera can form when two early embryos fuse, producing genetically "
-            "distinct cell populations. It is a developmental event rather than a "
-            "predictably inherited morph."
-        ),
-        "description": (
-            "Educational chimera axolotl graphic showing a bilateral color split "
-            "and its developmental origin."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "morphs/copper": {
-        "file": "copper-axolotl-morph.webp",
-        "alt": (
-            "Copper axolotl with an orange-brown body, reddish gills and pale eyes "
-            "beside recessive color-genetics notes"
-        ),
-        "caption": (
-            "Copper axolotls have a warm orange-brown appearance associated with "
-            "recessive variation affecting melanin production. Their husbandry is "
-            "the same as for other axolotl color morphs."
-        ),
-        "description": (
-            "Copper axolotl morph profile showing its characteristic color, eyes "
-            "and recessive inheritance."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "morphs/enigma-firefly-mac": {
-        "file": "rare-axolotl-morphs-enigma-firefly-mac.webp",
-        "alt": (
-            "Rare axolotl appearance comparison labeled Enigma, firefly and MAC "
-            "with notes on origin and inheritance"
-        ),
-        "caption": (
-            "Names such as Enigma, firefly and MAC describe different rare "
-            "appearances or breeding lines. Firefly is produced through tissue "
-            "grafting and is not a standard heritable color morph."
-        ),
-        "description": (
-            "Comparison graphic explaining three rare axolotl appearance labels "
-            "and why their origins and inheritance differ."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "morphs/gfp-axolotl": {
-        "file": "gfp-axolotl-uv-fluorescence.webp",
-        "alt": (
-            "GFP axolotl fluorescing green under blue light beside notes about "
-            "the dominant transgene and normal routine care"
-        ),
-        "caption": (
-            "The GFP transgene produces green fluorescence under suitable blue "
-            "excitation light. A GFP axolotl has the same routine husbandry needs "
-            "as other morphs and does not require special lighting."
-        ),
-        "description": (
-            "GFP axolotl graphic explaining blue-light fluorescence, transgene "
-            "inheritance and ordinary husbandry needs."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "morphs/golden-albino": {
-        "file": "golden-albino-axolotl-morph.webp",
-        "alt": (
-            "Golden albino axolotl with a yellow-gold body, pink gills and pale "
-            "red eyes beside pigment notes"
-        ),
-        "caption": (
-            "Golden albinos lack dark melanin but retain yellow pigment, producing "
-            "a gold body and pale red eyes. Color does not change their core "
-            "husbandry requirements."
-        ),
-        "description": (
-            "Golden albino axolotl morph profile showing its yellow pigment, pale "
-            "eyes and standard care needs."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "morphs/leucistic": {
-        "file": "leucistic-axolotl-morph.webp",
-        "alt": (
-            "Leucistic axolotl with a pale body, dark eyes and pink external gills "
-            "beside identifying features"
-        ),
-        "caption": (
-            "Leucistic axolotls have reduced body pigmentation but retain dark "
-            "eyes. The dark eyes help distinguish them from albino morphs."
-        ),
-        "description": (
-            "Leucistic axolotl morph profile highlighting its pale body, dark eyes "
-            "and pink gills."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "morphs/melanoid": {
-        "file": "melanoid-axolotl-morph.webp",
-        "alt": (
-            "Dark melanoid axolotl with an even black-brown body and no metallic "
-            "eye ring beside pigment-cell notes"
-        ),
-        "caption": (
-            "Melanoid axolotls have abundant dark pigment and lack reflective "
-            "iridophores, so they do not show the metallic shine or gold eye ring "
-            "typical of a wild type."
-        ),
-        "description": (
-            "Melanoid axolotl morph profile showing uniform dark pigmentation and "
-            "the absence of reflective iridophores."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "morphs/morphs-comparison-chart": {
-        "file": "axolotl-morph-comparison-chart.webp",
-        "alt": (
-            "Comparison chart of wild type, leucistic, melanoid, golden albino, "
-            "copper, GFP, piebald, mosaic and chimera axolotls"
-        ),
-        "caption": (
-            "Compare axolotl appearances by body and eye color, reflective shine, "
-            "fluorescence and pattern distribution. Rarity and individual patterns "
-            "can vary between breeding populations."
-        ),
-        "description": (
-            "Nine-panel axolotl morph comparison chart covering common colors, "
-            "fluorescent GFP and uncommon patterned appearances."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "morphs/mosaic": {
-        "file": "mosaic-axolotl-morph.webp",
-        "alt": (
-            "Mosaic axolotl with irregular dark and pale patches beside notes on "
-            "cell populations and inheritance"
-        ),
-        "caption": (
-            "Mosaic axolotls show irregular patchwork from genetically different "
-            "cell populations. The pattern is not predictably inherited, and "
-            "appearance alone cannot confirm its developmental mechanism."
-        ),
-        "description": (
-            "Mosaic axolotl profile showing irregular color patches and explaining "
-            "their variable developmental origin."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "morphs/piebald": {
-        "file": "piebald-axolotl-morph.webp",
-        "alt": (
-            "Piebald axolotl with a dark base and irregular unpigmented patches "
-            "beside comparison notes"
-        ),
-        "caption": (
-            "Piebald patterning combines pigmented and unpigmented areas. It differs "
-            "from a dirty leucistic's pale base with dark spots and from a chimera's "
-            "often bilateral division."
-        ),
-        "description": (
-            "Piebald axolotl profile explaining its contrasting patches and how it "
-            "differs from dirty leucistic and chimera appearances."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "morphs/pigment-cells": {
-        "file": "axolotl-pigment-cells-color-genetics.webp",
-        "alt": (
-            "Wild-type axolotl with callouts for melanophores, xanthophores and "
-            "reflective iridophores"
-        ),
-        "caption": (
-            "Axolotl color comes from three main pigment-cell groups: dark "
-            "melanophores, yellow-orange xanthophores and reflective iridophores."
-        ),
-        "description": (
-            "Axolotl pigment-cell diagram identifying the three chromatophore "
-            "groups that combine to produce color and shine."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "morphs/wild-type": {
-        "file": "wild-type-axolotl-natural-color.webp",
-        "alt": (
-            "Wild-type axolotl with olive-brown skin, dark and yellow speckles and "
-            "a reflective gold eye ring"
-        ),
-        "caption": (
-            "Wild-type axolotls combine dark melanophores, yellow xanthophores and "
-            "reflective iridophores. The resulting olive-brown pattern and gold eye "
-            "ring distinguish them from melanoids."
-        ),
-        "description": (
-            "Wild-type axolotl morph profile showing natural camouflage colors, "
-            "speckling and reflective eye-ring features."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "breeding/breeding-triggers-temperature-cycling": {
-        "file": "axolotl-breeding-temperature-cycling.webp",
-        "alt": (
-            "Adult axolotls in a breeding tank beside seasonal temperature and "
-            "day-length cues for courtship"
-        ),
-        "caption": (
-            "Stable seasonal changes in water temperature and day length can "
-            "coincide with axolotl courtship. Avoid abrupt thermal shocks and "
-            "keep breeding animals within safe husbandry conditions."
-        ),
-        "description": (
-            "Axolotl breeding-cue graphic showing a conditioned pair, gradual "
-            "seasonal changes and temperature-safety guidance."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "breeding/color-genetics-punnett-squares": {
-        "file": "axolotl-color-genetics-punnett-square.webp",
-        "alt": (
-            "Four axolotl color morphs beside a Punnett square explaining "
-            "dominant, recessive and carrier inheritance"
-        ),
-        "caption": (
-            "A Punnett square models one gene at a time. For a single recessive "
-            "trait, two carriers predict a 25 percent homozygous-recessive chance "
-            "per offspring, not a guaranteed clutch ratio."
-        ),
-        "description": (
-            "Axolotl color-genetics graphic combining multiple morphs with a "
-            "single-locus Punnett-square example."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "breeding/egg-and-larvae-care": {
-        "file": "axolotl-eggs-larvae-care.webp",
-        "alt": (
-            "Developing axolotl embryos inside eggs beside incubation, water-care "
-            "and first-food guidance"
-        ),
-        "caption": (
-            "Axolotl embryo development speeds up as incubation temperature rises. "
-            "Keep the water clean, inspect eggs daily, and prepare live food before "
-            "the larvae finish absorbing their yolk."
-        ),
-        "description": (
-            "Axolotl egg-and-larvae graphic showing developing embryos, incubation "
-            "care and the transition to live baby brine shrimp."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "breeding/genetics-and-inbreeding": {
-        "file": "axolotl-genetic-diversity-inbreeding-risk.webp",
-        "alt": (
-            "Leucistic axolotl beside a pedigree chart and genetic-diversity "
-            "guidance for breeding decisions"
-        ),
-        "caption": (
-            "The historic laboratory axolotl population began with a small founder "
-            "group. Appearance cannot reveal relatedness, so pedigree records and "
-            "healthy, unrelated breeding stock matter."
-        ),
-        "description": (
-            "Axolotl genetic-diversity graphic using a pedigree to explain founder "
-            "effects, inbreeding risk and responsible pair selection."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "breeding/raising-juveniles": {
-        "file": "raising-baby-axolotls-growth-stages.webp",
-        "alt": (
-            "Several juvenile axolotls at different sizes beside feeding, size "
-            "separation and growth-stage guidance"
-        ),
-        "caption": (
-            "Newly feeding larvae need appropriately sized live food. Grade growing "
-            "juveniles by size to reduce biting, maintain clean water, and rehome "
-            "only after feeding and growth are stable."
-        ),
-        "description": (
-            "Juvenile axolotl growth graphic showing multiple animals with first "
-            "foods, size separation, limb development and rehoming milestones."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "breeding/sexing-axolotls": {
-        "file": "male-female-axolotl-sexing-guide.webp",
-        "alt": (
-            "Adult male and female axolotls viewed from above with their cloacae "
-            "highlighted for comparison"
-        ),
-        "caption": (
-            "A mature male develops an enlarged, side-bulging cloaca. A small cloaca "
-            "can indicate a female or an immature animal, and body shape alone is "
-            "not a reliable sexing method."
-        ),
-        "description": (
-            "Male-versus-female axolotl sexing graphic focused on the cloaca while "
-            "warning against decisions based only on body shape."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "care-basics/are-axolotls-good-beginner-pets": {
-        "file": "are-axolotls-good-beginner-pets.webp",
-        "alt": (
-            "Leucistic axolotl in a filtered aquarium beside a beginner-readiness "
-            "checklist for temperature and long-term care"
-        ),
-        "caption": (
-            "Axolotls can suit prepared beginners who can cycle the aquarium, "
-            "maintain cool stable water, and commit to long-term care. They are "
-            "not a low-maintenance impulse pet."
-        ),
-        "description": (
-            "Beginner axolotl care graphic showing a leucistic animal, filter, "
-            "thermometer and preparation checklist."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "care-basics/axolotl-age-and-size-chart": {
-        "file": "axolotl-age-and-size-chart.webp",
-        "alt": (
-            "Four axolotl growth stages aligned with a ruler from larva through "
-            "juvenile, subadult and adult"
-        ),
-        "caption": (
-            "Measure from snout to tail tip. Size varies with genetics, diet, "
-            "temperature, health, and individual growth, so stage labels are "
-            "approximate rather than deadlines."
-        ),
-        "description": (
-            "Axolotl age-and-size chart comparing larval, juvenile, subadult and "
-            "adult growth stages against a measurement scale."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "care-basics/axolotl-facts": {
-        "file": "amazing-axolotl-facts.webp",
-        "alt": (
-            "Wild-type axolotl in a Xochimilco collage with fact icons for "
-            "amphibian identity, neoteny, regeneration and conservation"
-        ),
-        "caption": (
-            "Axolotls are fully aquatic salamanders native to Xochimilco. They "
-            "retain larval traits as adults, can regenerate complex tissues, and "
-            "remain critically endangered in the wild."
-        ),
-        "description": (
-            "Axolotl fact graphic connecting the species with Xochimilco, "
-            "amphibian biology, neoteny, regeneration and wild conservation."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "care-basics/axolotl-intelligence-and-bonding": {
-        "file": "axolotl-owner-recognition.webp",
-        "alt": (
-            "Copper axolotl approaching its keeper beside notes on associative "
-            "learning, routines and owner recognition"
-        ),
-        "caption": (
-            "Axolotls can learn feeding cues and become responsive to a familiar "
-            "keeper's movement and routine. This is associative learning, not "
-            "evidence of mammal-like attachment."
-        ),
-        "description": (
-            "Axolotl owner-recognition graphic explaining learned feeding cues, "
-            "familiar routines and the limits of bonding claims."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "care-basics/axolotls-and-children": {
-        "file": "axolotls-as-pets-for-kids.webp",
-        "alt": (
-            "Child and adult observing a leucistic axolotl aquarium beside "
-            "supervision and no-handling guidance"
-        ),
-        "caption": (
-            "An axolotl can be a family pet when an adult manages water quality, "
-            "feeding, and equipment. Children should observe rather than handle "
-            "the animal."
-        ),
-        "description": (
-            "Family axolotl-care graphic showing a child and adult observing the "
-            "tank with supervision and handling-safety reminders."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "care-basics/behavior": {
-        "file": "axolotl-behavior-guide.webp",
-        "alt": (
-            "Melanoid axolotls demonstrating resting, hiding, nocturnal activity "
-            "and frantic-swimming behavior"
-        ),
-        "caption": (
-            "Resting and hiding can be normal, especially during the day. Sudden "
-            "frantic swimming is a reason to check water quality, temperature, "
-            "flow, and other stressors."
-        ),
-        "description": (
-            "Axolotl behavior graphic comparing normal resting and hiding with "
-            "activity patterns and a possible stress response."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "care-basics/cost-of-ownership-monthly": {
-        "file": "axolotl-monthly-ownership-cost.webp",
-        "alt": (
-            "Golden albino axolotl aquarium beside monthly expense categories for "
-            "food, conditioner, supplies and emergency savings"
-        ),
-        "caption": (
-            "Monthly costs vary by location, tank equipment, electricity rates, "
-            "diet, and health needs. Plan for routine supplies plus an emergency "
-            "reserve instead of treating one price as universal."
-        ),
-        "description": (
-            "Axolotl ownership-cost graphic organizing recurring expenses into "
-            "food, water care, supplies and emergency-fund categories."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "care-basics/handling": {
-        "file": "how-to-handle-an-axolotl-safely.webp",
-        "alt": (
-            "Wild-type axolotl being transferred in water beside container, "
-            "minimal-handling and bare-hand safety guidance"
-        ),
-        "caption": (
-            "Avoid routine bare-hand handling. When movement is necessary, a "
-            "water-filled container is generally the safest first choice; keep "
-            "any transfer brief and protect the gills and limbs."
-        ),
-        "description": (
-            "Axolotl transfer-safety graphic emphasizing a water-filled container, "
-            "minimal handling time and protection of delicate skin and gills."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "care-basics/how-to-pronounce-axolotl": {
-        "file": "how-to-pronounce-axolotl.webp",
-        "alt": (
-            "Leucistic axolotl beside the modern English pronunciation "
-            "ACK-suh-lot-ul and notes that Nahuatl and Spanish differ"
-        ),
-        "caption": (
-            "Modern English commonly uses ACK-suh-lot-ul. The Nahuatl source word "
-            "and Spanish ajolote have different pronunciations, so they should not "
-            "be presented as one universal form."
-        ),
-        "description": (
-            "Axolotl pronunciation graphic separating the common modern English "
-            "form from the related Nahuatl and Spanish forms."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "care-basics/keeping-multiple-axolotls": {
-        "file": "can-axolotls-live-together.webp",
-        "alt": (
-            "Three similarly sized axolotls in an aquarium with multiple hides "
-            "beside cohabitation safety checks"
-        ),
-        "caption": (
-            "Cohabitation depends on comparable body size, adequate floor space, "
-            "multiple hides, consistent feeding, and close monitoring. Separate "
-            "animals if biting or persistent stress occurs."
-        ),
-        "description": (
-            "Axolotl cohabitation graphic showing similarly sized animals, several "
-            "hides, adequate space and monitoring for biting or stress."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "biology-and-science/anatomy-gills-and-lungs": {
-        "file": "axolotl-anatomy-gills-lungs.webp",
-        "alt": (
-            "Leucistic axolotl with labeled external gills, lungs and "
-            "skin-based oxygen absorption"
-        ),
-        "caption": (
-            "Axolotls exchange gases through external gills, skin and simple "
-            "lungs. Gill movement can increase water flow, while occasional "
-            "surface gulps use the lungs."
-        ),
-        "description": (
-            "Axolotl respiratory-anatomy graphic labeling external gills, "
-            "internal lungs and oxygen-absorbing skin."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "biology-and-science/axolotl-vs-tiger-salamander": {
-        "file": "axolotl-vs-tiger-salamander.webp",
-        "alt": (
-            "Aquatic axolotl beside a terrestrial tiger salamander with "
-            "neoteny and metamorphosis differences"
-        ),
-        "caption": (
-            "Axolotls normally remain aquatic and retain larval traits, while "
-            "tiger salamanders typically metamorphose into terrestrial adults. "
-            "They are related but distinct species."
-        ),
-        "description": (
-            "Axolotl-versus-tiger-salamander comparison showing different "
-            "adult forms, habitats and developmental pathways."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "biology-and-science/conservation-status": {
-        "file": "axolotl-conservation-status.webp",
-        "alt": (
-            "Wild-type axolotl in Xochimilco beside Critically Endangered "
-            "status, habitat threats and range map"
-        ),
-        "caption": (
-            "Wild axolotls are restricted to Xochimilco and classified as "
-            "Critically Endangered. Habitat degradation, pollution and "
-            "invasive fish continue to threaten the remaining population."
-        ),
-        "description": (
-            "Axolotl conservation graphic connecting the IUCN status with "
-            "Xochimilco, habitat loss and invasive-species pressure."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "biology-and-science/is-axolotl-amphibian": {
-        "file": "axolotl-amphibian-classification.webp",
-        "alt": (
-            "Golden axolotl beside an amphibian classification chart and "
-            "features that distinguish it from fish"
-        ),
-        "caption": (
-            "The axolotl is an amphibian: a salamander in the order Caudata. "
-            "It remains fully aquatic and retains larval features as a "
-            "reproductive adult."
-        ),
-        "description": (
-            "Axolotl classification graphic identifying the species as a "
-            "neotenic aquatic salamander rather than a fish."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "biology-and-science/lifespan-wild-vs-captivity": {
-        "file": "axolotl-lifespan-wild-vs-captivity.webp",
-        "alt": (
-            "Captive leucistic axolotl and wild-type axolotl compared on "
-            "lifespan timelines and environmental pressures"
-        ),
-        "caption": (
-            "Lifespan estimates vary. Captive axolotls often live longer when "
-            "temperature, water quality, diet and veterinary care are stable; "
-            "wild animals face habitat and predation pressures."
-        ),
-        "description": (
-            "Wild-versus-captive axolotl lifespan comparison emphasizing "
-            "husbandry and environmental factors rather than guaranteed ages."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "biology-and-science/regeneration-and-limb-regrowth": {
-        "file": "axolotl-regeneration-science.webp",
-        "alt": (
-            "Axolotl limb regeneration sequence showing wound closure, "
-            "blastema formation, patterning and growth"
-        ),
-        "caption": (
-            "Axolotl regeneration proceeds through wound closure, formation "
-            "of a blastema, tissue patterning and growth. Regeneration is "
-            "powerful but not unlimited, and injury prevention remains essential."
-        ),
-        "description": (
-            "Scientific axolotl-regeneration graphic illustrating the major "
-            "stages of limb regrowth and biological limits."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "biology-and-science/neoteny": {
-        "file": "axolotl-neoteny-explained.webp",
-        "alt": (
-            "Axolotl neoteny diagram comparing retained larval traits with "
-            "salamander metamorphosis"
-        ),
-        "caption": (
-            "Neoteny allows an axolotl to reach sexual maturity while retaining "
-            "larval traits such as external gills, a finned tail and an aquatic "
-            "lifestyle."
-        ),
-        "description": (
-            "Axolotl neoteny graphic comparing its lifelong larval features "
-            "with the metamorphic pathway of other salamanders."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "biology-and-science/wild-habitat-xochimilco": {
-        "file": "axolotl-wild-habitat-xochimilco.webp",
-        "alt": (
-            "Wild-type axolotl in a Xochimilco canal beside a Mexico City map "
-            "and habitat features"
-        ),
-        "caption": (
-            "Wild axolotls are native to the Xochimilco canal system south of "
-            "Mexico City. Shallow vegetated water, chinampa landscapes and "
-            "remaining refuges define this restricted habitat."
-        ),
-        "description": (
-            "Axolotl habitat graphic showing Xochimilco's location, canals, "
-            "vegetation and the species' narrow native range."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "legal/california": {
-        "file": "axolotl-legal-california.webp",
-        "alt": (
-            "California axolotl ownership graphic showing restricted-species "
-            "permit rules and a CDFW verification reminder"
-        ),
-        "caption": (
-            "California treats axolotls as restricted wildlife. CDFW does not "
-            "issue restricted-species permits for ordinary pet ownership; verify "
-            "current state and local rules before acting."
-        ),
-        "description": (
-            "California axolotl legality infographic summarizing restricted "
-            "status, permit limits and current-rule verification."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "legal/canada": {
-        "file": "axolotl-legal-canada.webp",
-        "alt": (
-            "Canada map beside an axolotl and guidance that ownership rules "
-            "vary by province and locality"
-        ),
-        "caption": (
-            "Axolotls are legal to own in most of Canada, but provincial, "
-            "municipal, import and cross-border requirements can differ. Confirm "
-            "the current rules for your location and source."
-        ),
-        "description": (
-            "Canada axolotl ownership graphic emphasizing provincial variation, "
-            "captive-bred sourcing and possible import requirements."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "legal/hawaii": {
-        "file": "axolotl-legal-hawaii.webp",
-        "alt": (
-            "Hawaii axolotl law graphic showing prohibited ownership and import "
-            "restrictions beside an axolotl"
-        ),
-        "caption": (
-            "Hawaii prohibits ordinary private ownership and import of axolotls. "
-            "Confirm current requirements with the Hawaii Department of "
-            "Agriculture before any movement or acquisition."
-        ),
-        "description": (
-            "Hawaii axolotl legality infographic explaining ownership and import "
-            "restrictions and the purpose of island biosecurity."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "legal/maine": {
-        "file": "axolotl-legal-maine.webp",
-        "alt": (
-            "Maine axolotl law graphic showing permit-based ownership and import "
-            "requirements"
-        ),
-        "caption": (
-            "Maine regulates axolotls through permit-based wildlife rules. Verify "
-            "the current possession and import requirements with Maine DIFW "
-            "before acquiring or moving one."
-        ),
-        "description": (
-            "Maine axolotl legality infographic summarizing restricted-species "
-            "category, possession permits and import permits."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "legal/new-jersey": {
-        "file": "axolotl-legal-new-jersey.webp",
-        "alt": (
-            "New Jersey axolotl law graphic showing prohibited private ownership "
-            "and nonnative-species concerns"
-        ),
-        "caption": (
-            "New Jersey does not permit ordinary private ownership of axolotls. "
-            "Confirm current possession and transport rules with the New Jersey "
-            "Division of Fish and Wildlife before acting."
-        ),
-        "description": (
-            "New Jersey axolotl legality infographic explaining private-ownership "
-            "restrictions, ecological concerns and current-rule verification."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "legal/new-mexico": {
-        "file": "axolotl-legal-new-mexico.webp",
-        "alt": (
-            "New Mexico axolotl law graphic showing prohibited private ownership "
-            "and import restrictions"
-        ),
-        "caption": (
-            "New Mexico prohibits ordinary private ownership and import of "
-            "axolotls. Verify the current requirements with the New Mexico "
-            "Department of Game and Fish before acting."
-        ),
-        "description": (
-            "New Mexico axolotl legality infographic summarizing possession and "
-            "import restrictions with a current-rule reminder."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "legal/virginia": {
-        "file": "axolotl-legal-virginia.webp",
-        "alt": (
-            "Virginia axolotl law graphic showing ownership, import and sale "
-            "allowed without a state wildlife permit"
-        ),
-        "caption": (
-            "Virginia currently allows possession, import and sale of axolotls "
-            "without a state wildlife permit, but local rules can still apply. "
-            "Verify current state and local requirements."
-        ),
-        "description": (
-            "Virginia axolotl legality infographic summarizing state permit "
-            "status, allowed activities and local-rule verification."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "cost-and-buying/axolotl-price-by-morph": {
-        "file": "axolotl-price-by-morph.webp",
-        "alt": (
-            "Six axolotl morphs displayed with example purchase-price ranges "
-            "and reminders that seller, age, lineage, location and shipping affect cost"
-        ),
-        "caption": (
-            "Advertised axolotl prices vary by seller, morph, age, lineage and "
-            "location. Treat displayed ranges as market examples rather than "
-            "guaranteed prices, and include shipping when comparing the total cost."
-        ),
-        "description": (
-            "Axolotl price-by-morph comparison graphic showing common and uncommon "
-            "appearances with variable-price and shipping-cost guidance."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "cost-and-buying/breeder-vs-pet-store": {
-        "file": "axolotl-breeder-vs-pet-store.webp",
-        "alt": (
-            "Axolotl breeder and pet-store comparison with feeding records, "
-            "water-quality questions and written-cost checks"
-        ),
-        "caption": (
-            "Seller type alone does not prove quality. Compare the exact animal, "
-            "feeding and hatch records, measured water conditions, delivered cost "
-            "and written terms before choosing a breeder or pet store."
-        ),
-        "description": (
-            "Breeder-versus-pet-store axolotl buying graphic focused on verifiable "
-            "records, husbandry conditions and transaction terms."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "cost-and-buying/choosing-a-reputable-breeder": {
-        "file": "choosing-a-reputable-axolotl-breeder.webp",
-        "alt": (
-            "Axolotl breeder checklist showing dated animal photos, water records, "
-            "parentage details and written buyer terms"
-        ),
-        "caption": (
-            "Choose a breeder by the evidence they can provide. Request current "
-            "photos, feeding and water records, hatch and parentage information, "
-            "written terms and a payment method with buyer protection."
-        ),
-        "description": (
-            "Reputable axolotl breeder checklist illustrating the records and "
-            "transaction safeguards to verify before payment."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "cost-and-buying/how-to-choose-a-healthy-axolotl": {
-        "file": "choosing-a-healthy-axolotl.webp",
-        "alt": (
-            "Golden albino axolotl with buying checks for body condition, intact "
-            "skin and gills, movement, feeding history and water readings"
-        ),
-        "caption": (
-            "Before buying, observe body condition, skin and gill integrity, "
-            "balanced movement, recent feeding history and measured water quality. "
-            "A photograph can reveal warning signs but cannot diagnose an axolotl."
-        ),
-        "description": (
-            "Healthy-axolotl buying graphic showing observable condition checks and "
-            "the records a prospective owner should request."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "cost-and-buying/red-flags-when-buying": {
-        "file": "axolotl-seller-red-flags.webp",
-        "alt": (
-            "Dark axolotl beside seller red flags including unverifiable animals, "
-            "unsafe payment requests, vague care information and changed terms"
-        ),
-        "caption": (
-            "Pause a purchase when the seller cannot verify the exact animal, "
-            "explain its current care or provide consistent written terms. Avoid "
-            "payment methods that remove ordinary buyer protection."
-        ),
-        "description": (
-            "Axolotl seller-red-flags graphic covering identity, husbandry, payment "
-            "and shipping warning signs."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "cost-and-buying/shipping-live-axolotls": {
-        "file": "shipping-live-axolotls.webp",
-        "alt": (
-            "Axolotl shipping sequence with insulated packaging, delivery tracking, "
-            "unboxing documentation and transfer to a prepared cycled aquarium"
-        ),
-        "caption": (
-            "Before payment, verify the carrier's current live-animal policy, route "
-            "legality and suitable weather. Arrange prompt delivery, document the "
-            "unboxing, and prepare a cycled destination before the animal arrives."
-        ),
-        "description": (
-            "Live-axolotl shipping graphic showing insulated packing, tracking, "
-            "arrival documentation and transfer preparation."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "gifts-and-merch/best-axolotl-toys-and-plushies": {
-        "file": "best-axolotl-toys-and-plushies.webp",
-        "alt": (
-            "Axolotl plush toys and activity toys arranged as gift ideas by age, "
-            "play style and budget"
-        ),
-        "caption": (
-            "Match an axolotl toy to the recipient's age and intended use, then "
-            "check the current product label for age guidance. Prices and stock "
-            "vary by retailer, size and design."
-        ),
-        "description": (
-            "Axolotl toy-and-plush gift guide showing cuddly, reversible, "
-            "interactive and fidget-style options."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "gifts-and-merch/axolotl-squishmallow-guide": {
-        "file": "axolotl-squishmallow-guide.webp",
-        "alt": (
-            "Archie-style axolotl plush collection ranging from a small clip to "
-            "a 24-inch jumbo size"
-        ),
-        "caption": (
-            "Axolotl Squishmallows are sold in multiple sizes, with 8-inch and "
-            "12-inch versions among the common gift formats. Character selection, "
-            "sizes, retail prices and availability change between sellers."
-        ),
-        "description": (
-            "Axolotl Squishmallow size guide comparing clip, 5-inch, 8-inch, "
-            "12-inch and jumbo plush formats with buying notes."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "gifts-and-merch/build-a-bear-axolotl-guide": {
-        "file": "build-a-bear-axolotl-guide.webp",
-        "alt": (
-            "Build-A-Bear axolotl plush beside clothing, scent, sound and gift-tag "
-            "customization options"
-        ),
-        "caption": (
-            "Build-A-Bear lists the standard pink axolotl separately from optional "
-            "clothing, sounds, scents and gift sets. Prices, colors, seasonal models "
-            "and availability can change, so verify the current official listing."
-        ),
-        "description": (
-            "Build-A-Bear axolotl buying graphic showing the base plush and common "
-            "customization choices with variable-price guidance."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "gifts-and-merch/best-axolotl-lego-sets": {
-        "file": "lego-axolotl-house-set-21247.webp",
-        "alt": (
-            "LEGO Minecraft Axolotl House set 21247 with an axolotl-shaped house, "
-            "underwater scenery and set specifications"
-        ),
-        "caption": (
-            "LEGO Minecraft The Axolotl House is set 21247, rated for ages 7 and "
-            "up, with 242 pieces and a 2023 release year. It is discontinued in "
-            "some markets, so current availability and resale prices vary."
-        ),
-        "description": (
-            "LEGO Axolotl House set guide showing the Minecraft model, set number, "
-            "piece count, age rating and release information."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "tank-setup/aquarium-chillers": {
-        "file": "axolotl-aquarium-chillers.webp",
-        "alt": (
-            "Golden albino axolotl tank connected to a compressor aquarium "
-            "chiller with a digital thermometer and water-flow diagram"
-        ),
-        "caption": (
-            "A compressor chiller can stabilize an axolotl tank through warm "
-            "weather. Match the unit to the tank volume and required flow rate, "
-            "then verify the water temperature with a separate thermometer."
-        ),
-        "description": (
-            "Educational aquarium-chiller graphic showing a golden albino "
-            "axolotl, compressor unit, circulation loop and temperature checks."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "tank-setup/water-change-guide": {
-        "file": "axolotl-water-change-guide.webp",
-        "alt": (
-            "Golden albino axolotl beside a siphon, replacement-water tub and "
-            "five-step aquarium water-change guide"
-        ),
-        "caption": (
-            "For routine maintenance, test the water, siphon waste, condition "
-            "and temperature-match the replacement water, then refill slowly. "
-            "Ammonia or nitrite spikes may require larger or repeated changes."
-        ),
-        "description": (
-            "Step-by-step axolotl water-change graphic showing preparation, "
-            "siphoning, routine amounts, temperature matching and slow refilling."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "tank-setup/water-conditioners": {
-        "file": "axolotl-water-conditioners.webp",
-        "alt": (
-            "Leucistic axolotl beside an unbranded water conditioner with "
-            "chlorine, chloramine, ammonia and nitrite treatment callouts"
-        ),
-        "caption": (
-            "Treat new tap water at the product's label dose to neutralize "
-            "chlorine and chloramine. Some conditioners temporarily detoxify "
-            "ammonia or nitrite, but they do not replace a cycled biofilter."
-        ),
-        "description": (
-            "Axolotl water-conditioner graphic explaining tap-water treatment "
-            "and ingredient checks for chlorine, chloramine and heavy metals."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "tank-setup/tank-size-by-age": {
-        "file": "axolotl-tank-size-by-age.webp",
-        "alt": (
-            "Wild-type axolotl beside tank-size guidance for baby, juvenile, "
-            "adult and paired axolotls"
-        ),
-        "caption": (
-            "Tank volume should increase as an axolotl grows: 5-10 gallons for "
-            "a small grow-out setup, 20 gallons for a juvenile, 20-40 gallons "
-            "for one adult, and at least a 40-gallon breeder for a pair."
-        ),
-        "description": (
-            "Life-stage tank-size comparison for baby, juvenile and adult "
-            "axolotls, emphasizing long tanks and usable floor space."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "tank-setup/tank-mates": {
-        "file": "axolotl-tank-mates.webp",
-        "alt": (
-            "Melanoid and leucistic axolotls together with tank-mate safety "
-            "notes about fish, shrimp, snails and adult tank size"
-        ),
-        "caption": (
-            "Axolotls are safest alone or with a similarly sized axolotl in "
-            "adequate space. Fish may nip exposed gills, while shrimp and "
-            "snails may be swallowed."
-        ),
-        "description": (
-            "Tank-mate risk graphic comparing same-size axolotls with fish, "
-            "shrimp and snails in a planted aquarium."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "tank-setup/acclimating-a-new-axolotl": {
-        "file": "acclimating-a-new-axolotl.webp",
-        "alt": (
-            "Leucistic axolotl in a dim aquarium beside acclimation steps for "
-            "temperature matching and transfer without transport water"
-        ),
-        "caption": (
-            "For a local pickup, dim the lights, match the temperature and add "
-            "tank water gradually before transferring the axolotl without the "
-            "transport water. Overnight shipping requires a faster method."
-        ),
-        "description": (
-            "Step-by-step acclimation graphic showing a floating bag, timed "
-            "water additions and transfer into a prepared axolotl tank."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "tank-setup/water-parameters-cycling": {
-        "file": "axolotl-water-parameters-nitrogen-cycle.webp",
-        "alt": (
-            "Leucistic axolotl beside aquarium test tubes and target readings "
-            "for ammonia, nitrite, nitrate, pH and temperature"
-        ),
-        "caption": (
-            "A cycled axolotl tank should test at 0 ppm ammonia and 0 ppm "
-            "nitrite. Track nitrate, pH and temperature as trends because a "
-            "single test does not show whether conditions are stable."
-        ),
-        "description": (
-            "Axolotl water-parameter graphic with liquid test tubes and target "
-            "readings for monitoring the aquarium nitrogen cycle."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/black-tea-bath": {
-        "file": "axolotl-black-tea-bath.webp",
-        "alt": (
-            "Leucistic axolotl in a shallow black tea bath beside a timer, pure "
-            "tea bag and thermometer"
-        ),
-        "caption": (
-            "For mild irritation or early surface fungus, a short 10â€“15-minute "
-            "bath made with cooled, pure black tea may provide supportive care; "
-            "stop if the axolotl shows distress and seek veterinary help for "
-            "persistent or spreading disease."
-        ),
-        "description": (
-            "Axolotl black-tea-bath guide showing a shallow treatment tub, timer, "
-            "thermometer and pure black tea."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/parasite-treatment": {
-        "file": "axolotl-parasite-treatment.webp",
-        "alt": (
-            "Wild-type axolotl in a hospital tub with a magnified parasite and "
-            "quarantine sign"
-        ),
-        "caption": (
-            "Possible parasites require water-quality checks, isolation in a "
-            "clean hospital tub and confirmation by an experienced exotic "
-            "veterinarian before treatment."
-        ),
-        "description": (
-            "Axolotl parasite-treatment graphic showing quarantine, water checks "
-            "and veterinary confirmation."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/malnutrition-signs": {
-        "file": "axolotl-malnutrition-signs.webp",
-        "alt": (
-            "Golden albino axolotl beside healthy and underweight body-condition "
-            "comparisons"
-        ),
-        "caption": (
-            "Evaluate body condition from above: a persistently narrow abdomen, "
-            "reduced tail mass, poor growth or low energy can indicate "
-            "undernutrition, but water quality and disease should also be "
-            "investigated."
-        ),
-        "description": (
-            "Axolotl malnutrition-signs graphic comparing healthy and underweight "
-            "body condition."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/why-axolotl-floating": {
-        "file": "why-axolotl-floating.webp",
-        "alt": (
-            "Dark axolotl floating near the aquarium surface beside common-cause "
-            "and first-check guidance"
-        ),
-        "caption": (
-            "Floating is a symptom rather than a diagnosis. Check water parameters "
-            "and temperature first; swallowed air, constipation, impaction and "
-            "illness are possible causes, especially when floating persists or "
-            "worsens."
-        ),
-        "description": (
-            "Axolotl floating guide showing a dark axolotl near the surface and "
-            "the first checks owners should make."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/fridging-sick-axolotl": {
-        "file": "fridging-sick-axolotl-risks.webp",
-        "alt": (
-            "Leucistic axolotl in a labeled hospital tub beside a refrigerator "
-            "and thermometer"
-        ),
-        "caption": (
-            "Fridging is not routine home treatment. Household refrigerators "
-            "create temperature and water-quality risks, so controlled cooling "
-            "should be used only when an experienced exotic veterinarian "
-            "recommends it."
-        ),
-        "description": (
-            "Axolotl fridging-risk graphic showing a hospital tub, refrigerator, "
-            "thermometers and veterinary-guidance warning."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/refusing-to-eat": {
-        "file": "axolotl-not-eating-first-checks.webp",
-        "alt": (
-            "Dark melanoid axolotl turning away from an offered earthworm beside "
-            "first checks for appetite loss"
-        ),
-        "caption": (
-            "Unexpected appetite loss is a symptom, not a diagnosis. Record water "
-            "values, temperature, food, stool and body condition; seek prompt "
-            "veterinary care for swelling, breathing difficulty or rapid decline."
-        ),
-        "description": (
-            "Axolotl-not-eating guide showing a melanoid axolotl refusing a worm "
-            "and the first husbandry and health checks to make."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/fungal-infections-saprolegnia": {
-        "file": "axolotl-fungal-infection-signs.webp",
-        "alt": (
-            "Copper axolotl with a small cotton-like white tuft on its tail shown "
-            "in a magnified inset"
-        ),
-        "caption": (
-            "Cotton-like white or gray tufts can indicate fungal growth. Isolate "
-            "the axolotl in clean, cool hospital water, test ammonia, nitrite and "
-            "temperature, and seek an exotic veterinarian if growth spreads or "
-            "the gills are affected."
-        ),
-        "description": (
-            "Axolotl fungal-infection guide showing a localized cotton-like tail "
-            "tuft, magnified texture and safe first-response guidance."
-        ),
-        "credit": "MyAxolotl original graphic",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/curled-gills-stress-signal": {
-        "file": "axolotl-curled-gills-posture-comparison.webp",
-        "alt": (
-            "Two axolotls comparing relaxed and curled gill and tail posture "
-            "beside water and temperature first-check guidance"
-        ),
-        "caption": (
-            "Compare gill and tail posture with the axolotl's normal baseline. "
-            "A forward curl can occur with stress, so test water parameters and "
-            "temperature before drawing conclusions."
-        ),
-        "description": (
-            "Wild-type and leucistic axolotls demonstrate relaxed and curled "
-            "posture with a water-and-temperature first-check reminder."
-        ),
-        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/minor-scrapes-and-wounds": {
-        "file": "axolotl-minor-wounds-tank-safety-check.webp",
-        "alt": (
-            "Top-down axolotl tank safety inspection showing smooth decor, a "
-            "covered filter intake and warning signs after a scrape"
-        ),
-        "caption": (
-            "Check tank decor and filter intakes after a scrape. Spreading "
-            "redness, swelling, persistent bleeding, or rapid deterioration "
-            "needs veterinary assessment."
-        ),
-        "description": (
-            "Top-down aquarium inspection showing two axolotl morphs, smooth "
-            "decor, a covered intake and wound-escalation warning signs."
-        ),
-        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/shrinking-gills": {
-        "file": "axolotl-shrinking-gills-photo-comparison.webp",
-        "alt": (
-            "Baseline, later and current photos comparing gill fullness in "
-            "leucistic and axanthic axolotls"
-        ),
-        "caption": (
-            "Use repeat photos from the same angle to track gill changes. Test "
-            "ammonia, nitrite, and temperature because appearance alone does "
-            "not identify the cause."
-        ),
-        "description": (
-            "Photo-record comparison for tracking axolotl gill changes against "
-            "the animal's own baseline instead of diagnosing from one image."
-        ),
-        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/limb-regeneration": {
-        "file": "axolotl-limb-regeneration-stages.webp",
-        "alt": (
-            "Copper axolotl and four-panel limb regeneration sequence from "
-            "wound epidermis through blastema and patterned outgrowth"
-        ),
-        "caption": (
-            "Axolotl limb regeneration progresses through wound epidermis, "
-            "blastema formation, and patterned outgrowth. Healing speed varies "
-            "with the injury and husbandry conditions."
-        ),
-        "description": (
-            "Scientific four-panel sequence explaining the wound epidermis, "
-            "blastema and patterned-outgrowth stages of axolotl limb regeneration."
-        ),
-        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/salt-bath": {
-        "file": "axolotl-salt-bath-veterinary-safety.webp",
-        "alt": (
-            "Axolotl salt bath safety checklist showing a treatment container, "
-            "salt, timer and thermometer"
-        ),
-        "caption": (
-            "Salt baths should be veterinarian-directed: the diagnosis, "
-            "concentration, exposure time, and observation plan determine "
-            "whether they are appropriate."
-        ),
-        "description": (
-            "Veterinary-safety checklist for axolotl salt baths with treatment "
-            "equipment and diagnosis, concentration and observation gates."
-        ),
-        "credit": "MyAxolotl; morphology reference sourced from Wikimedia Commons",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/impaction-symptoms-treatment": {
-        "file": "axolotl-impaction-substrate-risk-signs.webp",
-        "alt": (
-            "Dark and golden albino axolotls on fine sand beside a swallowable "
-            "gravel warning and nonspecific impaction signs"
-        ),
-        "caption": (
-            "Loss of appetite and swelling are nonspecific signs. Remove "
-            "swallowable gravel and seek veterinary assessment for persistent "
-            "or worsening symptoms."
-        ),
-        "description": (
-            "Aquarium substrate comparison showing fine sand, swallowable "
-            "gravel risk and the limits of diagnosing impaction from appearance."
-        ),
-        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/red-leg-syndrome": {
-        "file": "axolotl-red-leg-symptoms-vet-triage.webp",
-        "alt": (
-            "Wild-type, leucistic and copper axolotls beside a leg and belly "
-            "observation map for rapid redness"
-        ),
-        "caption": (
-            "Skin color varies by morph. Rapid new redness with lethargy or "
-            "other decline is a veterinary warning sign, not a diagnosis from "
-            "appearance."
-        ),
-        "description": (
-            "Three-morph comparison and anatomical observation map explaining "
-            "why rapidly changing redness needs veterinary assessment."
-        ),
-        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/quarantine-tub": {
-        "file": "axolotl-quarantine-hospital-tub-setup.webp",
-        "alt": (
-            "Top-down axolotl hospital tub setup with two tubs, thermometer, "
-            "secure vented lid, hide and dedicated tools"
-        ),
-        "caption": (
-            "A hospital tub uses clean dechlorinated, temperature-matched "
-            "water, a bare bottom, a secure vented lid, a smooth hide, and "
-            "dedicated tools."
-        ),
-        "description": (
-            "Top-down checklist showing the core equipment for a controlled "
-            "axolotl hospital or quarantine tub."
-        ),
-        "credit": "MyAxolotl; morphology reference sourced from Wikimedia Commons",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/finding-an-exotic-vet": {
-        "file": "find-axolotl-exotic-vet-checklist.webp",
-        "alt": (
-            "Desk with an axolotl veterinarian search, call questions, "
-            "transport checklist and two morph reference photos"
-        ),
-        "caption": (
-            "Locate an amphibian-experienced veterinarian before an emergency "
-            "and ask whether the clinic treats axolotls, offers urgent care, "
-            "and has transport instructions."
-        ),
-        "description": (
-            "Planning desk showing an exotic-vet search, screening questions "
-            "and an axolotl transport-preparation checklist."
-        ),
-        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/emergency-first-aid": {
-        "file": "axolotl-emergency-first-aid-triage.webp",
-        "alt": (
-            "Axolotl emergency triage station with water tests, thermometer, "
-            "transport tub and urgent veterinary warning signs"
-        ),
-        "caption": (
-            "In an axolotl emergency, test water and temperature first. "
-            "Breathing difficulty, uncontrolled bleeding, or inability to "
-            "remain upright needs urgent veterinary care."
-        ),
-        "description": (
-            "Urgency-first axolotl triage station combining husbandry checks, "
-            "transport preparation and veterinary red flags."
-        ),
-        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/ammonia-burns": {
-        "file": "axolotl-ammonia-exposure-water-test.webp",
-        "alt": (
-            "Ammonia and nitrite test comparison beside dechlorinated water "
-            "and copper, golden albino and dark axolotl reference cards"
-        ),
-        "caption": (
-            "Ammonia and nitrite should read 0 ppm. Move an exposed axolotl "
-            "from contaminated water into clean, dechlorinated, "
-            "temperature-matched water while arranging veterinary help if "
-            "signs are severe."
-        ),
-        "description": (
-            "Water-quality emergency visual showing zero-ammonia and "
-            "zero-nitrite targets, clean replacement water and three morphs."
-        ),
-        "credit": "MyAxolotl; morphology references sourced from Wikimedia Commons",
-        "width": 1600,
-        "height": 900,
-    },
-    "health/stress-signs": {
-        "file": "axolotl-stress-signs-observation-guide.webp",
-        "alt": (
-            "Wild-type, albino and golden albino axolotls beside observation "
-            "cues for gill posture, tail posture and buoyancy"
-        ),
-        "caption": (
-            "Compare gill posture, tail posture and buoyancy with the axolotl's "
-            "normal baseline. One sign alone does not diagnose illness; check "
-            "water parameters and temperature first."
-        ),
-        "description": (
-            "Three-panel educational hero showing wild-type, albino and golden "
-            "albino axolotls with neutral observation prompts for gill posture, "
-            "tail posture and buoyancy."
-        ),
-        "credit": "MyAxolotl; real-photo morph references from Wikimedia Commons (CC0)",
-        "width": 1600,
-        "height": 900,
-    },
-}
-
-# â”€â”€ Core hubs (from topical map) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-HUBS = {
-    "axolotls": {
-        "title": "All Axolotl Guides: Care, Tank Setup, Diet, Health & More",
-        "title_tag": "Axolotl Guides Index: Care, Tank, Diet, Health & Genetics",
-        "meta": "Browse every axolotl guide in one place - complete care, tank setup, diet, health, morphs, breeding, cost, legality, and the science behind them.",
-        "h1": "All Axolotl Guides",
-        "intro": "This is the index to every guide on the site - the complete care guide, tank setup, diet, health, morphs, breeding, cost, legality, and the science behind them. New here? Start with the full care guide.",
-        "keywords": ["axolotl guides", "axolotl care", "axolotl care guide"],
-        "cat": "Care",
-    },
-    "tank-setup": {
-        "title": "Axolotl Tank Setup: The Complete Guide",
-        "title_tag": "Axolotl Tank Setup Guide: Size, Filter, Substrate, Water",
-        "h1": "Axolotl Tank Setup",
-        "meta": "Learn how to set up an axolotl tank correctly the first time - size, temperature, filtration, substrate, lighting, and plants, explained.",
-        "intro": "Building the right environment is the single biggest factor in keeping a healthy axolotl. These guides cover every component - tank size, water quality, filtration, substrate, temperature, lighting, and decor.",
-        "keywords": ["axolotl tank setup", "axolotl tank", "axolotl filter", "axolotl substrate"],
-        "cat": "Tank Setup",
-    },
-    "diet": {
-        "title": "Axolotl Diet & Feeding Guide",
-        "title_tag": "Axolotl Food: What to Feed & How Often",
-        "meta": "A complete axolotl feeding guide covering safe foods, schedules by age, portions, and how to avoid overfeeding and impaction.",
-        "h1": "Axolotl Diet & Feeding Guide",
-        "intro": "Axolotls are obligate carnivores with simple but specific feeding needs. Learn exactly what to feed, how much, how often, and how to avoid the diet mistakes that cause most health problems.",
-        "keywords": ["axolotl food", "what do axolotls eat", "axolotl feeding", "how often to feed axolotl"],
-        "cat": "Diet",
-    },
-    "health": {
-        "title": "Axolotl Health: Symptoms, First Checks & When to See a Vet",
-        "title_tag": "Axolotl Health: Symptoms, First Checks & Vet Warning Signs",
-        "meta": "Learn how to observe axolotl health signs, check water and temperature first, and recognize problems that need an exotics-experienced veterinarian.",
-        "h1": "Axolotl Health & Illness Guide",
-        "intro": "Use these guides to observe symptoms, check water quality and temperature first, and understand when an axolotl needs prompt veterinary care. A single sign cannot diagnose a disease, and medication or intensive supportive care should be guided by an exotics-experienced veterinarian.",
-        "keywords": ["axolotl health", "sick axolotl", "axolotl fungus", "axolotl parasites"],
-        "cat": "Health",
-    },
-    "legal": {
-        "title": "Is It Legal to Own an Axolotl?",
-        "title_tag": "Axolotl Laws: Ownership & Import Rules by Location (2026)",
-        "meta": "Axolotl ownership and import rules vary by location. Check permits and restricted areas, then verify current rules with the relevant wildlife authority.",
-        "h1": "Is It Legal to Own an Axolotl?",
-        "intro": "Axolotl ownership and import rules vary by state and country. Restrictions can come from exotic-wildlife, invasive-species, disease-control, conservation, and import laws. This guide explains the main rules and how to verify the current law where you live.",
-        "keywords": ["is it legal to own an axolotl", "axolotl illegal", "axolotl legal states", "axolotl permit"],
-        "cat": "Legal",
-    },
-    "cost-and-buying": {
-        "title": "Axolotl Cost & Where to Buy",
-        "title_tag": "Axolotl Cost: Price, Monthly Budget & Where to Buy (2026)",
-        "meta": "How much does an axolotl cost? Complete price breakdown - purchase price by morph, setup costs, monthly food and water bills, and where to buy one safely.",
-        "h1": "Axolotl Cost & Where to Buy",
-        "intro": "Before you buy, know what an axolotl really costs - the initial setup, the monthly upkeep, and why the price you pay for the animal is the smallest part of the bill. This guide covers purchase prices by morph and the safest places to buy.",
-        "keywords": ["axolotl cost", "axolotl price", "where to buy axolotl", "axolotl for sale"],
-        "cat": "Cost & Buying",
-    },
-    "morphs": {
-        "title": "Axolotl Morphs & Color Genetics",
-        "title_tag": "Axolotl Morphs: Colors, Types & Genetics Explained",
-        "meta": "Every axolotl morph explained - leucistic, golden albino, melanoid, wild type, copper, GFP, and more - with photos, rarity, and the genetics behind each color.",
-        "h1": "Axolotl Morphs & Color Genetics",
-        "intro": "Axolotls come in a stunning range of colors and patterns, from the common leucistic to rare mosaic and copper morphs. Learn to tell every morph apart, what makes it rare, and the simple genetics behind each color.",
-        "keywords": ["axolotl morphs", "axolotl colors", "leucistic axolotl", "axolotl genetics"],
-        "cat": "Morphs",
-    },
-    "breeding": {
-        "title": "Axolotl Breeding Guide",
-        "title_tag": "How to Breed Axolotls: Complete Breeding Guide (2026)",
-        "meta": "How to breed axolotls successfully - conditioning, courtship, egg care, raising larvae, and the genetics and ethics every breeder needs to know.",
-        "h1": "Axolotl Breeding Guide",
-        "intro": "Breeding axolotls starts before courtship. Confirm sex and maturity, check that the adults are healthy and not closely related, and plan how you will manage eggs, live food, grow-out space, and rehoming before attempting a spawn.",
-        "keywords": ["breeding axolotls", "axolotl eggs", "axolotl larvae", "axolotl breeding"],
-        "cat": "Breeding",
-    },
-    "gifts-and-merch": {
-        "title": "Axolotl Gifts & Merchandise",
-        "title_tag": "Axolotl Toy & Gifts: Plushies, Squishmallows, Apparel & More",
-        "meta": "The best axolotl gifts and merchandise for axolotl lovers - axolotl toys, plushies, mugs, apparel, decor, and stocking-stuffer ideas for every budget.",
-        "h1": "Axolotl Gifts & Merchandise",
-        "intro": "From cuddly axolotl plushies to mugs, shirts, and room decor - the perfect axolotl gifts for every age and budget, curated for the axolotl lover in your life.",
-        "keywords": ["axolotl toy", "axolotl plush", "axolotl gifts", "axolotl merch"],
-        "cat": "Gifts & Merch",
-    },
-    "care-basics": {
-        "title": "Axolotl Care Basics: Facts, Behavior & Beginner Guides",
-        "title_tag": "Axolotl Care Basics: Facts, Behavior & Beginner Tips",
-        "meta": "Axolotl care basics for beginners - fun facts, how to pronounce the name, behavior, handling, keeping multiple axolotls, and whether they are good pets.",
-        "h1": "Axolotl Care Basics",
-        "intro": "The essentials every new axolotl owner should know - what axolotls are really like as pets, their behavior, how to handle them safely, and the facts that surprise most first-time owners.",
-        "keywords": ["axolotl facts", "are axolotls good pets", "axolotl behavior", "axolotl beginner"],
-        "cat": "Care Basics",
-    },
-    "biology-and-science": {
-        "title": "Axolotl Biology & Science",
-        "title_tag": "Axolotl Biology: Anatomy, Neoteny & Regeneration Science",
-        "meta": "The fascinating biology of axolotls - how they breathe, neoteny, regeneration, their endangered wild status in Xochimilco, and how they compare to other salamanders.",
-        "h1": "Axolotl Biology & Science",
-        "intro": "Axolotls are one of the most studied animals in biology for a reason: they regenerate limbs, stay in a larval form their whole lives, and hold clues to tissue repair. Here is the science, explained clearly.",
-        "keywords": ["axolotl biology", "axolotl neoteny", "axolotl regeneration", "axolotl endangered"],
-        "cat": "Biology",
-    },
-    "axolotl-in-culture": {
-        "title": "Axolotls in Pop Culture: Games, Memes & Media",
-        "title_tag": "Axolotls in Pop Culture: Minecraft, Memes & More",
-        "meta": "Why axolotls are everywhere - Minecraft axolotls, Adopt Me pets, memes, pop culture, and why this endangered salamander became so popular.",
-        "h1": "Axolotls in Pop Culture",
-        "intro": "From Minecraft and Adopt Me to memes, plushies, and science headlines - find out why the axolotl became one of the most beloved animals on the internet, and how the virtual versions compare to the real thing.",
-        "keywords": ["axolotl minecraft", "axolotl adopt me", "axolotl meme", "why are axolotls so popular"],
-        "cat": "Culture",
-    },
-}
-
-# â”€â”€ Article -> hub/slug mapping â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-# key: exact source filename (must match file in SOURCE_DIR)
-# value: {slug, hub, title_override (optional), meta_override (optional),
-#         intro (optional, first paragraph fallback used if missing)}
-ARTICLES = {
-    "1- axolotl-care-guide (1).docx": {
-        "slug": "axolotls/care-guide",
-        "hub": "axolotls",
-        "featured": True,
-        "title_override": "Axolotl Care Guide: Tank, Water, Diet & Health",
-        "meta_override": "Axolotls are cold-water amphibians that need stable tanks, clean water, the right diet, and careful health management.",
-    },
-    "2-How to Set Up an Axolotl Tank the Right Way.docx": {
-        "slug": "tank-setup/setup-guide",
-        "hub": "tank-setup",
-        "featured": True,
-        "meta_override": "Set up an axolotl tank correctly with the right tank size, filtration, substrate, lighting, temperature, and cycling before adding your axolotl.",
-    },
-    "3- Best aquarium chillers for  axolots.docx": {
-        "slug": "tank-setup/aquarium-chillers",
-        "hub": "tank-setup",
-        "title_override": "Best Aquarium Chillers for Axolotls: Sizing & Buying Guide",
-        "title_tag": "Best Aquarium Chillers for Axolotls: Sizing & Buying Guide",
-        "meta_override": "Choose an aquarium chiller for an axolotl tank by water volume, room heat load, target temperature, flow requirements, installation, noise and operating cost.",
-        "date_modified": "2026-09-18",
-    },
-    "4- Choosing best Axolotl subtrate.docx": {
-        "slug": "tank-setup/substrate-and-impaction",
-        "hub": "tank-setup",
-        "title_override": "Choosing the Best Axolotl Substrate",
-        "meta_override": "Fine sand under 1 mm is safest for adult axolotls; juveniles under 6 inches should stay on bare-bottom tanks to reduce impaction risk.",
-    },
-    "5- Managing Ammonia and Nitrate Spikes in Axolotl Tanks.docx": {
-        "slug": "tank-setup/water-parameters-cycling",
-        "hub": "tank-setup",
-        "title_override": "Axolotl Water Parameters & Nitrogen Cycle",
-        "title_tag": "Axolotl Water Parameters: Ammonia, Nitrite, Nitrate & pH",
-        "meta_override": "Axolotl water parameters and nitrogen cycle explained: ammonia, nitrite, nitrate, pH, cycling, testing, spikes and how to interpret changing aquarium readings.",
-        "date_modified": "2026-09-18",
-    },
-    "7 - Best axolotl filters.docx": {
-        "slug": "tank-setup/filtration-for-axolotls",
-        "hub": "tank-setup",
-        "title_override": "Do Axolotls Need a Filter? Filtration, Flow Rate & Sizing",
-        "title_tag": "Do Axolotls Need a Filter? Filtration, Flow Rate & Sizing",
-        "meta_override": "Do axolotls need a filter? Learn biological filtration, low-flow requirements, filter sizing and how sponge, HOB and canister filters fit different axolotl tanks.",
-        "date_modified": "2026-09-18",
-    },
-    "8- How to keep axolotl tank cool safe.docx": {
-        "slug": "tank-setup/temperature",
-        "hub": "tank-setup",
-        "title_override": "How to Keep an Axolotl Tank Cool",
-    },
-    "9 - canister vs sponge filter.docx": {
-        "slug": "tank-setup/canister-vs-sponge-filter",
-        "hub": "tank-setup",
-        "title_override": "Canister Filters vs. Sponge Filters for Axolotls",
-    },
-    "10 - Water conditioner for axolotl.docx": {
-        "slug": "tank-setup/water-conditioners",
-        "hub": "tank-setup",
-        "title_override": "Axolotl Water Conditioner: Creating Safe Water",
-        "meta_override": "Use an axolotl-safe water conditioner to remove chlorine and chloramine from tap water, with correct dosing for each water change.",
-    },
-    "11- axolotl lighting requirements.docx": {
-        "slug": "tank-setup/lighting-for-axolotls",
-        "hub": "tank-setup",
-        "title_override": "Axolotl Tank Lighting Requirements",
-        "meta_override": "Axolotl tanks need low-intensity, indirect light around 100â€“400 lux with a consistent 10â€“12-hour photoperiod on a timer.",
-    },
-    "12 - Best hides and caves for axolotls.docx": {
-        "slug": "tank-setup/hides-and-caves",
-        "hub": "tank-setup",
-        "title_override": "Best Hides and Caves for Axolotls",
-        "meta_override": "Axolotls need a dark, smooth, fully enclosed hide; terracotta, PVC pipe, and fired ceramic are practical, safe choices.",
-    },
-    "13 - The Dangers of Sharp Gravel for Axolotls.docx": {
-        "slug": "tank-setup/gravel-risks",
-        "hub": "tank-setup",
-        "title_override": "The Dangers of Sharp Gravel for Axolotls",
-    },
-    "14- Live Plants vs artificial plants.docx": {
-        "slug": "tank-setup/live-vs-artificial-plants",
-        "hub": "tank-setup",
-        "title_override": "Live Plants vs. Fake Plants for Axolotl Tanks",
-    },
-    "15 - Why my axotol tank water stink.docx": {
-        "slug": "tank-setup/why-tank-water-smells",
-        "hub": "tank-setup",
-        "title_override": "Why Does My Axolotl Tank Water Stink?",
-        "meta_override": "A healthy axolotl tank should smell faint and earthy. Strong odors can signal ammonia, a stalled cycle, dirty filtration, waste, or anaerobic pockets.",
-    },
-    "16 - What Do Axolotls Eat.docx": {
-        "slug": "diet/best-foods-list",
-        "hub": "diet",
-        "featured": True,
-        "meta_override": "Best axolotl foods include earthworms, quality sinking pellets, blackworms, and suitable occasional treats. Compare nutrition, safety, and feeding use.",
-    },
-    "17 -how often should you feed an axolotl.docx": {
-        "slug": "diet/feeding-schedule-by-age",
-        "hub": "diet",
-        "title_override": "Axolotl Feeding Frequency by Life Stage and Size",
-        "meta_override": "Find an axolotl feeding schedule by age and size, with frequency and portion guidance for hatchlings, juveniles, subadults, and adults.",
-    },
-    "18 - Best Axolotl Pellets and Commercial Foods.docx": {
-        "slug": "diet/axolotl-pellets",
-        "hub": "diet",
-        "title_override": "Best Axolotl Pellets and Commercial Foods",
-        "meta_override": "Compare high-protein axolotl pellets and commercial foods, including protein targets, ingredients, and how they fit alongside earthworms.",
-    },
-    "19 - Earthworms vs. Bloodworms Which Is Better for Axolotl.docx": {
-        "slug": "diet/live-vs-frozen-food",
-        "hub": "diet",
-        "title_override": "Earthworms vs. Bloodworms: Best for Axolotls?",
-        "meta_override": "Compare earthworms, bloodworms, and frozen foods for axolotls so you can pick the safest staple and best occasional treats.",
-    },
-    "20 - Why Is My Axolotl Refusing to Eat.docx": {
-        "slug": "health/refusing-to-eat",
-        "hub": "health",
-        "featured": True,
-        "title_override": "Axolotl Not Eating? Causes & When to Worry",
-        "title_tag": "Axolotl Not Eating? First Checks & Vet Warning Signs",
-        "meta_override": "Learn what to check when an axolotl stops eating, which warning signs need prompt veterinary care, and which risky home treatments to avoid.",
-        "date_modified": "2026-08-27",
-    },
-    "21 - The Risks of Feeding Feeder Fish to Axolotls.docx": {
-        "slug": "diet/feeder-fish-risks",
-        "hub": "diet",
-        "title_override": "The Risks of Feeding Feeder Fish to Axolotls",
-    },
-    "22 - Can Axolotls Eat Beef Heart.docx": {
-        "slug": "diet/beef-heart",
-        "hub": "diet",
-        "meta_override": "Axolotls can eat beef heart, but its poor mineral balance and high fat make it unsuitable as a regular staple food.",
-    },
-    "23 - Dealing with Axolotl Obesity.docx": {
-        "slug": "diet/overfeeding-and-impaction",
-        "hub": "diet",
-        "title_override": "Axolotl Obesity: Signs, Causes & Treatment",
-    },
-    "24 - Black worms for juveniles.docx": {
-        "slug": "diet/blackworms-for-juveniles",
-        "hub": "diet",
-        "title_override": "Preparing Blackworms for Juvenile Axolotls",
-        "meta_override": "Learn how to rinse, store, and prepare blackworms for juvenile axolotls, including safe size, feeding, and cleanliness checks.",
-    },
-    "25 - Vacation Prep.docx": {
-        "slug": "diet/fasting-and-vacation",
-        "hub": "diet",
-        "title_override": "How Long Can Axolotls Go Without Food? Fasting & Vacation Guide",
-        "title_tag": "How Long Can Axolotls Go Without Food? Fasting & Vacation Guide",
-        "meta_override": "How long can an axolotl go without food? Learn planned fasting vs appetite loss, vacation feeding, life-stage differences and when not eating becomes a health concern.",
-        "date_modified": "2026-09-18",
-    },
-    "26 - How to Hand Feed axolotls.docx": {
-        "slug": "diet/how-to-hand-feed",
-        "hub": "diet",
-        "title_override": "How to Hand Feed Your Axolotl Safely",
-        "meta_override": "Learn how to hand-feed your axolotl safely, from choosing the right food to timing, technique, and when to avoid hand-feeding.",
-    },
-    "27 - Shrimps for axolotls.docx": {
-        "slug": "diet/shrimp-for-axolotls",
-        "hub": "diet",
-        "title_override": "Can Axolotls Eat Shrimp?",
-        "meta_override": "Axolotls can eat shrimp as an occasional treat, but it should not replace staple foods such as earthworms and quality sinking pellets.",
-    },
-    "28 - Do Axolotls Need Vitamin Supplements.docx": {
-        "slug": "diet/vitamin-and-supplement-needs",
-        "hub": "diet",
-        "title_override": "Do Axolotls Need Vitamin Supplements?",
-    },
-    "29 - Cleaning Uneaten Food to Prevent Ammonia.docx": {
-        "slug": "tank-setup/uneaten-food-and-ammonia",
-        "hub": "tank-setup",
-        "title_override": "Why Uneaten Food Causes Ammonia in an Axolotl Tank",
-    },
-    "30 - Sign of malnutrition in axolotls.docx": {
-        "slug": "health/malnutrition-signs",
-        "hub": "health",
-        "title_override": "Signs of Malnutrition in Axolotls",
-    },
-    "31 - Parasites in axolots.docx": {
-        "slug": "health/parasite-treatment",
-        "hub": "health",
-        "title_override": "Treating Axolotl Parasites",
-    },
-    "32 - How to Identify and Treat Axolotl Fungus.docx": {
-        "slug": "health/fungal-infections-saprolegnia",
-        "hub": "health",
-        "title_override": "Axolotl Fungus: Symptoms, Causes & Treatment",
-        "title_tag": "Axolotl Fungus: Symptoms, Causes & Treatment",
-        "meta_override": "Axolotl fungus guide: what white or cottony growth can look like, possible causes, first checks, treatment decision points and when veterinary assessment is needed.",
-        "date_modified": "2026-09-18",
-    },
-    "33 - The Black Tea Bath Protocol for Axolotls.docx": {
-        "slug": "health/black-tea-bath",
-        "hub": "health",
-        "title_override": "Black Tea Bath for Axolotls: When & How to Use One",
-        "title_tag": "Black Tea Bath for Axolotls: When & How to Use One",
-        "meta_override": "Black tea baths for axolotls: what they are, when they may be considered as supportive care, how the procedure works, limits, risks and when to seek veterinary help.",
-        "date_modified": "2026-09-18",
-    },
-    "34 - When and how to fridge axolotl.docx": {
-        "slug": "health/fridging-sick-axolotl",
-        "hub": "health",
-        "title_override": "Fridging an Axolotl: Risks & Veterinary Guidance",
-        "title_tag": "Fridging an Axolotl: Risks & When a Vet May Use It",
-        "meta_override": "Understand why fridging is not routine home treatment, what risks household refrigerators create, and what to ask if an amphibian vet recommends it.",
-        "date_modified": "2026-08-27",
-    },
-    "35 - axolotl salt bath.docx": {
-        "slug": "health/salt-bath",
-        "hub": "health",
-        "title_override": "Axolotl Salt Bath: When It May Be Used & How It Works",
-        "title_tag": "Axolotl Salt Bath: When It May Be Used & How It Works",
-        "meta_override": "Axolotl salt baths explained: when they may be discussed for selected external problems, why they can irritate amphibian skin, procedure limits and safer escalation.",
-        "date_modified": "2026-09-18",
-    },
-    "36 - Why is My Axolotl Floating Continuously.docx": {
-        "slug": "health/why-axolotl-floating",
-        "hub": "health",
-        "title_override": "Why Is My Axolotl Floating? Causes and Treatment",
-    },
-    "38 - Wild Type Axolotl.docx": {
-        "slug": "morphs/wild-type",
-        "hub": "morphs",
-        "title_override": "Wild Type Axolotl: The Natural Color",
-        "title_tag": "Wild Type Axolotl: Color, Genetics & How to Identify One",
-    },
-    "39 - Chimera Axolotl.docx": {
-        "slug": "morphs/chimera",
-        "hub": "morphs",
-        "title_override": "Chimera Axolotl: The Rarest Morph of All",
-        "title_tag": "Chimera Axolotl: The Rarest Morph, Explained",
-    },
-    "40 - Axolotl Egg and Larvae Care.docx": {
-        "slug": "breeding/egg-and-larvae-care",
-        "hub": "breeding",
-        "title_override": "Axolotl Egg and Larvae Care: A Complete Guide",
-        "title_tag": "Axolotl Egg Care: Hatching Time, Setup & Feeding Larvae",
-    },
-    "41 - Axolotl Genetics and Inbreeding Risk.docx": {
-        "slug": "breeding/genetics-and-inbreeding",
-        "hub": "breeding",
-        "title_override": "Axolotl Genetics and Inbreeding Risk",
-        "title_tag": "Axolotl Genetics & Inbreeding Risk: What Breeders Must Know",
-    },
-    "42 - Breeding Triggers Temperature Cycling.docx": {
-        "slug": "breeding/breeding-triggers-temperature-cycling",
-        "hub": "breeding",
-        "title_override": "Breeding Triggers: Temperature Cycling for Axolotls",
-        "title_tag": "How to Trigger Axolotl Breeding: Temperature & Light Cycling",
-    },
-    "43 - How to Tell Axolotl Gender.docx": {
-        "slug": "breeding/sexing-axolotls",
-        "hub": "breeding",
-        "title_override": "How to Tell Axolotl Gender (Sexing Guide)",
-        "title_tag": "How to Tell Axolotl Gender: Male vs Female Cloaca Guide",
-    },
-    "44 - Raising Baby Axolotls.docx": {
-        "slug": "breeding/raising-juveniles",
-        "hub": "breeding",
-        "title_override": "Baby Axolotl Care: Feeding, Growth & Raising Juveniles",
-        "title_tag": "Baby Axolotl Care: Feeding, Growth & Raising Juveniles",
-        "meta_override": "Baby axolotl care from newly feeding larvae through juvenile grow-out: food transitions, growth, size sorting, water quality, and when young axolotls need separate housing.",
-        "date_modified": "2026-09-18",
-    },
-    "45 - Axolotl Color Genetics Punnett Squares.docx": {
-        "slug": "breeding/color-genetics-punnett-squares",
-        "hub": "breeding",
-        "title_override": "Axolotl Color Genetics: Punnett Squares Explained",
-        "title_tag": "Axolotl Color Genetics: Punnett Squares Explained",
-    },
-    "46 - Leucistic Axolotl.docx": {
-        "slug": "morphs/leucistic",
-        "hub": "morphs",
-        "title_override": "Leucistic Axolotl: The \"Lucy\" Morph",
-        "title_tag": "Leucistic Axolotl: Color, Genetics & How to Spot a Dirty Lucy",
-    },
-    "47 - Melanoid Axolotl.docx": {
-        "slug": "morphs/melanoid",
-        "hub": "morphs",
-        "title_override": "Melanoid Axolotl: The Dark Morph",
-        "title_tag": "Melanoid Axolotl: Genetics & How to Identify One",
-        "meta_override": "The melanoid axolotl is a near-black morph with no metallic shine. Learn how to distinguish it from a dark wild-type axolotl.",
-    },
-    "48 - Golden Albino Axolotl.docx": {
-        "slug": "morphs/golden-albino",
-        "hub": "morphs",
-        "title_override": "Golden Albino Axolotl",
-        "title_tag": "Golden Albino Axolotl: Genetics, Price & Care Guide",
-    },
-    "49 - GFP Axolotl.docx": {
-        "slug": "morphs/gfp-axolotl",
-        "hub": "morphs",
-        "title_override": "GFP Axolotl: The Glowing Morph",
-        "title_tag": "What Is a GFP Axolotl? Care, Setup & Why They Glow",
-    },
-    "50 - Copper Axolotl.docx": {
-        "slug": "morphs/copper",
-        "hub": "morphs",
-        "title_override": "Copper Axolotl",
-        "title_tag": "Copper Axolotl: Color, Genetics & How to Breed Them",
-        "meta_override": "The copper axolotl is a brown-orange morph with reddish gills and light eyes caused by a recessive Tyrp1 mutation.",
-    },
-    "51 - Piebald Axolotl.docx": {
-        "slug": "morphs/piebald",
-        "hub": "morphs",
-        "title_override": "Piebald Axolotl: The Patchy Morph",
-        "title_tag": "Piebald Axolotl: Genetics, Price & How It's Different",
-        "meta_override": "A piebald axolotl has a dark body with irregular white patches. Learn how it differs from leucistic and chimera axolotls.",
-    },
-    "52 - Understanding Axolotl Pigment Cells.docx": {
-        "slug": "morphs/pigment-cells",
-        "hub": "morphs",
-        "title_override": "Axolotl Pigment Cells & Color Changes: How Their Colors Work",
-        "title_tag": "Axolotl Pigment Cells & Color Changes: How Their Colors Work",
-        "meta_override": "How axolotl colors work: melanophores, xanthophores and iridophores, why morphs look different, how color can appear to change, and where axanthic, melanoid and albino fit.",
-        "date_modified": "2026-09-18",
-    },
-    "53 - Enigma MAC and Firefly Axolotls.docx": {
-        "slug": "morphs/enigma-firefly-mac",
-        "hub": "morphs",
-        "title_override": "Enigma, MAC and Firefly Axolotls",
-        "title_tag": "Enigma, MAC & Firefly Axolotls: Rare Morphs and the Ethics Debate",
-        "meta_override": "Enigma, MAC, and firefly axolotls are rare, controversial morphs. Compare how they are produced, their rarity, cost, and ethical concerns.",
-    },
-    "54 - Axolotl Curled Gills Stress Signal.docx": {
-        "slug": "health/curled-gills-stress-signal",
-        "hub": "health",
-        "title_override": "Axolotl Curled Gills and Tail Tips: Understanding a Stress Signal",
-        "title_tag": "Curled Axolotl Gills & Tail Tip: Stress Signals & Fixes",
-        "date_modified": "2026-08-29",
-    },
-    "55 - Understanding Axolotl Limb Regeneration.docx": {
-        "slug": "health/limb-regeneration",
-        "hub": "health",
-        "title_override": "My Axolotl Lost a Limb: What Should I Do?",
-        "title_tag": "My Axolotl Lost a Limb: Healing, Regrowth & When to Get Help",
-        "date_modified": "2026-09-18",
-    },
-    "56 - How to Treat Axolotl Ammonia Burns.docx": {
-        "slug": "health/ammonia-burns",
-        "hub": "health",
-        "title_override": "How to Treat Axolotl Ammonia Burns",
-        "title_tag": "Axolotl Ammonia Burn: Signs, Stages & Treatment",
-        "date_modified": "2026-08-29",
-    },
-    "57 - Recognizing Red Leg Syndrome in Axolotls.docx": {
-        "slug": "health/red-leg-syndrome",
-        "hub": "health",
-        "title_override": "Recognizing Red Leg Syndrome in Axolotls",
-        "title_tag": "Axolotl Red Leg Disease: Signs, Treatment & Prevention",
-        "date_modified": "2026-08-29",
-    },
-    "58 - Setting Up a Hospital Quarantine Tub for Axolotls.docx": {
-        "slug": "health/quarantine-tub",
-        "hub": "health",
-        "title_override": "Setting Up an Axolotl Hospital Quarantine Tub",
-        "title_tag": "Axolotl Hospital Quarantine Tub: Setup & Care",
-        "date_modified": "2026-08-29",
-    },
-    "59 - The Causes of Shrinking Axolotl Gills.docx": {
-        "slug": "health/shrinking-gills",
-        "hub": "health",
-        "title_override": "The Causes of Shrinking Axolotl Gills",
-        "title_tag": "Why Are My Axolotl's Gills Shrinking? Causes & Fixes",
-        "date_modified": "2026-08-29",
-    },
-    "60 - Treating Minor Scrapes and Wounds on Axolotls.docx": {
-        "slug": "health/minor-scrapes-and-wounds",
-        "hub": "health",
-        "title_override": "Treating Minor Scrapes and Wounds on Axolotls",
-        "title_tag": "Treating Minor Axolotl Scrapes & Wounds: What to Do",
-        "date_modified": "2026-08-29",
-    },
-    "61 - Best Axolotl Toys and Plushies.docx": {
-        "slug": "gifts-and-merch/best-axolotl-toys-and-plushies",
-        "hub": "gifts-and-merch",
-        "title_override": "The Best Axolotl Toys and Plushies",
-        "title_tag": "Best Axolotl Toys & Plushies: Stuffed Animals & More (2026)",
-    },
-    "62 - Axolotl Squishmallow Guide.docx": {
-        "slug": "gifts-and-merch/axolotl-squishmallow-guide",
-        "hub": "gifts-and-merch",
-        "title_override": "The Complete Axolotl Squishmallow Guide",
-        "title_tag": "Every Axolotl Squishmallow: Archie, Sizes & How to Buy",
-    },
-    "63 - Build-A-Bear Axolotl Guide.docx": {
-        "slug": "gifts-and-merch/build-a-bear-axolotl-guide",
-        "hub": "gifts-and-merch",
-        "title_override": "The Build-A-Bear Axolotl Guide",
-        "title_tag": "Build-A-Bear Axolotl: Every Model, Price & How to Customize",
-    },
-    "64 - Best Axolotl LEGO Sets.docx": {
-        "slug": "gifts-and-merch/best-axolotl-lego-sets",
-        "hub": "gifts-and-merch",
-        "title_override": "Best LEGO Axolotl Sets",
-        "title_tag": "LEGO Axolotl Sets: Minecraft The Axolotl House Explained",
-    },
-    "65 - Are Axolotls Legal in California.docx": {
-        "slug": "legal/california",
-        "hub": "legal",
-        "title_override": "Are Axolotls Legal in California?",
-        "title_tag": "Are Axolotls Legal in California? Laws & Permits (2026)",
-    },
-    "66 - Are Axolotls Legal in Canada.docx": {
-        "slug": "legal/canada",
-        "hub": "legal",
-        "title_override": "Are Axolotls Legal in Canada?",
-        "title_tag": "Are Axolotls Legal in Canada? Import Rules by Province (2026)",
-    },
-    "67 - Are Axolotls Legal in Hawaii.docx": {
-        "slug": "legal/hawaii",
-        "hub": "legal",
-        "title_override": "Are Axolotls Legal in Hawaii?",
-        "title_tag": "Are Axolotls Legal in Hawaii? Import Rules Explained (2026)",
-    },
-    "68 - Are Axolotls Legal in Maine.docx": {
-        "slug": "legal/maine",
-        "hub": "legal",
-        "title_override": "Are Axolotls Legal in Maine?",
-        "title_tag": "Are Axolotls Legal in Maine? Permit Rules Explained (2026)",
-    },
-    "69 - Are Axolotls Legal in New Jersey.docx": {
-        "slug": "legal/new-jersey",
-        "hub": "legal",
-        "title_override": "Are Axolotls Legal in New Jersey?",
-        "title_tag": "Are Axolotls Legal in New Jersey? Laws Explained (2026)",
-    },
-    "70 - Are Axolotls Legal in New Mexico.docx": {
-        "slug": "legal/new-mexico",
-        "hub": "legal",
-        "title_override": "Are Axolotls Legal in New Mexico?",
-        "title_tag": "Are Axolotls Legal in New Mexico? Import Permit (2026)",
-    },
-    "71 - Are Axolotls Legal in Virginia.docx": {
-        "slug": "legal/virginia",
-        "hub": "legal",
-        "title_override": "Are Axolotls Legal in Virginia?",
-        "title_tag": "Are Axolotls Legal in Virginia? Laws Explained (2026)",
-    },
-    "72 - Are Axolotls Good Beginner Pets.docx": {
-        "slug": "care-basics/are-axolotls-good-beginner-pets",
-        "hub": "care-basics",
-        "title_override": "Are Axolotls Good Pets? Pros, Cons & Beginner Care Difficulty",
-        "title_tag": "Are Axolotls Good Pets? Pros, Cons & Beginner Care Difficulty",
-        "date_modified": "2026-09-18",
-    },
-    "73 - Axolotl Age and Size Chart.docx": {
-        "slug": "care-basics/axolotl-age-and-size-chart",
-        "hub": "care-basics",
-        "title_override": "How Big Do Axolotls Get? Age, Size & Growth Chart",
-        "title_tag": "How Big Do Axolotls Get? Age, Size & Growth Chart",
-        "date_modified": "2026-09-18",
-    },
-    "74 - Amazing Axolotl Facts.docx": {
-        "slug": "care-basics/axolotl-facts",
-        "hub": "care-basics",
-        "title_override": "What Is an Axolotl? 25 Facts About This Mexican Salamander",
-        "title_tag": "What Is an Axolotl? 25 Facts About This Mexican Salamander",
-        "meta_override": "What is an axolotl? Learn the core facts about this Mexican aquatic salamander: classification, neoteny, regeneration, habitat, conservation, lifespan, diet and pet biology.",
-        "date_modified": "2026-09-18",
-    },
-    "75 - Do Axolotls Recognize Their Owners.docx": {
-        "slug": "care-basics/axolotl-intelligence-and-bonding",
-        "hub": "care-basics",
-        "title_override": "Do Axolotls Recognize Their Owners?",
-        "title_tag": "Do Axolotls Recognize Their Owners? Bonding & Intelligence",
-    },
-    "76 - Are Axolotls Good Pets for Kids.docx": {
-        "slug": "care-basics/axolotls-and-children",
-        "hub": "care-basics",
-        "title_override": "Are Axolotls Good Pets for Kids?",
-        "title_tag": "Are Axolotls Good Pets for Kids? What Parents Must Know",
-        "meta_override": "Are axolotls suitable pets for children? Learn age and maturity considerations, adult responsibility, observation-first handling rules, equipment, feeding supervision and long-term family commitment.",
-    },
-    "77 - Axolotl Behavior Explained.docx": {
-        "slug": "care-basics/behavior",
-        "hub": "care-basics",
-        "title_override": "Axolotl Behavior Explained",
-        "title_tag": "Axolotl Behavior Explained: What Every Owner Should Know",
-    },
-    "78 - Axolotl Monthly Cost of Ownership.docx": {
-        "slug": "care-basics/cost-of-ownership-monthly",
-        "hub": "care-basics",
-        "title_override": "Axolotl Monthly Cost of Ownership",
-        "title_tag": "Axolotl Monthly Cost: Budget for Food, Water & Supplies (2026)",
-    },
-    "79 - How to Hold an Axolotl.docx": {
-        "slug": "care-basics/handling",
-        "hub": "care-basics",
-        "title_override": "Can You Hold an Axolotl? Safe Handling, Petting & Transport",
-        "title_tag": "Can You Hold an Axolotl? Safe Handling, Petting & Transport",
-        "date_modified": "2026-09-18",
-    },
-    "80 - How to Pronounce Axolotl.docx": {
-        "slug": "care-basics/how-to-pronounce-axolotl",
-        "hub": "care-basics",
-        "title_override": "How to Pronounce and Spell Axolotl: Meaning & Correct Pronunciation",
-        "title_tag": "How to Pronounce and Spell Axolotl: Meaning & Correct Pronunciation",
-        "meta_override": "Learn how to pronounce axolotl in English, spell A-X-O-L-O-T-L, understand the plural, and see how the English form differs from Nahuatl and Spanish ajolote.",
-        "date_modified": "2026-09-18",
-    },
-    "81 - Can Axolotls Live Together.docx": {
-        "slug": "care-basics/keeping-multiple-axolotls",
-        "hub": "care-basics",
-        "title_override": "Can Axolotls Live Together? One vs Two Axolotls & Cohabitation",
-        "title_tag": "Can Axolotls Live Together? One vs Two Axolotls & Cohabitation",
-        "meta_override": "Can two axolotls live together? Learn size matching, juvenile nipping and cannibalism risk, space and hides, introduction, monitoring and when animals should be separated.",
-        "date_modified": "2026-09-18",
-    },
-    "82 - Axolotl Anatomy Gills and Lungs.docx": {
-        "slug": "biology-and-science/anatomy-gills-and-lungs",
-        "hub": "biology-and-science",
-        "title_override": "Axolotl Anatomy: Gills, Lungs, Teeth & Body Parts",
-        "title_tag": "Axolotl Anatomy: Gills, Lungs, Teeth & Body Parts",
-        "date_modified": "2026-09-18",
-    },
-    "83 - Axolotl vs Tiger Salamander.docx": {
-        "slug": "biology-and-science/axolotl-vs-tiger-salamander",
-        "hub": "biology-and-science",
-        "title_override": "Axolotl vs Tiger Salamander",
-        "title_tag": "Axolotl vs Tiger Salamander: Key Differences Explained",
-    },
-    "84 - Axolotl Conservation Status.docx": {
-        "slug": "biology-and-science/conservation-status",
-        "hub": "biology-and-science",
-        "title_override": "Are Axolotls Endangered? How Many Are Left in the Wild?",
-        "title_tag": "Are Axolotls Endangered? How Many Are Left in the Wild?",
-        "date_modified": "2026-09-18",
-    },
-    "85 - Is an Axolotl an Amphibian.docx": {
-        "slug": "biology-and-science/is-axolotl-amphibian",
-        "hub": "biology-and-science",
-        "title_override": "Is an Axolotl an Amphibian?",
-        "title_tag": "Is an Axolotl an Amphibian? Yes - Here's Why",
-    },
-    "86 - Axolotl Lifespan Wild vs Captivity.docx": {
-        "slug": "biology-and-science/lifespan-wild-vs-captivity",
-        "hub": "biology-and-science",
-        "title_override": "Axolotl Lifespan: Wild vs Captivity",
-        "title_tag": "Axolotl Lifespan: How Long Do Axolotls Live?",
-    },
-    "87 - Axolotl Regeneration and Limb Regrowth.docx": {
-        "slug": "biology-and-science/regeneration-and-limb-regrowth",
-        "hub": "biology-and-science",
-        "title_override": "Axolotl Regeneration: The Science",
-        "title_tag": "Axolotl Regeneration: How They Regrow Limbs & Body Parts",
-    },
-    "88 - What is Neoteny Axolotl.docx": {
-        "slug": "biology-and-science/neoteny",
-        "hub": "biology-and-science",
-        "title_override": "What Is Neoteny?",
-        "title_tag": "What Is Neoteny? Why Axolotls Never Grow Up",
-    },
-    "89 - Axolotl Wild Habitat Xochimilco.docx": {
-        "slug": "biology-and-science/wild-habitat-xochimilco",
-        "hub": "biology-and-science",
-        "title_override": "Where Do Axolotls Live? Wild Habitat in Xochimilco, Mexico",
-        "title_tag": "Where Do Axolotls Live? Wild Habitat in Xochimilco, Mexico",
-        "date_modified": "2026-09-18",
-    },
-    "90 - Axolotl Price by Morph.docx": {
-        "slug": "cost-and-buying/axolotl-price-by-morph",
-        "hub": "cost-and-buying",
-        "title_override": "Axolotl Price by Morph",
-        "title_tag": "Axolotl Price by Morph: Cost Guide for Every Color (2026)",
-        "meta_override": "August 2026 US axolotl price snapshot by morph, with current listing examples, shipping costs, and checks that matter more than the advertised color.",
-        "date_modified": "2026-08-27",
-    },
-    "91 - Axolotl Breeder vs Pet Store.docx": {
-        "slug": "cost-and-buying/breeder-vs-pet-store",
-        "hub": "cost-and-buying",
-        "title_override": "Axolotl Breeder vs Pet Store: Which Buying Option Is Better?",
-        "title_tag": "Axolotl Breeder vs Pet Store: Which Buying Option Is Better?",
-        "meta_override": "Compare buying an axolotl from a specialist breeder vs a pet store by animal records, husbandry visibility, selection, support, pickup or shipping, terms and buyer verification.",
-        "date_modified": "2026-09-18",
-    },
-    "92 - How to Choose an Axolotl Breeder.docx": {
-        "slug": "cost-and-buying/choosing-a-reputable-breeder",
-        "hub": "cost-and-buying",
-        "title_override": "How to Choose a Reputable Axolotl Breeder",
-        "title_tag": "How to Choose an Axolotl Breeder: 12 Questions to Ask",
-        "meta_override": "Use 12 practical questions to verify an axolotl breeder's husbandry, parentage records, current animal photos, shipping terms, and support.",
-        "date_modified": "2026-08-27",
-    },
-    "93 - How to Choose a Healthy Axolotl.docx": {
-        "slug": "cost-and-buying/how-to-choose-a-healthy-axolotl",
-        "hub": "cost-and-buying",
-        "title_override": "How to Choose a Healthy Axolotl",
-        "title_tag": "How to Choose a Healthy Axolotl: Signs to Check Before Buying",
-        "meta_override": "Check an axolotl's body condition, skin, gills, movement, appetite history, and water records before buying, without diagnosing disease from a photo.",
-        "date_modified": "2026-08-27",
-    },
-    "94 - Axolotl Seller Red Flags.docx": {
-        "slug": "cost-and-buying/red-flags-when-buying",
-        "hub": "cost-and-buying",
-        "title_override": "Axolotl Seller Red Flags",
-        "title_tag": "Axolotl Seller Red Flags: How to Spot Scams and Bad Breeders",
-        "meta_override": "Spot axolotl seller scams by verifying the exact animal, written terms, traceable payment, husbandry records, identity, and shipping plan.",
-        "date_modified": "2026-08-27",
-    },
-    "95 - How Axolotls Are Shipped.docx": {
-        "slug": "cost-and-buying/shipping-live-axolotls",
-        "hub": "cost-and-buying",
-        "title_override": "How Are Axolotls Shipped? Delivery, Unboxing & Arrival Guide",
-        "title_tag": "How Are Axolotls Shipped? Delivery, Unboxing & Arrival Guide",
-        "meta_override": "How live axolotl shipping works: seller and carrier checks, weather planning, packing, delivery timing, unboxing, arrival inspection, acclimation and what to do after a delay.",
-        "date_modified": "2026-09-18",
-    },
-    "96 - Axolotl Adopt Me Guide.docx": {
-        "slug": "axolotl-in-culture/adopt-me-axolotl-guide",
-        "hub": "axolotl-in-culture",
-        "title_override": "Axolotl in Adopt Me: How to Get One",
-        "title_tag": "Axolotl in Adopt Me: How to Get One & All Colors (2026)",
-        "meta_override": "How to get an axolotl in Adopt Me through current trading or a future Pet Shop return, plus its forms and how the virtual pet differs from real care.",
-        "date_modified": "2026-08-30",
-    },
-    "97 - Axolotl in Pop Culture and Memes.docx": {
-        "slug": "axolotl-in-culture/axolotl-in-pop-culture-and-memes",
-        "hub": "axolotl-in-culture",
-        "title_override": "Axolotl in Pop Culture: Minecraft, Gravity Falls, Literature, Memes & More",
-        "title_tag": "Axolotl in Pop Culture: Minecraft, Gravity Falls, Literature & Memes",
-        "meta_override": "Axolotls in pop culture: Minecraft, Gravity Falls and Bill Cipher, Julio CortÃ¡zar, memes, merchandise, science media and the cultural meanings attached to the animal.",
-        "date_modified": "2026-09-18",
-    },
-    "98 - Minecraft Axolotls Guide.docx": {
-        "slug": "axolotl-in-culture/minecraft-axolotls-guide",
-        "hub": "axolotl-in-culture",
-        "title_override": "Minecraft Axolotls: Complete Guide",
-        "title_tag": "Minecraft Axolotls: Spawning, Colors & How to Catch Them",
-    },
-    "99 - Why Are Axolotls So Popular.docx": {
-        "slug": "axolotl-in-culture/why-axolotls-are-suddenly-popular",
-        "hub": "axolotl-in-culture",
-        "title_override": "Why Are Axolotls So Popular?",
-        "title_tag": "Why Are Axolotls So Popular? The Rise of a Cute Endangered Amphibian",
-    },
-    "100 - Blue and Pink Axolotl Myth.docx": {
-        "slug": "morphs/blue-and-pink-axolotl-myth",
-        "hub": "morphs",
-        "title_override": "Pink, Blue, Purple & Green Axolotls: Which Colors Are Real?",
-        "title_tag": "Pink, Blue, Purple & Green Axolotls: Which Colors Are Real?",
-        "meta_override": "Which axolotl colors are recognized morphs, and which labels come from lighting, GFP fluorescence, editing, or seller terminology? Compare pink, blue, purple, green, yellow, and real morph names.",
-        "date_modified": "2026-09-18",
-    },
-    "101 - Axolotl Morphs Comparison Chart.docx": {
-        "slug": "morphs/morphs-comparison-chart",
-        "hub": "morphs",
-        "title_override": "Axolotl Colors & Morphs: Types, Rarity and Comparison Chart",
-        "title_tag": "Axolotl Colors & Morphs: Types, Rarity & Comparison Chart",
-        "meta_override": "Compare axolotl colors and morphs side by side, including wild type, leucistic, melanoid, albino, golden albino, copper, axanthic, GFP, piebald, mosaic, and chimera terminology.",
-        "date_modified": "2026-09-18",
-    },
-    "102 - Mosaic Axolotl.docx": {
-        "slug": "morphs/mosaic",
-        "hub": "morphs",
-        "title_override": "Mosaic Axolotl",
-        "title_tag": "Mosaic Axolotl: The Patchy Rare Morph, Explained",
-    },
-    "103 - Finding an Exotic Vet for Axolotls.docx": {
-        "slug": "health/finding-an-exotic-vet",
-        "hub": "health",
-        "title_override": "Finding an Exotic Vet for Axolotls",
-        "title_tag": "How to Find an Axolotl Vet: Search & Screening Guide",
-        "meta_override": "Find and screen a veterinarian with amphibian experience, prepare useful records, and understand emergency, teletriage, and cost questions.",
-        "date_modified": "2026-08-29",
-    },
-    "104 - Axolotl Stress Signs.docx": {
-        "slug": "health/stress-signs",
-        "hub": "health",
-        "title_override": "Axolotl Stress Signs: How to Tell If Your Axolotl Is Stressed",
-        "title_tag": "Axolotl Stress Signs: How to Tell If Your Axolotl Is Stressed",
-        "meta_override": "Learn common axolotl stress signs and where each symptom should lead next: curled gills, floating, appetite loss, shrinking gills, fungus-like growth, abnormal swimming and water-quality checks.",
-        "date_modified": "2026-09-18",
-    },
-    "105 - Axolotl Impaction Symptoms and Treatment.docx": {
-        "slug": "health/impaction-symptoms-treatment",
-        "hub": "health",
-        "title_override": "Axolotl Impaction Symptoms and Treatment",
-        "title_tag": "Axolotl Impaction: Symptoms, Causes & Treatment",
-        "date_modified": "2026-08-29",
-    },
-    "106 - Axolotl Tank Size by Age.docx": {
-        "slug": "tank-setup/tank-size-by-age",
-        "hub": "tank-setup",
-        "title_override": "What Size Tank Does an Axolotl Need? Tank Size by Age & Number",
-        "title_tag": "What Size Tank Does an Axolotl Need? By Age & Number",
-        "meta_override": "Choose axolotl tank size by body length, floor space, water volume, filtration, life stage, and number of animals. Compare baby, juvenile, adult, and multi-axolotl needs.",
-        "date_modified": "2026-09-18",
-    },
-    "107 - Can Axolotls Live with Fish.docx": {
-        "slug": "tank-setup/tank-mates",
-        "hub": "tank-setup",
-        "title_override": "Can Axolotls Live with Fish?",
-        "title_tag": "Can Axolotls Live with Fish? Tank-Mates, Explained",
-    },
-    "108 - How to Acclimate a New Axolotl.docx": {
-        "slug": "tank-setup/acclimating-a-new-axolotl",
-        "hub": "tank-setup",
-        "title_override": "How to Acclimate a New Axolotl",
-        "title_tag": "How to Acclimate a New Axolotl: Step-by-Step",
-    },
-}
-
-# Articles that ship interactive tools (copy into /tools/ as bonus pages)
-TOOLS = {
-    "axolotl-calculator for water conditioner dose.html": {
-        "slug": "tools/water-conditioner-dosage-calculator",
-        "title": "Axolotl Water Conditioner Dosage Calculator",
-        "title_override": "Axolotl Water Conditioner Dosage Calculator | MyAxolotl",
-        "cat": "Tools",
-    },
-    "axolotl-feeding-schedule-generator.html": {
-        "slug": "tools/feeding-schedule-generator",
-        "title": "Axolotl Feeding Schedule Generator",
-        "cat": "Tools",
-    },
-    "axolotl-nitrogen-cycle-tracker.html": {
-        "slug": "tools/nitrogen-cycle-tracker",
-        "title": "Axolotl Nitrogen Cycle Tracker",
-        "cat": "Tools",
-    },
-    "axolotl-symptom-checker.html": {
-        "slug": "tools/symptom-checker",
-        "title": "Axolotl Symptom Checker",
-        "cat": "Tools",
-    },
-    "axolotl-tank-size-calculator.html": {
-        "slug": "tools/tank-size-calculator",
-        "title": "Axolotl Tank Size Calculator",
-        "cat": "Tools",
-    },
-    "axolotl-chiller-size-calculator.html": {
-        "slug": "tools/chiller-size-calculator",
-        "title": "Axolotl Chiller Size Calculator",
-        "title_override": "Axolotl Chiller Size Calculator: Estimate HP & Flow | MyAxolotl",
-        "cat": "Tools",
-    },
-    "aquarium-volume-calculator.html": {
-        "slug": "tools/aquarium-volume-calculator",
-        "title": "Aquarium Volume Calculator",
-        "title_override": "Aquarium Volume Calculator: Gallons & Liters from Dimensions | MyAxolotl",
-        "cat": "Tools",
-    },
-}
-
-# Internal linking map (source_slug -> [target_slug, ...]) applied to article
-# pages automatically. Keys/values are slugs from ARTICLES (without leading /).
-LINKING = {
-    # Flagship guide anchors the ownership -> legal-status gateway (phase 8).
-    "axolotls/care-guide": ["legal"],
-    "tank-setup/setup-guide": ["tank-setup/substrate-and-impaction", "tank-setup/filtration-for-axolotls",
-                               "tank-setup/temperature", "tank-setup/water-parameters-cycling",
-                               "tools/aquarium-volume-calculator"],
-    "tank-setup/substrate-and-impaction": ["health/refusing-to-eat", "tank-setup/gravel-risks",
-                                           "health/impaction-symptoms-treatment"],
-    "tank-setup/gravel-risks": ["tank-setup/substrate-and-impaction", "tank-setup/live-vs-artificial-plants",
-                                "health/impaction-symptoms-treatment"],
-    "tank-setup/filtration-for-axolotls": ["tank-setup/canister-vs-sponge-filter", "tank-setup/water-parameters-cycling"],
-    "tank-setup/canister-vs-sponge-filter": ["tank-setup/filtration-for-axolotls"],
-    "tank-setup/water-parameters-cycling": ["tank-setup/why-tank-water-smells", "tank-setup/uneaten-food-and-ammonia"],
-    "tank-setup/why-tank-water-smells": ["tank-setup/setup-guide"],
-    "tank-setup/uneaten-food-and-ammonia": ["tank-setup/setup-guide"],
-    "tank-setup/temperature": ["tank-setup/aquarium-chillers", "tools/chiller-size-calculator", "health/refusing-to-eat"],
-    "tank-setup/aquarium-chillers": ["tools/chiller-size-calculator", "tank-setup/temperature"],
-    "tank-setup/water-conditioners": ["tank-setup/acclimating-a-new-axolotl",
-                                      "tank-setup/lighting-for-axolotls",
-                                      "tools/aquarium-volume-calculator"],
-    "tank-setup/lighting-for-axolotls": ["tank-setup/hides-and-caves"],
-    "tank-setup/hides-and-caves": ["tank-setup/live-vs-artificial-plants"],
-    "tank-setup/live-vs-artificial-plants": ["tank-setup/hides-and-caves", "tank-setup/lighting-for-axolotls"],
-    "tank-setup/tank-size-by-age": ["tank-setup/setup-guide", "tank-setup/gravel-risks",
-                                    "care-basics/axolotl-age-and-size-chart", "tank-setup/tank-mates",
-                                    "tools/aquarium-volume-calculator"],
-    "tank-setup/tank-mates": ["tank-setup/tank-size-by-age", "diet/feeder-fish-risks",
-                              "care-basics/keeping-multiple-axolotls"],
-    "tank-setup/acclimating-a-new-axolotl": ["tank-setup/setup-guide"],
-    "diet": ["diet/best-foods-list", "diet/feeding-schedule-by-age", "diet/overfeeding-and-impaction"],
-    "diet/best-foods-list": ["diet/feeding-schedule-by-age", "diet/live-vs-frozen-food", "diet/axolotl-pellets",
-                             "diet/how-to-hand-feed"],
-    "diet/feeding-schedule-by-age": ["diet/best-foods-list", "diet/overfeeding-and-impaction",
-                                     "breeding/raising-juveniles"],
-    "diet/axolotl-pellets": ["diet/best-foods-list", "diet/live-vs-frozen-food"],
-    "diet/live-vs-frozen-food": ["diet/best-foods-list", "diet/feeder-fish-risks", "health/parasite-treatment"],
-    "diet/feeder-fish-risks": ["diet/best-foods-list", "diet/live-vs-frozen-food", "health/parasite-treatment"],
-    "diet/beef-heart": ["diet/best-foods-list", "diet/live-vs-frozen-food"],
-    "diet/overfeeding-and-impaction": ["health/refusing-to-eat", "health/impaction-symptoms-treatment", "diet/feeding-schedule-by-age"],
-    "diet/blackworms-for-juveniles": ["diet/feeding-schedule-by-age", "diet/best-foods-list",
-                                      "breeding/raising-juveniles"],
-    "diet/fasting-and-vacation": ["diet/feeding-schedule-by-age", "health/refusing-to-eat"],
-    "diet/how-to-hand-feed": ["diet/best-foods-list", "diet/feeding-schedule-by-age"],
-    "diet/shrimp-for-axolotls": ["diet/best-foods-list", "diet/feeding-schedule-by-age",
-                                 "diet/live-vs-frozen-food"],
-    "diet/vitamin-and-supplement-needs": ["diet/best-foods-list", "health/malnutrition-signs"],
-    "health": ["health/refusing-to-eat", "health/fungal-infections-saprolegnia", "health/parasite-treatment"],
-    "health/refusing-to-eat": ["diet/overfeeding-and-impaction", "health/malnutrition-signs"],
-    "health/malnutrition-signs": ["health/refusing-to-eat", "diet/vitamin-and-supplement-needs",
-                                  "biology-and-science/regeneration-and-limb-regrowth"],
-    "health/parasite-treatment": ["health/fungal-infections-saprolegnia"],
-    "health/fungal-infections-saprolegnia": ["health/black-tea-bath", "health/salt-bath", "health/fridging-sick-axolotl",
-                                             "biology-and-science/anatomy-gills-and-lungs"],
-    "health/black-tea-bath": ["health/fungal-infections-saprolegnia", "health/fridging-sick-axolotl"],
-    "health/fridging-sick-axolotl": ["health/emergency-first-aid", "health/finding-an-exotic-vet",
-                                      "health/impaction-symptoms-treatment", "tank-setup/temperature"],
-    "health/salt-bath": ["health/fungal-infections-saprolegnia", "health/black-tea-bath"],
-    "health/why-axolotl-floating": ["health/refusing-to-eat", "tank-setup/water-parameters-cycling"],
-    "health/curled-gills-stress-signal": ["health/shrinking-gills", "health/ammonia-burns",
-                                          "tank-setup/water-parameters-cycling", "health/stress-signs",
-                                          "biology-and-science/anatomy-gills-and-lungs"],
-    "health/limb-regeneration": ["health/minor-scrapes-and-wounds", "health/fungal-infections-saprolegnia",
-                                 "biology-and-science/regeneration-and-limb-regrowth"],
-    "health/ammonia-burns": ["health/curled-gills-stress-signal", "health/quarantine-tub",
-                             "tank-setup/water-parameters-cycling"],
-    "health/red-leg-syndrome": ["health/quarantine-tub", "health/fungal-infections-saprolegnia",
-                                "health/finding-an-exotic-vet"],
-    "health/quarantine-tub": ["health/red-leg-syndrome", "health/refusing-to-eat",
-                              "health/fungal-infections-saprolegnia"],
-    "health/shrinking-gills": ["health/curled-gills-stress-signal", "tank-setup/temperature",
-                               "tank-setup/water-parameters-cycling", "biology-and-science/anatomy-gills-and-lungs"],
-    "health/minor-scrapes-and-wounds": ["health/limb-regeneration", "health/fungal-infections-saprolegnia",
-                                        "health/salt-bath"],
-    "health/finding-an-exotic-vet": ["health/red-leg-syndrome", "health/impaction-symptoms-treatment",
-                                     "health/fungal-infections-saprolegnia", "health/parasite-treatment",
-                                     "health/emergency-first-aid"],
-    "health/stress-signs": ["health/curled-gills-stress-signal", "health/why-axolotl-floating",
-                            "health/refusing-to-eat", "tank-setup/water-parameters-cycling"],
-    "health/impaction-symptoms-treatment": ["health/refusing-to-eat", "health/fridging-sick-axolotl",
-                                            "diet/overfeeding-and-impaction", "tank-setup/substrate-and-impaction",
-                                            "tank-setup/gravel-risks"],
-    "health/emergency-first-aid": ["health/finding-an-exotic-vet", "health/refusing-to-eat",
-                                   "health/red-leg-syndrome", "health/ammonia-burns",
-                                   "health/why-axolotl-floating", "health/fungal-infections-saprolegnia",
-                                   "health/fridging-sick-axolotl"],
-    "tank-setup/water-change-guide": ["tank-setup/setup-guide"],
-    "gifts-and-merch": ["gifts-and-merch/best-axolotl-toys-and-plushies",
-                        "gifts-and-merch/axolotl-squishmallow-guide",
-                        "gifts-and-merch/build-a-bear-axolotl-guide",
-                        "gifts-and-merch/best-axolotl-lego-sets"],
-    "gifts-and-merch/best-axolotl-toys-and-plushies": ["gifts-and-merch/best-axolotl-lego-sets",
-                                                       "gifts-and-merch/axolotl-squishmallow-guide",
-                                                       "gifts-and-merch/build-a-bear-axolotl-guide"],
-    "gifts-and-merch/axolotl-squishmallow-guide": ["gifts-and-merch/best-axolotl-toys-and-plushies",
-                                                   "gifts-and-merch/build-a-bear-axolotl-guide"],
-    "gifts-and-merch/build-a-bear-axolotl-guide": ["gifts-and-merch/axolotl-squishmallow-guide",
-                                                   "gifts-and-merch/best-axolotl-toys-and-plushies"],
-    "gifts-and-merch/best-axolotl-lego-sets": ["gifts-and-merch/best-axolotl-toys-and-plushies",
-                                               "axolotl-in-culture/minecraft-axolotls-guide"],
-    "morphs/wild-type": ["morphs/pigment-cells", "morphs/morphs-comparison-chart",
-                         "breeding/color-genetics-punnett-squares", "cost-and-buying/axolotl-price-by-morph"],
-    "morphs/chimera": ["morphs/mosaic", "morphs/morphs-comparison-chart", "morphs/pigment-cells"],
-    "morphs/leucistic": ["morphs/golden-albino", "morphs/pigment-cells",
-                         "morphs/morphs-comparison-chart", "cost-and-buying/axolotl-price-by-morph"],
-    "morphs/melanoid": ["morphs/pigment-cells", "morphs/wild-type",
-                        "breeding/color-genetics-punnett-squares"],
-    "morphs/golden-albino": ["morphs/leucistic", "morphs/pigment-cells",
-                             "breeding/color-genetics-punnett-squares"],
-    "morphs/gfp-axolotl": ["morphs/morphs-comparison-chart",
-                           "breeding/color-genetics-punnett-squares",
-                           "cost-and-buying/axolotl-price-by-morph"],
-    "morphs/copper": ["morphs/pigment-cells", "breeding/color-genetics-punnett-squares",
-                      "cost-and-buying/axolotl-price-by-morph"],
-    "morphs/piebald": ["morphs/pigment-cells", "morphs/mosaic", "morphs/leucistic"],
-    "morphs/pigment-cells": ["morphs/morphs-comparison-chart",
-                             "breeding/color-genetics-punnett-squares", "morphs/melanoid"],
-    "morphs/enigma-firefly-mac": ["morphs/pigment-cells", "morphs/copper", "morphs/melanoid"],
-    "morphs/blue-and-pink-axolotl-myth": ["morphs/morphs-comparison-chart",
-                                          "morphs/leucistic", "morphs/gfp-axolotl"],
-    "morphs/morphs-comparison-chart": ["morphs/pigment-cells",
-                                       "breeding/color-genetics-punnett-squares",
-                                       "cost-and-buying/axolotl-price-by-morph"],
-    "morphs/mosaic": ["morphs/chimera", "morphs/piebald", "morphs/morphs-comparison-chart"],
-    "breeding/sexing-axolotls": ["breeding/genetics-and-inbreeding",
-                                 "breeding/breeding-triggers-temperature-cycling"],
-    "breeding/genetics-and-inbreeding": ["breeding/sexing-axolotls",
-                                        "breeding/color-genetics-punnett-squares",
-                                        "breeding/breeding-triggers-temperature-cycling"],
-    "breeding/color-genetics-punnett-squares": ["breeding/genetics-and-inbreeding",
-                                               "morphs/morphs-comparison-chart",
-                                               "breeding/breeding-triggers-temperature-cycling"],
-    "breeding/breeding-triggers-temperature-cycling": ["breeding/sexing-axolotls",
-                                                       "breeding/genetics-and-inbreeding",
-                                                       "breeding/egg-and-larvae-care"],
-    "breeding/egg-and-larvae-care": ["breeding/breeding-triggers-temperature-cycling",
-                                     "breeding/raising-juveniles",
-                                     "diet/feeding-schedule-by-age"],
-    "breeding/raising-juveniles": ["breeding/egg-and-larvae-care",
-                                   "diet/feeding-schedule-by-age",
-                                   "diet/blackworms-for-juveniles",
-                                   "breeding/genetics-and-inbreeding"],
-    "legal": ["legal/california", "legal/canada", "legal/virginia", "legal/new-jersey"],
-    "legal/california": ["legal/virginia", "legal/new-jersey", "legal/canada", "axolotls/care-guide"],
-    "legal/canada": ["legal/california", "legal/virginia", "legal/maine", "axolotls/care-guide"],
-    "legal/hawaii": ["legal/california", "legal/canada", "legal/maine"],
-    "legal/maine": ["legal/virginia", "legal/california", "legal/canada", "legal/hawaii"],
-    "legal/new-jersey": ["legal/virginia", "legal/california", "legal/canada"],
-    "legal/new-mexico": ["legal/california", "legal/maine", "legal/virginia"],
-    "legal/virginia": ["legal/california", "legal/maine", "legal/new-jersey", "legal/new-mexico"],
-    "care-basics": ["care-basics/are-axolotls-good-beginner-pets", "care-basics/axolotl-facts",
-                    "care-basics/axolotl-age-and-size-chart", "care-basics/behavior"],
-    "care-basics/are-axolotls-good-beginner-pets": ["care-basics/axolotls-and-children",
-                                                    "care-basics/cost-of-ownership-monthly",
-                                                    "tank-setup/setup-guide",
-                                                    "cost-and-buying/breeder-vs-pet-store"],
-    "care-basics/axolotl-age-and-size-chart": ["care-basics/are-axolotls-good-beginner-pets",
-                                               "diet/feeding-schedule-by-age", "breeding/egg-and-larvae-care"],
-    "care-basics/axolotl-facts": ["care-basics/how-to-pronounce-axolotl",
-                                  "biology-and-science/regeneration-and-limb-regrowth",
-                                  "biology-and-science/conservation-status"],
-    "care-basics/axolotl-intelligence-and-bonding": ["care-basics/behavior", "care-basics/handling"],
-    "care-basics/axolotls-and-children": ["care-basics/are-axolotls-good-beginner-pets",
-                                          "care-basics/handling", "tank-setup/setup-guide",
-                                          "cost-and-buying/how-to-choose-a-healthy-axolotl"],
-    "care-basics/behavior": ["care-basics/axolotl-intelligence-and-bonding",
-                             "health/curled-gills-stress-signal", "health/why-axolotl-floating"],
-    "care-basics/cost-of-ownership-monthly": ["care-basics/are-axolotls-good-beginner-pets",
-                                              "tank-setup/setup-guide", "tank-setup/aquarium-chillers",
-                                              "cost-and-buying/axolotl-price-by-morph"],
-    "care-basics/handling": ["care-basics/axolotls-and-children", "care-basics/keeping-multiple-axolotls",
-                             "tank-setup/setup-guide"],
-    "care-basics/how-to-pronounce-axolotl": ["care-basics/axolotl-facts", "axolotls/care-guide"],
-    "care-basics/keeping-multiple-axolotls": ["care-basics/are-axolotls-good-beginner-pets",
-                                              "tank-setup/tank-size-by-age", "care-basics/behavior"],
-    "biology-and-science/anatomy-gills-and-lungs": ["biology-and-science/neoteny",
-                                                    "biology-and-science/is-axolotl-amphibian",
-                                                    "biology-and-science/wild-habitat-xochimilco",
-                                                    "health/shrinking-gills"],
-    "biology-and-science/axolotl-vs-tiger-salamander": ["biology-and-science/neoteny",
-                                                        "biology-and-science/is-axolotl-amphibian"],
-    "biology-and-science/conservation-status": ["biology-and-science/wild-habitat-xochimilco",
-                                                "cost-and-buying/choosing-a-reputable-breeder",
-                                                "axolotls/care-guide"],
-    "biology-and-science/is-axolotl-amphibian": ["biology-and-science/anatomy-gills-and-lungs",
-                                                 "biology-and-science/axolotl-vs-tiger-salamander"],
-    "biology-and-science/lifespan-wild-vs-captivity": ["biology-and-science/conservation-status",
-                                                       "biology-and-science/wild-habitat-xochimilco"],
-    "biology-and-science/regeneration-and-limb-regrowth": ["health/limb-regeneration",
-                                                           "biology-and-science/neoteny",
-                                                           "biology-and-science/anatomy-gills-and-lungs",
-                                                           "health/minor-scrapes-and-wounds"],
-    "biology-and-science/neoteny": ["biology-and-science/axolotl-vs-tiger-salamander",
-                                    "biology-and-science/is-axolotl-amphibian"],
-    "biology-and-science/wild-habitat-xochimilco": ["biology-and-science/conservation-status",
-                                                    "tank-setup/setup-guide",
-                                                    "tank-setup/temperature"],
-    "cost-and-buying": ["cost-and-buying/axolotl-price-by-morph", "cost-and-buying/breeder-vs-pet-store",
-                        "cost-and-buying/how-to-choose-a-healthy-axolotl"],
-    "cost-and-buying/axolotl-price-by-morph": ["morphs/wild-type", "morphs/leucistic",
-                                               "care-basics/cost-of-ownership-monthly"],
-    "cost-and-buying/breeder-vs-pet-store": ["cost-and-buying/choosing-a-reputable-breeder",
-                                             "cost-and-buying/shipping-live-axolotls"],
-    "cost-and-buying/choosing-a-reputable-breeder": ["cost-and-buying/breeder-vs-pet-store",
-                                                     "cost-and-buying/red-flags-when-buying"],
-    "cost-and-buying/how-to-choose-a-healthy-axolotl": ["cost-and-buying/red-flags-when-buying",
-                                                        "cost-and-buying/choosing-a-reputable-breeder"],
-    "cost-and-buying/red-flags-when-buying": ["cost-and-buying/choosing-a-reputable-breeder",
-                                              "cost-and-buying/how-to-choose-a-healthy-axolotl"],
-    "cost-and-buying/shipping-live-axolotls": ["cost-and-buying/breeder-vs-pet-store",
-                                               "cost-and-buying/how-to-choose-a-healthy-axolotl",
-                                               "tank-setup/acclimating-a-new-axolotl"],
-    "axolotl-in-culture": ["axolotl-in-culture/minecraft-axolotls-guide",
-                           "axolotl-in-culture/axolotl-in-pop-culture-and-memes",
-                           "axolotl-in-culture/why-axolotls-are-suddenly-popular",
-                           "axolotl-in-culture/adopt-me-axolotl-guide"],
-    "axolotl-in-culture/minecraft-axolotls-guide": ["axolotl-in-culture/axolotl-in-pop-culture-and-memes",
-                                                    "axolotl-in-culture/why-axolotls-are-suddenly-popular",
-                                                    "morphs/blue-and-pink-axolotl-myth"],
-    "axolotl-in-culture/axolotl-in-pop-culture-and-memes": ["axolotl-in-culture/why-axolotls-are-suddenly-popular",
-                                                            "axolotl-in-culture/minecraft-axolotls-guide",
-                                                            "gifts-and-merch/axolotl-squishmallow-guide"],
-    "axolotl-in-culture/why-axolotls-are-suddenly-popular": ["axolotl-in-culture/minecraft-axolotls-guide",
-                                                             "biology-and-science/conservation-status",
-                                                             "care-basics/axolotl-facts",
-                                                             "axolotl-in-culture/adopt-me-axolotl-guide"],
-    "axolotl-in-culture/adopt-me-axolotl-guide": ["axolotl-in-culture/minecraft-axolotls-guide",
-                                                  "care-basics/are-axolotls-good-beginner-pets",
-                                                  "morphs/blue-and-pink-axolotl-myth"],
-}
-
-# Phase 8 semantic inline anchors: (phrase, target, anchor_label, replace_all).
-# The phrase must already exist verbatim in the article body; the anchor label is
-# the natural in-sentence text that becomes the link (identical to the phrase so
-# no prose is rewritten). replace_all=true is used only where every occurrence of
-# the phrase carries the same relationship (verified before adding).
-SEMANTIC_INLINE = {
-    "axolotls/care-guide": [
-        ("Check your specific state and city before you buy", "/legal/",
-         "Check your specific state and city before you buy", True),
-        ("Check your specific state and city before buying", "/legal/",
-         "Check your specific state and city before buying", True),
-    ],
-    "axolotl-in-culture/adopt-me-axolotl-guide": [
-        ("check your local laws first", "/legal/", "check your local laws first", False),
-    ],
-    "biology-and-science/anatomy-gills-and-lungs": [
-        ("health indicator", "/health/stress-signs/", "health indicator", False),
-        ("Surface gulping", "/health/why-axolotl-floating/", "surface gulping", False),
-    ],
-}
-
-# ---------------------------------------------------------------------------
-# Phase 10 semantic-SEO layer
-# ---------------------------------------------------------------------------
-
-# Standfirst (intro) overrides. Used to re-scope a page's dominant intent
-# without touching its docx-sourced body (cannibalization role splits).
-INTRO_OVERRIDES = {
-    "axolotl-in-culture/adopt-me-axolotl-guide": (
-        "The Adopt Me axolotl is a legendary virtual pet originally sold through "
-        "the Pet Shop. Players now usually obtain it by trading unless the game "
-        "returns it to the shop."
-    ),
-    "cost-and-buying/axolotl-price-by-morph": (
-        "As of August 27, 2026, common captive-bred axolotls in current US listings are "
-        "usually advertised around $50â€“$100 before shipping. Morph, age, lineage, seller, "
-        "and delivery cost change the total, so these figures are a market snapshot rather "
-        "than guaranteed prices."
-    ),
-    "cost-and-buying/breeder-vs-pet-store": (
-        "A specialist breeder is often the easiest source to verify, but the seller type "
-        "alone does not prove quality. Compare the exact animal, water records, feeding "
-        "history, written terms, and shipping or pickup plan."
-    ),
-    "cost-and-buying/choosing-a-reputable-breeder": (
-        "Choose an axolotl breeder by the records and conditions they can show, not by "
-        "follower count or a polished storefront. Ask the same 12 questions before paying "
-        "for any animal."
-    ),
-    "cost-and-buying/how-to-choose-a-healthy-axolotl": (
-        "Before buying, look for normal body condition, intact skin, balanced movement, "
-        "recent feeding records, and measured water quality. Appearance can reveal warning "
-        "signs, but a photo cannot diagnose an axolotl."
-    ),
-    "cost-and-buying/red-flags-when-buying": (
-        "The strongest seller red flags are identity or animal details that cannot be "
-        "verified, pressure to pay quickly, unsafe husbandry, vague written terms, and "
-        "payment methods that remove buyer protection."
-    ),
-    "cost-and-buying/shipping-live-axolotls": (
-        "A responsible shipment starts before the box is packed: the route must be legal, "
-        "the carrier must accept amphibians, the weather must be suitable, and the recipient "
-        "must be ready for the delivery."
-    ),
-    "care-basics/how-to-pronounce-axolotl": (
-        "In modern English, pronounce axolotl as ACK-suh-lot-ul, with the stress "
-        "on the first syllable. The Nahuatl source word and Spanish ajolote sound "
-        "different, so this guide keeps the three forms separate."
-    ),
-    "tank-setup/filtration-for-axolotls": (
-        "Before choosing a filter you need the principles: why axolotls need gentle, low-flow "
-        "filtration, how waste becomes ammonia, and which filter families exist. This guides the "
-        "options; the head-to-head canister-versus-sponge decision has its own dedicated guide."
-    ),
-    "tank-setup/aquarium-chillers": (
-        "Axolotls require water between 60â€“68Â°F (15â€“20Â°C) to survive long-term, and most US homes "
-        "maintain ambient temperatures of 68â€“78Â°F â€” which drives tank water above the safe ceiling "
-        "without active cooling equipment."
-    ),
-    "biology-and-science/regeneration-and-limb-regrowth": (
-        "This is the science page: why axolotls can regenerate limbs, organs, and even parts of "
-        "the brain, at the cellular level. Owners looking for what to do when a limb is damaged "
-        "should read the practical owner's guide instead."
-    ),
-    "health/limb-regeneration": (
-        "An owner-facing guide to axolotl limb regeneration: what to expect, how to protect a "
-        "healing limb, and when to worry. For the underlying biology, see the science page."
-    ),
-    "health/emergency-first-aid": (
-        "Use this page to assess urgency and take safe first steps while arranging veterinary "
-        "help. It cannot identify a disease from one sign and does not replace an "
-        "exotics-experienced veterinarian."
-    ),
-    "health/finding-an-exotic-vet": (
-        "Use this guide to locate and screen a veterinarian with amphibian experience, prepare "
-        "for the visit, and understand that availability and costs vary by clinic and location."
-    ),
-    "health/fridging-sick-axolotl": (
-        "Fridging is not routine home treatment. This page explains the risks and the questions "
-        "to ask if an exotics-experienced veterinarian specifically recommends controlled "
-        "refrigeration for an individual axolotl."
-    ),
-    "health/refusing-to-eat": (
-        "Unexpected appetite loss is an observation, not a diagnosis. Check water parameters, "
-        "temperature, recent feeding, stool, body condition, and other signs first; seek "
-        "veterinary care promptly for severe, worsening, or persistent changes."
-    ),
-}
-
-# Targeted corrections for externally stored DOCX text. Each source phrase is
-# matched verbatim at build time so a future source revision cannot be silently
-# overwritten by an outdated replacement.
-BODY_TEXT_REPLACEMENTS = {
-    "axolotl-in-culture/adopt-me-axolotl-guide": [
-        (
-            "Players who want one either hatch it during its event or trade for it afterward.",
-            "The pet was originally sold through the Pet Shop, and players now usually obtain it by trading unless it returns to the shop.",
-        ),
-        (
-            "There are 3 ways to get one: hatch it from a pet egg during its limited-time event, trade for it with other players, or buy it from the pet shop when it is re-released.",
-            "The current route is trading with another player. The axolotl was originally sold as a premium Pet Shop pet, so it may also be available if Adopt Me returns it to the shop.",
-        ),
-        (
-            "The axolotl appears during special events, so obtaining it is easiest while it is available.",
-            "Availability changes with game updates, so check the current in-game Pet Shop before relying on an older guide.",
-        ),
-        (
-            "Hatch it from a pet egg during its limited-time event.",
-            "Check whether it has returned to the in-game Pet Shop.",
-        ),
-        (
-            "Trade, hatch, or buy in pet shop",
-            "Trade, or buy in the Pet Shop if re-released",
-        ),
-    ],
-}
-
-
-# Evidence-bounded color terminology override. The external DOCX used absolute
-# claims ("no breeder has ever...") that exceed what the cited genetics sources establish.
-COLOR_LABELS_BODY_OVERRIDE = r'''
-<h2>Are pink axolotls real?</h2>
-<p><strong>Yes. Pink-looking axolotls are common, but â€œpinkâ€ is an appearance label rather than one single genetic category.</strong> The Ambystoma Genetic Stock Center describes white/leucistic axolotls as having pinkish skin with dark eyes. Albino combinations can also look pale, white, yellow, or pinkish depending on which other pigment traits are present.</p>
-<p>If you are trying to identify a pale animal, start with the eyes and the remaining pigment pattern. A pale body with dark eyes usually points toward the white/leucistic phenotype, while albino animals lack normal melanin production and have pinkish or reddish eyes.</p>
-
-<h2>Is blue a recognized axolotl morph?</h2>
-<p><strong>â€œBlueâ€ is not one of the standard pigment mutations or stock designations documented by the Ambystoma Genetic Stock Center.</strong> That does not mean every photo described as blue is deliberately fake. Cool aquarium lighting, camera white balance, image editing, GFP fluorescence, and informal seller terminology can all make an animal appear more blue or cyan than it looks under neutral light.</p>
-<p>So treat â€œblue axolotlâ€ as a color claim that needs verification, not as a standardized genetic label. Ask for neutral-light photos, the animal's actual morph or lineage name, and whether GFP or colored lighting is involved.</p>
-
-<h2>Are purple or lavender axolotls real morphs?</h2>
-<p><strong>Purple and lavender are not standard AGSC pigment-mutation names.</strong> Breeders and hobbyists may use these words informally for a particular shade, line, lighting effect, or combination of recognized traits. If a listing uses only a color nickname, ask what established phenotype or genetic background the seller means.</p>
-
-<h2>Are green axolotls real?</h2>
-<p><strong>An axolotl can look green for more than one reason.</strong> Wild-type animals may have olive or greenish mottling, while GFP axolotls fluoresce green under suitable blue or ultraviolet illumination. GFP is a fluorescent trait that can occur on top of other pigment backgrounds; it is not simply a â€œgreen color morph.â€</p>
-
-<h2>What about yellow and golden axolotls?</h2>
-<p><strong>Yellow or gold appearance often overlaps with albino pigment combinations.</strong> The AGSC describes an otherwise wild-type albino as yellow with reddish eyes and notes that this appearance is often called a golden albino. Other albino combinations can look paler or whiter.</p>
-
-<h2>Color label vs recognized phenotype</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Common search/listing label</th><th>How to interpret it</th><th>Best next page</th></tr></thead>
-<tbody>
-<tr><td>Pink / white</td><td>Often leucistic/white or an albino combination; check eye color and pigment pattern.</td><td><a href="/morphs/leucistic/">Leucistic</a></td></tr>
-<tr><td>Yellow / gold</td><td>Often golden-albino appearance or another albino combination.</td><td><a href="/morphs/golden-albino/">Golden albino</a></td></tr>
-<tr><td>Green / glowing</td><td>May be olive wild-type appearance or GFP fluorescence under suitable light.</td><td><a href="/morphs/gfp-axolotl/">GFP</a></td></tr>
-<tr><td>Blue / cyan</td><td>Not a standard AGSC pigment-mutation label; verify lighting, editing, GFP status, and lineage.</td><td><a href="/morphs/morphs-comparison-chart/">Morph comparison</a></td></tr>
-<tr><td>Purple / lavender</td><td>Usually an informal shade or line name unless the seller can tie it to a defined phenotype/genetic background.</td><td><a href="/morphs/morphs-comparison-chart/">Morph comparison</a></td></tr>
-</tbody></table></div>
-
-<h2>How do you verify an axolotl color or morph?</h2>
-<ol>
-<li><strong>Ask for neutral-light photos</strong> of the exact animal, not a heavily processed promotional image.</li>
-<li><strong>Check the eyes</strong> because eye pigment helps distinguish leucistic/white animals from albino combinations.</li>
-<li><strong>Look for reflective shine, speckling, and patch pattern</strong> rather than judging only the overall hue.</li>
-<li><strong>Ask whether the animal is GFP</strong> and under what light the photo was taken.</li>
-<li><strong>Ask for the breeder's actual phenotype or lineage terminology</strong> if the listing uses a nickname such as blue, lavender, or neon.</li>
-</ol>
-<p>For side-by-side identification, use the <a href="/morphs/morphs-comparison-chart/">axolotl colors and morphs comparison</a>. For the biology behind color, see <a href="/morphs/pigment-cells/">pigment cells</a> and <a href="/breeding/color-genetics-punnett-squares/">color genetics</a>.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://ambystoma.uky.edu/teachers-materials-menu/teachers-materials-books-menu?id=9">Ambystoma Genetic Stock Center: Mutant Genes</a></li>
-<li><a href="https://ambystoma.uky.edu/axolotl-research2/12-educationresources/10-axolotl-strains">Ambystoma Genetic Stock Center: Axolotl Strains</a></li>
-</ul>
-'''
-
-
-# Full render-time replacements for Health pages whose external DOCX source is
-# either overly prescriptive or too absolute for safe owner-facing guidance.
-# The source files remain the editorial record; these bodies define the public
-# semantic role until the external source is revised.
-BODY_OVERRIDES = {
-    "morphs/blue-and-pink-axolotl-myth": COLOR_LABELS_BODY_OVERRIDE,
-    "cost-and-buying/axolotl-price-by-morph": """
-<p><strong>As of August 27, 2026, current US listings place many common captive-bred axolotls around $50&ndash;$100 before shipping.</strong> A morph name does not set a fixed price. Size, sex, lineage records, unusual patterning, seller, location, and delivery charges can move the total substantially.</p>
-<h2>What Do Axolotls Cost by Morph in 2026?</h2>
-<p>The ranges below are working US listing ranges observed across current breeder and marketplace pages. They describe asking prices, not completed-sale averages or guarantees.</p>
-<div class="table-wrap"><table>
-<thead><tr><th>Morph or listing type</th><th>Observed working range</th><th>What changes the price</th></tr></thead>
-<tbody>
-<tr><td>Wild type</td><td>$50&ndash;$90</td><td>Size, sex, seller, and whether shipping is included</td></tr>
-<tr><td>Leucistic</td><td>$60&ndash;$110</td><td>Patterning, GFP status, size, and current stock</td></tr>
-<tr><td>Melanoid or golden albino</td><td>$60&ndash;$120</td><td>Seller, age, size, and additional traits</td></tr>
-<tr><td>Copper or axanthic</td><td>$65&ndash;$160</td><td>Lineage, expression, size, and combined recessive traits</td></tr>
-<tr><td>GFP combinations</td><td>$75&ndash;$200+</td><td>The base morph, fluorescence status, size, and seller</td></tr>
-<tr><td>Hypomelanistic or stacked-trait listings</td><td>$150&ndash;$400+</td><td>Scarcity, documented lineage, phenotype, and seller</td></tr>
-<tr><td>Mosaic or chimera-labelled animals</td><td>No stable band; often several hundred dollars</td><td>Each animal is unusual, labels are sometimes disputed, and listings are sparse</td></tr>
-</tbody></table></div>
-<p>A current MorphMarket listing showed a juvenile copper at $65, while another adult copper was listed at $150 before shipping. Current GFP leucistic listings included examples near $65, $75, $90, $110, and $125. Mosaic-labelled examples ranged from $75 to $1,000, which is why a single â€œmosaic priceâ€ is misleading.</p>
-<h2>How Much Does Shipping Add?</h2>
-<p><strong>Current US listing examples add roughly $20&ndash;$100 for shipping and packaging.</strong> MorphMarket listings commonly show shipping bands around $20&ndash;$80. One large retailer lists $47.95 for priority overnight delivery plus a $12 packaging fee, while another advertises $20 flat-rate overnight shipping.</p>
-<p>Compare the delivered total, not the animal price alone. A $65 axolotl with $75 shipping costs more than an $85 local animal, and local pickup avoids transit risk.</p>
-<h2>Why Do Prices Vary So Much?</h2>
-<ul>
-<li><strong>Morph and combined traits:</strong> common single-trait animals usually have more supply than uncommon combinations.</li>
-<li><strong>Size and confirmed sex:</strong> older animals cost more to raise, and confirmed adults may be priced differently.</li>
-<li><strong>Individual appearance:</strong> unusual spotting, gill color, or symmetry can raise an asking price even within one morph.</li>
-<li><strong>Documentation:</strong> clear parentage, hatch date, feeding history, and current photos make the listing easier to assess.</li>
-<li><strong>Delivery:</strong> overnight service, insulated packaging, weather holds, and rural surcharges change the final total.</li>
-</ul>
-<h2>Does a Higher Price Mean a Healthier Axolotl?</h2>
-<p><strong>No. Price reflects the listing and market, not a medical assessment.</strong> Use the <a href="/cost-and-buying/how-to-choose-a-healthy-axolotl/">healthy-axolotl buyer checklist</a> and ask for measured water parameters, a feeding history, current media of the exact animal, and written arrival terms. A cheaper common morph with good records can be a better purchase than an expensive animal with vague history.</p>
-<h2>How Should You Use These Price Ranges?</h2>
-<p>Use the table to build a budget and identify listings that need more questions. Do not treat the lower edge as a price a seller must match. Before paying, confirm that ownership and transport are legal at the origin and destination, then compare the delivered cost across several current listings.</p>
-<div class="references-box"><h2>August 2026 Market Sources</h2><ul>
-<li><a href="https://www.morphmarket.com/us/c/amphibians/axolotls">MorphMarket: current US axolotl listings</a></li>
-<li><a href="https://axolotlplanet.com/collections/axolotls">Axolotl Planet: current axolotl catalog</a></li>
-<li><a href="https://www.gillywateraquatics.com/shop-axolotls">Gillywater Aquatics: current axolotl listings</a></li>
-<li><a href="https://axolotlsuperstore.com/">Axolotl Superstore: current prices and shipping</a></li>
-<li><a href="https://www.bigappleherp.com/products/axolotl-for-sale">Big Apple Herp: current animal and shipping prices</a></li>
-</ul><p>MyAxolotl sampled publicly displayed asking prices on August 27, 2026. Stock, sales, and shipping charges can change without notice.</p></div>
-""",
-    "cost-and-buying/breeder-vs-pet-store": """
-<p><strong>A reputable specialist breeder is often easier to evaluate than a general pet store, but no seller type guarantees a healthy axolotl.</strong> Compare the exact animal, its care records, the water it is kept in, the written terms, and the handoff plan.</p>
-<h2>How Do Breeders and Pet Stores Compare?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Source</th><th>Main advantage</th><th>Main limitation</th><th>Best verification step</th></tr></thead>
-<tbody>
-<tr><td>Specialist breeder</td><td>May provide parentage, hatch date, feeding history, and support</td><td>Quality varies; online purchases may require shipping</td><td>Ask for current media and written husbandry and arrival terms</td></tr>
-<tr><td>Independent exotic pet store</td><td>You can inspect the animal and holding system in person</td><td>Staff knowledge and supplier records vary</td><td>Ask who bred the animal and see measured water results</td></tr>
-<tr><td>Marketplace breeder</td><td>Many sellers and prices can be compared</td><td>The platform does not replace seller verification</td><td>Review identity, history, policies, and the exact listing</td></tr>
-<tr><td>Local rehome</td><td>Local pickup and a known individual animal</td><td>Records and support may be limited</td><td>Confirm current care, reason for rehoming, and equipment needs</td></tr>
-</tbody></table></div>
-<h2>When Is a Breeder the Better Choice?</h2>
-<p>Choose a breeder when the seller can show useful records: the hatch date or age estimate, foods accepted, measured temperature and water chemistry, parentage or lineage notes where available, and current photos or video of the exact axolotl. A breeder should also explain what happens if delivery is delayed or the animal arrives in poor condition.</p>
-<p>Specialization is useful only when the records support it. A large social following, a long morph list, or a claim of â€œhealth-testedâ€ animals is not a substitute for specific evidence.</p>
-<h2>When Can a Pet Store Be a Good Option?</h2>
-<p>An independent exotic pet store can be a reasonable choice when its axolotl system is cool, clean, uncrowded, and managed separately from warm tropical displays. The University of Kentucky Ambystoma Genetic Stock Center keeps axolotls at 60&ndash;65Â°F (15&ndash;18Â°C), which gives buyers a useful reference for evaluating the store's temperature.</p>
-<p>Ask the store who supplied the animal, how long it has been there, what it eats, and what the current ammonia and nitrite readings are. If staff cannot retrieve those details, treat the missing information as uncertainty rather than assuming the animal is healthy.</p>
-<h2>Which Source Is Usually Cheaper?</h2>
-<p><strong>Compare delivered cost instead of assuming one channel is cheaper.</strong> A breeder may have a lower animal price but add overnight delivery and packaging. A local store may charge more but avoid shipping. Rehomes can be inexpensive, but equipment or veterinary assessment may add cost.</p>
-<h2>What Should Every Seller Provide?</h2>
-<ul>
-<li>Current photos or video of the exact animal</li>
-<li>A recent feeding history and the food currently accepted</li>
-<li>Measured temperature, ammonia, and nitrite information</li>
-<li>Any available age, parentage, morph, and health-history records</li>
-<li>Written payment, pickup or shipping, and live-arrival terms</li>
-<li>A direct answer about whether the animal is captive-bred</li>
-</ul>
-<p>Use the <a href="/cost-and-buying/choosing-a-reputable-breeder/">12-question breeder checklist</a> for a seller interview and the <a href="/cost-and-buying/how-to-choose-a-healthy-axolotl/">buyer health checklist</a> for the animal itself.</p>
-<div class="references-box"><h2>Sources</h2><ul><li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li></ul></div>
-""",
-    "cost-and-buying/choosing-a-reputable-breeder": """
-<p><strong>Choose an axolotl breeder by what the breeder can document and show.</strong> A professional-looking site or popular account may help you find a seller, but current animal records, husbandry answers, identity, and written terms are stronger evidence.</p>
-<h2>What 12 Questions Should You Ask an Axolotl Breeder?</h2>
-<ol>
-<li>Is this axolotl captive-bred, and did you breed it yourself?</li>
-<li>What is its hatch date or best age estimate?</li>
-<li>Can you send a current photo or short video of this exact animal?</li>
-<li>What foods does it currently accept, and when did it last eat?</li>
-<li>What are its current water temperature, ammonia, nitrite, nitrate, and pH readings?</li>
-<li>Has it shown any recent injury, appetite, buoyancy, skin, or gill changes?</li>
-<li>What parentage or lineage records are available?</li>
-<li>How do you prevent accidental or poorly planned close-relative pairings?</li>
-<li>How long do you observe new or returned animals separately from established stock?</li>
-<li>What support do you provide after pickup or delivery?</li>
-<li>What are the written live-arrival, delay, and claim terms?</li>
-<li>Which carrier and service will be used, and what weather conditions trigger a hold?</li>
-</ol>
-<p>A useful answer includes numbers, dates, photos, or a written policy. â€œPerfect water,â€ â€œpremium genetics,â€ and â€œguaranteed healthyâ€ are marketing phrases unless the seller explains what they mean.</p>
-<h2>What Should a Breeder's Husbandry Show?</h2>
-<p>Look for cool, dechlorinated water; measured water chemistry; appropriate space; low waste accumulation; secure containers; and animals separated when size or breeding risk requires it. The University of Kentucky Ambystoma Genetic Stock Center reports keeping axolotls at 60&ndash;65Â°F (15&ndash;18Â°C). A breeder does not need to copy a laboratory system, but should be able to explain how temperature and water quality are monitored.</p>
-<h2>How Should You Assess Genetics and Parentage?</h2>
-<p><strong>Ask for records without expecting a promise of genetic perfection.</strong> Captive axolotl lineages can be incomplete, and a morph name does not prove health or unrelated ancestry. A responsible breeder should distinguish known parentage from assumptions and explain why a pairing was chosen.</p>
-<p>Do not rely on claims that one pedigree guarantees a long lifespan or that every close-relative pairing produces visible defects. The practical buyer question is whether the breeder keeps accurate records, avoids careless repeat pairings, and states uncertainty honestly.</p>
-<h2>How Do You Verify the Seller?</h2>
-<ul>
-<li>Confirm the seller's name, contact details, and consistent sales history.</li>
-<li>Reverse-search listing photos and request new media with a date or agreed identifier.</li>
-<li>Read recent reviews, including how the seller handled delays or problems.</li>
-<li>Keep the listing, invoice, written policy, and messages before paying.</li>
-<li>Use a payment method with applicable buyer protection.</li>
-</ul>
-<p>Community feedback can reveal patterns, but one anonymous complaint or endorsement should not decide the purchase by itself.</p>
-<h2>Which Answers Should Stop the Purchase?</h2>
-<p>Walk away if the seller cannot show the animal, refuses basic husbandry questions, uses unsafe water or substrate, misrepresents the route's legality, changes written terms after payment, or demands gift cards. The Federal Trade Commission warns that gift cards are for gifts, not payments.</p>
-<section class="faq"><h2>Frequently Asked Questions</h2></section>
-<div class="references-box"><h2>Sources</h2><ul>
-<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
-<li><a href="https://consumer.ftc.gov/articles/avoiding-and-reporting-gift-card-scams">Federal Trade Commission: Avoiding and Reporting Gift Card Scams</a></li>
-</ul></div>
-""",
-    "cost-and-buying/how-to-choose-a-healthy-axolotl": """
-<p><strong>Before buying an axolotl, check body condition, skin, gills, movement, recent feeding, and the water it is living in.</strong> These observations can identify reasons to pause a purchase, but they cannot diagnose a disease from a photo or short visit.</p>
-<h2>What Should You Check Before Buying?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Check</th><th>Reassuring observation</th><th>Reason to pause and ask more</th></tr></thead>
-<tbody>
-<tr><td>Body condition</td><td>Proportionate body and tail with no marked wasting or sudden swelling</td><td>Very thin body, pronounced asymmetry, or unexplained swelling</td></tr>
-<tr><td>Skin</td><td>Intact surface appropriate for the morph</td><td>Open wounds, bleeding, ulcers, heavy shedding, or attached growth</td></tr>
-<tr><td>Gills</td><td>Gill tissue present with no obvious damage or attached material</td><td>Rapid change, injury, unusual discharge, or severe deterioration</td></tr>
-<tr><td>Posture and movement</td><td>Balanced position and coordinated movement when the animal moves on its own</td><td>Persistent inability to stay upright, uncontrolled floating, or poor coordination</td></tr>
-<tr><td>Feeding history</td><td>Seller can name the food, portion, and last accepted meal</td><td>No recent record, repeated refusal, or sudden change without explanation</td></tr>
-<tr><td>Water records</td><td>Seller provides measured temperature, ammonia, and nitrite</td><td>Only says the water is â€œfineâ€ or cannot provide readings</td></tr>
-</tbody></table></div>
-<h2>Can Gills or Skin Diagnose an Illness?</h2>
-<p><strong>No single visible feature diagnoses an axolotl illness.</strong> Gill size and posture vary with anatomy, activity, flow, and environment. White material can have more than one cause. Redness, lesions, lethargy, appetite change, and abnormal position are clinical signs that require context and sometimes veterinary testing.</p>
-<p>The Merck Veterinary Manual notes that amphibian infections can produce overlapping signs and may require microscopy, culture, histology, or other diagnostics. Treat a concerning sign as a reason not to complete the purchase until the seller explains it or an exotics-experienced veterinarian assesses it.</p>
-<h2>Should You Tap the Glass or Demand a Feeding Demonstration?</h2>
-<p><strong>Do not tap the glass to test an axolotl.</strong> Observe undisturbed movement and breathing, and ask the seller for a recent feeding video or written feeding history. An axolotl may not eat on demand during a brief visit, so one refused meal does not prove illness.</p>
-<p>A repeated appetite change combined with weight loss, abnormal posture, skin damage, or poor water records is more meaningful than one moment of behavior.</p>
-<h2>What Records Should You Request?</h2>
-<ul>
-<li>A current photo or video of the exact axolotl</li>
-<li>Hatch date or age estimate and current length</li>
-<li>Food type, feeding frequency, and last accepted meal</li>
-<li>Current temperature, ammonia, nitrite, nitrate, and pH</li>
-<li>Recent injury, treatment, appetite, buoyancy, or skin history</li>
-<li>Written pickup, shipping, and live-arrival terms</li>
-</ul>
-<h2>What Should You Do After Choosing an Axolotl?</h2>
-<p>Prepare a fully cycled, temperature-appropriate setup before pickup or delivery. If other axolotls are already present, use a separate observation or quarantine setup and discuss an appropriate plan with an exotics-experienced veterinarian. Use the <a href="/tank-setup/acclimating-a-new-axolotl/">new-axolotl acclimation guide</a> for the handoff.</p>
-<section class="faq"><h2>Frequently Asked Questions</h2></section>
-<div class="references-box"><h2>Sources and Scope</h2><ul>
-<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/infectious-diseases-of-amphibians">Merck Veterinary Manual: Infectious Diseases of Amphibians</a></li>
-</ul><p>This page is a pre-purchase observation checklist, not a veterinary diagnosis.</p></div>
-""",
-    "cost-and-buying/red-flags-when-buying": """
-<p><strong>The strongest axolotl seller red flags are facts that cannot be verified, unsafe care, pressure to pay quickly, missing written terms, and payment methods that remove buyer protection.</strong> One unusual detail deserves a question; a pattern of contradictions is a reason to stop.</p>
-<h2>Which Red Flags Should Stop an Axolotl Purchase?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Red flag</th><th>Why it matters</th><th>What to request</th></tr></thead>
-<tbody>
-<tr><td>Seller cannot show the exact animal</td><td>The listing may use stolen, old, or unrelated media</td><td>A new photo or video with a date or agreed identifier</td></tr>
-<tr><td>Water claims have no readings</td><td>â€œPerfect waterâ€ cannot be checked</td><td>Temperature, ammonia, nitrite, nitrate, and pH</td></tr>
-<tr><td>Details change between messages</td><td>Age, morph, size, or history may be misrepresented</td><td>A written invoice describing the animal</td></tr>
-<tr><td>Pressure to pay immediately</td><td>Urgency can prevent verification</td><td>Time to review terms and confirm identity</td></tr>
-<tr><td>No written arrival or delay policy</td><td>Buyer and seller may disagree after a shipping problem</td><td>Claim window, required evidence, exclusions, and remedy</td></tr>
-<tr><td>Gift-card payment demanded</td><td>Gift-card numbers transfer value with little recovery protection</td><td>A normal, traceable payment method</td></tr>
-</tbody></table></div>
-<h2>How Do You Verify the Exact Animal?</h2>
-<p>Ask for a current photo or short video that shows the full animal and an agreed identifier, such as the date or your initials on paper beside the container. Reverse-image search the listing photo. Compare markings, size, and gill shape across the seller's media.</p>
-<p>A seller does not have to accept an unscheduled video call to be legitimate. The important point is whether the seller can provide fresh, specific evidence and answer consistent questions.</p>
-<h2>Is a Low Price Automatically a Scam?</h2>
-<p><strong>No. A low price is a prompt to verify the listing, not proof of fraud.</strong> Rehomes, sales, local pickup, and common morphs can cost less. Compare the price with several current listings for the same morph, size, and delivery method, then verify the animal and terms.</p>
-<p>Rare labels deserve extra scrutiny because â€œmosaic,â€ â€œchimera,â€ â€œGFP,â€ and stacked-trait names can be misunderstood or misused. A high price also does not prove the label or the animal's health.</p>
-<h2>Which Payment Methods Are Risky?</h2>
-<p>The Federal Trade Commission says gift cards are for gifts, not payments. Do not send gift-card numbers to an animal seller. Be cautious with wire transfers, cryptocurrency, and friends-and-family transfers because recovery or purchase protection may be limited.</p>
-<p>Before paying, read the protection rules for the exact payment method and transaction type. Save the listing, invoice, seller identity, policy, and messages.</p>
-<h2>When Should You Walk Away?</h2>
-<p>End the purchase if the seller will not verify the animal, cannot describe its current care, demands an unsafe payment method, changes the deal after payment, or proposes an illegal or carrier-prohibited route. Another listing is cheaper than recovering from a scam or unsafe shipment.</p>
-<section class="faq"><h2>Frequently Asked Questions</h2></section>
-<div class="references-box"><h2>Consumer Source</h2><ul><li><a href="https://consumer.ftc.gov/articles/avoiding-and-reporting-gift-card-scams">Federal Trade Commission: Avoiding and Reporting Gift Card Scams</a></li></ul></div>
-""",
-    "cost-and-buying/shipping-live-axolotls": """
-<p><strong>Axolotls are commonly sent in a sealed, leak-resistant primary container inside an insulated outer box using a carrier service that accepts amphibians.</strong> Safe shipping depends on legal routing, approved packaging, weather, service timing, and a recipient who can receive the box promptly.</p>
-<h2>What Should You Confirm Before an Axolotl Ships?</h2>
-<ul>
-<li>Ownership and transport are legal at the origin, destination, and any relevant jurisdiction.</li>
-<li>The named carrier accepts amphibians under the seller's account and packaging arrangement.</li>
-<li>The service is scheduled to avoid weekends, holidays, and known delay periods.</li>
-<li>The seller has checked temperatures along the route and defined weather-hold limits.</li>
-<li>You will be available for delivery or approved hub pickup.</li>
-<li>The live-arrival and carrier-delay terms are in writing.</li>
-</ul>
-<p>FedEx states that harmless amphibians can be shipped, but requires packaging approval and directs live-animal shipments to overnight services Monday through Thursday for weekday arrival. UPS lists amphibians among accepted live animals and requires next-day service, compliant packaging, and no Friday or pre-holiday tender. Carrier rules can change, so the seller must verify the current policy for the actual shipment.</p>
-<h2>How Is an Axolotl Packaged?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Layer</th><th>Purpose</th><th>What the buyer should verify</th></tr></thead>
-<tbody>
-<tr><td>Primary container</td><td>Contains the axolotl and water without leaking</td><td>Secure closure and enough room for the animal</td></tr>
-<tr><td>Secondary containment</td><td>Reduces leak risk if the first layer fails</td><td>Seller can describe the bagging or container method</td></tr>
-<tr><td>Insulation and cushioning</td><td>Limits temperature change and movement</td><td>Box suits the route, season, and animal size</td></tr>
-<tr><td>Temperature control when needed</td><td>Offsets route conditions</td><td>Pack choice follows forecast and tested packaging, not season alone</td></tr>
-<tr><td>Outer box and label</td><td>Protects the shipment and identifies live contents</td><td>Carrier-compliant box, label, and service</td></tr>
-</tbody></table></div>
-<p>A heat or cold pack is not automatically correct because the calendar says winter or summer. The shipper must account for the forecast, route, box insulation, pack placement, and risk of direct contact.</p>
-<h2>What Should the Live-Arrival Policy Say?</h2>
-<p><strong>A live-arrival policy should define the claim window, evidence, exclusions, and remedy before payment.</strong> Check whether carrier delay, missed delivery, unsafe destination weather, address errors, and hub pickup are covered. A guarantee is a contract term, not proof that the packing method is safe.</p>
-<p>If the policy requires an unboxing video, prepare to film the sealed box, shipping label, opening, and animal without breaks. Contact the seller within the stated window if anything is wrong.</p>
-<h2>What Should You Do When the Box Arrives?</h2>
-<ol>
-<li>Bring the package indoors immediately and inspect it for damage or leakage.</li>
-<li>Record the opening if the written policy requires evidence.</li>
-<li>Check the animal and water temperature without prolonged handling.</li>
-<li>Follow the seller's written axolotl-specific arrival instructions and use a prepared, cycled observation or quarantine setup.</li>
-<li>For an overnight-shipped animal, avoid leaving it in opened transport water for a long mixing process. Transfer it promptly under the applicable protocol and discard the shipping water.</li>
-<li>Contact the seller and an exotics-experienced veterinarian promptly if the axolotl is injured, unresponsive, unable to remain upright, or otherwise in severe distress.</li>
-</ol>
-<p>The detailed handoff belongs in the <a href="/tank-setup/acclimating-a-new-axolotl/">new-axolotl acclimation guide</a>. The shipping page covers the seller, carrier, package, and arrival terms.</p>
-<h2>What Temperature Should the Shipment Protect?</h2>
-<p>The University of Kentucky Ambystoma Genetic Stock Center reports keeping axolotls at 60&ndash;65Â°F (15&ndash;18Â°C) and warns against temperatures above about 72Â°F (22Â°C). A shipper should use a tested packaging plan that limits unsafe exposure rather than promise that the box will hold one exact temperature for the entire route.</p>
-<section class="faq"><h2>Frequently Asked Questions</h2></section>
-<div class="references-box"><h2>Carrier and Husbandry Sources</h2><ul>
-<li><a href="https://www.fedex.com/en-us/shipping/how-to-ship-live-animals.html">FedEx: How to Ship Live Animals</a></li>
-<li><a href="https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/prohibited-items/plants-and-animals">UPS: How to Ship Plants and Live Animals</a></li>
-<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
-</ul></div>
-""",
-    "care-basics/how-to-pronounce-axolotl": """
-<p><strong>In modern English, pronounce axolotl as ACK-suh-lot-ul, with the stress on ACK.</strong> Cambridge gives the British pronunciation as /ËˆÃ¦k.sÉ™.lÉ’t.É™l/ and the American pronunciation as /ËˆÃ¦k.sÉ™.lÉ‘Ë.tÌ¬É™l/. Both use four syllables and first-syllable stress.</p>
-<h2>What Is the English Syllable Breakdown?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Part</th><th>Say it like</th><th>Note</th></tr></thead>
-<tbody>
-<tr><td>Ax</td><td><strong>ACK</strong></td><td>This syllable carries the stress.</td></tr>
-<tr><td>o</td><td>suh</td><td>Use a short, unstressed vowel.</td></tr>
-<tr><td>lot</td><td>lot</td><td>The vowel varies slightly between British and American English.</td></tr>
-<tr><td>l</td><td>ul</td><td>Finish lightly rather than forcing a separate â€œt-lâ€ cluster.</td></tr>
-</tbody></table></div>
-<p>Say the parts slowly as ACK-suh-lot-ul, then join them without adding a fifth syllable. Normal accent differences can change the vowel in â€œlot,â€ but they do not move the primary stress away from the first syllable in the cited English dictionary forms.</p>
-<h2>What Are the Most Common English Mistakes?</h2>
-<ul>
-<li><strong>Moving the stress:</strong> ack-suh-LOT-ul does not match the cited British or American dictionary stress.</li>
-<li><strong>Reading every letter separately:</strong> ax-oh-lot-oh-tul adds sounds that are not in the English dictionary form.</li>
-<li><strong>Forcing the ending:</strong> English speakers can finish with a light â€œt-ulâ€ sound; they do not need to reproduce the Nahuatl final consonant.</li>
-</ul>
-<h2>Is the English Pronunciation the Same as Nahuatl?</h2>
-<p><strong>No. The English pronunciation is an established loanword pronunciation, not a reproduction of the Nahuatl source.</strong> The Online Nahuatl Dictionary records <em>axolotl</em> with the IPA spelling /É‘ËÊƒoËloËtÉ¬/. In that form, the â€œxâ€ represents a â€œshâ€ sound, and the final /tÉ¬/ is a lateral affricate that English does not normally use.</p>
-<p>The spelling therefore follows two different sound systems. In English <em>axolotl</em>, the opening letters are pronounced â€œack-s.â€ In the recorded Nahuatl form, the â€œxâ€ is closer to English â€œsh.â€ Explaining the English â€œxâ€ as an â€œksâ€ sound is useful only for the modern English word, not for Nahuatl pronunciation.</p>
-<h2>How Do You Pronounce Axolotl in Spanish?</h2>
-<p><strong>The usual Spanish word is <em>ajolote</em>, pronounced approximately ah-ho-LO-teh.</strong> The Real Academia EspaÃ±ola traces <em>ajolote</em> to Nahuatl <em>axolotl</em>. Spanish changes the spelling as well as the sounds, so <em>ajolote</em> should not be used as the syllable guide for the English word.</p>
-<h2>What Does the Word Axolotl Mean?</h2>
-<p><strong><em>Axolotl</em> is a Nahuatl name for the animal.</strong> Popular literal glosses such as â€œwater dogâ€ and â€œwater monsterâ€ vary by source and depend on a proposed analysis of the word. The dictionaries cited here establish the Nahuatl origin, but they do not support treating one of those English glosses as the single settled translation.</p>
-<h2>How Can You Remember the English Pronunciation?</h2>
-<p>Start with the stressed word â€œACK,â€ add â€œsuh,â€ and finish with â€œlot-ulâ€: ACK-suh-lot-ul. If the stress lands on the first syllable and the word has four syllables, the result matches the cited modern English pronunciation.</p>
-<div class="references-box"><h2>Pronunciation Sources</h2><ul>
-<li><a href="https://dictionary.cambridge.org/pronunciation/english/axolotl">Cambridge Dictionary: English pronunciation of axolotl</a></li>
-<li><a href="https://nahuatl.wired-humanities.org/content/axolotl">Online Nahuatl Dictionary: axolotl</a></li>
-<li><a href="https://dle.rae.es/ajolote">Real Academia EspaÃ±ola: ajolote</a></li>
-</ul><p>The respelling on this page is an English reading aid. IPA gives the more precise dictionary forms.</p></div>
-""",
-    "health/finding-an-exotic-vet": """
-<p>An axolotl may need a veterinarian who is comfortable with aquatic amphibians. The goal is not to find a clinic with a particular label; it is to confirm that a named veterinarian can assess an axolotl, interpret husbandry records, and arrange appropriate diagnostics or referral.</p>
-<h2>Where to Look for an Axolotl Veterinarian</h2>
-<p>Start with the <a href="https://arav.org/find-a-vet/">Association of Reptile and Amphibian Veterinarians Find a Vet directory</a>. You can also call veterinary teaching hospitals, zoo or wildlife medicine services, and local exotic-animal clinics. A directory listing is a starting point, not proof that a clinic currently sees axolotls, so confirm by phone.</p>
-<p>If the nearest suitable clinic is far away, ask a local veterinarian whether they can consult with or refer to an amphibian-experienced colleague. Some clinics may offer teletriage or remote follow-up where local rules permit it, but an examination or diagnostics may still need to happen in person.</p>
-<h2>Questions to Ask Before Booking</h2>
-<p>Ask the receptionist to check with the veterinarian rather than relying on the clinic name alone:</p>
-<ul>
-<li>Does a named veterinarian currently examine axolotls or other aquatic salamanders?</li>
-<li>Can the clinic evaluate water-quality records and collect appropriate samples if needed?</li>
-<li>What should you bring, and how should the axolotl be transported?</li>
-<li>Does the clinic handle urgent cases, or where does it refer after hours?</li>
-<li>Can it provide a written estimate for the exam and likely diagnostics?</li>
-</ul>
-<p>A clinic that does not see axolotls may still be able to direct you to one that does. Establishing that contact before an emergency makes escalation faster.</p>
-<h2>What to Prepare for the Appointment</h2>
-<p>Bring a short timeline of the problem and objective husbandry records. Useful information includes current and recent ammonia, nitrite, nitrate, pH, and water-temperature readings; tank volume; filtration and cycling history; water-change routine; substrate; tank mates; diet; last meal; last observed stool; recent additions or treatments; and clear photos or video of the change.</p>
-<p>Ask the clinic how to transport the animal. Avoid unnecessary handling, sudden temperature changes, and improvised medications or baths before the appointment unless the treating veterinarian gives specific instructions.</p>
-<h2>Costs and Remote Advice</h2>
-<p>Exam, emergency, diagnostic, imaging, and medication costs vary by clinic and location. Ask what the initial exam includes, whether an emergency surcharge applies, and when the clinic can provide an estimate. A price quoted by another owner or an old article is not a reliable budget for an individual case.</p>
-<p>Remote contact can help a clinic judge urgency or prepare for arrival, but photos and water readings cannot replace every physical examination or diagnostic test. The veterinarian should decide what is sufficient for the case and what local professional rules allow.</p>
-<h2>When to Call Promptly</h2>
-<p>Use the <a href="/health/emergency-first-aid/">emergency first-aid guide</a> when signs are sudden, severe, or worsening. Breathing difficulty, inability to remain upright, uncontrolled bleeding, major injury, marked swelling, rapid deterioration, or extensive skin damage warrant urgent contact. Persistent appetite loss, weight loss, abnormal buoyancy, skin or gill changes, and recurrent problems also deserve veterinary assessment even when water and temperature have been corrected.</p>
-<p>A symptom is not a diagnosis. Record what you can observe and let the veterinarian determine whether the cause is environmental, infectious, traumatic, nutritional, obstructive, or something else.</p>
-<section class="faq"><h2>Frequently Asked Questions</h2></section>
-<div class="references-box"><h2>Sources and Scope</h2><ul>
-<li><a href="https://arav.org/find-a-vet/">Association of Reptile and Amphibian Veterinarians: Find a Vet</a></li>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/clinical-techniques-in-amphibians">Merck Veterinary Manual: Clinical Techniques in Amphibians</a></li>
-</ul><p>This guide helps owners locate care and prepare records. It does not diagnose a condition or replace a veterinarian.</p></div>
-""",
-    "health/fridging-sick-axolotl": """
-<p>Fridging means keeping an axolotl in deliberately colder water under a controlled care plan. It is not a routine home treatment for appetite loss, floating, bloating, constipation, fungus, heat stress, or an axolotl that simply appears unwell.</p>
-<h2>What Controlled Cooling Can and Cannot Do</h2>
-<p>Axolotls are ectotherms, so water temperature affects their metabolism. That fact explains why a veterinarian may sometimes consider controlled cooling as supportive care. It does not show that cooling will remove a swallowed object, identify an infection, cure a skin lesion, or correct the cause of abnormal buoyancy.</p>
-<p>Several unrelated problems can produce the same visible signs. Bloating, reduced stool, floating, and appetite loss can raise concern, but they do not confirm impaction or tell an owner to use a refrigerator. A veterinarian needs the animal's history, examination findings, and sometimes imaging or laboratory testing to judge the cause and the safest response.</p>
-<h2>Why a Household Refrigerator Is Risky</h2>
-<p>Household refrigerators are designed for food, not aquatic patients. Water can cool differently from the appliance display, and shelves may have cold spots, cycling swings, vibration, darkness, and limited space for safe observation. An unsuitable temperature, transition, duration, or water-change plan can add stress, worsen water quality, or delay needed care.</p>
-<p>Freezing is never safe. Do not use ice, a freezer, or an improvised rapid-cooling method. Do not copy a generic temperature or number of days from a forum, social post, or timetable: there is no universal protocol that is safe for every cause, age, body condition, or refrigerator.</p>
-<h2>What to Do Before Considering Fridging</h2>
-<ol>
-<li>Check measured water parameters and temperature; do not infer them from how the tank looks.</li>
-<li>Record appetite, stool, belly shape, buoyancy, posture, breathing, skin and gill changes, injuries, and recent tank changes.</li>
-<li>Correct a measured husbandry problem with the established <a href="/tank-setup/water-parameters-cycling/">water-quality</a> or <a href="/tank-setup/temperature/">temperature</a> guide.</li>
-<li>Use the <a href="/health/emergency-first-aid/">emergency guide</a> for severe or rapidly worsening signs and contact an <a href="/health/finding-an-exotic-vet/">amphibian-experienced veterinarian</a>.</li>
-</ol>
-<p>A properly maintained hospital tub may sometimes provide temporary isolation, but tubbing and fridging are not interchangeable. The need for either depends on the animal, the water, the suspected cause, and the ability to maintain safe conditions.</p>
-<h2>If a Veterinarian Recommends Controlled Cooling</h2>
-<p>Ask for an individual written plan before starting. It should state:</p>
-<ul>
-<li>the purpose of cooling and what other treatment or testing is planned;</li>
-<li>the exact measured water-temperature range and how quickly to transition;</li>
-<li>the container, water preparation, water-change, and monitoring requirements;</li>
-<li>whether food should be offered and how body condition will be tracked;</li>
-<li>the review time, expected response, stop criteria, and emergency contact;</li>
-<li>how to return the axolotl to normal housing without a sudden temperature change.</li>
-</ul>
-<p>If the plan is unclear, call the treating clinic rather than substituting an online protocol. A veterinarian's recommendation for one axolotl does not become a general rule for another.</p>
-<h2>Monitoring and Escalation</h2>
-<p>Follow the veterinarian's monitoring schedule and record measured water temperature, water changes, waste, posture, buoyancy, breathing, skin and gill appearance, and any treatment given. Contact the clinic if the measurements leave the prescribed range, the animal deteriorates, new signs appear, or the equipment cannot maintain the plan.</p>
-<p>Do not extend controlled cooling because a generic timetable has not expired. The treating veterinarian should decide when to review, change, or stop the plan and how to transition the animal back to its normal environment.</p>
-<section class="faq"><h2>Frequently Asked Questions</h2></section>
-<div class="references-box"><h2>Sources and Scope</h2><ul>
-<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5487785/">A retrospective study of diseases in <em>Ambystoma mexicanum</em></a></li>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/environment-and-husbandry-for-amphibians">Merck Veterinary Manual: Environment and Husbandry for Amphibians</a></li>
-</ul><p>These sources support careful temperature and husbandry management. They do not provide a universal household-refrigerator prescription; this page therefore limits fridging to an individual veterinary plan.</p></div>
-""",
-    "health/refusing-to-eat": """
-<p>An axolotl not eating is an observation, not a diagnosis. One missed meal can occur without illness, especially in an adult, but an unusual or continuing change deserves measured water and temperature checks plus attention to body condition and other signs.</p>
-<h2>Check for Urgent Warning Signs First</h2>
-<p>Contact an amphibian-experienced veterinarian promptly when appetite loss appears with breathing difficulty, inability to remain upright or submerge, a firm or worsening swelling, major injury, uncontrolled bleeding, extensive skin damage, marked lethargy, rapid weight loss, or other rapid deterioration. Use the <a href="/health/emergency-first-aid/">emergency first-aid guide</a> while arranging help.</p>
-<p>Duration matters, but it cannot set the same emergency threshold for every axolotl. Age, normal feeding schedule, body condition, temperature, and accompanying signs all change the level of concern. Juveniles normally feed more frequently than adults, so an unusual feeding change in a juvenile deserves quicker attention.</p>
-<h2>What to Record and Check First</h2>
-<ol>
-<li><strong>Water:</strong> record ammonia, nitrite, nitrate, and pH from a reliable test. Check the tank, source water, and recent cycling or filter changes.</li>
-<li><strong>Temperature:</strong> use a water thermometer and note recent peaks or swings, not only the reading at one moment.</li>
-<li><strong>Feeding:</strong> record the last accepted meal, normal schedule, food type, portion size, freshness, and whether the axolotl refuses every food or only one item.</li>
-<li><strong>Waste and exposure:</strong> note the last observed stool and any access to gravel, coarse substrate, tank-mate food, or loose objects.</li>
-<li><strong>Other signs:</strong> record body condition, belly shape, buoyancy, posture, breathing, activity, injuries, and skin or gill changes. Photos and short videos can help a veterinarian compare changes over time.</li>
-</ol>
-<p>Normal results do not rule out illness, and one abnormal result does not prove it is the only cause. Similar signs may come from husbandry stress, food presentation, swallowed material, injury, infection, parasites, or other disease.</p>
-<h2>Common Contexts to Consider</h2>
-<ul>
-<li><strong>Measured husbandry changes:</strong> unsafe water chemistry, excessive heat, strong flow, recent cycling disruption, or abrupt environmental change can reduce feeding.</li>
-<li><strong>Food presentation:</strong> stale, oversized, tough, or unfamiliar food may be refused even when another appropriate staple is accepted.</li>
-<li><strong>Stress or competition:</strong> recent transport, repeated handling, bright exposure, or a tank mate may change feeding behavior.</li>
-<li><strong>Digestive or substrate concern:</strong> appetite loss with abnormal swelling, reduced stool, or buoyancy changes needs assessment; those signs do not confirm impaction by themselves.</li>
-<li><strong>Illness, injury, or recovery:</strong> infection, parasites, mouth injury, systemic illness, or recent treatment may affect appetite and often require veterinary evaluation.</li>
-</ul>
-<p>This list is not ranked and cannot identify the cause from symptoms alone.</p>
-<h2>Safe Steps While You Observe</h2>
-<p>Correct a measured water or temperature problem using the <a href="/tank-setup/water-parameters-cycling/">water-quality guide</a> and <a href="/tank-setup/temperature/">temperature guide</a>. Keep conditions stable, reduce unnecessary handling, remove uneaten food, and offer a fresh, familiar staple in an appropriate size at the normal feeding time. Do not repeatedly change foods in one session.</p>
-<p>Do not force-feed, raise the water temperature to speed digestion, start medication, give a bath, or fridge the axolotl based only on appetite loss or bloating. Those actions can add stress, obscure the clinical picture, or delay the care needed for the actual cause.</p>
-<h2>When to Contact a Veterinarian</h2>
-<p>Seek immediate help for the urgent warning signs above. For a stable axolotl, contact an <a href="/health/finding-an-exotic-vet/">exotics-experienced veterinarian</a> when refusal persists beyond the animal's normal pattern, recurs, is accompanied by weight or body-condition loss, or continues after a measured husbandry problem has been corrected.</p>
-<p>Provide the clinic with the recorded water values, temperature history, feeding and stool timeline, photos, tank details, substrate exposure, and any products already used. That evidence is more useful than assigning a diagnosis at home.</p>
-<h2>Planned Fasting Is a Different Question</h2>
-<p>If food was deliberately withheld for travel or a planned absence and the axolotl otherwise appears normal, use the <a href="/diet/fasting-and-vacation/">planned fasting and vacation guide</a>. This page covers an unexpected change in appetite, not routine adult feeding intervals.</p>
-<section class="faq"><h2>Frequently Asked Questions</h2></section>
-<div class="references-box"><h2>Sources and Scope</h2><ul>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/environment-and-husbandry-for-amphibians">Merck Veterinary Manual: Environment and Husbandry for Amphibians</a></li>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/clinical-techniques-in-amphibians">Merck Veterinary Manual: Clinical Techniques in Amphibians</a></li>
-<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5487785/">A retrospective study of diseases in <em>Ambystoma mexicanum</em></a></li>
-</ul><p>This guide supports observation and escalation. It does not diagnose the cause of appetite loss or prescribe treatment.</p></div>
-""",
-}
-
-ROLE_CALLOUTS = {
-    "diet/best-foods-list": (
-        '<div class="role-note"><strong>Use this as the food-choice overview.</strong> '
-        'Once you know the safe staples, use the <a href="/diet/feeding-schedule-by-age/">feeding schedule</a> '
-        'for frequency and portions, the <a href="/diet/live-vs-frozen-food/">live vs. frozen comparison</a> '
-        'for format choice, and the <a href="/diet/axolotl-pellets/">pellet guide</a> for commercial foods.</div>'
-    ),
-    "health/stress-signs": (
-        '<div class="role-note"><strong>Which stress sign are you seeing?</strong> '
-        "Stress covers many signs and each has its own deep guide. "
-        '<a href="/health/curled-gills-stress-signal/">Curled or tightly curled gills</a> â€“ gill and '
-        'tail posture. <a href="/health/why-axolotl-floating/">Floating or bloating</a> â€“ buoyancy. '
-        '<a href="/health/refusing-to-eat/">Not eating</a> â€“ appetite loss. '
-        "Always test your <a href=\"/tank-setup/water-parameters-cycling/\">water quality</a> first."
-        "</div>"
-    ),
-    "diet/feeding-schedule-by-age": (
-        '<div class="role-note"><strong>Planning a fast?</strong> If you are asking how long an '
-        "axolotl can go without food (vacation or planned fasting), the "
-        '<a href="/diet/fasting-and-vacation/">fasting and vacation guide</a> has the single '
-        "duration reference. This page covers the normal lifecycle feeding schedule.</div>"
-    ),
-    "health/refusing-to-eat": (
-        '<div class="role-note"><strong>Unexpected appetite loss, not a diagnosis.</strong> If you '
-        "deliberately let your axolotl fast, see the "
-        '<a href="/diet/fasting-and-vacation/">planned fasting guide</a>. If eating has stopped '
-        "unexpectedly, use this page for observations and safe first checks. Severe, worsening, "
-        "or persistent changes need an <a href=\"/health/finding-an-exotic-vet/\">exotics-experienced veterinarian</a>.</div>"
-    ),
-    "tank-setup/temperature": (
-        '<div class="role-note"><strong>Managing heat.</strong> This is the husbandry guide for '
-        "keeping the tank cool. If you are deciding which chiller to buy instead, the "
-        '<a href="/tank-setup/aquarium-chillers/">chiller comparison</a> covers the purchase '
-        "decision.</div>"
-    ),
-    "tank-setup/aquarium-chillers": (
-        '<div class="role-note"><strong>This is a buying decision.</strong> For non-purchase ways '
-        "to cool a tank, or to check whether you need a chiller at all, "
-        '<a href="/tank-setup/temperature/">the temperature guide</a> covers husbandry first.</div>'
-    ),
-    "tank-setup/filtration-for-axolotls": (
-        '<div class="role-note"><strong>Principles and options.</strong> Read this first to '
-        "understand axolotl filtration biology and the filter families. For the single "
-        "canister-versus-sponge decision, use the "
-        '<a href="/tank-setup/canister-vs-sponge-filter/">dedicated comparison</a>.</div>'
-    ),
-    "tank-setup/canister-vs-sponge-filter": (
-        '<div class="role-note"><strong>Exactly the decision you came for.</strong> For the full '
-        "range of filter options and the biology behind flow, start with the "
-        '<a href="/tank-setup/filtration-for-axolotls/">filtration overview</a>.</div>'
-    ),
-    "health/fungal-infections-saprolegnia": (
-        '<div class="role-note"><strong>Which treatment fits your case?</strong> Mild, early '
-        "fungus &rarr; <a href=\"/health/black-tea-bath/\">black tea bath</a>. Widespread or "
-        "resistant case &rarr; <a href=\"/health/salt-bath/\">salt bath</a>. Confirm the severity "
-        "here before treating.</div>"
-    ),
-    "health/black-tea-bath": (
-        '<div class="role-note"><strong>A mild, first-line treatment.</strong> Use only for mild, '
-        "early fungal infections after reading the "
-        '<a href="/health/fungal-infections-saprolegnia/">fungus diagnosis guide</a>.</div>'
-    ),
-    "health/salt-bath": (
-        '<div class="role-note"><strong>Reserved for severe cases.</strong> Salt baths are '
-        "stressful &mdash; confirm the case is severe with the "
-        '<a href="/health/fungal-infections-saprolegnia/">fungus diagnosis guide</a> before '
-        "starting.</div>"
-    ),
-    "diet/overfeeding-and-impaction": (
-        '<div class="role-note"><strong>Worried about impaction?</strong> The canonical diagnosis '
-        "and treatment guide covers every cause and what to do: "
-        '<a href="/health/impaction-symptoms-treatment/">impaction symptoms and treatment</a>.</div>'
-    ),
-    "tank-setup/substrate-and-impaction": (
-        '<div class="role-note"><strong>Substrate is one common cause of impaction.</strong> '
-        "For diagnosis and treatment of impaction itself, "
-        '<a href="/health/impaction-symptoms-treatment/">start with the canonical guide</a>.</div>'
-    ),
-    "tank-setup/gravel-risks": (
-        '<div class="role-note"><strong>Gravel is a leading impaction cause.</strong> If your '
-        "axolotl may have swallowed gravel, see "
-        '<a href="/health/impaction-symptoms-treatment/">impaction symptoms and treatment</a>.</div>'
-    ),
-    "care-basics/are-axolotls-good-beginner-pets": (
-        '<div class="role-note"><strong>Thinking about the true cost?</strong> The complete '
-        "numbers &mdash; setup, monthly, and first year &mdash; live on the cost owner: "
-        '<a href="/care-basics/cost-of-ownership-monthly/">cost of owning an axolotl per month</a>.</div>'
-    ),
-    "care-basics/axolotls-and-children": (
-        '<div class="role-note"><strong>Budget matters for families.</strong> See the full cost '
-        "picture before deciding: "
-        '<a href="/care-basics/cost-of-ownership-monthly/">monthly cost of an axolotl</a>.</div>'
-    ),
-    "axolotl-in-culture/axolotl-in-pop-culture-and-memes": (
-        '<div class="role-note"><strong>This page maps where axolotls appear in culture.</strong> '
-        'Use it for games, memes, media, merchandise, and science-news examples. For the causal question of why popularity surged, read '
-        '<a href="/axolotl-in-culture/why-axolotls-are-suddenly-popular/">why axolotls became so popular</a>.</div>'
-    ),
-    "axolotl-in-culture/why-axolotls-are-suddenly-popular": (
-        '<div class="role-note"><strong>This page owns the popularity question.</strong> '
-        'It explains the forces behind the surge in attention. For a catalog of where axolotls show up in games, memes, media, and merch, use '
-        '<a href="/axolotl-in-culture/axolotl-in-pop-culture-and-memes/">the pop-culture guide</a>.</div>'
-    ),
-    "biology-and-science/conservation-status": (
-        '<div class="role-note"><strong>This page owns the wild-conservation question.</strong> '
-        'It covers status, population decline, threats, and recovery work. For the physical ecology of the last wild habitat, use '
-        '<a href="/biology-and-science/wild-habitat-xochimilco/">the Xochimilco habitat guide</a>; '
-        'for captive care, use <a href="/axolotls/care-guide/">the axolotl care guide</a>.</div>'
-    ),
-    "biology-and-science/wild-habitat-xochimilco": (
-        '<div class="role-note"><strong>This page owns the habitat question.</strong> '
-        'It explains where wild axolotls live and the conditions of Xochimilco. For population status, threats, and conservation work, use '
-        '<a href="/biology-and-science/conservation-status/">the conservation-status guide</a>; '
-        'for translating those conditions into a home tank, use <a href="/tank-setup/setup-guide/">the tank-setup guide</a>.</div>'
-    ),
-    "biology-and-science/regeneration-and-limb-regrowth": (
-        '<div class="role-note"><strong>The science lane.</strong> This page explains how limb '
-        "regeneration works. Owners with an injured axolotl should use the practical guide: "
-        '<a href="/health/limb-regeneration/">axolotl limb regeneration for owners</a>.</div>'
-    ),
-    "health/limb-regeneration": (
-        '<div class="role-note"><strong>The owner lane.</strong> What to do when your axolotl '
-        "loses part of a limb. For how regeneration works at the cellular level, read "
-        '<a href="/biology-and-science/regeneration-and-limb-regrowth/">the regeneration science</a>.</div>'
-    ),
-    "morphs/morphs-comparison-chart": (
-        '<div class="role-note"><strong>Use this page to identify and compare a morph.</strong> '
-        'For why the colors differ, read <a href="/morphs/pigment-cells/">pigment-cell biology</a>; '
-        'for inheritance, use <a href="/breeding/color-genetics-punnett-squares/">color genetics</a>; '
-        'and for market ranges, see <a href="/cost-and-buying/axolotl-price-by-morph/">price by morph</a>.</div>'
-    ),
-    "breeding/genetics-and-inbreeding": (
-        '<div class="role-note"><strong>This page decides whether a pair should be bred.</strong> '
-        'For predicting offspring colors rather than pair suitability, use '
-        '<a href="/breeding/color-genetics-punnett-squares/">the color-genetics guide</a>.</div>'
-    ),
-    "breeding/color-genetics-punnett-squares": (
-        '<div class="role-note"><strong>This page predicts inherited color outcomes.</strong> '
-        'Before planning a cross, use <a href="/breeding/genetics-and-inbreeding/">genetics and inbreeding risk</a> '
-        'to decide whether the pair is suitable to breed at all.</div>'
-    ),
-    "breeding/egg-and-larvae-care": (
-        '<div class="role-note"><strong>This page owns the egg-to-first-feeding stage.</strong> '
-        'Once larvae are feeding and growing, continue with '
-        '<a href="/breeding/raising-juveniles/">juvenile grow-out and rehoming</a>.</div>'
-    ),
-    "breeding/raising-juveniles": (
-        '<div class="role-note"><strong>This page owns post-hatch grow-out.</strong> '
-        'For incubation, hatching, and the first feeding window, start with '
-        '<a href="/breeding/egg-and-larvae-care/">egg and early-larval care</a>.</div>'
-    ),
-    "health/emergency-first-aid": (
-        '<div class="role-note"><strong>Urgency guide, not a diagnosis.</strong> Use the page for '
-        "safe first checks and red-flag routing. If the axolotl needs a vet now, use the "
-        '<a href="/health/finding-an-exotic-vet/">exotic-vet guide</a>. Do not start medication, '
-        "baths, or intensive cooling from one observed sign.</div>"
-    ),
-    "health/finding-an-exotic-vet": (
-        '<div class="role-note"><strong>This page owns the care-escalation step.</strong> It helps '
-        "you find and screen an amphibian-experienced veterinarian. For deciding how urgent the "
-        'current signs are, start with the <a href="/health/emergency-first-aid/">emergency guide</a>.</div>'
-    ),
-    "health/fridging-sick-axolotl": (
-        '<div class="role-note"><strong>Veterinarian-directed supportive care only.</strong> '
-        "A household refrigerator is not a general treatment for floating, constipation, fungus, "
-        "or appetite loss. Use the <a href=\"/health/emergency-first-aid/\">emergency guide</a> "
-        "for safe first checks and the <a href=\"/health/finding-an-exotic-vet/\">vet guide</a> "
-        "before considering fridging.</div>"
-    ),
-}
-
-# Extra sections appended to the body of existing articles (surgeon-level
-# content layer; the .docx source is untouched). Format: heading text + HTML.
-EXTRA_SECTIONS = {
-    "biology-and-science/conservation-status": [
-        ("What Can Pet Axolotl Owners Do?", """
-<p>Pet keeping and wild conservation are separate jobs. The most useful owner actions are to keep captive axolotls out of natural waterways, buy only captive-bred animals from reputable sources, and support habitat work in Xochimilco rather than treating hobby breeding as a substitute for conserving the wild population.</p>
-<ul>
-<li><strong>Never release a pet axolotl.</strong> Captive animals do not belong in local waterways.</li>
-<li><strong>Choose a responsible source.</strong> Use the <a href="/cost-and-buying/choosing-a-reputable-breeder/">reputable breeder guide</a> before buying.</li>
-<li><strong>Keep the conservation target clear.</strong> The wild population depends on protecting and restoring <a href="/biology-and-science/wild-habitat-xochimilco/">Xochimilco habitat</a>, not on producing more pet morphs.</li>
-</ul>"""),
-    ],
-    "breeding/raising-juveniles": [
-        ("Live Food to Juvenile Diet: Transition Milestones", """
-<p>The main transition is from movement-triggered live prey to foods a growing juvenile can recognize and swallow. Use size and feeding response rather than a fixed calendar:</p>
-<div class="table-wrap"><table>
-<thead><tr><th>Stage</th><th>Approx. size</th><th>Main food</th><th>Feeding pattern</th><th>Next step</th></tr></thead>
-<tbody>
-<tr><td>Yolk-sac stage</td><td>Newly hatched</td><td>No food until the yolk is absorbed</td><td>First 24&ndash;72 hours</td><td>Prepare live food before active feeding begins</td></tr>
-<tr><td>Early larva</td><td>About 1&ndash;2 cm</td><td>Live baby brine shrimp, daphnia, or moina</td><td>Once or twice daily</td><td>Keep prey small and remove dead food promptly</td></tr>
-<tr><td>Food transition</td><td>About 2.5&ndash;4 cm</td><td>Continue live food while introducing finely chopped bloodworm, small pellets, or tiny earthworm pieces</td><td>Twice daily while growing</td><td>Introduce one new food at a time and confirm it is being eaten</td></tr>
-<tr><td>Juvenile grow-out</td><td>Above the early transition stage</td><td>Appropriately sized worms and pellets; <a href="/diet/blackworms-for-juveniles/">prepared blackworms</a> are another juvenile option</td><td>Follow body size and growth</td><td>Use the <a href="/diet/feeding-schedule-by-age/">feeding schedule by age and size</a> as the routine-feeding reference</td></tr>
-</tbody></table></div>
-<p>The goal is not to stop live food on a particular birthday. Keep enough familiar live prey in the rotation until each juvenile consistently accepts the replacement food.</p>"""),
-    ],
-    "morphs/leucistic": [
-        ("How Rare Is a Leucistic Axolotl, and What Does One Cost?", """
-<p>The leucistic is one of the two most common morphs in the pet trade, so it is neither rare nor expensive. Pets start around $25&ndash;$60, rising only for specific lines or high-quality dirty-lucy patterns. Compare every morph's pricing in the <a href="/cost-and-buying/axolotl-price-by-morph/">price-by-morph guide</a>, or see all morphs side by side in the <a href="/morphs/morphs-comparison-chart/">comparison chart</a>.</p>"""),
-        ("Leucistic vs Golden Albino at a Glance", """
-<p>Both morphs look pale pink to white, which is why they are confused. The easy difference is the eyes: leucistic axolotls keep dark eyes, while golden albino axolotls have red or pink eyes because they cannot make melanin at all. Leucistic animals also keep their natural pigment cells everywhere except the skin, which is limited to the gills and the occasional spot. Read the full breakdown on the <a href="/morphs/golden-albino/">golden albino</a> page.</p>"""),
-    ],
-    "morphs/wild-type": [
-        ("Wild Type Variants and Color Intensity", """
-<p>"Wild type" is a range, not a single shade. Wild-type axolotls carry all three pigment-cell types &mdash; melanophores, xanthophores, and iridophores &mdash; and the balance of those cells decides whether an individual reads dark black-brown, olive, or a brighter "high-yellow" animal. This is the same three-cell mechanism covered in the <a href="/morphs/pigment-cells/">pigment-cells guide</a>, and it means no two wild types are exactly the same colour.</p>"""),
-        ("Rarity, Price, and Availability", """
-<p>The wild type is the baseline and one of the cheapest morphs to buy, usually from around $25. Because they are the natural form, they are widely available from reputable breeders and pet stores. Prices sit on the <a href="/cost-and-buying/axolotl-price-by-morph/">price-by-morph page</a>; for buyer advice see <a href="/cost-and-buying/breeder-vs-pet-store/">breeder vs pet store</a>.</p>"""),
-        ("The Wild Population Behind the Pet", """
-<p>Wild-type is the colour of the wild axolotl &mdash; but the wild population is critically endangered and survives only in the canals of Xochimilco near Mexico City. Pet wild types are captive-bred, never taken from the wild. For the animal's true situation, see <a href="/biology-and-science/wild-habitat-xochimilco/">the Xochimilco habitat</a> and <a href="/biology-and-science/conservation-status/">conservation status</a>.</p>"""),
-    ],
-    "breeding/color-genetics-punnett-squares": [
-        ("Limitations of Punnett Squares", """
-<p>Punnett squares predict outcomes at a single locus, which makes them the right tool for the classic diallelic genes (leucistic, albino, melanoid, axanthic). They cannot predict how an animal will look when genetics play out unpredictably: <a href="/morphs/chimera/">chimeras</a> arise from fused embryos (two separate animals in one), <a href="/morphs/mosaic/">mosaics</a> from a mutation in one embryonic cell line, and GFP and copper intensity vary with polygenic modifiers rather than one gene. For those cases the biology is covered in <a href="/morphs/pigment-cells/">the pigment-cells guide</a>.</p>"""),
-        ("Worked Example: Leucistic x Albino (Two-Gene Cross)", """
-<p>Each gene resolves independently. For the white locus, a leucistic parent (d/d) bred to a wild-color carrier (D/d) gives <strong>50% leucistic</strong> and <strong>50% wild colour</strong> for that locus. The albino locus works the same way as a separate diallelic recessive. So a single pairing reads as two independent 50/50 flips: roughly a quarter of the clutch can end up showing the albino trait, a quarter leucistic, a quarter leucistic+albino (both recessives), and a quarter visibly wild type &mdash; before considering pigment intensity, which Punnett squares do not model.</p>"""),
-    ],
-    "biology-and-science/neoteny": [
-        ("My Axolotl Is Metamorphosing &mdash; What Should I Do?", """
-<p>Healthy axolotls stay neotenic their whole lives. When an axolotl begins to metamorphose &mdash; resorbing gills, developing eyelids, losing the fin &#8212; it is almost always because something forced the thyroid hormone system to kick in, most often induced metamorphosis (iodine exposure) rather than a natural event.</p>
-<p><strong>Metamorphosis is generally not reversible</strong>, so the priority is keeping the animal comfortable through the change and getting veterinary help. A metamorphosed axolotl can no longer live fully aquatic the same way: it needs a setup with both land and deeper water areas, damp cover, and careful humidity, and it eats the same carnivorous diet on land. The animal may also show behaviour changes &mdash; see <a href="/biology-and-science/axolotl-vs-tiger-salamander/">axolotl vs tiger salamander</a> for what a metamorphosed salamander is closer to.</p>
-<p>Do not try to "fix" it with unproven treatments. Get guidance from an <a href="/health/finding-an-exotic-vet/">exotic veterinarian</a> promptly, and keep water quality and temperature in the safe range while the animal transitions.</p>"""),
-    ],
-    "tank-setup/water-parameters-cycling": [
-        ("How to Test Tank Water Correctly", """
-<p>Liquid test kits beat test strips for accuracy: strips are convenient for a quick ammonia check but unreliable for borderline numbers. Test at least ammonia and nitrite, and ideally nitrate and pH, and always test the same time of day relative to feeding. During cycling test daily; in a stable cycled tank, test once a week and always after a water change, illness, or a new animal. Log every reading &mdash; the <a href="/tools/nitrogen-cycle-tracker/">nitrogen cycle tracker</a> is built for exactly this and will show you your trend line.</p>"""),
-    ],
-    "care-basics/cost-of-ownership-monthly": [
-        ("First-Year Budget: The Real Year-One Cost", """
-<p>The first year costs far more than the animal itself. A rough plan, using the numbers on <a href="/cost-and-buying/axolotl-price-by-morph/">price by morph</a> and the <a href="/tank-setup/setup-guide/">setup guide</a>:</p>
-<ul>
-<li><strong>Purchase:</strong> $25&ndash;$150+ depending on morph (pets from roughly $25; rare morphs climb much higher).</li>
-<li><strong>Tank setup:</strong> a 40-gallon breeder-style tank, stand, filter, lid, lighting, hides, and substrate &mdash; the largest single line item.</li>
-<li><strong>Water care gear:</strong> test kit, buckets, and conditioner for the year.</li>
-<li><strong>Food:</strong> monthly cost of worms or pellets times twelve.</li>
-<li><strong>Emergency reserve:</strong> keep enough for an <a href="/health/finding-an-exotic-vet/">exotic vet visit</a> &mdash; the one cost most first-time owners forget.</li>
-</ul>
-<p>Expect the first-year total to land well above the monthly figure you planned on &mdash; that is normal, and after year one the recurring cost is much smaller.</p>"""),
-    ],
-    "morphs/morphs-comparison-chart": [
-        ("Core Morphs, Pigment Types and Traits Side by Side", """
-<table>
-<tr><th>Name</th><th>Typical appearance</th><th>What the name describes</th><th>Read more</th></tr>
-<tr><td>Wild type</td><td>Dark brown / olive with mottling</td><td>Baseline pigment phenotype</td><td><a href="/morphs/wild-type/">Wild type</a></td></tr>
-<tr><td>Leucistic / white</td><td>Pale pink-white with dark eyes</td><td>White-locus phenotype</td><td><a href="/morphs/leucistic/">Leucistic</a></td></tr>
-<tr><td>Albino</td><td>Reduced/no melanin; eye and body color vary by pigment combination</td><td>Recessive albino mutation</td><td><a href="/morphs/golden-albino/">Albino combinations</a></td></tr>
-<tr><td>Golden albino</td><td>Yellow-gold body with pink/red eyes</td><td>Albino combined with retained yellow pigment</td><td><a href="/morphs/golden-albino/">Golden albino</a></td></tr>
-<tr><td>Melanoid</td><td>Dark body with reduced reflective shine</td><td>Melanoid pigment mutation</td><td><a href="/morphs/melanoid/">Melanoid</a></td></tr>
-<tr><td>Axanthic</td><td>Reduced yellow/reflective pigment; often gray-toned</td><td>Axanthic pigment mutation</td><td><a href="/morphs/pigment-cells/">Pigment cells</a></td></tr>
-<tr><td>Copper</td><td>Copper / tan / reddish-brown tones</td><td>Distinct pigment phenotype used in captive lines</td><td><a href="/morphs/copper/">Copper</a></td></tr>
-<tr><td>GFP</td><td>Green fluorescence under suitable blue/UV light</td><td>Fluorescent transgenic trait that can occur with other morphs</td><td><a href="/morphs/gfp-axolotl/">GFP</a></td></tr>
-<tr><td>Piebald</td><td>Irregular pale and pigmented patches</td><td>Pattern description</td><td><a href="/morphs/piebald/">Piebald</a></td></tr>
-<tr><td>Mosaic</td><td>Patchwork pigment pattern</td><td>Developmental/pattern category, not a simple single-gene color</td><td><a href="/morphs/mosaic/">Mosaic</a></td></tr>
-<tr><td>Chimera</td><td>Two genetically distinct cell populations in one animal</td><td>Developmental chimera, not a simple color morph</td><td><a href="/morphs/chimera/">Chimera</a></td></tr>
-</table>
-<p><strong>There is no single authoritative fixed count of â€œall axolotl morphs.â€</strong> Lists differ because breeders mix core pigment mutations, combinations, patterns, and traits such as GFP under the same everyday word <em>morph</em>. Availability and perceived rarity also change by breeder, region, and time, so use the <a href="/cost-and-buying/axolotl-price-by-morph/">price-by-morph page</a> for market context rather than treating rarity as a permanent biological ranking.</p>"""),
-    ],
-    "health/impaction-symptoms-treatment": [
-        ("Impaction vs Constipation: Know the Difference", """
-<p>Impaction is a physical blockage of the digestive tract &mdash; most often by swallowed substrate &mdash; and constipation is slow or stalled passage of waste. Both show as a bloated belly and reduced appetite, but impaction is the emergency: a blocked axolotl stops passing waste entirely and can go downhill fast. If you suspect impaction, do not feed, do not heat, and see the treatment steps on this page &mdash; then ask a vet.</p>"""),
-        ("Which Cause Is Behind the Blockage?", """
-<p>Three causes cover most impactions, and each has its own deep-dive guide:</p>
-<ul>
-<li><strong>Overfeeding</strong> &mdash; too much food or too-large prey. <a href="/diet/overfeeding-and-impaction/">Overfeeding and impaction</a>.</li>
-<li><strong>Substrate</strong> &mdash; coarse or loose substrate swallowed with food. <a href="/tank-setup/substrate-and-impaction/">Substrate guide</a>.</li>
-<li><strong>Sharp gravel</strong> &mdash; the classic danger. <a href="/tank-setup/gravel-risks/">Gravel risks</a>.</li>
-</ul>"""),
-    ],
-}
-
-
-# P0 keyword-reconciliation additions (2026-09-18).
-# These sharpen existing page ownership without creating duplicate URLs.
-INTRO_OVERRIDES["breeding/raising-juveniles"] = (
-    "Baby axolotl care changes quickly as larvae begin feeding and grow into juveniles. "
-    "Use this page for post-hatch feeding, growth, size sorting, food transitions, and "
-    "juvenile grow-out; egg incubation and the first hatch window stay in the egg-care guide."
-)
-INTRO_OVERRIDES["tank-setup/tank-size-by-age"] = (
-    "There is no single research-backed gallon number that answers every axolotl tank-size "
-    "question. Use body length, usable floor area, water volume, filtration, life stage, and "
-    "the number of animals together; this page is the site's canonical tank-size reference."
-)
-INTRO_OVERRIDES["morphs/morphs-comparison-chart"] = (
-    "Use this guide to identify and compare axolotl colors and morph terminology side by side. "
-    "It owns the color/type/rarity comparison; pigment-cell biology, inheritance, and pricing "
-    "remain on their specialist pages."
-)
-INTRO_OVERRIDES["morphs/blue-and-pink-axolotl-myth"] = (
-    "Pink, blue, purple, lavender, green, and yellow are common search and seller labels, but "
-    "they do not all map one-to-one to recognized axolotl pigment phenotypes. This guide separates "
-    "standard morph terminology from lighting, fluorescence, editing, and informal color names."
-)
-
-ROLE_CALLOUTS["tank-setup/tank-size-by-age"] = (
-    '<div class="role-note"><strong>This page owns tank-size requirements.</strong> '
-    'Use it for age, body size, floor space, gallon capacity, and multiple-axolotl sizing. '
-    'For the full build sequence, filtration, cooling, substrate, and cycling, use the '
-    '<a href="/tank-setup/setup-guide/">tank setup guide</a>.</div>'
-)
-ROLE_CALLOUTS["breeding/raising-juveniles"] = (
-    '<div class="role-note"><strong>This page owns baby and juvenile grow-out.</strong> '
-    'For eggs, hatching, and the first feeding window, use '
-    '<a href="/breeding/egg-and-larvae-care/">egg and larval care</a>; for routine feeding '
-    'after grow-out, use the <a href="/diet/feeding-schedule-by-age/">feeding schedule</a>.</div>'
-)
-ROLE_CALLOUTS["morphs/blue-and-pink-axolotl-myth"] = (
-    '<div class="role-note"><strong>This page explains informal color labels.</strong> '
-    'For recognized morph identification and rarity, use the '
-    '<a href="/morphs/morphs-comparison-chart/">morph comparison</a>; for the underlying '
-    'biology, use <a href="/morphs/pigment-cells/">pigment cells</a>.</div>'
-)
-
-EXTRA_SECTIONS.setdefault("breeding/raising-juveniles", []).append((
-    "When Is an Axolotl a Larva, Baby, or Juvenile?",
-    """
-<p><strong>Axolotl life-stage labels overlap in everyday use, so size and feeding stage are more useful than a rigid birthday.</strong> The Ambystoma Genetic Stock Center begins feeding newly hatched larvae after the yolk is absorbed, starts supplementing brine shrimp with small pellets at about 4 cm, and reports that young axolotls around 5 cm or longer are commonly separated because size differences and nipping become important.</p>
-<p>For this site, <em>baby axolotl</em> is the broad search term, while <em>larva</em> describes the early post-hatch stage and <em>juvenile</em> describes the later grow-out stage before adulthood. Use feeding response, body size, and development rather than assuming every animal reaches a milestone on the same day.</p>
-<p><strong>Source:</strong> <a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a>.</p>
-"""
-))
-
-EXTRA_SECTIONS.setdefault("morphs/blue-and-pink-axolotl-myth", []).append((
-    "What Do Pink, Purple, Lavender, Green and Yellow Axolotl Labels Mean?",
-    """
-<p><strong>Color words are not always genetic morph names.</strong> The Ambystoma Genetic Stock Center separately documents established pigment mutations and strains such as white/leucistic, albino, melanoid, and axanthic. Seller or social-media labels such as purple, lavender, green, or neon may instead describe how an animal looks under a particular light, a combination of recognized traits, GFP fluorescence, image processing, or informal marketing language.</p>
-<div class="table-wrap"><table>
-<thead><tr><th>Search label</th><th>Best interpretation</th><th>Where to continue</th></tr></thead>
-<tbody>
-<tr><td>Pink / white</td><td>Often leucistic; eye color and pigment pattern help distinguish leucistic from albino combinations.</td><td><a href="/morphs/leucistic/">Leucistic axolotl</a></td></tr>
-<tr><td>Yellow / gold</td><td>Often used for golden-albino appearance or other yellow-pigment expression.</td><td><a href="/morphs/golden-albino/">Golden albino</a></td></tr>
-<tr><td>Green / glowing</td><td>May refer to GFP fluorescence rather than a naturally green body pigment.</td><td><a href="/morphs/gfp-axolotl/">GFP axolotl</a></td></tr>
-<tr><td>Blue / purple / lavender</td><td>Do not assume the color word is a standardized genetic morph name; verify the animal's actual phenotype, lineage, and lighting conditions.</td><td><a href="/morphs/morphs-comparison-chart/">Morph comparison</a></td></tr>
-</tbody></table></div>
-<p><strong>Sources:</strong> <a href="https://ambystoma.uky.edu/teachers-materials-menu/teachers-materials-books-menu?id=9">Ambystoma Genetic Stock Center: Mutant Genes</a>; <a href="https://ambystoma.uky.edu/axolotl-research2/12-educationresources/10-axolotl-strains">Ambystoma Genetic Stock Center: Axolotl Strains</a>.</p>
-"""
-))
-
-EXTRA_SECTIONS.setdefault("morphs/morphs-comparison-chart", []).append((
-    "Morph Names vs Color Descriptions",
-    """
-<p>A morph is more useful than a color nickname when it points to a repeatable pigment phenotype or genetic background. The Ambystoma Genetic Stock Center documents standard pigment mutations including albino, axanthic, melanoid, and white, while hobby names also describe combinations, patterns, and transgenic traits. That is why two animals that both look â€œpinkâ€ can belong to different pigment categories, and why a label such as â€œlavenderâ€ should not automatically be treated as a separate genetic morph.</p>
-<p>Use the comparison table to identify visible traits first, then continue to <a href="/morphs/pigment-cells/">pigment-cell biology</a> and <a href="/breeding/color-genetics-punnett-squares/">color genetics</a> when you need the mechanism rather than the appearance.</p>
-<p><strong>Sources:</strong> <a href="https://ambystoma.uky.edu/teachers-materials-menu/teachers-materials-books-menu?id=9">Ambystoma Genetic Stock Center: Mutant Genes</a>; <a href="https://ambystoma.uky.edu/axolotl-research2/12-educationresources/10-axolotl-strains">Ambystoma Genetic Stock Center: Axolotl Strains</a>.</p>
-"""
-))
-
-
-
-# Second P0 reconciliation pass (2026-09-18): entity, habitat, conservation,
-# growth, suitability, handling, and owner-facing limb recovery.
-INTRO_OVERRIDES["care-basics/are-axolotls-good-beginner-pets"] = (
-    "Axolotls can suit an owner who wants an observation-focused aquatic pet and is willing "
-    "to manage cool, clean water consistently. This page owns the decision question: benefits, "
-    "drawbacks, beginner difficulty, time, equipment, handling limits, and who should reconsider."
-)
-INTRO_OVERRIDES["care-basics/axolotl-age-and-size-chart"] = (
-    "Use this page for the animal's body size and growth: how big axolotls get, how size changes "
-    "through development, and why individuals grow at different rates. Tank capacity belongs to "
-    "the separate tank-size guide."
-)
-INTRO_OVERRIDES["care-basics/axolotl-facts"] = (
-    "An axolotl is Ambystoma mexicanum, a permanently aquatic Mexican salamander best known for "
-    "retaining larval traits such as external gills into adulthood. This page is the broad entity "
-    "definition and routes detailed care, habitat, classification, morph, and conservation questions "
-    "to their specialist guides."
-)
-INTRO_OVERRIDES["care-basics/handling"] = (
-    "Axolotls are observation-focused aquatic pets, so routine touching and petting are not the goal. "
-    "Use this guide for the limited situations when handling, netting, or transport is necessary and "
-    "for safer ways to move an axolotl while minimizing skin and slime-coat disturbance."
-)
-INTRO_OVERRIDES["biology-and-science/wild-habitat-xochimilco"] = (
-    "Wild Ambystoma mexicanum is native to the freshwater lake-and-canal system of Xochimilco in "
-    "the Valley of Mexico. This page owns where axolotls live, where they come from, their freshwater "
-    "habitat, ecological adaptations, and habitat threats."
-)
-INTRO_OVERRIDES["biology-and-science/conservation-status"] = (
-    "Wild axolotls remain in a critical conservation situation in Xochimilco. The most recent published "
-    "density benchmark is still the 2014 estimate of about 36 animals per square kilometre; UNAM reported "
-    "in June 2026 that results from the newer census were still being processed."
-)
-INTRO_OVERRIDES["health/limb-regeneration"] = (
-    "This is the owner-facing injury page: what to do after an axolotl loses part of a limb, how to protect "
-    "the animal during healing, and when veterinary assessment is warranted. The cellular science of "
-    "regeneration stays on the biology page."
-)
-
-ROLE_CALLOUTS["care-basics/axolotl-facts"] = (
-    '<div class="role-note"><strong>This page answers â€œwhat is an axolotl?â€</strong> '
-    'For husbandry, use the <a href="/axolotls/care-guide/">care guide</a>; for fish-vs-amphibian '
-    'classification, use <a href="/biology-and-science/is-axolotl-amphibian/">the classification guide</a>; '
-    'for where they live, use <a href="/biology-and-science/wild-habitat-xochimilco/">wild habitat</a>.</div>'
-)
-ROLE_CALLOUTS["care-basics/axolotl-age-and-size-chart"] = (
-    '<div class="role-note"><strong>This page owns animal size and growth.</strong> '
-    'If you are choosing aquarium capacity, continue to '
-    '<a href="/tank-setup/tank-size-by-age/">the axolotl tank-size guide</a>.</div>'
-)
-ROLE_CALLOUTS["care-basics/handling"] = (
-    '<div class="role-note"><strong>This page owns touching, petting, moving, netting, and transport.</strong> '
-    'For poison/venom/bite safety, use the dedicated human-safety guide when published; '
-    'for normal interaction and recognition, use <a href="/care-basics/axolotl-intelligence-and-bonding/">bonding and intelligence</a>.</div>'
-)
-
-EXTRA_SECTIONS.setdefault("biology-and-science/conservation-status", []).append((
-    "How Many Wild Axolotls Are Left in 2026?",
-    """
-<p><strong>There is not yet a published 2026 wild headcount that should replace the older benchmark.</strong> UNAM reported in June 2026 that the latest census results were still being processed. The university continues to cite the dramatic decline from roughly 6,000 axolotls per square kilometre in 1998 to about 36 per square kilometre in the 2014 census.</p>
-<p>That number is a <em>density estimate</em>, not a statement that only 36 individual axolotls exist in the world or even in all of Xochimilco. Captive axolotls are numerous, while conservation status refers to the wild population and its habitat.</p>
-<p>The new UNAM census uses traditional fishing surveys together with environmental-DNA methods. Until its results are formally released, this page keeps the 2014 density as the latest published benchmark and labels it by date rather than presenting it as a current 2026 count.</p>
-<p><strong>Current sources:</strong> <a href="https://www.dgcs.unam.mx/boletin/bdboletin/2026_387.html">UNAM, June 28, 2026: new census results still being processed</a>; <a href="https://www.gaceta.unam.mx/levantan-nuevo-censo-del-axolote-en-xochimilco/">Gaceta UNAM: new Xochimilco census</a>; <a href="https://www.ib.unam.mx/ib/adopta-axolotl/">Instituto de BiologÃ­a UNAM: Adoptaxolotl 2026</a>.</p>
-"""
-))
-
-
-# Build-level (HTML-authored) new pages. These exist nowhere in SOURCE_DIR and
-# are inserted as full articles during the build. HARD-STOP-exempt: each fills
-# a genuine entity/attribute/intent cell (procedural + decision), not a keyword.
-CONFIG_ARTICLES = {
-    "tank-setup/water-change-guide": {
-        "slug": "tank-setup/water-change-guide",
-        "hub": "tank-setup",
-        "title": "How to Do an Axolotl Water Change Step by Step",
-        "title_tag": "Axolotl Water Change: Step-by-Step Guide",
-        "meta": "A complete step-by-step guide to changing your axolotl's water - how often, how much to remove, how to treat and match replacement water, and the mistakes that stress gills.",
-        "intro": "A complete step-by-step guide to changing your axolotl's tank water - how often, how much to remove, and how to treat and match replacement water without stressing the animal.",
-        "num": 210,
-        "headings": [
-            "How Often Should You Change the Water?",
-            "What You Need Before You Start",
-            "Step 1: Test the Tank Water",
-            "Step 2: Prepare and Dechlorinate Replacement Water",
-            "Step 3: Match the Temperature",
-            "Step 4: Remove Water from the Tank",
-            "Step 5: Add Fresh Water Slowly",
-            "Step 6: Test Again and Log the Readings",
-            "Common Mistakes to Avoid",
-            "When a Water Change Is Not the Answer",
-        ],
-        "body": """
-<p>Regular water changes are the most important routine maintenance task in an axolotl tank. Waste breaks down into ammonia and nitrates that even a cycled filter cannot fully remove, and a consistent change schedule keeps toxins low and gills healthy.</p>
-<h2>How Often Should You Change the Water?</h2>
-<p>The change schedule has four cases.</p>
-<ul>
-<li><strong>Cycling tank:</strong> daily or every other day for the first 4&ndash;6 weeks, until the cycle finishes.</li>
-<li><strong>Adults in a cycled tank:</strong> a 20&ndash;25% change once a week.</li>
-<li><strong>Juveniles:</strong> two to three times a week &mdash; they eat more relative to their size and add more waste.</li>
-<li><strong>After a spike:</strong> ammonia or nitrite spikes call for a larger or repeated change; see <a href="/tank-setup/water-parameters-cycling/">managing ammonia and nitrate spikes</a>.</li>
-</ul>
-<h2>What You Need Before You Start</h2>
-<p>You need four things ready before touching the tank: a siphon or bucket, water conditioner, thermometer, and an ammonia test kit. Prepare them all first so the axolotl is disturbed for the shortest possible time.</p>
-<ul>
-<li>A bucket or siphon reserved for axolotl use only (washed with water, never detergent).</li>
-<li>Water conditioner &mdash; <a href="/tank-setup/water-conditioners/">the water-conditioner guide</a>.</li>
-<li>A thermometer to match temperature.</li>
-<li>A test kit for ammonia, nitrite, and nitrate.</li>
-</ul>
-<h2>Step 1: Test the Tank Water</h2>
-<p>Test ammonia, nitrite, pH, and temperature before changing anything. The test tells you how big a change is actually needed and gives a before-reading to compare after.</p>
-<h2>Step 2: Prepare and Dechlorinate Replacement Water</h2>
-<p>Fill your bucket with fresh tap water and treat it with water conditioner at the label dose. The conditioner removes chlorine and chloramine instantly; untreated tap water damages gills and slime coat.</p>
-<h2>Step 3: Match the Temperature</h2>
-<p>Bring the replacement water to the same temperature as the tank (60&ndash;68&deg;F / 15&ndash;20&deg;C). A swing of more than 2&ndash;3&deg;F (1&ndash;2&deg;C) stresses the axolotl and can trigger floating or illness; see <a href="/tank-setup/temperature/">keeping the tank cool</a>.</p>
-<h2>Step 4: Remove Water from the Tank</h2>
-<p>Use a siphon or a clean cup, drawing water from the top of the tank while keeping the siphon above the substrate so you neither vacuum up the axolotl nor rearrange clean sand. Never drop the water level below about half the tank in one go.</p>
-<h2>Step 5: Add Fresh Water Slowly</h2>
-<p>Pour the replacement water against the glass or a baffle, never directly onto the axolotl. Slow addition keeps temperature and chemistry even and avoids frightening the animal.</p>
-<h2>Step 6: Test Again and Log the Readings</h2>
-<p>Retest ammonia and nitrite about an hour later. In a cycled tank the numbers stay unchanged or lower; the <a href="/tools/nitrogen-cycle-tracker/">nitrogen cycle tracker</a> logs trends between changes.</p>
-<h2>Common Mistakes to Avoid</h2>
-<p>Four mistakes cause most water-change harm.</p>
-<ul>
-<li><strong>Skipping the conditioner</strong> &mdash; tap-water chlorine is a common cause of gill damage.</li>
-<li><strong>Changing the whole tank at once</strong> &mdash; massive changes destabilize chemistry.</li>
-<li><strong>Ignoring the smell</strong> &mdash; an ammonia-smelling tank needs testing and more frequent changes; see <a href="/tank-setup/why-tank-water-smells/">why the tank water stinks</a>.</li>
-<li><strong>Leaving uneaten food</strong> &mdash; rotting food becomes this week's ammonia spike; <a href="/tank-setup/uneaten-food-and-ammonia/">manage uneaten food</a>.</li>
-</ul>
-<h2>When a Water Change Is Not the Answer</h2>
-<p>A water change is still the first step for every axolotl, and almost always enough. When the animal looks actively stressed &mdash; floating uncontrollably, refusing food, reddened skin, or severe gill damage &mdash; the <a href="/health/emergency-first-aid/">emergency first-aid guide</a> decides whether it needs immediate care.</p>
-""",
-    },
-    "health/emergency-first-aid": {
-        "slug": "health/emergency-first-aid",
-        "hub": "health",
-        "title": "Axolotl Emergency Guide: First Aid & Triage",
-        "title_tag": "Axolotl Emergency & First Aid: Triage, Urgent Signs, What to Do",
-        "meta": "The emergency triage guide for axolotls: which signs are urgent, what to do first, what NOT to do, and when to see a vet now.",
-        "intro": "The triage guide for axolotl emergencies: how to tell urgent from not-urgent, what to do in the first minutes, what NOT to do, and when to call an exotic vet immediately.",
-        "num": 211,
-        "date_modified": "2026-08-29",
-        "headings": [
-            "Is It an Emergency? Use This Severity Ladder",
-            "First Steps for Any Stressed or Sick Axolotl",
-            "Red Flags That Need a Vet Now",
-            "What NOT to Do in an Emergency",
-            "Emergency Care by Sickness",
-            "Aftercare and Prevention",
-        ],
-        "body": """
-<p>Some axolotl problems require a vet immediately; most do not. This guide ranks how urgent each situation is, gives the first steps to take, and marks the line where you must get help. For a vet near you, start with the <a href="/health/finding-an-exotic-vet/">exotic vet guide</a>.</p>
-<h2>Is It an Emergency? Use This Severity Ladder</h2>
-<p>The severity ladder has three tiers.</p>
-<ul>
-<li><strong>Urgent (act now):</strong> heavy labored breathing at the surface, visible bleeding or a torn wound, a belly that is hard and bloated, uncontrollable floating, reddening or peeling skin, or a total refusal to eat with these signs. Do a quick water test and get help.</li>
-<li><strong>Watch closely (same day):</strong> curled gills, constant hiding, clamped or receding gills, floating that comes and goes, or reduced appetite &mdash; test water and temperature, record the signs, and escalate if they persist or worsen.</li>
-<li><strong>Monitor:</strong> a brief change in activity without other warning signs &mdash; verify husbandry, reduce disturbance, and keep records rather than assuming a diagnosis.</li>
-</ul>
-<h2>First Steps for Any Stressed or Sick Axolotl</h2>
-<p>Four first steps apply to any sick or stressed axolotl.</p>
-<ol>
-<li>Test ammonia, nitrite, nitrate, and pH, and record the measured water temperature. Water and temperature problems are important possibilities, but they are not the only causes; see the <a href="/tank-setup/water-parameters-cycling/">water-quality guide</a>.</li>
-<li>If a measured value is unsafe, follow the <a href="/tank-setup/water-change-guide/">water-change guide</a> and <a href="/tank-setup/temperature/">temperature guide</a> without creating a sudden temperature or chemistry swing.</li>
-<li>Do not force-feed or start medication while the cause is unclear. Record the last meal, stool, behavior, and any recent tank changes for the veterinarian.</li>
-<li>Avoid unnecessary handling. If the water is unsafe or a tank mate poses an immediate risk, move the axolotl gently to a prepared, temperature-matched tub.</li>
-</ol>
-<h2>Red Flags That Need a Vet Now</h2>
-<p>Six signs call for a vet now.</p>
-<ul>
-<li>Heavy gasping at the surface combined with limp gills.</li>
-<li>Blood, an open wound, or skin sloughing.</li>
-<li>Extreme bloating with a rigid body.</li>
-<li>A hard or rapidly enlarging swollen belly, which can have several causes &mdash; see the <a href="/health/impaction-symptoms-treatment/">impaction observation guide</a>.</li>
-<li>Reddening skin that spreads quickly &mdash; <a href="/health/red-leg-syndrome/">red leg syndrome</a>.</li>
-<li>Sudden appetite loss with bloating, abnormal floating, marked lethargy, injury, or rapid weight loss &mdash; <a href="/health/refusing-to-eat/">refusing to eat</a>.</li>
-</ul>
-<p>Find and call an <a href="/health/finding-an-exotic-vet/">exotic veterinarian</a> &mdash; call ahead so they are ready for you.</p>
-<h2>What NOT to Do in an Emergency</h2>
-<ul>
-<li>Do not shock the animal with a huge or ultra-cold water change.</li>
-<li>Do not dose "human" or unidentified medications.</li>
-<li>Do not start a tea bath or salt bath from one observed sign. Use the <a href="/health/fungal-infections-saprolegnia/">fungus observation guide</a> and seek veterinary guidance for spreading growth, skin damage, or deterioration.</li>
-<li>Do not move the axolotl to completely different water without acclimation &mdash; see <a href="/tank-setup/acclimating-a-new-axolotl/">acclimating a new axolotl</a>.</li>
-<li>Do not raise temperature to "speed up" recovery &mdash; axolotls need cool water.</li>
-</ul>
-<h2>Emergency Care by Sickness</h2>
-<p>Once the water is stable, use the guide that matches the sign you can observe. These pages explain possibilities and escalation points; they do not confirm a diagnosis:</p>
-<ul>
-<li><strong>Ammonia burns or curled gills:</strong> <a href="/health/ammonia-burns/">ammonia burns</a> and <a href="/health/curled-gills-stress-signal/">curled gills</a>.</li>
-<li><strong>Severe fungus:</strong> <a href="/health/fungal-infections-saprolegnia/">fungal infections</a>.</li>
-<li><strong>Floating:</strong> <a href="/health/why-axolotl-floating/">why is my axolotl floating</a>.</li>
-<li><strong>Not eating:</strong> <a href="/health/refusing-to-eat/">refusing to eat</a>.</li>
-<li><strong>Bleeding or injury:</strong> <a href="/health/minor-scrapes-and-wounds/">minor scrapes and wounds</a>.</li>
-</ul>
-<h2>Aftercare and Prevention</h2>
-<p>Once stable, reduce disturbance and continue monitoring. Use a <a href="/health/quarantine-tub/">quarantine tub</a> when isolation is needed and it can be maintained with temperature-matched, dechlorinated water. Stable cool temperature, gentle filtration, and consistent water care reduce many husbandry-related health risks, but persistent or worsening signs still need veterinary assessment.</p>
-""",
-    },
-}
-
-
-# ---------------------------------------------------------------------------
-# Keyword-reconciliation new pages â€” batch 1 (2026-09-18)
-# ---------------------------------------------------------------------------
-# These pages fill distinct entity / process / procedural intents. Temporary
-# non-placeholder heroes reuse closely related MyAxolotl original graphics;
-# each can later receive a unique hero without changing its URL or semantic role.
-
-CONFIG_ARTICLES.update({
-    "biology-and-science/metamorphosis": {
-        "slug": "biology-and-science/metamorphosis",
-        "hub": "biology-and-science",
-        "title": "Do Axolotls Turn Into Salamanders? Metamorphosis Explained",
-        "title_tag": "Do Axolotls Turn Into Salamanders? Metamorphosis Explained",
-        "meta": "Axolotl metamorphosis explained: why axolotls normally remain aquatic and paedomorphic, what changes during metamorphosis, and what owners should do if those changes appear.",
-        "intro": "Axolotls are salamanders already, but unlike most salamanders they normally reach adulthood without transforming into a terrestrial form. This page explains paedomorphosis, the rare metamorphic pathway, the body changes involved, and why owners should never try to trigger metamorphosis at home.",
-        "num": 212,
-        "date_published": "2026-09-18",
-        "date_modified": "2026-09-18",
-        "headings": [
-            "Do axolotls turn into salamanders?",
-            "Why do axolotls normally stay aquatic?",
-            "What changes when an axolotl metamorphoses?",
-            "Can an axolotl metamorphose naturally?",
-            "What role do thyroid hormones play?",
-            "Can iodine make an axolotl metamorphose?",
-            "Can metamorphosis be reversed?",
-            "What should you do if a pet axolotl starts metamorphosing?",
-            "Metamorphosis vs neoteny",
-            "Sources",
-        ],
-        "body": r'''
-<p><strong>Axolotls are salamanders from the beginning; the unusual part is that they normally become sexually mature while keeping an aquatic, larval-looking body.</strong> This lifelong retention of juvenile traits is called paedomorphosis or neoteny. A typical axolotl therefore keeps its external gills, finned tail and aquatic lifestyle instead of completing the more familiar salamander transition to a land-adapted form.</p>
-
-<h2>Do axolotls turn into salamanders?</h2>
-<p><strong>They do not need to â€œturn intoâ€ salamanders because <em>Ambystoma mexicanum</em> is already a salamander species.</strong> What people usually mean is: can an axolotl undergo metamorphosis and lose its larval aquatic features? The answer is yes under some circumstances, but that is not the normal developmental route for healthy captive axolotls.</p>
-<p>The standard axolotl life history is paedomorphic. Adults reproduce while retaining external gills and other juvenile traits, which is why an adult axolotl still looks unlike a terrestrial tiger salamander.</p>
-
-<h2>Why do axolotls normally stay aquatic?</h2>
-<p>Research on the axolotl endocrine system shows that its paedomorphosis is associated with low activity of the hypothalamic-pituitary-thyroid pathway that drives metamorphosis in many other amphibians. The tissues can respond to thyroid-hormone signaling, but the normal hormonal cascade does not produce the same metamorphic transition seen in related salamanders.</p>
-<p>This is an evolved life-history strategy, not a sign that an adult axolotl is an unfinished or unhealthy animal.</p>
-
-<h2>What changes when an axolotl metamorphoses?</h2>
-<p>A metamorphosing axolotl progressively shifts toward a more terrestrial salamander body plan. Changes can include:</p>
-<ul>
-<li>reduction or resorption of the external gills;</li>
-<li>reduction of the tail fin;</li>
-<li>changes in skin and body shape;</li>
-<li>development of eyelids;</li>
-<li>changes in head shape and feeding mechanics; and</li>
-<li>a change from a fully aquatic lifestyle toward a form that can use terrestrial habitat.</li>
-</ul>
-<p>These changes happen as an integrated developmental program. They should not be confused with sick or shrinking gills caused by poor water quality, injury, infection, or stress.</p>
-
-<h2>Can an axolotl metamorphose naturally?</h2>
-<p><strong>Rare spontaneous metamorphosis has been reported, but it is not the expected pathway for ordinary pet axolotls.</strong> Laboratory research also shows that the ancestral metamorphic pathway can be activated experimentally because axolotl tissues remain responsive to thyroid-hormone signaling.</p>
-<p>For an owner, the important point is that a sudden change in gills, skin, body shape, or behavior should be evaluated as a health and husbandry problem first rather than assumed to be â€œnatural metamorphosis.â€</p>
-
-<h2>What role do thyroid hormones play?</h2>
-<p>Thyroid hormones are central regulators of amphibian metamorphosis. Reviews of axolotl endocrinology describe a functional downstream thyroid-hormone response but reduced upstream stimulation of the pathway compared with metamorphosing relatives. This helps explain why axolotls normally remain paedomorphic even though the body can still respond to experimentally supplied thyroid hormone.</p>
-
-<h2>Can iodine make an axolotl metamorphose?</h2>
-<p><strong>Do not use iodine, thyroid hormone, supplements, foods, chemicals, or temperature manipulation to try to induce metamorphosis in a pet axolotl.</strong> Experimental induction belongs in controlled research settings with defined protocols and animal-care oversight. A search result or anecdote is not a safe husbandry procedure.</p>
-<p>If you are concerned about iodine exposure or a product used in the aquarium, remove the suspected source only if that can be done safely, keep water conditions stable, and discuss the exposure with an amphibian-experienced veterinarian.</p>
-
-<h2>Can metamorphosis be reversed?</h2>
-<p>Once the coordinated metamorphic program is well underway, owners should not assume that returning the animal to ordinary aquarium conditions will reverse it. The practical response is veterinary assessment and preparation for the changing respiratory, skin and habitat needs of the individual rather than trying unproven â€œreversalâ€ treatments.</p>
-
-<h2>What should you do if a pet axolotl starts metamorphosing?</h2>
-<ol>
-<li><strong>Document the changes.</strong> Take dated photos and note changes in gills, tail fin, eyes, skin, appetite and activity.</li>
-<li><strong>Test the environment.</strong> Record temperature and water-quality readings so ordinary husbandry problems are not mistaken for metamorphosis.</li>
-<li><strong>Do not add hormones, iodine or home remedies.</strong></li>
-<li><strong>Contact an amphibian-experienced veterinarian.</strong> A veterinarian can help distinguish true metamorphic change from disease, injury or environmental stress and advise on housing if the body plan is changing.</li>
-</ol>
-<p>Use the <a href="/health/finding-an-exotic-vet/">axolotl vet guide</a> if you need help finding an appropriate clinician.</p>
-
-<h2>Metamorphosis vs neoteny</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Feature</th><th>Typical axolotl / neoteny</th><th>Metamorphosed form</th></tr></thead>
-<tbody>
-<tr><td>External gills</td><td>Retained into adulthood</td><td>Reduced or lost</td></tr>
-<tr><td>Tail fin</td><td>Broad aquatic fin retained</td><td>Reduced as body plan changes</td></tr>
-<tr><td>Eyelids</td><td>Absent in the typical paedomorphic form</td><td>Develop during metamorphic change</td></tr>
-<tr><td>Habitat</td><td>Fully aquatic</td><td>More terrestrial / semi-terrestrial requirements</td></tr>
-<tr><td>Normal for pet axolotls?</td><td>Yes</td><td>No; uncommon and warrants assessment</td></tr>
-</tbody></table></div>
-<p>For the evolutionary/developmental concept itself, continue to <a href="/biology-and-science/neoteny/">what neoteny means in axolotls</a>.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/29777689/">Crowner et al. (2019): endocrinology of paedomorphosis in the Mexican axolotl</a></li>
-<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6473073/">Voss et al. (2019): thyroid-hormone-dependent development and axolotl paedomorphosis</a></li>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
-</ul>
-''',
-        "featured": False,
-    },
-
-    "biology-and-science/axolotl-life-cycle": {
-        "slug": "biology-and-science/axolotl-life-cycle",
-        "hub": "biology-and-science",
-        "title": "Axolotl Life Cycle: Egg, Larva, Juvenile & Adult Stages",
-        "title_tag": "Axolotl Life Cycle: Egg, Larva, Juvenile & Adult Stages",
-        "meta": "Follow the axolotl life cycle from fertilized egg through embryo, hatchling, larva, juvenile and sexually mature adult, including how neoteny changes the usual salamander pattern.",
-        "intro": "The axolotl life cycle runs from fertilized egg to embryo, hatchling, feeding larva, juvenile and sexually mature adult. Unlike most salamanders, the normal adult remains aquatic and keeps larval traits such as external gills.",
-        "num": 213,
-        "date_published": "2026-09-18",
-        "date_modified": "2026-09-18",
-        "headings": [
-            "What are the stages of the axolotl life cycle?",
-            "Stage 1: fertilized egg and embryo",
-            "Stage 2: hatching",
-            "Stage 3: feeding larva",
-            "Stage 4: juvenile growth",
-            "Stage 5: sexually mature adult",
-            "Why doesn't the normal life cycle end in a land salamander?",
-            "How long does the axolotl life cycle take?",
-            "Life cycle vs care stages",
-            "Sources",
-        ],
-        "body": r'''
-<p><strong>The normal axolotl life cycle is egg â†’ embryo â†’ hatchling â†’ feeding larva â†’ juvenile â†’ sexually mature aquatic adult.</strong> Development does not stop when an axolotl keeps its gills. The species continues to grow, develop limbs, mature its organs and become reproductively mature while retaining several juvenile-looking aquatic traits.</p>
-
-<h2>What are the stages of the axolotl life cycle?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Stage</th><th>What is happening</th><th>Best site guide</th></tr></thead>
-<tbody>
-<tr><td>Egg / embryo</td><td>Cleavage, gastrulation, neurulation, organ formation and pre-hatch development</td><td><a href="/breeding/egg-and-larvae-care/">Egg & larval care</a></td></tr>
-<tr><td>Hatchling</td><td>Newly hatched animal uses remaining yolk before active feeding</td><td><a href="/breeding/egg-and-larvae-care/">Egg & larval care</a></td></tr>
-<tr><td>Feeding larva</td><td>Begins active feeding; limbs continue developing</td><td><a href="/breeding/raising-juveniles/">Baby axolotl care</a></td></tr>
-<tr><td>Juvenile</td><td>Rapid growth, food transitions and increasing need for individual space</td><td><a href="/breeding/raising-juveniles/">Baby axolotl care</a></td></tr>
-<tr><td>Adult</td><td>Sexual maturity while retaining the aquatic body plan</td><td><a href="/care-basics/axolotl-age-and-size-chart/">Age & size chart</a></td></tr>
-</tbody></table></div>
-
-<h2>Stage 1: fertilized egg and embryo</h2>
-<p>Axolotl development begins with a fertilized egg surrounded by protective jelly layers. Classic staging systems divide embryonic development into cleavage, blastula, gastrula, neurula, tailbud and pre-hatch stages. The Ambystoma Genetic Stock Center's staging resources extend from the one-cell egg through stage 44, just after hatching.</p>
-<p>Temperature affects developmental speed, so an embryo should be described by its morphological stage rather than assuming that every clutch reaches a landmark on exactly the same day.</p>
-
-<h2>Stage 2: hatching</h2>
-<p>At hatching, the animal is still using stored yolk. The AGSC husbandry guide describes transferring newly hatched larvae into clean rearing water and waiting for the onset of feeding behavior before offering newly hatched brine shrimp. This separates the hatch event from the true beginning of active feeding.</p>
-
-<h2>Stage 3: feeding larva</h2>
-<p>After yolk reserves are used, the larva becomes an active predator. During this stage the external gills are prominent, the body elongates and the limbs continue developing. Limb-development staging extends beyond hatching because forelimbs and hindlimbs appear and differentiate over time rather than being complete at the moment the animal leaves the egg.</p>
-<p>Larvae also vary in growth rate. Size sorting matters because larger larvae can injure or attempt to eat smaller ones.</p>
-
-<h2>Stage 4: juvenile growth</h2>
-<p>The juvenile period is a practical husbandry stage rather than one single universally fixed age. The AGSC increases individual container size as animals grow and changes foods as body size permits. Research staging papers likewise show that post-hatch development and maturation stretch across months.</p>
-<p>For owners, use the animal's length, feeding ability, body condition and development rather than a rigid â€œjuvenile starts on day Xâ€ rule.</p>
-
-<h2>Stage 5: sexually mature adult</h2>
-<p>An adult axolotl reaches reproductive maturity without undergoing the normal terrestrial metamorphosis seen in many related salamanders. A recent developmental review notes that sexual maturity is generally around a year or older, while the time from hatchling to mature adult can vary substantially with density, temperature, nutrition and individual growth.</p>
-<p>Recent gonadal research also shows that reproductive tissues mature progressively over the later larval/juvenile period rather than switching on at one exact age.</p>
-
-<h2>Why doesn't the normal life cycle end in a land salamander?</h2>
-<p><strong>Because paedomorphosis is the normal developmental strategy of <em>Ambystoma mexicanum</em>.</strong> Adults retain external gills, a finned tail and an aquatic lifestyle while becoming reproductively mature. That is why the axolotl life cycle should not be illustrated as â€œegg â†’ tadpole â†’ ordinary land salamanderâ€ unless the figure is specifically explaining experimentally induced or unusual metamorphosis.</p>
-<p>Read <a href="/biology-and-science/metamorphosis/">axolotl metamorphosis</a> for the exceptional pathway and <a href="/biology-and-science/neoteny/">neoteny</a> for the underlying developmental concept.</p>
-
-<h2>How long does the axolotl life cycle take?</h2>
-<p>There is no single clock for every animal. Early embryonic stages are strongly temperature-dependent, while later growth and sexual maturation depend on husbandry, density, genetics, nutrition and sex. A modern staging review follows development from fertilization to immature adult and reports that sexually mature adulthood may take roughly a year or longer, with some animals taking substantially longer under different rearing conditions.</p>
-
-<h2>Life cycle vs care stages</h2>
-<p>This page owns the biological sequence. For day-to-day husbandry:</p>
-<ul>
-<li><strong>Eggs and hatchlings:</strong> <a href="/breeding/egg-and-larvae-care/">egg and larval care</a></li>
-<li><strong>Baby and juvenile grow-out:</strong> <a href="/breeding/raising-juveniles/">baby axolotl care</a></li>
-<li><strong>Body length and growth:</strong> <a href="/care-basics/axolotl-age-and-size-chart/">age and size chart</a></li>
-<li><strong>Feeding frequency:</strong> <a href="/diet/feeding-schedule-by-age/">feeding schedule by age and size</a></li>
-</ul>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://ambystoma.uky.edu/education1/embryo-staging-series">Ambystoma Genetic Stock Center: Embryo Staging Series</a></li>
-<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9536427/">Khattak et al. (2022): updated axolotl staging from one-cell embryo to immature adult</a></li>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/Nye%20et%20al%202002.pdf">Nye et al.: extension of normal staging through limb development</a></li>
-</ul>
-''',
-        "featured": False,
-    },
-
-    "morphs/albino": {
-        "slug": "morphs/albino",
-        "hub": "morphs",
-        "title": "Albino Axolotl: Color, Genetics, Types & Identification",
-        "title_tag": "Albino Axolotl: Color, Genetics, Types & Identification",
-        "meta": "Albino axolotl genetics and identification: how the recessive tyrosinase mutation removes melanin, why albinos can look golden, white or pale, and how albino differs from leucistic.",
-        "intro": "An albino axolotl is homozygous for a recessive mutation that disrupts melanin production. Because other pigment systems can remain, albino animals are not all the same color: golden, white-albino and axanthic-albino combinations can look different.",
-        "num": 214,
-        "date_published": "2026-09-18",
-        "date_modified": "2026-09-18",
-        "headings": [
-            "What is an albino axolotl?",
-            "What causes albinism in axolotls?",
-            "What does an albino axolotl look like?",
-            "Golden albino vs albino: what's the difference?",
-            "Albino vs leucistic axolotl",
-            "What is a white albino axolotl?",
-            "What is an axanthic albino axolotl?",
-            "Are albino axolotls rare?",
-            "Do albino axolotls need different care?",
-            "Sources",
-        ],
-        "body": r'''
-<p><strong>Albino axolotls cannot make normal dark melanin because of a recessive mutation affecting the tyrosinase gene.</strong> The term <em>albino</em> describes that loss of melanin production; it does not guarantee one exact body color because yellow pigment, reflective cells and other pigment mutations can change the final appearance.</p>
-
-<h2>What is an albino axolotl?</h2>
-<p>In the laboratory axolotl lineage, the classic albino allele was introduced historically through a cross with an albino tiger salamander. Modern genetic work mapped the albino phenotype to <em>tyrosinase</em> (<em>tyr</em>), a key melanin-synthesis gene. Animals with two copies of the recessive albino allele lack normal melanin production.</p>
-
-<h2>What causes albinism in axolotls?</h2>
-<p>Research identified a disruptive change in the axolotl <em>tyr</em> allele associated with the historic albino phenotype. Because tyrosinase is required for melanin synthesis, the melanophores can be present but cannot produce normal dark melanin.</p>
-<p>Other pigment systems are not automatically removed. That is why an otherwise wild-type albino can still show strong yellow coloration.</p>
-
-<h2>What does an albino axolotl look like?</h2>
-<p>An albino axolotl commonly has pale reddish or pinkish eyes because dark melanin is missing. Body color depends on the other pigment traits present:</p>
-<ul>
-<li><strong>Golden albino:</strong> yellow/gold body with reddish or pink eyes.</li>
-<li><strong>White albino:</strong> pale white/pink body from combining the white phenotype with albinism.</li>
-<li><strong>Axanthic albino:</strong> very pale animal because both melanin and normal yellow/reflective pigment systems are altered.</li>
-</ul>
-<p>This is why â€œalbino = whiteâ€ is too simple for axolotls.</p>
-
-<h2>Golden albino vs albino: what's the difference?</h2>
-<p><strong>Golden albino is one visible albino combination, not a separate definition of albinism.</strong> The Ambystoma Genetic Stock Center describes an otherwise wild-type albino as yellow with reddish eyes and notes that this appearance is often called a golden albino. The gold comes from retained yellow pigments rather than melanin.</p>
-<p>For the specific yellow-gold phenotype, see the <a href="/morphs/golden-albino/">golden albino axolotl guide</a>.</p>
-
-<h2>Albino vs leucistic axolotl</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Feature</th><th>Albino</th><th>Leucistic / white</th></tr></thead>
-<tbody>
-<tr><td>Main pigment mechanism</td><td>Cannot synthesize normal melanin</td><td>Reduced pigment-cell migration/distribution associated with the white phenotype</td></tr>
-<tr><td>Eyes</td><td>Usually pinkish/reddish because melanin is absent</td><td>Typically dark</td></tr>
-<tr><td>Body color</td><td>Can be yellow/gold, white/pink or very pale depending on other genes</td><td>Usually pale pink-white</td></tr>
-<tr><td>Can combine with other mutations?</td><td>Yes</td><td>Yes</td></tr>
-</tbody></table></div>
-<p>See <a href="/morphs/leucistic/">leucistic axolotl</a> for the white/dark-eye phenotype.</p>
-
-<h2>What is a white albino axolotl?</h2>
-<p>A white albino combines the white phenotype with the albino mutation. It can resemble an ordinary leucistic/white axolotl at first glance, but the eyes are pale or pinkish rather than dark because melanin production is also absent.</p>
-
-<h2>What is an axanthic albino axolotl?</h2>
-<p>An axanthic albino combines albinism with the axanthic mutation. AGSC strain notes describe young animals of this genotype as nearly colorless, with older animals sometimes becoming pale yellow as dietary riboflavins accumulate.</p>
-
-<h2>Are albino axolotls rare?</h2>
-<p><strong>â€œAlbinoâ€ is a genetic phenotype, not a permanent market-rarity category.</strong> Albino stocks are well established in captive axolotls and are maintained by the Ambystoma Genetic Stock Center. Local availability and price depend on breeder supply, lineage, additional traits and region rather than on albinism alone.</p>
-<p>Use the <a href="/morphs/morphs-comparison-chart/">morph comparison</a> for appearance and the <a href="/cost-and-buying/axolotl-price-by-morph/">price-by-morph guide</a> for current market context.</p>
-
-<h2>Do albino axolotls need different care?</h2>
-<p>Core husbandry is the same: stable cool water, appropriate filtration, suitable food, safe substrate and hides. Pale animals may be visually more sensitive to bright display lighting, but color does not create a separate temperature, water-chemistry or feeding requirement.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://ambystoma.uky.edu/teachers-materials-menu/teachers-materials-books-menu?id=9">Ambystoma Genetic Stock Center: Mutant Genes</a></li>
-<li><a href="https://ambystoma.uky.edu/12-educationresources/10-axolotl-strains">Ambystoma Genetic Stock Center: Axolotl Strains</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/28127056/">Woodcock et al. (2017): identification of the axolotl albino gene</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/3723064/">Frost et al. (1986): analysis of the albino pigment phenotype</a></li>
-</ul>
-''',
-        "featured": False,
-    },
-
-    "morphs/axanthic": {
-        "slug": "morphs/axanthic",
-        "hub": "morphs",
-        "title": "Axanthic Axolotl: Color, Pigment Cells, Genetics & Identification",
-        "title_tag": "Axanthic Axolotl: Color, Genetics & Identification",
-        "meta": "What is an axanthic axolotl? Learn how the recessive axanthic mutation alters yellow pteridine pigment and iridophore development, how axanthic differs from melanoid, and how combinations change appearance.",
-        "intro": "Axanthic axolotls have a recessive pigment phenotype in which normal yellow pteridine pigmentation is lost and iridophore development is also affected. The result is commonly a gray-toned appearance dominated by melanophores, but combinations with albino or other pigment genes can look very different.",
-        "num": 215,
-        "date_published": "2026-09-18",
-        "date_modified": "2026-09-18",
-        "headings": [
-            "What is an axanthic axolotl?",
-            "What causes the axanthic color?",
-            "What does an axanthic axolotl look like?",
-            "Axanthic vs melanoid axolotl",
-            "What is an axanthic albino?",
-            "Is axanthic the same as gray, silver or lavender?",
-            "Are axanthic axolotls rare?",
-            "Do axanthic axolotls need special care?",
-            "Sources",
-        ],
-        "body": r'''
-<p><strong>An axanthic axolotl carries a recessive pigment mutation that disrupts the normal yellow-pigment system and also affects reflective pigment cells.</strong> In the classic axanthic phenotype, melanophores remain, so an otherwise wild-type axanthic animal can look uniformly dark gray rather than yellow-green or olive.</p>
-
-<h2>What is an axanthic axolotl?</h2>
-<p>The name comes from the loss of normal xanthophore pigmentation. Xanthophores are pigment cells associated with yellow/orange coloration. Classic axolotl genetics uses the symbol <em>ax</em> for the recessive axanthic mutation.</p>
-
-<h2>What causes the axanthic color?</h2>
-<p>Microscopy and biochemical studies found unpigmented xanthophore-lineage cells but no detectable pteridine pigments in axanthic skin, suggesting disruption of the pteridine biosynthesis pathway. The same work reported failure of normal iridophore differentiation. Melanophores remained, leaving dark pigment more visually dominant.</p>
-
-<h2>What does an axanthic axolotl look like?</h2>
-<p>An otherwise wild-type axanthic may look charcoal, slate or dark gray because it lacks the usual yellow/reflective contribution that gives wild-type animals their olive or greenish mottling. Appearance still varies with age, lighting, genetic background and other pigment genes.</p>
-<p>Do not identify an axanthic animal from one photo alone. Use eye appearance, reflective shine, known parentage and breeder records where available.</p>
-
-<h2>Axanthic vs melanoid axolotl</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Feature</th><th>Axanthic</th><th>Melanoid</th></tr></thead>
-<tbody>
-<tr><td>Main pigment change</td><td>Yellow pteridine pigment is absent; iridophore development is also affected</td><td>Increased/dominant dark melanophore appearance with loss of iridophores and reduced xanthophores</td></tr>
-<tr><td>Typical impression</td><td>Gray/slate or dark gray</td><td>Deep black/dark brown-gray</td></tr>
-<tr><td>Same mutation?</td><td>No</td><td>No</td></tr>
-<tr><td>Can occur with albino?</td><td>Yes</td><td>Yes</td></tr>
-</tbody></table></div>
-<p>Use the <a href="/morphs/melanoid/">melanoid guide</a> for the separate melanoid phenotype.</p>
-
-<h2>What is an axanthic albino?</h2>
-<p>Axanthic and albino are separate recessive mutations, so an animal can inherit both. In an axanthic albino, melanin is also absent, removing the dark pigment that normally dominates an axanthic animal. AGSC strain descriptions note that young axanthic albinos can be nearly colorless and may become pale yellow later as riboflavins accumulate.</p>
-
-<h2>Is axanthic the same as gray, silver or lavender?</h2>
-<p><strong>No color nickname alone proves axanthic genetics.</strong> Gray, silver and lavender are visual descriptions that may be influenced by lighting, camera processing, other pigment combinations or informal breeder terminology. â€œAxanthicâ€ is useful when it refers to the actual axanthic phenotype/genetic background rather than simply a cool-toned photograph.</p>
-<p>For informal color labels, see <a href="/morphs/blue-and-pink-axolotl-myth/">pink, blue, purple and green axolotl colors</a>.</p>
-
-<h2>Are axanthic axolotls rare?</h2>
-<p>Market rarity changes with breeder supply and region. The axanthic mutation is a long-described laboratory pigment phenotype, so the word itself does not mean a one-of-a-kind animal. A captive seller may still charge more for particular combinations or lines.</p>
-
-<h2>Do axanthic axolotls need special care?</h2>
-<p>Core care requirements are the same as for other axolotl pigment phenotypes. Color genetics does not create a separate target temperature, nitrogen cycle, feeding schedule or substrate requirement. Evaluate health from body condition, gills, behavior, appetite and measured water quality rather than from the morph name.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://ambystoma.uky.edu/teachers-materials-menu/teachers-materials-books-menu?id=9">Ambystoma Genetic Stock Center: Mutant Genes</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/3794587/">Frost, Epp & Robinson (1986): analysis of the axanthic phenotype</a></li>
-<li><a href="https://ambystoma.uky.edu/12-educationresources/10-axolotl-strains">Ambystoma Genetic Stock Center: Axolotl Strains</a></li>
-</ul>
-''',
-        "featured": False,
-    },
-
-    "tank-setup/how-to-test-water": {
-        "slug": "tank-setup/how-to-test-water",
-        "hub": "tank-setup",
-        "title": "How to Test Axolotl Water: Ammonia, Nitrite, Nitrate & pH",
-        "title_tag": "How to Test Axolotl Water: Ammonia, Nitrite, Nitrate & pH",
-        "meta": "Learn how to test axolotl aquarium water consistently: what to measure, how to take a sample, how to use liquid tests or strips correctly, how to read color charts, and what to do after an abnormal result.",
-        "intro": "Good water testing has two separate jobs: obtain a reliable reading, then interpret it. This page owns the testing procedure; the Water Parameters & Cycling guide explains what the readings mean and what aquarium process may be causing them.",
-        "num": 216,
-        "date_published": "2026-09-18",
-        "date_modified": "2026-09-18",
-        "headings": [
-            "What should you test in an axolotl tank?",
-            "Liquid test kit vs test strips",
-            "How to take a water sample",
-            "How to test ammonia",
-            "How to test nitrite and nitrate",
-            "How to test pH",
-            "How to read a color chart accurately",
-            "Common water-testing mistakes",
-            "How often should you test?",
-            "What should you do with the result?",
-            "Sources",
-        ],
-        "body": r'''
-<p><strong>Test the water before trying to diagnose an axolotl from appearance or behavior alone.</strong> A reliable aquarium record normally includes ammonia, nitrite, nitrate, pH and temperature, with additional source-water or hardness testing when your local water chemistry makes it relevant.</p>
-
-<h2>What should you test in an axolotl tank?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Measurement</th><th>Why it matters</th><th>Where to interpret it</th></tr></thead>
-<tbody>
-<tr><td>Ammonia</td><td>Waste and uneaten food enter the nitrogen cycle as ammonia</td><td><a href="/tank-setup/water-parameters-cycling/">Water Parameters & Cycling</a></td></tr>
-<tr><td>Nitrite</td><td>Shows the intermediate stage of biological nitrogen processing</td><td><a href="/tank-setup/water-parameters-cycling/">Water Parameters & Cycling</a></td></tr>
-<tr><td>Nitrate</td><td>Helps track the end product that accumulates between water changes</td><td><a href="/tank-setup/water-parameters-cycling/">Water Parameters & Cycling</a></td></tr>
-<tr><td>pH</td><td>Changes both biological filtration and the toxicity profile of ammonia</td><td><a href="/tank-setup/water-parameters-cycling/">Water Parameters & Cycling</a></td></tr>
-<tr><td>Temperature</td><td>Water temperature affects metabolism, oxygen demand and stress</td><td><a href="/tank-setup/temperature/">Temperature guide</a></td></tr>
-</tbody></table></div>
-
-<h2>Liquid test kit vs test strips</h2>
-<p><strong>Use a testing method that actually measures the parameters you need and follow its instructions exactly.</strong> Multi-parameter strips are fast and convenient, but some products omit ammonia or use a narrower measurement range. Liquid colorimetric kits usually provide individual ammonia, nitrite, nitrate and pH tests but require more steps and careful timing.</p>
-<p>The most important rule is consistency: do not compare readings taken with different products as though every scale and chemistry were identical. If a result is surprising, repeat the test and, when possible, confirm it with a second method or a fresh reagent before making a large correction.</p>
-
-<h2>How to take a water sample</h2>
-<ol>
-<li>Wash your hands and rinse the test vial or sample cup with tank water only.</li>
-<li>Take water from the aquarium itself rather than from the replacement-water bucket.</li>
-<li>Avoid scooping obvious food debris or substrate into the sample unless you are specifically investigating that area.</li>
-<li>Use the exact sample volume required by the test.</li>
-<li>Test promptly instead of leaving an open sample sitting for a long period.</li>
-</ol>
-
-<h2>How to test ammonia</h2>
-<p>Follow the exact reagent order, drop count, mixing method and development time printed for your kit. Some ammonia tests use multiple reagents that must be added in sequence. Read too early or too late and the color may not correspond to the supplied chart.</p>
-<p>The AGSC emphasizes frequent ammonia monitoring in municipal-water systems and filtered/recirculating systems because ammonia interacts with pH and biological filtration. Record the number rather than writing â€œfineâ€ or â€œbadâ€ so you can compare trends.</p>
-
-<h2>How to test nitrite and nitrate</h2>
-<p>Nitrite and nitrate tests also depend on the manufacturer's mixing and timing steps. Nitrate tests in particular may require vigorous shaking to resuspend reagents. Skipping that step can produce a misleadingly low result on some kits.</p>
-<p>Measure ammonia, nitrite and nitrate as a set when evaluating the nitrogen cycle. One number by itself cannot show the full direction of the cycle.</p>
-
-<h2>How to test pH</h2>
-<p>Use the pH range that covers your actual water. If a broad kit includes both low-range and high-range pH tests, choose the one whose scale brackets your reading rather than forcing an off-scale color match. Compare tank pH with source-water pH when investigating repeated swings.</p>
-
-<h2>How to read a color chart accurately</h2>
-<ul>
-<li>Use neutral white light rather than colored aquarium LEDs.</li>
-<li>Hold the vial against the background specified by the manufacturer.</li>
-<li>Read at the stated development time.</li>
-<li>If the color falls between two blocks, record it as an approximate range rather than inventing false precision.</li>
-<li>Photographs are useful for trend records but phone cameras can change white balance, so do not rely on a photo alone to match a color chart.</li>
-</ul>
-
-<h2>Common water-testing mistakes</h2>
-<ul>
-<li>expired or contaminated reagents;</li>
-<li>wrong sample volume;</li>
-<li>incorrect drop count;</li>
-<li>not shaking a reagent that requires mixing;</li>
-<li>reading the result outside the specified time window;</li>
-<li>testing only nitrate and assuming ammonia/nitrite must also be safe;</li>
-<li>using colored tank lighting to compare the vial; and</li>
-<li>making a large water-chemistry change from one questionable reading without confirming it.</li>
-</ul>
-
-<h2>How often should you test?</h2>
-<p>Test more frequently during cycling, after a suspected cycle disruption, when an animal is unwell, after a major maintenance change, or when readings have been unstable. A mature stable aquarium can be monitored on a routine schedule, but the schedule should tighten whenever conditions change.</p>
-<p>Use the <a href="/tools/nitrogen-cycle-tracker/">Nitrogen Cycle Tracker</a> to record results and see trends instead of relying on memory.</p>
-
-<h2>What should you do with the result?</h2>
-<p><strong>This page tells you how to obtain the reading; it does not duplicate the full corrective protocol.</strong> Take your confirmed numbers to the <a href="/tank-setup/water-parameters-cycling/">Water Parameters & Cycling guide</a>. If a water change is indicated, follow the <a href="/tank-setup/water-change-guide/">step-by-step Water Change Guide</a>.</p>
-<p>If the axolotl shows severe or rapidly worsening signs as well as abnormal water readings, use the <a href="/health/emergency-first-aid/">emergency triage guide</a> and seek veterinary care when indicated.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024, water-quality section</a></li>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/">Ambystoma Genetic Stock Center</a></li>
-</ul>
-''',
-        "featured": False,
-    },
-})
-
-# Temporary real heroes for the new pages. These deliberately reuse existing
-# MyAxolotl originals so no new URL publishes with an auto-generated placeholder.
-HERO_IMAGE_OVERRIDES.update({
-    "biology-and-science/metamorphosis": {
-        "file": "axolotl-neoteny-explained.webp",
-        "alt": "Axolotl neoteny and metamorphosis diagram comparing the normal aquatic adult with the metamorphic pathway",
-        "caption": "Axolotls normally mature while retaining larval aquatic traits; metamorphosis is an unusual alternative pathway, not a routine pet-care goal.",
-        "description": "Axolotl developmental diagram contrasting paedomorphosis with salamander metamorphosis.",
-        "credit": "MyAxolotl original graphic",
-        "width": 1600, "height": 900,
-    },
-    "biology-and-science/axolotl-life-cycle": {
-        "file": "axolotl-age-and-size-chart.webp",
-        "alt": "Axolotl growth stages from early larva through juvenile and adult",
-        "caption": "Axolotl development continues from embryo and hatchling through larva, juvenile and sexually mature aquatic adult.",
-        "description": "Axolotl growth-stage graphic used to illustrate the post-hatch portion of the life cycle.",
-        "credit": "MyAxolotl original graphic",
-        "width": 1600, "height": 900,
-    },
-    "morphs/albino": {
-        "file": "golden-albino-axolotl-morph.webp",
-        "alt": "Albino axolotl showing pale eyes and reduced dark melanin",
-        "caption": "Albinism removes normal melanin production, while other pigment systems determine whether the animal looks golden, white-pink or very pale.",
-        "description": "Albino axolotl pigment graphic showing the visible effect of reduced melanin.",
-        "credit": "MyAxolotl original graphic",
-        "width": 1600, "height": 900,
-    },
-    "morphs/axanthic": {
-        "file": "axolotl-pigment-cells-color-genetics.webp",
-        "alt": "Axolotl pigment-cell diagram used to explain the axanthic phenotype",
-        "caption": "Axanthic genetics alters the normal yellow pteridine system and reflective pigment-cell development, leaving melanophores visually dominant in a typical axanthic animal.",
-        "description": "Axolotl pigment-cell graphic explaining how axanthic differs from other color phenotypes.",
-        "credit": "MyAxolotl original graphic",
-        "width": 1600, "height": 900,
-    },
-    "tank-setup/how-to-test-water": {
-        "file": "axolotl-water-parameters-nitrogen-cycle.webp",
-        "alt": "Axolotl aquarium water testing with ammonia, nitrite, nitrate and pH test vials",
-        "caption": "Reliable water testing starts with correct sampling, reagent timing and consistent recording before the numbers are interpreted.",
-        "description": "Axolotl water-test graphic showing the core nitrogen-cycle and pH measurements.",
-        "credit": "MyAxolotl original graphic",
-        "width": 1600, "height": 900,
-    },
-})
-
-LINKING.update({
-    "biology-and-science/metamorphosis": [
-        "biology-and-science/neoteny",
-        "biology-and-science/axolotl-life-cycle",
-        "biology-and-science/axolotl-vs-tiger-salamander",
-        "health/finding-an-exotic-vet",
-    ],
-    "biology-and-science/axolotl-life-cycle": [
-        "breeding/egg-and-larvae-care",
-        "breeding/raising-juveniles",
-        "care-basics/axolotl-age-and-size-chart",
-        "biology-and-science/neoteny",
-        "biology-and-science/metamorphosis",
-    ],
-    "morphs/albino": [
-        "morphs/golden-albino",
-        "morphs/leucistic",
-        "morphs/axanthic",
-        "morphs/morphs-comparison-chart",
-        "morphs/pigment-cells",
-    ],
-    "morphs/axanthic": [
-        "morphs/pigment-cells",
-        "morphs/melanoid",
-        "morphs/albino",
-        "morphs/morphs-comparison-chart",
-    ],
-    "tank-setup/how-to-test-water": [
-        "tank-setup/water-parameters-cycling",
-        "tank-setup/water-change-guide",
-        "tools/nitrogen-cycle-tracker",
-        "health/emergency-first-aid",
-    ],
-})
-
-
-
-# ---------------------------------------------------------------------------
-# Keyword-reconciliation new pages â€” batch 2 (2026-09-18)
-# ---------------------------------------------------------------------------
-
-CONFIG_ARTICLES.update({
-    "cost-and-buying/where-to-buy-axolotls": {
-        "slug": "cost-and-buying/where-to-buy-axolotls",
-        "hub": "cost-and-buying",
-        "title": "Where to Buy an Axolotl: Breeders, Pet Stores & Online Options",
-        "title_tag": "Where to Buy an Axolotl: Breeders, Pet Stores & Online Options",
-        "meta": "Where to buy an axolotl in the US: compare specialist breeders, local exotic pet stores, online sellers and rehomes, plus current Petco/PetSmart availability checks and a buyer-verification checklist.",
-        "intro": "The safest place to buy an axolotl is the seller you can verify, not automatically the closest or cheapest seller. Compare specialist breeders, local exotic pet stores, online sellers and responsible rehomes by the exact animal, husbandry records, legal route, written terms and shipping or pickup plan.",
-        "num": 217,
-        "date_published": "2026-09-18",
-        "date_modified": "2026-09-18",
-        "headings": [
-            "Where can you buy an axolotl?",
-            "Buying from a specialist axolotl breeder",
-            "Buying from a local exotic pet store",
-            "Buying an axolotl online",
-            "Where can you buy an axolotl near you?",
-            "Does Petco sell axolotls?",
-            "Does PetSmart sell axolotls?",
-            "What should you verify before paying?",
-            "How do you choose the individual animal?",
-            "What should you know about shipping?",
-            "How much should an axolotl cost?",
-            "Check legality before buying",
-            "Current retailer availability note",
-        ],
-        "body": r'''
-<p><strong>Start with the seller's evidence, not the seller category.</strong> A specialist breeder can be easier to verify because they may have hatch dates, parentage, feeding history and current photos, but a good local store or rehome can also be appropriate when the animal and husbandry records are transparent.</p>
-
-<h2>Where can you buy an axolotl?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Source</th><th>Main advantage</th><th>Main thing to verify</th></tr></thead>
-<tbody>
-<tr><td>Specialist breeder</td><td>Often the best access to lineage, hatch and feeding records</td><td>Actual husbandry, exact-animal photos, written terms and shipping practices</td></tr>
-<tr><td>Local exotic pet store</td><td>You may be able to inspect the animal and tank in person</td><td>Water quality, feeding history, source of the animal and staff knowledge</td></tr>
-<tr><td>Online seller</td><td>Wider choice of morphs and locations</td><td>Identity, current photos, legal shipping route, weather plan and arrival policy</td></tr>
-<tr><td>Responsible rehome / rescue</td><td>Can place an existing animal into an appropriate home</td><td>Health history, reason for rehoming, current setup and quarantine plan</td></tr>
-</tbody></table></div>
-
-<h2>Buying from a specialist axolotl breeder</h2>
-<p>A specialist breeder is useful when you want clear age, lineage or morph information. Do not treat â€œbreederâ€ as a quality guarantee. Ask for current photos or video of the exact animal, its feeding routine, measured water conditions, hatch or approximate age, and written arrival or pickup terms.</p>
-<p>Use the <a href="/cost-and-buying/choosing-a-reputable-breeder/">12-question axolotl breeder checklist</a> before paying.</p>
-
-<h2>Buying from a local exotic pet store</h2>
-<p>Buying locally lets you inspect the animal and the display system before transport. Look beyond the animal's color. Check whether the tank has appropriate substrate, cool stable water, low-flow filtration, intact animals without obvious wounds, and staff who can answer basic husbandry questions with measured values rather than vague assurances.</p>
-<p>Ask where the axolotl came from and whether the store has recent feeding and water-quality records. A store that cannot answer those questions is harder to evaluate than one that can.</p>
-
-<h2>Buying an axolotl online</h2>
-<p>Online buying adds shipping and transaction risk. Verify the seller's identity, the exact animal, written live-arrival terms, the carrier, delivery timing and the weather plan before payment. Avoid sellers who pressure you to pay immediately, refuse current photos, use only stock images or insist on payment methods with no buyer protection.</p>
-<p>Use <a href="/cost-and-buying/red-flags-when-buying/">axolotl seller red flags</a> before placing an online order.</p>
-
-<h2>Where can you buy an axolotl near you?</h2>
-<p>For â€œaxolotl for sale near meâ€ searches, start with local exotic-aquatic stores and local breeder listings, then verify the seller rather than assuming proximity means quality. Call before driving because live-animal inventory can change quickly.</p>
-<p>Local pickup has one advantage: you can reduce shipping stress and inspect the animal. It does not remove the need for quarantine, acclimation and a fully cycled home tank.</p>
-
-<h2>Does Petco sell axolotls?</h2>
-<p><strong>Petco currently says that various axolotls are available at select Petco locations and on Petco.com, with offerings varying by location.</strong> That statement appears on Petco's current axolotl care sheet. Because live inventory varies, call the specific store or check the current product/location system before planning a purchase.</p>
-<p>Do not rely on the chain name alone. Apply the same health and husbandry checks you would use for any seller.</p>
-<p><strong>Source checked September 18, 2026:</strong> <a href="https://www.petco.com/pet-education/caresheets/axolotl">Petco Axolotl Care Guide â€” Where to Buy</a>.</p>
-
-<h2>Does PetSmart sell axolotls?</h2>
-<p><strong>We did not confirm a current live-axolotl listing on PetSmart's website during our September 18, 2026 check.</strong> PetSmart's site did surface axolotl-themed merchandise, but that is not evidence of live-animal availability. A local store may have different regional inventory, so call the store directly rather than assuming either yes or no from an old search result.</p>
-<p>This section is intentionally date-stamped because retailer livestock policies and regional availability change.</p>
-
-<h2>What should you verify before paying?</h2>
-<ol>
-<li><strong>The exact animal.</strong> Ask for current photos or video, not only a generic morph image.</li>
-<li><strong>Feeding history.</strong> What food is it eating, how often, and when did it last eat?</li>
-<li><strong>Measured water conditions.</strong> Ask for actual temperature and water-test readings where available.</li>
-<li><strong>Age or hatch information.</strong> Exact records are ideal; an honest approximate age is better than a made-up date.</li>
-<li><strong>Current body condition and injuries.</strong> Look at gills, skin, limbs, belly and movement.</li>
-<li><strong>Written terms.</strong> Know what happens if the animal arrives dead, injured or delayed.</li>
-<li><strong>Legal route.</strong> Confirm that ownership, sale, pickup and any interstate shipment are legal for both ends of the transaction.</li>
-</ol>
-
-<h2>How do you choose the individual animal?</h2>
-<p>Seller quality and animal condition are separate checks. A reputable seller can still have an individual animal that needs treatment or should not be moved yet. Use the <a href="/cost-and-buying/how-to-choose-a-healthy-axolotl/">healthy axolotl buyer checklist</a> to inspect the animal itself.</p>
-
-<h2>What should you know about shipping?</h2>
-<p>Live-animal shipping is highly dependent on carrier rules, origin and destination law, weather and delivery timing. Do not accept vague promises such as â€œwe ship anywhere.â€ Ask what carrier will be used, whether the seller checks weather at both ends, how the animal is packed, whether a signature or hub pickup is used, and what the live-arrival terms require from you.</p>
-<p>See <a href="/cost-and-buying/shipping-live-axolotls/">how axolotls are shipped</a> before ordering online.</p>
-
-<h2>How much should an axolotl cost?</h2>
-<p>Price depends on morph, size, sex, lineage, seller, region and shipping. Do not use a high price as proof of rarity or health, and do not use a low price as proof of a bargain. Compare current market examples in the <a href="/cost-and-buying/axolotl-price-by-morph/">axolotl price-by-morph guide</a>.</p>
-
-<h2>Check legality before buying</h2>
-<p><strong>Confirm ownership and transport rules before you send money.</strong> State, provincial, local and import rules can differ, and a seller's willingness to ship is not legal advice. Use the <a href="/legal/">axolotl legality hub</a> and then verify the current primary-source rules for your jurisdiction.</p>
-
-<h2>Current retailer availability note</h2>
-<p>This page separates long-term buying guidance from retailer availability because stock changes faster than husbandry principles. Petco's official care sheet was checked on September 18, 2026 and states that axolotls are offered at select locations and Petco.com. A current live-axolotl PetSmart listing was not confirmed in the same check. Recheck retailer sites and call the local store before making a trip.</p>
-''',
-        "featured": False,
-    },
-
-    "health/healthy-axolotl-poop": {
-        "slug": "health/healthy-axolotl-poop",
-        "hub": "health",
-        "title": "Axolotl Poop: What's Normal, Frequency & Warning Signs",
-        "title_tag": "Axolotl Poop: What's Normal, Frequency & Warning Signs",
-        "meta": "Axolotl poop explained without a fake color chart: how to track fecal frequency and consistency, which changes matter with appetite or weight loss, when parasites are possible, and how to collect a fresh sample for a veterinarian.",
-        "intro": "There is no well-established veterinary chart that defines one universal 'normal axolotl poop' color, shape or schedule. The useful approach is to know your animal's baseline, track fecal production with appetite and body condition, and use a fresh veterinary fecal examination when persistent changes raise concern for parasites or gastrointestinal disease.",
-        "num": 218,
-        "date_published": "2026-09-18",
-        "date_modified": "2026-09-18",
-        "headings": [
-            "What does normal axolotl poop look like?",
-            "How often do axolotls poop?",
-            "What should you track?",
-            "Does white or stringy poop mean parasites?",
-            "When can poop changes point to impaction or constipation?",
-            "What signs make a stool change more concerning?",
-            "How does a veterinarian test axolotl poop?",
-            "How do you collect a fresh fecal sample?",
-            "When should you contact a vet?",
-            "Sources",
-        ],
-        "body": r'''
-<p><strong>Do not diagnose an axolotl from stool color alone.</strong> Axolotl-specific veterinary literature does not provide a validated â€œhealthy poop chartâ€ with one correct color, shape or number of bowel movements. Veterinary amphibian references instead emphasize observing fecal production, the animal's overall condition and husbandry, and examining a fresh fecal sample when parasites or gastrointestinal disease are suspected.</p>
-
-<h2>What does normal axolotl poop look like?</h2>
-<p><strong>Use your own healthy animal's repeated baseline rather than an internet color chart.</strong> Diet, meal size, digestion time and how long feces remains in water can change its appearance. Once a sample sits in the aquarium, it can soften, break apart and mix with substrate, food debris or biofilm, making visual interpretation less reliable.</p>
-<p>The most useful question is therefore not â€œIs this exact shade normal?â€ but â€œIs this a persistent change from this axolotl's usual feces, and is it happening with appetite, weight, swelling, behavior or water-quality changes?â€</p>
-
-<h2>How often do axolotls poop?</h2>
-<p><strong>There is no single evidence-based bowel-movement schedule for every axolotl.</strong> Frequency varies with age, feeding schedule, meal size, food type, temperature, activity and individual digestion. A juvenile eating more frequently may pass waste on a different schedule from an adult fed only a few times a week.</p>
-<p>Track frequency in relation to meals rather than expecting one bowel movement every fixed number of days.</p>
-
-<h2>What should you track?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Observation</th><th>Why it helps</th></tr></thead>
-<tbody>
-<tr><td>Date of last meal</td><td>Connects stool timing with feeding frequency and fasting</td></tr>
-<tr><td>Food type and amount</td><td>Diet changes can alter fecal output</td></tr>
-<tr><td>Fecal production</td><td>Shows whether waste is still being passed</td></tr>
-<tr><td>Persistent change in consistency</td><td>More useful than one isolated unusual sample</td></tr>
-<tr><td>Appetite and weight trend</td><td>Helps distinguish an isolated stool change from a broader health problem</td></tr>
-<tr><td>Belly shape / swelling</td><td>Persistent distension plus reduced output may require gastrointestinal assessment</td></tr>
-<tr><td>Water quality and temperature</td><td>Husbandry stress can change appetite, activity and digestion</td></tr>
-</tbody></table></div>
-
-<h2>Does white or stringy poop mean parasites?</h2>
-<p><strong>No single stool appearance proves parasites.</strong> Amphibian feces can contain microorganisms that are not causing disease; Merck/MSD Veterinary Manual specifically notes that gastrointestinal protozoa may be abundant without necessarily indicating illness. At the same time, parasites can be detected in feces and some infections are associated with weight loss, poor appetite or abnormal stool.</p>
-<p>That is why â€œwhite/stringy = parasitesâ€ is too simplistic. If the change persists or occurs with weight loss, anorexia, weakness, bloating or other signs, a veterinarian can examine a fresh sample rather than treating from appearance alone.</p>
-
-<h2>When can poop changes point to impaction or constipation?</h2>
-<p>A period without visible feces is not enough by itself to diagnose impaction. The concern rises when reduced fecal output occurs with persistent abdominal swelling, loss of appetite, abnormal buoyancy, pain-like behavior, known ingestion of gravel or another foreign material, or progressive decline.</p>
-<p>Use the <a href="/health/impaction-symptoms-treatment/">axolotl impaction guide</a> for suspected blockage and the <a href="/tank-setup/gravel-risks/">gravel-risk guide</a> if swallowable substrate may be involved.</p>
-
-<h2>What signs make a stool change more concerning?</h2>
-<p>Seek veterinary advice sooner when an abnormal fecal pattern is accompanied by:</p>
-<ul>
-<li>persistent loss of appetite;</li>
-<li>progressive weight loss or poor body condition;</li>
-<li>blood-tinged feces;</li>
-<li>visible worms or repeated unusual material;</li>
-<li>persistent or increasing abdominal swelling;</li>
-<li>cloacal prolapse;</li>
-<li>marked lethargy or abnormal swimming; or</li>
-<li>multiple animals in the same collection developing similar signs.</li>
-</ul>
-
-<h2>How does a veterinarian test axolotl poop?</h2>
-<p>Veterinary amphibian workups may use a direct wet mount, flotation, sedimentation or other fecal techniques depending on the suspected organism. A 2026 study of juvenile <em>Ambystoma mexicanum</em> used fecal sedimentation, Faust and modified McMaster methods to detect <em>Eimeria</em> oocysts and nematode eggs, showing why microscopic testing is more informative than visual color matching.</p>
-<p>A positive organism on microscopy still has to be interpreted with the animal's clinical signs because some amphibian gastrointestinal organisms can be present without causing disease.</p>
-
-<h2>How do you collect a fresh fecal sample?</h2>
-<p><strong>If your veterinarian asks for a fecal sample, collect the freshest uncontaminated sample you can.</strong> Use a clean disposable tool and place the sample in a clean leakproof container. Keep it separate from substrate, uneaten food and dirty filter material as much as possible.</p>
-<p>Ask the clinic how quickly they want it delivered and whether it should be refrigerated. Freshness matters for some parasite stages, and the exact handling method depends on the test the veterinarian plans to run.</p>
-
-<h2>When should you contact a vet?</h2>
-<p>One unusual bowel movement in an otherwise normal axolotl is less informative than a persistent change with other clinical signs. Contact an amphibian-experienced veterinarian when stool changes persist, when the animal is losing weight or refusing food, when there is blood or prolapse, or when swelling and reduced output suggest a possible obstruction.</p>
-<p>Use the <a href="/health/finding-an-exotic-vet/">axolotl vet finder</a> for escalation and the <a href="/health/parasite-treatment/">parasite guide</a> for the difference between suspicion and confirmed treatment.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/clinical-techniques-in-amphibians">Merck Veterinary Manual: Clinical Techniques in Amphibians</a></li>
-<li><a href="https://www.msdvetmanual.com/exotic-and-laboratory-animals/amphibians/infectious-diseases-of-amphibians">MSD Veterinary Manual: Infectious Diseases of Amphibians</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/41608998/">2026 study: Eimeria and nematode detection in Ambystoma mexicanum fecal samples</a></li>
-<li><a href="https://veterinarypartner.vin.com/default.aspx?id=8030801&amp;meta=0&amp;pId=19239">Veterinary Partner / VIN: Gastrointestinal Foreign Body or Overload in Amphibians</a></li>
-</ul>
-''',
-        "featured": False,
-    },
-})
-
-HERO_IMAGE_OVERRIDES.update({
-    "cost-and-buying/where-to-buy-axolotls": {
-        "file": "axolotl-breeder-vs-pet-store.webp",
-        "alt": "Axolotl buying-source comparison covering breeders, pet stores, online sellers and verification questions",
-        "caption": "Where you buy matters less than what you can verify: the exact animal, husbandry records, written terms, legal route and shipping or pickup plan.",
-        "description": "Axolotl buying guide graphic comparing breeder, pet-store and online purchase checks.",
-        "credit": "MyAxolotl original graphic",
-        "width": 1600, "height": 900,
-    },
-    "health/healthy-axolotl-poop": {
-        "file": "axolotl-parasite-treatment.webp",
-        "alt": "Axolotl health observation graphic used for fecal and parasite assessment guidance",
-        "caption": "Stool appearance alone cannot diagnose parasites or impaction. Track the animal's baseline and use a fresh veterinary fecal examination when persistent changes occur with other signs.",
-        "description": "Axolotl health graphic emphasizing observation, fresh fecal testing and veterinary confirmation.",
-        "credit": "MyAxolotl original graphic",
-        "width": 1600, "height": 900,
-    },
-})
-
-LINKING.update({
-    "cost-and-buying/where-to-buy-axolotls": [
-        "cost-and-buying/breeder-vs-pet-store",
-        "cost-and-buying/choosing-a-reputable-breeder",
-        "cost-and-buying/how-to-choose-a-healthy-axolotl",
-        "cost-and-buying/red-flags-when-buying",
-        "cost-and-buying/shipping-live-axolotls",
-        "cost-and-buying/axolotl-price-by-morph",
-        "legal",
-    ],
-    "health/healthy-axolotl-poop": [
-        "health/parasite-treatment",
-        "health/impaction-symptoms-treatment",
-        "health/refusing-to-eat",
-        "health/finding-an-exotic-vet",
-        "tank-setup/water-parameters-cycling",
-    ],
-})
-
-
-
-# ---------------------------------------------------------------------------
-# Keyword-reconciliation new pages â€” batch 3 (2026-09-18)
-# ---------------------------------------------------------------------------
-
-CONFIG_ARTICLES.update({
-    "axolotl-in-culture/do-people-eat-axolotls": {
-        "slug": "axolotl-in-culture/do-people-eat-axolotls",
-        "hub": "axolotl-in-culture",
-        "title": "Do People Eat Axolotls? History, Culture & Conservation",
-        "title_tag": "Do People Eat Axolotls? History, Culture & Conservation",
-        "meta": "Were axolotls eaten in Mexico? Learn the historical and cultural record, why the species appeared in food and traditional medicine, and why wild axolotls should not be harvested today.",
-        "intro": "Yes, axolotls have a documented history as food in central Mexico, including pre-Hispanic and later Xochimilco traditions. That historical fact should not be confused with advice to eat wild axolotls today: Ambystoma mexicanum is critically endangered in the wild, and modern conservation measures protect the remaining Xochimilco population.",
-        "num": 219,
-        "date_published": "2026-09-18",
-        "date_modified": "2026-09-18",
-        "headings": [
-            "Did people historically eat axolotls?",
-            "How were axolotls used in pre-Hispanic Mexico?",
-            "Were axolotls still eaten after the colonial period?",
-            "Do people eat axolotls today?",
-            "Why shouldn't wild axolotls be harvested?",
-            "What does the historical food record tell us?",
-            "Axolotls in traditional medicine",
-            "Food history vs pet axolotls",
-            "Sources",
-        ],
-        "body": r'''
-<p><strong>Axolotls have a real food history in Mexico, especially in the lake-and-canal cultures of the Valley of Mexico.</strong> Historical sources and modern Mexican government/university summaries document axolotls as part of local diets before and after the Spanish conquest. That does not mean the remaining wild <em>Ambystoma mexicanum</em> population should be treated as food today.</p>
-
-<h2>Did people historically eat axolotls?</h2>
-<p><strong>Yes.</strong> Mexico's environmental ministry notes that the Mexican axolotl was valued as food from before the colonial period onward. UNAM historical research likewise identifies the axolotl as both a food resource and a culturally significant animal in Nahua history.</p>
-<p>The historical record makes sense in context: the lakes and wetlands around the Valley of Mexico supported fish, frogs, crustaceans, insects, waterfowl and axolotls that formed part of a much broader lacustrine food system.</p>
-
-<h2>How were axolotls used in pre-Hispanic Mexico?</h2>
-<p>Nahuatl-language and colonial-era sources record axolotls among aquatic animals exchanged, presented and eaten. The UNAM Gran Diccionario NÃ¡huatl preserves historical passages listing axolotls alongside fish, frogs, shrimp and other products of the lake environment.</p>
-<p>Modern historical summaries from Xochimilco also describe axolotls among the animal foods used in pre-Hispanic regional cooking. The important point is cultural context: this was part of a living wetland economy, not a novelty food trend detached from the ecosystem.</p>
-
-<h2>Were axolotls still eaten after the colonial period?</h2>
-<p>Yes. Mexican environmental and historical sources describe continued use in soups, stews, tamal-like preparations and traditional remedies over later periods. The record is historical and ethnographic; this page does not reproduce recipes or provide instructions for harvesting or preparing wild animals.</p>
-
-<h2>Do people eat axolotls today?</h2>
-<p><strong>Historical consumption continues to appear in cultural accounts, but the wild Xochimilco axolotl is now a conservation priority rather than an ordinary food resource.</strong> The Xochimilco borough's current cultural material notes that traditional dishes involving protected species such as the axolotl have been adapted or disappeared as protection measures increased.</p>
-<p>Mexico's national aquaculture information also notes that captive culture exists, but production costs make food-industry use difficult and the species is maintained primarily as an ornamental/captive animal rather than a mainstream food product.</p>
-
-<h2>Why shouldn't wild axolotls be harvested?</h2>
-<p>Wild <em>Ambystoma mexicanum</em> survives only in a highly restricted Xochimilco habitat and is critically endangered. Habitat degradation, introduced fish, water-quality pressures and fragmentation already threaten the remaining population.</p>
-<p><strong>Do not collect, buy or eat a wild-caught Xochimilco axolotl.</strong> Conservation depends on protecting habitat and the wild population, not recreating historical harvest practices.</p>
-<p>See <a href="/biology-and-science/conservation-status/">axolotl conservation status</a> and <a href="/biology-and-science/wild-habitat-xochimilco/">wild habitat in Xochimilco</a>.</p>
-
-<h2>What does the historical food record tell us?</h2>
-<p>The record shows that axolotls were embedded in human culture long before they became laboratory animals, internet icons or pets. Food use, traditional medicine, mythology and local ecology all form part of the species' history.</p>
-<p>That matters for interpretation: â€œWere axolotls eaten?â€ is a cultural-history question, not a care or husbandry question and not evidence that modern pet axolotls should be treated as food.</p>
-
-<h2>Axolotls in traditional medicine</h2>
-<p>Mexican government sources also document historical use of axolotl preparations in traditional remedies, especially for respiratory complaints. Historical medical use does not establish modern clinical effectiveness, and this page does not recommend axolotl-derived remedies.</p>
-
-<h2>Food history vs pet axolotls</h2>
-<p>Captive pet axolotls belong to a modern husbandry context. If your interest is buying or caring for a pet, use the <a href="/cost-and-buying/where-to-buy-axolotls/">where-to-buy guide</a> and <a href="/axolotls/care-guide/">complete care guide</a>. If your interest is why the animal matters in Mexico, continue to the site's history, culture and conservation coverage.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://www.gob.mx/semarnat/articulos/ajolote-mexicano-criatura-super-dotada?idiom=es">SEMARNAT: Ajolote mexicano, criatura sÃºper dotada</a></li>
-<li><a href="https://ru.historicas.unam.mx/handle/20.500.12525/9239">UNAM Instituto de Investigaciones HistÃ³ricas: El axÃ³lotl</a></li>
-<li><a href="https://gdn.iib.unam.mx/diccionario/axolotl/174630">UNAM Gran Diccionario NÃ¡huatl: axolotl</a></li>
-<li><a href="https://www.xochimilco.cdmx.gob.mx/que-comer/">AlcaldÃ­a Xochimilco: historical regional food traditions</a></li>
-<li><a href="https://sidof.segob.gob.mx/notas/docFuente/5668529">Carta Nacional AcuÃ­cola: Ajolote</a></li>
-</ul>
-''',
-        "featured": False,
-    },
-
-    "axolotl-in-culture/minecraft-axolotl-enclosure-builds": {
-        "slug": "axolotl-in-culture/minecraft-axolotl-enclosure-builds",
-        "hub": "axolotl-in-culture",
-        "title": "Minecraft Axolotl Enclosure Builds: Tanks, Caves & Breeding Pools",
-        "title_tag": "Minecraft Axolotl Enclosure Builds: Tanks, Caves & Breeding Pools",
-        "meta": "Build a Minecraft axolotl enclosure that works with current game mechanics: water-first aquarium builds, lush-cave habitats, breeding pools, blue-axolotl setups, escape prevention and decoration ideas.",
-        "intro": "A good Minecraft axolotl enclosure is mostly a water-design problem: keep the mob in or near water, make collection and breeding easy, and decorate around those mechanics. This page focuses on builds; spawning, food, breeding odds and commands stay in the main Minecraft axolotl guide.",
-        "num": 220,
-        "date_published": "2026-09-18",
-        "date_modified": "2026-09-18",
-        "headings": [
-            "What does a Minecraft axolotl enclosure need?",
-            "Build 1: simple glass aquarium",
-            "Build 2: lush-cave axolotl habitat",
-            "Build 3: breeding pool for a blue axolotl",
-            "Build 4: underground viewing tunnel",
-            "Build 5: natural pond enclosure",
-            "How do you stop axolotls drying out?",
-            "Will enclosure axolotls despawn?",
-            "What blocks and decorations work well?",
-            "How large should the enclosure be?",
-            "Common Minecraft axolotl enclosure mistakes",
-            "Sources and version notes",
-        ],
-        "body": r'''
-<p><strong>Minecraft axolotl enclosures should prioritize continuous water access.</strong> Current Bedrock behavior data gives axolotls a five-minute drying timer when they are out of water, so a decorative land-heavy enclosure is less reliable than a water-first aquarium, pond or cave pool.</p>
-
-<h2>What does a Minecraft axolotl enclosure need?</h2>
-<ul>
-<li><strong>Enough water for normal swimming.</strong></li>
-<li><strong>Walls or landscaping that prevent long land wandering.</strong></li>
-<li><strong>Easy bucket access</strong> if you collect colors or move animals.</li>
-<li><strong>A breeding area</strong> if you are trying for the rare blue variant.</li>
-<li><strong>Lighting and blocks that fit the theme</strong> without blocking your own access.</li>
-</ul>
-<p>You do not need to â€œtameâ€ the axolotl first. Minecraft axolotls are not tameable in the wolf/cat sense; you keep them by bucket transport, enclosure design and breeding.</p>
-
-<h2>Build 1: simple glass aquarium</h2>
-<p>This is the easiest display build.</p>
-<ol>
-<li>Build a rectangular glass tank with a solid floor.</li>
-<li>Fill the usable interior with water rather than leaving large dry ledges.</li>
-<li>Add clay, moss, rooted dirt, stone or other natural-looking blocks for visual texture.</li>
-<li>Use trapdoors, stairs or slabs outside the waterline as decoration without creating an easy path out.</li>
-<li>Add the axolotl with a water bucket.</li>
-</ol>
-<p>A long, low aquarium is easier to view than a tall narrow column. The exact dimensions are aesthetic rather than a hidden game requirement.</p>
-
-<h2>Build 2: lush-cave axolotl habitat</h2>
-<p>For a natural look, recreate the lush-cave theme with clay, moss, dripleaf, azalea, glow berries and irregular stone. Keep the water pool broad and make the land margin steep enough that axolotls quickly return to water if they climb out.</p>
-<p>This build matches the mob's current natural-spawn theme without needing to reproduce every spawn condition inside a player-made enclosure.</p>
-
-<h2>Build 3: breeding pool for a blue axolotl</h2>
-<p>A breeding pool should be functional before it is decorative:</p>
-<ul>
-<li>keep two adults in an easy-to-access water area;</li>
-<li>store Buckets of Tropical Fish nearby;</li>
-<li>leave enough room to see and bucket the baby;</li>
-<li>separate or label colors if you are tracking breeding pairs.</li>
-</ul>
-<p>Current Bedrock behavior data uses a tropical-fish bucket as the breeding item and shows a blue mutation factor of about 1 in 1,200 for a new baby. Once a blue parent exists, inheritance also matters, so a dedicated pool helps you manage repeated breeding efficiently.</p>
-<p>For breeding rules and blue-variant odds, use the <a href="/axolotl-in-culture/minecraft-axolotls-guide/">main Minecraft axolotl guide</a>.</p>
-
-<h2>Build 4: underground viewing tunnel</h2>
-<p>Build the enclosure around a glass tunnel instead of placing the player walkway above the water. Axolotls can swim on both sides while you move through a dry central corridor. This works well for large collections because the animals remain in water while the player gets a close view.</p>
-
-<h2>Build 5: natural pond enclosure</h2>
-<p>A landscaped pond works well in gardens, caves or village builds. Use a deep central water area, short shoreline and perimeter blocks that discourage long wandering. Reeds, mossy stone and clay fit the theme, but avoid designing a broad dry beach that invites the axolotl to stay out of water.</p>
-
-<h2>How do you stop axolotls drying out?</h2>
-<p><strong>Keep water close and make escape paths short.</strong> Microsoft's current Bedrock behavior data sets a drying-out timer of 300 seconds when an axolotl is on land. Rain or returning to water interrupts the drying state.</p>
-<p>The safest design is therefore not an â€œamphibian terrariumâ€ with a large land section; it is a water enclosure with decorative edges.</p>
-
-<h2>Will enclosure axolotls despawn?</h2>
-<p>Bucket an axolotl before moving it into a permanent collection. The main Minecraft guide covers current persistence behavior in more detail, but bucket collection is the practical way to transport and keep specific colors you care about.</p>
-
-<h2>What blocks and decorations work well?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Theme</th><th>Useful blocks</th></tr></thead>
-<tbody>
-<tr><td>Lush cave</td><td>Moss, clay, stone, dripleaf, azalea, glow berries</td></tr>
-<tr><td>Modern aquarium</td><td>Glass, quartz, sea lanterns, smooth stone</td></tr>
-<tr><td>Natural pond</td><td>Mud, mossy stone, clay, rooted dirt, leaves</td></tr>
-<tr><td>Fantasy display</td><td>Prismarine, tinted glass, froglights, amethyst accents</td></tr>
-</tbody></table></div>
-<p>Decoration does not change breeding odds. Keep the functional water area easy to reach before adding visual complexity.</p>
-
-<h2>How large should the enclosure be?</h2>
-<p>Minecraft does not give axolotls a real-world welfare gallon requirement. Build size is therefore about pathing, visibility, number of mobs and your design goal. A compact breeding pool can be small; a display habitat can be as large as you want.</p>
-
-<h2>Common Minecraft axolotl enclosure mistakes</h2>
-<ul>
-<li>large dry shorelines that let mobs stay out of water;</li>
-<li>decor so dense that you cannot bucket or see babies;</li>
-<li>assuming a special block increases the blue-axolotl mutation chance;</li>
-<li>trying to tame the axolotl instead of using buckets and breeding;</li>
-<li>mixing real axolotl husbandry rules with Minecraft mechanics.</li>
-</ul>
-
-<h2>Sources and version notes</h2>
-<ul>
-<li><a href="https://learn.microsoft.com/en-us/minecraft/creator/reference/source/vanillabehaviorpack_snippets/entities/axolotl?view=minecraft-bedrock-stable">Microsoft Learn: current vanilla axolotl behavior data</a></li>
-<li><a href="https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/entitygoals/minecraftbehavior_move_to_water?view=minecraft-bedrock-stable">Microsoft Learn: move-to-water behavior</a></li>
-<li><a href="/axolotl-in-culture/minecraft-axolotls-guide/">MyAxolotl: current Minecraft axolotl mechanics and version notes</a></li>
-</ul>
-''',
-        "featured": False,
-    },
-
-    "axolotl-in-culture/axolotl-names": {
-        "slug": "axolotl-in-culture/axolotl-names",
-        "hub": "axolotl-in-culture",
-        "title": "Axolotl Names: Cute, Funny, Color & Unique Name Ideas",
-        "title_tag": "Axolotl Names: Cute, Funny, Color & Unique Name Ideas",
-        "meta": "Find axolotl name ideas by personality, color and theme: cute names, funny names, food names, science names, Minecraft-inspired names and morph-friendly choices, plus a quick naming method.",
-        "intro": "A useful axolotl name is short enough to remember, distinct from your other pets, and connected to something you actually notice about the animalâ€”its morph, personality, favorite hide, feeding behavior or the story of how you got it.",
-        "num": 221,
-        "date_published": "2026-09-18",
-        "date_modified": "2026-09-18",
-        "headings": [
-            "How do you choose a good axolotl name?",
-            "Cute axolotl names",
-            "Funny axolotl names",
-            "Food-inspired axolotl names",
-            "Pink and leucistic axolotl names",
-            "Dark and melanoid axolotl names",
-            "Golden and albino axolotl names",
-            "Copper axolotl names",
-            "Science-inspired axolotl names",
-            "Water and nature names",
-            "Minecraft-inspired axolotl names",
-            "Gender-neutral axolotl names",
-            "Unique axolotl names",
-            "A quick 3-step naming method",
-        ],
-        "body": r'''
-<p><strong>There is no â€œcorrectâ€ axolotl name.</strong> The best names usually come from one memorable trait: color, behavior, food, water, science, a game, or a joke that still makes sense after the novelty wears off.</p>
-
-<h2>How do you choose a good axolotl name?</h2>
-<p>Use three filters:</p>
-<ol>
-<li><strong>Easy to say:</strong> one to three syllables is convenient.</li>
-<li><strong>Easy to distinguish:</strong> avoid a name that sounds almost identical to another pet in the house.</li>
-<li><strong>Connected to the animal:</strong> choose a trait, story or theme you will still recognize later.</li>
-</ol>
-<p>Axolotl sex is often unknown when the animal is young, so gender-neutral names are especially useful.</p>
-
-<h2>Cute axolotl names</h2>
-<p>Bean, Bubbles, Mochi, Pebble, Poppy, Pip, Noodle, Waffle, Sprout, Pudding, Button, Miso, Tofu, Pogo, Gilly, Doodle, Jellybean, Twinkle, Niblet, Pickle.</p>
-
-<h2>Funny axolotl names</h2>
-<p>Sir Gills, Gillbert, Gillian, Professor Wiggle, Water Sausage, Captain Frill, Axolittle, Lotl, Sir Swims-a-Lotl, Snack Inspector, Bubble Boss, Mud Manager, Worm Auditor, Frill Clinton, Tank Sinatra, Gill Nye, Swim Shady, The Axeman, Bucket, Soggy.</p>
-
-<h2>Food-inspired axolotl names</h2>
-<p>Mochi, Dumpling, Nori, Miso, Tofu, Udon, Ramen, Sesame, Pumpkin, Peach, Jelly, Pudding, Cocoa, Truffle, Cinnamon, Nugget, Waffle, Biscuit, Mango, Boba.</p>
-
-<h2>Pink and leucistic axolotl names</h2>
-<p>Blush, Pearl, Rose, Peony, Sakura, Marshmallow, Cloud, Quartz, Petal, Cotton, Opal, Frosting, Lychee, Milkshake, Pinky, Blossom, Moon, Snowdrop, Vanilla, Halo.</p>
-<p>If you are not sure whether a pale animal is leucistic or albino, use the <a href="/morphs/morphs-comparison-chart/">morph comparison</a> rather than naming the genetics from color alone.</p>
-
-<h2>Dark and melanoid axolotl names</h2>
-<p>Onyx, Ink, Shadow, Coal, Pepper, Slate, Eclipse, Obsidian, Raven, Midnight, Smoky, Licorice, Storm, Ash, Soot, Graphite, Nova, Phantom, Noir, Cinder.</p>
-
-<h2>Golden and albino axolotl names</h2>
-<p>Sunny, Goldie, Honey, Saffron, Butter, Lemon, Sol, Amber, Marigold, Custard, Dune, Topaz, Glow, Biscotti, Cornbread, Maple, Dawn, Buttercup, Halo, Gleam.</p>
-
-<h2>Copper axolotl names</h2>
-<p>Penny, Copper, Rusty, Auburn, Maple, Ember, Terra, Cinnamon, Chestnut, Caramel, Bronze, Autumn, Paprika, Brick, Sienna, Toffee, Rooibos, Ginger, Hazel, Sepia.</p>
-
-<h2>Science-inspired axolotl names</h2>
-<p>Darwin, Curie, Tesla, Newton, Ada, Rosalind, Mendel, Neuron, Axon, Glia, Nova, Quark, Pixel, Helix, Vector, Soma, Thyroid, Blastema, Regen, Atlas.</p>
-<p><strong>Blastema</strong> is especially on-theme: it is the mass of proliferating cells involved in limb regeneration. For the biology, see <a href="/biology-and-science/regeneration-and-limb-regrowth/">axolotl regeneration</a>.</p>
-
-<h2>Water and nature names</h2>
-<p>River, Ripple, Brook, Rain, Mist, Delta, Lagoon, Moss, Fern, Willow, Reed, Pebble, Cove, Tide, Dew, Lotus, Lily, Marina, Azul, Aqua.</p>
-
-<h2>Minecraft-inspired axolotl names</h2>
-<p>Lucy, Cyan, Gold, Blue, Lush, Clay, Moss, Bucket, Dripleaf, Glowberry, Azalea, Caves, Pixel, Block, Spawn, Bedrock, Java, Steve, Alex, Mojang.</p>
-<p>For game mechanics rather than naming ideas, see the <a href="/axolotl-in-culture/minecraft-axolotls-guide/">Minecraft axolotl guide</a>.</p>
-
-<h2>Gender-neutral axolotl names</h2>
-<p>Bean, River, Nova, Pixel, Moss, Mochi, Sunny, Echo, Pebble, Sage, Pip, Clover, Orbit, Comet, Nori, Onyx, Indigo, Bubble, Puck, Scout.</p>
-
-<h2>Unique axolotl names</h2>
-<p>Quasar, Vesper, Lumen, Kelp, Orbit, Sumi, Nimbus, Tundra, Rune, Calyx, Zephyr, Mica, Rook, Fable, Brume, Solace, Kumo, Oriel, Nix, Vanta.</p>
-
-<h2>A quick 3-step naming method</h2>
-<ol>
-<li>Choose one category: <strong>color, behavior, food, science, nature, game or joke</strong>.</li>
-<li>Write five names from that category and say each one aloud twice.</li>
-<li>Pick the one that still feels natural after a day rather than the most complicated option.</li>
-</ol>
-<p>If you have several axolotls, use a shared themeâ€”planets, foods, scientists, weather, plants or game blocksâ€”while keeping each individual name clearly different.</p>
-''',
-        "featured": False,
-    },
-})
-
-HERO_IMAGE_OVERRIDES.update({
-    "axolotl-in-culture/do-people-eat-axolotls": {
-        "file": "axolotl-wild-habitat-xochimilco.webp",
-        "alt": "Wild-type axolotl in Xochimilco used to illustrate the species' food history and modern conservation context",
-        "caption": "Axolotls were historically part of the Valley of Mexico's lacustrine food culture, but the remaining wild Xochimilco population is now a conservation priority.",
-        "description": "Xochimilco axolotl graphic connecting historical human use with modern wild-population conservation.",
-        "credit": "MyAxolotl original graphic",
-        "width": 1600, "height": 900,
-    },
-    "axolotl-in-culture/minecraft-axolotl-enclosure-builds": {
-        "file": "minecraft-axolotls-guide.webp",
-        "alt": "Minecraft axolotl habitat with water enclosure, lush-cave blocks and multiple axolotl colors",
-        "caption": "Minecraft axolotl builds work best as water-first aquariums, cave pools or breeding enclosures with easy bucket access.",
-        "description": "Minecraft axolotl build graphic illustrating enclosure and breeding-pool concepts.",
-        "credit": "MyAxolotl original graphic",
-        "width": 1600, "height": 900,
-    },
-    "axolotl-in-culture/axolotl-names": {
-        "file": "axolotl-pop-culture-and-memes.webp",
-        "alt": "Axolotl surrounded by playful theme icons used for naming inspiration",
-        "caption": "Choose an axolotl name from something memorable about the animal: color, behavior, food, nature, science, games or a joke.",
-        "description": "Playful axolotl culture graphic used for a categorized axolotl name-ideas guide.",
-        "credit": "MyAxolotl original graphic",
-        "width": 1600, "height": 900,
-    },
-})
-
-LINKING.update({
-    "axolotl-in-culture/do-people-eat-axolotls": [
-        "biology-and-science/wild-habitat-xochimilco",
-        "biology-and-science/conservation-status",
-        "care-basics/axolotl-facts",
-        "axolotl-in-culture/axolotl-in-pop-culture-and-memes",
-    ],
-    "axolotl-in-culture/minecraft-axolotl-enclosure-builds": [
-        "axolotl-in-culture/minecraft-axolotls-guide",
-        "morphs/blue-and-pink-axolotl-myth",
-        "morphs/morphs-comparison-chart",
-    ],
-    "axolotl-in-culture/axolotl-names": [
-        "morphs/morphs-comparison-chart",
-        "biology-and-science/regeneration-and-limb-regrowth",
-        "axolotl-in-culture/minecraft-axolotls-guide",
-        "axolotl-in-culture/axolotl-in-pop-culture-and-memes",
-    ],
-})
-
-
-
-# ---------------------------------------------------------------------------
-# Keyword-reconciliation new pages â€” batch 4 (2026-09-18)
-# ---------------------------------------------------------------------------
-
-CONFIG_ARTICLES.update({
-    "care-basics/are-axolotls-poisonous": {
-        "slug": "care-basics/are-axolotls-poisonous",
-        "hub": "care-basics",
-        "title": "Are Axolotls Poisonous or Dangerous? Venom, Bites & Human Safety",
-        "title_tag": "Are Axolotls Poisonous or Dangerous? Venom, Bites & Safety",
-        "meta": "Are axolotls poisonous or venomous? Learn the real human-health risks from bites, handling, tank water and Salmonella, plus safer hygiene around pet axolotls.",
-        "intro": "Pet axolotls are not generally treated as poisonous or venomous animals. The practical human-health risks are ordinary bite or wound hygiene and germs associated with amphibians and aquarium water, especially Salmonellaâ€”not toxin injection.",
-        "num": 222,
-        "date_published": "2026-09-18",
-        "date_modified": "2026-09-18",
-        "headings": [
-            "Are axolotls poisonous?",
-            "Are axolotls venomous?",
-            "Can an axolotl bite hurt you?",
-            "Can you get sick from touching an axolotl?",
-            "Can axolotl tank water carry germs?",
-            "Who should be extra careful around amphibians?",
-            "What should you do after an axolotl bite?",
-            "Is it safe to pet or hold an axolotl?",
-            "Axolotl danger myths vs real risks",
-            "Sources",
-        ],
-        "body": r'''
-<p><strong>Pet axolotls are not generally regarded as poisonous or venomous to people.</strong> Standard species and veterinary references focus on their delicate amphibian skin, small teeth, aquatic husbandry and infectious-disease hygiene rather than a toxin-delivery system. The main human-health issue is contact with germs carried by amphibians or their aquarium environment.</p>
-
-<h2>Are axolotls poisonous?</h2>
-<p><strong>There is no established pet-husbandry hazard in which touching an axolotl poisons a person through its skin.</strong> That does not make unnecessary handling a good idea: axolotl skin and slime coat are delicate, so frequent touching can harm the animal even when it is not a poisoning risk to the owner.</p>
-<p>Use <a href="/care-basics/handling/">the axolotl handling guide</a> for situations where an animal genuinely needs to be moved.</p>
-
-<h2>Are axolotls venomous?</h2>
-<p><strong>Axolotls are not treated as venomous salamanders in standard pet or species references.</strong> Venom requires a biological system that delivers toxin into another animal, such as through specialized teeth, spines or stingers. Axolotl oral anatomy is adapted to grip and suction-feed on prey, not to inject venom.</p>
-<p>For the teeth and feeding structures themselves, see <a href="/biology-and-science/anatomy-gills-and-lungs/">axolotl anatomy</a>.</p>
-
-<h2>Can an axolotl bite hurt you?</h2>
-<p>An axolotl may snap at a finger during feeding or when it mistakes movement for prey. The bite is not a venom exposure. Any animal bite can still break or irritate skin, and aquarium water can contain bacteria, so clean a wound rather than dismissing it simply because the animal is small.</p>
-
-<h2>Can you get sick from touching an axolotl?</h2>
-<p><strong>Yes, infection risk is possible through the same route that applies to other amphibians: germs on the animal or in its environment can reach your mouth, food or an open wound.</strong> The CDC states that amphibians can carry <em>Salmonella</em> even when they appear healthy and clean.</p>
-<p>Wash hands with soap and running water after contact with the axolotl, its food, feces, equipment or tank water. Do not clean aquarium equipment in food-preparation areas.</p>
-
-<h2>Can axolotl tank water carry germs?</h2>
-<p>Yes. The CDC specifically includes aquarium water and habitat equipment in its amphibian-hygiene guidance. You do not have to hold the animal for exposure to occur; tank water, decorations, tools and waste can all become contaminated.</p>
-<p>Keep dedicated buckets and aquarium tools separate from kitchen equipment and wash hands after maintenance.</p>
-
-<h2>Who should be extra careful around amphibians?</h2>
-<p>The CDC identifies children under 5, adults 65 and older, and people with weakened immune systems as groups at higher risk of serious illness from germs reptiles and amphibians can carry. The CDC advises that children younger than 5 should not handle or touch amphibians or their environments.</p>
-<p>For family-specific ownership questions, see <a href="/care-basics/axolotls-and-children/">are axolotls good pets for kids?</a>.</p>
-
-<h2>What should you do after an axolotl bite?</h2>
-<ol>
-<li>Rinse and wash the area promptly with warm soapy water.</li>
-<li>Do not put aquarium water or unclean equipment on the wound.</li>
-<li>Watch for increasing redness, warmth, swelling, pain or drainage.</li>
-<li>Seek medical attention for a serious wound or signs of infection, and follow the CDC's bite/scratch guidance for higher-risk individuals.</li>
-</ol>
-<p>The goal is ordinary wound hygiene, not antivenom or â€œdetoxâ€ treatment.</p>
-
-<h2>Is it safe to pet or hold an axolotl?</h2>
-<p><strong>Routine petting is unnecessary and can be harder on the axolotl than on the person.</strong> Axolotls are best treated as observation-focused aquatic pets. If you must move one for veterinary care, quarantine or tank safety, minimize contact and use the least stressful transfer method available.</p>
-
-<h2>Axolotl danger myths vs real risks</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Claim</th><th>Better interpretation</th></tr></thead>
-<tbody>
-<tr><td>â€œAxolotls are poisonous to touchâ€</td><td>No established poisoning hazard from normal pet contact; handling should still be minimized for the animal.</td></tr>
-<tr><td>â€œAn axolotl bite injects venomâ€</td><td>Axolotls are not treated as venomous; use ordinary bite/wound hygiene.</td></tr>
-<tr><td>â€œThe tank is harmless if the animal looks healthyâ€</td><td>Healthy amphibians and their environments can still carry germs such as Salmonella.</td></tr>
-<tr><td>â€œKids can handle them if they are gentleâ€</td><td>CDC advises children under 5 not to touch amphibians or their environments; older children still need hygiene and supervision.</td></tr>
-</tbody></table></div>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://www.cdc.gov/healthy-pets/about/reptiles-and-amphibians.html">CDC: Reptiles and Amphibians, updated January 13, 2026</a></li>
-<li><a href="https://animaldiversity.org/accounts/Ambystoma_mexicanum/">Animal Diversity Web: Ambystoma mexicanum</a></li>
-<li><a href="/biology-and-science/anatomy-gills-and-lungs/">MyAxolotl: Axolotl Anatomy â€” Gills, Lungs, Teeth & Body Parts</a></li>
-</ul>
-''',
-        "featured": False,
-    },
-
-    "biology-and-science/axolotl-history-discovery": {
-        "slug": "biology-and-science/axolotl-history-discovery",
-        "hub": "biology-and-science",
-        "title": "When Were Axolotls Discovered? History & Scientific Discovery",
-        "title_tag": "When Were Axolotls Discovered? History & Scientific Discovery",
-        "meta": "Axolotl history from Nahua knowledge to the 1798 scientific description, Humboldt and Cuvier, the 1863â€“64 Paris shipment, DumÃ©ril's neoteny work and the rise of the laboratory axolotl.",
-        "intro": "There is no single honest date when humans 'discovered' axolotls: people in the Valley of Mexico knew and named them long before European taxonomy. If the question means formal scientific description, Shaw and Nodder described Gyrinus mexicanus in 1798, the name on which today's Ambystoma mexicanum is based.",
-        "num": 223,
-        "date_published": "2026-09-18",
-        "date_modified": "2026-09-18",
-        "headings": [
-            "When were axolotls discovered?",
-            "Who knew axolotls before European science?",
-            "What happened in 1798?",
-            "What did Humboldt and Cuvier contribute?",
-            "When did living axolotls reach Europe?",
-            "How did DumÃ©ril change axolotl science?",
-            "How did axolotls become laboratory animals?",
-            "Why is 1863 vs 1864 sometimes confusing?",
-            "Axolotl history timeline",
-            "Sources",
-        ],
-        "body": r'''
-<p><strong>No single scientist â€œdiscoveredâ€ axolotls.</strong> The animal was already known, named and used by peoples of the Valley of Mexico long before European zoologists assigned it a Latin scientific name. The clean historical distinction is between Indigenous/local knowledge and later formal scientific description.</p>
-
-<h2>When were axolotls discovered?</h2>
-<p>If <em>discovered</em> means â€œformally described in European zoological literature,â€ the key date is <strong>1798</strong>. The American Museum of Natural History's Amphibian Species of the World lists <em>Gyrinus mexicanus</em> Shaw and Nodder, 1798 as the original combination for the species now called <em>Ambystoma mexicanum</em>.</p>
-<p>That date should not be rewritten as â€œhumans first found axolotls in 1798.â€ It marks a taxonomic publication, not the beginning of human knowledge of the animal.</p>
-
-<h2>Who knew axolotls before European science?</h2>
-<p>Axolotls were part of the natural and cultural landscape of central Mexico long before modern taxonomy. Their name derives from Nahuatl, and historical Mexican sources document food, medicinal and cultural associations. That earlier knowledge belongs to the species' history even though it did not use the later Linnaean taxonomic system.</p>
-
-<h2>What happened in 1798?</h2>
-<p>George Shaw and Frederick Polydore Nodder published the species under the name <em>Gyrinus mexicanus</em>. Modern taxonomic databases retain Shaw and Nodder, 1798 in the author citation for <em>Ambystoma mexicanum</em>, showing the continuity between the original description and the current valid name.</p>
-<p>Later authors moved the species through several genera and combinations before <em>Ambystoma mexicanum</em> became the accepted name.</p>
-
-<h2>What did Humboldt and Cuvier contribute?</h2>
-<p>At the beginning of the 19th century, Alexander von Humboldt sent preserved Mexican axolotl specimens to Georges Cuvier in Paris. With only preserved material, European anatomists debated whether the strange gilled animal was a larval salamander or an adult form.</p>
-<p>That debate became much easier to investigate once living axolotls reached Paris decades later.</p>
-
-<h2>When did living axolotls reach Europe?</h2>
-<p><strong>Historical sources place the first major living shipment in Paris at the transition between late 1863 and 1864.</strong> The MusÃ©um national d'Histoire naturelle describes the Jardin des Plantes as receiving axolotls in 1863, while modern histories of laboratory axolotls often use 1864 for the arrival and scientific study of the living animals.</p>
-<p>A detailed historical review reports that 34 living Mexican axolotls were brought from Mexico to Europe, with six animals going to Auguste DumÃ©ril at the Paris museum. Those animals and their descendants transformed the axolotl from an anatomical curiosity into an experimental organism.</p>
-
-<h2>How did DumÃ©ril change axolotl science?</h2>
-<p>Auguste DumÃ©ril observed that axolotls could reproduce while retaining their gilled aquatic form. Later, some descendants underwent metamorphic change. These observations forced zoologists to rethink the simple assumption that a permanently gilled animal must be an immature larva.</p>
-<p>DumÃ©ril also experimented with the animals and reported regeneration after gill removal, helping launch the long history of axolotl regeneration research.</p>
-
-<h2>How did axolotls become laboratory animals?</h2>
-<p>The Paris animals bred readily and were distributed to other laboratories, zoos and private keepers. A historical review of axolotl research describes the species as one of the oldest self-sustaining laboratory animals, with major roles in developmental biology, embryology, endocrinology and later regeneration research.</p>
-<p>Modern captive research stocks have a complex history, so â€œall pet axolotls descend from exactly six animalsâ€ is too simplistic. The 19th-century Paris lineage is foundational, but later laboratory and breeding histories include additional stock management and crosses.</p>
-
-<h2>Why is 1863 vs 1864 sometimes confusing?</h2>
-<p>Different sources date different parts of the same transfer. Some describe the animals reaching the Paris institution in late 1863; scientific histories often mark 1864 as the point when the first living Mexican axolotls entered the museum research context. The disagreement is therefore usually about which step of the transfer is being dated, not whether living axolotls reached Paris in that period.</p>
-
-<h2>Axolotl history timeline</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Period</th><th>Event</th></tr></thead>
-<tbody>
-<tr><td>Before European taxonomy</td><td>Axolotls were already known and named in the Valley of Mexico.</td></tr>
-<tr><td>1798</td><td>Shaw and Nodder formally described <em>Gyrinus mexicanus</em>.</td></tr>
-<tr><td>Early 1800s</td><td>Humboldt sent preserved specimens to Cuvier in Paris.</td></tr>
-<tr><td>1863â€“1864</td><td>Living axolotls from Mexico reached Paris and entered sustained scientific study.</td></tr>
-<tr><td>1860s onward</td><td>DumÃ©ril studied reproduction, metamorphosis and regeneration; captive colonies spread through Europe.</td></tr>
-<tr><td>20thâ€“21st centuries</td><td>Axolotls became major experimental models for development, genetics and regeneration.</td></tr>
-</tbody></table></div>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://amphibiansoftheworld.amnh.org/Amphibia/Caudata/Ambystomatidae/Ambystoma/Ambystoma-mexicanum">American Museum of Natural History: Amphibian Species of the World â€” Ambystoma mexicanum</a></li>
-<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9117742/">ReiÃŸ: Cut and Paste â€” the long history of axolotl regeneration research</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/25920413/">ReiÃŸ, Olsson & HoÃŸfeld: 150 years of axolotl research</a></li>
-<li><a href="https://www.mnhn.fr/fr/axolotl">MusÃ©um national d'Histoire naturelle: Axolotl</a></li>
-</ul>
-''',
-        "featured": False,
-    },
-
-    "biology-and-science/axolotl-adaptations": {
-        "slug": "biology-and-science/axolotl-adaptations",
-        "hub": "biology-and-science",
-        "title": "Axolotl Adaptations: How They Feed, Breathe & Survive Underwater",
-        "title_tag": "Axolotl Adaptations: Feeding, Breathing & Aquatic Survival",
-        "meta": "Axolotl adaptations explained: paedomorphosis, external gills, finned tail, lateral-line sensing and suction feeding, plus which famous traits should not automatically be called habitat adaptations.",
-        "intro": "Axolotls are built for a permanently aquatic life. Their most defensible aquatic adaptations and retained traits include paedomorphosis, external gills, a finned tail, mechanosensory lateral-line organs and suction feeding.",
-        "num": 224,
-        "date_published": "2026-09-18",
-        "date_modified": "2026-09-18",
-        "headings": [
-            "What adaptations do axolotls have?",
-            "How does paedomorphosis support aquatic life?",
-            "How do external gills help axolotls breathe?",
-            "How does the tail help an axolotl swim?",
-            "How does the lateral line help an axolotl sense water movement?",
-            "What adaptations do axolotls have for feeding?",
-            "How does suction feeding work?",
-            "Is regeneration an axolotl habitat adaptation?",
-            "How do these traits fit Xochimilco?",
-            "Adaptation vs anatomy vs husbandry",
-            "Sources",
-        ],
-        "body": r'''
-<p><strong>The clearest axolotl adaptations for aquatic life are a permanently aquatic developmental strategy, external gills, a finned tail, specialized water-sensing organs and suction feeding.</strong> These traits work together: the animal remains in water, exchanges gases through aquatic respiratory surfaces, detects movement around its body and rapidly draws prey into the mouth.</p>
-
-<h2>What adaptations do axolotls have?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Adaptation or retained trait</th><th>Function</th></tr></thead>
-<tbody>
-<tr><td>Paedomorphosis / neoteny</td><td>Allows reproductive adulthood while retaining an aquatic body plan.</td></tr>
-<tr><td>External gills</td><td>Provide large exposed respiratory surfaces for gas exchange in water.</td></tr>
-<tr><td>Finned tail</td><td>Supports propulsion and maneuvering underwater.</td></tr>
-<tr><td>Lateral-line neuromasts</td><td>Mechanoreceptors detect water movement around the head and body.</td></tr>
-<tr><td>Suction feeding</td><td>Rapid expansion of the mouth/throat region pulls prey and water inward.</td></tr>
-</tbody></table></div>
-
-<h2>How does paedomorphosis support aquatic life?</h2>
-<p>Axolotls become reproductively mature without completing the usual terrestrial metamorphosis of many salamanders. A 2026 review treats axolotl neoteny as an evolutionary life-history strategy rather than simply â€œfailed development.â€ By retaining larval features into adulthood, the species keeps the structures associated with its aquatic mode of life.</p>
-<p>For the developmental mechanism, see <a href="/biology-and-science/neoteny/">neoteny</a> and <a href="/biology-and-science/metamorphosis/">axolotl metamorphosis</a>.</p>
-
-<h2>How do external gills help axolotls breathe?</h2>
-<p>Feathery external gills expose a large respiratory surface directly to the surrounding water. Axolotls also use skin and simple lungs, so breathing is not an â€œexternal gills onlyâ€ system. The retained gills are nevertheless one of the most visible features of the aquatic adult body plan.</p>
-<p>For respiratory anatomy, use <a href="/biology-and-science/anatomy-gills-and-lungs/">gills, lungs and skin anatomy</a>.</p>
-
-<h2>How does the tail help an axolotl swim?</h2>
-<p>The tail retains a broad fin associated with the larval aquatic form. Side-to-side body and tail movement provides propulsion, while the limbs contribute to positioning and slow movement along the bottom. The result is a body better suited to submerged movement than to a terrestrial salamander lifestyle.</p>
-
-<h2>How does the lateral line help an axolotl sense water movement?</h2>
-<p>Axolotls possess superficial lateral-line neuromasts on the head and trunk. These are mechanoreceptive organs that respond to water movement. Anatomical studies describe multiple lines of neuromasts and specialized innervation across the head and body.</p>
-<p>This sensory system matters underwater because visual information is only one source of environmental information. Water movement can help an aquatic predator detect nearby movement even in dim or complex habitat.</p>
-
-<h2>What adaptations do axolotls have for feeding?</h2>
-<p><strong>Suction feeding is the best-supported feeding adaptation in the keyword cluster.</strong> Axolotls do not need to chase and chew prey like a terrestrial mammal. Instead, rapid expansion of the oral and throat region creates water flow that draws prey into the mouth.</p>
-
-<h2>How does suction feeding work?</h2>
-<p>A 2025 kinematic study found suction feeding in axolotl larvae, juveniles and adults. The timing and speed of jaw and hyoid movement change with size, but the basic feeding mode persists across development.</p>
-<p>The small teeth help grip prey once it enters the mouth; they are not the main mechanism for capturing it. See <a href="/biology-and-science/anatomy-gills-and-lungs/">axolotl teeth and oral anatomy</a> for the structures.</p>
-
-<h2>Is regeneration an axolotl habitat adaptation?</h2>
-<p><strong>Do not automatically label every famous axolotl trait a Xochimilco adaptation.</strong> Regeneration is a remarkable biological capacity, but the sources used here do not establish limb regeneration specifically as an adaptation to modern Xochimilco canal conditions. It is better covered as a regeneration trait with its own evolutionary and developmental questions.</p>
-<p>See <a href="/biology-and-science/regeneration-and-limb-regrowth/">axolotl regeneration</a>.</p>
-
-<h2>How do these traits fit Xochimilco?</h2>
-<p>Wild axolotls persist in a freshwater canal-and-wetland environment with shallow vegetated water. A permanently aquatic body plan, water-breathing structures, a swimming tail, water-motion sensing and suction feeding are all coherent with life in that setting.</p>
-<p>For the place itselfâ€”range, canals, water type and threatsâ€”use <a href="/biology-and-science/wild-habitat-xochimilco/">the Xochimilco habitat guide</a>.</p>
-
-<h2>Adaptation vs anatomy vs husbandry</h2>
-<p>This page owns the function question: <em>what traits help an axolotl live and feed underwater?</em></p>
-<ul>
-<li><strong>What body part is this?</strong> â†’ <a href="/biology-and-science/anatomy-gills-and-lungs/">Anatomy</a></li>
-<li><strong>Where do wild axolotls live?</strong> â†’ <a href="/biology-and-science/wild-habitat-xochimilco/">Wild Habitat</a></li>
-<li><strong>How should I build a pet tank?</strong> â†’ <a href="/tank-setup/setup-guide/">Tank Setup</a></li>
-<li><strong>How can they regrow limbs?</strong> â†’ <a href="/biology-and-science/regeneration-and-limb-regrowth/">Regeneration</a></li>
-</ul>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/42489940/">Mussies (2026): Neoteny and Evolutionary Strategy</a></li>
-<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12309904/">Toussaint-Larde et al. (2025): suction-feeding kinematics through axolotl development</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/1484121/">Northcutt et al.: distribution and innervation of axolotl lateral-line organs</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/29879797/">Smith, Lannoo & Armstrong: lateral-line neuromast development</a></li>
-</ul>
-''',
-        "featured": False,
-    },
-})
-
-HERO_IMAGE_OVERRIDES.update({
-    "care-basics/are-axolotls-poisonous": {
-        "file": "axolotls-as-pets-for-kids.webp",
-        "alt": "Adult and child observing an axolotl aquarium with safe no-handling and hygiene guidance",
-        "caption": "Axolotls are not generally treated as poisonous or venomous pets; practical human safety centers on hygiene, bite care and limiting unnecessary handling.",
-        "description": "Axolotl human-safety graphic emphasizing observation, hygiene and minimal handling.",
-        "credit": "MyAxolotl original graphic",
-        "width": 1600, "height": 900,
-    },
-    "biology-and-science/axolotl-history-discovery": {
-        "file": "amazing-axolotl-facts.webp",
-        "alt": "Axolotl in a Xochimilco and science-history collage used to illustrate its cultural and research history",
-        "caption": "Axolotls were known in Mexico long before their 1798 formal scientific description; living animals reached Paris in the 1863â€“64 period and helped launch modern laboratory research.",
-        "description": "Axolotl history graphic connecting Xochimilco, taxonomy and scientific research.",
-        "credit": "MyAxolotl original graphic",
-        "width": 1600, "height": 900,
-    },
-    "biology-and-science/axolotl-adaptations": {
-        "file": "axolotl-wild-habitat-xochimilco.webp",
-        "alt": "Wild-type axolotl in Xochimilco illustrating aquatic adaptations including gills, tail, sensing and suction feeding",
-        "caption": "Axolotl aquatic adaptations include paedomorphosis, external gills, a finned tail, lateral-line sensing and suction feeding.",
-        "description": "Xochimilco axolotl graphic used to explain aquatic survival and feeding adaptations.",
-        "credit": "MyAxolotl original graphic",
-        "width": 1600, "height": 900,
-    },
-})
-
-LINKING.update({
-    "care-basics/are-axolotls-poisonous": [
-        "care-basics/handling",
-        "care-basics/axolotls-and-children",
-        "biology-and-science/anatomy-gills-and-lungs",
-        "health/finding-an-exotic-vet",
-    ],
-    "biology-and-science/axolotl-history-discovery": [
-        "care-basics/axolotl-facts",
-        "biology-and-science/wild-habitat-xochimilco",
-        "biology-and-science/neoteny",
-        "biology-and-science/regeneration-and-limb-regrowth",
-    ],
-    "biology-and-science/axolotl-adaptations": [
-        "biology-and-science/wild-habitat-xochimilco",
-        "biology-and-science/anatomy-gills-and-lungs",
-        "biology-and-science/neoteny",
-        "biology-and-science/regeneration-and-limb-regrowth",
-    ],
-})
-
-
-# Persisted article dates: the 106 DOCX-backed pages first appeared in the
-# launch commit, and the two config-authored pages first appeared later in the
-# same public repo history.
-DOCX_ARTICLE_DATE_PUBLISHED = "2026-08-22"
-DOCX_ARTICLE_DATE_MODIFIED = DOCX_ARTICLE_DATE_PUBLISHED
-CONFIG_ARTICLE_DATE_PUBLISHED = "2026-08-22"
-CONFIG_ARTICLE_DATE_MODIFIED = CONFIG_ARTICLE_DATE_PUBLISHED
-
-
-def _stamp_article_dates(entries, published, modified=None, published_source=None, modified_source=None):
-    modified = modified or published
-    for cfg in entries.values():
-        cfg.setdefault("date_published", published)
-        cfg.setdefault("date_modified", modified)
-        if published_source is not None:
-            cfg.setdefault("date_published_source", published_source)
-        if modified_source is not None:
-            cfg.setdefault("date_modified_source", modified_source)
-
-
-
-# Move three now-distinct keyword intents out of broader parent pages.
-BODY_TEXT_REPLACEMENTS.setdefault("care-basics/axolotls-and-children", []).append((
-    "<h2>Are axolotls poisonous or venomous?</h2>\n<p><strong>Noâ€”pet axolotls are not generally considered poisonous or venomous to people.</strong> The practical human-health concern is not toxin injection or poisoning; it is hygiene around an amphibian and its aquarium water. The CDC notes that reptiles and amphibians can carry <em>Salmonella</em> even when they look healthy, and the germs can spread from the animal, tank water, equipment, and other habitat surfaces.</p>\n<div class=\"table-wrap\"><table>\n<thead><tr><th>Question</th><th>Practical answer</th></tr></thead>\n<tbody>\n<tr><td>Are axolotls venomous?</td><td>No known venom-delivery hazard is part of normal axolotl contact or bites.</td></tr>\n<tr><td>Are axolotls poisonous to touch?</td><td>They are not treated as a poisoning hazard in normal pet husbandry. Handling should still be minimized because it can harm the axolotl's delicate skin.</td></tr>\n<tr><td>What is the main human-health risk?</td><td>Germs associated with amphibians and aquarium water, especially <em>Salmonella</em>.</td></tr>\n<tr><td>What should families do?</td><td>Wash hands with soap and running water after tank contact, keep aquarium equipment away from food-preparation areas, and supervise children.</td></tr>\n</tbody></table></div>\n<p>The CDC advises that children younger than 5 should not handle or touch reptiles or amphibians or their environments because they are at higher risk of serious illness from germs such as <em>Salmonella</em>. For older children, observation is safer for the animal than routine handling, and adults should supervise tank maintenance and handwashing.</p>\n<p><strong>Sources:</strong> <a href=\"https://www.cdc.gov/healthy-pets/about/reptiles-and-amphibians.html\">CDC: Reptiles and Amphibians</a>; <a href=\"https://www.fda.gov/animal-veterinary/animal-health-literacy/salmonella-feeder-rodents-and-pet-reptiles-and-amphibians-tips-you-should-know-prevent-infection\">FDA: Salmonella, Reptiles and Amphibians</a>; <a href=\"https://www.worldwildlife.org/resources/explainers/should-you-keep-an-exotic-animal-as-a-pet-this-guide-can-help-you-tell/\">WWF: Responsible Exotic Pet Guide</a>.</p>",
-    '<h2>Are axolotls poisonous or venomous?</h2><p><strong>Axolotls are not generally treated as poisonous or venomous pets.</strong> The more important family-safety issue is hygiene around amphibians and aquarium water. See <a href="/care-basics/are-axolotls-poisonous/">axolotl poison, venom, bite and human-safety guidance</a> for the full answer.</p>'
-))
-BODY_TEXT_REPLACEMENTS.setdefault("care-basics/axolotl-facts", []).append((
-    "<h2>When were axolotls discovered?</h2>\n<p><strong>There is no single human \"discovery\" date for the axolotl.</strong> Nahua peoples in the Valley of Mexico knew and named the animal long before European zoological taxonomy. If the question means \"when was the axolotl formally described by science?\", the key date is <strong>1798</strong>, when George Shaw and Frederick Polydore Nodder described it as <em>Gyrinus mexicanus</em>, the name on which today's <em>Ambystoma mexicanum</em> is based.</p>\n<div class=\"table-wrap\"><table>\n<thead><tr><th>Period</th><th>What happened</th><th>Why it matters</th></tr></thead>\n<tbody>\n<tr><td>Pre-Hispanic and colonial Mexico</td><td>The axolotl was already known in Nahua culture; colonial-era natural-history accounts included descriptions of the animal.</td><td>Its human history begins well before European scientific naming.</td></tr>\n<tr><td>1798</td><td>George Shaw and Frederick Polydore Nodder formally described <em>Gyrinus mexicanus</em>.</td><td>This is the clearest date for the species' formal scientific description.</td></tr>\n<tr><td>Early 1800s</td><td>Alexander von Humboldt sent preserved Mexican axolotl specimens to Georges Cuvier in Paris.</td><td>European anatomists began debating whether the gilled animal was a larva or an adult form.</td></tr>\n<tr><td>1863â€“1864</td><td>Living axolotls were shipped from Mexico to Paris; historical sources date the shipment to 1863 and their arrival and early study to 1864.</td><td>Those animals helped establish the long-running laboratory lineage and research on neoteny.</td></tr>\n</tbody></table></div>\n<h3>Who discovered axolotls?</h3>\n<p><strong>No single scientist can accurately be called the discoverer of axolotls.</strong> The animal was already known in Mexico. Shaw and Nodder are credited with the 1798 formal scientific description; Humboldt later brought preserved specimens to the attention of Cuvier and European naturalists.</p>\n<h3>Where did axolotls come from?</h3>\n<p><strong>Axolotls are native to the lake system of the Valley of Mexico, especially Xochimilco and historically Lake Chalco.</strong> Their surviving wild range is now restricted to Xochimilco. See the <a href=\"/biology-and-science/wild-habitat-xochimilco/\">Xochimilco habitat guide</a> for the modern range and habitat conditions.</p>\n<p><strong>Sources:</strong> <a href=\"https://amphibiansoftheworld.amnh.org/Amphibia/Caudata/Ambystomatidae/Ambystoma/Ambystoma-mexicanum\">American Museum of Natural History: Amphibian Species of the World</a>; <a href=\"https://ru.historicas.unam.mx/handle/20.500.12525/9239\">UNAM Instituto de Investigaciones HistÃ³ricas: El axÃ³lotl</a>; <a href=\"https://pubmed.ncbi.nlm.nih.gov/25920413/\">ReiÃŸ, Olsson &amp; HoÃŸfeld: 150 years of axolotl research</a>; <a href=\"https://ambystoma.uky.edu/genetic-stock-center/about.php\">University of Kentucky Ambystoma Genetic Stock Center</a>.</p>",
-    '<h2>When were axolotls discovered?</h2><p><strong>Axolotls were known in Mexico long before European taxonomy; 1798 is the key date for their formal scientific description by Shaw and Nodder.</strong> For the full timeline from Nahua knowledge through Humboldt, Cuvier, Paris and the rise of laboratory axolotls, see <a href="/biology-and-science/axolotl-history-discovery/">axolotl history and scientific discovery</a>.</p>'
-))
-BODY_TEXT_REPLACEMENTS.setdefault("biology-and-science/wild-habitat-xochimilco", []).append((
-    "<h2>What adaptations help axolotls survive in Xochimilco?</h2>\n<p><strong>Axolotls are adapted to a permanently aquatic life: they mature without losing larval features such as external gills and a finned tail, and they combine aquatic sensing and suction feeding with that body plan.</strong> In evolutionary biology this retention of juvenile traits into reproductive adulthood is called paedomorphosis or neoteny.</p>\n<div class=\"table-wrap\"><table>\n<thead><tr><th>Adaptation or retained trait</th><th>How it supports aquatic life</th></tr></thead>\n<tbody>\n<tr><td>Paedomorphosis / neoteny</td><td>Adults remain aquatic instead of completing the usual salamander transition to a terrestrial form.</td></tr>\n<tr><td>External gills</td><td>Large feathery respiratory surfaces support gas exchange while the animal remains submerged.</td></tr>\n<tr><td>Finned tail</td><td>The retained larval-style tail fin supports swimming through shallow canal and lake habitat.</td></tr>\n<tr><td>Lateral-line system</td><td>Mechanoreceptive neuromasts detect water movement around the body; see the <a href=\"/biology-and-science/anatomy-gills-and-lungs/\">anatomy guide</a> for the sensory structures.</td></tr>\n<tr><td>Suction feeding</td><td>Axolotls rapidly expand the mouth and throat region to draw aquatic prey and water inward; research finds this feeding mode from larvae through adults.</td></tr>\n</tbody></table></div>\n<p>These are better-supported aquatic adaptations than generic lists that label every unusual axolotl feature as a habitat adaptation. Regeneration, for example, is a remarkable biological ability, but the sources reviewed here do not establish it as a specific adaptation to Xochimilco's modern canal conditions.</p>\n<p><strong>Sources:</strong> <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC28454/\">Voss &amp; Shaffer (1997): paedomorphosis as an adaptation for an aquatic life cycle</a>; <a href=\"https://animaldiversity.org/accounts/Ambystoma_mexicanum/\">Animal Diversity Web: development and aquatic traits</a>; <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC10999947/\">Lyons &amp; Arbuckle (2024): evolution of neoteny in <em>Ambystoma</em></a>; <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC12309904/\">Toussaint-Larde et al. (2025): suction-feeding kinematics through axolotl development</a>.</p>",
-    '<h2>What adaptations help axolotls survive in Xochimilco?</h2><p><strong>Axolotls retain a permanently aquatic body plan with external gills and a finned tail, and they use lateral-line sensing and suction feeding underwater.</strong> See <a href="/biology-and-science/axolotl-adaptations/">axolotl adaptations</a> for the full functional explanation; this page stays focused on Xochimilco habitat and range.</p>'
-))
-
-# Minecraft Culture sub-pillar: keyword-reconciled, research-verified override.
-# This intentionally overrides the external DOCX article at render time so the
-# comprehensive Minecraft coverage survives future builds without creating a
-# duplicate URL or changing the site's core topical architecture.
-CONFIG_ARTICLES['axolotl-in-culture/minecraft-axolotls-guide'] = {
-    "slug": 'axolotl-in-culture/minecraft-axolotls-guide',
-    "num": 98,
-    "hub": "axolotl-in-culture",
-    "title": 'Minecraft Axolotls: Complete Guide',
-    "title_tag": 'Minecraft Axolotls: Food, Breeding, Blue Axolotl & More',
-    "meta": 'What do axolotls eat in Minecraft? Learn feeding, breeding, blue-axolotl odds, lush-cave spawning, taming, despawning, combat and commands.',
-    "intro": 'Minecraft axolotls live in lush caves, breed with Buckets of Tropical Fish, cannot be tamed, and come in five colors. Blue axolotls do not spawn naturally: a baby has a 1-in-1,200 mutation chance, while a blue parent can also pass on its color.',
-    "body": r'''<p><strong>Minecraft axolotls live in lush caves, breed with Buckets of Tropical Fish, cannot be tamed, and come in five colors.</strong> The rare blue variant is the exception: it does not spawn naturally, so survival players obtain it through breeding.</p>
-
-<div class="table-wrap"><table>
-<thead><tr><th>Question</th><th>Quick answer</th></tr></thead>
-<tbody>
-<tr><td>What do axolotls eat in Minecraft?</td><td>Use a <strong>Bucket of Tropical Fish</strong> to feed, lead, and breed them. The loose Tropical Fish item does not work for breeding.</td></tr>
-<tr><td>Can you tame an axolotl?</td><td>No. You can catch one in a water bucket, lead it with a Bucket of Tropical Fish, and breed it, but there is no wolf-style tame state.</td></tr>
-<tr><td>Where do they spawn?</td><td>Underwater in lush caves, with clay beneath the spawning water.</td></tr>
-<tr><td>How rare is blue?</td><td>A bred baby has roughly a 1-in-1,200 blue-mutation chance; blue can also be inherited from a blue parent.</td></tr>
-<tr><td>Do bucketed axolotls despawn?</td><td>Axolotls caught in a water bucket and released again are persistent and do not naturally despawn.</td></tr>
-</tbody></table></div>
-
-<h2>What do axolotls eat in Minecraft?</h2>
-<p><strong>For player feeding, Minecraft axolotls use a Bucket of Tropical Fish, not the ordinary Tropical Fish item.</strong> Use the bucket on an adult axolotl to feed it. Hold the same item and nearby axolotls are tempted to follow you.</p>
-<p>This distinction matters because killing or otherwise obtaining a loose tropical fish gives you a different item. To get the breeding food, scoop a living tropical fish into a water bucket. After the axolotl consumes the fish, the bucket becomes a water bucket again.</p>
-<p>Axolotls also hunt aquatic mobs on their own. That natural hunting behavior is separate from the item used by the player to feed or breed them.</p>
-
-<h2>How do you breed axolotls in Minecraft?</h2>
-<p><strong>Feed two adult axolotls one Bucket of Tropical Fish each.</strong> When both enter love mode, they breed and produce a baby axolotl. In Java Edition the parents have a five-minute breeding cooldown; in Bedrock Edition the cooldown is one minute.</p>
-<ol>
-<li>Find or capture two adult axolotls.</li>
-<li>Collect at least two Buckets of Tropical Fish.</li>
-<li>Use one bucket on each adult.</li>
-<li>Keep the adults close enough to reach each other.</li>
-<li>Wait for the baby to appear.</li>
-</ol>
-<p>A baby normally takes about 20 minutes to become an adult. Buckets of Tropical Fish can also accelerate baby growth.</p>
-
-<h2>How do you get a blue axolotl in Minecraft?</h2>
-<p><strong>In normal survival play, breed axolotls.</strong> Since Java 1.17.1, blue axolotls do not spawn naturally. Breeding gives a baby roughly a <strong>1-in-1,200</strong> mutation chance to become blue; otherwise the baby normally inherits a parent's color.</p>
-<p>Once you have a blue parent, inheritance changes the practical odds because a non-mutated baby can inherit that parent's blue color. Breeding two blue parents therefore produces blue offspring without waiting for another 1-in-1,200 mutation.</p>
-<p>If you are searching lush caves for a naturally spawned blue axolotl, you can stop: the four naturally spawning colors are the ones to look for in the wild.</p>
-
-<h2>Where do axolotls spawn in Minecraft?</h2>
-<p><strong>Axolotls spawn underwater in lush caves where the spawning water has clay beneath it.</strong> Mojang moved axolotl spawning to this lush-cave rule in Java 1.18.</p>
-<p>To find them efficiently, look for an azalea tree on the surface, which can indicate a lush cave below, then explore water pools around clay inside the cave. Bringing empty water buckets lets you capture an axolotl immediately, and a Bucket of Tropical Fish can draw one toward you if it is nearby but hard to see.</p>
-
-<h2>What are the five Minecraft axolotl colors?</h2>
-<p>Minecraft has five vanilla axolotl variants:</p>
-<ol>
-<li><strong>Leucistic (pink/lucy)</strong></li>
-<li><strong>Wild (brown)</strong></li>
-<li><strong>Gold</strong></li>
-<li><strong>Cyan</strong></li>
-<li><strong>Blue</strong></li>
-</ol>
-<p>Pink, brown, gold, and cyan can spawn naturally. Blue is the breeding-only rare variant in normal survival play. Current vanilla Minecraft does <strong>not</strong> have a green axolotl variant.</p>
-<p>The game colors are inspired by real axolotl appearances but are not a one-to-one guide to real morphs. In particular, <a href="/morphs/blue-and-pink-axolotl-myth/">there is no true blue axolotl morph in real life</a>.</p>
-
-<h2>Can you tame an axolotl in Minecraft?</h2>
-<p><strong>No. Minecraft axolotls cannot be tamed.</strong> They do not gain an owner state, sit on command, or behave like tamed wolves and cats. Mojang's Bedrock release notes explicitly distinguish breeding from taming.</p>
-<p>You can still keep one: catch it with a water bucket, release it into a suitable water enclosure, lead it with a Bucket of Tropical Fish, breed it, and take it into aquatic combat. Searching for a special taming food will not unlock a hidden tame mechanic.</p>
-
-<h2>How do you catch an axolotl, and will it despawn?</h2>
-<p><strong>Use a water bucket directly on the axolotl.</strong> This creates a Bucket of Axolotl that preserves the animal for transport. When you place it back into water, a bucket-caught axolotl is persistent and does not naturally despawn.</p>
-<p>Naturally spawned axolotls that have not been made persistent can be subject to normal despawning behavior. If you are collecting colors or building a breeding pool, bucket each axolotl before moving it home rather than simply trying to herd wild spawns over a long distance.</p>
-
-<h2>Can Minecraft axolotls breathe air or live on land?</h2>
-<p><strong>They are amphibious, but they should be kept in water.</strong> Current Bedrock behavior data marks axolotls as able to breathe both water and air, yet it also gives them a drying-out timer of 300 seconds. After about five minutes out of water, an axolotl begins taking drying damage unless rain or water interrupts the timer.</p>
-<p>That means an axolotl does not die on land because it instantly â€œdrowns in air.â€ The practical danger is drying out. Build transport routes and enclosures so they can stay in water instead of relying on their short land tolerance.</p>
-
-<h2>What do axolotls attack in Minecraft?</h2>
-<p><strong>Axolotls are active aquatic predators.</strong> Current Bedrock behavior data targets the fish family, squid family, and tadpoles, plus drowned, guardians, and elder guardians. Frogs are not in that target list, so the game does not treat adult frogs as a normal axolotl prey target.</p>
-<p>When you kill a mob that an axolotl is fighting, the axolotl can reward you with temporary Regeneration and remove Mining Fatigue. That interaction is why axolotls are especially useful around guardians and ocean monuments.</p>
-<p>Axolotls can also play dead after taking damage, temporarily causing attackers to stop targeting them while the axolotl regenerates.</p>
-
-<h2>What are the Minecraft axolotl summon commands?</h2>
-<p>Commands require cheats or suitable operator permissions. The basic commands are:</p>
-<div class="table-wrap"><table>
-<thead><tr><th>Edition</th><th>Command</th><th>Result</th></tr></thead>
-<tbody>
-<tr><td>Java</td><td><code>/summon minecraft:axolotl ~ ~ ~</code></td><td>Summons an axolotl at your position.</td></tr>
-<tr><td>Java â€” blue</td><td><code>/summon minecraft:axolotl ~ ~ ~ {Variant:4}</code></td><td>On current Java 26.x builds, variant value 4 is the blue axolotl.</td></tr>
-<tr><td>Bedrock</td><td><code>/summon axolotl ~ ~ ~</code></td><td>Summons a normally generated axolotl.</td></tr>
-</tbody></table></div>
-<p><strong>What about a blue-axolotl command in Bedrock?</strong> Older guides commonly recommend <code>/summon axolotl ~ ~ ~ minecraft:entity_born</code>. Current Microsoft behavior documentation defines <code>minecraft:entity_born</code> as the event used when an axolotl is produced through breeding, not as a documented stable blue-variant selector. Because Bedrock spawn-event behavior is version-sensitive, we do not present that older shortcut as a guaranteed current blue command. For a reliable blue axolotl in normal Bedrock gameplay, use breeding; for commands, use the suggestions exposed by your installed version.</p>
-<p>Command data formats are more version-sensitive than survival mechanics. Java's <code>Variant:4</code> syntax remains in current 26.x command references, but recheck command syntax after major technical updates.</p>
-
-<h2>When were axolotls added to Minecraft?</h2>
-<p><strong>Axolotls arrived with Caves &amp; Cliffs: Part I (1.17) in June 2021.</strong> Java 1.17.1 then made blue axolotls breeding-only, and Java 1.18 moved natural spawning to water in lush caves above clay blocks.</p>
-<p>For this guide, the core mechanics were rechecked against the current 2026 Java/Bedrock release line and the current Bedrock vanilla behavior data. That matters because older 1.17 guides still repeat the original underground-water spawning rule that Mojang replaced in 1.18.</p>
-
-<h2>How are Minecraft axolotls different from real axolotls?</h2>
-<p>Minecraft gets several recognizable traits right: axolotls are aquatic salamanders, have feathery external gills, and occur in pale, gold, and dark-looking forms. But game mechanics are fictional. Real axolotls do not grant Regeneration, fight guardians, live in buckets, or come in a true blue morph.</p>
-<p>If the game is what introduced you to the animal, use the <a href="/axolotls/care-guide/">real axolotl care guide</a> for husbandry and the <a href="/morphs/morphs-comparison-chart/">morph comparison</a> for real colors.</p>
-
-<h2>Sources and version notes</h2>
-<div class="references"><ul>
-<li><a href="https://feedback.minecraft.net/hc/en-us/articles/4402626897165-Minecraft-Caves-Cliffs-Part-1-1-17-Java">Minecraft Java 1.17: Caves &amp; Cliffs Part I</a></li>
-<li><a href="https://feedback.minecraft.net/hc/en-us/articles/4404449719949-Minecraft-Java-Edition-1-17-1">Minecraft Java 1.17.1</a></li>
-<li><a href="https://feedback.minecraft.net/hc/en-us/articles/4415128577293-Minecraft-Java-Edition-1-18">Minecraft Java 1.18</a></li>
-<li><a href="https://feedback.minecraft.net/hc/en-us/articles/4402427632013-Minecraft-Caves-Cliffs-Part-I-1-17-0-Bedrock">Minecraft Bedrock 1.17.0</a></li>
-<li><a href="https://feedback.minecraft.net/hc/en-us/articles/48913133328013-Minecraft-Java-Edition-26-3">Minecraft Java Edition 26.3</a></li>
-<li><a href="https://feedback.minecraft.net/hc/en-us/articles/48915928859789-Minecraft-Bedrock-Edition-26-51-Hotfix-Changelog">Minecraft Bedrock Edition 26.51</a></li>
-<li><a href="https://learn.microsoft.com/en-us/minecraft/creator/reference/source/vanillabehaviorpack_snippets/entities/axolotl?view=minecraft-bedrock-stable">Microsoft Learn: current vanilla axolotl behavior data</a></li>
-<li><a href="https://learn.microsoft.com/en-us/minecraft/creator/commands/commands/summon?view=minecraft-bedrock-stable">Microsoft Learn: /summon command</a></li>
-</ul></div>''',
-    "headings": [
-        'What do axolotls eat in Minecraft?',
-        'How do you breed axolotls in Minecraft?',
-        'How do you get a blue axolotl in Minecraft?',
-        'Where do axolotls spawn in Minecraft?',
-        'What are the five Minecraft axolotl colors?',
-        'Can you tame an axolotl in Minecraft?',
-        'How do you catch an axolotl, and will it despawn?',
-        'Can Minecraft axolotls breathe air or live on land?',
-        'What do axolotls attack in Minecraft?',
-        'What are the Minecraft axolotl summon commands?',
-        'When were axolotls added to Minecraft?',
-        'How are Minecraft axolotls different from real axolotls?',
-        'Sources and version notes',
-    ],
-    "faq": [],
-    "featured": False,
-    "date_published": "2026-08-22",
-    "date_modified": "2026-09-17",
-}
-
-# Correct a cross-page wording conflict discovered during the Minecraft audit:
-# axolotls are bucketable and breedable in Minecraft, but are not tameable.
-BODY_TEXT_REPLACEMENTS.setdefault(
-    "axolotl-in-culture/why-axolotls-are-suddenly-popular", []
-).append((
-    "added axolotls as a tame, bucketable, endlessly cute mob",
-    "added axolotls as bucketable, breedable aquatic mobs",
-))
-
-_stamp_article_dates(ARTICLES, DOCX_ARTICLE_DATE_PUBLISHED, DOCX_ARTICLE_DATE_MODIFIED,
-                     published_source="git:924cb99")
-_stamp_article_dates(CONFIG_ARTICLES, CONFIG_ARTICLE_DATE_PUBLISHED,
-                     CONFIG_ARTICLE_DATE_MODIFIED, published_source="git:924cb99")
-
-# Search action metadata (Phase 9-B): index entries that carry an explicit
-# action button / route. Tools get their action automatically in build.py.
-SEARCH_ACTIONS = {
-    "health/emergency-first-aid": {"label": "Emergency first aid", "kind": "guide"},
-    "health/finding-an-exotic-vet": {"label": "Find an exotic vet", "kind": "guide"},
-}
-
-# Author / publisher info (shown on articles, in schema)
-AUTHOR = PEOPLE["author"]
-EDITOR = PEOPLE["editor"]
-
-
-# ---------------------------------------------------------------------------
-# Canonical body rewrites â€” stress diagnostics + pop culture (2026-09-18)
-# ---------------------------------------------------------------------------
-
-BODY_OVERRIDES["health/stress-signs"] = r'''
-<p><strong>No single posture or behavior proves that an axolotl is â€œstressed.â€</strong> The useful approach is to notice a change from the animal's normal pattern, check the environment, and then follow the specialist guide for the specific sign. Appetite, gill condition, buoyancy, swimming, skin, posture and water-quality measurements all matter together.</p>
-
-<h2>What are common axolotl stress or illness warning signs?</h2>
-<p>Owners commonly notice changes such as forward-curled gills, an unusually curled tail tip, persistent abnormal floating, reduced appetite, frantic or abnormal swimming, shrinking or damaged gills, skin changes, wounds, or a marked change in activity. These observations are <strong>nonspecific</strong>: several different husbandry or medical problems can produce similar signs.</p>
-<p>The Ambystoma Genetic Stock Center notes that poor husbandry and adverse environmental conditions increase vulnerability to disease, and identifies loss of appetite and gill deterioration as early illness signs. Veterinary amphibian guidance likewise recommends assessing appetite, water quality, temperature, posture, behavior, respiratory effort, equilibrium and fecal production rather than diagnosing from one visible feature.</p>
-
-<h2>Which sign should you follow next?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>What you observe</th><th>What it can tell you</th><th>Best next guide</th></tr></thead>
-<tbody>
-<tr><td>Forward-curled gills or curled tail tip</td><td>A posture change worth checking against water, temperature, flow and recent disturbance; not a diagnosis by itself</td><td><a href="/health/curled-gills-stress-signal/">Curled gills & tail tip</a></td></tr>
-<tr><td>Persistent floating, inability to sink, rolling or loss of equilibrium</td><td>Buoyancy or swimming abnormality that can have multiple causes</td><td><a href="/health/why-axolotl-floating/">Why is my axolotl floating?</a></td></tr>
-<tr><td>Reduced or absent appetite</td><td>Can accompany husbandry problems, illness, gastrointestinal problems or normal feeding variation</td><td><a href="/health/refusing-to-eat/">Axolotl not eating</a></td></tr>
-<tr><td>Shrinking or deteriorating gills</td><td>Gill-health change requiring water, flow, oxygenation and health review</td><td><a href="/health/shrinking-gills/">Shrinking gills</a></td></tr>
-<tr><td>White or cotton-like growth</td><td>Possible surface growth; appearance alone does not confirm the organism</td><td><a href="/health/fungal-infections-saprolegnia/">Axolotl fungus</a></td></tr>
-<tr><td>Swelling plus reduced appetite or suspected swallowed material</td><td>Possible gastrointestinal problem; impaction is only one possibility</td><td><a href="/health/impaction-symptoms-treatment/">Impaction symptoms</a></td></tr>
-<tr><td>Bleeding, open wound, severe swelling, skin sloughing or rapid decline</td><td>Potentially urgent problem</td><td><a href="/health/emergency-first-aid/">Emergency signs & first aid</a></td></tr>
-</tbody></table></div>
-
-<h2>What should you check first?</h2>
-<p><strong>Start with measurements and recent changes.</strong> A veterinarian evaluating an amphibian asks about diet and appetite, temperature, lighting, recent animal introductions, medications, disinfection practices and measured water quality. That same structure is useful at home before you guess at a diagnosis.</p>
-<ol>
-<li><strong>Measure the water temperature.</strong> Do not rely on how the tank feels to your hand.</li>
-<li><strong>Test ammonia, nitrite, nitrate and pH.</strong> Record the actual numbers. Use <a href="/tank-setup/how-to-test-water/">how to test axolotl water</a> if you need the procedure.</li>
-<li><strong>Review recent changes.</strong> New tank mate, filter, cleaning, dÃ©cor, food, medication, move or power outage can matter.</li>
-<li><strong>Check water flow and disturbance.</strong> AGSC notes that rapid circulation can be stressful; flow should not force an axolotl to constantly brace or move.</li>
-<li><strong>Look at the whole animal.</strong> Appetite, body condition, gills, skin, posture, breathing effort, swimming and fecal production provide more context than one feature alone.</li>
-</ol>
-
-<h2>Do curled gills always mean stress?</h2>
-<p><strong>No single gill position is a validated diagnostic test.</strong> A persistent or new forward curl can be a useful observation, especially when it appears with other changes, but it should lead to a husbandry and health check rather than an automatic conclusion such as â€œammonia burnâ€ or â€œhigh temperature.â€</p>
-<p>Use the <a href="/health/curled-gills-stress-signal/">curled-gills guide</a> for the more specific differential and escalation pathway.</p>
-
-<h2>Is floating always a stress sign?</h2>
-<p><strong>No.</strong> Brief surface visits or temporary buoyancy can occur without disease. Persistent inability to control position, rolling, upside-down floating, or loss of equilibrium is more concerning. Merck's amphibian examination guidance notes that abnormal swimming or inability to maintain equilibrium can indicate neurologic impairment, but other buoyancy and gastrointestinal problems can produce abnormal position too.</p>
-<p>That is why the <a href="/health/why-axolotl-floating/">floating guide</a> owns the differential instead of this general stress page.</p>
-
-<h2>Can water quality or temperature cause stress?</h2>
-<p>Yes. Water quality and temperature are foundational axolotl husbandry variables, so they should be checked whenever behavior or appearance changes. AGSC emphasizes clean water, biological control of ammonia and nitrite in filtered systems, cool temperatures, and low flow. However, <strong>normal test results do not rule out illness</strong>, and an abnormal reading does not prove it is the only cause of the animal's signs.</p>
-<p>Interpret numbers on <a href="/tank-setup/water-parameters-cycling/">Water Parameters & Nitrogen Cycle</a>, and use <a href="/tank-setup/temperature/">the temperature guide</a> for thermal management.</p>
-
-<h2>What should you do after correcting a husbandry problem?</h2>
-<p>Record the correction and keep watching the animal. Do not promise yourself that a sign must disappear within a fixed number of hours or days: recovery depends on the underlying cause, severity and whether there is concurrent disease or injury.</p>
-<p>If the axolotl is worsening, has severe signs, cannot maintain normal position, has an open wound, marked swelling, skin sloughing, significant respiratory difficulty, or continues to decline despite corrected husbandry, seek an amphibian-experienced veterinarian. Use the <a href="/health/finding-an-exotic-vet/">axolotl vet guide</a> if needed.</p>
-
-<h2>Stress signs vs normal behavior</h2>
-<p>Normal resting, hiding, slow walking along the bottom and periods of inactivity belong on the <a href="/care-basics/behavior/">axolotl behavior guide</a>. This page is a health-routing page for <em>changes that concern the owner</em>. Keeping that boundary prevents normal behavior from being mislabeled as disease and prevents a genuinely abnormal sign from being dismissed as â€œjust stress.â€</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/clinical-techniques-in-amphibians">Merck Veterinary Manual: Clinical Techniques in Amphibians, updated February 2026</a></li>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/environment-and-husbandry-for-amphibians">Merck Veterinary Manual: Environment and Husbandry for Amphibians</a></li>
-<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
-</ul>
-'''
-
-BODY_OVERRIDES["axolotl-in-culture/axolotl-in-pop-culture-and-memes"] = r'''
-<p><strong>Axolotls appear in modern games, animation fandom, literature, memes, merchandise and science media.</strong> Minecraft is the most obvious mass-market example, but the animal also has a much older literary presence in Julio CortÃ¡zar's â€œAxolotlâ€ and a recurring connection to the mythology surrounding Bill Cipher in <em>Gravity Falls</em>.</p>
-<div class="role-note"><strong>This page owns cultural appearances.</strong> For the separate question of why public interest accelerated, read <a href="/axolotl-in-culture/why-axolotls-are-suddenly-popular/">why axolotls became so popular</a>. For game mechanics, use the <a href="/axolotl-in-culture/minecraft-axolotls-guide/">Minecraft axolotl guide</a>.</div>
-
-<h2>Where do axolotls appear in pop culture?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Medium</th><th>Example</th><th>Why the axolotl matters</th></tr></thead>
-<tbody>
-<tr><td>Video games</td><td>Minecraft</td><td>Axolotls became an interactive mob in Caves & Cliffs Part I in June 2021.</td></tr>
-<tr><td>Animation / fandom</td><td>Gravity Falls</td><td>The word â€œAXOLOTLâ€ and an Axolotl figure are tied to Bill Cipher lore across the finale-era puzzle/fandom material and later franchise books.</td></tr>
-<tr><td>Literature</td><td>Julio CortÃ¡zar, â€œAxolotlâ€</td><td>The narrator becomes obsessively identified with axolotls at the Jardin des Plantes in Paris.</td></tr>
-<tr><td>Internet culture</td><td>Memes, reaction images, short videos</td><td>The face, external gills and still posture are easy to anthropomorphize.</td></tr>
-<tr><td>Merchandise</td><td>Plush toys, apparel, figures and gifts</td><td>The simplified â€œsmiling axolotlâ€ silhouette transfers easily to character design.</td></tr>
-<tr><td>Science media</td><td>Regeneration and genome research</td><td>Scientific coverage keeps the real animal visible beyond entertainment.</td></tr>
-</tbody></table></div>
-
-<h2>When did Minecraft add axolotls?</h2>
-<p><strong>Minecraft added axolotls in Caves & Cliffs Part I in June 2021.</strong> Mojang's own retrospective says Part I added axolotls, goats and glow squid to the Overworld, and its later â€œTaking Inventoryâ€ article confirms that axolotls entered Minecraft in the first part of Caves & Cliffs.</p>
-<p>Mojang was already publishing axolotl fan art before release, which shows that the creature was part of the update's community identity before players could encounter it in the finished game. The game uses five color variants and fictional mechanics; those variants should not be treated as a guide to real axolotl morph genetics.</p>
-<p>For spawning, feeding, breeding, blue-variant odds, bucket persistence and commands, use <a href="/axolotl-in-culture/minecraft-axolotls-guide/">Minecraft Axolotls: Complete Guide</a>. For build ideas, use <a href="/axolotl-in-culture/minecraft-axolotl-enclosure-builds/">Minecraft axolotl enclosure builds</a>.</p>
-
-<h2>What is the Gravity Falls axolotl connection?</h2>
-<p><strong>The axolotl is part of the Bill Cipher mythology that fans follow across <em>Gravity Falls</em> and related books.</strong> Fan reference documentation records that Bill's final reversed speech in the series includes the word â€œAXOLOTL,â€ and later franchise material develops an Axolotl figure connected with Bill's fate.</p>
-<p>Disney's official publishing catalog confirms that Alex Hirsch's <em>The Book of Bill</em> continues Bill Cipher's story and lore after the television series. Because some details of the Axolotl connection come through ciphers, bonus material and later books, this page separates the basic documented connection from fan theories about what it ultimately means.</p>
-<p><strong>What we should not do:</strong> present a fan theory about the Axolotl as a confirmed biological or mythological explanation for the real animal. The fictional character and the real salamander are separate subjects.</p>
-
-<h2>What is Julio CortÃ¡zar's â€œAxolotlâ€?</h2>
-<p><strong>â€œAxolotlâ€ is a short story by Argentine writer Julio CortÃ¡zar, first published in 1956.</strong> Literary reference sources describe a narrator who repeatedly watches axolotls at the Jardin des Plantes in Paris until the boundary between human observer and animal becomes unstable.</p>
-<p>The story made the axolotl a literary image decades before modern games and social media. It is therefore useful evidence that the animal's cultural appeal did not begin with Minecraft.</p>
-
-<h2>Why do axolotls work so well as characters and memes?</h2>
-<p>Several visible traits make the animal easy to stylize: a broad head, small eyes, prominent external gills and a mouth line that can look smile-like from a human point of view. Those features are routinely exaggerated into friendly character designs even though a real axolotl's facial expression should not be interpreted as a human emotion.</p>
-<p>That distinction matters on an animal-care site: the â€œcute smileâ€ is a visual impression, not evidence that an animal is happy, social or asking to be handled.</p>
-
-<h2>How does science contribute to axolotl fame?</h2>
-<p>Axolotls are not only entertainment icons. Their ability to regenerate complex tissues and their long history as laboratory animals repeatedly generate science coverage. That creates a second cultural pathway: someone may first meet the animal through a game or plush toy and then discover regeneration research, or encounter the science first and later recognize the animal in entertainment.</p>
-<p>Read <a href="/biology-and-science/regeneration-and-limb-regrowth/">axolotl regeneration</a> for the biology rather than the pop-culture shorthand.</p>
-
-<h2>Are axolotls important in Mexican culture too?</h2>
-<p>Yes. The axolotl's cultural history is much older than modern fandom. Its Nahuatl name and historical role in the Valley of Mexico connect it to Indigenous and local history, while Xochimilco remains the home of the surviving wild population. Modern internet culture should not erase that geographic and historical context.</p>
-<p>Continue to <a href="/biology-and-science/axolotl-history-discovery/">axolotl history and scientific discovery</a>, <a href="/biology-and-science/wild-habitat-xochimilco/">Xochimilco habitat</a>, and <a href="/axolotl-in-culture/do-people-eat-axolotls/">axolotl food and cultural history</a>.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://www.minecraft.net/en-us/article/minecraft-live-2021-the-recap">Minecraft: Minecraft Live 2021 recap</a></li>
-<li><a href="https://www.minecraft.net/en-us/article/taking-inventory--bucket-axolotl">Minecraft: Taking Inventory â€” Bucket of Axolotl</a></li>
-<li><a href="https://www.minecraft.net/en-us/article/caves---cliffs-creative-collection">Minecraft: Caves & Cliffs Creative Collection</a></li>
-<li><a href="https://books.disney.com/book/the-book-of-bill/">Disney Books: The Book of Bill by Alex Hirsch</a></li>
-<li><a href="https://gravityfalls.fandom.com/wiki/The_Axolotl">Gravity Falls Wiki: The Axolotl (secondary fan reference for the series/cipher connection)</a></li>
-<li><a href="https://www.encyclopedia.com/plants-and-animals/animals/vertebrate-zoology/axolotl">Encyclopedia.com: Julio CortÃ¡zar's â€œAxolotlâ€ (1956)</a></li>
-<li><a href="https://www.cambridge.org/core/books/abs/cambridge-history-of-latin-american-literature/twentiethcentury-short-story-in-spanish-america/26D3514B5C208080F9159E450AC198A3">Cambridge History of Latin American Literature: CortÃ¡zar bibliography</a></li>
-</ul>
-'''
-
-
-
-# Canonical home-aquarium tank-size guidance (2026-09-18).
-# Distinguishes intensive research housing from ordinary pet aquarium planning.
-BODY_OVERRIDES["tank-setup/tank-size-by-age"] = r'''
-<p><strong>For one adult pet axolotl, use a long aquarium of at least 20 gallons; if you are buying a permanent home from scratch, a 40-gallon breeder is MyAxolotl's preferred planning size because it gives substantially more floor area and water volume.</strong> The 40-gallon figure is a practical home-aquarium recommendation, not a scientifically proven biological threshold.</p>
-<div class="role-note"><strong>This page owns tank-size requirements.</strong> Use it for age, body size, usable floor space, water volume and multiple-axolotl planning. For the full build sequence, filtration, cooling, substrate and cycling, use the <a href="/tank-setup/setup-guide/">tank setup guide</a>.</div>
-
-<h2>What size tank does one adult axolotl need?</h2>
-<p>Petco's current axolotl care sheet recommends a minimum habitat size of <strong>20+ gallons for an adult</strong> and specifically says aquarium length is more important than height, making a 20-gallon-long preferable to a 20-gallon-high. MyAxolotl uses that as the practical lower bound for a single adult home aquarium.</p>
-<p><strong>If space and budget allow, choose a 40-gallon breeder instead.</strong> That is a site recommendation rather than a claim that 40 gallons is the only ethical or scientifically validated size. The wider footprint gives an adult more usable bottom area and gives the keeper more water volume in which to dilute waste and buffer maintenance mistakes.</p>
-
-<h2>Why do tank-size recommendations conflict online?</h2>
-<p>They often mix <strong>research housing</strong> with <strong>pet display aquariums</strong>. The 2024 Ambystoma Genetic Stock Center guide says housing-container size should scale with animal number and body size, and its laboratory uses small individual containers within intensive static or recirculating systems. It also states that filtered aquaria can house axolotls at densities far higher than most modern hobby recommendations.</p>
-<p>Those laboratory systems use controlled water chemistry, frequent or automatic water replacement, standardized feeding, routine monitoring and institutional husbandry. A laboratory container is therefore not a sensible â€œminimum pet tankâ€ citation. A home keeper usually benefits from more water volume and floor area because the system is less intensively managed.</p>
-
-<h2>Tank size by life stage</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Life stage</th><th>How to plan housing</th><th>Why</th></tr></thead>
-<tbody>
-<tr><td>Larva / small baby</td><td>Use a manageable grow-out container sized to the animal and your cleaning routine; there is no universal evidence-based gallon minimum for this stage.</td><td>Small animals need easy feeding, observation and frequent maintenance.</td></tr>
-<tr><td>Juvenile</td><td>A temporary grow-out tank can be smaller than the final adult home, but if buying one permanent aquarium, buy the adult-sized footprint early.</td><td>Avoid repeated upgrades and re-cycling.</td></tr>
-<tr><td>One adult</td><td><strong>20-gallon long minimum; 40-gallon breeder preferred by MyAxolotl.</strong></td><td>Length/width provide usable floor space; larger volume is more forgiving for waste and maintenance.</td></tr>
-<tr><td>Two adults</td><td>Do not rely on a simple â€œX gallons per animalâ€ rule. Use a substantially larger footprint, separate hides and close monitoring; a 40-gallon breeder is a practical starting floor, with larger housing preferred.</td><td>Cohabitation adds territory, waste and bite-risk considerations that gallons alone cannot solve.</td></tr>
-<tr><td>Three or more adults</td><td>Plan a large custom system or separate aquariums rather than multiplying a gallon formula.</td><td>Group management, size matching, feeding and injury monitoring become the limiting factors.</td></tr>
-</tbody></table></div>
-
-<h2>Does floor space matter more than height?</h2>
-<p><strong>Yes for how the animal uses the enclosure, but water volume still matters for system stability.</strong> Axolotls spend much of their time on or near the bottom, so a long, wide aquarium gives more useful space than a tall tank with the same nominal volume. Extra height is not uselessâ€”it still adds waterâ€”but it should not come at the expense of length and width.</p>
-<p>When comparing two tanks, check both the gallon rating and the actual footprint. Use the <a href="/tools/aquarium-volume-calculator/">Aquarium Volume Calculator</a> if you have dimensions but not a reliable volume figure.</p>
-
-<h2>Is a 20-gallon long enough for one adult?</h2>
-<p><strong>It is a current practical minimum, not the size MyAxolotl would choose when starting from scratch.</strong> A healthy adult can physically fit in a 20-gallon-long aquarium, and Petco currently lists 20+ gallons as the adult minimum. The tradeoff is less floor area, less dilution of waste and less room for hides and equipment.</p>
-<p>A 40-gallon breeder gives a wider footprint and roughly twice the nominal water capacity, which is why this site prefers it as the long-term planning choice when the keeper has room for it.</p>
-
-<h2>What size tank do two axolotls need?</h2>
-<p><strong>There is no evidence-based gallon formula that makes two axolotls automatically compatible.</strong> Closely matched adults can sometimes be housed together, but nipping, feeding competition, breeding behavior and size differences still matter. If two adults share a tank, provide more floor space than you would for one, at least one suitable hide per animal, and a layout that lets them separate.</p>
-<p>MyAxolotl treats a 40-gallon breeder as a <em>starting footprint</em> for two closely size-matched adults, not a guarantee. If bites, repeated displacement, a growing size gap or feeding problems appear, separate the animals. See <a href="/care-basics/keeping-multiple-axolotls/">Can Axolotls Live Together?</a>.</p>
-
-<h2>What size tank do baby and juvenile axolotls need?</h2>
-<p><strong>Do not force babies into a rigid gallon chart.</strong> The 2024 AGSC guide scales containers as animals grow and pairs container size with frequent cleaning. That research model demonstrates the important principle: housing size and maintenance intensity are linked.</p>
-<p>For a pet keeper, a small grow-out setup can make feeding and observation easier, but it must stay clean and temperature-stable. If you already know you will keep the animal to adulthood, buying and cycling the permanent adult aquarium early can be simpler than repeatedly upgrading.</p>
-<p>For the animal's body-size progression rather than aquarium gallons, use <a href="/care-basics/axolotl-age-and-size-chart/">How Big Do Axolotls Get?</a>.</p>
-
-<h2>When should you upgrade the tank?</h2>
-<p>Upgrade before the setup becomes difficult to manage. Warning signs include insufficient floor area for a full-size animal and hides, rapidly accumulating waste, repeated water-quality instability, equipment crowding, or multiple animals that cannot maintain separate resting areas. An arbitrary birthday or body-length cutoff is less useful than those practical constraints.</p>
-
-<h2>What should you measure before buying a tank?</h2>
-<ul>
-<li><strong>External footprint:</strong> confirm the aquarium and stand fit the room.</li>
-<li><strong>Internal length and width:</strong> these determine usable bottom area.</li>
-<li><strong>Actual water depth:</strong> dÃ©cor, substrate and headspace reduce real water volume.</li>
-<li><strong>Filter and chiller space:</strong> equipment needs clearance and suitable flow routing.</li>
-<li><strong>Loaded weight:</strong> water is heavy; use the <a href="/tools/aquarium-volume-calculator/">Aquarium Volume Calculator</a> to estimate water weight.</li>
-</ul>
-
-<h2>Sources and recommendation note</h2>
-<p><strong>Evidence boundary:</strong> no source reviewed establishes a universal research-derived pet-aquarium gallon threshold. The AGSC 2024 guide is a research-husbandry reference and explicitly scales housing with animal number/body size while using intensive maintenance systems. Petco's current pet-care sheet supplies the clearest current consumer minimum we found: 20+ gallons for one adult, with a long tank preferred over a high tank.</p>
-<ul>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
-<li><a href="https://www.petco.com/pet-education/caresheets/axolotl">Petco: Axolotl Care Guide â€” 20+ gallon adult minimum</a></li>
-</ul>
-<p><strong>MyAxolotl recommendation:</strong> treat a 20-gallon long as the practical minimum for one adult and a 40-gallon breeder as the preferred long-term home when space and budget permit. That preference is deliberately more conservative than laboratory-density guidance.</p>
-'''
-
-
-# Evidence-bounded fungal-disease cluster (2026-09-18).
-BODY_OVERRIDES["health/fungal-infections-saprolegnia"] = r'''
-<p><strong>A white or cotton-like growth on an axolotl can be consistent with saprolegniasis, but appearance alone does not confirm the organism.</strong> <em>Saprolegnia</em>, <em>Aphanomyces</em> and <em>Achlya</em> are water molds (oomycetes) that can infect the skin or gills of aquatic amphibians. Veterinary diagnosis can involve a skin scraping examined for hyphae and zoospores.</p>
-<div class="role-note"><strong>This page owns the condition and diagnostic pathway.</strong> The <a href="/health/black-tea-bath/">black-tea page</a> explains the evidence limits of a popular hobby practice; the <a href="/health/salt-bath/">salt-bath page</a> explains where saline appears in veterinary guidance. Neither page should replace diagnosis or veterinary care for a worsening lesion.</div>
-
-<h2>What is axolotl saprolegniasis?</h2>
-<p>Saprolegniasis is a disease caused by opportunistic water molds. Merck's veterinary amphibian guidance describes these organisms as affecting the skin and gills of aquatic and larval amphibians. They are often associated with tissue that has already been damaged or whose normal protective surface has been compromised.</p>
-
-<h2>What can saprolegniasis look like?</h2>
-<p>The classic gross finding is a <strong>whitish, cotton-like growth</strong> attached to skin or gill tissue. Older mats can appear greenish because algae can become incorporated. Once the material is removed from water, it may collapse and become much harder to see.</p>
-<p>Other signs can include lethargy, respiratory difficulty, loss of appetite and weight loss, depending on lesion extent. None of those secondary signs is specific to saprolegniasis.</p>
-
-<h2>What can be mistaken for fungus?</h2>
-<p>Not every pale patch, gill change or skin lesion is a water mold. Bacterial disease, other fungal disease, parasites, injury, abnormal shedding or chemical irritation can overlap visually. Merck notes that many amphibian fungal diseases are difficult to distinguish grossly and may require wet mounts, culture, histology or special stains.</p>
-<p><strong>Do not identify â€œcolumnaris,â€ â€œfungusâ€ or a parasite from one photograph with certainty.</strong> Use photographs to document change, not to substitute for examination.</p>
-
-<h2>Why can Saprolegnia take hold?</h2>
-<p>Veterinary references describe saprolegniasis as opportunistic. Factors associated with disease include:</p>
-<ul>
-<li>previous abrasions or other skin trauma;</li>
-<li>loss or damage of the protective surface layer from chemical irritants;</li>
-<li>poor water quality, including ammonia exposure;</li>
-<li>malnutrition, including vitamin-A problems in some amphibian cases; and</li>
-<li>other conditions that leave tissue damaged or the animal compromised.</li>
-</ul>
-<p>For a pet axolotl, that means a visible lesion should trigger both a health assessment and a husbandry review rather than treatment of the white growth in isolation.</p>
-
-<h2>What should you check first?</h2>
-<ol>
-<li><strong>Record the lesion.</strong> Take clear dated photographs in neutral light.</li>
-<li><strong>Measure water quality.</strong> Record ammonia, nitrite, nitrate, pH and temperature. Use <a href="/tank-setup/how-to-test-water/">How to Test Axolotl Water</a> if needed.</li>
-<li><strong>Look for trauma.</strong> Check tank mates, sharp dÃ©cor, intake guards and recent handling.</li>
-<li><strong>Review appetite and behavior.</strong> Note weight loss, breathing difficulty, abnormal swimming or rapid decline.</li>
-<li><strong>Contact an amphibian-experienced veterinarian</strong> when the lesion is spreading, involves gills, is accompanied by systemic signs, or the diagnosis is uncertain.</li>
-</ol>
-
-<h2>How is saprolegniasis diagnosed?</h2>
-<p>Merck describes a presumptive diagnosis by finding fungal-like hyphae and thin-walled zoospores on a skin scraping. Depending on the differential diagnosis, a veterinarian may use additional microscopy, culture or histopathology.</p>
-<p>This is why â€œcottony = definitely Saprolegniaâ€ is too strong for an evidence-based page.</p>
-
-<h2>How is axolotl fungus treated?</h2>
-<p><strong>Treatment depends on the organism, lesion location, extent and the animal's overall condition.</strong> Current veterinary amphibian references emphasize correcting poor water quality and using appropriate topical or systemic antifungal therapy. For localized saprolegniasis, veterinary references also describe debridement and saline application in selected cases.</p>
-<p>Those options require clinical judgment. The concentration, exposure method and medication that is reasonable for one amphibian condition may not be safe for another. This page therefore does not convert veterinary treatments into a universal home recipe.</p>
-
-<h2>Should you use a black tea bath?</h2>
-<p>Black-tea baths are common in axolotl hobby discussions, but the veterinary sources reviewed for this page do not list black tea as a standard treatment for saprolegniasis. That means we should not describe a tea bath as a proven antifungal cure or assign it a fixed treatment timetable.</p>
-<p>See <a href="/health/black-tea-bath/">Black Tea Bath for Axolotls: When & How to Use One</a> for the evidence boundary and questions to ask before using this hobby practice.</p>
-
-<h2>Should you use a salt bath?</h2>
-<p>Saline treatment has a stronger veterinary basis than black tea: Merck's professional amphibian guidance describes salt-water application for localized saprolegniasis. However, that is <strong>not</strong> the same as validating every online â€œteaspoons per liter for X minutesâ€ protocol for pet axolotls.</p>
-<p>See <a href="/health/salt-bath/">Axolotl Salt Bath: When It May Be Used & How It Works</a> for the distinction between veterinary saline use and improvised home recipes.</p>
-
-<h2>When is veterinary care more urgent?</h2>
-<p>Contact an amphibian-experienced veterinarian promptly when there is respiratory distress, substantial gill involvement, anorexia with deterioration, weight loss, ulceration, rapid spread, repeated recurrence, extensive skin damage, or uncertainty about whether the lesion is fungal at all.</p>
-<p>Use <a href="/health/emergency-first-aid/">Axolotl Emergency Signs</a> for triage and <a href="/health/finding-an-exotic-vet/">Finding an Exotic Vet</a> to locate appropriate care.</p>
-
-<h2>How do you reduce recurrence risk?</h2>
-<p>Prevention is primarily husbandry: stable clean water, safe surfaces, appropriate nutrition, low-stress handling and correction of injuries or tank-mate problems. Treating a visible lesion without correcting the factor that damaged the skin makes recurrence more likely.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/infectious-diseases-of-amphibians">Merck Veterinary Manual: Infectious Diseases of Amphibians â€” Saprolegniasis</a></li>
-<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/common-infectious-diseases-of-amphibians">Merck Veterinary Manual, pet-owner version: Common Infectious Diseases of Amphibians, updated June 2026</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/35628794/">Saprolegniosis in Amphibians: An Integrated Overview</a></li>
-<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
-</ul>
-'''
-
-BODY_OVERRIDES["health/black-tea-bath"] = r'''
-<p><strong>A black tea bath is a popular axolotl-keeping practice, but it is not a standard veterinary treatment for saprolegniasis in the amphibian references reviewed by MyAxolotl.</strong> Claims that a fixed tea ratio â€œkills fungus,â€ repairs the slime coat, or guarantees improvement within a certain number of days go beyond the evidence we found.</p>
-<div class="role-note"><strong>This page explains a procedure's evidence limits; it does not diagnose fungus.</strong> Start with <a href="/health/fungal-infections-saprolegnia/">Axolotl Fungus: Symptoms, Causes & Treatment</a>.</div>
-
-<h2>What is a black tea bath?</h2>
-<p>In the hobby, a black tea bath usually means placing an axolotl temporarily in dechlorinated water containing diluted brewed black tea. The idea is based on plant tannins and their astringent or antimicrobial properties in other contexts.</p>
-<p>The problem is standardization: tea type, brewing strength, dilution, water chemistry and exposure time vary widely between online protocols. We did not find a controlled axolotl clinical study establishing one therapeutic concentration or treatment schedule.</p>
-
-<h2>Is black tea a proven treatment for axolotl fungus?</h2>
-<p><strong>Not from the veterinary evidence reviewed here.</strong> Current Merck amphibian guidance for saprolegniasis discusses diagnosis, hygiene, correcting water quality, saline application in selected localized cases and antifungal medications. It does not list black tea as a standard treatment.</p>
-<p>That absence does not prove that tannin exposure can never have a biological effect. It means MyAxolotl should not present a hobby recipe as though it were a validated veterinary protocol.</p>
-
-<h2>What claims should you be cautious about?</h2>
-<ul>
-<li>â€œUse exactly a 1:3 tea-to-water ratio.â€</li>
-<li>â€œTen to fifteen minutes is the proven therapeutic window.â€</li>
-<li>â€œTea baths cure mild fungus in three days.â€</li>
-<li>â€œBlack tea is antibacterial and antifungal at any hobby dilution.â€</li>
-<li>â€œTea baths repair or tighten an axolotl's slime coat.â€</li>
-</ul>
-<p>Those statements require axolotl-specific concentration and outcome data that the sources reviewed here do not provide.</p>
-
-<h2>When might a veterinarian still discuss tannins?</h2>
-<p>A veterinarian may consider environmental or supportive measures that include tannin-containing materials, depending on the animal and condition. If your veterinarian specifically recommends black tea, ask for the exact product, concentration, water volume, exposure duration, frequency and stop criteria rather than substituting a forum recipe.</p>
-
-<h2>What should you do before any bath?</h2>
-<ol>
-<li>Confirm the water temperature and test ammonia, nitrite, nitrate and pH.</li>
-<li>Photograph the lesion or irritation in neutral light.</li>
-<li>Review recent injuries, new tank mates, cleaning chemicals and handling.</li>
-<li>Determine whether the animal has systemic signs such as anorexia, respiratory difficulty, weight loss or abnormal swimming.</li>
-<li>Use veterinary guidance for a spreading or uncertain lesion.</li>
-</ol>
-
-<h2>Can a tea bath delay needed treatment?</h2>
-<p>Yes. The main risk is not only the bath itself; it is losing time while a bacterial, fungal or other lesion progresses under the assumption that â€œtea will fix it.â€ Amphibian skin diseases can overlap visually, and the correct treatment may require microscopy or medication.</p>
-
-<h2>What is the safer evidence-based support?</h2>
-<p>Correct poor water quality, keep the animal within an appropriate stable temperature range, minimize unnecessary handling, remove sources of trauma and obtain veterinary assessment when the lesion is spreading or the animal is deteriorating. Those steps are supported more directly than a universal tea-bath recipe.</p>
-
-<h2>When should you contact an exotic veterinarian?</h2>
-<p>Seek veterinary advice for gill involvement, rapidly enlarging lesions, ulceration, respiratory difficulty, substantial appetite loss, weight loss, repeated recurrence, severe lethargy or failure to improve after husbandry problems are corrected.</p>
-<p>Use the <a href="/health/finding-an-exotic-vet/">axolotl vet guide</a> if you do not already have an amphibian-experienced clinician.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/infectious-diseases-of-amphibians">Merck Veterinary Manual: Infectious Diseases of Amphibians</a></li>
-<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/common-infectious-diseases-of-amphibians">Merck Veterinary Manual: Common Infectious Diseases of Amphibians, updated June 2026</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/35628794/">Saprolegniosis in Amphibians: An Integrated Overview</a></li>
-</ul>
-'''
-
-BODY_OVERRIDES["health/salt-bath"] = r'''
-<p><strong>Salt has a documented role in veterinary management of saprolegniasis in amphibians, but that does not validate every axolotl salt-bath recipe found online.</strong> Amphibian skin and gills are highly permeable, so concentration, exposure method, lesion type and the animal's condition matter.</p>
-<div class="role-note"><strong>This page owns the saline-treatment question, not diagnosis.</strong> First review <a href="/health/fungal-infections-saprolegnia/">Axolotl Fungus: Symptoms, Causes & Treatment</a>.</div>
-
-<h2>What is an axolotl salt bath?</h2>
-<p>â€œSalt bathâ€ is a hobby term for temporary exposure to saline water. In professional amphibian medicine, saline solutions can be used for several different purposes, and Merck specifically describes salt-water application in selected localized cases of saprolegniasis.</p>
-<p>That veterinary statement is much narrower than â€œall white fuzz should get a salt bath.â€</p>
-
-<h2>Does veterinary guidance support salt for saprolegniasis?</h2>
-<p><strong>Yes, in selected cases.</strong> Merck's professional amphibian manual describes localized smaller saprolegniasis infections as potentially being debrided and treated with salt-water application, while also emphasizing correction of poor water quality and the possible use of antifungal medication.</p>
-<p>The pet-owner version is even more conservative: it lists antifungals and dips prescribed by a veterinarian for saprolegniasis.</p>
-
-<h2>Why doesn't MyAxolotl give a teaspoons-per-liter recipe?</h2>
-<p>Because a household spoon recipe can hide several important variables:</p>
-<ul>
-<li>the actual salinity produced by the salt product;</li>
-<li>the duration and frequency of exposure;</li>
-<li>whether the lesion is truly saprolegniasis;</li>
-<li>whether gill or skin tissue is already severely damaged;</li>
-<li>the animal's hydration and systemic condition; and</li>
-<li>differences between a topical saline application, an immersion dip and long-term water chemistry.</li>
-</ul>
-<p>Veterinary references express saline treatment in measured salinity/concentration terms and clinical context, not as one universal household recipe for every pet axolotl.</p>
-
-<h2>Is stronger or longer better?</h2>
-<p><strong>No.</strong> Amphibians exchange water and dissolved substances across permeable skin. Increasing salinity or exposure time can increase osmotic stress and tissue irritation. If a veterinarian prescribes a saline treatment, follow that concentration and exposure schedule rather than â€œadding a little moreâ€ for a stubborn lesion.</p>
-
-<h2>Should salt be added permanently to the axolotl tank?</h2>
-<p>Do not convert a short-term clinical saline treatment into routine aquarium salting. Axolotls are freshwater amphibians, and routine husbandry water chemistry is a different question from a veterinarian-directed treatment exposure. See <a href="/biology-and-science/wild-habitat-xochimilco/">Where Do Axolotls Live?</a> and <a href="/tank-setup/water-parameters-cycling/">Water Parameters & Nitrogen Cycle</a>.</p>
-
-<h2>What should you check before considering saline treatment?</h2>
-<ol>
-<li>Confirm water quality and temperature.</li>
-<li>Document the lesion and whether it is spreading.</li>
-<li>Check for trauma or chemical exposure.</li>
-<li>Review appetite, breathing, weight and behavior.</li>
-<li>Get veterinary guidance when the diagnosis is uncertain or the lesion is more than a small localized surface problem.</li>
-</ol>
-
-<h2>What signs should move you away from DIY treatment?</h2>
-<p>Respiratory difficulty, substantial gill involvement, ulceration, widespread or rapidly progressing lesions, weight loss, marked anorexia, abnormal swimming, severe swelling or repeated recurrence warrant veterinary assessment rather than repeated improvised baths.</p>
-
-<h2>Salt bath vs black tea bath</h2>
-<p>They do not have equal evidence. Veterinary amphibian sources describe saline use for selected saprolegniasis cases. The same sources reviewed by MyAxolotl do not list black tea as a standard treatment. That does not make salt universally appropriate; it means the saline question has a documented clinical basis that still needs correct diagnosis and dosing.</p>
-<p>See <a href="/health/black-tea-bath/">Black Tea Bath for Axolotls</a> for that evidence boundary.</p>
-
-<h2>What may a veterinarian use instead?</h2>
-<p>Depending on diagnosis and severity, veterinarians may correct environmental conditions, debride a localized lesion, use a properly measured saline treatment, or prescribe topical/systemic antifungal medication. The treatment should match the organism and the animal rather than a generic â€œfungus protocol.â€</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/infectious-diseases-of-amphibians">Merck Veterinary Manual: Infectious Diseases of Amphibians â€” Saprolegniasis</a></li>
-<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/common-infectious-diseases-of-amphibians">Merck Veterinary Manual: Common Infectious Diseases of Amphibians, updated June 2026</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/35628794/">Saprolegniosis in Amphibians: An Integrated Overview</a></li>
-</ul>
-'''
-
-
-BODY_OVERRIDES["tank-setup/water-change-guide"] = r'''
-<p><strong>For an established filtered axolotl aquarium, use regular partial water changes and measured water quality rather than one universal percentage for every tank.</strong> A useful evidence-based baseline is <strong>at least about 10% weekly</strong>: the 2024 Ambystoma Genetic Stock Center guide specifies weekly 10% changes for filtered axolotl aquaria, and Merck's pet-amphibian guidance likewise recommends at least 10% weekly in established aquatic tanks.</p>
-
-<h2>How often should you change axolotl tank water?</h2>
-<p><strong>Start with a weekly partial change, then adjust from your actual readings and waste load.</strong> Tank volume, number and size of animals, feeding, filter capacity, plant load and source-water chemistry all change how quickly water quality drifts.</p>
-<p>Petco's current axolotl sheet gives a broader consumer schedule of 10â€“25% every 2â€“4 weeks or as needed. MyAxolotl uses the more conservative weekly baseline because both AGSC and Merck support weekly partial renewal in filtered aquatic systems and because weekly testing makes it easier to pair maintenance with measured trends.</p>
-
-<h2>How much water should you change?</h2>
-<p>There is no single percentage that fits every situation. For routine maintenance, a modest partial change is usually enough when ammonia and nitrite remain controlled and nitrate/waste are not rising rapidly. If water quality is abnormal, the <a href="/tank-setup/water-parameters-cycling/">Water Parameters & Nitrogen Cycle guide</a> should determine the corrective response rather than this page inventing a fixed emergency percentage.</p>
-<p><strong>Do not confuse routine maintenance with an emergency correction.</strong> A tank with measurable ammonia/nitrite or another contamination problem may need a different response and repeat testing.</p>
-
-<h2>What do you need before starting?</h2>
-<ul>
-<li>a siphon or dedicated aquarium bucket;</li>
-<li>appropriate water conditioner when using chlorinated/chloraminated source water;</li>
-<li>a thermometer;</li>
-<li>water tests appropriate to your system; and</li>
-<li>a clean container for preparing replacement water when needed.</li>
-</ul>
-<p>Keep aquarium equipment separate from food-preparation tools and never use soap or household-cleaner residue in the tank.</p>
-
-<h2>Step 1: Test before changing water</h2>
-<p>Record temperature, ammonia, nitrite, nitrate and pH before maintenance when possible. The reading gives you a baseline and helps distinguish routine maintenance from a chemistry problem.</p>
-<p>Use <a href="/tank-setup/how-to-test-water/">How to Test Axolotl Water</a> for the sampling procedure.</p>
-
-<h2>Step 2: Prepare safe replacement water</h2>
-<p>Replacement water must be free of harmful chlorine/chloramine and suitable for the aquarium's chemistry. Follow the water conditioner's label for the volume of new water being treated unless the product specifically instructs otherwise.</p>
-<p>Use the <a href="/tools/water-conditioner-dosage-calculator/">Water Conditioner Dosage Calculator</a> for volume math, then confirm the product label.</p>
-
-<h2>Step 3: Match temperature closely</h2>
-<p>Avoid creating a sudden thermal swing during maintenance. Measure both the aquarium and replacement water rather than judging by touch. The replacement water should be close enough that the change does not abruptly push the tank outside its intended temperature range.</p>
-<p>For the actual target range and cooling decisions, use <a href="/tank-setup/temperature/">Axolotl Tank Temperature</a>.</p>
-
-<h2>Step 4: Remove waste and part of the old water</h2>
-<p>Siphon visible waste, uneaten food and debris while removing the planned portion of water. Keep the siphon away from the axolotl and from anything small enough to be accidentally sucked into the hose.</p>
-<p>You do not need to strip the aquarium bare during every water change. The goal is routine waste removal and dilution while preserving a stable, established system.</p>
-
-<h2>Step 5: Add replacement water gently</h2>
-<p>Add conditioned, temperature-compatible water without blasting the animal or substrate. Pour against the glass, use a plate/baffle, or otherwise disperse the flow if necessary.</p>
-
-<h2>Step 6: Recheck when you are correcting a problem</h2>
-<p>For ordinary routine maintenance, logging the before-reading and continuing weekly monitoring may be enough. If the water change was performed because ammonia, nitrite, pH or another parameter was abnormal, retest according to the corrective plan and record the result.</p>
-<p>The <a href="/tools/nitrogen-cycle-tracker/">Nitrogen Cycle Tracker</a> is useful for trend logging.</p>
-
-<h2>Should you change water during cycling?</h2>
-<p><strong>Do not use a calendar such as â€œchange water every day for the first 4â€“6 weeks.â€</strong> Cycling strategy depends on whether the system is fishless, what ammonia source is being used and what the measured ammonia/nitrite/nitrate values show. An axolotl should not be used as the ammonia source for a new uncycled tank.</p>
-<p>Use the <a href="/tank-setup/water-parameters-cycling/">cycling guide</a> and your test results to decide whether a water change is appropriate during the cycling process.</p>
-
-<h2>Should juveniles automatically get more water changes?</h2>
-<p>Not because of age alone. Young axolotls may be fed more often and small grow-out containers can accumulate waste quickly, so maintenance often has to be more frequent. But the real drivers are container volume, food waste, stocking density and measured water qualityâ€”not the word <em>juvenile</em> by itself.</p>
-
-<h2>Should you clean the filter during a water change?</h2>
-<p>Filter maintenance is a separate task. Do not routinely replace all biological media just because you are changing water. Clean mechanical debris when needed and preserve established biological filtration unless the manufacturer or a specific problem requires replacement.</p>
-<p>Use <a href="/tank-setup/filtration-for-axolotls/">Do Axolotls Need a Filter?</a> for filter care and biological-filtration principles.</p>
-
-<h2>Common water-change mistakes</h2>
-<ul>
-<li>using untreated chlorinated/chloraminated water;</li>
-<li>creating a large temperature or chemistry swing;</li>
-<li>guessing water quality instead of testing;</li>
-<li>allowing food and feces to accumulate between scheduled changes;</li>
-<li>cleaning the aquarium with soap or chemical residue;</li>
-<li>replacing biological filter media unnecessarily; and</li>
-<li>following a fixed percentage even when test results show the tank needs a different response.</li>
-</ul>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024 â€” filtered aquaria and water quality</a></li>
-<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/housing-for-amphibians">Merck Veterinary Manual: Housing for Amphibians â€” established aquatic-tank water changes</a></li>
-<li><a href="https://www.petco.com/pet-education/caresheets/axolotl">Petco Axolotl Care Guide â€” consumer maintenance schedule</a></li>
-</ul>
-'''
-
-
-BODY_OVERRIDES["tank-setup/filtration-for-axolotls"] = r'''
-<p><strong>For a conventional home axolotl aquarium, use biological filtration with gentle water movement.</strong> The filter's most important job is to support the nitrogen cycle so ammonia is converted through nitrite toward nitrate; its output should not create a current that continuously pushes or disturbs the axolotl.</p>
-<div class="role-note"><strong>This page owns filtration principles, sizing logic and flow control.</strong> For the head-to-head purchase decision, use <a href="/tank-setup/canister-vs-sponge-filter/">Canister Filters vs Sponge Filters for Axolotls</a>.</div>
-
-<h2>Do axolotls need a filter?</h2>
-<p><strong>A home aquarium should normally use an established biological filter.</strong> Axolotls can technically be kept in static containers without filtration when water is replaced frequentlyâ€”research facilities do this under controlled husbandryâ€”but that is a different management system from an ordinary pet aquarium.</p>
-<p>The 2024 Ambystoma Genetic Stock Center guide describes three housing approaches: static housing, filtered aquaria and recirculating systems. For filtered aquaria it recommends low-current power filtration with biological filtration, regular water changes and water-chemistry monitoring.</p>
-
-<h2>What does an axolotl filter actually do?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Filtration role</th><th>What it does</th><th>Priority</th></tr></thead>
-<tbody>
-<tr><td>Biological</td><td>Provides colonized surface area for microbes involved in processing nitrogenous waste</td><td>Essential in a conventional cycled aquarium</td></tr>
-<tr><td>Mechanical</td><td>Captures suspended debris and food/waste particles</td><td>Useful; remove captured waste during maintenance</td></tr>
-<tr><td>Chemical</td><td>Special-purpose media can remove selected dissolved compounds</td><td>Optional; not a substitute for biological filtration or water changes</td></tr>
-</tbody></table></div>
-
-<h2>Why does biological filtration matter?</h2>
-<p>Ammonia is produced in an occupied aquatic system from animal waste and decomposing organic material. In a cycled filter, microbial communities convert ammonia through nitrite toward nitrate. Merck's aquatic-animal guidance identifies ammonia toxicosis as a common problem in systems without an established active biofilter.</p>
-<p>Use <a href="/tank-setup/water-parameters-cycling/">Water Parameters & Nitrogen Cycle</a> for the chemistry and <a href="/tools/nitrogen-cycle-tracker/">the Nitrogen Cycle Tracker</a> for logging.</p>
-
-<h2>Does changing water remove the beneficial bacteria?</h2>
-<p><strong>Routine partial water changes do not mean you must â€œrestart the cycle.â€</strong> A functioning biofilter is based on microbial biofilms associated with filtration media and aquarium surfaces, while water changes dilute dissolved waste products. The real risk is destroying or replacing too much established biological media at once or exposing it to conditions that kill the biofilm.</p>
-<p>This is why water changes and biological filtration work together rather than competing with each other.</p>
-
-<h2>How much flow is safe for an axolotl?</h2>
-<p><strong>There is no well-established axolotl GPH multiplier such as â€œ5Ã— target, 10Ã— maximumâ€ in the primary husbandry sources reviewed here.</strong> The defensible rule is functional: keep circulation slow enough that the animal can rest, walk and feed without being continuously displaced or forced to brace against a concentrated jet.</p>
-<p>AGSC explicitly warns that rapidly circulating water is stressful and recommends keeping circulation as slow as possible in continuously circulated systems. A spray bar, baffle, broad outlet or adjustable flow can reduce concentrated current while preserving filtration.</p>
-
-<h2>How do you know the filter flow is too strong?</h2>
-<p>Watch the animal and the tank rather than relying only on the pump's box rating. Reduce or redirect flow if the outlet visibly pushes the axolotl, prevents it from settling normally, blows food away during feeding, or creates a strong current across most of the usable floor area.</p>
-<p>Do not diagnose â€œflow stressâ€ from curled gills alone; posture changes are nonspecific. Use <a href="/health/curled-gills-stress-signal/">the curled-gills guide</a> if that is the sign that concerns you.</p>
-
-<h2>How should you size a filter?</h2>
-<p>Filter sizing has two independent questions:</p>
-<ol>
-<li><strong>Biological capacity:</strong> can the media support a stable nitrogen cycle for the actual animal and feeding load?</li>
-<li><strong>Outlet behavior:</strong> can the water return be adjusted or dispersed so current remains gentle?</li>
-</ol>
-<p>A filter can have plenty of media but an unsuitable outlet, or a gentle outlet but insufficient biological capacity. Tank volume alone cannot answer both questions.</p>
-
-<h2>Sponge, HOB or canister filter?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Filter type</th><th>Strengths</th><th>Watch for</th></tr></thead>
-<tbody>
-<tr><td>Sponge</td><td>Simple biological filtration, inherently gentle when correctly air-driven, inexpensive</td><td>Mechanical capture is limited; choose enough sponge/media area for the system</td></tr>
-<tr><td>Hang-on-back (HOB)</td><td>Accessible media and good mechanical filtration</td><td>Waterfall/outlet may need baffling or flow reduction</td></tr>
-<tr><td>Canister</td><td>Large customizable media capacity and flexible return plumbing</td><td>Can create strong output if not adjusted/dispersed; more complex maintenance</td></tr>
-</tbody></table></div>
-<p>No one type is automatically â€œbestâ€ for every axolotl tank. The dedicated <a href="/tank-setup/canister-vs-sponge-filter/">Canister vs Sponge</a> page owns that comparison.</p>
-
-<h2>Should you oversize the filter?</h2>
-<p>It can be reasonable to choose more biological-media capacity than the bare minimum, but <strong>do not assume a larger filter rating is automatically safer</strong>. Manufacturer tank ratings are not axolotl-specific, and a higher-capacity filter can also produce stronger flow. If you choose extra media capacity, make sure the return can still be made gentle.</p>
-
-<h2>How do you cycle a new filter?</h2>
-<p>Establish the biological filter before relying on it to process an axolotl's waste. A new filter does not become â€œcycledâ€ merely because it has run for a set number of days. Cycling is confirmed from the pattern of ammonia, nitrite and nitrate under the method you are using.</p>
-<p>Follow <a href="/tank-setup/water-parameters-cycling/">the cycling guide</a> and do not use the axolotl itself as the ammonia source for an uncycled aquarium.</p>
-
-<h2>How do you maintain filter media?</h2>
-<ul>
-<li>Remove trapped debris before it decomposes in the filter.</li>
-<li>Preserve established biological media when it is still functional.</li>
-<li>Avoid replacing all mature biological media at the same time without a reason and a plan.</li>
-<li>Keep chlorine/chloramine away from established biological media.</li>
-<li>Follow the manufacturer's mechanical-maintenance instructions while protecting the biofilter.</li>
-</ul>
-<p>Filter maintenance frequency depends on debris load and the filter design; use declining flow, visible accumulation and water-quality trends rather than an arbitrary monthly replacement schedule.</p>
-
-<h2>Do you still need water changes with a filter?</h2>
-<p><strong>Yes.</strong> A biological filter processes nitrogenous waste; it does not make water changes obsolete. The 2024 AGSC guide specifies regular partial water replacement even in filtered and recirculating systems. Use <a href="/tank-setup/water-change-guide/">the Axolotl Water Change Guide</a> for the maintenance procedure.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
-<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/laboratory-animals/management-of-laboratory-animals">Merck Veterinary Manual: Management of Laboratory Animals â€” aquatic water quality and biofiltration</a></li>
-<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/housing-for-amphibians">Merck Veterinary Manual: Housing for Amphibians</a></li>
-</ul>
-'''
-
-
-BODY_OVERRIDES["tank-setup/canister-vs-sponge-filter"] = r'''
-<p><strong>Neither a canister filter nor a sponge filter is automatically â€œbestâ€ for every axolotl tank.</strong> A sponge filter is simple, inexpensive and naturally easy to run with gentle circulation. A canister filter offers more media capacity and stronger mechanical filtration, but its return flow often needs to be dispersed or reduced. The better choice is the one that provides enough biological filtration for your system without creating strong current at the animal's resting area.</p>
-<div class="role-note"><strong>This page owns the canister-versus-sponge decision.</strong> For nitrogen-cycle biology, filter sizing principles and general flow control, start with <a href="/tank-setup/filtration-for-axolotls/">Do Axolotls Need a Filter?</a>.</div>
-
-<h2>Canister vs sponge filter: quick comparison</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Question</th><th>Sponge filter</th><th>Canister filter</th></tr></thead>
-<tbody>
-<tr><td>Biological filtration</td><td>Good when the sponge/media area is adequate for the bioload</td><td>Good; typically offers more configurable biological-media volume</td></tr>
-<tr><td>Mechanical debris capture</td><td>Basic to moderate</td><td>Usually stronger and multi-stage</td></tr>
-<tr><td>Flow control</td><td>Often naturally gentle; depends on air pump and design</td><td>Return may need a spray bar, baffle or adjustment</td></tr>
-<tr><td>Maintenance</td><td>Simple; sponge is easy to inspect and rinse</td><td>More parts, hoses and internal media to service</td></tr>
-<tr><td>Cost / complexity</td><td>Lower</td><td>Higher</td></tr>
-<tr><td>Media customization</td><td>Limited</td><td>High</td></tr>
-<tr><td>Inline equipment integration</td><td>Not designed as a pressurized water loop</td><td>Can suit some inline equipment when manufacturer flow requirements are compatible</td></tr>
-<tr><td>Best reason to choose it</td><td>Simplicity and gentle circulation</td><td>Media capacity and stronger debris removal</td></tr>
-</tbody></table></div>
-
-<h2>What matters more than the filter type?</h2>
-<p>Three things matter more than the label on the filter:</p>
-<ol>
-<li><strong>Biological capacity.</strong> The system needs enough established biofilm to process the actual nitrogenous-waste load.</li>
-<li><strong>Gentle circulation.</strong> The return should not continuously push the axolotl or create a strong current across its resting area.</li>
-<li><strong>Maintainability.</strong> You need to be able to remove trapped debris and preserve mature biological media without letting the filter clog.</li>
-</ol>
-<p>The Ambystoma Genetic Stock Center specifically recommends biological filtration in filtered aquaria and warns that rapidly circulating water is stressful. Merck's 2026 amphibian husbandry guidance likewise notes that some aquatic amphibians need gentle filtration that keeps water clean without strong currents.</p>
-
-<h2>How does a sponge filter work?</h2>
-<p>An air-driven sponge filter pulls aquarium water through porous foam as rising bubbles move water up a lift tube. The sponge provides surface area for biological filtration while also trapping some suspended debris. The bubble column creates surface movement and gas exchange.</p>
-<p>Because the water is drawn through a broad sponge rather than a narrow powered intake, the intake itself is generally gentle. Actual circulation still depends on the air pump, sponge size, lift-tube design and tank layout, so â€œsponge filterâ€ should not be treated as a fixed flow rate.</p>
-
-<h2>What are the advantages of a sponge filter?</h2>
-<ul>
-<li><strong>Simple biological filtration:</strong> one piece of foam can support biofilm and catch coarse debris.</li>
-<li><strong>Gentle water movement:</strong> air-driven circulation is easy to keep mild for an axolotl tank.</li>
-<li><strong>Easy inspection and maintenance:</strong> you can see when the sponge is dirty and clean it without opening a sealed filter body.</li>
-<li><strong>Low complexity:</strong> fewer hoses, seals and moving water-system parts.</li>
-<li><strong>Useful redundancy:</strong> a mature sponge filter can supplement another filter or provide a seeded biological filter for a quarantine/grow-out setup.</li>
-</ul>
-
-<h2>What are the limitations of a sponge filter?</h2>
-<p>A sponge filter usually provides less fine mechanical â€œpolishingâ€ than a multi-stage canister and offers little room for specialized media. A single small sponge can also be undersized for a large or heavily stocked aquarium even though the current feels gentle.</p>
-<p>If debris stays suspended or water-quality trends show that the system is not coping with the actual load, the answer may be more media capacity, better waste removal, a second filter, or a different filter designâ€”not simply more air flow through the same small sponge.</p>
-
-<h2>How does a canister filter work?</h2>
-<p>A canister filter uses a pump to draw aquarium water through an external sealed body containing mechanical and biological media, then returns the filtered water to the tank. Most canisters can hold multiple layers or baskets, which lets the keeper separate coarse debris capture from biological media and optional chemical media.</p>
-<p>This design can provide substantial media capacity, but the return is powered. The important axolotl question is therefore not merely the pump's advertised flow number; it is whether the return can be configured so the animal experiences gentle circulation.</p>
-
-<h2>What are the advantages of a canister filter?</h2>
-<ul>
-<li><strong>More media capacity:</strong> useful when you want substantial mechanical and biological filtration in one unit.</li>
-<li><strong>Better fine-debris capture:</strong> multiple mechanical stages can improve water clarity when maintained correctly.</li>
-<li><strong>Configurable media:</strong> baskets can be assigned to mechanical, biological or special-purpose media.</li>
-<li><strong>Flexible return plumbing:</strong> spray bars and other return arrangements can spread water movement across a wider area.</li>
-<li><strong>External equipment loop:</strong> some aquarium chillers and other devices can be installed in compatible external plumbing, provided all manufacturer flow and pressure requirements are met.</li>
-</ul>
-
-<h2>What are the limitations of a canister filter?</h2>
-<ul>
-<li>higher cost and more complex maintenance;</li>
-<li>hoses, seals and an impeller add potential failure points;</li>
-<li>the outlet can create a concentrated current if it is not dispersed;</li>
-<li>a dirty mechanical stage can reduce actual flow and filter performance; and</li>
-<li>manufacturer â€œtank sizeâ€ labels do not tell you whether the outlet pattern is appropriate for an axolotl.</li>
-</ul>
-<p>A canister's stronger pump is not automatically a disadvantage if the return is well controlled, just as a sponge filter is not automatically sufficient merely because it is gentle.</p>
-
-<h2>Which filter gives better biological filtration?</h2>
-<p><strong>It depends on the amount and condition of colonized media, not simply on the filter category.</strong> Both sponge and canister filters can provide effective biological filtration. A canister often has more space for dedicated biological media; a large mature sponge can also support substantial biofilm.</p>
-<p>Merck's aquatic-life-support guidance emphasizes high surface area, oxygen and correct water chemistry for biofilter organisms. It does not establish a universal rule that ceramic rings always support a fixed multiple of the bacteria found on sponge foam.</p>
-
-<h2>Which filter gives better mechanical filtration?</h2>
-<p>A canister usually has the advantage when fine debris capture is important because water can pass through staged coarse and fine media. Sponge filters capture debris too, but the same foam commonly performs both biological and mechanical roles and may not polish fine particles as effectively.</p>
-<p>Mechanical filtration should remove trapped organic waste from the system before it decomposes; Merck's aquatic-system guidance places mechanical filtration before biofiltration in larger recirculating designs for that reason.</p>
-
-<h2>Which filter is better for low flow?</h2>
-<p>A sponge filter is often the easier low-flow starting point because its circulation is air-driven and distributed. A canister can also work well when the return is spread through a spray bar, aimed against glass, throttled within the manufacturer's permitted operating range, or otherwise configured to avoid a concentrated jet.</p>
-<p><strong>There is no evidence-based universal axolotl threshold of 100 GPH, 5Ã— turnover or 10Ã— turnover.</strong> Judge the animal's actual environment and use measured water quality to make sure reducing current has not also compromised filtration.</p>
-
-<h2>Do you need a pre-filter sponge on a canister intake?</h2>
-<p>A pre-filter sponge can be useful: it catches coarse debris before it reaches the canister and can reduce the chance that small body parts or food are drawn directly against an intake. Whether it is necessary depends on the intake design and animal size. Treat it as a practical risk-control option rather than a universal requirement.</p>
-<p>If you add one, clean it often enough that it does not become a clogged waste trap.</p>
-
-<h2>Can you run a sponge and canister together?</h2>
-<p>Yes. Running both can provide redundancy and let the sponge remain as an established biological filter while the canister handles more mechanical debris. This is optional, not a requirement. Two filters are only useful if their combined circulation remains appropriate and both are maintained.</p>
-
-<h2>Which filter should a beginner choose?</h2>
-<p><strong>Choose a sponge filter when simplicity, low cost and easy gentle circulation are the main priorities.</strong> Choose a canister when you need more media capacity, stronger mechanical filtration, or compatible external plumbing and are comfortable maintaining the extra equipment.</p>
-<p>For many home tanks, either can work. The decision should follow the aquarium's actual volume, animal load, water-quality trend, desired debris capture, noise tolerance, maintenance preference and equipment plan.</p>
-
-<h2>Canister vs sponge: decision checklist</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>If this matters most...</th><th>Lean toward...</th></tr></thead>
-<tbody>
-<tr><td>Lowest complexity and easiest gentle flow</td><td>Sponge filter</td></tr>
-<tr><td>Large configurable media capacity</td><td>Canister filter</td></tr>
-<tr><td>Fine mechanical water polishing</td><td>Canister filter</td></tr>
-<tr><td>Simple backup/seeded biological filter</td><td>Sponge filter</td></tr>
-<tr><td>Inline equipment compatibility</td><td>Canister/external loop, after checking manufacturer specs</td></tr>
-<tr><td>Maximum redundancy</td><td>Both, if circulation remains gentle</td></tr>
-</tbody></table></div>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
-<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/housing-for-amphibians">Merck Veterinary Manual: Housing for Amphibians, updated February 2026</a></li>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquatic-systems/aquatic-life-support-system-components">Merck Veterinary Manual: Aquatic Life Support System Components</a></li>
-</ul>
-'''
-
-
-BODY_OVERRIDES["diet/fasting-and-vacation"] = r'''
-<p><strong>There is no well-established research-based number of days that every healthy axolotl can safely go without food.</strong> Age, body condition, normal feeding schedule, temperature, health and recent intake all matter. For vacation planning, use the animal's normal feeding frequency and arrange a competent person to monitor the tank rather than treating an internet â€œmaximum fasting windowâ€ as a safety guarantee.</p>
-<div class="role-note"><strong>This page owns planned food gaps and vacations.</strong> If your axolotl has unexpectedly stopped eating, use <a href="/health/refusing-to-eat/">Axolotl Not Eating?</a> instead.</div>
-
-<h2>How often are axolotls normally fed?</h2>
-<p>The Ambystoma Genetic Stock Center's current 2024 research guide feeds newly feeding larvae frequently, then reduces feeding as animals grow; its husbandry timeline lists adult pelleted food about twice weekly in its system. The older AGSC husbandry guide describes adults around one year old being fed three or four times per week.</p>
-<p>Those are husbandry schedules, not proof that an adult can safely be left unfed for a specific number of days. They do show why missing one scheduled adult feeding is a different situation from withholding food from a rapidly growing larva.</p>
-
-<h2>How long can an adult axolotl go without food?</h2>
-<p><strong>Do not use â€œ14 days,â€ â€œ21 days,â€ or any other fixed number as a universal safe limit.</strong> We did not find an axolotl study establishing a validated maximum fasting duration for healthy pets. An adult normally fed only a few times each week has more spacing between meals than a larva or small juvenile, but planned absence should still include monitoring of the animal and aquarium.</p>
-<p>A thin adult, an animal recovering from illness, a breeding female, or an axolotl with recent appetite loss should not be treated like a healthy well-conditioned adult simply because they are the same age.</p>
-
-<h2>How long can juvenile or baby axolotls go without food?</h2>
-<p><strong>Young animals should not be assigned a â€œsafe fasting windowâ€ from an age chart.</strong> AGSC feeds newly hatched larvae daily once they begin feeding and gradually transitions them to larger foods as they grow. Young animals are actively growing and are normally offered food much more frequently than adults.</p>
-<p>If you will miss normal feedings for a larva or juvenile, arrange a trained sitter rather than planning a multi-day fast around an unsupported number.</p>
-
-<h2>Does cold water make fasting safer?</h2>
-<p>Axolotls are ectotherms, so temperature affects metabolism, but that does not justify deliberately chilling an animal to extend a vacation fast. Keep the aquarium in its normal stable husbandry range. Temperature manipulation can create additional stress and should not be used as a substitute for a feeding or monitoring plan.</p>
-
-<h2>Can you leave an adult axolotl alone for a short trip?</h2>
-<p>A healthy adult whose normal feeding schedule already includes days between meals may not need food every day. The bigger vacation risk is often <strong>lack of monitoring</strong>: filter failure, power outage, rising temperature, a leak or deteriorating water quality can become serious even if missing a meal would not.</p>
-<p>For any absence longer than the gap you normally leave between feedings, arrange someone who can inspect the animal and equipment and follow written instructions.</p>
-
-<h2>What should you do before a vacation?</h2>
-<ol>
-<li><strong>Test the water several days before departure.</strong> Correct problems before the trip rather than making a large last-minute change.</li>
-<li><strong>Perform normal maintenance.</strong> Use the <a href="/tank-setup/water-change-guide/">Water Change Guide</a>; do not invent an oversized â€œvacation water change.â€</li>
-<li><strong>Check the filter and cooling system.</strong> Confirm normal operation without replacing mature biological media just before leaving.</li>
-<li><strong>Remove waste and uneaten food.</strong></li>
-<li><strong>Feed the normal scheduled portion.</strong> Do not double-feed â€œto store food up.â€</li>
-<li><strong>Write sitter instructions.</strong> Include temperature, what to feed, exact portions, what not to add, and who to call.</li>
-</ol>
-
-<h2>Is a pet sitter better than an automatic feeder?</h2>
-<p><strong>For most axolotl vacations, a competent person is more useful than an automatic feeder.</strong> A sitter can see a leak, cooling failure, abnormal posture, dead equipment or spoiled food. Automatic feeders vary in reliability and may dispense food that an axolotl does not eat promptly.</p>
-<p>If a feeder is used, test the exact device and food in advance while you are home. Do not first deploy it on departure day.</p>
-
-<h2>What should the sitter actually do?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Task</th><th>Instruction</th></tr></thead>
-<tbody>
-<tr><td>Temperature</td><td>Read and record the thermometer; contact you if outside the written normal range.</td></tr>
-<tr><td>Animal check</td><td>Confirm normal posture, breathing, movement and absence of injury or major swelling.</td></tr>
-<tr><td>Feeding</td><td>Feed only the pre-portioned amount on the written schedule; remove leftovers.</td></tr>
-<tr><td>Equipment</td><td>Confirm filter and cooling equipment are operating normally.</td></tr>
-<tr><td>Emergency</td><td>Use your vet/contact instructions rather than improvising baths, medication or temperature changes.</td></tr>
-</tbody></table></div>
-
-<h2>Should you overfeed before leaving?</h2>
-<p>No. Give the animal its normal meal on its normal schedule. An extra-large meal can create uneaten food, regurgitation or extra waste and does not create a validated reserve that guarantees a longer safe fast.</p>
-
-<h2>What should you do when you return?</h2>
-<p>Inspect the animal, check temperature and water quality, remove any waste and resume the normal feeding schedule. There is no evidence-based rule that every axolotl must receive a â€œhalf-size restart mealâ€ after a certain number of fasting days.</p>
-<p>If the animal is unexpectedly refusing food, losing body condition or showing other signs, switch to <a href="/health/refusing-to-eat/">the appetite-loss health guide</a> rather than continuing to treat the situation as planned fasting.</p>
-
-<h2>When is a feeding gap no longer a vacation question?</h2>
-<p>It becomes a health question when the axolotl refuses food unexpectedly, loses weight or body condition, develops swelling or abnormal buoyancy, has skin/gill changes, becomes markedly lethargic, or continues to decline. Contact an amphibian-experienced veterinarian for concerning or persistent changes.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024 â€” feeding timeline</a></li>
-<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry â€” feeding and routine care</a></li>
-</ul>
-<p><strong>Evidence note:</strong> these sources describe feeding schedules; they do not validate a universal maximum fasting duration for pet axolotls.</p>
-'''
-
-BODY_OVERRIDES["health/impaction-symptoms-treatment"] = r'''
-<p><strong>â€œImpactionâ€ means a gastrointestinal foreign body or blockage, but appetite loss, swelling, reduced feces and abnormal floating do not confirm one from appearance alone.</strong> Amphibians can swallow gravel and other enclosure material, and axolotl foreign bodies have been confirmed and removed using veterinary imaging, endoscopy and surgery.</p>
-<div class="role-note"><strong>This page owns suspected gastrointestinal blockage.</strong> For substrate prevention use <a href="/tank-setup/substrate-and-impaction/">the substrate guide</a>; for gravel specifically use <a href="/tank-setup/gravel-risks/">Gravel Risks</a>. Do not use this page as a reason to fridge or medicate an animal without diagnosis.</div>
-
-<h2>What is axolotl impaction?</h2>
-<p>A gastrointestinal foreign body is a swallowed non-food item that partially or completely obstructs the digestive tract. Veterinary Partner uses the broader amphibian term <em>gastrointestinal foreign body</em> or impaction, while <em>gastrointestinal overload</em> describes excessive food volume distending the stomach.</p>
-<p>Gravel and other enclosure material are recognized amphibian foreign-body risks, and published axolotl case reports document gastric foreign bodies requiring endoscopic or surgical removal.</p>
-
-<h2>What signs can occur with a gastrointestinal blockage?</h2>
-<p>Possible signs include appetite loss, abdominal enlargement, reduced fecal output, abnormal buoyancy, lethargy or other changes in behavior. These signs are <strong>not specific</strong>. Overfeeding, parasites, infection, reproductive problems, fluid accumulation and other disease can look similar.</p>
-<p>That is why â€œnot eating + floating = impactionâ€ is not an adequate diagnosis.</p>
-
-<h2>What makes a foreign body more plausible?</h2>
-<ul>
-<li>known access to swallowable gravel, stones, moss or other enclosure material;</li>
-<li>a witnessed ingestion event;</li>
-<li>persistent abdominal distension after such exposure;</li>
-<li>continuing appetite or fecal changes; or</li>
-<li>diagnostic imaging that identifies a foreign object.</li>
-</ul>
-<p>Absence of visible gravel in feces does not prove there is an obstruction, and absence of feces for a particular number of days does not prove one either.</p>
-
-<h2>Impaction vs constipation: can you tell at home?</h2>
-<p><strong>Not reliably from external signs alone.</strong> â€œConstipationâ€ is often used informally for slowed fecal passage, while a foreign-body obstruction is a physical blockage. They can overlap in appetite, swelling and fecal changes, but their management may differ substantially.</p>
-<p>A veterinarian may use history, physical examination, fecal testing, radiographs, contrast imaging or ultrasound to distinguish gastrointestinal disease and locate a foreign body.</p>
-
-<h2>Should you fridge an axolotl for impaction?</h2>
-<p><strong>MyAxolotl does not recommend refrigerator fridging as a standard first-line impaction treatment.</strong> We did not find a veterinary source establishing 5Â°C refrigerator treatment for 1â€“2 weeks as a validated way to clear an axolotl foreign body. Cooling also slows metabolism and gut activity, so the common claim that extreme cold â€œmakes the blockage passâ€ should not be presented as established physiology.</p>
-<p>The separate <a href="/health/fridging-sick-axolotl/">fridging guide</a> explains why refrigeration should only be considered when an amphibian-experienced veterinarian specifically recommends it for the individual animal.</p>
-
-<h2>Should you stop feeding?</h2>
-<p>If a true obstruction is strongly suspected, do not force-feed or repeatedly add large meals while arranging veterinary assessment. However, a long unsupervised fast is not a substitute for diagnosis. The correct feeding plan depends on whether the problem is a foreign body, overload, another gastrointestinal disease or something unrelated to the gut.</p>
-
-<h2>What should you do first?</h2>
-<ol>
-<li><strong>Remove access to the suspected foreign material.</strong> Move the animal only if needed to prevent continued ingestion or injury.</li>
-<li><strong>Measure water quality and temperature.</strong> Correct husbandry problems without creating abrupt swings.</li>
-<li><strong>Document the timeline.</strong> Record last normal meal, last observed feces, known ingestion, swelling, buoyancy and weight/body-condition change.</li>
-<li><strong>Do not massage the abdomen.</strong> External pressure on a swallowed hard or sharp object can add risk.</li>
-<li><strong>Do not give human laxatives or improvised medication.</strong></li>
-<li><strong>Contact an amphibian/exotics veterinarian</strong> when signs persist, the animal is worsening, or foreign-body ingestion is likely.</li>
-</ol>
-
-<h2>How does a veterinarian diagnose impaction?</h2>
-<p>Veterinary amphibian guidance describes radiographs, contrast studies and ultrasound as tools for investigating foreign bodies or gastrointestinal distension. Published axolotl cases have used radiography and direct visualization before foreign bodies were removed.</p>
-<p>Dense gravel may be visible on radiographs; other material can be more difficult to detect and may require additional imaging or endoscopy.</p>
-
-<h2>How can a foreign body be treated?</h2>
-<p>Treatment depends on the object's location, size and effect on the animal. Veterinary Partner describes options including decompression, removal through the mouth, endoscopic retrieval and surgical removal. Axolotl case reports document successful endoscopic retrieval and gastric surgery under amphibian anesthesia.</p>
-<p>Those procedures are veterinary interventions, not home techniques.</p>
-
-<h2>When is the situation urgent?</h2>
-<p>Seek prompt veterinary care for severe or increasing abdominal distension, inability to maintain normal position, prolapse, respiratory difficulty, marked lethargy, rapid decline, obvious painful trauma, or a known swallowed foreign body with continuing symptoms.</p>
-<p>Use <a href="/health/emergency-first-aid/">Axolotl Emergency Signs</a> for triage.</p>
-
-<h2>How do you prevent impaction?</h2>
-<p>Prevention is more reliable than home treatment:</p>
-<ul>
-<li>avoid swallowable gravel and loose stones;</li>
-<li>choose substrate using <a href="/tank-setup/substrate-and-impaction/">the substrate guide</a>;</li>
-<li>remove broken dÃ©cor and small foreign objects;</li>
-<li>feed appropriately sized foods; and</li>
-<li>observe feeding so the axolotl is not repeatedly suctioning food from unsafe material.</li>
-</ul>
-
-<h2>Which page owns each related problem?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Question</th><th>Owner</th></tr></thead>
-<tbody>
-<tr><td>Which substrate should I use?</td><td><a href="/tank-setup/substrate-and-impaction/">Substrate & Impaction Prevention</a></td></tr>
-<tr><td>Why is gravel dangerous?</td><td><a href="/tank-setup/gravel-risks/">Gravel Risks</a></td></tr>
-<tr><td>My axolotl is floating</td><td><a href="/health/why-axolotl-floating/">Floating Guide</a></td></tr>
-<tr><td>My axolotl stopped eating</td><td><a href="/health/refusing-to-eat/">Refusing to Eat</a></td></tr>
-<tr><td>Is my axolotl overfed?</td><td><a href="/diet/overfeeding-and-impaction/">Body Condition / Overfeeding</a></td></tr>
-</tbody></table></div>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://veterinarypartner.vin.com/default.aspx?catId=253985&amp;id=8030801&amp;ind=1817&amp;objTypeID=1007&amp;pid=19239">Veterinary Partner / VIN: Gastrointestinal Foreign Body or Overload in Amphibians</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/31120693/">Burns et al.: Endoscopic removal of a foreign body in a Mexican axolotl</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/21988819/">McMillan & Leece: anesthesia for surgical retrieval of gastric foreign bodies in an axolotl</a></li>
-<li><a href="https://members.arav.org/resource/resmgr/files/proceedings_2016/Chapter_28_-_Clinical_Review.pdf">ARAV clinical review: surgical gastric foreign-body removal in a juvenile Mexican axolotl</a></li>
-</ul>
-'''
-
-
-BODY_OVERRIDES["tank-setup/aquarium-chillers"] = r'''
-<p><strong>An aquarium chiller is useful when room cooling, ventilation and evaporative methods cannot keep an axolotl tank reliably within the temperature range you have chosen for husbandry.</strong> Do not size a chiller from tank gallons alone. Total water volume, warmest room temperature, desired water temperature, pump/light heat, ventilation and the chiller's required water-flow range all affect performance.</p>
-<div class="role-note"><strong>This page owns the chiller buying decision.</strong> For normal axolotl temperature husbandry and non-chiller cooling methods, use <a href="/tank-setup/temperature/">the temperature guide</a>. For a planning estimate, use the <a href="/tools/chiller-size-calculator/">Chiller Size Calculator</a>.</div>
-
-<h2>Does every axolotl tank need a chiller?</h2>
-<p>No. A chiller is equipment for a thermal-control problem, not a universal requirement. The Ambystoma Genetic Stock Center maintains its research colony around 15â€“17Â°C using building and auxiliary air cooling. Merck's amphibian husbandry guidance says water chillers and air conditioning should be considered when needed to keep amphibians within their appropriate temperature range.</p>
-<p>If your room and aquarium remain reliably cool without a chiller, adding one only increases cost and complexity. If the tank repeatedly warms beyond your intended range, a correctly sized compressor chiller can provide much more predictable control than emergency cooling.</p>
-
-<h2>What type of aquarium chiller should you consider?</h2>
-<p>For a tank that needs a meaningful, sustained temperature pull-down below a warm room, a compressor-based aquarium chiller is the usual dedicated solution. Thermoelectric/Peltier devices can be useful for small heat loads but their practical cooling capacity depends heavily on ambient conditions and device design.</p>
-<p><strong>Do not choose solely by the label â€œcompressorâ€ or â€œthermoelectric.â€</strong> Compare the manufacturer's actual temperature-pull-down data, rated water volume, flow requirement and ventilation instructions for your setup.</p>
-
-<h2>What determines chiller size?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Factor</th><th>Why it matters</th></tr></thead>
-<tbody>
-<tr><td>Total system water volume</td><td>More water requires more heat removal.</td></tr>
-<tr><td>Warmest room temperature</td><td>A hotter room increases the heat entering the aquarium and the required pull-down.</td></tr>
-<tr><td>Target water temperature</td><td>The larger the difference between ambient and target, the harder the chiller must work.</td></tr>
-<tr><td>Pumps, lights and other equipment</td><td>Electrical equipment can add heat to the system.</td></tr>
-<tr><td>Open vs covered tank</td><td>Evaporation, lighting and ventilation change the heat balance.</td></tr>
-<tr><td>Chiller ventilation</td><td>A compressor unit dumps removed heat into the surrounding room; recirculating hot exhaust reduces performance.</td></tr>
-<tr><td>Actual water flow through the chiller</td><td>The heat exchanger must operate within the manufacturer's specified flow range.</td></tr>
-</tbody></table></div>
-
-<h2>Why tank volume alone is not enough</h2>
-<p>A 40-gallon aquarium in a cool basement does not impose the same cooling load as the same aquarium in a hot upstairs room with pumps and lights adding heat. Manufacturer sizing notes for current aquarium chillers explicitly tell buyers to consider room temperature, desired temperature drop, equipment heat and ventilationâ€”not only gallons.</p>
-<p>This is why a generic table saying â€œ40 gallons = 1/5 HPâ€ is unreliable. The same nominal tank can require different chiller capacity under different conditions.</p>
-
-<h2>How do you use the Chiller Size Calculator?</h2>
-<p>The <a href="/tools/chiller-size-calculator/">Axolotl Chiller Size Calculator</a> asks for tank volume, warmest observed water/room conditions, target temperature and heat load, then returns a planning class. Treat the result as a shortlist, not the final purchase decision.</p>
-<p>Before buying, compare that shortlist with the current manufacturer's sizing chart and flow range for the exact model.</p>
-
-<h2>Why does flow rate matter?</h2>
-<p>Inline chillers require water to pass through the heat exchanger within a specified range. Too little or too much flow can reduce performance or fall outside the manufacturer's operating specification. Pump labels usually quote flow at little or no head pressure, while actual flow drops through tubing, height, bends, filters and fittings.</p>
-<p>Use the chiller manufacturer's <strong>minimum and maximum operating flow</strong> and estimate or measure the real flow through the installed loop.</p>
-
-<h2>Can a canister filter run through a chiller?</h2>
-<p>Sometimes. A canister filter can provide the circulation loop for an inline chiller when the filter's real output remains within the chiller's required flow range after head loss and plumbing restrictions. The filter manufacturer must also permit the plumbing arrangement.</p>
-<p>If the combination falls outside either device's specification, use a separate pump or different plumbing design. Do not choose a canister solely because its box GPH appears to match a chiller.</p>
-
-<h2>How much ventilation does a chiller need?</h2>
-<p><strong>Do not enclose a compressor chiller in a sealed cabinet unless the manufacturer explicitly permits it.</strong> The unit removes heat from aquarium water and rejects that heat into room air. Current JBJ guidance and retailer installation notes both emphasize adequate ventilation and avoiding recirculation of warm exhaust.</p>
-<p>Follow the exact clearance requirements in the model's current manual rather than a generic â€œ12 inches on every sideâ€ rule.</p>
-
-<h2>What features should you compare?</h2>
-<ul>
-<li><strong>Pull-down capacity:</strong> can it maintain your target under the warmest expected room conditions?</li>
-<li><strong>Required flow range:</strong> compatible with your real pump/filter flow?</li>
-<li><strong>Heat exchanger material:</strong> suitable for continuous aquarium use.</li>
-<li><strong>Controller range and accuracy:</strong> adequate for the temperature you intend to maintain.</li>
-<li><strong>Ventilation requirements:</strong> practical for where the unit will sit.</li>
-<li><strong>Noise:</strong> check current owner/manufacturer data if bedroom placement matters.</li>
-<li><strong>Warranty and service:</strong> verify current terms at purchase time.</li>
-<li><strong>Replacement parts:</strong> availability of controller, fan, fuse and plumbing components.</li>
-</ul>
-
-<h2>Should you buy one size larger?</h2>
-<p>A modest capacity margin can reduce continuous operation under peak heat load, but â€œalways oversizeâ€ is not a universal engineering law. Follow the manufacturer's current sizing method. Some manufacturers recommend moving up when your system sits near the edge of a model's rating or requires a large temperature pull-down.</p>
-<p>Oversizing also affects purchase price, physical size, pump/flow requirements and cycling behavior, so compare the actual model data rather than applying a fixed 1.5Ã— multiplier.</p>
-
-<h2>Can a fan replace a chiller?</h2>
-<p>Surface fans cool water through evaporation. Their effect depends on room temperature, humidity, airflow, tank surface area and evaporation rate, so there is no universal â€œ2â€“4Â°Fâ€ result. A fan can be enough in some rooms and inadequate in others.</p>
-<p>Test your real tank during the warmest conditions you expect. If temperature cannot be held reliably, move to room air conditioning or a properly sized chiller instead of waiting for a heat emergency.</p>
-
-<h2>How should you install a chiller?</h2>
-<ol>
-<li>Place it on a stable surface with the ventilation clearance specified by its manual.</li>
-<li>Use tubing and fittings approved for the unit.</li>
-<li>Provide water flow within the manufacturer's operating range.</li>
-<li>Check all connections for leaks before unattended operation.</li>
-<li>Use an independent aquarium thermometer to verify the chiller/controller reading.</li>
-<li>Monitor the tank after installation to make sure the return flow is still gentle enough for the axolotl.</li>
-</ol>
-
-<h2>How much does a chiller cost to run?</h2>
-<p>Operating cost depends on the model's real electrical draw, local electricity price and compressor duty cycle. Do not estimate cost from horsepower alone. Use the manufacturer's wattage/amp specification and your own measured or expected run time.</p>
-<p>A simple estimate is:</p>
-<p><strong>kWh per day = device kilowatts Ã— compressor run hours per day</strong></p>
-<p>Then multiply by your electricity price per kWh. Actual duty cycle changes with room temperature, insulation, ventilation and tank heat load.</p>
-
-<h2>How do you maintain a chiller?</h2>
-<p>Follow the model manual. Common tasks include keeping air intakes/condenser surfaces free of dust, checking tubing for restriction or leaks, maintaining the required water flow and confirming temperature with an independent thermometer. Service intervals vary by model and environment.</p>
-
-<h2>Current product example: how to read a specification sheet</h2>
-<p>As of September 2026, JBJ's current Arctica aquarium-series page publishes each model's compressor/output rating, titanium heat exchanger, inlet/outlet sizes and minimum/maximum flow range, and points buyers to a manufacturer chiller-sizing calculator. Those are the kinds of fields you should compare.</p>
-<p><strong>This page does not rank one current model â€œbest overall.â€</strong> Model availability, warranty terms, pricing and specifications can change, while the sizing method above remains useful.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024 â€” colony temperature</a></li>
-<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/environment-and-husbandry-for-amphibians">Merck Veterinary Manual: Environment and Husbandry for Amphibians, updated February 2026</a></li>
-<li><a href="https://www.jbjaquarium.com/temperature-control/arctica-chillers/aquarium-series/">JBJ Aquariums: current Arctica Aquarium Series specifications</a></li>
-</ul>
-'''
-
-
-# ---------------------------------------------------------------------------
-# P0 hub rewrites â€” care guide + tank setup (2026-09-19)
-# ---------------------------------------------------------------------------
-# These pages are intentionally broad routers. Specialist pages own exact
-# procedures, thresholds, diagnosis, and buying decisions.
-
-INTRO_OVERRIDES["axolotls/care-guide"] = (
-    "Axolotl care is built around a cool, stable aquatic environment, an established "
-    "biological filter, safe housing, appropriate food, regular water testing, and "
-    "early recognition of health changes. This guide gives the whole system in one "
-    "place and routes each specialist task to its canonical page."
-)
-
-INTRO_OVERRIDES["tank-setup/setup-guide"] = (
-    "Set up the aquarium before the axolotl arrives: choose a long tank with enough "
-    "usable floor area, establish gentle biological filtration, make temperature "
-    "control reliable, choose safe substrate and hides, and confirm the nitrogen "
-    "cycle with measured water tests."
-)
-
-BODY_OVERRIDES["axolotls/care-guide"] = r'''
-<p><strong>Good axolotl care is mostly environmental management.</strong> Keep the animal in a cool, stable freshwater aquarium with established biological filtration, gentle circulation, safe surfaces, appropriate food and regular water testing. Avoid trying to diagnose or treat a health problem from one visible sign; measure the environment first and use the specialist health page for the specific symptom.</p>
-<div class="role-note"><strong>This is the overview page.</strong> It owns the broad â€œhow do I care for an axolotl?â€ question. Tank size, temperature, water chemistry, feeding schedules, specific diseases, legality and buying decisions are owned by the specialist guides linked below.</div>
-
-<h2>Axolotl care at a glance</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Care area</th><th>Practical rule</th><th>Detailed guide</th></tr></thead>
-<tbody>
-<tr><td>Tank</td><td>Use a long aquarium with enough floor area and water volume. Petco currently recommends 20+ gallons for one adult; MyAxolotl prefers a 40-gallon breeder when starting a permanent adult setup if space and budget allow.</td><td><a href="/tank-setup/tank-size-by-age/">Tank Size</a></td></tr>
-<tr><td>Temperature</td><td>Keep water cool and stable; do not rely on how the water feels by hand.</td><td><a href="/tank-setup/temperature/">Temperature</a></td></tr>
-<tr><td>Filtration</td><td>Use established biological filtration with circulation gentle enough that the animal can rest normally.</td><td><a href="/tank-setup/filtration-for-axolotls/">Filtration</a></td></tr>
-<tr><td>Water testing</td><td>Measure ammonia, nitrite, nitrate, pH and temperature regularly instead of judging water by clarity.</td><td><a href="/tank-setup/how-to-test-water/">How to Test Water</a></td></tr>
-<tr><td>Water changes</td><td>Use regular partial water changes and adjust maintenance from measured water quality and waste load.</td><td><a href="/tank-setup/water-change-guide/">Water Change Guide</a></td></tr>
-<tr><td>Substrate</td><td>Avoid loose material that can be swallowed; choose substrate by animal size and setup.</td><td><a href="/tank-setup/substrate-and-impaction/">Substrate Guide</a></td></tr>
-<tr><td>Food</td><td>Feed appropriate animal-based foods in portions and frequency suited to life stage and body condition.</td><td><a href="/diet/best-foods-list/">Diet Guide</a></td></tr>
-<tr><td>Handling</td><td>Treat axolotls as observation-focused aquatic pets; handle only when necessary.</td><td><a href="/care-basics/handling/">Handling</a></td></tr>
-<tr><td>Health</td><td>Record changes, test the environment and follow the page for the specific sign.</td><td><a href="/health/">Health Hub</a></td></tr>
-</tbody></table></div>
-
-<h2>What is an axolotl?</h2>
-<p><em>Ambystoma mexicanum</em> is a Mexican salamander that normally becomes reproductively mature while retaining an aquatic body plan, including external gills. This developmental strategy is commonly described as paedomorphosis or neoteny.</p>
-<p>For the entity definition and core facts, use <a href="/care-basics/axolotl-facts/">What Is an Axolotl?</a>. For fish-versus-amphibian classification, use <a href="/biology-and-science/is-axolotl-amphibian/">Is an Axolotl an Amphibian?</a>.</p>
-
-<h2>Is an axolotl the right pet for you?</h2>
-<p>An axolotl can suit someone who is comfortable maintaining an aquarium and prefers an animal that is watched rather than handled. The main commitment is not daily interaction; it is keeping the environment consistently appropriate over many years.</p>
-<p>Before buying, make sure you can:</p>
-<ul>
-<li>maintain cool water in your actual room through the hottest part of the year;</li>
-<li>test water chemistry and understand the nitrogen cycle;</li>
-<li>provide an appropriately sized aquarium and stand;</li>
-<li>source suitable food consistently;</li>
-<li>arrange exotic/amphibian veterinary care if needed; and</li>
-<li>verify that ownership and transport are legal where you live.</li>
-</ul>
-<p>Use <a href="/care-basics/are-axolotls-good-beginner-pets/">Are Axolotls Good Pets?</a> for the pros, cons and beginner-difficulty decision.</p>
-
-<h2>What size tank does an adult axolotl need?</h2>
-<p><strong>Use the dedicated tank-size page as the source of truth.</strong> Current Petco care guidance recommends a minimum of 20+ gallons for one adult and says length matters more than height. MyAxolotl treats a 20-gallon long as the practical lower bound and prefers a 40-gallon breeder as a more forgiving permanent home when space and budget permit.</p>
-<p>The larger recommendation is a practical site preference, not a claim that one exact gallon number is a universal biological threshold. Animal number, floor area, filtration and husbandry intensity all matter.</p>
-<p>See <a href="/tank-setup/tank-size-by-age/">What Size Tank Does an Axolotl Need?</a>.</p>
-
-<h2>How cool should axolotl water be?</h2>
-<p><strong>Cool and stable matters more than chasing one magic number.</strong> The Ambystoma Genetic Stock Center maintains its research colony in cool water, and current amphibian veterinary guidance emphasizes species-appropriate stable temperature because temperature affects metabolism and immune function.</p>
-<p>For a home aquarium, measure the water continuously or at least daily during warm periods and build a cooling plan around the warmest room conditions you actually experience. A fan, room air conditioning or an aquarium chiller may be appropriate depending on the heat load.</p>
-<p>Use <a href="/tank-setup/temperature/">Axolotl Tank Temperature</a> for the current home target and <a href="/tank-setup/aquarium-chillers/">Aquarium Chillers</a> if active cooling is needed.</p>
-
-<h2>What water quality does an axolotl need?</h2>
-<p>Amphibians absorb water and dissolved substances readily across their skin, so clean water is foundational. Merck's 2026 amphibian guidance advises regular testing of aquatic systems for temperature, pH, hardness, ammonia, nitrite and nitrate, and emphasizes water free from chlorine, ammonia and nitrite.</p>
-<p>Do not use a broad care page to memorize a long table of fixed thresholds. Test the tank, understand the nitrogen cycle and use the specialist page to interpret the actual readings.</p>
-<p>Start with <a href="/tank-setup/how-to-test-water/">How to Test Axolotl Water</a> and then use <a href="/tank-setup/water-parameters-cycling/">Water Parameters & Nitrogen Cycle</a>.</p>
-
-<h2>Does an axolotl need a filter?</h2>
-<p>For a conventional home aquarium, established biological filtration is the normal approach. The goal is enough biological capacity to process nitrogenous waste without creating a strong current across the animal's resting area.</p>
-<p><strong>Do not size the filter from an invented axolotl turnover multiplier.</strong> Filter choice depends on biological-media capacity, actual waste load, mechanical debris capture and whether the output can be made gentle. See <a href="/tank-setup/filtration-for-axolotls/">Do Axolotls Need a Filter?</a> and <a href="/tank-setup/canister-vs-sponge-filter/">Canister vs Sponge</a>.</p>
-
-<h2>How often should you change the water?</h2>
-<p>Regular partial water replacement is still necessary in a filtered aquarium. The 2024 AGSC guide and Merck's 2026 pet-amphibian guidance both support routine weekly partial renewal in established aquatic systems, while the amount needed can change with measured chemistry and waste load.</p>
-<p>Use <a href="/tank-setup/water-change-guide/">How to Change Axolotl Tank Water</a> rather than following an automatic percentage from an overview article.</p>
-
-<h2>What substrate is safe?</h2>
-<p><strong>Avoid loose gravel or objects small enough to be swallowed.</strong> Axolotls use suction feeding and can ingest material around the food. Substrate choice should account for animal size, grain size, cleanliness and the keeper's ability to remove waste.</p>
-<p>The <a href="/tank-setup/substrate-and-impaction/">Substrate Guide</a> owns the safe-choice comparison; <a href="/tank-setup/gravel-risks/">Gravel Risks</a> explains the foreign-body hazard.</p>
-
-<h2>What hides, plants and lighting are appropriate?</h2>
-<p>Provide smooth hiding places and avoid sharp dÃ©cor or openings that can trap the animal. Axolotls do not need bright display lighting for their own benefit, so any light used for viewing or plants should still leave shaded/refuge areas available.</p>
-<p>For plants and dÃ©cor, use <a href="/tank-setup/live-vs-artificial-plants/">Live vs Artificial Plants</a> and the <a href="/tank-setup/setup-guide/">Tank Setup Guide</a>.</p>
-
-<h2>What do axolotls eat?</h2>
-<p>Axolotls are carnivorous. Captive diets commonly use appropriately sized earthworms/nightcrawlers and nutritionally suitable sinking pellets, while larvae require much smaller live foods during early development. Feeding frequency changes with life stage, body condition, food size and the individual.</p>
-<p>Use <a href="/diet/best-foods-list/">What Do Axolotls Eat?</a> for food choice and <a href="/diet/feeding-schedule-by-age/">Feeding Schedule by Age</a> for routine frequency.</p>
-
-<h2>Can axolotls live with other animals?</h2>
-<p>Do not add fish or another axolotl simply because the tank has enough gallons. Tank mates can introduce nipping, predation, food competition, disease and ingestion hazards. Multiple axolotls also need close size matching and monitoring.</p>
-<p>Use <a href="/tank-setup/tank-mates/">Axolotl Tank Mates</a> for other species and <a href="/care-basics/keeping-multiple-axolotls/">Can Axolotls Live Together?</a> for same-species cohabitation.</p>
-
-<h2>Can you hold or pet an axolotl?</h2>
-<p>Routine petting is unnecessary. Amphibian skin is biologically important and easily disturbed, so handle only when the animal must be transferred for safety, veterinary care or essential husbandry.</p>
-<p>Use <a href="/care-basics/handling/">Can You Hold an Axolotl?</a> for transfer methods and <a href="/care-basics/are-axolotls-poisonous/">Are Axolotls Poisonous or Dangerous?</a> for human-hygiene and bite questions.</p>
-
-<h2>How do you know when an axolotl is unwell?</h2>
-<p><strong>Look for a change from the animal's normal pattern, not one internet â€œdiagnostic sign.â€</strong> Concerning changes can involve appetite, body condition, gills, skin, wounds, buoyancy, swimming, breathing, fecal production or activity. The same sign can have more than one cause.</p>
-<p>When something changes:</p>
-<ol>
-<li>measure temperature and water chemistry;</li>
-<li>record appetite, feces, posture, behavior and recent changes;</li>
-<li>take clear dated photographs if there is a visible lesion;</li>
-<li>follow the specialist page for the specific sign; and</li>
-<li>seek an amphibian-experienced veterinarian for severe, worsening or persistent problems.</li>
-</ol>
-<p>Use <a href="/health/stress-signs/">Axolotl Stress Signs</a> as the symptom router and <a href="/health/emergency-first-aid/">Axolotl Emergency Signs</a> for urgent triage.</p>
-
-<h2>What should routine care look like?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Cadence</th><th>What to do</th></tr></thead>
-<tbody>
-<tr><td>Daily</td><td>Check the animal, temperature and equipment; remove obvious uneaten food/waste.</td></tr>
-<tr><td>Regularly / weekly</td><td>Test water chemistry, review trends and perform routine partial water replacement as needed.</td></tr>
-<tr><td>As needed</td><td>Remove mechanical debris and maintain filter components without unnecessarily replacing mature biological media.</td></tr>
-<tr><td>Before/after changes</td><td>Record new equipment, food, animals, treatments or major maintenance so later health changes have context.</td></tr>
-</tbody></table></div>
-
-<h2>How much does axolotl ownership cost?</h2>
-<p>The animal's purchase price is only one part of ownership. Aquarium, stand, filtration, testing supplies, cooling, food, electricity and veterinary care can exceed the cost of the axolotl itself. Use <a href="/care-basics/cost-of-ownership-monthly/">Monthly Cost of Ownership</a> and <a href="/cost-and-buying/axolotl-price-by-morph/">Axolotl Price by Morph</a>.</p>
-
-<h2>Is it legal to own an axolotl?</h2>
-<p>Rules can change by country, state/province and locality. Do not rely on an old care article or a seller's willingness to ship. Check the current primary-source rules for your jurisdiction before buying or transporting an animal.</p>
-<p>Use the <a href="/legal/">Axolotl Legality Guide</a>.</p>
-
-<h2>Where should a new keeper go next?</h2>
-<p>If you do not yet own the animal, continue in this order:</p>
-<ol>
-<li><a href="/care-basics/are-axolotls-good-beginner-pets/">Decide whether an axolotl fits your household.</a></li>
-<li><a href="/legal/">Check legality.</a></li>
-<li><a href="/tank-setup/setup-guide/">Build and cycle the aquarium.</a></li>
-<li><a href="/cost-and-buying/where-to-buy-axolotls/">Choose a verified seller.</a></li>
-<li><a href="/cost-and-buying/how-to-choose-a-healthy-axolotl/">Inspect the individual animal.</a></li>
-<li><a href="/tank-setup/acclimating-a-new-axolotl/">Move it into the prepared system.</a></li>
-</ol>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
-<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/environment-and-husbandry-for-amphibians">Merck Veterinary Manual: Environment and Husbandry for Amphibians, updated February 2026</a></li>
-<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/housing-for-amphibians">Merck Veterinary Manual: Housing for Amphibians, updated February 2026</a></li>
-<li><a href="https://www.petco.com/pet-education/caresheets/axolotl">Petco: Axolotl Care Guide â€” current consumer tank-size guidance</a></li>
-</ul>
-'''
-
-BODY_OVERRIDES["tank-setup/setup-guide"] = r'''
-<p><strong>Set up and stabilize the aquarium before the axolotl arrives.</strong> The sequence is: choose a suitable long tank and stand, plan cooling, install gentle biological filtration, choose safe substrate and hides, fill with treated water, establish the nitrogen cycle, and confirm the system with measured water tests.</p>
-<div class="role-note"><strong>This page owns the setup sequence.</strong> Exact tank-size decisions, filter comparison, temperature management, water chemistry and cycling interpretation are handled by their specialist pages so this guide does not create competing rules.</div>
-
-<h2>Step 1: choose the tank before buying equipment</h2>
-<p>For one adult, current Petco care guidance recommends a minimum of 20+ gallons and says length is more important than height. MyAxolotl treats a 20-gallon long as the practical lower bound and prefers a 40-gallon breeder as a more forgiving permanent setup when space and budget permit.</p>
-<p>That preference is not a claim that one exact gallon number is a universal biological threshold. Use <a href="/tank-setup/tank-size-by-age/">What Size Tank Does an Axolotl Need?</a> for the full reasoning, including babies, juveniles and multiple adults.</p>
-
-<h2>Step 2: choose a stable location and stand</h2>
-<p>Place the aquarium where room temperature is easiest to control and where direct sun, radiators and other heat sources will not create avoidable thermal swings. The stand must be level and rated for the filled aquarium's weight.</p>
-<p>If you only know the tank dimensions, use the <a href="/tools/aquarium-volume-calculator/">Aquarium Volume Calculator</a> to estimate water volume and water weight.</p>
-
-<h2>Step 3: plan temperature control for your real room</h2>
-<p><strong>Do not automatically buy a chiller and do not assume a fan will always be enough.</strong> Measure the room and tank through the warmest conditions you expect. Amphibian veterinary guidance emphasizes maintaining a species-appropriate stable temperature and notes that chillers or air conditioning may be needed for aquatic systems.</p>
-<p>Use <a href="/tank-setup/temperature/">Axolotl Tank Temperature</a> for the target and non-purchase cooling methods. If active cooling is required, use <a href="/tank-setup/aquarium-chillers/">Aquarium Chillers</a> and the <a href="/tools/chiller-size-calculator/">Chiller Size Calculator</a>.</p>
-
-<h2>Step 4: install biological filtration with gentle flow</h2>
-<p>A conventional home aquarium should use established biological filtration. The filter needs enough colonized media for the actual waste load while returning water gently enough that the axolotl is not continuously pushed around the tank.</p>
-<p><strong>Do not choose from a fixed â€œ3Ã—,â€ â€œ5Ã—,â€ or â€œ10Ã—â€ turnover rule.</strong> Manufacturer flow ratings do not describe the animal's actual current after media, tubing, spray bars and head loss. Choose by biological capacity, debris capture and controllable return flow.</p>
-<p>Use <a href="/tank-setup/filtration-for-axolotls/">Do Axolotls Need a Filter?</a> and <a href="/tank-setup/canister-vs-sponge-filter/">Canister vs Sponge</a>.</p>
-
-<h2>Step 5: choose safe substrate</h2>
-<p>Avoid swallowable gravel and loose stones. Axolotls feed by suction and can ingest material around food. Bare-bottom housing and appropriately fine sand are common approaches, but the correct choice depends on life stage, grain size and maintenance.</p>
-<p>Use <a href="/tank-setup/substrate-and-impaction/">Choosing the Best Axolotl Substrate</a>. If you are considering gravel, read <a href="/tank-setup/gravel-risks/">Gravel Risks</a> first.</p>
-
-<h2>Step 6: add hides and safe dÃ©cor</h2>
-<p>Provide at least one smooth refuge large enough for the animal to use comfortably. Avoid sharp edges, small holes where the body can become trapped, unstable rockwork and small detachable objects that could be swallowed.</p>
-<p>Lighting should support viewing or plants without removing the animal's ability to retreat into shade. See <a href="/tank-setup/live-vs-artificial-plants/">Live vs Artificial Plants</a> for plant/decor choices.</p>
-
-<h2>Step 7: use a secure top when escape is possible</h2>
-<p>A secure aquarium cover is useful where an axolotl could leave the tank or where household pets, objects or contaminants could enter it. Choose a cover that works with the cooling/ventilation plan and equipment rather than sealing a warm tank in a way that traps heat.</p>
-
-<h2>Step 8: fill with appropriate treated water</h2>
-<p>Municipal water may contain chlorine or chloramine. Use a conditioner or water-treatment method appropriate to the disinfectant in your supply. Do not assume that simply letting water stand removes chloramine.</p>
-<p>Use <a href="/tank-setup/water-conditioners/">Water Conditioners</a> and the <a href="/tools/water-conditioner-dosage-calculator/">Water Conditioner Dosage Calculator</a> for product-volume math.</p>
-
-<h2>Step 9: establish the biological filter before adding the axolotl</h2>
-<p><strong>Do not use the axolotl as the ammonia source for a new uncycled aquarium.</strong> Establish the biofilter before the animal arrives. A cycling process uses a controlled ammonia source and water testing to demonstrate that the filter community is processing nitrogenous waste.</p>
-<p>Do not declare the tank â€œcycledâ€ because a certain number of weeks has passed. Confirm the process from measured ammonia, nitrite and nitrate trends. Use <a href="/tank-setup/water-parameters-cycling/">Water Parameters & Nitrogen Cycle</a> and log the readings in the <a href="/tools/nitrogen-cycle-tracker/">Nitrogen Cycle Tracker</a>.</p>
-
-<h2>Step 10: learn to test the water correctly</h2>
-<p>Before the animal arrives, you should be able to measure and record ammonia, nitrite, nitrate, pH and temperature reliably. Clear-looking water can still have unsafe chemistry.</p>
-<p>Use <a href="/tank-setup/how-to-test-water/">How to Test Axolotl Water</a> for sample collection, test-kit technique and color-chart reading.</p>
-
-<h2>Step 11: create a maintenance routine before the tank is occupied</h2>
-<p>Regular testing, waste removal, partial water changes and filter maintenance are part of the setupâ€”not tasks to invent after a problem appears. The 2024 AGSC guide and Merck's 2026 amphibian guidance both support routine partial water replacement in established aquatic systems.</p>
-<p>Use <a href="/tank-setup/water-change-guide/">How to Change Axolotl Tank Water</a>. Do not replace all mature biological media on a routine calendar.</p>
-
-<h2>Step 12: prepare food, transport and acclimation before pickup day</h2>
-<p>Have the animal's normal food ready and know how the seller has been feeding it. Confirm the transport and arrival plan before purchase, especially for shipped animals.</p>
-<p>Use <a href="/cost-and-buying/shipping-live-axolotls/">Shipping Live Axolotls</a> and <a href="/tank-setup/acclimating-a-new-axolotl/">Acclimating a New Axolotl</a>.</p>
-
-<h2>What should be ready before the axolotl arrives?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Item</th><th>Ready when...</th></tr></thead>
-<tbody>
-<tr><td>Tank and stand</td><td>Level, secure and sized for the intended animal count.</td></tr>
-<tr><td>Temperature control</td><td>The tank remains in the planned range under the warmest expected room conditions.</td></tr>
-<tr><td>Filter</td><td>Biological filtration is established and return flow is gentle.</td></tr>
-<tr><td>Water</td><td>Source water is treated appropriately and you know how to test it.</td></tr>
-<tr><td>Nitrogen cycle</td><td>Readings demonstrate a functioning biofilter rather than simply an elapsed timeline.</td></tr>
-<tr><td>Substrate / dÃ©cor</td><td>No swallowable gravel, sharp edges or trapping hazards.</td></tr>
-<tr><td>Food</td><td>Suitable food is on hand and portion/frequency are understood.</td></tr>
-<tr><td>Emergency plan</td><td>You know the nearest amphibian/exotics vet and have a temporary safe container if transfer is needed.</td></tr>
-</tbody></table></div>
-
-<h2>Common setup mistakes</h2>
-<ul>
-<li>buying the axolotl before the aquarium is cycled;</li>
-<li>using a small tank because the animal is currently a juvenile without planning the adult home;</li>
-<li>choosing a powerful filter that cannot be made gentle;</li>
-<li>using swallowable gravel;</li>
-<li>assuming clear water is chemically safe;</li>
-<li>buying a chiller from tank gallons alone without considering room heat and required pull-down;</li>
-<li>relying on a fixed cycling timeline rather than test results;</li>
-<li>making large last-minute changes immediately before the animal arrives; and</li>
-<li>copying treatment or emergency advice into the setup process instead of keeping the tank stable.</li>
-</ul>
-
-<h2>How should the setup pages fit together?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Your question</th><th>Canonical page</th></tr></thead>
-<tbody>
-<tr><td>How large should the tank be?</td><td><a href="/tank-setup/tank-size-by-age/">Tank Size</a></td></tr>
-<tr><td>Which filter and how much flow?</td><td><a href="/tank-setup/filtration-for-axolotls/">Filtration</a></td></tr>
-<tr><td>Canister or sponge?</td><td><a href="/tank-setup/canister-vs-sponge-filter/">Canister vs Sponge</a></td></tr>
-<tr><td>What temperature?</td><td><a href="/tank-setup/temperature/">Temperature</a></td></tr>
-<tr><td>Do I need a chiller?</td><td><a href="/tank-setup/aquarium-chillers/">Chiller Buying Guide</a></td></tr>
-<tr><td>Which substrate?</td><td><a href="/tank-setup/substrate-and-impaction/">Substrate</a></td></tr>
-<tr><td>How do I test water?</td><td><a href="/tank-setup/how-to-test-water/">Water Testing</a></td></tr>
-<tr><td>What do the readings mean?</td><td><a href="/tank-setup/water-parameters-cycling/">Water Parameters & Cycling</a></td></tr>
-<tr><td>How do I change water?</td><td><a href="/tank-setup/water-change-guide/">Water Change Guide</a></td></tr>
-</tbody></table></div>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
-<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/environment-and-husbandry-for-amphibians">Merck Veterinary Manual: Environment and Husbandry for Amphibians, updated February 2026</a></li>
-<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/housing-for-amphibians">Merck Veterinary Manual: Housing for Amphibians, updated February 2026</a></li>
-<li><a href="https://www.petco.com/pet-education/caresheets/axolotl">Petco: current Axolotl Care Guide</a></li>
-</ul>
-'''
-
-for _cfg in ARTICLES.values():
-    if _cfg.get("slug") in {"axolotls/care-guide", "tank-setup/setup-guide"}:
-        _cfg["date_modified"] = "2026-09-19"
-
-
-BODY_OVERRIDES["tank-setup/water-parameters-cycling"] = r'''
-<p><strong>Axolotl water quality should be managed from measured trends, not a memorized â€œperfect numbersâ€ table.</strong> In a normal home aquarium, the priorities are a functioning biological filter, no accumulating ammonia or nitrite, controlled nitrate, stable pH, appropriate temperature, and source water that is free of chlorine/chloramine or treated correctly.</p>
-<div class="role-note"><strong>This page owns interpretation and cycling.</strong> For how to take the readings, use <a href="/tank-setup/how-to-test-water/">How to Test Axolotl Water</a>. For the physical maintenance procedure, use <a href="/tank-setup/water-change-guide/">How to Change Axolotl Tank Water</a>.</div>
-
-<h2>Which water parameters should you track?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Parameter</th><th>Why it matters</th><th>How to use it</th></tr></thead>
-<tbody>
-<tr><td>Ammonia</td><td>Primary nitrogenous waste; toxicity rises as pH and temperature change.</td><td>Should not be allowed to accumulate in a functioning occupied aquarium.</td></tr>
-<tr><td>Nitrite</td><td>Intermediate product of nitrification and an indicator of an incomplete/overloaded biofilter.</td><td>Should not accumulate in a mature occupied system.</td></tr>
-<tr><td>Nitrate</td><td>End product that usually builds between water changes.</td><td>Use the trend to set maintenance; current Petco guidance keeps it below 20 ppm.</td></tr>
-<tr><td>pH</td><td>Affects animal physiology and ammonia toxicity; sudden swings also affect the biofilter.</td><td>Prioritize stability and understand your source water rather than chasing one exact decimal.</td></tr>
-<tr><td>Temperature</td><td>Affects metabolism, oxygen demand and water chemistry.</td><td>Interpret on the <a href="/tank-setup/temperature/">Temperature Guide</a>.</td></tr>
-<tr><td>GH / KH / alkalinity</td><td>Describe mineral content and buffering capacity.</td><td>Useful when pH is unstable, source water is very soft/hard, or you are troubleshooting chemistry.</td></tr>
-</tbody></table></div>
-
-<h2>What does the AGSC 2024 guide actually say?</h2>
-<p>The Ambystoma Genetic Stock Center uses a standardized research water formulation made from reverse-osmosis water and salts, buffered to roughly pH 7.1â€“7.6. The same guide explicitly notes that other laboratories have raised axolotls successfully in conditioned well and municipal water and says municipal chemistry can vary dramatically.</p>
-<p><strong>That means the AGSC recipe is a research standard, not a command that every pet keeper must recreate.</strong> Its most transferable lesson is to know your source water, remove municipal disinfectants appropriately, monitor pH/ammonia/chlorine or chloramine, and respond to measured changes rather than assumptions.</p>
-
-<h2>What should ammonia and nitrite read in an occupied axolotl tank?</h2>
-<p><strong>They should not be allowed to accumulate.</strong> Merck's aquatic-animal guidance states that water should be free of ammonia and nitrite, and current Petco axolotl guidance says axolotls are very sensitive to both. A measurable reading therefore triggers investigation of the biofilter, waste load, source water, feeding and recent maintenance.</p>
-<p>Do not turn a single test-strip color into a diagnosis of â€œammonia burn.â€ Confirm the result, review pH/temperature, and look at the whole animal.</p>
-
-<h2>What nitrate level should you aim for?</h2>
-<p>Nitrate is normally managed through water changes, plant uptake and stocking/feeding control rather than expected to remain at zero. Current Petco axolotl guidance recommends keeping nitrate below 20 ppm. MyAxolotl uses that as a practical consumer ceiling while also watching the individual tank's trend.</p>
-<p><strong>Do not claim that a particular nitrate number automatically causes fungus, gill shrinkage or appetite loss in every axolotl.</strong> A rising nitrate trend is a maintenance signal, but clinical signs still need their own assessment.</p>
-
-<h2>What pH is appropriate?</h2>
-<p>The AGSC's standardized rearing water is buffered around 7.1â€“7.6, but the same guide states that municipal-water chemistry varies and that other water sources can support axolotls. For a home tank, stability and a biologically functioning system are more useful than repeatedly dosing chemicals to force one exact value.</p>
-<p>If your pH is persistently extreme, rapidly changing, or paired with ammonia problems, investigate source water, alkalinity/KH, substrate/rock chemistry and filtration. Avoid emergency baking-soda recipes without understanding the chemistry you are changing.</p>
-
-<h2>Do GH and KH have universal axolotl target ranges?</h2>
-<p><strong>Not from the sources used by MyAxolotl.</strong> Hardness and alkalinity matter because they influence mineral availability and pH buffering, but we did not find an axolotl-specific veterinary source validating one universal â€œGH 7â€“14 / KH 3â€“8â€ home target.</p>
-<p>Measure them when your source water is unusually soft/hard, pH is unstable, or you are designing a reproducible water recipe. If you are deliberately remineralizing RO/distilled water, follow a defined formulation rather than improvising salt/bicarbonate doses.</p>
-
-<h2>What is the nitrogen cycle?</h2>
-<p>Biological filtration uses microbial communities to oxidize ammonia through nitrite toward nitrate. A new aquarium does not have enough established biofilm simply because the filter has been switched on for a certain number of days.</p>
-<p>For an axolotl setup, establish the filter before the animal enters. A fishless cycling method uses a controlled ammonia source and repeated testing so you can see the system develop ammonia-processing and nitrite-processing capacity.</p>
-
-<h2>How do you know when a tank is cycled?</h2>
-<p><strong>Use the pattern of repeated test results rather than a fixed â€œ4â€“8 weekâ€ promise.</strong> A mature biofilter should process the waste load without persistent ammonia or nitrite accumulation, while nitrate or other downstream nitrogen products reflect ongoing processing.</p>
-<p>Because hobby cycling methods differ, this page does not prescribe one universal ammonia dose or one 24-hour pass/fail number. Record your method and readings in the <a href="/tools/nitrogen-cycle-tracker/">Nitrogen Cycle Tracker</a>.</p>
-
-<h2>What should you do if ammonia or nitrite appears?</h2>
-<ol>
-<li><strong>Confirm the reading.</strong> Repeat the test correctly and check whether the reagent is in date.</li>
-<li><strong>Measure pH and temperature.</strong> They affect ammonia toxicity and help interpret the situation.</li>
-<li><strong>Remove obvious waste.</strong> Uneaten food, dead organisms or trapped debris may be contributing.</li>
-<li><strong>Protect the animal.</strong> Use an appropriate partial water change and treated replacement water; if the main aquarium cannot be made safe promptly, a temporary holding setup may be needed.</li>
-<li><strong>Investigate the biofilter.</strong> Recent filter-media replacement, chlorine exposure, power loss, medication or overloading can disrupt nitrification.</li>
-<li><strong>Retest and record.</strong> One corrective change is not proof that the system is stable again.</li>
-</ol>
-<p><strong>Do not fridge an axolotl to manage an ammonia spike.</strong> Refrigeration is not a substitute for safe water and biological-filter repair. Use <a href="/health/fridging-sick-axolotl/">the fridging evidence page</a> if a veterinarian has raised that option for a separate clinical reason.</p>
-
-<h2>Should you use an ammonia-binding conditioner?</h2>
-<p>Conditioner products differ. Follow the product label and understand what the test kit measures after treatment. A conditioner can be part of an emergency response, but it does not repair an uncycled or damaged biofilter and does not remove the need for water changes and retesting.</p>
-<p>Use <a href="/tank-setup/water-conditioners/">Water Conditioners</a> for chlorine/chloramine and product-selection questions.</p>
-
-<h2>How often should you test?</h2>
-<p>Test frequently while cycling, after a filter disruption, after unexplained health changes, and after any major change in stocking or maintenance. Merck's 2026 pet-amphibian guidance recommends weekly testing of temperature, pH, hardness, ammonia, nitrite and nitrate in aquatic setups.</p>
-<p>A mature stable tank may not need daily full chemistry panels, but trends are useful: keep a log rather than relying on memory.</p>
-
-<h2>How do water changes fit the nitrogen cycle?</h2>
-<p>Water changes remove dissolved waste and replenish water; they do not replace biological filtration. Routine partial changes and an established biofilter work together.</p>
-<p>The 2024 AGSC guide notes that filtered aquaria still need regular partial changes and monitoring. Follow <a href="/tank-setup/water-change-guide/">the Water Change Guide</a> for the procedure.</p>
-
-<h2>Common interpretation mistakes</h2>
-<ul>
-<li>treating one off-color test as a confirmed emergency without repeating it;</li>
-<li>assuming zero nitrate means the tank must be cycled;</li>
-<li>using elapsed time instead of water-test trends to declare cycling complete;</li>
-<li>forcing pH with bicarbonate without measuring alkalinity/KH and source water;</li>
-<li>copying laboratory ARW chemistry as a universal pet-water requirement;</li>
-<li>assuming a conditioner permanently solves ammonia without restoring the biofilter; and</li>
-<li>diagnosing a health condition from chemistry alone instead of evaluating the animal too.</li>
-</ul>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/laboratory-animals/management-of-laboratory-animals">Merck Veterinary Manual: Management of Laboratory Animals â€” aquatic water quality</a></li>
-<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/housing-for-amphibians">Merck Veterinary Manual: Housing for Amphibians, updated February 2026</a></li>
-<li><a href="https://www.petco.com/pet-education/caresheets/axolotl">Petco: current Axolotl Care Guide</a></li>
-</ul>
-'''
-
-
-# ---------------------------------------------------------------------------
-# Remaining legacy protocol cleanup (2026-09-19)
-# ---------------------------------------------------------------------------
-
-BODY_OVERRIDES["health/quarantine-tub"] = r'''
-<p><strong>A quarantine or hospital container is a temporary controlled environment, not a treatment by itself.</strong> Its purpose is to separate an animal when isolation is needed, simplify observation, and make water quality easy to measure and manage while the underlying health problem is assessed.</p>
-
-<h2>When is temporary isolation useful?</h2>
-<p>Isolation can be appropriate for a new arrival, an injured animal that must be protected from tank mates, an animal being evaluated for infectious disease, or a patient whose veterinarian wants close observation in a simplified setup.</p>
-<p>It is not automatically necessary for every missed meal, floating episode, fungal-looking patch or minor scrape.</p>
-
-<h2>What should a hospital setup include?</h2>
-<ul>
-<li>a clean, inert container large enough for the animal to rest and turn normally;</li>
-<li>treated water appropriate for the species;</li>
-<li>stable temperature;</li>
-<li>a secure cover when escape is possible;</li>
-<li>a smooth hide when it does not interfere with observation; and</li>
-<li>dedicated equipment that is not shared with other tanks.</li>
-</ul>
-
-<h2>Does an unfiltered tub need complete daily water changes?</h2>
-<p><strong>Not as a universal rule.</strong> An unfiltered container has no established biofilter, so ammonia can accumulate quickly and water replacement may need to be frequent or complete. The correct schedule depends on container volume, animal size, feeding, waste and measured water quality.</p>
-<p>Test the water and change enough to keep conditions safe. If the animal needs prolonged isolation, a properly cycled quarantine aquarium can be easier to stabilize than an indefinitely unfiltered tub.</p>
-
-<h2>Should you add salt, tea or medication to the tub?</h2>
-<p>No product should be added simply because the animal is in quarantine. A hospital container is not a default medication bath. Use medication, saline or another treatment only for a defined indication and preferably under veterinary guidance.</p>
-<p>For white/cottony lesions, use <a href="/health/fungal-infections-saprolegnia/">the fungus guide</a>. For black tea and salt specifically, use the dedicated evidence pages.</p>
-
-<h2>How should you monitor the animal?</h2>
-<p>Record temperature, water chemistry, appetite, fecal production, posture, breathing, swimming, visible lesions and body condition. Photographs taken from the same angle can help show whether a wound or swelling is changing.</p>
-<p>Merck's amphibian clinical guidance emphasizes exactly this kind of history and water-quality record when evaluating an amphibian patient.</p>
-
-<h2>How do you prevent cross-contamination?</h2>
-<ul>
-<li>use separate nets, tubs, siphons and feeding tools;</li>
-<li>wash hands and change gloves between enclosures;</li>
-<li>do not pour quarantine water into an established aquarium; and</li>
-<li>clean/disinfect equipment appropriately before reuse.</li>
-</ul>
-
-<h2>When should quarantine end?</h2>
-<p>Do not use a fixed number of days as the only release criterion. The animal should be clinically appropriate to return, the reason for isolation should be resolved or controlled, and the destination aquarium should be safe. For an infectious-disease concern, follow the veterinarian's quarantine period.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/clinical-techniques-in-amphibians">Merck Veterinary Manual: Clinical Techniques in Amphibians, updated February 2026</a></li>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/environment-and-husbandry-for-amphibians">Merck Veterinary Manual: Environment and Husbandry for Amphibians</a></li>
-</ul>
-'''
-
-BODY_OVERRIDES["health/ammonia-burns"] = r'''
-<p><strong>Ammonia exposure is a water-quality emergency, but â€œammonia burnâ€ cannot be staged reliably from redness alone.</strong> Amphibians exposed to inappropriate ammonia may produce excess mucus, become dull in color, show abnormal behavior or attempt to escape; other skin and gill diseases can look similar.</p>
-
-<h2>What should you do first?</h2>
-<ol>
-<li><strong>Test and confirm the water.</strong> Repeat the ammonia result correctly and record pH and temperature.</li>
-<li><strong>Remove the animal from contaminated water when necessary.</strong> Merck's amphibian guidance recommends moving exposed amphibians to clean, dechlorinated, well-oxygenated water.</li>
-<li><strong>Correct the source.</strong> Remove waste, check the biofilter and perform an appropriate water change.</li>
-<li><strong>Retest.</strong> One water change is not proof the system is stable again.</li>
-</ol>
-
-<h2>Can you tell severity from an ammonia number alone?</h2>
-<p>No. Ammonia toxicity depends on total ammonia, pH, temperature, exposure duration and species sensitivity. A chart that assigns â€œmild/moderate/severeâ€ skin damage to fixed ppm bands gives false certainty.</p>
-<p>The 2024 AGSC guide also notes that ammonia becomes a more serious problem as pH rises and treats elevated ammonia in recirculating research systems as a sign the nitrogen cycle is out of equilibrium.</p>
-
-<h2>Should you use a conditioner?</h2>
-<p>A conditioner may be part of an emergency water-management plan depending on the product, but it does not restore a damaged biofilter. Follow the label and keep testing. Use <a href="/tank-setup/water-conditioners/">Water Conditioners</a> for product-specific questions.</p>
-
-<h2>Should you use tea, salt or methylene blue?</h2>
-<p><strong>Do not add a bath or medication solely because the animal was exposed to ammonia.</strong> Treat the contaminated water first. Secondary infection, gill damage or another diagnosis may require veterinary treatment, but that decision belongs to the specific condition.</p>
-
-<h2>When is veterinary care warranted?</h2>
-<p>Seek prompt amphibian/exotics veterinary care for severe respiratory difficulty, extensive skin damage, uncontrolled bleeding, inability to maintain normal position, marked lethargy, rapid deterioration or signs that persist despite correction of the water problem.</p>
-
-<h2>How do you prevent recurrence?</h2>
-<p>Maintain an established biological filter, remove decomposing waste, test water regularly, avoid replacing mature filter media unnecessarily and investigate any recurring ammonia rise rather than repeatedly treating the symptom.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/amphibians-as-laboratory-animals">Merck Veterinary Manual: Amphibians as Laboratory Animals â€” ammonia toxicosis</a></li>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
-</ul>
-'''
-
-BODY_OVERRIDES["health/minor-scrapes-and-wounds"] = r'''
-<p><strong>A small superficial scrape may heal with stable clean water and protection from further trauma, but an amphibian wound should not automatically be treated with salt, tea or over-the-counter medication.</strong> Amphibian skin is biologically important and injuries can become infected or be deeper than they first appear.</p>
-
-<h2>What should you do after noticing a scrape?</h2>
-<ol>
-<li>Identify and remove the source of injury if it is safe to do so.</li>
-<li>Measure water quality and temperature.</li>
-<li>Photograph the area in neutral light.</li>
-<li>Reduce unnecessary handling.</li>
-<li>Monitor appetite, swimming, swelling, bleeding and whether the lesion is enlarging.</li>
-</ol>
-
-<h2>When is a wound more than â€œminorâ€?</h2>
-<p>Seek veterinary care for ongoing bleeding, deep laceration, exposed tissue, fracture, limb loss, substantial swelling, ulceration, spreading discoloration, respiratory difficulty or rapid decline. Merck's amphibian guidance emphasizes rapid assessment, supportive care and pain management for traumatic injuries.</p>
-
-<h2>Should you use a tea or salt bath?</h2>
-<p>No bath should be the default response to a scrape. White/cotton-like material can have several causes and needs its own assessment. Use <a href="/health/fungal-infections-saprolegnia/">the fungus guide</a> for that differential rather than treating fuzz from appearance alone.</p>
-
-<h2>Should you use an antiseptic or antibiotic?</h2>
-<p>Do not apply human topical products or start antimicrobial medication without veterinary guidance. Amphibian skin is highly permeable, and drug concentration and route matter.</p>
-
-<h2>How do you prevent repeat injuries?</h2>
-<p>Inspect dÃ©cor, intake guards, tank mates, handling practices and transport containers. Smooth sharp edges, remove trapping hazards and separate incompatible animals when necessary.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/noninfectious-disorders-of-amphibians">Merck Veterinary Manual: Trauma of Amphibians</a></li>
-<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/introduction-to-amphibians">Merck Veterinary Manual: Injuries in Pet Amphibians</a></li>
-</ul>
-'''
-
-BODY_OVERRIDES["health/limb-regeneration"] = r'''
-<p><strong>Axolotls can regenerate lost limb tissue, but an owner should first manage the injury rather than assume regeneration guarantees a good outcome.</strong> The immediate priorities are protection from further trauma, stable husbandry, observation for infection or systemic decline, and veterinary assessment when the injury is significant.</p>
-<div class="role-note"><strong>This is the owner lane.</strong> For the cellular science of regeneration, use <a href="/biology-and-science/regeneration-and-limb-regrowth/">Axolotl Regeneration</a>.</div>
-
-<h2>What should you do after a limb injury?</h2>
-<ol>
-<li>Separate the animal from an aggressive tank mate or the injury source if needed.</li>
-<li>Measure water quality and temperature.</li>
-<li>Document the wound with dated photographs.</li>
-<li>Minimize handling.</li>
-<li>Contact an amphibian-experienced veterinarian for major tissue loss, fracture, uncontrolled bleeding or deterioration.</li>
-</ol>
-
-<h2>Does every lost limb grow back normally?</h2>
-<p>No guarantee should be made. Axolotls have remarkable regenerative capacity, but outcome depends on injury level, tissue condition, health, age and whether complications occur. Regrowth can also differ in shape or function.</p>
-
-<h2>How long does regeneration take?</h2>
-<p>There is no single owner-facing timetable that applies to every injury. Research describes staged regeneration, but the time visible in a pet can vary with injury severity, animal size, temperature and health. Track the trend rather than expecting a fixed number of days or weeks.</p>
-
-<h2>What does a healing limb look like?</h2>
-<p>Early healing can include a wound surface and developing regenerative tissue. A photograph cannot reliably distinguish every normal stage from infection, so use progression, appetite, swelling, odor, bleeding and the animal's overall condition to decide whether veterinary review is needed.</p>
-
-<h2>Should you use salt or black tea on the stump?</h2>
-<p><strong>No treatment bath is required simply because a limb is regenerating.</strong> If a separate fungal or bacterial problem is suspected, diagnose and treat that problem on its own evidence rather than automatically bathing the wound.</p>
-
-<h2>When should you see a veterinarian?</h2>
-<p>Prompt care is appropriate for deep injury, fracture, uncontrolled bleeding, tissue necrosis, severe swelling, rapidly spreading lesions, systemic decline, pain concern or an injury caused by equipment that may have crushed internal tissue.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/noninfectious-disorders-of-amphibians">Merck Veterinary Manual: Trauma of Amphibians</a></li>
-<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/amphibians/emergency-care-of-amphibians">Merck Veterinary Manual: Emergency Care of Amphibians</a></li>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/husbandry.php">Ambystoma Genetic Stock Center: regeneration resources</a></li>
-</ul>
-'''
-
-BODY_OVERRIDES["diet/feeding-schedule-by-age"] = r'''
-<p><strong>Feeding frequency should become less frequent as an axolotl grows, but there is no universal age-by-age schedule that fits every individual.</strong> Use life stage, body size, food size, body condition, appetite and waste production together.</p>
-<div class="role-note"><strong>This page owns routine feeding cadence.</strong> For planned food gaps use <a href="/diet/fasting-and-vacation/">Fasting & Vacation</a>; for unexpected appetite loss use <a href="/health/refusing-to-eat/">Refusing to Eat</a>.</div>
-
-<h2>What does the AGSC feeding timeline show?</h2>
-<p>The 2024 Ambystoma Genetic Stock Center guide feeds newly feeding larvae daily, then transitions growing animals through live foods and pellets, with adult pelleted food offered about twice weekly in its research system. An older AGSC husbandry guide describes adults around one year old being fed three or four times per week.</p>
-<p><strong>Those examples show the direction of changeâ€”not one mandatory home schedule.</strong></p>
-
-<h2>How often should hatchlings and larvae eat?</h2>
-<p>Newly feeding larvae are growing rapidly and are normally offered very small appropriate foods frequently. Follow the <a href="/breeding/egg-and-larvae-care/">Egg & Larvae Care</a> guide for the transition from yolk to active feeding.</p>
-
-<h2>How often should juveniles eat?</h2>
-<p>Juveniles usually need food more frequently than adults because they are growing. Instead of using an exact age cutoff, monitor body condition, growth, appetite and how quickly the animal processes meals.</p>
-<p>Use <a href="/breeding/raising-juveniles/">Baby Axolotl Care</a> for grow-out and size sorting.</p>
-
-<h2>How often should adults eat?</h2>
-<p>Adults are commonly fed only a few times per week rather than every day. AGSC examples range from roughly twice weekly in its 2024 timeline to three or four feedings weekly in an older husbandry guide.</p>
-<p>Your individual may need adjustment based on body condition, reproductive status, food energy density and temperature.</p>
-
-<h2>How much should you feed?</h2>
-<p>There is no validated â€œpellets per inchâ€ formula for all foods and animals. Offer an appropriate portion, observe body condition over time and adjust gradually. Remove uneaten food before it decomposes and affects water quality.</p>
-
-<h2>What foods work for routine feeding?</h2>
-<p>Appropriately sized earthworms/nightcrawlers and nutritionally suitable sinking pellets are common staples. AGSC uses formulated soft-moist pellets and transitions pellet size as animals grow.</p>
-<p>Use <a href="/diet/best-foods-list/">What Do Axolotls Eat?</a> for food quality and variety.</p>
-
-<h2>How do you know if the schedule is too much or too little?</h2>
-<p>Watch body condition and growth rather than one meal. Persistent weight gain, leftover food, repeated regurgitation or excessive waste suggest the plan may need adjustment. Persistent weight loss, poor growth or appetite change needs review of diet, water quality and health.</p>
-
-<h2>Does feeding frequency determine the water-change schedule?</h2>
-<p>Feeding affects waste load, but there is no fixed rule such as â€œone adult eating two worms requires a 50% weekly change.â€ Test the aquarium and let water chemistry, waste accumulation and system capacity set the maintenance plan.</p>
-
-<h2>How long can an axolotl safely fast?</h2>
-<p>This page does not publish a universal â€œsafe fasting periodâ€ table because the evidence does not establish one. Planned absences belong on <a href="/diet/fasting-and-vacation/">the fasting/vacation guide</a>.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024 â€” feeding timeline</a></li>
-<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/food-info.php">Ambystoma Genetic Stock Center: Food Information</a></li>
-</ul>
-'''
-
-BODY_OVERRIDES["tank-setup/substrate-and-impaction"] = r'''
-<p><strong>Choose axolotl substrate by swallowing risk, animal size, cleanliness and the way you feed.</strong> The clearest rule is to avoid loose gravel or stones small enough to enter the mouth during suction feeding.</p>
-<div class="role-note"><strong>This page owns substrate choice and prevention.</strong> If you suspect a gastrointestinal blockage, use <a href="/health/impaction-symptoms-treatment/">the Impaction Guide</a>.</div>
-
-<h2>Why is gravel risky?</h2>
-<p>Axolotls can ingest material while suction-feeding. The 2024 AGSC guide discourages substrate in filtered aquaria because axolotls may ingest small rocks and gravel during feeding, and AGSC food guidance specifically warns about gravel ingestion around pellets.</p>
-<p>That is enough to justify avoiding swallowable gravel without claiming every swallowed particle is inevitably fatal.</p>
-
-<h2>What substrate options are practical?</h2>
-<div class="table-wrap"><table>
-<thead><tr><th>Option</th><th>Strengths</th><th>Tradeoffs</th></tr></thead>
-<tbody>
-<tr><td>Bare bottom</td><td>No loose substrate to swallow; easy waste removal</td><td>Less natural-looking; surface traction/visual preference vary by setup</td></tr>
-<tr><td>Appropriately fine sand</td><td>Natural appearance and broad continuous surface</td><td>Must be kept clean; particle size and animal size matter</td></tr>
-<tr><td>Large fixed/smooth surfaces</td><td>Can provide traction without loose ingestible particles</td><td>Waste can collect around/under pieces</td></tr>
-<tr><td>Loose gravel / small stones</td><td>Decorative</td><td>Swallowing/foreign-body risk during feeding</td></tr>
-</tbody></table></div>
-
-<h2>Is there one proven safe sand grain size?</h2>
-<p><strong>MyAxolotl does not treat one millimeter cutoff as a universal biological law.</strong> Finer material is generally chosen to reduce the risk posed by coarse ingestible particles, but animal size, feeding method and maintenance also matter.</p>
-<p>For very small juveniles, a bare-bottom grow-out setup can make feeding and waste removal easier.</p>
-
-<h2>Can large river rocks be safe?</h2>
-<p>Objects too large to swallow remove one foreign-body route, but they can trap waste underneath and create difficult cleaning zones. If used, they should be smooth, stable and arranged so the animal cannot become wedged.</p>
-
-<h2>Does substrate cause fungus or ammonia by itself?</h2>
-<p>No. Dirty substrate can trap organic waste and contribute to poor water quality, but it is not accurate to claim that a specific substrate automatically causes fungal infection or a fixed nitrate level. Husbandry, cleaning, stocking and filtration determine the system outcome.</p>
-
-<h2>Should a hospital or quarantine setup be bare?</h2>
-<p>A bare inert surface is often useful in temporary clinical housing because it simplifies cleaning and observation. That does not mean every hospital case requires medication or a fixed complete-water-change schedule.</p>
-<p>See <a href="/health/quarantine-tub/">Quarantine & Hospital Setup</a>.</p>
-
-<h2>How do you feed without increasing substrate ingestion?</h2>
-<p>Place food where it is easy for the animal to find and where suction is less likely to pull in loose material. Feeding dishes or target feeding can help in some setups. Remove leftovers before they decompose.</p>
-
-<h2>What if you think gravel was swallowed?</h2>
-<p>Do not massage the abdomen, give laxatives or fridge the animal as a standard response. Record the exposure, watch appetite/fecal output/body shape and seek veterinary evaluation if symptoms develop or persist. Imaging may be needed to confirm a foreign body.</p>
-
-<h2>Sources</h2>
-<ul>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
-<li><a href="https://ambystoma.uky.edu/genetic-stock-center/food-info.php">Ambystoma Genetic Stock Center: Food Information</a></li>
-<li><a href="https://veterinarypartner.vin.com/default.aspx?catId=253985&amp;id=8030801&amp;ind=1817&amp;objTypeID=1007&amp;pid=19239">Veterinary Partner / VIN: Gastrointestinal Foreign Body or Overload in Amphibians</a></li>
-</ul>
-'''
-
-for _cfg in ARTICLES.values():
-    if _cfg.get("slug") in {
-        "health/quarantine-tub",
-        "health/ammonia-burns",
-        "health/minor-scrapes-and-wounds",
-        "health/limb-regeneration",
-        "diet/feeding-schedule-by-age",
-        "tank-setup/substrate-and-impaction",
-    }:
-        _cfg["date_modified"] = "2026-09-19"
-
-# Build trigger: retry Cost & Buying after clearing the stale queued job.
-
-# Keyword-reconciliation fix: strengthen the existing anatomy owner for teeth/oral anatomy.
-INTRO_OVERRIDES['biology-and-science/anatomy-gills-and-lungs'] = (
-    'Axolotl anatomy includes external gills, simple lungs, permeable skin, small oral teeth, '
-    'lidless eyes, an inner ear and lateral-line system, olfactory organs, and a tongue with taste buds. '
-    'This guide explains how those structures work without splitting closely related anatomy questions into separate pages.'
-)
-BODY_OVERRIDES['biology-and-science/anatomy-gills-and-lungs'] = r'''
-<h2>Do axolotls have teeth?</h2>
-<p><strong>Yes. Axolotls have real teeth in the mouth and palate, even though the teeth are small and easy to miss.</strong> Research on <em>Ambystoma mexicanum</em> describes organized outer and inner dental arcades and multiple tooth fields rather than a toothless mouth.</p>
-<p>Studies of axolotl dentition also show that replacement teeth continue to develop. The teeth become more numerous as the animal develops, and their structure changes with developmental stage.</p>
-<p>For owners, the practical point is simple: a smooth-looking axolotl mouth does not mean the animal has no teeth. Questions about whether a nip can hurt belong in the <a href="/care-basics/axolotls-and-children/">axolotls and children safety guide</a>; this page covers the anatomy itself.</p>
-<div class="references-box"><h3>Dental anatomy sources</h3><ul>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/11989966/">Wistuba, Greven &amp; Clemen (2002): development of axolotl teeth</a></li>
-<li><a href="https://www.nature.com/articles/s41598-020-66142-2">Scientific Reports (2020): axolotl tooth structure and replacement</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/33505974/">Oral and palatal dentition of axolotl (2021)</a></li>
-</ul></div>
-
-<h2>Do axolotls have lungs?</h2>
-<p><strong>Yes, axolotls have lungs, plus external gills and oxygen-absorbing skin.</strong> They breathe through all three systems, with the feathery external gills and the skin doing most of the work underwater. The lungs are simple sacs used for surface gulps, which makes the axolotl one of the most flexible breathers among amphibians.</p>
-<p>A true amphibian built for a life spent entirely underwater keeps this gill-lung-skin combo its whole life.</p>
-<h2>How do axolotls breathe?</h2>
-<p><strong>Axolotls breathe through three systems at once: external gills, skin, and lungs.</strong> Each system has a specific job:</p>
-<div class="table-wrap"><table>
-<thead><tr><th>System</th><th>What it does</th></tr></thead>
-<tbody>
-<tr><td>External gills</td><td>Three feathery gills per side extract oxygen from water</td></tr>
-<tr><td>Skin</td><td>Absorbs oxygen directly through the moist skin</td></tr>
-<tr><td>Lungs</td><td>Simple sacs gulp air at the surface</td></tr>
-<tr><td>Gill flicking</td><td>Moves water over the gill filaments to boost oxygen uptake</td></tr>
-<tr><td>Regeneration</td><td>Gills regrow if damaged or nipped</td></tr>
-</tbody></table></div>
-<p>The gills and skin handle the routine oxygen supply, and the lungs supplement them when the animal surfaces.</p>
-<h2>How many gills does an axolotl have?</h2>
-<p><strong>An axolotl has six external gill stalks, three on each side of the head.</strong> Each stalk carries fine filaments that increase surface area for gas exchange.</p>
-<h2>Why are axolotl gills so large?</h2>
-<p><strong>The gills are large because they provide substantial surface area for underwater gas exchange.</strong> Their feathery filaments expose blood-rich tissue to moving water. Gill condition can also change with stress and water quality, so persistent changes should be interpreted alongside husbandry conditions rather than on appearance alone.</p>
-<h2>Why does my axolotl go to the surface for air?</h2>
-<p><strong>Surface gulping can be normal because axolotls have lungs.</strong> Occasional trips to the surface are not automatically a problem. Frequent gulping or a sudden change should prompt a check of temperature, water quality, and aeration.</p>
-<h2>Can axolotls breathe out of water?</h2>
-<p><strong>Axolotls are fully aquatic and should remain in water.</strong> Their external gills are adapted for underwater gas exchange and can collapse and dry when exposed to air. Lungs allow surface air gulps, but they do not make an axolotl a land animal.</p>
-<h2>What do healthy axolotl gills look like?</h2>
-<p><strong>Healthy gills are typically full and feathery, but normal appearance varies between individuals.</strong> Persistent shrinking, loss of filaments, marked curling, or a sudden change should prompt a check of water quality, temperature, and other stressors rather than a diagnosis from gill shape alone.</p>
-<h2>What is buccal pumping?</h2>
-<p><strong>Buccal pumping is rhythmic movement of the mouth and throat region that helps move water across respiratory surfaces.</strong> It is one part of how aquatic amphibians maintain gas exchange while resting underwater.</p>
-<h2>Do axolotls have lungs or gills?</h2>
-<p><strong>Axolotls have both lungs and gills, plus skin respiration.</strong> The gills and skin dominate underwater, while the lungs allow occasional surface air gulps. All three systems are part of normal axolotl respiratory anatomy.</p>
-<h2>What happens to axolotl gills in poor water?</h2>
-<p><strong>Poor water quality can damage or reduce the condition of external gills.</strong> Ammonia and nitrite are especially concerning because they injure delicate aquatic tissues. If the gills change noticeably, test the water first and correct the underlying husbandry problem rather than treating the gills as a diagnosis by themselves.</p>
-<h2>What other anatomy do axolotls have?</h2>
-<p>Several common anatomy questions are best answered together because they describe the same paedomorphic aquatic body plan.</p>
-<h3>Do axolotls have ears?</h3>
-<p><strong>Axolotls have an inner ear, but no visible external ear flap.</strong> They also sense water movement through a lateral-line system of mechanoreceptive neuromasts. Research on <em>Ambystoma mexicanum</em> describes both inner-ear sensory hair cells and superficial lateral-line organs, so hearing and water-motion sensing are not limited to a visible outer ear.</p>
-<h3>Do axolotls have eyelids?</h3>
-<p><strong>Normal paedomorphic axolotls do not develop movable eyelids.</strong> The American Museum of Natural History and San Diego Zoo both identify lidless eyes as one of the juvenile traits retained into adulthood.</p>
-<h3>Do axolotls have scales?</h3>
-<p><strong>No. Axolotls do not have fish-like or reptile-like scales.</strong> Their skin is amphibian epidermis with mucus-producing cells and remains important for gas exchange. Histological studies describe specialized epidermal cells and a protective mucus layer rather than scales.</p>
-<h3>Do axolotls have a nose and a sense of smell?</h3>
-<p><strong>Yes. Axolotls have external nostrils, a nasal cavity, an olfactory epithelium, and a vomeronasal system.</strong> Anatomical studies show that their olfactory receptor cells project to the olfactory bulb, and experiments have recorded odor responses from the olfactory epithelium.</p>
-<h3>Do axolotls have a tongue?</h3>
-<p><strong>Yes. Axolotls have a tongue with specialized epithelium and taste buds.</strong> Microscopy studies describe taste buds on the tongue and elsewhere in the oral cavity, with sensory innervation through cranial nerves.</p>
-<div class="references-box"><h3>Anatomy and sensory sources</h3><ul>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/2124588/">Kornblum, Corwin &amp; Trevarrow (1990): inner-ear and lateral-line sensory hair cells</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/8315607/">Northcutt &amp; Bleckmann (1993): axolotl lateral-line neuromasts</a></li>
-<li><a href="https://www.amnh.org/explore/ology/ology-cards/366-axolotl">American Museum of Natural History: retained juvenile traits and lidless eyes</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/7953608/">Eisthen et al. (1994): olfactory and vomeronasal anatomy</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/10609049/">Wistuba &amp; Greven (1999): tongue epithelium and taste buds</a></li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/2630544/">Jarial (1989): epidermal Leydig cells and protective mucus</a></li>
-</ul></div>
-<p>Axolotl anatomy combines structures that look unusual together: oral teeth, external gills, permeable skin, simple lungs, lidless eyes, aquatic sensory organs, and a taste-bearing tongue. Together they reflect the animal's permanently aquatic, paedomorphic salamander biology.</p>
-'''
+YªçŠx-®éÜj×¢ëiºÚ+Š§j[h‘éÜ¢éí×Íûï”èµ©hºÚn¶X§zÍHÈJ‹HÛÙ[™Îˆ]‹NJ‹Bˆˆˆ‚”Ú]HÛÛ™šYÝ\˜][Û‹ˆX\È]™\žHÛÝ\˜ÙH™ØÞ\XÛH[ÈBšX‹X[™\ÜÚÙHÝXÝ\™HYš[™Y[ˆ^ÛÝÝÜXØ[ÛX\ž[‚ˆˆˆ‚‚™œ›ÛH]Xˆ[\Ü]‚ˆÈ8¥ 8¥ Ú]HY[]H8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ ˆÈÒS‘ÑHTÈÛ˜ÙH[ÝH^H[Ý\ˆÛXZ[Ž‚”ÒUWÕT“HšÎ‹ËÛ^X^ÛÝ\È‚”ÒUWÓSQHH“^P^ÛÝ‚”ÒUWÕQÓS‘HH‘]šY[˜ÙKX˜\ÙY^ÛÝØ\™K[šÈÙ]\Y][™X[ÝZY\Ëˆ‚”ÒUWÓÑÓÈH‹Ú[XYÙ\ËÛ^X^ÛÝ[ÙÛË]ŒËÙXœ‚”ÒUWÑU’PÓÓˆH‹Ú[XYÙ\ËØ^ÛÝY˜]šXÛÛ‹ÙXœ‚–ÒS‘HH^X^ÛÝÈ‚–Ô“Ñ’SWÕT“HšÎ‹ËÞ˜ÛÛKÛ^X^ÛÝÈ‚‚”ÓÐÒPSÓS’ÔÈHÂˆ
+‘˜XÙX›ÛÚÈ‹šÎ‹ËÝÝÝË™˜XÙX›ÛÚË˜ÛÛKÛ^X^ÛÝ\ËÈŠKˆ
+’[œÝYÜ˜[H‹šÎ‹ËÝÝÝËš[œÝYÜ˜[K˜ÛÛKÛ^X^ÛÝ\ËÈŠKˆ
+”[\™\Ý‹šÎ‹ËÝÝÝËœ[\™\Ý˜ÛÛKÛ^X^ÛÝËÈŠKˆ
+‘\ØÛÜ™‹šÎ‹ËÙ\ØÛÜ™™ÙËÓVT]ÑÙÒˆŠK—B‚“Ô‘ÐS’VUSÓ—ÔÐSQWÐTÈHÝ\››ÜˆX™[\›[ˆÓÐÒPSÓS’ÔÈYˆX™[OH‘\ØÛÜ™—H
+ÈÖÔ“Ñ’SWÕT“B‚”SÔHHÂˆ˜]]ÜˆŽˆÂˆ›˜[YHŽˆ‘˜\œZÚX™[Z‹ˆœ›ÛHŽˆ”™\ÙX\˜Ú\ˆ	ˆÜš]\ˆ‹ˆœÛYÈŽˆ˜]]ÜœËÙ˜\œZÚXX™[Z‹ˆ›Y]HŽˆ”™\ÙX\˜Ú\ˆ[™Üš]\ˆ›Üˆ^P^ÛÝˆ‹ˆœÝ[[X\žHŽˆ‘˜\œZÚX™[Z™\ÙX\˜Ú\È[™Üš]\ÈH^P^ÛÝÝZY\Ëˆ‹ˆ™›ØÝ\ÈŽˆ”˜XÝXØ[\Ø˜[™žK[šÈÙ]\Y][™X[^[˜][ÛœËˆ‹ˆ›[šÜÈŽˆÂˆ
+“[šÙY[ˆ‹šÎ‹ËÝÝÝË›[šÙY[‹˜ÛÛKÚ[‹Ù˜\œZÚXX™[ZMXLŒNÈŠKˆ
+‘[XZ[‹›XZ[Î™‹˜X™[ZÎPÛXZ[˜ÛÛHŠKˆKˆ™[XZ[Žˆ™‹˜X™[ZÎPÛXZ[˜ÛÛH‹ˆœØ[YP\ÈŽˆÈšÎ‹ËÝÝÝË›[šÙY[‹˜ÛÛKÚ[‹Ù˜\œZÚXX™[ZMXLŒNÈ—KˆKˆ™Y]ÜˆŽˆÂˆ›˜[YHŽˆ[˜[™HXšY[ˆ‹ˆœ›ÛHŽˆ‘Y]Üˆ‹ˆœÛYÈŽˆ™Y]ÜœËØ[˜[™KXXšY[ˆ‹ˆ›Y]HŽˆ‘Y]Üˆ›Üˆ^P^ÛÝˆ‹ˆœÝ[[X\žHŽˆ[˜[™HXšY[ˆY]È^P^ÛÝÝZY\È›ÜˆÛ\š]H[™Y]ÜšX[ÛÛœÚ\Ý[˜ÞKˆ‹ˆ™›ØÝ\ÈŽˆ‘Y]ÜšX[™]šY]ËÝXÝ\™K[™ÛÛœÚ\Ý[˜ÞKˆ‹ˆ›[šÜÈŽˆÂˆ
+“[šÙY[ˆ‹šÎ‹ËÝÝÝË›[šÙY[‹˜ÛÛKÚ[‹Ø[˜[™KXXšY[‹ÈŠKˆKˆœØ[YP\ÈŽˆÈšÎ‹ËÝÝÝË›[šÙY[‹˜ÛÛKÚ[‹Ø[˜[™KXXšY[‹È—Kˆ™^\šY[˜ÙHŽˆÂˆÂˆ›Ü™Ø[š^˜][ÛˆŽˆ^ÚXˆ[™Û™\ÚXH‹ˆœ›ÛHŽˆÛÛ[Üš]\ˆ	ˆšY[ÈY]Üˆ‹ˆ™]\ÈŽˆ“X^HŒH8 $È›Ý™[X™\ˆŒH‹ˆ™\˜][ÛˆŽˆÈ[ÛÈ‹ˆ›ØØ][ÛˆŽˆ“X[[™ËX\Ý˜]˜K[™Û™\ÚXH‹ˆKˆKˆKŸB‚ˆÈÛÝ\˜ÙH›Û\ˆÛÛZ[š[™ÈH™ØÞ\XÛ\Â”“ÓÕH]
+×Ùš[W×ÊKœ™\ÛÛ™J
+Kœ\™[œ\™[”ÓÕTÑWÑTˆH“ÓÕœ\™[È˜^ÛÝÈ‚‚ˆÈ\XÛK\ÜXÚYšXÈ\›È\ÜÙ]È]™H[ˆH™\ÜÚ]ÜžHÛÈ^\›˜[ÐÖZ[ÂˆÈØ[››Ý™\XÙH[HÚ]Ù[™\˜]YXÙZÛ\œËˆYXXÚ\›Ý™Y\›È\™BˆÈÚ]\ØÜš\]™HY]Y]H[™[ˆS^[˜ÚÜˆ›Üˆ[žH˜XÝ[ˆH[XYÙK‚’T“×ÒSPQÑWÑTˆH“ÓÕÈ˜Z[ˆÈš\›ËZ[XYÙ\È‚’T“×ÒSPQÑWÓÕ‘T”’QTÈHÂˆ[šË\Ù]\ÜÙ]\YÝZYHŽˆÂˆ™š[HŽˆŒ‹X^ÛÝ][šË\Ù]\ÙXœ‹ˆ˜[Žˆ
+ˆ“]XÚ\ÝXÈ^ÛÝ[ˆH[Y\]X\š][HÚ]š[™HØ[™HYK‚ˆ™Ù[Hš[˜][Ûˆ[™ÛÛÛ]Ø]\ˆ\]Z\Y[‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆHÝZ]X›H^ÛÝ[šÈ›ÝšY\È[\H›ÛÜˆÜXÙKÛÛÛXÚÜš[˜]Y‚ˆØ]\‹[ˆ\ÝX›\ÚYš[Ùš[\‹ÝÈ›ÝËØY™HÝXœÝ˜]H[™]X\Ý‚ˆ›Û™HYKˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝ[šË\Ù]\\›ÈÚÝÚ[™ÈH]XÚ\ÝXÈ^ÛÝ[ˆH[Y‚ˆ™š[\™Y\]X\š][HÚ]š[™HØ[™[™HYKˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ™Y]Ø™\ÝY›ÛÙË[\ÝŽˆÂˆ™š[HŽˆŒM‹X™\ÝY›ÛÙËY›Ü‹X^ÛÝËÙXœ‹ˆ˜[Žˆ
+ˆ‘\šÈ^ÛÝX›Ý™HÝZ]X›H›ÛÙÜ[ÛœÈ[˜ÛY[™ÈÛÜ›\ËÚš[\‚ˆ˜[™Ú[šÚ[™È[]È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ‘X\ÛÜ›\ÈÜˆšYÚÜ˜]Û\œÈ[™ÝZ]X›HÚ[šÚ[™È^ÛÝ[]È\™H‚ˆ™\[™X›HÝ\\ËÚ[HÛX[\ˆ›ÛÙÈÝXÚ\È›XÚÝÛÜ›\ÈÜˆœš[™H‚ˆœÚš[\\™H[Ü™H\ÙY[›Üˆ]™[š[\Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ™\ÝY›ÛÙÈÝZYH\›ÈÚÝÚ[™ÈH\šÈ^ÛÝÚ]ÛÜ›\ËÚš[\[™‚ˆœÚ[šÚ[™È[]È\œ˜[™ÙY™[ÝÈ]ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ™Y]Ù™YY[™Ë\ØÚY[KXžKXYÙHŽˆÂˆ™š[HŽˆ˜^ÛÝY™YY[™ËYœ™\]Y[˜ÞKXžK[Y™K\ÝYÙKÙXœ‹ˆ˜[Žˆ
+ˆ’]Ú[™Ë]™[š[H[™Y[^ÛÝÈÚÝÛˆÚ]YÙK\ÜXÚYšXÈ›ÛÙÈ‚ˆ˜[™™YY[™Èœ™\]Y[˜ÚY\È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ’]Ú[™ÜÈ[™\ˆÈ[ˆ
+ËHÛJHX]¸ $ÌÈ[Y\ÈZ[K]™[š[\Èø $ÍËH‚ˆš[ˆ
+Ëx $ÌNHÛJHX]x $ÌÈ[Y\ÈZ[K[™Y[ÈÝ™\ˆËH[ˆ
+NHÛJH‚ˆ™X]]™\žH¸ $ÌÈ^\ÎÈÙ™™\ˆXY]ÚYÜ[ÛœÈ[™™[[Ý™HYÝ™\œÈ‚ˆÚ][ˆø $ÍHZ[]\Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝ™YY[™ËYœ™\]Y[˜ÞHÚ\ÛÛ\\š[™È]Ú[™Ë]™[š[H[™‚ˆ˜Y[ØÚY[\ËÜ[ÛœÈ[™YÙKX\›ÜšX]H›ÛÙËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜^ÛÝËØØ\™KYÝZYHŽˆÂˆ™š[HŽˆŒKX^ÛÝXØ\™KYÝZYKX]XÚYÙXœ‹ˆ˜[Žˆ
+ˆ‘\šÈÚ[]\H^ÛÝ[ˆH[Y\]X\š][HÚ]ÛÛÛØ]\‹‚ˆ™š[™HØ[™HYKš[˜][Ûˆ[™™YY[™ËXØ\™HÞ[X›ÛÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆHÝZ]X›H^ÛÝXš]]ÛÛXš[™\ÈÛÛÛÝX›HØ]\‹[ˆ\ÝX›\ÚY‚ˆ˜š[Ùš[\‹ØY™HÝXœÝ˜]H[™Y\ËÚ]\›ÜšX]H™YY[™È[™‚ˆœ›Ý][™HX[ØœÙ\˜][Û‹ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝØ\™KYÝZYH\›ÈÚÝÚ[™ÈHÚ[]\H^ÛÝ[ˆHÛÛ\]H‚ˆ˜\]X\š][HÚ]Ø]\‹\]X[]KXš]]™YY[™È[™X[ÝY\Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ[šË\Ù]\Û]™K]œËX\YšXÚX[\[ÈŽˆÂˆ™š[HŽˆ›]™K]œËX\YšXÚX[\[ËÙXœ‹ˆ˜[Žˆ
+ˆ“]XÚ\ÝXÈ^ÛÝ[ˆHÜ]\]X\š][HÛÛ\\š[™È]™HÜ™Y[ˆ[È‚ˆÚ]ÛÙ\YšXÚX[[È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“]™H[ÈØ[ˆXœÛÜ˜ˆÛÛYHš]˜]H[™›ÝšYHÛÝ™\‹Ú[HÛÙ‚ˆ˜\YšXÚX[[ÈÙ™™\ˆÝË[XZ[[˜[˜ÙHÚ[\ˆÚ]Ý]YÚ[™ÈÜˆ‚ˆ™™\[^™\ˆ™YYÎÈ]›ÚYÚ\œ\ÝXÈYÙ\Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ”Ü]][šÈÛÛ\\š\ÛÛˆÙˆ]™H[™\YšXÚX[[È›Üˆ[ˆ^ÛÝ‚ˆ˜\]X\š][Kˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ[šË\Ù]\Ý[\\˜]\™HŽˆÂˆ™š[HŽˆ˜^ÛÝ][šË][\\˜]\™KÙXœ‹ˆ˜[Žˆ
+ˆ›YH^ÛÝ[ˆHÛÛÛY\]X\š][HÚ]H˜[‹\›[ÛY]\ˆ[™‚ˆ˜\]X\š][HÚ[\ˆ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆZ[H›ÜˆÝX›HØ]\ˆ\›Ý[™Œ8 $Í0¬ˆ
+M¸ $ÌN0¬ÊNÈÝ\ÝZ[™Y[\\˜]\™\È‚ˆ˜X›Ý™HŽ0¬ˆ
+Œ0¬ÊH[˜Ü™X\ÙHÝ™\ÜËÛÈ™[XX›HØ\›H›ÛÛ\ÈX^H™\]Z\™H‚ˆ˜HÚ[\‹ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝ[šËXÛÛÛ[™ÈÜ˜\XÈÚÝÚ[™È\™Ù][\\˜]\™K\›[ÛY]\‹‚ˆ™˜[ˆ[™Ú[\‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ[šË\Ù]\ØØ[š\Ý\‹]œË\ÜÛ™ÙKYš[\ˆŽˆÂˆ™š[HŽˆ˜Ø[š\Ý\‹]œË\ÜÛ™ÙKYš[\‹ÙXœ‹ˆ˜[Žˆ
+ˆ”ÜÛ™ÙH[™Ø[š\Ý\ˆš[\œÈÛÛ\\™Y™\ÚYHÛÈÚ[]\H^ÛÝÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ”ÜÛ™ÙHš[\œÈÙ™™\ˆÙ[Hš[ÛÙÚXØ[š[˜][Û‹Ú[HØ[š\Ý\œÈ‚ˆœÝZ]\™Ù\ˆÞ\Ý[\ÈÚ[ˆZ\ˆÝ]]\È˜Y™›YÜˆ\Ü\œÙYÈ‚ˆœ™]™[Ý›Û™ÈÝ\œ™[ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ”ÜÛ™ÙKYš[\ˆ™\œÝ\ÈØ[š\Ý\‹Yš[\ˆÛÛ\\š\ÛÛˆ›Üˆ^ÛÝ[šÜËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ[šË\Ù]\ÙÜ˜]™[\š\ÚÜÈŽˆÂˆ™š[HŽˆ˜^ÛÝ\Ú\œYÜ˜]™[\š\ÚÜËÙXœ‹ˆ˜[Žˆ
+ˆ“]XÚ\ÝXÈ^ÛÝÛˆš[™HØ[™ÛÛ\\™YÚ]H\šÈ^ÛÝÛˆ‚ˆœÚ\œÜ˜]™[‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ‘š[™HØ[™[™\ˆH[H\ÈØY™\ˆ›ÜˆÝZ]X›HÚ^™Y^ÛÝËÚ[H‚ˆ™Ü˜]™[[™Ý\ˆÝØ[ÝØX›HÝÛ™\ÈØ[ˆØ]\ÙH[\XÝ[ÛŽÈ˜\™KX›ÝÛH‚ˆ[šÜÈ\™H[›Ý\ˆØY™HÜ[Û‹ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ”ÚYKXžK\ÚYHÛÛ\\š\ÛÛˆÙˆš[™HØ[™[™Ú\œÜ˜]™[[ˆ^ÛÝ‚ˆ[šÜËYÚYÚ[™ÈÜ˜]™[Z[™Ù\Ý[Ûˆ[™[\XÝ[Ûˆš\ÚËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ[šË\Ù]\Ý[™X][‹Y›ÛÙX[™X[[[ÛšXHŽˆÂˆ™š[HŽˆ[™X][‹Y›ÛÙX[™X[[[ÛšXKÙXœ‹ˆ˜[Žˆ
+ˆ•Ú[]\H^ÛÝ™[ÝÈH›Ý\‹\Ý\XYÜ˜[HÚÝÚ[™ÈÝÈ[™X][ˆ›ÛÙ‚ˆœ˜Z\Ù\È[[[ÛšXH‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ”™[[Ý™HYÝ™\œÈ›Û\H™XØ]\ÙHXØ^Z[™È›ÛÙYÈØ\ÝH[™Ø[ˆ‚ˆ™š]™H[[[ÛšXHX›Ý™HH™\]Z\™YKˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ•[™X][‹Y›ÛÙ[™[[[ÛšXH]Ø^HÜ˜\XÈ›Üˆ[ˆ^ÛÝ\]X\š][Kˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ[šË\Ù]\Ùš[˜][Û‹Y›Ü‹X^ÛÝÈŽˆÂˆ™š[HŽˆ˜^ÛÝ][šËYš[˜][Û‹ÙXœ‹ˆ˜[Žˆ
+ˆ•Ú[]\H^ÛÝ[ˆHš[\™Y\]X\š][HÚ]ÜÛ™ÙK˜Y™›Y‚ˆš[™Ë[Û‹X˜XÚÈ[™Ø[š\Ý\ˆš[\ˆ^[\\È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆÚÛÜÙHš[˜][Ûˆ›ÜˆH[šø &\È›Û[YH[™Ø\ÝHØYš[Üš]^™H‚ˆ˜š[ÛÙÚXØ[Ø\XÚ]K[™˜Y™›HÜˆ\Ü\œÙHHÝ]]ÈÙY\›ÝÈ‚ˆ™Ù[Kˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝš[˜][ÛˆÝZYHÛÛ\\š[™ÈÜÛ™ÙK[™Ë[Û‹X˜XÚÈ[™Ø[š\Ý\ˆ‚ˆ™š[\œËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ[šË\Ù]\ÚY\ËX[™XØ]™\ÈŽˆÂˆ™š[HŽˆ˜^ÛÝZY\ËX[™XØ]™\ËÙXœ‹ˆ˜[Žˆ
+ˆ“]XÚ\ÝXÈ^ÛÝ™\ÚYH\œ˜XÛÝHÝÛ]HØ]™H[™Û[ÛÝÈ‚ˆ[›™[Y\È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ”›ÝšYH]X\ÝÛ™H\šË[˜ÛÜÙYYH\ˆ^ÛÝ[™ÚÛÜÙHÛ[ÛÝ‚ˆ\œ˜XÛÝKÛ]HÜˆÈÚ]Ý]Ú\œYÙ\Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝYHÛÛ\\š\ÛÛˆÚÝÚ[™ÈH\œ˜XÛÝHÝÛ]HØ]™H[™È‚ˆ[›™[ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ[šË\Ù]\ÝÚK][šË]Ø]\‹\ÛY[ÈŽˆÂˆ™š[HŽˆ˜^ÛÝ][šË]Ø]\‹\ÛY[ÙXœ‹ˆ˜[Žˆ
+ˆ“]XÚ\ÝXÈ^ÛÝÚ]^[\\ÈÙˆHš[\‹\HÝXœÝ˜]KØ\ÝH‚ˆ˜[™HØ]\ˆ\ÝšX[‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆHX[H\]X\š][HX^HÛY[˜Z[HX\NÈÝ›Û™ÈÙÜœÈØ[›Üˆ‚ˆØ]\ˆ\Ý[™È[™ÚXÚÜÈ›Üˆ˜\YØ\ÝK[™X][ˆ›ÛÙ[™\H‚ˆ™š[\ˆYYXKˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝ[šË[ÙÜˆ›ÝX›\ÚÛÝ[™ÈÜ˜\XÈÚÝÚ[™ÈÛÛ[[ÛˆÛÝ\˜Ù\È[™‚ˆØ]\ˆ\Ý[™Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ[šË\Ù]\ÛYÚ[™ËY›Ü‹X^ÛÝÈŽˆÂˆ™š[HŽˆ˜^ÛÝ][šË[YÚ[™ËÙXœ‹ˆ˜[Žˆ
+ˆ‘\šÈ^ÛÝ[ˆH[Y[šÈÚ]^H[™šYÚ^[Y]\ˆ™XY[™ÜÈ‚ˆ˜[™H[Y\ˆ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ•\ÙHÝË[™\™XÝYÚ[™HÛÛœÚ\Ý[L8 $ÌL‹ZÝ\ˆ^][YH‚ˆœÝÜ\š[ÙX]š[™ÈH[šÈ\šÈ]šYÚ[™›ÝšY[™ÈY\Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝYÚ[™ÈÝZYHÚÝÚ[™ÈÝÈ^][YHYÚ\šÛ™\ÜÈ]šYÚ‚ˆ˜[™H[Y\‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ[šË\Ù]\ÜÝXœÝ˜]KX[™Z[\XÝ[ÛˆŽˆÂˆ™š[HŽˆ˜^ÛÝ\ÝXœÝ˜]KX[™Z[\XÝ[Û‹ÙXœ‹ˆ˜[Žˆ
+ˆ•Ú[]\H[™]XÚ\ÝXÈ^ÛÝÈX›Ý™H^[\\ÈÙˆš[™HØ[™˜\™H‚ˆ˜›ÝÛKÜ˜]™[[™\™ÙHX˜›\È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ‘š[™HØ[™[™\ˆH[H\ÈHØY™\ˆÛÜÙHÝXœÝ˜]H›ÜˆÝZ]X›HÚ^™Y‚ˆ˜^ÛÝÎÈ˜\™KX›ÝÛH[šÜÈÛÜšÈ›Üˆ]™[š[\ÈÜˆ]X\˜[[™KÚ[H‚ˆ™Ü˜]™[[™ÝØ[ÝØX›HÝÛ™\ÈÜÙH[\XÝ[Ûˆš\ÚËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝÝXœÝ˜]HÛÛ\\š\ÛÛˆÚÝÚ[™Èš[™HØ[™˜\™H›ÝÛKÜ˜]™[‚ˆ˜[™\™ÙHX˜›\Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜^ÛÝZ[‹XÝ[\™KØYÜ[YKX^ÛÝYÝZYHŽˆÂˆ™š[HŽˆ˜YÜ[YKX^ÛÝYÝZYKÙXœ‹ˆ˜[Žˆ
+ˆ”[šÈš\X[YÜYH^ÛÝ™\ÚYH›Ý\ÈX›Ý]YÙ[™\žH˜\š]K‚ˆ˜Y[™Ë™[Ûˆ›Ü›\È[™HØ\™H™YYÈÙˆ™X[^ÛÝÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ•HYÜYH^ÛÝØ\È[›ÙXÙY\ÈH™[Z][H]ÚÜ]ˆ‚ˆ”^Y\œÈÝ\œ™[HØZ[ˆ]XZ[›H›ÝYÚ˜Y[™È[›\ÜÈHØ[YH‚ˆœ™]\›œÈ]ÈHÚÜÈ]˜Z[Xš[]H[™˜YH˜[YHØ[ˆÚ[™ÙKˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆYÜYH^ÛÝÝZYHÜ˜\XÈ^Z[š[™ÈÝ\œ™[XÜ]Z\Ú][Û‹‚ˆš\X[›Ü›\È[™HY™™\™[˜ÙH™]ÙY[ˆHØ[YH][™™X[Ø\™Kˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜^ÛÝZ[‹XÝ[\™KØ^ÛÝZ[‹\ÜXÝ[\™KX[™[Y[Y\ÈŽˆÂˆ™š[HŽˆ˜^ÛÝ\ÜXÝ[\™KX[™[Y[Y\ËÙXœ‹ˆ˜[Žˆ
+ˆ“]XÚ\ÝXÈ^ÛÝÝ\œ›Ý[™YžH^[\\ÈÙˆØ[Y\ËY[Y\ËYYXK‚ˆ›Y\˜Ú[™\ÙH[™ØÚY[˜ÙHÛÝ™\˜YÙH‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ^ÛÝÈÚ\˜Ý[]H™]ÙY[ˆØ[Y\ËY[Y\ËY\˜Ú[™\ÙH[™ØÚY[˜ÙH‚ˆ˜ÛÝ™\˜YÙKˆZ\ˆ™XÛÙÛš^˜X›HÚ[È[™\\™[ÛZ[HXZÙH[HX\ÞH‚ˆÈY\[ÈœšY[™HÚ\˜XÝ\œÈ[™™XXÝ[Ûˆ[XYÙ\Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝÜXÝ[\™HÜ˜\XÈÛÛ›™XÝ[™ÈØ[Y\ËY[Y\ËY\˜Ú[™\ÙK‚ˆ›YYXH[™ØÚY[˜ÙH][[Û‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜^ÛÝZ[‹XÝ[\™KÛZ[™XÜ˜YX^ÛÝËYÝZYHŽˆÂˆ™š[HŽˆ›Z[™XÜ˜YX^ÛÝËYÝZYKÙXœ‹ˆ˜[Žˆ
+ˆ“Z[™XÜ˜Y\Ý[H^ÛÝÈ[ˆš]™HÛÛÜœÈÚ]\ÚXØ]™HÜ]Ûš[™Ë‚ˆ˜›YK]˜\šX[œ™YY[™È[™Ø]\‹XXÚÙ]ÝZY[˜ÙH‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“Z[™XÜ˜Y^ÛÝÈÜ]Ûˆ[ˆØ]\ˆ[ˆ\ÚØ]™\È[™\X\ˆ[ˆš]™H‚ˆ˜ÛÛÜˆ˜\šX[ËˆH˜\™H›YH˜\šX[\ÈØZ[™Y›ÝYÚœ™YY[™Ë‚ˆÚ]HKZ[‹LKŒÚ[˜ÙH›ÜˆXXÚ˜XžKˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ“Z[™XÜ˜Y^ÛÝÝZYHÜ˜\XÈÛÝ™\š[™È\ÚXØ]™HÜ]Ûš[™Ëš]™H‚ˆ˜ÛÛÜœËH˜\™H›YH˜\šX[[™XÚÙ]ÛÛXÝ[Û‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜^ÛÝZ[‹XÝ[\™KÝÚKX^ÛÝËX\™K\ÝY[›K\Ü[\ˆŽˆÂˆ™š[HŽˆÚKX^ÛÝËX\™K\Ü[\‹ÙXœ‹ˆ˜[Žˆ
+ˆ•Ú[]\H^ÛÝÚ]›Ý\ˆÜ[\š]H˜XÝÜœÎˆZ[™XÜ˜Y[\›™]‚ˆ›Y[Y\Ë™YÙ[™\˜][ÛˆØÚY[˜ÙH[™[™[™Ù\™YÝ]\È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ^ÛÝÜ[\š]HÜ™]È›ÝYÚHŒŒHZ[™XÜ˜Y\]KHYÚH‚ˆœ™XÛÙÛš^˜X›H˜XÙKÛÛ[Z[™È™YÙ[™\˜][Ûˆ™\ÙX\˜Ú[™X›XÈÛÛ˜Ù\›ˆ‚ˆ™›ÜˆHÜXÚY\È\ÝY\ÈÜš]XØ[H[™[™Ù\™Y[ˆHÚ[ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝ\Ü[\š]H[Y[[™HÛÛXš[š[™ÈØ[Z[™Ë[\›™]Ý[\™K‚ˆœ™YÙ[™\˜][ÛˆØÚY[˜ÙH[™ÛÛœÙ\˜][Ûˆ]Ø\™[™\ÜËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ™Y]Ø™YY‹ZX\ŽˆÂˆ™š[HŽˆ˜^ÛÝX™YY‹ZX\Y™YY[™Ë]Ø\›š[™ËÙXœ‹ˆ˜[Žˆ
+ˆ•Ú[]\H^ÛÝ™\ÚYH™YYˆX\Ú]ÝZY[˜ÙHÈÙ™™\ˆ]Û›H‚ˆ›ØØØ\Ú[Û˜[H[™ÚÛÜÙHX\ÛÜ›\ÈÜˆ^ÛÝ[]È[œÝXY‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ™YYˆX\\È›ÝÝZ]X›H\ÈHÝ\H^ÛÝ›ÛÙ™XØ]\ÙH]È‚ˆ˜Ø[Ú][K]Ë\ÜÜÜ\È˜[[˜ÙH\ÈÛÜ‹ˆ\ÙHX\ÛÜ›\ÈÜˆ‚ˆ˜^ÛÝY›Ü›][]Y[]È›Üˆ›Ý][™H™YY[™Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ‘YXØ][Û˜[^ÛÝ™YY[™ÈÜ˜\XÈ^Z[š[™ÈÚH™YYˆX\‚ˆœÚÝ[™HØØØ\Ú[Û˜[˜]\ˆ[ˆHÝ\H›ÛÙˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ™Y]ÛÝ™\™™YY[™ËX[™Z[\XÝ[ÛˆŽˆÂˆ™š[HŽˆ˜^ÛÝ[Ø™\Ú]KX›ÙKXÛÛ™][Û‹YÝZYKÙXœ‹ˆ˜[Žˆ
+ˆ•Ú[]\H^ÛÝ™\ÚYHH›ÛÙ›ÝÛ[™ÝZY[˜ÙHÛˆX[H›ÙH‚ˆœ›ÜÜ[ÛœËY[™YY[™Èœ™\]Y[˜ÞH[™ØØØ\Ú[Û˜[YÚY˜]™X]È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ\ÜÙ\ÜÈ›ÙHÛÛ™][Ûˆœ›ÛHX›Ý™HY\ˆYÙ\Ý[ÛŽˆHX[H‚ˆ˜X™ÛY[ˆ\È\›Þ[X][H\ÈÚYH\ÈHXYˆ[ÜÝY[ÈXZ[Z[ˆ‚ˆ˜ÛÛ™][ÛˆÛˆÛÈÜˆ™YHYX[È\ˆÙYZËÚ]YÚY˜]›ÛÙÈÙ\‚ˆ˜\ÈØØØ\Ú[Û˜[™X]Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ‘YXØ][Û˜[^ÛÝ[Ø™\Ú]HÜ˜\XÈÚÝÚ[™È›ÙK\›ÜÜ[Û‹‚ˆ˜Y[™YY[™ËYœ™\]Y[˜ÞH[™YÚY˜]™X]ÝZY[˜ÙKˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›[ÜœËØ›YKX[™\[šËX^ÛÝ[^]ŽˆÂˆ™š[HŽˆ˜^ÛÝX›YK\[šËXÛÛÜ‹[^]ÙXœ‹ˆ˜[Žˆ
+ˆ”[H^ÛÝ[™\ˆ›YH\]X\š][HYÚ[™È™\ÚYH[ˆ^[˜][Ûˆ‚ˆ]›ÈYH›YH^ÛÝ[Üœ\È™XÛÙÛš^™Y‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“›È\ÝX›\ÚY^ÛÝ[Üœ\È˜]\˜[HœšYÚ›YKˆ›YK[ÛÚÚ[™È‚ˆœÝÜÈ\ÝX[H™\Ý[œ›ÛHÛÛÜ™YYÚ[™ÈÜˆY][™ËÚ[H[šÈ‚ˆ˜\X\˜[˜ÙH\ÈÛÛ[[Ûˆ[ˆ[H]XÚ\ÝXÈ[™[š[›È[ÜœËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ“^]X\Ý[™È^ÛÝÛÛÜˆÜ˜\XÈ\Ý[™ÝZ\Ú[™ÈYÚ[™ÈY™™XÝÈ‚ˆ™œ›ÛH™XÛÙÛš^™Y[H[ÜœËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›[ÜœËØÚ[Y\˜HŽˆÂˆ™š[HŽˆ˜Ú[Y\˜KX^ÛÝXš[]\˜[XÛÛÜ‹\Ü]ÙXœ‹ˆ˜[Žˆ
+ˆ”Ü]XÛÛÜ™YÚ[Y\˜H^ÛÝ[\Ý˜][™ÈÛÈÙ[™]XØ[H\Ý[˜Ý‚ˆ˜Ù[Ü[][ÛœÈ]šYY[Û™ÈH›ÙH‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆHÚ[Y\˜HØ[ˆ›Ü›HÚ[ˆÛÈX\›H[Xœž[ÜÈ\ÙK›ÙXÚ[™ÈÙ[™]XØ[H‚ˆ™\Ý[˜ÝÙ[Ü[][ÛœËˆ]\ÈH]™[ÜY[[]™[˜]\ˆ[ˆH‚ˆœ™YXÝX›H[š\š]Y[Üœˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ‘YXØ][Û˜[Ú[Y\˜H^ÛÝÜ˜\XÈÚÝÚ[™ÈHš[]\˜[ÛÛÜˆÜ]‚ˆ˜[™]È]™[ÜY[[ÜšYÚ[‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›[ÜœËØÛÜ\ˆŽˆÂˆ™š[HŽˆ˜ÛÜ\‹X^ÛÝ[[ÜœÙXœ‹ˆ˜[Žˆ
+ˆÛÜ\ˆ^ÛÝÚ][ˆÜ˜[™ÙKXœ›ÝÛˆ›ÙK™Y\ÚÚ[È[™[H^Y\È‚ˆ˜™\ÚYH™XÙ\ÜÚ]™HÛÛÜ‹YÙ[™]XÜÈ›Ý\È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆÛÜ\ˆ^ÛÝÈ]™HHØ\›HÜ˜[™ÙKXœ›ÝÛˆ\X\˜[˜ÙH\ÜÛØÚX]YÚ]‚ˆœ™XÙ\ÜÚ]™H˜\šX][ÛˆY™™XÝ[™ÈY[[š[ˆ›ÙXÝ[Û‹ˆZ\ˆ\Ø˜[™žH\È‚ˆHØ[YH\È›ÜˆÝ\ˆ^ÛÝÛÛÜˆ[ÜœËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆÛÜ\ˆ^ÛÝ[Üœ›Ùš[HÚÝÚ[™È]ÈÚ\˜XÝ\š\ÝXÈÛÛÜ‹^Y\È‚ˆ˜[™™XÙ\ÜÚ]™H[š\š][˜ÙKˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›[ÜœËÙ[šYÛXKYš\™Y›K[XXÈŽˆÂˆ™š[HŽˆœ˜\™KX^ÛÝ[[ÜœËY[šYÛXKYš\™Y›K[XXËÙXœ‹ˆ˜[Žˆ
+ˆ”˜\™H^ÛÝ\X\˜[˜ÙHÛÛ\\š\ÛÛˆX™[Y[šYÛXKš\™Y›H[™PPÈ‚ˆÚ]›Ý\ÈÛˆÜšYÚ[ˆ[™[š\š][˜ÙH‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“˜[Y\ÈÝXÚ\È[šYÛXKš\™Y›H[™PPÈ\ØÜšX™HY™™\™[˜\™H‚ˆ˜\X\˜[˜Ù\ÈÜˆœ™YY[™È[™\Ëˆš\™Y›H\È›ÙXÙY›ÝYÚ\ÜÝYH‚ˆ™Ü˜Y[™È[™\È›ÝHÝ[™\™\š]X›HÛÛÜˆ[Üœˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆÛÛ\\š\ÛÛˆÜ˜\XÈ^Z[š[™È™YH˜\™H^ÛÝ\X\˜[˜ÙHX™[È‚ˆ˜[™ÚHZ\ˆÜšYÚ[œÈ[™[š\š][˜ÙHY™™\‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›[ÜœËÙÙœX^ÛÝŽˆÂˆ™š[HŽˆ™ÙœX^ÛÝ]]‹Y›[Ü™\ØÙ[˜ÙKÙXœ‹ˆ˜[Žˆ
+ˆ‘Ñ”^ÛÝ›[Ü™\ØÚ[™ÈÜ™Y[ˆ[™\ˆ›YHYÚ™\ÚYH›Ý\ÈX›Ý]‚ˆHÛZ[˜[˜[œÙÙ[™H[™›Ü›X[›Ý][™HØ\™H‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ•HÑ”˜[œÙÙ[™H›ÙXÙ\ÈÜ™Y[ˆ›[Ü™\ØÙ[˜ÙH[™\ˆÝZ]X›H›YH‚ˆ™^Ú]][ÛˆYÚˆHÑ”^ÛÝ\ÈHØ[YH›Ý][™H\Ø˜[™žH™YYÈ‚ˆ˜\ÈÝ\ˆ[ÜœÈ[™Ù\È›Ý™\]Z\™HÜXÚX[YÚ[™Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ‘Ñ”^ÛÝÜ˜\XÈ^Z[š[™È›YK[YÚ›[Ü™\ØÙ[˜ÙK˜[œÙÙ[™H‚ˆš[š\š][˜ÙH[™Ü™[˜\žH\Ø˜[™žH™YYËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›[ÜœËÙÛÛ[‹X[š[›ÈŽˆÂˆ™š[HŽˆ™ÛÛ[‹X[š[›ËX^ÛÝ[[ÜœÙXœ‹ˆ˜[Žˆ
+ˆ‘ÛÛ[ˆ[š[›È^ÛÝÚ]HY[ÝËYÛÛ›ÙK[šÈÚ[È[™[H‚ˆœ™Y^Y\È™\ÚYHYÛY[›Ý\È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ‘ÛÛ[ˆ[š[›ÜÈXÚÈ\šÈY[[š[ˆ]™]Z[ˆY[ÝÈYÛY[›ÙXÚ[™È‚ˆ˜HÛÛ›ÙH[™[H™Y^Y\ËˆÛÛÜˆÙ\È›ÝÚ[™ÙHZ\ˆÛÜ™H‚ˆš\Ø˜[™žH™\]Z\™[Y[Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ‘ÛÛ[ˆ[š[›È^ÛÝ[Üœ›Ùš[HÚÝÚ[™È]ÈY[ÝÈYÛY[[H‚ˆ™^Y\È[™Ý[™\™Ø\™H™YYËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›[ÜœËÛ]XÚ\ÝXÈŽˆÂˆ™š[HŽˆ›]XÚ\ÝXËX^ÛÝ[[ÜœÙXœ‹ˆ˜[Žˆ
+ˆ“]XÚ\ÝXÈ^ÛÝÚ]H[H›ÙK\šÈ^Y\È[™[šÈ^\›˜[Ú[È‚ˆ˜™\ÚYHY[YžZ[™È™X]\™\È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“]XÚ\ÝXÈ^ÛÝÈ]™H™YXÙY›ÙHYÛY[][Ûˆ]™]Z[ˆ\šÈ‚ˆ™^Y\ËˆH\šÈ^Y\È[\Ý[™ÝZ\Ú[Hœ›ÛH[š[›È[ÜœËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ“]XÚ\ÝXÈ^ÛÝ[Üœ›Ùš[HYÚYÚ[™È]È[H›ÙK\šÈ^Y\È‚ˆ˜[™[šÈÚ[Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›[ÜœËÛY[[›ÚYŽˆÂˆ™š[HŽˆ›Y[[›ÚYX^ÛÝ[[ÜœÙXœ‹ˆ˜[Žˆ
+ˆ‘\šÈY[[›ÚY^ÛÝÚ][ˆ]™[ˆ›XÚËXœ›ÝÛˆ›ÙH[™›ÈY][XÈ‚ˆ™^YHš[™È™\ÚYHYÛY[XÙ[›Ý\È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“Y[[›ÚY^ÛÝÈ]™HX[™[\šÈYÛY[[™XÚÈ™Y›XÝ]™H‚ˆš\šYÜÜ™\ËÛÈ^HÈ›ÝÚÝÈHY][XÈÚ[™HÜˆÛÛ^YHš[™È‚ˆ\XØ[ÙˆHÚ[\Kˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ“Y[[›ÚY^ÛÝ[Üœ›Ùš[HÚÝÚ[™È[šY›Ü›H\šÈYÛY[][Ûˆ[™‚ˆHXœÙ[˜ÙHÙˆ™Y›XÝ]™H\šYÜÜ™\Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›[ÜœËÛ[ÜœËXÛÛ\\š\ÛÛ‹XÚ\ŽˆÂˆ™š[HŽˆ˜^ÛÝ[[ÜœXÛÛ\\š\ÛÛ‹XÚ\ÙXœ‹ˆ˜[Žˆ
+ˆÛÛ\\š\ÛÛˆÚ\ÙˆÚ[\K]XÚ\ÝXËY[[›ÚYÛÛ[ˆ[š[›Ë‚ˆ˜ÛÜ\‹Ñ”YX˜[[ÜØZXÈ[™Ú[Y\˜H^ÛÝÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆÛÛ\\™H^ÛÝ\X\˜[˜Ù\ÈžH›ÙH[™^YHÛÛÜ‹™Y›XÝ]™HÚ[™K‚ˆ™›[Ü™\ØÙ[˜ÙH[™]\›ˆ\ÝšX][Û‹ˆ˜\š]H[™[™]šYX[]\›œÈ‚ˆ˜Ø[ˆ˜\žH™]ÙY[ˆœ™YY[™ÈÜ[][ÛœËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ“š[™K\[™[^ÛÝ[ÜœÛÛ\\š\ÛÛˆÚ\ÛÝ™\š[™ÈÛÛ[[ÛˆÛÛÜœË‚ˆ™›[Ü™\ØÙ[Ñ”[™[˜ÛÛ[[Ûˆ]\›™Y\X\˜[˜Ù\Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›[ÜœËÛ[ÜØZXÈŽˆÂˆ™š[HŽˆ›[ÜØZXËX^ÛÝ[[ÜœÙXœ‹ˆ˜[Žˆ
+ˆ“[ÜØZXÈ^ÛÝÚ]\œ™YÝ[\ˆ\šÈ[™[H]Ú\È™\ÚYH›Ý\ÈÛˆ‚ˆ˜Ù[Ü[][ÛœÈ[™[š\š][˜ÙH‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“[ÜØZXÈ^ÛÝÈÚÝÈ\œ™YÝ[\ˆ]ÚÛÜšÈœ›ÛHÙ[™]XØ[HY™™\™[‚ˆ˜Ù[Ü[][ÛœËˆH]\›ˆ\È›Ý™YXÝX›H[š\š]Y[™‚ˆ˜\X\˜[˜ÙH[Û™HØ[››ÝÛÛ™š\›H]È]™[ÜY[[YXÚ[š\ÛKˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ“[ÜØZXÈ^ÛÝ›Ùš[HÚÝÚ[™È\œ™YÝ[\ˆÛÛÜˆ]Ú\È[™^Z[š[™È‚ˆZ\ˆ˜\šXX›H]™[ÜY[[ÜšYÚ[‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›[ÜœËÜYX˜[ŽˆÂˆ™š[HŽˆœYX˜[X^ÛÝ[[ÜœÙXœ‹ˆ˜[Žˆ
+ˆ”YX˜[^ÛÝÚ]H\šÈ˜\ÙH[™\œ™YÝ[\ˆ[œYÛY[Y]Ú\È‚ˆ˜™\ÚYHÛÛ\\š\ÛÛˆ›Ý\È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ”YX˜[]\›š[™ÈÛÛXš[™\ÈYÛY[Y[™[œYÛY[Y\™X\Ëˆ]Y™™\œÈ‚ˆ™œ›ÛHH\H]XÚ\ÝXÉÜÈ[H˜\ÙHÚ]\šÈÜÝÈ[™œ›ÛHHÚ[Y\˜IÜÈ‚ˆ›Ù[ˆš[]\˜[]š\Ú[Û‹ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ”YX˜[^ÛÝ›Ùš[H^Z[š[™È]ÈÛÛ˜\Ý[™È]Ú\È[™ÝÈ]‚ˆ™Y™™\œÈœ›ÛH\H]XÚ\ÝXÈ[™Ú[Y\˜H\X\˜[˜Ù\Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›[ÜœËÜYÛY[XÙ[ÈŽˆÂˆ™š[HŽˆ˜^ÛÝ\YÛY[XÙ[ËXÛÛÜ‹YÙ[™]XÜËÙXœ‹ˆ˜[Žˆ
+ˆ•Ú[]\H^ÛÝÚ]Ø[Ý]È›ÜˆY[[›ÜÜ™\Ë[ÜÜ™\È[™‚ˆœ™Y›XÝ]™H\šYÜÜ™\È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ^ÛÝÛÛÜˆÛÛY\Èœ›ÛH™YHXZ[ˆYÛY[XÙ[Ü›Ý\Îˆ\šÈ‚ˆ›Y[[›ÜÜ™\ËY[ÝË[Ü˜[™ÙH[ÜÜ™\È[™™Y›XÝ]™H\šYÜÜ™\Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝYÛY[XÙ[XYÜ˜[HY[YžZ[™ÈH™YHÚ›ÛX]ÜÜ™H‚ˆ™Ü›Ý\È]ÛÛXš[™HÈ›ÙXÙHÛÛÜˆ[™Ú[™Kˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›[ÜœËÝÚ[]\HŽˆÂˆ™š[HŽˆÚ[]\KX^ÛÝ[˜]\˜[XÛÛÜ‹ÙXœ‹ˆ˜[Žˆ
+ˆ•Ú[]\H^ÛÝÚ]Û]™KXœ›ÝÛˆÚÚ[‹\šÈ[™Y[ÝÈÜXÚÛ\È[™‚ˆ˜H™Y›XÝ]™HÛÛ^YHš[™È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ•Ú[]\H^ÛÝÈÛÛXš[™H\šÈY[[›ÜÜ™\ËY[ÝÈ[ÜÜ™\È[™‚ˆœ™Y›XÝ]™H\šYÜÜ™\ËˆH™\Ý[[™ÈÛ]™KXœ›ÝÛˆ]\›ˆ[™ÛÛ^YH‚ˆœš[™È\Ý[™ÝZ\Ú[Hœ›ÛHY[[›ÚYËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ•Ú[]\H^ÛÝ[Üœ›Ùš[HÚÝÚ[™È˜]\˜[Ø[[ÝY›YÙHÛÛÜœË‚ˆœÜXÚÛ[™È[™™Y›XÝ]™H^YK\š[™È™X]\™\Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜œ™YY[™ËØœ™YY[™Ë]šYÙÙ\œË][\\˜]\™KXÞXÛ[™ÈŽˆÂˆ™š[HŽˆ˜^ÛÝXœ™YY[™Ë][\\˜]\™KXÞXÛ[™ËÙXœ‹ˆ˜[Žˆ
+ˆY[^ÛÝÈ[ˆHœ™YY[™È[šÈ™\ÚYHÙX\ÛÛ˜[[\\˜]\™H[™‚ˆ™^K[[™ÝÝY\È›ÜˆÛÝ\Ú\‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ”ÝX›HÙX\ÛÛ˜[Ú[™Ù\È[ˆØ]\ˆ[\\˜]\™H[™^H[™ÝØ[ˆ‚ˆ˜ÛÚ[˜ÚYHÚ]^ÛÝÛÝ\Ú\ˆ]›ÚYXœ\\›X[ÚØÚÜÈ[™‚ˆšÙY\œ™YY[™È[š[X[ÈÚ][ˆØY™H\Ø˜[™žHÛÛ™][ÛœËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝœ™YY[™ËXÝYHÜ˜\XÈÚÝÚ[™ÈHÛÛ™][Û™YZ\‹Ü˜YX[‚ˆœÙX\ÛÛ˜[Ú[™Ù\È[™[\\˜]\™K\ØY™]HÝZY[˜ÙKˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜œ™YY[™ËØÛÛÜ‹YÙ[™]XÜË\[›™]\Ü]X\™\ÈŽˆÂˆ™š[HŽˆ˜^ÛÝXÛÛÜ‹YÙ[™]XÜË\[›™]\Ü]X\™KÙXœ‹ˆ˜[Žˆ
+ˆ‘›Ý\ˆ^ÛÝÛÛÜˆ[ÜœÈ™\ÚYHH[›™]Ü]X\™H^Z[š[™È‚ˆ™ÛZ[˜[™XÙ\ÜÚ]™H[™Ø\œšY\ˆ[š\š][˜ÙH‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆH[›™]Ü]X\™H[Ù[ÈÛ™HÙ[™H]H[YKˆ›ÜˆHÚ[™ÛH™XÙ\ÜÚ]™H‚ˆ˜Z]ÛÈØ\œšY\œÈ™YXÝHH\˜Ù[Û[ÞžYÛÝ\Ë\™XÙ\ÜÚ]™HÚ[˜ÙH‚ˆœ\ˆÙ™œÜš[™Ë›ÝHÝX\˜[YYÛ]Ú˜][Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝÛÛÜ‹YÙ[™]XÜÈÜ˜\XÈÛÛXš[š[™È][\H[ÜœÈÚ]H‚ˆœÚ[™ÛK[ØÝ\È[›™]\Ü]X\™H^[\Kˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜œ™YY[™ËÙYÙËX[™[\˜YKXØ\™HŽˆÂˆ™š[HŽˆ˜^ÛÝYYÙÜË[\˜YKXØ\™KÙXœ‹ˆ˜[Žˆ
+ˆ‘]™[Ü[™È^ÛÝ[Xœž[ÜÈ[œÚYHYÙÜÈ™\ÚYH[˜ÝX˜][Û‹Ø]\‹XØ\™H‚ˆ˜[™š\œÝY›ÛÙÝZY[˜ÙH‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ^ÛÝ[Xœž[È]™[ÜY[ÜYYÈ\\È[˜ÝX˜][Ûˆ[\\˜]\™Hš\Ù\Ëˆ‚ˆ’ÙY\HØ]\ˆÛX[‹[œÜXÝYÙÜÈZ[K[™™\\™H]™H›ÛÙ™Y›Ü™H‚ˆH\˜YHš[š\ÚXœÛÜ˜š[™ÈZ\ˆ[ÛËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝYÙËX[™[\˜YHÜ˜\XÈÚÝÚ[™È]™[Ü[™È[Xœž[ÜË[˜ÝX˜][Ûˆ‚ˆ˜Ø\™H[™H˜[œÚ][ÛˆÈ]™H˜XžHœš[™HÚš[\ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜œ™YY[™ËÙÙ[™]XÜËX[™Z[˜œ™YY[™ÈŽˆÂˆ™š[HŽˆ˜^ÛÝYÙ[™]XËY]™\œÚ]KZ[˜œ™YY[™Ë\š\ÚËÙXœ‹ˆ˜[Žˆ
+ˆ“]XÚ\ÝXÈ^ÛÝ™\ÚYHHYYÜ™YHÚ\[™Ù[™]XËY]™\œÚ]H‚ˆ™ÝZY[˜ÙH›Üˆœ™YY[™ÈXÚ\Ú[ÛœÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ•H\ÝÜšXÈX›Ü˜]ÜžH^ÛÝÜ[][Ûˆ™YØ[ˆÚ]HÛX[›Ý[™\ˆ‚ˆ™Ü›Ý\ˆ\X\˜[˜ÙHØ[››Ý™]™X[™[]Y™\ÜËÛÈYYÜ™YH™XÛÜ™È[™‚ˆšX[K[œ™[]Yœ™YY[™ÈÝØÚÈX]\‹ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝÙ[™]XËY]™\œÚ]HÜ˜\XÈ\Ú[™ÈHYYÜ™YHÈ^Z[ˆ›Ý[™\ˆ‚ˆ™Y™™XÝË[˜œ™YY[™Èš\ÚÈ[™™\ÜÛœÚX›HZ\ˆÙ[XÝ[Û‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜œ™YY[™ËÜ˜Z\Ú[™ËZ]™[š[\ÈŽˆÂˆ™š[HŽˆœ˜Z\Ú[™ËX˜XžKX^ÛÝËYÜ›ÝÝ\ÝYÙ\ËÙXœ‹ˆ˜[Žˆ
+ˆ”Ù]™\˜[]™[š[H^ÛÝÈ]Y™™\™[Ú^™\È™\ÚYH™YY[™ËÚ^™H‚ˆœÙ\\˜][Ûˆ[™Ü›ÝÝ\ÝYÙHÝZY[˜ÙH‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“™]ÛH™YY[™È\˜YH™YY\›ÜšX][HÚ^™Y]™H›ÛÙˆÜ˜YHÜ›ÝÚ[™È‚ˆš]™[š[\ÈžHÚ^™HÈ™YXÙHš][™ËXZ[Z[ˆÛX[ˆØ]\‹[™™ZÛYH‚ˆ›Û›HY\ˆ™YY[™È[™Ü›ÝÝ\™HÝX›Kˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ’]™[š[H^ÛÝÜ›ÝÝÜ˜\XÈÚÝÚ[™È][\H[š[X[ÈÚ]š\œÝ‚ˆ™›ÛÙËÚ^™HÙ\\˜][Û‹[Xˆ]™[ÜY[[™™ZÛZ[™ÈZ[\ÝÛ™\Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜œ™YY[™ËÜÙ^[™ËX^ÛÝÈŽˆÂˆ™š[HŽˆ›X[KY™[X[KX^ÛÝ\Ù^[™ËYÝZYKÙXœ‹ˆ˜[Žˆ
+ˆY[X[H[™™[X[H^ÛÝÈšY]ÙYœ›ÛHX›Ý™HÚ]Z\ˆÛØXØYH‚ˆšYÚYÚY›ÜˆÛÛ\\š\ÛÛˆ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆHX]\™HX[H]™[ÜÈ[ˆ[›\™ÙYÚYKX[Ú[™ÈÛØXØKˆHÛX[ÛØXØH‚ˆ˜Ø[ˆ[™XØ]HH™[X[HÜˆ[ˆ[[X]\™H[š[X[[™›ÙHÚ\H[Û™H\È‚ˆ››ÝH™[XX›HÙ^[™ÈY]Ùˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ“X[K]™\œÝ\ËY™[X[H^ÛÝÙ^[™ÈÜ˜\XÈ›ØÝ\ÙYÛˆHÛØXØHÚ[H‚ˆØ\›š[™ÈYØZ[œÝXÚ\Ú[ÛœÈ˜\ÙYÛ›HÛˆ›ÙHÚ\Kˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜Ø\™KX˜\ÚXÜËØ\™KX^ÛÝËYÛÛÙX™YÚ[›™\‹\]ÈŽˆÂˆ™š[HŽˆ˜\™KX^ÛÝËYÛÛÙX™YÚ[›™\‹\]ËÙXœ‹ˆ˜[Žˆ
+ˆ“]XÚ\ÝXÈ^ÛÝ[ˆHš[\™Y\]X\š][H™\ÚYHH™YÚ[›™\‹\™XY[™\ÜÈ‚ˆ˜ÚXÚÛ\Ý›Üˆ[\\˜]\™H[™Û™Ë]\›HØ\™H‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ^ÛÝÈØ[ˆÝZ]™\\™Y™YÚ[›™\œÈÚÈØ[ˆÞXÛHH\]X\š][K‚ˆ›XZ[Z[ˆÛÛÛÝX›HØ]\‹[™ÛÛ[Z]ÈÛ™Ë]\›HØ\™Kˆ^H\™H‚ˆ››ÝHÝË[XZ[[˜[˜ÙH[\[ÙH]ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ™YÚ[›™\ˆ^ÛÝØ\™HÜ˜\XÈÚÝÚ[™ÈH]XÚ\ÝXÈ[š[X[š[\‹‚ˆ\›[ÛY]\ˆ[™™\\˜][ÛˆÚXÚÛ\Ýˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜Ø\™KX˜\ÚXÜËØ^ÛÝXYÙKX[™\Ú^™KXÚ\ŽˆÂˆ™š[HŽˆ˜^ÛÝXYÙKX[™\Ú^™KXÚ\ÙXœ‹ˆ˜[Žˆ
+ˆ‘›Ý\ˆ^ÛÝÜ›ÝÝÝYÙ\È[YÛ™YÚ]H[\ˆœ›ÛH\˜H›ÝYÚ‚ˆš]™[š[KÝX˜Y[[™Y[‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“YX\Ý\™Hœ›ÛHÛ›Ý]ÈZ[\ˆÚ^™H˜\šY\ÈÚ]Ù[™]XÜËY]‚ˆ[\\˜]\™KX[[™[™]šYX[Ü›ÝÝÛÈÝYÙHX™[È\™H‚ˆ˜\›Þ[X]H˜]\ˆ[ˆXY[™\Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝYÙKX[™\Ú^™HÚ\ÛÛ\\š[™È\˜[]™[š[KÝX˜Y[[™‚ˆ˜Y[Ü›ÝÝÝYÙ\ÈYØZ[œÝHYX\Ý\™[Y[ØØ[Kˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜Ø\™KX˜\ÚXÜËØ^ÛÝY˜XÝÈŽˆÂˆ™š[HŽˆ˜[X^š[™ËX^ÛÝY˜XÝËÙXœ‹ˆ˜[Žˆ
+ˆ•Ú[]\H^ÛÝ[ˆHØÚ[Z[ÛÈÛÛYÙHÚ]˜XÝXÛÛœÈ›Üˆ‚ˆ˜[\XšX[ˆY[]K™[Ý[žK™YÙ[™\˜][Ûˆ[™ÛÛœÙ\˜][Ûˆ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ^ÛÝÈ\™H[H\]X]XÈØ[[X[™\œÈ˜]]™HÈØÚ[Z[ÛËˆ^H‚ˆœ™]Z[ˆ\˜[˜Z]È\ÈY[ËØ[ˆ™YÙ[™\˜]HÛÛ\^\ÜÝY\Ë[™‚ˆœ™[XZ[ˆÜš]XØ[H[™[™Ù\™Y[ˆHÚ[ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝ˜XÝÜ˜\XÈÛÛ›™XÝ[™ÈHÜXÚY\ÈÚ]ØÚ[Z[ÛË‚ˆ˜[\XšX[ˆš[ÛÙÞK™[Ý[žK™YÙ[™\˜][Ûˆ[™Ú[ÛÛœÙ\˜][Û‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜Ø\™KX˜\ÚXÜËØ^ÛÝZ[[YÙ[˜ÙKX[™X›Û™[™ÈŽˆÂˆ™š[HŽˆ˜^ÛÝ[ÝÛ™\‹\™XÛÙÛš][Û‹ÙXœ‹ˆ˜[Žˆ
+ˆÛÜ\ˆ^ÛÝ\›ØXÚ[™È]ÈÙY\\ˆ™\ÚYH›Ý\ÈÛˆ\ÜÛØÚX]]™H‚ˆ›X\›š[™Ë›Ý][™\È[™ÝÛ™\ˆ™XÛÙÛš][Ûˆ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ^ÛÝÈØ[ˆX\›ˆ™YY[™ÈÝY\È[™™XÛÛYH™\ÜÛœÚ]™HÈH˜[Z[X\ˆ‚ˆšÙY\\‰ÜÈ[Ý™[Y[[™›Ý][™Kˆ\È\È\ÜÛØÚX]]™HX\›š[™Ë›Ý‚ˆ™]šY[˜ÙHÙˆX[[X[[ZÙH]XÚY[ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝÝÛ™\‹\™XÛÙÛš][ÛˆÜ˜\XÈ^Z[š[™ÈX\›™Y™YY[™ÈÝY\Ë‚ˆ™˜[Z[X\ˆ›Ý][™\È[™H[Z]ÈÙˆ›Û™[™ÈÛZ[\Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜Ø\™KX˜\ÚXÜËØ^ÛÝËX[™XÚ[™[ˆŽˆÂˆ™š[HŽˆ˜^ÛÝËX\Ë\]ËY›Ü‹ZÚYËÙXœ‹ˆ˜[Žˆ
+ˆÚ[[™Y[ØœÙ\š[™ÈH]XÚ\ÝXÈ^ÛÝ\]X\š][H™\ÚYH‚ˆœÝ\\š\Ú[Ûˆ[™›ËZ[™[™ÈÝZY[˜ÙH‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ[ˆ^ÛÝØ[ˆ™HH˜[Z[H]Ú[ˆ[ˆY[X[˜YÙ\ÈØ]\ˆ]X[]K‚ˆ™™YY[™Ë[™\]Z\Y[ˆÚ[™[ˆÚÝ[ØœÙ\™H˜]\ˆ[ˆ[™H‚ˆH[š[X[ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ‘˜[Z[H^ÛÝXØ\™HÜ˜\XÈÚÝÚ[™ÈHÚ[[™Y[ØœÙ\š[™ÈH‚ˆ[šÈÚ]Ý\\š\Ú[Ûˆ[™[™[™Ë\ØY™]H™[Z[™\œËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜Ø\™KX˜\ÚXÜËØ™Z]š[ÜˆŽˆÂˆ™š[HŽˆ˜^ÛÝX™Z]š[Ü‹YÝZYKÙXœ‹ˆ˜[Žˆ
+ˆ“Y[[›ÚY^ÛÝÈ[[ÛœÝ˜][™È™\Ý[™ËY[™Ë›ØÝ\›˜[XÝ]š]H‚ˆ˜[™œ˜[XË\ÝÚ[[Z[™È™Z]š[Üˆ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ”™\Ý[™È[™Y[™ÈØ[ˆ™H›Ü›X[\ÜXÚX[H\š[™ÈH^KˆÝY[ˆ‚ˆ™œ˜[XÈÝÚ[[Z[™È\ÈH™X\ÛÛˆÈÚXÚÈØ]\ˆ]X[]K[\\˜]\™K‚ˆ™›ÝË[™Ý\ˆÝ™\ÜÛÜœËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝ™Z]š[ÜˆÜ˜\XÈÛÛ\\š[™È›Ü›X[™\Ý[™È[™Y[™ÈÚ]‚ˆ˜XÝ]š]H]\›œÈ[™HÜÜÚX›HÝ™\ÜÈ™\ÜÛœÙKˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜Ø\™KX˜\ÚXÜËØÛÜÝ[Ù‹[ÝÛ™\œÚ\[[ÛHŽˆÂˆ™š[HŽˆ˜^ÛÝ[[ÛK[ÝÛ™\œÚ\XÛÜÝÙXœ‹ˆ˜[Žˆ
+ˆ‘ÛÛ[ˆ[š[›È^ÛÝ\]X\š][H™\ÚYH[ÛH^[œÙHØ]YÛÜšY\È›Üˆ‚ˆ™›ÛÙÛÛ™][Û™\‹Ý\Y\È[™[Y\™Ù[˜ÞHØ]š[™ÜÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“[ÛHÛÜÝÈ˜\žHžHØØ][Û‹[šÈ\]Z\Y[[XÝšXÚ]H˜]\Ë‚ˆ™Y][™X[™YYËˆ[ˆ›Üˆ›Ý][™HÝ\Y\È\È[ˆ[Y\™Ù[˜ÞH‚ˆœ™\Ù\™H[œÝXYÙˆ™X][™ÈÛ™HšXÙH\È[š]™\œØ[ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝÝÛ™\œÚ\XÛÜÝÜ˜\XÈÜ™Ø[š^š[™È™XÝ\œš[™È^[œÙ\È[È‚ˆ™›ÛÙØ]\ˆØ\™KÝ\Y\È[™[Y\™Ù[˜ÞKY[™Ø]YÛÜšY\Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜Ø\™KX˜\ÚXÜËÚ[™[™ÈŽˆÂˆ™š[HŽˆšÝË]ËZ[™KX[‹X^ÛÝ\ØY™[KÙXœ‹ˆ˜[Žˆ
+ˆ•Ú[]\H^ÛÝ™Z[™È˜[œÙ™\œ™Y[ˆØ]\ˆ™\ÚYHÛÛZ[™\‹‚ˆ›Z[š[X[Z[™[™È[™˜\™KZ[™ØY™]HÝZY[˜ÙH‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ]›ÚY›Ý][™H˜\™KZ[™[™[™ËˆÚ[ˆ[Ý™[Y[\È™XÙ\ÜØ\žKH‚ˆØ]\‹Yš[YÛÛZ[™\ˆ\ÈÙ[™\˜[HHØY™\Ýš\œÝÚÚXÙNÈÙY\‚ˆ˜[žH˜[œÙ™\ˆœšYYˆ[™›ÝXÝHÚ[È[™[XœËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝ˜[œÙ™\‹\ØY™]HÜ˜\XÈ[\\Ú^š[™ÈHØ]\‹Yš[YÛÛZ[™\‹‚ˆ›Z[š[X[[™[™È[YH[™›ÝXÝ[ÛˆÙˆ[XØ]HÚÚ[ˆ[™Ú[Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜Ø\™KX˜\ÚXÜËÚÝË]Ë\›Û›Ý[˜ÙKX^ÛÝŽˆÂˆ™š[HŽˆšÝË]Ë\›Û›Ý[˜ÙKX^ÛÝÙXœ‹ˆ˜[Žˆ
+ˆ“]XÚ\ÝXÈ^ÛÝ™\ÚYHH[Ù\›ˆ[™Û\Ú›Û[˜ÚX][Ûˆ‚ˆPÒË\ÝZ[Ý][[™›Ý\È]˜ZX][™Ü[š\ÚY™™\ˆ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“[Ù\›ˆ[™Û\ÚÛÛ[[Û›H\Ù\ÈPÒË\ÝZ[Ý][ˆH˜ZX]ÛÝ\˜ÙHÛÜ™‚ˆ˜[™Ü[š\ÚZ›ÛÝH]™HY™™\™[›Û[˜ÚX][ÛœËÛÈ^HÚÝ[›Ý‚ˆ˜™H™\Ù[Y\ÈÛ™H[š]™\œØ[›Ü›Kˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝ›Û[˜ÚX][ÛˆÜ˜\XÈÙ\\˜][™ÈHÛÛ[[Ûˆ[Ù\›ˆ[™Û\Ú‚ˆ™›Ü›Hœ›ÛHH™[]Y˜ZX][™Ü[š\Ú›Ü›\Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜Ø\™KX˜\ÚXÜËÚÙY\[™Ë[][\KX^ÛÝÈŽˆÂˆ™š[HŽˆ˜Ø[‹X^ÛÝË[]™K]ÙÙ]\‹ÙXœ‹ˆ˜[Žˆ
+ˆ•™YHÚ[Z[\›HÚ^™Y^ÛÝÈ[ˆ[ˆ\]X\š][HÚ]][\HY\È‚ˆ˜™\ÚYHÛÚXš]][ÛˆØY™]HÚXÚÜÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆÛÚXš]][Ûˆ\[™ÈÛˆÛÛ\\˜X›H›ÙHÚ^™KY\]X]H›ÛÜˆÜXÙK‚ˆ›][\HY\ËÛÛœÚ\Ý[™YY[™Ë[™ÛÜÙH[Ûš]Üš[™ËˆÙ\\˜]H‚ˆ˜[š[X[ÈYˆš][™ÈÜˆ\œÚ\Ý[Ý™\ÜÈØØÝ\œËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝÛÚXš]][ÛˆÜ˜\XÈÚÝÚ[™ÈÚ[Z[\›HÚ^™Y[š[X[ËÙ]™\˜[‚ˆšY\ËY\]X]HÜXÙH[™[Ûš]Üš[™È›Üˆš][™ÈÜˆÝ™\ÜËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØ[˜]Û^KYÚ[ËX[™[[™ÜÈŽˆÂˆ™š[HŽˆ˜^ÛÝX[˜]Û^KYÚ[Ë[[™ÜËÙXœ‹ˆ˜[Žˆ
+ˆ“]XÚ\ÝXÈ^ÛÝÚ]X™[Y^\›˜[Ú[Ë[™ÜÈ[™‚ˆœÚÚ[‹X˜\ÙYÞYÙ[ˆXœÛÜœ[Ûˆ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ^ÛÝÈ^Ú[™ÙHØ\Ù\È›ÝYÚ^\›˜[Ú[ËÚÚ[ˆ[™Ú[\H‚ˆ›[™ÜËˆÚ[[Ý™[Y[Ø[ˆ[˜Ü™X\ÙHØ]\ˆ›ÝËÚ[HØØØ\Ú[Û˜[‚ˆœÝ\™˜XÙHÝ[È\ÙHH[™ÜËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝ™\Ü\˜]ÜžKX[˜]Û^HÜ˜\XÈX™[[™È^\›˜[Ú[Ë‚ˆš[\›˜[[™ÜÈ[™ÞYÙ[‹XXœÛÜ˜š[™ÈÚÚ[‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØ^ÛÝ]œË]YÙ\‹\Ø[[X[™\ˆŽˆÂˆ™š[HŽˆ˜^ÛÝ]œË]YÙ\‹\Ø[[X[™\‹ÙXœ‹ˆ˜[Žˆ
+ˆ\]X]XÈ^ÛÝ™\ÚYHH\œ™\ÝšX[YÙ\ˆØ[[X[™\ˆÚ]‚ˆ›™[Ý[žH[™Y][[ÜœÜÚ\ÈY™™\™[˜Ù\È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ^ÛÝÈ›Ü›X[H™[XZ[ˆ\]X]XÈ[™™]Z[ˆ\˜[˜Z]ËÚ[H‚ˆYÙ\ˆØ[[X[™\œÈ\XØ[HY][[ÜœÜÙH[È\œ™\ÝšX[Y[Ëˆ‚ˆ•^H\™H™[]Y]\Ý[˜ÝÜXÚY\Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝ]™\œÝ\Ë]YÙ\‹\Ø[[X[™\ˆÛÛ\\š\ÛÛˆÚÝÚ[™ÈY™™\™[‚ˆ˜Y[›Ü›\ËXš]]È[™]™[ÜY[[]Ø^\Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØÛÛœÙ\˜][Û‹\Ý]\ÈŽˆÂˆ™š[HŽˆ˜^ÛÝXÛÛœÙ\˜][Û‹\Ý]\ËÙXœ‹ˆ˜[Žˆ
+ˆ•Ú[]\H^ÛÝ[ˆØÚ[Z[ÛÈ™\ÚYHÜš]XØ[H[™[™Ù\™Y‚ˆœÝ]\ËXš]]™X]È[™˜[™ÙHX\‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ•Ú[^ÛÝÈ\™H™\ÝšXÝYÈØÚ[Z[ÛÈ[™Û\ÜÚYšYY\È‚ˆÜš]XØ[H[™[™Ù\™YˆXš]]YÜ˜Y][Û‹Û][Ûˆ[™‚ˆš[˜\Ú]™Hš\ÚÛÛ[YHÈ™X][ˆH™[XZ[š[™ÈÜ[][Û‹ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝÛÛœÙ\˜][ÛˆÜ˜\XÈÛÛ›™XÝ[™ÈHUPÓˆÝ]\ÈÚ]‚ˆ–ØÚ[Z[ÛËXš]]ÜÜÈ[™[˜\Ú]™K\ÜXÚY\È™\ÜÝ\™Kˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÚ\ËX^ÛÝX[\XšX[ˆŽˆÂˆ™š[HŽˆ˜^ÛÝX[\XšX[‹XÛ\ÜÚYšXØ][Û‹ÙXœ‹ˆ˜[Žˆ
+ˆ‘ÛÛ[ˆ^ÛÝ™\ÚYH[ˆ[\XšX[ˆÛ\ÜÚYšXØ][ÛˆÚ\[™‚ˆ™™X]\™\È]\Ý[™ÝZ\Ú]œ›ÛHš\Ú‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ•H^ÛÝ\È[ˆ[\XšX[ŽˆHØ[[X[™\ˆ[ˆHÜ™\ˆØ]Y]Kˆ‚ˆ’]™[XZ[œÈ[H\]X]XÈ[™™]Z[œÈ\˜[™X]\™\È\ÈH‚ˆœ™\›ÙXÝ]™HY[ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝÛ\ÜÚYšXØ][ÛˆÜ˜\XÈY[YžZ[™ÈHÜXÚY\È\ÈH‚ˆ›™[Ý[šXÈ\]X]XÈØ[[X[™\ˆ˜]\ˆ[ˆHš\Úˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÛY™\Ü[‹]Ú[]œËXØ\]š]HŽˆÂˆ™š[HŽˆ˜^ÛÝ[Y™\Ü[‹]Ú[]œËXØ\]š]KÙXœ‹ˆ˜[Žˆ
+ˆØ\]™H]XÚ\ÝXÈ^ÛÝ[™Ú[]\H^ÛÝÛÛ\\™YÛˆ‚ˆ›Y™\Ü[ˆ[Y[[™\È[™[š\›Û›Y[[™\ÜÝ\™\È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“Y™\Ü[ˆ\Ý[X]\È˜\žKˆØ\]™H^ÛÝÈÙ[ˆ]™HÛ™Ù\ˆÚ[ˆ‚ˆ[\\˜]\™KØ]\ˆ]X[]KY][™™]\š[˜\žHØ\™H\™HÝX›NÈ‚ˆÚ[[š[X[È˜XÙHXš]][™™Y][Ûˆ™\ÜÝ\™\Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ•Ú[]™\œÝ\ËXØ\]™H^ÛÝY™\Ü[ˆÛÛ\\š\ÛÛˆ[\\Ú^š[™È‚ˆš\Ø˜[™žH[™[š\›Û›Y[[˜XÝÜœÈ˜]\ˆ[ˆÝX\˜[YYYÙ\Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÜ™YÙ[™\˜][Û‹X[™[[X‹\™YÜ›ÝÝŽˆÂˆ™š[HŽˆ˜^ÛÝ\™YÙ[™\˜][Û‹\ØÚY[˜ÙKÙXœ‹ˆ˜[Žˆ
+ˆ^ÛÝ[Xˆ™YÙ[™\˜][ÛˆÙ\]Y[˜ÙHÚÝÚ[™ÈÛÝ[™ÛÜÝ\™K‚ˆ˜›\Ý[XH›Ü›X][Û‹]\›š[™È[™Ü›ÝÝ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ^ÛÝ™YÙ[™\˜][Ûˆ›ØÙYYÈ›ÝYÚÛÝ[™ÛÜÝ\™K›Ü›X][Ûˆ‚ˆ›ÙˆH›\Ý[XK\ÜÝYH]\›š[™È[™Ü›ÝÝˆ™YÙ[™\˜][Ûˆ\È‚ˆœÝÙ\™[]›Ý[›[Z]Y[™[š\žH™]™[[Ûˆ™[XZ[œÈ\ÜÙ[X[ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ”ØÚY[YšXÈ^ÛÝ\™YÙ[™\˜][ÛˆÜ˜\XÈ[\Ý˜][™ÈHXZ›Üˆ‚ˆœÝYÙ\ÈÙˆ[Xˆ™YÜ›ÝÝ[™š[ÛÙÚXØ[[Z]Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÛ™[Ý[žHŽˆÂˆ™š[HŽˆ˜^ÛÝ[™[Ý[žKY^Z[™YÙXœ‹ˆ˜[Žˆ
+ˆ^ÛÝ™[Ý[žHXYÜ˜[HÛÛ\\š[™È™]Z[™Y\˜[˜Z]ÈÚ]‚ˆœØ[[X[™\ˆY][[ÜœÜÚ\È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“™[Ý[žH[ÝÜÈ[ˆ^ÛÝÈ™XXÚÙ^X[X]\š]HÚ[H™]Z[š[™È‚ˆ›\˜[˜Z]ÈÝXÚ\È^\›˜[Ú[ËHš[›™YZ[[™[ˆ\]X]XÈ‚ˆ›Y™\Ý[Kˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝ™[Ý[žHÜ˜\XÈÛÛ\\š[™È]ÈY™[Û™È\˜[™X]\™\È‚ˆÚ]HY][[ÜœXÈ]Ø^HÙˆÝ\ˆØ[[X[™\œËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÝÚ[ZXš]]^ØÚ[Z[ÛÈŽˆÂˆ™š[HŽˆ˜^ÛÝ]Ú[ZXš]]^ØÚ[Z[ÛËÙXœ‹ˆ˜[Žˆ
+ˆ•Ú[]\H^ÛÝ[ˆHØÚ[Z[ÛÈØ[˜[™\ÚYHHY^XÛÈÚ]HX\‚ˆ˜[™Xš]]™X]\™\È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ•Ú[^ÛÝÈ\™H˜]]™HÈHØÚ[Z[ÛÈØ[˜[Þ\Ý[HÛÝ]Ùˆ‚ˆ“Y^XÛÈÚ]KˆÚ[ÝÈ™YÙ]]YØ]\‹Ú[˜[\H[™ØØ\\È[™‚ˆœ™[XZ[š[™È™YYÙ\ÈYš[™H\È™\ÝšXÝYXš]]ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝXš]]Ü˜\XÈÚÝÚ[™ÈØÚ[Z[ÛÉÜÈØØ][Û‹Ø[˜[Ë‚ˆ™YÙ]][Ûˆ[™HÜXÚY\ÉÈ˜\œ›ÝÈ˜]]™H˜[™ÙKˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›YØ[ØØ[Y›Ü›šXHŽˆÂˆ™š[HŽˆ˜^ÛÝ[YØ[XØ[Y›Ü›šXKÙXœ‹ˆ˜[Žˆ
+ˆØ[Y›Ü›šXH^ÛÝÝÛ™\œÚ\Ü˜\XÈÚÝÚ[™È™\ÝšXÝY\ÜXÚY\È‚ˆœ\›Z][\È[™HÑ•È™\šYšXØ][Ûˆ™[Z[™\ˆ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆØ[Y›Ü›šXH™X]È^ÛÝÈ\È™\ÝšXÝYÚ[Y™KˆÑ•ÈÙ\È›Ý‚ˆš\ÜÝYH™\ÝšXÝY\ÜXÚY\È\›Z]È›ÜˆÜ™[˜\žH]ÝÛ™\œÚ\È™\šYžH‚ˆ˜Ý\œ™[Ý]H[™ØØ[[\È™Y›Ü™HXÝ[™Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆØ[Y›Ü›šXH^ÛÝYØ[]H[™›ÙÜ˜\XÈÝ[[X\š^š[™È™\ÝšXÝY‚ˆœÝ]\Ë\›Z][Z]È[™Ý\œ™[\[H™\šYšXØ][Û‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›YØ[ØØ[˜YHŽˆÂˆ™š[HŽˆ˜^ÛÝ[YØ[XØ[˜YKÙXœ‹ˆ˜[Žˆ
+ˆØ[˜YHX\™\ÚYH[ˆ^ÛÝ[™ÝZY[˜ÙH]ÝÛ™\œÚ\[\È‚ˆ˜\žHžH›Ýš[˜ÙH[™ØØ[]H‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ^ÛÝÈ\™HYØ[ÈÝÛˆ[ˆ[ÜÝÙˆØ[˜YK]›Ýš[˜ÚX[‚ˆ›][šXÚ\[[\Ü[™Ü›ÜÜËX›Ü™\ˆ™\]Z\™[Y[ÈØ[ˆY™™\‹ˆÛÛ™š\›H‚ˆHÝ\œ™[[\È›Üˆ[Ý\ˆØØ][Ûˆ[™ÛÝ\˜ÙKˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆØ[˜YH^ÛÝÝÛ™\œÚ\Ü˜\XÈ[\\Ú^š[™È›Ýš[˜ÚX[˜\šX][Û‹‚ˆ˜Ø\]™KXœ™YÛÝ\˜Ú[™È[™ÜÜÚX›H[\Ü™\]Z\™[Y[Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›YØ[Ú]ØZZHŽˆÂˆ™š[HŽˆ˜^ÛÝ[YØ[Z]ØZZKÙXœ‹ˆ˜[Žˆ
+ˆ’]ØZZH^ÛÝ]ÈÜ˜\XÈÚÝÚ[™È›ÚXš]YÝÛ™\œÚ\[™[\Ü‚ˆœ™\ÝšXÝ[ÛœÈ™\ÚYH[ˆ^ÛÝ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ’]ØZZH›ÚXš]ÈÜ™[˜\žHš]˜]HÝÛ™\œÚ\[™[\ÜÙˆ^ÛÝËˆ‚ˆÛÛ™š\›HÝ\œ™[™\]Z\™[Y[ÈÚ]H]ØZZH\\Y[Ùˆ‚ˆYÜšXÝ[\™H™Y›Ü™H[žH[Ý™[Y[ÜˆXÜ]Z\Ú][Û‹ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ’]ØZZH^ÛÝYØ[]H[™›ÙÜ˜\XÈ^Z[š[™ÈÝÛ™\œÚ\[™[\Ü‚ˆœ™\ÝšXÝ[ÛœÈ[™H\œÜÙHÙˆ\Û[™š[ÜÙXÝ\š]Kˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›YØ[ÛXZ[™HŽˆÂˆ™š[HŽˆ˜^ÛÝ[YØ[[XZ[™KÙXœ‹ˆ˜[Žˆ
+ˆ“XZ[™H^ÛÝ]ÈÜ˜\XÈÚÝÚ[™È\›Z]X˜\ÙYÝÛ™\œÚ\[™[\Ü‚ˆœ™\]Z\™[Y[È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“XZ[™H™YÝ[]\È^ÛÝÈ›ÝYÚ\›Z]X˜\ÙYÚ[Y™H[\Ëˆ™\šYžH‚ˆHÝ\œ™[ÜÜÙ\ÜÚ[Ûˆ[™[\Ü™\]Z\™[Y[ÈÚ]XZ[™HQ•È‚ˆ˜™Y›Ü™HXÜ]Z\š[™ÈÜˆ[Ýš[™ÈÛ™Kˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ“XZ[™H^ÛÝYØ[]H[™›ÙÜ˜\XÈÝ[[X\š^š[™È™\ÝšXÝY\ÜXÚY\È‚ˆ˜Ø]YÛÜžKÜÜÙ\ÜÚ[Ûˆ\›Z]È[™[\Ü\›Z]Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›YØ[Û™]ËZ™\œÙ^HŽˆÂˆ™š[HŽˆ˜^ÛÝ[YØ[[™]ËZ™\œÙ^KÙXœ‹ˆ˜[Žˆ
+ˆ“™]È™\œÙ^H^ÛÝ]ÈÜ˜\XÈÚÝÚ[™È›ÚXš]Yš]˜]HÝÛ™\œÚ\‚ˆ˜[™›Û›˜]]™K\ÜXÚY\ÈÛÛ˜Ù\›œÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“™]È™\œÙ^HÙ\È›Ý\›Z]Ü™[˜\žHš]˜]HÝÛ™\œÚ\Ùˆ^ÛÝËˆ‚ˆÛÛ™š\›HÝ\œ™[ÜÜÙ\ÜÚ[Ûˆ[™˜[œÜÜ[\ÈÚ]H™]È™\œÙ^H‚ˆ‘]š\Ú[ÛˆÙˆš\Ú[™Ú[Y™H™Y›Ü™HXÝ[™Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ“™]È™\œÙ^H^ÛÝYØ[]H[™›ÙÜ˜\XÈ^Z[š[™Èš]˜]K[ÝÛ™\œÚ\‚ˆœ™\ÝšXÝ[ÛœËXÛÛÙÚXØ[ÛÛ˜Ù\›œÈ[™Ý\œ™[\[H™\šYšXØ][Û‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›YØ[Û™]Ë[Y^XÛÈŽˆÂˆ™š[HŽˆ˜^ÛÝ[YØ[[™]Ë[Y^XÛËÙXœ‹ˆ˜[Žˆ
+ˆ“™]ÈY^XÛÈ^ÛÝ]ÈÜ˜\XÈÚÝÚ[™È›ÚXš]Yš]˜]HÝÛ™\œÚ\‚ˆ˜[™[\Ü™\ÝšXÝ[ÛœÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“™]ÈY^XÛÈ›ÚXš]ÈÜ™[˜\žHš]˜]HÝÛ™\œÚ\[™[\ÜÙˆ‚ˆ˜^ÛÝËˆ™\šYžHHÝ\œ™[™\]Z\™[Y[ÈÚ]H™]ÈY^XÛÈ‚ˆ‘\\Y[ÙˆØ[YH[™š\Ú™Y›Ü™HXÝ[™Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ“™]ÈY^XÛÈ^ÛÝYØ[]H[™›ÙÜ˜\XÈÝ[[X\š^š[™ÈÜÜÙ\ÜÚ[Ûˆ[™‚ˆš[\Ü™\ÝšXÝ[ÛœÈÚ]HÝ\œ™[\[H™[Z[™\‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ›YØ[Ýš\™Ú[šXHŽˆÂˆ™š[HŽˆ˜^ÛÝ[YØ[]š\™Ú[šXKÙXœ‹ˆ˜[Žˆ
+ˆ•š\™Ú[šXH^ÛÝ]ÈÜ˜\XÈÚÝÚ[™ÈÝÛ™\œÚ\[\Ü[™Ø[H‚ˆ˜[ÝÙYÚ]Ý]HÝ]HÚ[Y™H\›Z]‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ•š\™Ú[šXHÝ\œ™[H[ÝÜÈÜÜÙ\ÜÚ[Û‹[\Ü[™Ø[HÙˆ^ÛÝÈ‚ˆÚ]Ý]HÝ]HÚ[Y™H\›Z]]ØØ[[\ÈØ[ˆÝ[\Kˆ‚ˆ•™\šYžHÝ\œ™[Ý]H[™ØØ[™\]Z\™[Y[Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ•š\™Ú[šXH^ÛÝYØ[]H[™›ÙÜ˜\XÈÝ[[X\š^š[™ÈÝ]H\›Z]‚ˆœÝ]\Ë[ÝÙYXÝ]š]Y\È[™ØØ[\[H™\šYšXØ][Û‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜ÛÜÝX[™X^Z[™ËØ^ÛÝ\šXÙKXžK[[ÜœŽˆÂˆ™š[HŽˆ˜^ÛÝ\šXÙKXžK[[ÜœÙXœ‹ˆ˜[Žˆ
+ˆ”Ú^^ÛÝ[ÜœÈ\Ü^YYÚ]^[\H\˜Ú\ÙK\šXÙH˜[™Ù\È‚ˆ˜[™™[Z[™\œÈ]Ù[\‹YÙK[™XYÙKØØ][Ûˆ[™Ú\[™ÈY™™XÝÛÜÝ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆY™\\ÙY^ÛÝšXÙ\È˜\žHžHÙ[\‹[ÜœYÙK[™XYÙH[™‚ˆ›ØØ][Û‹ˆ™X]\Ü^YY˜[™Ù\È\ÈX\šÙ]^[\\È˜]\ˆ[ˆ‚ˆ™ÝX\˜[YYšXÙ\Ë[™[˜ÛYHÚ\[™ÈÚ[ˆÛÛ\\š[™ÈHÝ[ÛÜÝˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝšXÙKXžK[[ÜœÛÛ\\š\ÛÛˆÜ˜\XÈÚÝÚ[™ÈÛÛ[[Ûˆ[™[˜ÛÛ[[Ûˆ‚ˆ˜\X\˜[˜Ù\ÈÚ]˜\šXX›K\šXÙH[™Ú\[™ËXÛÜÝÝZY[˜ÙKˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜ÛÜÝX[™X^Z[™ËØœ™YY\‹]œË\]\ÝÜ™HŽˆÂˆ™š[HŽˆ˜^ÛÝXœ™YY\‹]œË\]\ÝÜ™KÙXœ‹ˆ˜[Žˆ
+ˆ^ÛÝœ™YY\ˆ[™]\ÝÜ™HÛÛ\\š\ÛÛˆÚ]™YY[™È™XÛÜ™Ë‚ˆØ]\‹\]X[]H]Y\Ý[ÛœÈ[™Üš][‹XÛÜÝÚXÚÜÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ”Ù[\ˆ\H[Û™HÙ\È›Ý›Ý™H]X[]KˆÛÛ\\™HH^XÝ[š[X[‚ˆ™™YY[™È[™]Ú™XÛÜ™ËYX\Ý\™YØ]\ˆÛÛ™][ÛœË[]™\™YÛÜÝ‚ˆ˜[™Üš][ˆ\›\È™Y›Ü™HÚÛÜÚ[™ÈHœ™YY\ˆÜˆ]ÝÜ™Kˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆœ™YY\‹]™\œÝ\Ë\]\ÝÜ™H^ÛÝ^Z[™ÈÜ˜\XÈ›ØÝ\ÙYÛˆ™\šYšXX›H‚ˆœ™XÛÜ™Ë\Ø˜[™žHÛÛ™][ÛœÈ[™˜[œØXÝ[Ûˆ\›\Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜ÛÜÝX[™X^Z[™ËØÚÛÜÚ[™ËXK\™\]X›KXœ™YY\ˆŽˆÂˆ™š[HŽˆ˜ÚÛÜÚ[™ËXK\™\]X›KX^ÛÝXœ™YY\‹ÙXœ‹ˆ˜[Žˆ
+ˆ^ÛÝœ™YY\ˆÚXÚÛ\ÝÚÝÚ[™È]Y[š[X[ÝÜËØ]\ˆ™XÛÜ™Ë‚ˆœ\™[YÙH]Z[È[™Üš][ˆ^Y\ˆ\›\È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆÚÛÜÙHHœ™YY\ˆžHH]šY[˜ÙH^HØ[ˆ›ÝšYKˆ™\]Y\ÝÝ\œ™[‚ˆœÝÜË™YY[™È[™Ø]\ˆ™XÛÜ™Ë]Ú[™\™[YÙH[™›Ü›X][Û‹‚ˆÜš][ˆ\›\È[™H^[Y[Y]ÙÚ]^Y\ˆ›ÝXÝ[Û‹ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ”™\]X›H^ÛÝœ™YY\ˆÚXÚÛ\Ý[\Ý˜][™ÈH™XÛÜ™È[™‚ˆ˜[œØXÝ[ÛˆØY™YÝX\™ÈÈ™\šYžH™Y›Ü™H^[Y[ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜ÛÜÝX[™X^Z[™ËÚÝË]ËXÚÛÜÙKXKZX[KX^ÛÝŽˆÂˆ™š[HŽˆ˜ÚÛÜÚ[™ËXKZX[KX^ÛÝÙXœ‹ˆ˜[Žˆ
+ˆ‘ÛÛ[ˆ[š[›È^ÛÝÚ]^Z[™ÈÚXÚÜÈ›Üˆ›ÙHÛÛ™][Û‹[XÝ‚ˆœÚÚ[ˆ[™Ú[Ë[Ý™[Y[™YY[™È\ÝÜžH[™Ø]\ˆ™XY[™ÜÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ™Y›Ü™H^Z[™ËØœÙ\™H›ÙHÛÛ™][Û‹ÚÚ[ˆ[™Ú[[YÜš]K‚ˆ˜˜[[˜ÙY[Ý™[Y[™XÙ[™YY[™È\ÝÜžH[™YX\Ý\™YØ]\ˆ]X[]Kˆ‚ˆHÝÙÜ˜\Ø[ˆ™]™X[Ø\›š[™ÈÚYÛœÈ]Ø[››ÝXYÛ›ÜÙH[ˆ^ÛÝˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ’X[KX^ÛÝ^Z[™ÈÜ˜\XÈÚÝÚ[™ÈØœÙ\˜X›HÛÛ™][ÛˆÚXÚÜÈ[™‚ˆH™XÛÜ™ÈH›ÜÜXÝ]™HÝÛ™\ˆÚÝ[™\]Y\Ýˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜ÛÜÝX[™X^Z[™ËÜ™YY›YÜË]Ú[‹X^Z[™ÈŽˆÂˆ™š[HŽˆ˜^ÛÝ\Ù[\‹\™YY›YÜËÙXœ‹ˆ˜[Žˆ
+ˆ‘\šÈ^ÛÝ™\ÚYHÙ[\ˆ™Y›YÜÈ[˜ÛY[™È[™\šYšXX›H[š[X[Ë‚ˆ[œØY™H^[Y[™\]Y\ÝË˜YÝYHØ\™H[™›Ü›X][Ûˆ[™Ú[™ÙY\›\È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ”]\ÙHH\˜Ú\ÙHÚ[ˆHÙ[\ˆØ[››Ý™\šYžHH^XÝ[š[X[‚ˆ™^Z[ˆ]ÈÝ\œ™[Ø\™HÜˆ›ÝšYHÛÛœÚ\Ý[Üš][ˆ\›\Ëˆ]›ÚY‚ˆœ^[Y[Y]ÙÈ]™[[Ý™HÜ™[˜\žH^Y\ˆ›ÝXÝ[Û‹ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝÙ[\‹\™YY›YÜÈÜ˜\XÈÛÝ™\š[™ÈY[]K\Ø˜[™žK^[Y[‚ˆ˜[™Ú\[™ÈØ\›š[™ÈÚYÛœËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ˜ÛÜÝX[™X^Z[™ËÜÚ\[™Ë[]™KX^ÛÝÈŽˆÂˆ™š[HŽˆœÚ\[™Ë[]™KX^ÛÝËÙXœ‹ˆ˜[Žˆ
+ˆ^ÛÝÚ\[™ÈÙ\]Y[˜ÙHÚ][œÝ[]YXÚØYÚ[™Ë[]™\žH˜XÚÚ[™Ë‚ˆ[˜›Þ[™ÈØÝ[Y[][Ûˆ[™˜[œÙ™\ˆÈH™\\™YÞXÛY\]X\š][H‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ™Y›Ü™H^[Y[™\šYžHHØ\œšY\‰ÜÈÝ\œ™[]™KX[š[X[ÛXÞK›Ý]H‚ˆ›YØ[]H[™ÝZ]X›HÙX]\‹ˆ\œ˜[™ÙH›Û\[]™\žKØÝ[Y[H‚ˆ[˜›Þ[™Ë[™™\\™HHÞXÛY\Ý[˜][Ûˆ™Y›Ü™HH[š[X[\œš]™\Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ“]™KX^ÛÝÚ\[™ÈÜ˜\XÈÚÝÚ[™È[œÝ[]YXÚÚ[™Ë˜XÚÚ[™Ë‚ˆ˜\œš]˜[ØÝ[Y[][Ûˆ[™˜[œÙ™\ˆ™\\˜][Û‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ™ÚYËX[™[Y\˜ÚØ™\ÝX^ÛÝ]Þ\ËX[™\\ÚY\ÈŽˆÂˆ™š[HŽˆ˜™\ÝX^ÛÝ]Þ\ËX[™\\ÚY\ËÙXœ‹ˆ˜[Žˆ
+ˆ^ÛÝ\ÚÞ\È[™XÝ]š]HÞ\È\œ˜[™ÙY\ÈÚYYX\ÈžHYÙK‚ˆœ^HÝ[H[™YÙ]‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“X]Ú[ˆ^ÛÝÞHÈH™XÚ\Y[	ÜÈYÙH[™[[™Y\ÙK[ˆ‚ˆ˜ÚXÚÈHÝ\œ™[›ÙXÝX™[›ÜˆYÙHÝZY[˜ÙKˆšXÙ\È[™ÝØÚÈ‚ˆ˜\žHžH™]Z[\‹Ú^™H[™\ÚYÛ‹ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝÞKX[™\\ÚÚYÝZYHÚÝÚ[™ÈÝYK™]™\œÚX›K‚ˆš[\˜XÝ]™H[™šYÙ]\Ý[HÜ[ÛœËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ™ÚYËX[™[Y\˜ÚØ^ÛÝ\Ü]Z\ÚX[ÝËYÝZYHŽˆÂˆ™š[HŽˆ˜^ÛÝ\Ü]Z\ÚX[ÝËYÝZYKÙXœ‹ˆ˜[Žˆ
+ˆ\˜ÚYK\Ý[H^ÛÝ\ÚÛÛXÝ[Ûˆ˜[™Ú[™Èœ›ÛHHÛX[Û\È‚ˆ˜HZ[˜Ú[X›ÈÚ^™H‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ^ÛÝÜ]Z\ÚX[ÝÜÈ\™HÛÛ[ˆ][\HÚ^™\ËÚ]Z[˜Ú[™‚ˆŒL‹Z[˜Ú™\œÚ[ÛœÈ[[Û™ÈHÛÛ[[ÛˆÚY›Ü›X]ËˆÚ\˜XÝ\ˆÙ[XÝ[Û‹‚ˆœÚ^™\Ë™]Z[šXÙ\È[™]˜Z[Xš[]HÚ[™ÙH™]ÙY[ˆÙ[\œËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝÜ]Z\ÚX[ÝÈÚ^™HÝZYHÛÛ\\š[™ÈÛ\KZ[˜ÚZ[˜Ú‚ˆŒL‹Z[˜Ú[™[X›È\Ú›Ü›X]ÈÚ]^Z[™È›Ý\Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ™ÚYËX[™[Y\˜ÚØZ[XKX™X\‹X^ÛÝYÝZYHŽˆÂˆ™š[HŽˆ˜Z[XKX™X\‹X^ÛÝYÝZYKÙXœ‹ˆ˜[Žˆ
+ˆZ[PKP™X\ˆ^ÛÝ\Ú™\ÚYHÛÝ[™ËØÙ[ÛÝ[™[™ÚY]YÈ‚ˆ˜Ý\ÝÛZ^˜][ÛˆÜ[ÛœÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆZ[PKP™X\ˆ\ÝÈHÝ[™\™[šÈ^ÛÝÙ\\˜][Hœ›ÛHÜ[Û˜[‚ˆ˜ÛÝ[™ËÛÝ[™ËØÙ[È[™ÚYÙ]ËˆšXÙ\ËÛÛÜœËÙX\ÛÛ˜[[Ù[È‚ˆ˜[™]˜Z[Xš[]HØ[ˆÚ[™ÙKÛÈ™\šYžHHÝ\œ™[Ù™šXÚX[\Ý[™Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆZ[PKP™X\ˆ^ÛÝ^Z[™ÈÜ˜\XÈÚÝÚ[™ÈH˜\ÙH\Ú[™ÛÛ[[Ûˆ‚ˆ˜Ý\ÝÛZ^˜][ÛˆÚÚXÙ\ÈÚ]˜\šXX›K\šXÙHÝZY[˜ÙKˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ™ÚYËX[™[Y\˜ÚØ™\ÝX^ÛÝ[YÛË\Ù]ÈŽˆÂˆ™š[HŽˆ›YÛËX^ÛÝZÝ\ÙK\Ù]LŒLËÙXœ‹ˆ˜[Žˆ
+ˆ“QÓÈZ[™XÜ˜Y^ÛÝÝ\ÙHÙ]ŒLÈÚ][ˆ^ÛÝ\Ú\YÝ\ÙK‚ˆ[™\Ø]\ˆØÙ[™\žH[™Ù]ÜXÚYšXØ][ÛœÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“QÓÈZ[™XÜ˜YH^ÛÝÝ\ÙH\ÈÙ]ŒLË˜]Y›ÜˆYÙ\ÈÈ[™‚ˆ\Ú]ˆYXÙ\È[™HŒŒÈ™[X\ÙHYX\‹ˆ]\È\ØÛÛ[YY[ˆ‚ˆœÛÛYHX\šÙ]ËÛÈÝ\œ™[]˜Z[Xš[]H[™™\Ø[HšXÙ\È˜\žKˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ“QÓÈ^ÛÝÝ\ÙHÙ]ÝZYHÚÝÚ[™ÈHZ[™XÜ˜Y[Ù[Ù][X™\‹‚ˆœYXÙHÛÝ[YÙH˜][™È[™™[X\ÙH[™›Ü›X][Û‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ[šË\Ù]\Ø\]X\š][KXÚ[\œÈŽˆÂˆ™š[HŽˆ˜^ÛÝX\]X\š][KXÚ[\œËÙXœ‹ˆ˜[Žˆ
+ˆ‘ÛÛ[ˆ[š[›È^ÛÝ[šÈÛÛ›™XÝYÈHÛÛ\™\ÜÛÜˆ\]X\š][H‚ˆ˜Ú[\ˆÚ]HYÚ][\›[ÛY]\ˆ[™Ø]\‹Y›ÝÈXYÜ˜[H‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆHÛÛ\™\ÜÛÜˆÚ[\ˆØ[ˆÝXš[^™H[ˆ^ÛÝ[šÈ›ÝYÚØ\›H‚ˆÙX]\‹ˆX]ÚH[š]ÈH[šÈ›Û[YH[™™\]Z\™Y›ÝÈ˜]K‚ˆ[ˆ™\šYžHHØ]\ˆ[\\˜]\™HÚ]HÙ\\˜]H\›[ÛY]\‹ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ‘YXØ][Û˜[\]X\š][KXÚ[\ˆÜ˜\XÈÚÝÚ[™ÈHÛÛ[ˆ[š[›È‚ˆ˜^ÛÝÛÛ\™\ÜÛÜˆ[š]Ú\˜Ý[][ÛˆÛÜ[™[\\˜]\™HÚXÚÜËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ[šË\Ù]\ÝØ]\‹XÚ[™ÙKYÝZYHŽˆÂˆ™š[HŽˆ˜^ÛÝ]Ø]\‹XÚ[™ÙKYÝZYKÙXœ‹ˆ˜[Žˆ
+ˆ‘ÛÛ[ˆ[š[›È^ÛÝ™\ÚYHHÚ\Û‹™\XÙ[Y[]Ø]\ˆXˆ[™‚ˆ™š]™K\Ý\\]X\š][HØ]\‹XÚ[™ÙHÝZYH‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ‘›Üˆ›Ý][™HXZ[[˜[˜ÙK\ÝHØ]\‹Ú\ÛˆØ\ÝKÛÛ™][Ûˆ‚ˆ˜[™[\\˜]\™K[X]ÚH™\XÙ[Y[Ø]\‹[ˆ™Yš[ÛÝÛKˆ‚ˆ[[[ÛšXHÜˆš]š]HÜZÙ\ÈX^H™\]Z\™H\™Ù\ˆÜˆ™\X]YÚ[™Ù\Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ”Ý\XžK\Ý\^ÛÝØ]\‹XÚ[™ÙHÜ˜\XÈÚÝÚ[™È™\\˜][Û‹‚ˆœÚ\Ûš[™Ë›Ý][™H[[Ý[Ë[\\˜]\™HX]Ú[™È[™ÛÝÈ™Yš[[™Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ[šË\Ù]\ÝØ]\‹XÛÛ™][Û™\œÈŽˆÂˆ™š[HŽˆ˜^ÛÝ]Ø]\‹XÛÛ™][Û™\œËÙXœ‹ˆ˜[Žˆ
+ˆ“]XÚ\ÝXÈ^ÛÝ™\ÚYH[ˆ[˜œ˜[™YØ]\ˆÛÛ™][Û™\ˆÚ]‚ˆ˜ÚÜš[™KÚÜ˜[Z[™K[[[ÛšXH[™š]š]H™X]Y[Ø[Ý]È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ•™X]™]È\Ø]\ˆ]H›ÙXÝ	ÜÈX™[ÜÙHÈ™]]˜[^™H‚ˆ˜ÚÜš[™H[™ÚÜ˜[Z[™KˆÛÛYHÛÛ™][Û™\œÈ[\Ü˜\š[H]ÞYžH‚ˆ˜[[[ÛšXHÜˆš]š]K]^HÈ›Ý™\XÙHHÞXÛYš[Ùš[\‹ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝØ]\‹XÛÛ™][Û™\ˆÜ˜\XÈ^Z[š[™È\]Ø]\ˆ™X]Y[‚ˆ˜[™[™Ü™YY[ÚXÚÜÈ›ÜˆÚÜš[™KÚÜ˜[Z[™H[™X]žHY][Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ[šË\Ù]\Ý[šË\Ú^™KXžKXYÙHŽˆÂˆ™š[HŽˆ˜^ÛÝ][šË\Ú^™KXžKXYÙKÙXœ‹ˆ˜[Žˆ
+ˆ•Ú[]\H^ÛÝ™\ÚYH[šË\Ú^™HÝZY[˜ÙH›Üˆ˜XžK]™[š[K‚ˆ˜Y[[™Z\™Y^ÛÝÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ•[šÈ›Û[YHÚÝ[[˜Ü™X\ÙH\È[ˆ^ÛÝÜ›ÝÜÎˆKLLØ[ÛœÈ›Üˆ‚ˆ˜HÛX[Ü›ÝË[Ý]Ù]\ŒØ[ÛœÈ›ÜˆH]™[š[KŒMØ[ÛœÈ‚ˆ™›ÜˆÛ™HY[[™]X\ÝHYØ[Ûˆœ™YY\ˆ›ÜˆHZ\‹ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ“Y™K\ÝYÙH[šË\Ú^™HÛÛ\\š\ÛÛˆ›Üˆ˜XžK]™[š[H[™Y[‚ˆ˜^ÛÝË[\\Ú^š[™ÈÛ™È[šÜÈ[™\ØX›H›ÛÜˆÜXÙKˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ[šË\Ù]\Ý[šË[X]\ÈŽˆÂˆ™š[HŽˆ˜^ÛÝ][šË[X]\ËÙXœ‹ˆ˜[Žˆ
+ˆ“Y[[›ÚY[™]XÚ\ÝXÈ^ÛÝÈÙÙ]\ˆÚ][šË[X]HØY™]H‚ˆ››Ý\ÈX›Ý]š\ÚÚš[\Û˜Z[È[™Y[[šÈÚ^™H‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ^ÛÝÈ\™HØY™\Ý[Û™HÜˆÚ]HÚ[Z[\›HÚ^™Y^ÛÝ[ˆ‚ˆ˜Y\]X]HÜXÙKˆš\ÚX^Hš\^ÜÙYÚ[ËÚ[HÚš[\[™‚ˆœÛ˜Z[ÈX^H™HÝØ[ÝÙYˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ•[šË[X]Hš\ÚÈÜ˜\XÈÛÛ\\š[™ÈØ[YK\Ú^™H^ÛÝÈÚ]š\Ú‚ˆœÚš[\[™Û˜Z[È[ˆH[Y\]X\š][Kˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ[šË\Ù]\ØXØÛ[X][™ËXK[™]ËX^ÛÝŽˆÂˆ™š[HŽˆ˜XØÛ[X][™ËXK[™]ËX^ÛÝÙXœ‹ˆ˜[Žˆ
+ˆ“]XÚ\ÝXÈ^ÛÝ[ˆH[H\]X\š][H™\ÚYHXØÛ[X][ÛˆÝ\È›Üˆ‚ˆ[\\˜]\™HX]Ú[™È[™˜[œÙ™\ˆÚ]Ý]˜[œÜÜØ]\ˆ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ‘›ÜˆHØØ[XÚÝ\[HHYÚËX]ÚH[\\˜]\™H[™Y‚ˆ[šÈØ]\ˆÜ˜YX[H™Y›Ü™H˜[œÙ™\œš[™ÈH^ÛÝÚ]Ý]H‚ˆ˜[œÜÜØ]\‹ˆÝ™\›šYÚÚ\[™È™\]Z\™\ÈH˜\Ý\ˆY]Ùˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ”Ý\XžK\Ý\XØÛ[X][ÛˆÜ˜\XÈÚÝÚ[™ÈH›Ø][™È˜YË[YY‚ˆØ]\ˆY][ÛœÈ[™˜[œÙ™\ˆ[ÈH™\\™Y^ÛÝ[šËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆ[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™ÈŽˆÂˆ™š[HŽˆ˜^ÛÝ]Ø]\‹\\˜[Y]\œË[š]›ÙÙ[‹XÞXÛKÙXœ‹ˆ˜[Žˆ
+ˆ“]XÚ\ÝXÈ^ÛÝ™\ÚYH\]X\š][H\ÝX™\È[™\™Ù]™XY[™ÜÈ‚ˆ™›Üˆ[[[ÛšXKš]š]Kš]˜]K[™[\\˜]\™H‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆHÞXÛY^ÛÝ[šÈÚÝ[\Ý]H[[[ÛšXH[™H‚ˆ›š]š]Kˆ˜XÚÈš]˜]K[™[\\˜]\™H\È™[™È™XØ]\ÙHH‚ˆœÚ[™ÛH\ÝÙ\È›ÝÚÝÈÚ]\ˆÛÛ™][ÛœÈ\™HÝX›Kˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝØ]\‹\\˜[Y]\ˆÜ˜\XÈÚ]\]ZY\ÝX™\È[™\™Ù]‚ˆœ™XY[™ÜÈ›Üˆ[Ûš]Üš[™ÈH\]X\š][Hš]›ÙÙ[ˆÞXÛKˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[Ø›XÚË]XKX˜]ŽˆÂˆ™š[HŽˆ˜^ÛÝX›XÚË]XKX˜]ÙXœ‹ˆ˜[Žˆ
+ˆ“]XÚ\ÝXÈ^ÛÝ[ˆHÚ[ÝÈ›XÚÈXH˜]™\ÚYHH[Y\‹\™H‚ˆXH˜YÈ[™\›[ÛY]\ˆ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ‘›ÜˆZ[\œš]][ÛˆÜˆX\›HÝ\™˜XÙH[™Ý\ËHÚÜL8 $ÌMK[Z[]H‚ˆ˜˜]XYHÚ]ÛÛÛY\™H›XÚÈXHX^H›ÝšYHÝ\Ü]™HØ\™NÈ‚ˆœÝÜYˆH^ÛÝÚÝÜÈ\Ý™\ÜÈ[™ÙYZÈ™]\š[˜\žH[›Üˆ‚ˆœ\œÚ\Ý[ÜˆÜ™XY[™È\ÙX\ÙKˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝ›XÚË]XKX˜]ÝZYHÚÝÚ[™ÈHÚ[ÝÈ™X]Y[X‹[Y\‹‚ˆ\›[ÛY]\ˆ[™\™H›XÚÈXKˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[Ü\˜\Ú]K]™X]Y[ŽˆÂˆ™š[HŽˆ˜^ÛÝ\\˜\Ú]K]™X]Y[ÙXœ‹ˆ˜[Žˆ
+ˆ•Ú[]\H^ÛÝ[ˆHÜÜ][XˆÚ]HXYÛšYšYY\˜\Ú]H[™‚ˆœ]X\˜[[™HÚYÛˆ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ”ÜÜÚX›H\˜\Ú]\È™\]Z\™HØ]\‹\]X[]HÚXÚÜË\ÛÛ][Ûˆ[ˆH‚ˆ˜ÛX[ˆÜÜ][Xˆ[™ÛÛ™š\›X][ÛˆžH[ˆ^\šY[˜ÙY^ÝXÈ‚ˆ™]\š[˜\šX[ˆ™Y›Ü™H™X]Y[ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝ\˜\Ú]K]™X]Y[Ü˜\XÈÚÝÚ[™È]X\˜[[™KØ]\ˆÚXÚÜÈ‚ˆ˜[™™]\š[˜\žHÛÛ™š\›X][Û‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[ÛX[]š][Û‹\ÚYÛœÈŽˆÂˆ™š[HŽˆ˜^ÛÝ[X[]š][Û‹\ÚYÛœËÙXœ‹ˆ˜[Žˆ
+ˆ‘ÛÛ[ˆ[š[›È^ÛÝ™\ÚYHX[H[™[™\ÙZYÚ›ÙKXÛÛ™][Ûˆ‚ˆ˜ÛÛ\\š\ÛÛœÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ‘]˜[X]H›ÙHÛÛ™][Ûˆœ›ÛHX›Ý™NˆH\œÚ\Ý[H˜\œ›ÝÈX™ÛY[‹‚ˆœ™YXÙYZ[X\ÜËÛÜˆÜ›ÝÝÜˆÝÈ[™\™ÞHØ[ˆ[™XØ]H‚ˆ[™\›]š][Û‹]Ø]\ˆ]X[]H[™\ÙX\ÙHÚÝ[[ÛÈ™H‚ˆš[™\ÝYØ]Yˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝX[]š][Û‹\ÚYÛœÈÜ˜\XÈÛÛ\\š[™ÈX[H[™[™\ÙZYÚ‚ˆ˜›ÙHÛÛ™][Û‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[ÝÚKX^ÛÝY›Ø][™ÈŽˆÂˆ™š[HŽˆÚKX^ÛÝY›Ø][™ËÙXœ‹ˆ˜[Žˆ
+ˆ‘\šÈ^ÛÝ›Ø][™È™X\ˆH\]X\š][HÝ\™˜XÙH™\ÚYHÛÛ[[Û‹XØ]\ÙH‚ˆ˜[™š\œÝXÚXÚÈÝZY[˜ÙH‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ‘›Ø][™È\ÈHÞ[\ÛH˜]\ˆ[ˆHXYÛ›ÜÚ\ËˆÚXÚÈØ]\ˆ\˜[Y]\œÈ‚ˆ˜[™[\\˜]\™Hš\œÝÈÝØ[ÝÙYZ\‹ÛÛœÝ\][Û‹[\XÝ[Ûˆ[™‚ˆš[™\ÜÈ\™HÜÜÚX›HØ]\Ù\Ë\ÜXÚX[HÚ[ˆ›Ø][™È\œÚ\ÝÈÜˆ‚ˆÛÜœÙ[œËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝ›Ø][™ÈÝZYHÚÝÚ[™ÈH\šÈ^ÛÝ™X\ˆHÝ\™˜XÙH[™‚ˆHš\œÝÚXÚÜÈÝÛ™\œÈÚÝ[XZÙKˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[ÙœšYÚ[™Ë\ÚXÚËX^ÛÝŽˆÂˆ™š[HŽˆ™œšYÚ[™Ë\ÚXÚËX^ÛÝ\š\ÚÜËÙXœ‹ˆ˜[Žˆ
+ˆ“]XÚ\ÝXÈ^ÛÝ[ˆHX™[YÜÜ][Xˆ™\ÚYHH™YœšYÙ\˜]Üˆ‚ˆ˜[™\›[ÛY]\ˆ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ‘œšYÚ[™È\È›Ý›Ý][™HÛYH™X]Y[ˆÝ\ÙZÛ™YœšYÙ\˜]ÜœÈ‚ˆ˜Ü™X]H[\\˜]\™H[™Ø]\‹\]X[]Hš\ÚÜËÛÈÛÛ›ÛYÛÛÛ[™È‚ˆœÚÝ[™H\ÙYÛ›HÚ[ˆ[ˆ^\šY[˜ÙY^ÝXÈ™]\š[˜\šX[ˆ‚ˆœ™XÛÛ[Y[™È]ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝœšYÚ[™Ë\š\ÚÈÜ˜\XÈÚÝÚ[™ÈHÜÜ][X‹™YœšYÙ\˜]Ü‹‚ˆ\›[ÛY]\œÈ[™™]\š[˜\žKYÝZY[˜ÙHØ\›š[™Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[Ü™Y\Ú[™Ë]ËYX]ŽˆÂˆ™š[HŽˆ˜^ÛÝ[›ÝYX][™ËYš\œÝXÚXÚÜËÙXœ‹ˆ˜[Žˆ
+ˆ‘\šÈY[[›ÚY^ÛÝ\›š[™È]Ø^Hœ›ÛH[ˆÙ™™\™YX\ÛÜ›H™\ÚYH‚ˆ™š\œÝÚXÚÜÈ›Üˆ\]]HÜÜÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ•[™^XÝY\]]HÜÜÈ\ÈHÞ[\ÛK›ÝHXYÛ›ÜÚ\Ëˆ™XÛÜ™Ø]\ˆ‚ˆ˜[Y\Ë[\\˜]\™K›ÛÙÝÛÛ[™›ÙHÛÛ™][ÛŽÈÙYZÈ›Û\‚ˆ™]\š[˜\žHØ\™H›ÜˆÝÙ[[™Ëœ™X][™ÈY™šXÝ[HÜˆ˜\YXÛ[™Kˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝ[›ÝYX][™ÈÝZYHÚÝÚ[™ÈHY[[›ÚY^ÛÝ™Y\Ú[™ÈHÛÜ›H‚ˆ˜[™Hš\œÝ\Ø˜[™žH[™X[ÚXÚÜÈÈXZÙKˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXHŽˆÂˆ™š[HŽˆ˜^ÛÝY[™Ø[Z[™™XÝ[Û‹\ÚYÛœËÙXœ‹ˆ˜[Žˆ
+ˆÛÜ\ˆ^ÛÝÚ]HÛX[ÛÝÛ‹[ZÙHÚ]HYÛˆ]ÈZ[ÚÝÛˆ‚ˆš[ˆHXYÛšYšYY[œÙ]‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆÛÝÛ‹[ZÙHÚ]HÜˆÜ˜^HYÈØ[ˆ[™XØ]H[™Ø[Ü›ÝÝˆ\ÛÛ]H‚ˆH^ÛÝ[ˆÛX[‹ÛÛÛÜÜ][Ø]\‹\Ý[[[ÛšXKš]š]H[™‚ˆ[\\˜]\™K[™ÙYZÈ[ˆ^ÝXÈ™]\š[˜\šX[ˆYˆÜ›ÝÝÜ™XYÈÜˆ‚ˆHÚ[È\™HY™™XÝYˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ^ÛÝ[™Ø[Z[™™XÝ[ÛˆÝZYHÚÝÚ[™ÈHØØ[^™YÛÝÛ‹[ZÙHZ[‚ˆYXYÛšYšYY^\™H[™ØY™Hš\œÝ\™\ÜÛœÙHÝZY[˜ÙKˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÜšYÚ[˜[Ü˜\XÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[ØÝ\›YYÚ[Ë\Ý™\ÜË\ÚYÛ˜[ŽˆÂˆ™š[HŽˆ˜^ÛÝXÝ\›YYÚ[Ë\ÜÝ\™KXÛÛ\\š\ÛÛ‹ÙXœ‹ˆ˜[Žˆ
+ˆ•ÛÈ^ÛÝÈÛÛ\\š[™È™[^Y[™Ý\›YÚ[[™Z[ÜÝ\™H‚ˆ˜™\ÚYHØ]\ˆ[™[\\˜]\™Hš\œÝXÚXÚÈÝZY[˜ÙH‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆÛÛ\\™HÚ[[™Z[ÜÝ\™HÚ]H^ÛÝ	ÜÈ›Ü›X[˜\Ù[[™Kˆ‚ˆH›ÜØ\™Ý\›Ø[ˆØØÝ\ˆÚ]Ý™\ÜËÛÈ\ÝØ]\ˆ\˜[Y]\œÈ[™‚ˆ[\\˜]\™H™Y›Ü™H˜]Ú[™ÈÛÛ˜Û\Ú[ÛœËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ•Ú[]\H[™]XÚ\ÝXÈ^ÛÝÈ[[ÛœÝ˜]H™[^Y[™Ý\›Y‚ˆœÜÝ\™HÚ]HØ]\‹X[™][\\˜]\™Hš\œÝXÚXÚÈ™[Z[™\‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÈ[ÜœÛÙÞH™Y™\™[˜Ù\ÈÛÝ\˜ÙYœ›ÛHÚZÚ[YYXHÛÛ[[ÛœÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[ÛZ[›Ü‹\ØÜ˜\\ËX[™]ÛÝ[™ÈŽˆÂˆ™š[HŽˆ˜^ÛÝ[Z[›Ü‹]ÛÝ[™Ë][šË\ØY™]KXÚXÚËÙXœ‹ˆ˜[Žˆ
+ˆ•ÜYÝÛˆ^ÛÝ[šÈØY™]H[œÜXÝ[ÛˆÚÝÚ[™ÈÛ[ÛÝXÛÜ‹H‚ˆ˜ÛÝ™\™Yš[\ˆ[ZÙH[™Ø\›š[™ÈÚYÛœÈY\ˆHØÜ˜\H‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆÚXÚÈ[šÈXÛÜˆ[™š[\ˆ[ZÙ\ÈY\ˆHØÜ˜\KˆÜ™XY[™È‚ˆœ™Y™\ÜËÝÙ[[™Ë\œÚ\Ý[›YY[™ËÜˆ˜\Y]\š[Ü˜][Ûˆ‚ˆ›™YYÈ™]\š[˜\žH\ÜÙ\ÜÛY[ˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ•ÜYÝÛˆ\]X\š][H[œÜXÝ[ÛˆÚÝÚ[™ÈÛÈ^ÛÝ[ÜœËÛ[ÛÝ‚ˆ™XÛÜ‹HÛÝ™\™Y[ZÙH[™ÛÝ[™Y\ØØ[][ÛˆØ\›š[™ÈÚYÛœËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÈ[ÜœÛÙÞH™Y™\™[˜Ù\ÈÛÝ\˜ÙYœ›ÛHÚZÚ[YYXHÛÛ[[ÛœÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[ÜÚš[šÚ[™ËYÚ[ÈŽˆÂˆ™š[HŽˆ˜^ÛÝ\Úš[šÚ[™ËYÚ[Ë\ÝËXÛÛ\\š\ÛÛ‹ÙXœ‹ˆ˜[Žˆ
+ˆ˜\Ù[[™K]\ˆ[™Ý\œ™[ÝÜÈÛÛ\\š[™ÈÚ[[™\ÜÈ[ˆ‚ˆ›]XÚ\ÝXÈ[™^[XÈ^ÛÝÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ•\ÙH™\X]ÝÜÈœ›ÛHHØ[YH[™ÛHÈ˜XÚÈÚ[Ú[™Ù\Ëˆ\Ý‚ˆ˜[[[ÛšXKš]š]K[™[\\˜]\™H™XØ]\ÙH\X\˜[˜ÙH[Û™HÙ\È‚ˆ››ÝY[YžHHØ]\ÙKˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ”ÝË\™XÛÜ™ÛÛ\\š\ÛÛˆ›Üˆ˜XÚÚ[™È^ÛÝÚ[Ú[™Ù\ÈYØZ[œÝ‚ˆH[š[X[	ÜÈÝÛˆ˜\Ù[[™H[œÝXYÙˆXYÛ›ÜÚ[™Èœ›ÛHÛ™H[XYÙKˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÈ[ÜœÛÙÞH™Y™\™[˜Ù\ÈÛÝ\˜ÙYœ›ÛHÚZÚ[YYXHÛÛ[[ÛœÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[Û[X‹\™YÙ[™\˜][ÛˆŽˆÂˆ™š[HŽˆ˜^ÛÝ[[X‹\™YÙ[™\˜][Û‹\ÝYÙ\ËÙXœ‹ˆ˜[Žˆ
+ˆÛÜ\ˆ^ÛÝ[™›Ý\‹\[™[[Xˆ™YÙ[™\˜][ÛˆÙ\]Y[˜ÙHœ›ÛH‚ˆÛÝ[™\Y\›Z\È›ÝYÚ›\Ý[XH[™]\›™YÝ]Ü›ÝÝ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ^ÛÝ[Xˆ™YÙ[™\˜][Ûˆ›ÙÜ™\ÜÙ\È›ÝYÚÛÝ[™\Y\›Z\Ë‚ˆ˜›\Ý[XH›Ü›X][Û‹[™]\›™YÝ]Ü›ÝÝˆX[[™ÈÜYY˜\šY\È‚ˆÚ]H[š\žH[™\Ø˜[™žHÛÛ™][ÛœËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ”ØÚY[YšXÈ›Ý\‹\[™[Ù\]Y[˜ÙH^Z[š[™ÈHÛÝ[™\Y\›Z\Ë‚ˆ˜›\Ý[XH[™]\›™Y[Ý]Ü›ÝÝÝYÙ\ÈÙˆ^ÛÝ[Xˆ™YÙ[™\˜][Û‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÈ[ÜœÛÙÞH™Y™\™[˜Ù\ÈÛÝ\˜ÙYœ›ÛHÚZÚ[YYXHÛÛ[[ÛœÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[ÜØ[X˜]ŽˆÂˆ™š[HŽˆ˜^ÛÝ\Ø[X˜]]™]\š[˜\žK\ØY™]KÙXœ‹ˆ˜[Žˆ
+ˆ^ÛÝØ[˜]ØY™]HÚXÚÛ\ÝÚÝÚ[™ÈH™X]Y[ÛÛZ[™\‹‚ˆœØ[[Y\ˆ[™\›[ÛY]\ˆ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ”Ø[˜]ÈÚÝ[™H™]\š[˜\šX[‹Y\™XÝYˆHXYÛ›ÜÚ\Ë‚ˆ˜ÛÛ˜Ù[˜][Û‹^ÜÝ\™H[YK[™ØœÙ\˜][Ûˆ[ˆ]\›Z[™H‚ˆÚ]\ˆ^H\™H\›ÜšX]Kˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ•™]\š[˜\žK\ØY™]HÚXÚÛ\Ý›Üˆ^ÛÝØ[˜]ÈÚ]™X]Y[‚ˆ™\]Z\Y[[™XYÛ›ÜÚ\ËÛÛ˜Ù[˜][Ûˆ[™ØœÙ\˜][ÛˆØ]\Ëˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÈ[ÜœÛÙÞH™Y™\™[˜ÙHÛÝ\˜ÙYœ›ÛHÚZÚ[YYXHÛÛ[[ÛœÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[Ú[\XÝ[Û‹\Þ[\Û\Ë]™X]Y[ŽˆÂˆ™š[HŽˆ˜^ÛÝZ[\XÝ[Û‹\ÝXœÝ˜]K\š\ÚË\ÚYÛœËÙXœ‹ˆ˜[Žˆ
+ˆ‘\šÈ[™ÛÛ[ˆ[š[›È^ÛÝÈÛˆš[™HØ[™™\ÚYHHÝØ[ÝØX›H‚ˆ™Ü˜]™[Ø\›š[™È[™›ÛœÜXÚYšXÈ[\XÝ[ÛˆÚYÛœÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“ÜÜÈÙˆ\]]H[™ÝÙ[[™È\™H›ÛœÜXÚYšXÈÚYÛœËˆ™[[Ý™H‚ˆœÝØ[ÝØX›HÜ˜]™[[™ÙYZÈ™]\š[˜\žH\ÜÙ\ÜÛY[›Üˆ\œÚ\Ý[‚ˆ›ÜˆÛÜœÙ[š[™ÈÞ[\Û\Ëˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ\]X\š][HÝXœÝ˜]HÛÛ\\š\ÛÛˆÚÝÚ[™Èš[™HØ[™ÝØ[ÝØX›H‚ˆ™Ü˜]™[š\ÚÈ[™H[Z]ÈÙˆXYÛ›ÜÚ[™È[\XÝ[Ûˆœ›ÛH\X\˜[˜ÙKˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÈ[ÜœÛÙÞH™Y™\™[˜Ù\ÈÛÝ\˜ÙYœ›ÛHÚZÚ[YYXHÛÛ[[ÛœÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[Ü™Y[YË\Þ[™›ÛYHŽˆÂˆ™š[HŽˆ˜^ÛÝ\™Y[YË\Þ[\Û\Ë]™]]šXYÙKÙXœ‹ˆ˜[Žˆ
+ˆ•Ú[]\K]XÚ\ÝXÈ[™ÛÜ\ˆ^ÛÝÈ™\ÚYHHYÈ[™™[H‚ˆ›ØœÙ\˜][ÛˆX\›Üˆ˜\Y™Y™\ÜÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ”ÚÚ[ˆÛÛÜˆ˜\šY\ÈžH[Üœˆ˜\Y™]È™Y™\ÜÈÚ]]\™ÞHÜˆ‚ˆ›Ý\ˆXÛ[™H\ÈH™]\š[˜\žHØ\›š[™ÈÚYÛ‹›ÝHXYÛ›ÜÚ\Èœ›ÛH‚ˆ˜\X\˜[˜ÙKˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ•™YK[[ÜœÛÛ\\š\ÛÛˆ[™[˜]ÛZXØ[ØœÙ\˜][ÛˆX\^Z[š[™È‚ˆÚH˜\YHÚ[™Ú[™È™Y™\ÜÈ™YYÈ™]\š[˜\žH\ÜÙ\ÜÛY[ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÈ[ÜœÛÙÞH™Y™\™[˜Ù\ÈÛÝ\˜ÙYœ›ÛHÚZÚ[YYXHÛÛ[[ÛœÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[Ü]X\˜[[™K]XˆŽˆÂˆ™š[HŽˆ˜^ÛÝ\]X\˜[[™KZÜÜ][]X‹\Ù]\ÙXœ‹ˆ˜[Žˆ
+ˆ•ÜYÝÛˆ^ÛÝÜÜ][XˆÙ]\Ú]ÛÈXœË\›[ÛY]\‹‚ˆœÙXÝ\™H™[YYYH[™YXØ]YÛÛÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆHÜÜ][Xˆ\Ù\ÈÛX[ˆXÚÜš[˜]Y[\\˜]\™K[X]ÚY‚ˆØ]\‹H˜\™H›ÝÛKHÙXÝ\™H™[YYHÛ[ÛÝYK[™‚ˆ™YXØ]YÛÛËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ•ÜYÝÛˆÚXÚÛ\ÝÚÝÚ[™ÈHÛÜ™H\]Z\Y[›ÜˆHÛÛ›ÛY‚ˆ˜^ÛÝÜÜ][Üˆ]X\˜[[™HX‹ˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÈ[ÜœÛÙÞH™Y™\™[˜ÙHÛÝ\˜ÙYœ›ÛHÚZÚ[YYXHÛÛ[[ÛœÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[Ùš[™[™ËX[‹Y^ÝXË]™]ŽˆÂˆ™š[HŽˆ™š[™X^ÛÝY^ÝXË]™]XÚXÚÛ\ÝÙXœ‹ˆ˜[Žˆ
+ˆ‘\ÚÈÚ][ˆ^ÛÝ™]\š[˜\šX[ˆÙX\˜ÚØ[]Y\Ý[ÛœË‚ˆ˜[œÜÜÚXÚÛ\Ý[™ÛÈ[Üœ™Y™\™[˜ÙHÝÜÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ“ØØ]H[ˆ[\XšX[‹Y^\šY[˜ÙY™]\š[˜\šX[ˆ™Y›Ü™H[ˆ[Y\™Ù[˜ÞH‚ˆ˜[™\ÚÈÚ]\ˆHÛ[šXÈ™X]È^ÛÝËÙ™™\œÈ\™Ù[Ø\™K‚ˆ˜[™\È˜[œÜÜ[œÝXÝ[ÛœËˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ”[›š[™È\ÚÈÚÝÚ[™È[ˆ^ÝXË]™]ÙX\˜ÚØÜ™Y[š[™È]Y\Ý[ÛœÈ‚ˆ˜[™[ˆ^ÛÝ˜[œÜÜ\™\\˜][ÛˆÚXÚÛ\Ýˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÈ[ÜœÛÙÞH™Y™\™[˜Ù\ÈÛÝ\˜ÙYœ›ÛHÚZÚ[YYXHÛÛ[[ÛœÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[Ù[Y\™Ù[˜ÞKYš\œÝXZYŽˆÂˆ™š[HŽˆ˜^ÛÝY[Y\™Ù[˜ÞKYš\œÝXZY]šXYÙKÙXœ‹ˆ˜[Žˆ
+ˆ^ÛÝ[Y\™Ù[˜ÞHšXYÙHÝ][ÛˆÚ]Ø]\ˆ\ÝË\›[ÛY]\‹‚ˆ˜[œÜÜXˆ[™\™Ù[™]\š[˜\žHØ\›š[™ÈÚYÛœÈ‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ’[ˆ[ˆ^ÛÝ[Y\™Ù[˜ÞK\ÝØ]\ˆ[™[\\˜]\™Hš\œÝˆ‚ˆœ™X][™ÈY™šXÝ[K[˜ÛÛ›ÛY›YY[™ËÜˆ[˜Xš[]HÈ‚ˆœ™[XZ[ˆ\šYÚ™YYÈ\™Ù[™]\š[˜\žHØ\™Kˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ•\™Ù[˜ÞKYš\œÝ^ÛÝšXYÙHÝ][ÛˆÛÛXš[š[™È\Ø˜[™žHÚXÚÜË‚ˆ˜[œÜÜ™\\˜][Ûˆ[™™]\š[˜\žH™Y›YÜËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÈ[ÜœÛÙÞH™Y™\™[˜Ù\ÈÛÝ\˜ÙYœ›ÛHÚZÚ[YYXHÛÛ[[ÛœÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[Ø[[[ÛšXKX\›œÈŽˆÂˆ™š[HŽˆ˜^ÛÝX[[[ÛšXKY^ÜÝ\™K]Ø]\‹]\ÝÙXœ‹ˆ˜[Žˆ
+ˆ[[[ÛšXH[™š]š]H\ÝÛÛ\\š\ÛÛˆ™\ÚYHXÚÜš[˜]YØ]\ˆ‚ˆ˜[™ÛÜ\‹ÛÛ[ˆ[š[›È[™\šÈ^ÛÝ™Y™\™[˜ÙHØ\™È‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆ[[[ÛšXH[™š]š]HÚÝ[™XYKˆ[Ý™H[ˆ^ÜÙY^ÛÝ‚ˆ™œ›ÛHÛÛ[Z[˜]YØ]\ˆ[ÈÛX[‹XÚÜš[˜]Y‚ˆ[\\˜]\™K[X]ÚYØ]\ˆÚ[H\œ˜[™Ú[™È™]\š[˜\žH[Yˆ‚ˆœÚYÛœÈ\™HÙ]™\™Kˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ•Ø]\‹\]X[]H[Y\™Ù[˜ÞHš\ÝX[ÚÝÚ[™È™\›ËX[[[ÛšXH[™‚ˆž™\›Ë[š]š]H\™Ù]ËÛX[ˆ™\XÙ[Y[Ø]\ˆ[™™YH[ÜœËˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÈ[ÜœÛÙÞH™Y™\™[˜Ù\ÈÛÝ\˜ÙYœ›ÛHÚZÚ[YYXHÛÛ[[ÛœÈ‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKˆšX[ÜÝ™\ÜË\ÚYÛœÈŽˆÂˆ™š[HŽˆ˜^ÛÝ\Ý™\ÜË\ÚYÛœË[ØœÙ\˜][Û‹YÝZYKÙXœ‹ˆ˜[Žˆ
+ˆ•Ú[]\K[š[›È[™ÛÛ[ˆ[š[›È^ÛÝÈ™\ÚYHØœÙ\˜][Ûˆ‚ˆ˜ÝY\È›ÜˆÚ[ÜÝ\™KZ[ÜÝ\™H[™[ÞX[˜ÞH‚ˆ
+Kˆ˜Ø\[ÛˆŽˆ
+ˆÛÛ\\™HÚ[ÜÝ\™KZ[ÜÝ\™H[™[ÞX[˜ÞHÚ]H^ÛÝ	ÜÈ‚ˆ››Ü›X[˜\Ù[[™KˆÛ™HÚYÛˆ[Û™HÙ\È›ÝXYÛ›ÜÙH[™\ÜÎÈÚXÚÈ‚ˆØ]\ˆ\˜[Y]\œÈ[™[\\˜]\™Hš\œÝˆ‚ˆ
+Kˆ™\ØÜš\[ÛˆŽˆ
+ˆ•™YK\[™[YXØ][Û˜[\›ÈÚÝÚ[™ÈÚ[]\K[š[›È[™ÛÛ[ˆ‚ˆ˜[š[›È^ÛÝÈÚ]™]]˜[ØœÙ\˜][Ûˆ›Û\È›ÜˆÚ[ÜÝ\™K‚ˆZ[ÜÝ\™H[™[ÞX[˜ÞKˆ‚ˆ
+Kˆ˜Ü™Y]Žˆ“^P^ÛÝÈ™X[\ÝÈ[Üœ™Y™\™[˜Ù\Èœ›ÛHÚZÚ[YYXHÛÛ[[ÛœÈ
+ÐÌ
+H‹ˆÚYŽˆMŒˆšZYÚŽˆLˆKŸB‚ˆÈ8¥ 8¥ ÛÜ™HXœÈ
+œ›ÛHÜXØ[X\
+H8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ ’P”ÈHÂˆ˜^ÛÝÈŽˆÂˆ]HŽˆ[^ÛÝÝZY\ÎˆØ\™K[šÈÙ]\Y]X[	ˆ[Ü™H‹ˆ]WÝYÈŽˆ^ÛÝÝZY\È[™^ˆØ\™K[šËY]X[	ˆÙ[™]XÜÈ‹ˆ›Y]HŽˆœ›ÝÜÙH]™\žH^ÛÝÝZYH[ˆÛ™HXÙHHÛÛ\]HØ\™K[šÈÙ]\Y]X[[ÜœËœ™YY[™ËÛÜÝYØ[]K[™HØÚY[˜ÙH™Z[™[Kˆ‹ˆšHŽˆ[^ÛÝÝZY\È‹ˆš[›ÈŽˆ•\È\ÈH[™^È]™\žHÝZYHÛˆHÚ]HHHÛÛ\]HØ\™HÝZYK[šÈÙ]\Y]X[[ÜœËœ™YY[™ËÛÜÝYØ[]K[™HØÚY[˜ÙH™Z[™[Kˆ™]È\™OÈÝ\Ú]H[Ø\™HÝZYKˆ‹ˆšÙ^]ÛÜ™ÈŽˆÈ˜^ÛÝÝZY\È‹˜^ÛÝØ\™H‹˜^ÛÝØ\™HÝZYH—Kˆ˜Ø]ŽˆØ\™H‹ˆKˆ[šË\Ù]\ŽˆÂˆ]HŽˆ^ÛÝ[šÈÙ]\ˆHÛÛ\]HÝZYH‹ˆ]WÝYÈŽˆ^ÛÝ[šÈÙ]\ÝZYNˆÚ^™Kš[\‹ÝXœÝ˜]KØ]\ˆ‹ˆšHŽˆ^ÛÝ[šÈÙ]\‹ˆ›Y]HŽˆ“X\›ˆÝÈÈÙ]\[ˆ^ÛÝ[šÈÛÜœ™XÝHHš\œÝ[YHHÚ^™K[\\˜]\™Kš[˜][Û‹ÝXœÝ˜]KYÚ[™Ë[™[Ë^Z[™Yˆ‹ˆš[›ÈŽˆZ[[™ÈHšYÚ[š\›Û›Y[\ÈHÚ[™ÛHšYÙÙ\Ý˜XÝÜˆ[ˆÙY\[™ÈHX[H^ÛÝˆ\ÙHÝZY\ÈÛÝ™\ˆ]™\žHÛÛ\Û™[H[šÈÚ^™KØ]\ˆ]X[]Kš[˜][Û‹ÝXœÝ˜]K[\\˜]\™KYÚ[™Ë[™XÛÜ‹ˆ‹ˆšÙ^]ÛÜ™ÈŽˆÈ˜^ÛÝ[šÈÙ]\‹˜^ÛÝ[šÈ‹˜^ÛÝš[\ˆ‹˜^ÛÝÝXœÝ˜]H—Kˆ˜Ø]Žˆ•[šÈÙ]\‹ˆKˆ™Y]ŽˆÂˆ]HŽˆ^ÛÝY]	ˆ™YY[™ÈÝZYH‹ˆ]WÝYÈŽˆ^ÛÝ›ÛÙˆÚ]È™YY	ˆÝÈÙ[ˆ‹ˆ›Y]HŽˆHÛÛ\]H^ÛÝ™YY[™ÈÝZYHÛÝ™\š[™ÈØY™H›ÛÙËØÚY[\ÈžHYÙKÜ[ÛœË[™ÝÈÈ]›ÚYÝ™\™™YY[™È[™[\XÝ[Û‹ˆ‹ˆšHŽˆ^ÛÝY]	ˆ™YY[™ÈÝZYH‹ˆš[›ÈŽˆ^ÛÝÈ\™HØ›YØ]HØ\›š]›Ü™\ÈÚ]Ú[\H]ÜXÚYšXÈ™YY[™È™YYËˆX\›ˆ^XÝHÚ]È™YYÝÈ]XÚÝÈÙ[‹[™ÝÈÈ]›ÚYHY]Z\ÝZÙ\È]Ø]\ÙH[ÜÝX[›Ø›[\Ëˆ‹ˆšÙ^]ÛÜ™ÈŽˆÈ˜^ÛÝ›ÛÙ‹Ú]È^ÛÝÈX]‹˜^ÛÝ™YY[™È‹šÝÈÙ[ˆÈ™YY^ÛÝ—Kˆ˜Ø]Žˆ‘Y]‹ˆKˆšX[ŽˆÂˆ]HŽˆ^ÛÝX[ˆÞ[\Û\Ëš\œÝÚXÚÜÈ	ˆÚ[ˆÈÙYHH™]‹ˆ]WÝYÈŽˆ^ÛÝX[ˆÞ[\Û\Ëš\œÝÚXÚÜÈ	ˆ™]Ø\›š[™ÈÚYÛœÈ‹ˆ›Y]HŽˆ“X\›ˆÝÈÈØœÙ\™H^ÛÝX[ÚYÛœËÚXÚÈØ]\ˆ[™[\\˜]\™Hš\œÝ[™™XÛÙÛš^™H›Ø›[\È]™YY[ˆ^ÝXÜËY^\šY[˜ÙY™]\š[˜\šX[‹ˆ‹ˆšHŽˆ^ÛÝX[	ˆ[™\ÜÈÝZYH‹ˆš[›ÈŽˆ•\ÙH\ÙHÝZY\ÈÈØœÙ\™HÞ[\Û\ËÚXÚÈØ]\ˆ]X[]H[™[\\˜]\™Hš\œÝ[™[™\œÝ[™Ú[ˆ[ˆ^ÛÝ™YYÈ›Û\™]\š[˜\žHØ\™KˆHÚ[™ÛHÚYÛˆØ[››ÝXYÛ›ÜÙHH\ÙX\ÙK[™YYXØ][ÛˆÜˆ[[œÚ]™HÝ\Ü]™HØ\™HÚÝ[™HÝZYYžH[ˆ^ÝXÜËY^\šY[˜ÙY™]\š[˜\šX[‹ˆ‹ˆšÙ^]ÛÜ™ÈŽˆÈ˜^ÛÝX[‹œÚXÚÈ^ÛÝ‹˜^ÛÝ[™Ý\È‹˜^ÛÝ\˜\Ú]\È—Kˆ˜Ø]Žˆ’X[‹ˆKˆ›YØ[ŽˆÂˆ]HŽˆ’\È]YØ[ÈÝÛˆ[ˆ^ÛÝÈ‹ˆ]WÝYÈŽˆ^ÛÝ]ÜÎˆÝÛ™\œÚ\	ˆ[\Ü[\ÈžHØØ][Ûˆ
+ŒŠH‹ˆ›Y]HŽˆ^ÛÝÝÛ™\œÚ\[™[\Ü[\È˜\žHžHØØ][Û‹ˆÚXÚÈ\›Z]È[™™\ÝšXÝY\™X\Ë[ˆ™\šYžHÝ\œ™[[\ÈÚ]H™[]˜[Ú[Y™H]]Üš]Kˆ‹ˆšHŽˆ’\È]YØ[ÈÝÛˆ[ˆ^ÛÝÈ‹ˆš[›ÈŽˆ^ÛÝÝÛ™\œÚ\[™[\Ü[\È˜\žHžHÝ]H[™ÛÝ[žKˆ™\ÝšXÝ[ÛœÈØ[ˆÛÛYHœ›ÛH^ÝXË]Ú[Y™K[˜\Ú]™K\ÜXÚY\Ë\ÙX\ÙKXÛÛ›ÛÛÛœÙ\˜][Û‹[™[\Ü]ÜËˆ\ÈÝZYH^Z[œÈHXZ[ˆ[\È[™ÝÈÈ™\šYžHHÝ\œ™[]ÈÚ\™H[ÝH]™Kˆ‹ˆšÙ^]ÛÜ™ÈŽˆÈš\È]YØ[ÈÝÛˆ[ˆ^ÛÝ‹˜^ÛÝ[YØ[‹˜^ÛÝYØ[Ý]\È‹˜^ÛÝ\›Z]—Kˆ˜Ø]Žˆ“YØ[‹ˆKˆ˜ÛÜÝX[™X^Z[™ÈŽˆÂˆ]HŽˆ^ÛÝÛÜÝ	ˆÚ\™HÈ^H‹ˆ]WÝYÈŽˆ^ÛÝÛÜÝˆšXÙK[ÛHYÙ]	ˆÚ\™HÈ^H
+ŒŠH‹ˆ›Y]HŽˆ’ÝÈ]XÚÙ\È[ˆ^ÛÝÛÜÝÈÛÛ\]HšXÙHœ™XZÙÝÛˆH\˜Ú\ÙHšXÙHžH[ÜœÙ]\ÛÜÝË[ÛH›ÛÙ[™Ø]\ˆš[Ë[™Ú\™HÈ^HÛ™HØY™[Kˆ‹ˆšHŽˆ^ÛÝÛÜÝ	ˆÚ\™HÈ^H‹ˆš[›ÈŽˆ™Y›Ü™H[ÝH^KÛ›ÝÈÚ][ˆ^ÛÝ™X[HÛÜÝÈHH[š]X[Ù]\H[ÛH\ÙY\[™ÚHHšXÙH[ÝH^H›ÜˆH[š[X[\ÈHÛX[\Ý\ÙˆHš[ˆ\ÈÝZYHÛÝ™\œÈ\˜Ú\ÙHšXÙ\ÈžH[Üœ[™HØY™\ÝXÙ\ÈÈ^Kˆ‹ˆšÙ^]ÛÜ™ÈŽˆÈ˜^ÛÝÛÜÝ‹˜^ÛÝšXÙH‹Ú\™HÈ^H^ÛÝ‹˜^ÛÝ›ÜˆØ[H—Kˆ˜Ø]ŽˆÛÜÝ	ˆ^Z[™È‹ˆKˆ›[ÜœÈŽˆÂˆ]HŽˆ^ÛÝ[ÜœÈ	ˆÛÛÜˆÙ[™]XÜÈ‹ˆ]WÝYÈŽˆ^ÛÝ[ÜœÎˆÛÛÜœË\\È	ˆÙ[™]XÜÈ^Z[™Y‹ˆ›Y]HŽˆ‘]™\žH^ÛÝ[Üœ^Z[™YH]XÚ\ÝXËÛÛ[ˆ[š[›ËY[[›ÚYÚ[\KÛÜ\‹Ñ”[™[Ü™HHÚ]ÝÜË˜\š]K[™HÙ[™]XÜÈ™Z[™XXÚÛÛÜ‹ˆ‹ˆšHŽˆ^ÛÝ[ÜœÈ	ˆÛÛÜˆÙ[™]XÜÈ‹ˆš[›ÈŽˆ^ÛÝÈÛÛYH[ˆHÝ[›š[™È˜[™ÙHÙˆÛÛÜœÈ[™]\›œËœ›ÛHHÛÛ[[Ûˆ]XÚ\ÝXÈÈ˜\™H[ÜØZXÈ[™ÛÜ\ˆ[ÜœËˆX\›ˆÈ[]™\žH[Üœ\\Ú]XZÙ\È]˜\™K[™HÚ[\HÙ[™]XÜÈ™Z[™XXÚÛÛÜ‹ˆ‹ˆšÙ^]ÛÜ™ÈŽˆÈ˜^ÛÝ[ÜœÈ‹˜^ÛÝÛÛÜœÈ‹›]XÚ\ÝXÈ^ÛÝ‹˜^ÛÝÙ[™]XÜÈ—Kˆ˜Ø]Žˆ“[ÜœÈ‹ˆKˆ˜œ™YY[™ÈŽˆÂˆ]HŽˆ^ÛÝœ™YY[™ÈÝZYH‹ˆ]WÝYÈŽˆ’ÝÈÈœ™YY^ÛÝÎˆÛÛ\]Hœ™YY[™ÈÝZYH
+ŒŠH‹ˆ›Y]HŽˆ’ÝÈÈœ™YY^ÛÝÈÝXØÙ\ÜÙ[HHÛÛ™][Ûš[™ËÛÝ\Ú\YÙÈØ\™K˜Z\Ú[™È\˜YK[™HÙ[™]XÜÈ[™]XÜÈ]™\žHœ™YY\ˆ™YYÈÈÛ›ÝËˆ‹ˆšHŽˆ^ÛÝœ™YY[™ÈÝZYH‹ˆš[›ÈŽˆœ™YY[™È^ÛÝÈÝ\È™Y›Ü™HÛÝ\Ú\ˆÛÛ™š\›HÙ^[™X]\š]KÚXÚÈ]HY[È\™HX[H[™›ÝÛÜÙ[H™[]Y[™[ˆÝÈ[ÝHÚ[X[˜YÙHYÙÜË]™H›ÛÙÜ›ÝË[Ý]ÜXÙK[™™ZÛZ[™È™Y›Ü™H][\[™ÈHÜ]Û‹ˆ‹ˆšÙ^]ÛÜ™ÈŽˆÈ˜œ™YY[™È^ÛÝÈ‹˜^ÛÝYÙÜÈ‹˜^ÛÝ\˜YH‹˜^ÛÝœ™YY[™È—Kˆ˜Ø]Žˆœ™YY[™È‹ˆKˆ™ÚYËX[™[Y\˜ÚŽˆÂˆ]HŽˆ^ÛÝÚYÈ	ˆY\˜Ú[™\ÙH‹ˆ]WÝYÈŽˆ^ÛÝÞH	ˆÚYÎˆ\ÚY\ËÜ]Z\ÚX[ÝÜË\\™[	ˆ[Ü™H‹ˆ›Y]HŽˆ•H™\Ý^ÛÝÚYÈ[™Y\˜Ú[™\ÙH›Üˆ^ÛÝÝ™\œÈH^ÛÝÞ\Ë\ÚY\Ë]YÜË\\™[XÛÜ‹[™ÝØÚÚ[™Ë\ÝY™™\ˆYX\È›Üˆ]™\žHYÙ]ˆ‹ˆšHŽˆ^ÛÝÚYÈ	ˆY\˜Ú[™\ÙH‹ˆš[›ÈŽˆ‘œ›ÛHÝYH^ÛÝ\ÚY\ÈÈ]YÜËÚ\Ë[™›ÛÛHXÛÜˆHH\™™XÝ^ÛÝÚYÈ›Üˆ]™\žHYÙH[™YÙ]Ý\˜]Y›ÜˆH^ÛÝÝ™\ˆ[ˆ[Ý\ˆY™Kˆ‹ˆšÙ^]ÛÜ™ÈŽˆÈ˜^ÛÝÞH‹˜^ÛÝ\Ú‹˜^ÛÝÚYÈ‹˜^ÛÝY\˜Ú—Kˆ˜Ø]Žˆ‘ÚYÈ	ˆY\˜Ú‹ˆKˆ˜Ø\™KX˜\ÚXÜÈŽˆÂˆ]HŽˆ^ÛÝØ\™H˜\ÚXÜÎˆ˜XÝË™Z]š[Üˆ	ˆ™YÚ[›™\ˆÝZY\È‹ˆ]WÝYÈŽˆ^ÛÝØ\™H˜\ÚXÜÎˆ˜XÝË™Z]š[Üˆ	ˆ™YÚ[›™\ˆ\È‹ˆ›Y]HŽˆ^ÛÝØ\™H˜\ÚXÜÈ›Üˆ™YÚ[›™\œÈH[ˆ˜XÝËÝÈÈ›Û›Ý[˜ÙHH˜[YK™Z]š[Ü‹[™[™ËÙY\[™È][\H^ÛÝË[™Ú]\ˆ^H\™HÛÛÙ]Ëˆ‹ˆšHŽˆ^ÛÝØ\™H˜\ÚXÜÈ‹ˆš[›ÈŽˆ•H\ÜÙ[X[È]™\žH™]È^ÛÝÝÛ™\ˆÚÝ[Û›ÝÈHÚ]^ÛÝÈ\™H™X[HZÙH\È]ËZ\ˆ™Z]š[Ü‹ÝÈÈ[™H[HØY™[K[™H˜XÝÈ]Ý\œš\ÙH[ÜÝš\œÝ][YHÝÛ™\œËˆ‹ˆšÙ^]ÛÜ™ÈŽˆÈ˜^ÛÝ˜XÝÈ‹˜\™H^ÛÝÈÛÛÙ]È‹˜^ÛÝ™Z]š[Üˆ‹˜^ÛÝ™YÚ[›™\ˆ—Kˆ˜Ø]ŽˆØ\™H˜\ÚXÜÈ‹ˆKˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙHŽˆÂˆ]HŽˆ^ÛÝš[ÛÙÞH	ˆØÚY[˜ÙH‹ˆ]WÝYÈŽˆ^ÛÝš[ÛÙÞNˆ[˜]Û^K™[Ý[žH	ˆ™YÙ[™\˜][ÛˆØÚY[˜ÙH‹ˆ›Y]HŽˆ•H˜\ØÚ[˜][™Èš[ÛÙÞHÙˆ^ÛÝÈHÝÈ^Hœ™X]K™[Ý[žK™YÙ[™\˜][Û‹Z\ˆ[™[™Ù\™YÚ[Ý]\È[ˆØÚ[Z[ÛË[™ÝÈ^HÛÛ\\™HÈÝ\ˆØ[[X[™\œËˆ‹ˆšHŽˆ^ÛÝš[ÛÙÞH	ˆØÚY[˜ÙH‹ˆš[›ÈŽˆ^ÛÝÈ\™HÛ™HÙˆH[ÜÝÝYYY[š[X[È[ˆš[ÛÙÞH›ÜˆH™X\ÛÛŽˆ^H™YÙ[™\˜]H[XœËÝ^H[ˆH\˜[›Ü›HZ\ˆÚÛH]™\Ë[™ÛÛY\ÈÈ\ÜÝYH™\Z\‹ˆ\™H\ÈHØÚY[˜ÙK^Z[™YÛX\›Kˆ‹ˆšÙ^]ÛÜ™ÈŽˆÈ˜^ÛÝš[ÛÙÞH‹˜^ÛÝ™[Ý[žH‹˜^ÛÝ™YÙ[™\˜][Ûˆ‹˜^ÛÝ[™[™Ù\™Y—Kˆ˜Ø]Žˆš[ÛÙÞH‹ˆKˆ˜^ÛÝZ[‹XÝ[\™HŽˆÂˆ]HŽˆ^ÛÝÈ[ˆÜÝ[\™NˆØ[Y\ËY[Y\È	ˆYYXH‹ˆ]WÝYÈŽˆ^ÛÝÈ[ˆÜÝ[\™NˆZ[™XÜ˜YY[Y\È	ˆ[Ü™H‹ˆ›Y]HŽˆ•ÚH^ÛÝÈ\™H]™\ž]Ú\™HHZ[™XÜ˜Y^ÛÝËYÜYH]ËY[Y\ËÜÝ[\™K[™ÚH\È[™[™Ù\™YØ[[X[™\ˆ™XØ[YHÛÈÜ[\‹ˆ‹ˆšHŽˆ^ÛÝÈ[ˆÜÝ[\™H‹ˆš[›ÈŽˆ‘œ›ÛHZ[™XÜ˜Y[™YÜYHÈY[Y\Ë\ÚY\Ë[™ØÚY[˜ÙHXY[™\ÈHš[™Ý]ÚHH^ÛÝ™XØ[YHÛ™HÙˆH[ÜÝ™[Ý™Y[š[X[ÈÛˆH[\›™][™ÝÈHš\X[™\œÚ[ÛœÈÛÛ\\™HÈH™X[[™Ëˆ‹ˆšÙ^]ÛÜ™ÈŽˆÈ˜^ÛÝZ[™XÜ˜Y‹˜^ÛÝYÜYH‹˜^ÛÝY[YH‹ÚH\™H^ÛÝÈÛÈÜ[\ˆ—Kˆ˜Ø]ŽˆÝ[\™H‹ˆKŸB‚ˆÈ8¥ 8¥ \XÛHOˆX‹ÜÛYÈX\[™È8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ 8¥ ˆÈÙ^Nˆ^XÝÛÝ\˜ÙHš[[˜[YH
+]\ÝX]Úš[H[ˆÓÕTÑWÑTŠBˆÈ˜[YNˆÜÛYËX‹]WÛÝ™\œšYH
+Ü[Û˜[
+KY]WÛÝ™\œšYH
+Ü[Û˜[
+KˆÈ[›È
+Ü[Û˜[š\œÝ\˜YÜ˜\˜[˜XÚÈ\ÙYYˆZ\ÜÚ[™Ê_BT•PÓTÈHÂˆŒKH^ÛÝXØ\™KYÝZYH
+JK™ØÞŽˆÂˆœÛYÈŽˆ˜^ÛÝËØØ\™KYÝZYH‹ˆšXˆŽˆ˜^ÛÝÈ‹ˆ™™X]\™YŽˆYKˆ]WÛÝ™\œšYHŽˆ^ÛÝØ\™HÝZYNˆ[šËØ]\‹Y]	ˆX[‹ˆ›Y]WÛÝ™\œšYHŽˆ^ÛÝÈ\™HÛÛ]Ø]\ˆ[\XšX[œÈ]™YYÝX›H[šÜËÛX[ˆØ]\‹HšYÚY][™Ø\™Y[X[X[˜YÙ[Y[ˆ‹ˆKˆŒ‹RÝÈÈÙ]\[ˆ^ÛÝ[šÈHšYÚØ^K™ØÞŽˆÂˆœÛYÈŽˆ[šË\Ù]\ÜÙ]\YÝZYH‹ˆšXˆŽˆ[šË\Ù]\‹ˆ™™X]\™YŽˆYKˆ›Y]WÛÝ™\œšYHŽˆ”Ù]\[ˆ^ÛÝ[šÈÛÜœ™XÝHÚ]HšYÚ[šÈÚ^™Kš[˜][Û‹ÝXœÝ˜]KYÚ[™Ë[\\˜]\™K[™ÞXÛ[™È™Y›Ü™HY[™È[Ý\ˆ^ÛÝˆ‹ˆKˆŒËH™\Ý\]X\š][HÚ[\œÈ›Üˆ^ÛÝË™ØÞŽˆÂˆœÛYÈŽˆ[šË\Ù]\Ø\]X\š][KXÚ[\œÈ‹ˆšXˆŽˆ[šË\Ù]\‹ˆ]WÛÝ™\œšYHŽˆ™\Ý\]X\š][HÚ[\œÈ›Üˆ^ÛÝÎˆÚ^š[™È	ˆ^Z[™ÈÝZYH‹ˆ]WÝYÈŽˆ™\Ý\]X\š][HÚ[\œÈ›Üˆ^ÛÝÎˆÚ^š[™È	ˆ^Z[™ÈÝZYH‹ˆ›Y]WÛÝ™\œšYHŽˆÚÛÜÙH[ˆ\]X\š][HÚ[\ˆ›Üˆ[ˆ^ÛÝ[šÈžHØ]\ˆ›Û[YK›ÛÛHX]ØY\™Ù][\\˜]\™K›ÝÈ™\]Z\™[Y[Ë[œÝ[][Û‹›Ú\ÙH[™Ü\˜][™ÈÛÜÝˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆHÚÛÜÚ[™È™\Ý^ÛÝÝX˜]K™ØÞŽˆÂˆœÛYÈŽˆ[šË\Ù]\ÜÝXœÝ˜]KX[™Z[\XÝ[Ûˆ‹ˆšXˆŽˆ[šË\Ù]\‹ˆ]WÛÝ™\œšYHŽˆÚÛÜÚ[™ÈH™\Ý^ÛÝÝXœÝ˜]H‹ˆ›Y]WÛÝ™\œšYHŽˆ‘š[™HØ[™[™\ˆH[H\ÈØY™\Ý›ÜˆY[^ÛÝÎÈ]™[š[\È[™\ˆˆ[˜Ú\ÈÚÝ[Ý^HÛˆ˜\™KX›ÝÛH[šÜÈÈ™YXÙH[\XÝ[Ûˆš\ÚËˆ‹ˆKˆKHX[˜YÚ[™È[[[ÛšXH[™š]˜]HÜZÙ\È[ˆ^ÛÝ[šÜË™ØÞŽˆÂˆœÛYÈŽˆ[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™È‹ˆšXˆŽˆ[šË\Ù]\‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝØ]\ˆ\˜[Y]\œÈ	ˆš]›ÙÙ[ˆÞXÛH‹ˆ]WÝYÈŽˆ^ÛÝØ]\ˆ\˜[Y]\œÎˆ[[[ÛšXKš]š]Kš]˜]H	ˆ‹ˆ›Y]WÛÝ™\œšYHŽˆ^ÛÝØ]\ˆ\˜[Y]\œÈ[™š]›ÙÙ[ˆÞXÛH^Z[™Yˆ[[[ÛšXKš]š]Kš]˜]KÞXÛ[™Ë\Ý[™ËÜZÙ\È[™ÝÈÈ[\œ™]Ú[™Ú[™È\]X\š][H™XY[™ÜËˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆÈH™\Ý^ÛÝš[\œË™ØÞŽˆÂˆœÛYÈŽˆ[šË\Ù]\Ùš[˜][Û‹Y›Ü‹X^ÛÝÈ‹ˆšXˆŽˆ[šË\Ù]\‹ˆ]WÛÝ™\œšYHŽˆ‘È^ÛÝÈ™YYHš[\Èš[˜][Û‹›ÝÈ˜]H	ˆÚ^š[™È‹ˆ]WÝYÈŽˆ‘È^ÛÝÈ™YYHš[\Èš[˜][Û‹›ÝÈ˜]H	ˆÚ^š[™È‹ˆ›Y]WÛÝ™\œšYHŽˆ‘È^ÛÝÈ™YYHš[\ÈX\›ˆš[ÛÙÚXØ[š[˜][Û‹ÝËY›ÝÈ™\]Z\™[Y[Ëš[\ˆÚ^š[™È[™ÝÈÜÛ™ÙKÐˆ[™Ø[š\Ý\ˆš[\œÈš]Y™™\™[^ÛÝ[šÜËˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŽHÝÈÈÙY\^ÛÝ[šÈÛÛÛØY™K™ØÞŽˆÂˆœÛYÈŽˆ[šË\Ù]\Ý[\\˜]\™H‹ˆšXˆŽˆ[šË\Ù]\‹ˆ]WÛÝ™\œšYHŽˆ’ÝÈÈÙY\[ˆ^ÛÝ[šÈÛÛÛ‹ˆKˆŽHHØ[š\Ý\ˆœÈÜÛ™ÙHš[\‹™ØÞŽˆÂˆœÛYÈŽˆ[šË\Ù]\ØØ[š\Ý\‹]œË\ÜÛ™ÙKYš[\ˆ‹ˆšXˆŽˆ[šË\Ù]\‹ˆ]WÛÝ™\œšYHŽˆØ[š\Ý\ˆš[\œÈœËˆÜÛ™ÙHš[\œÈ›Üˆ^ÛÝÈ‹ˆKˆŒLHØ]\ˆÛÛ™][Û™\ˆ›Üˆ^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆ[šË\Ù]\ÝØ]\‹XÛÛ™][Û™\œÈ‹ˆšXˆŽˆ[šË\Ù]\‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝØ]\ˆÛÛ™][Û™\ŽˆÜ™X][™ÈØY™HØ]\ˆ‹ˆ›Y]WÛÝ™\œšYHŽˆ•\ÙH[ˆ^ÛÝ\ØY™HØ]\ˆÛÛ™][Û™\ˆÈ™[[Ý™HÚÜš[™H[™ÚÜ˜[Z[™Hœ›ÛH\Ø]\‹Ú]ÛÜœ™XÝÜÚ[™È›ÜˆXXÚØ]\ˆÚ[™ÙKˆ‹ˆKˆŒLKH^ÛÝYÚ[™È™\]Z\™[Y[Ë™ØÞŽˆÂˆœÛYÈŽˆ[šË\Ù]\ÛYÚ[™ËY›Ü‹X^ÛÝÈ‹ˆšXˆŽˆ[šË\Ù]\‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝ[šÈYÚ[™È™\]Z\™[Y[È‹ˆ›Y]WÛÝ™\œšYHŽˆ^ÛÝ[šÜÈ™YYÝËZ[[œÚ]K[™\™XÝYÚ\›Ý[™L8 $Í^Ú]HÛÛœÚ\Ý[L8 $ÌL‹ZÝ\ˆÝÜ\š[ÙÛˆH[Y\‹ˆ‹ˆKˆŒLˆH™\ÝY\È[™Ø]™\È›Üˆ^ÛÝË™ØÞŽˆÂˆœÛYÈŽˆ[šË\Ù]\ÚY\ËX[™XØ]™\È‹ˆšXˆŽˆ[šË\Ù]\‹ˆ]WÛÝ™\œšYHŽˆ™\ÝY\È[™Ø]™\È›Üˆ^ÛÝÈ‹ˆ›Y]WÛÝ™\œšYHŽˆ^ÛÝÈ™YYH\šËÛ[ÛÝ[H[˜ÛÜÙYYNÈ\œ˜XÛÝKÈ\K[™š\™YÙ\˜[ZXÈ\™H˜XÝXØ[ØY™HÚÚXÙ\Ëˆ‹ˆKˆŒLÈHH[™Ù\œÈÙˆÚ\œÜ˜]™[›Üˆ^ÛÝË™ØÞŽˆÂˆœÛYÈŽˆ[šË\Ù]\ÙÜ˜]™[\š\ÚÜÈ‹ˆšXˆŽˆ[šË\Ù]\‹ˆ]WÛÝ™\œšYHŽˆ•H[™Ù\œÈÙˆÚ\œÜ˜]™[›Üˆ^ÛÝÈ‹ˆKˆŒMH]™H[ÈœÈ\YšXÚX[[Ë™ØÞŽˆÂˆœÛYÈŽˆ[šË\Ù]\Û]™K]œËX\YšXÚX[\[È‹ˆšXˆŽˆ[šË\Ù]\‹ˆ]WÛÝ™\œšYHŽˆ“]™H[ÈœËˆ˜ZÙH[È›Üˆ^ÛÝ[šÜÈ‹ˆKˆŒMHHÚH^H^ÝÛ[šÈØ]\ˆÝ[šË™ØÞŽˆÂˆœÛYÈŽˆ[šË\Ù]\ÝÚK][šË]Ø]\‹\ÛY[È‹ˆšXˆŽˆ[šË\Ù]\‹ˆ]WÛÝ™\œšYHŽˆ•ÚHÙ\È^H^ÛÝ[šÈØ]\ˆÝ[šÏÈ‹ˆ›Y]WÛÝ™\œšYHŽˆHX[H^ÛÝ[šÈÚÝ[ÛY[˜Z[[™X\KˆÝ›Û™ÈÙÜœÈØ[ˆÚYÛ˜[[[[ÛšXKHÝ[YÞXÛK\Hš[˜][Û‹Ø\ÝKÜˆ[˜Y\›ØšXÈØÚÙ]Ëˆ‹ˆKˆŒMˆHÚ]È^ÛÝÈX]™ØÞŽˆÂˆœÛYÈŽˆ™Y]Ø™\ÝY›ÛÙË[\Ý‹ˆšXˆŽˆ™Y]‹ˆ™™X]\™YŽˆYKˆ›Y]WÛÝ™\œšYHŽˆ™\Ý^ÛÝ›ÛÙÈ[˜ÛYHX\ÛÜ›\Ë]X[]HÚ[šÚ[™È[]Ë›XÚÝÛÜ›\Ë[™ÝZ]X›HØØØ\Ú[Û˜[™X]ËˆÛÛ\\™H]š][Û‹ØY™]K[™™YY[™È\ÙKˆ‹ˆKˆŒMÈZÝÈÙ[ˆÚÝ[[ÝH™YY[ˆ^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆ™Y]Ù™YY[™Ë\ØÚY[KXžKXYÙH‹ˆšXˆŽˆ™Y]‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝ™YY[™Èœ™\]Y[˜ÞHžHY™HÝYÙH[™Ú^™H‹ˆ›Y]WÛÝ™\œšYHŽˆ‘š[™[ˆ^ÛÝ™YY[™ÈØÚY[HžHYÙH[™Ú^™KÚ]œ™\]Y[˜ÞH[™Ü[ÛˆÝZY[˜ÙH›Üˆ]Ú[™ÜË]™[š[\ËÝX˜Y[Ë[™Y[Ëˆ‹ˆKˆŒNH™\Ý^ÛÝ[]È[™ÛÛ[Y\˜ÚX[›ÛÙË™ØÞŽˆÂˆœÛYÈŽˆ™Y]Ø^ÛÝ\[]È‹ˆšXˆŽˆ™Y]‹ˆ]WÛÝ™\œšYHŽˆ™\Ý^ÛÝ[]È[™ÛÛ[Y\˜ÚX[›ÛÙÈ‹ˆ›Y]WÛÝ™\œšYHŽˆÛÛ\\™HYÚ\›ÝZ[ˆ^ÛÝ[]È[™ÛÛ[Y\˜ÚX[›ÛÙË[˜ÛY[™È›ÝZ[ˆ\™Ù]Ë[™Ü™YY[Ë[™ÝÈ^Hš][Û™ÜÚYHX\ÛÜ›\Ëˆ‹ˆKˆŒNHHX\ÛÜ›\ÈœËˆ›ÛÙÛÜ›\ÈÚXÚ\È™]\ˆ›Üˆ^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆ™Y]Û]™K]œËYœ›Þ™[‹Y›ÛÙ‹ˆšXˆŽˆ™Y]‹ˆ]WÛÝ™\œšYHŽˆ‘X\ÛÜ›\ÈœËˆ›ÛÙÛÜ›\Îˆ™\Ý›Üˆ^ÛÝÏÈ‹ˆ›Y]WÛÝ™\œšYHŽˆÛÛ\\™HX\ÛÜ›\Ë›ÛÙÛÜ›\Ë[™œ›Þ™[ˆ›ÛÙÈ›Üˆ^ÛÝÈÛÈ[ÝHØ[ˆXÚÈHØY™\ÝÝ\H[™™\ÝØØØ\Ú[Û˜[™X]Ëˆ‹ˆKˆŒŒHÚH\È^H^ÛÝ™Y\Ú[™ÈÈX]™ØÞŽˆÂˆœÛYÈŽˆšX[Ü™Y\Ú[™Ë]ËYX]‹ˆšXˆŽˆšX[‹ˆ™™X]\™YŽˆYKˆ]WÛÝ™\œšYHŽˆ^ÛÝ›ÝX][™ÏÈØ]\Ù\È	ˆÚ[ˆÈÛÜœžH‹ˆ]WÝYÈŽˆ^ÛÝ›ÝX][™ÏÈš\œÝÚXÚÜÈ	ˆ™]Ø\›š[™ÈÚYÛœÈ‹ˆ›Y]WÛÝ™\œšYHŽˆ“X\›ˆÚ]ÈÚXÚÈÚ[ˆ[ˆ^ÛÝÝÜÈX][™ËÚXÚØ\›š[™ÈÚYÛœÈ™YY›Û\™]\š[˜\žHØ\™K[™ÚXÚš\ÚÞHÛYH™X]Y[ÈÈ]›ÚYˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LLÈ‹ˆKˆŒŒHHHš\ÚÜÈÙˆ™YY[™È™YY\ˆš\ÚÈ^ÛÝË™ØÞŽˆÂˆœÛYÈŽˆ™Y]Ù™YY\‹Yš\Ú\š\ÚÜÈ‹ˆšXˆŽˆ™Y]‹ˆ]WÛÝ™\œšYHŽˆ•Hš\ÚÜÈÙˆ™YY[™È™YY\ˆš\ÚÈ^ÛÝÈ‹ˆKˆŒŒˆHØ[ˆ^ÛÝÈX]™YYˆX\™ØÞŽˆÂˆœÛYÈŽˆ™Y]Ø™YY‹ZX\‹ˆšXˆŽˆ™Y]‹ˆ›Y]WÛÝ™\œšYHŽˆ^ÛÝÈØ[ˆX]™YYˆX\]]ÈÛÜˆZ[™\˜[˜[[˜ÙH[™YÚ˜]XZÙH][œÝZ]X›H\ÈH™YÝ[\ˆÝ\H›ÛÙˆ‹ˆKˆŒŒÈHX[[™ÈÚ]^ÛÝØ™\Ú]K™ØÞŽˆÂˆœÛYÈŽˆ™Y]ÛÝ™\™™YY[™ËX[™Z[\XÝ[Ûˆ‹ˆšXˆŽˆ™Y]‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝØ™\Ú]NˆÚYÛœËØ]\Ù\È	ˆ™X]Y[‹ˆKˆŒH›XÚÈÛÜ›\È›Üˆ]™[š[\Ë™ØÞŽˆÂˆœÛYÈŽˆ™Y]Ø›XÚÝÛÜ›\ËY›Ü‹Z]™[š[\È‹ˆšXˆŽˆ™Y]‹ˆ]WÛÝ™\œšYHŽˆ”™\\š[™È›XÚÝÛÜ›\È›Üˆ]™[š[H^ÛÝÈ‹ˆ›Y]WÛÝ™\œšYHŽˆ“X\›ˆÝÈÈš[œÙKÝÜ™K[™™\\™H›XÚÝÛÜ›\È›Üˆ]™[š[H^ÛÝË[˜ÛY[™ÈØY™HÚ^™K™YY[™Ë[™ÛX[›[™\ÜÈÚXÚÜËˆ‹ˆKˆŒHH˜XØ][Ûˆ™\™ØÞŽˆÂˆœÛYÈŽˆ™Y]Ù˜\Ý[™ËX[™]˜XØ][Ûˆ‹ˆšXˆŽˆ™Y]‹ˆ]WÛÝ™\œšYHŽˆ’ÝÈÛ™ÈØ[ˆ^ÛÝÈÛÈÚ]Ý]›ÛÙÈ˜\Ý[™È	ˆ˜XØ][ÛˆÝZYH‹ˆ]WÝYÈŽˆ’ÝÈÛ™ÈØ[ˆ^ÛÝÈÛÈÚ]Ý]›ÛÙÈ˜\Ý[™È	ˆ˜XØ][ÛˆÝZYH‹ˆ›Y]WÛÝ™\œšYHŽˆ’ÝÈÛ™ÈØ[ˆ[ˆ^ÛÝÛÈÚ]Ý]›ÛÙÈX\›ˆ[›™Y˜\Ý[™ÈœÈ\]]HÜÜË˜XØ][Ûˆ™YY[™ËY™K\ÝYÙHY™™\™[˜Ù\È[™Ú[ˆ›ÝX][™È™XÛÛY\ÈHX[ÛÛ˜Ù\›‹ˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŒˆHÝÈÈ[™™YY^ÛÝË™ØÞŽˆÂˆœÛYÈŽˆ™Y]ÚÝË]ËZ[™Y™YY‹ˆšXˆŽˆ™Y]‹ˆ]WÛÝ™\œšYHŽˆ’ÝÈÈ[™™YY[Ý\ˆ^ÛÝØY™[H‹ˆ›Y]WÛÝ™\œšYHŽˆ“X\›ˆÝÈÈ[™Y™YY[Ý\ˆ^ÛÝØY™[Kœ›ÛHÚÛÜÚ[™ÈHšYÚ›ÛÙÈ[Z[™ËXÚš\]YK[™Ú[ˆÈ]›ÚY[™Y™YY[™Ëˆ‹ˆKˆŒÈHÚš[\È›Üˆ^ÛÝË™ØÞŽˆÂˆœÛYÈŽˆ™Y]ÜÚš[\Y›Ü‹X^ÛÝÈ‹ˆšXˆŽˆ™Y]‹ˆ]WÛÝ™\œšYHŽˆØ[ˆ^ÛÝÈX]Úš[\È‹ˆ›Y]WÛÝ™\œšYHŽˆ^ÛÝÈØ[ˆX]Úš[\\È[ˆØØØ\Ú[Û˜[™X]]]ÚÝ[›Ý™\XÙHÝ\H›ÛÙÈÝXÚ\ÈX\ÛÜ›\È[™]X[]HÚ[šÚ[™È[]Ëˆ‹ˆKˆŒŽHÈ^ÛÝÈ™YYš][Z[ˆÝ\[Y[Ë™ØÞŽˆÂˆœÛYÈŽˆ™Y]Ýš][Z[‹X[™\Ý\[Y[[™YYÈ‹ˆšXˆŽˆ™Y]‹ˆ]WÛÝ™\œšYHŽˆ‘È^ÛÝÈ™YYš][Z[ˆÝ\[Y[ÏÈ‹ˆKˆŒŽHHÛX[š[™È[™X][ˆ›ÛÙÈ™]™[[[[ÛšXK™ØÞŽˆÂˆœÛYÈŽˆ[šË\Ù]\Ý[™X][‹Y›ÛÙX[™X[[[ÛšXH‹ˆšXˆŽˆ[šË\Ù]\‹ˆ]WÛÝ™\œšYHŽˆ•ÚH[™X][ˆ›ÛÙØ]\Ù\È[[[ÛšXH[ˆ[ˆ^ÛÝ[šÈ‹ˆKˆŒÌHÚYÛˆÙˆX[]š][Ûˆ[ˆ^ÛÝË™ØÞŽˆÂˆœÛYÈŽˆšX[ÛX[]š][Û‹\ÚYÛœÈ‹ˆšXˆŽˆšX[‹ˆ]WÛÝ™\œšYHŽˆ”ÚYÛœÈÙˆX[]š][Ûˆ[ˆ^ÛÝÈ‹ˆKˆŒÌHH\˜\Ú]\È[ˆ^ÛÝË™ØÞŽˆÂˆœÛYÈŽˆšX[Ü\˜\Ú]K]™X]Y[‹ˆšXˆŽˆšX[‹ˆ]WÛÝ™\œšYHŽˆ•™X][™È^ÛÝ\˜\Ú]\È‹ˆKˆŒÌˆHÝÈÈY[YžH[™™X]^ÛÝ[™Ý\Ë™ØÞŽˆÂˆœÛYÈŽˆšX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXH‹ˆšXˆŽˆšX[‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝ[™Ý\ÎˆÞ[\Û\ËØ]\Ù\È	ˆ™X]Y[‹ˆ]WÝYÈŽˆ^ÛÝ[™Ý\ÎˆÞ[\Û\ËØ]\Ù\È	ˆ™X]Y[‹ˆ›Y]WÛÝ™\œšYHŽˆ^ÛÝ[™Ý\ÈÝZYNˆÚ]Ú]HÜˆÛÝÛžHÜ›ÝÝØ[ˆÛÚÈZÙKÜÜÚX›HØ]\Ù\Ëš\œÝÚXÚÜË™X]Y[XÚ\Ú[ÛˆÚ[È[™Ú[ˆ™]\š[˜\žH\ÜÙ\ÜÛY[\È™YYYˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŒÌÈHH›XÚÈXH˜]›ÝØÛÛ›Üˆ^ÛÝË™ØÞŽˆÂˆœÛYÈŽˆšX[Ø›XÚË]XKX˜]‹ˆšXˆŽˆšX[‹ˆ]WÛÝ™\œšYHŽˆ›XÚÈXH˜]›Üˆ^ÛÝÎˆÚ[ˆ	ˆÝÈÈ\ÙHÛ™H‹ˆ]WÝYÈŽˆ›XÚÈXH˜]›Üˆ^ÛÝÎˆÚ[ˆ	ˆÝÈÈ\ÙHÛ™H‹ˆ›Y]WÛÝ™\œšYHŽˆ›XÚÈXH˜]È›Üˆ^ÛÝÎˆÚ]^H\™KÚ[ˆ^HX^H™HÛÛœÚY\™Y\ÈÝ\Ü]™HØ\™KÝÈH›ØÙY\™HÛÜšÜË[Z]Ëš\ÚÜÈ[™Ú[ˆÈÙYZÈ™]\š[˜\žH[ˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŒÍHÚ[ˆ[™ÝÈÈœšYÙH^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆšX[ÙœšYÚ[™Ë\ÚXÚËX^ÛÝ‹ˆšXˆŽˆšX[‹ˆ]WÛÝ™\œšYHŽˆ‘œšYÚ[™È[ˆ^ÛÝˆš\ÚÜÈ	ˆ™]\š[˜\žHÝZY[˜ÙH‹ˆ]WÝYÈŽˆ‘œšYÚ[™È[ˆ^ÛÝˆš\ÚÜÈ	ˆÚ[ˆH™]X^H\ÙH]‹ˆ›Y]WÛÝ™\œšYHŽˆ•[™\œÝ[™ÚHœšYÚ[™È\È›Ý›Ý][™HÛYH™X]Y[Ú]š\ÚÜÈÝ\ÙZÛ™YœšYÙ\˜]ÜœÈÜ™X]K[™Ú]È\ÚÈYˆ[ˆ[\XšX[ˆ™]™XÛÛ[Y[™È]ˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LLÈ‹ˆKˆŒÍHH^ÛÝØ[˜]™ØÞŽˆÂˆœÛYÈŽˆšX[ÜØ[X˜]‹ˆšXˆŽˆšX[‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝØ[˜]ˆÚ[ˆ]X^H™H\ÙY	ˆÝÈ]ÛÜšÜÈ‹ˆ]WÝYÈŽˆ^ÛÝØ[˜]ˆÚ[ˆ]X^H™H\ÙY	ˆÝÈ]ÛÜšÜÈ‹ˆ›Y]WÛÝ™\œšYHŽˆ^ÛÝØ[˜]È^Z[™YˆÚ[ˆ^HX^H™H\ØÝ\ÜÙY›ÜˆÙ[XÝY^\›˜[›Ø›[\ËÚH^HØ[ˆ\œš]]H[\XšX[ˆÚÚ[‹›ØÙY\™H[Z]È[™ØY™\ˆ\ØØ[][Û‹ˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŒÍˆHÚH\È^H^ÛÝ›Ø][™ÈÛÛ[[Ý\ÛK™ØÞŽˆÂˆœÛYÈŽˆšX[ÝÚKX^ÛÝY›Ø][™È‹ˆšXˆŽˆšX[‹ˆ]WÛÝ™\œšYHŽˆ•ÚH\È^H^ÛÝ›Ø][™ÏÈØ]\Ù\È[™™X]Y[‹ˆKˆŒÎHÚ[\H^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆ›[ÜœËÝÚ[]\H‹ˆšXˆŽˆ›[ÜœÈ‹ˆ]WÛÝ™\œšYHŽˆ•Ú[\H^ÛÝˆH˜]\˜[ÛÛÜˆ‹ˆ]WÝYÈŽˆ•Ú[\H^ÛÝˆÛÛÜ‹Ù[™]XÜÈ	ˆÝÈÈY[YžHÛ™H‹ˆKˆŒÎHHÚ[Y\˜H^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆ›[ÜœËØÚ[Y\˜H‹ˆšXˆŽˆ›[ÜœÈ‹ˆ]WÛÝ™\œšYHŽˆÚ[Y\˜H^ÛÝˆH˜\™\Ý[ÜœÙˆ[‹ˆ]WÝYÈŽˆÚ[Y\˜H^ÛÝˆH˜\™\Ý[Üœ^Z[™Y‹ˆKˆH^ÛÝYÙÈ[™\˜YHØ\™K™ØÞŽˆÂˆœÛYÈŽˆ˜œ™YY[™ËÙYÙËX[™[\˜YKXØ\™H‹ˆšXˆŽˆ˜œ™YY[™È‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝYÙÈ[™\˜YHØ\™NˆHÛÛ\]HÝZYH‹ˆ]WÝYÈŽˆ^ÛÝYÙÈØ\™Nˆ]Ú[™È[YKÙ]\	ˆ™YY[™È\˜YH‹ˆKˆHH^ÛÝÙ[™]XÜÈ[™[˜œ™YY[™Èš\ÚË™ØÞŽˆÂˆœÛYÈŽˆ˜œ™YY[™ËÙÙ[™]XÜËX[™Z[˜œ™YY[™È‹ˆšXˆŽˆ˜œ™YY[™È‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝÙ[™]XÜÈ[™[˜œ™YY[™Èš\ÚÈ‹ˆ]WÝYÈŽˆ^ÛÝÙ[™]XÜÈ	ˆ[˜œ™YY[™Èš\ÚÎˆÚ]œ™YY\œÈ]\ÝÛ›ÝÈ‹ˆKˆˆHœ™YY[™ÈšYÙÙ\œÈ[\\˜]\™HÞXÛ[™Ë™ØÞŽˆÂˆœÛYÈŽˆ˜œ™YY[™ËØœ™YY[™Ë]šYÙÙ\œË][\\˜]\™KXÞXÛ[™È‹ˆšXˆŽˆ˜œ™YY[™È‹ˆ]WÛÝ™\œšYHŽˆœ™YY[™ÈšYÙÙ\œÎˆ[\\˜]\™HÞXÛ[™È›Üˆ^ÛÝÈ‹ˆ]WÝYÈŽˆ’ÝÈÈšYÙÙ\ˆ^ÛÝœ™YY[™Îˆ[\\˜]\™H	ˆYÚÞXÛ[™È‹ˆKˆÈHÝÈÈ[^ÛÝÙ[™\‹™ØÞŽˆÂˆœÛYÈŽˆ˜œ™YY[™ËÜÙ^[™ËX^ÛÝÈ‹ˆšXˆŽˆ˜œ™YY[™È‹ˆ]WÛÝ™\œšYHŽˆ’ÝÈÈ[^ÛÝÙ[™\ˆ
+Ù^[™ÈÝZYJH‹ˆ]WÝYÈŽˆ’ÝÈÈ[^ÛÝÙ[™\ŽˆX[HœÈ™[X[HÛØXØHÝZYH‹ˆKˆH˜Z\Ú[™È˜XžH^ÛÝË™ØÞŽˆÂˆœÛYÈŽˆ˜œ™YY[™ËÜ˜Z\Ú[™ËZ]™[š[\È‹ˆšXˆŽˆ˜œ™YY[™È‹ˆ]WÛÝ™\œšYHŽˆ˜XžH^ÛÝØ\™Nˆ™YY[™ËÜ›ÝÝ	ˆ˜Z\Ú[™È]™[š[\È‹ˆ]WÝYÈŽˆ˜XžH^ÛÝØ\™Nˆ™YY[™ËÜ›ÝÝ	ˆ˜Z\Ú[™È]™[š[\È‹ˆ›Y]WÛÝ™\œšYHŽˆ˜XžH^ÛÝØ\™Hœ›ÛH™]ÛH™YY[™È\˜YH›ÝYÚ]™[š[HÜ›ÝË[Ý]ˆ›ÛÙ˜[œÚ][ÛœËÜ›ÝÝÚ^™HÛÜ[™ËØ]\ˆ]X[]K[™Ú[ˆ[Ý[™È^ÛÝÈ™YYÙ\\˜]HÝ\Ú[™Ëˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆHH^ÛÝÛÛÜˆÙ[™]XÜÈ[›™]Ü]X\™\Ë™ØÞŽˆÂˆœÛYÈŽˆ˜œ™YY[™ËØÛÛÜ‹YÙ[™]XÜË\[›™]\Ü]X\™\È‹ˆšXˆŽˆ˜œ™YY[™È‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝÛÛÜˆÙ[™]XÜÎˆ[›™]Ü]X\™\È^Z[™Y‹ˆ]WÝYÈŽˆ^ÛÝÛÛÜˆÙ[™]XÜÎˆ[›™]Ü]X\™\È^Z[™Y‹ˆKˆˆH]XÚ\ÝXÈ^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆ›[ÜœËÛ]XÚ\ÝXÈ‹ˆšXˆŽˆ›[ÜœÈ‹ˆ]WÛÝ™\œšYHŽˆ“]XÚ\ÝXÈ^ÛÝˆH“XÞWˆ[Üœ‹ˆ]WÝYÈŽˆ“]XÚ\ÝXÈ^ÛÝˆÛÛÜ‹Ù[™]XÜÈ	ˆÝÈÈÜÝH\HXÞH‹ˆKˆÈHY[[›ÚY^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆ›[ÜœËÛY[[›ÚY‹ˆšXˆŽˆ›[ÜœÈ‹ˆ]WÛÝ™\œšYHŽˆ“Y[[›ÚY^ÛÝˆH\šÈ[Üœ‹ˆ]WÝYÈŽˆ“Y[[›ÚY^ÛÝˆÙ[™]XÜÈ	ˆÝÈÈY[YžHÛ™H‹ˆ›Y]WÛÝ™\œšYHŽˆ•HY[[›ÚY^ÛÝ\ÈH™X\‹X›XÚÈ[ÜœÚ]›ÈY][XÈÚ[™KˆX\›ˆÝÈÈ\Ý[™ÝZ\Ú]œ›ÛHH\šÈÚ[]\H^ÛÝˆ‹ˆKˆHÛÛ[ˆ[š[›È^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆ›[ÜœËÙÛÛ[‹X[š[›È‹ˆšXˆŽˆ›[ÜœÈ‹ˆ]WÛÝ™\œšYHŽˆ‘ÛÛ[ˆ[š[›È^ÛÝ‹ˆ]WÝYÈŽˆ‘ÛÛ[ˆ[š[›È^ÛÝˆÙ[™]XÜËšXÙH	ˆØ\™HÝZYH‹ˆKˆHHÑ”^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆ›[ÜœËÙÙœX^ÛÝ‹ˆšXˆŽˆ›[ÜœÈ‹ˆ]WÛÝ™\œšYHŽˆ‘Ñ”^ÛÝˆHÛÝÚ[™È[Üœ‹ˆ]WÝYÈŽˆ•Ú]\ÈHÑ”^ÛÝÈØ\™KÙ]\	ˆÚH^HÛÝÈ‹ˆKˆLHÛÜ\ˆ^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆ›[ÜœËØÛÜ\ˆ‹ˆšXˆŽˆ›[ÜœÈ‹ˆ]WÛÝ™\œšYHŽˆÛÜ\ˆ^ÛÝ‹ˆ]WÝYÈŽˆÛÜ\ˆ^ÛÝˆÛÛÜ‹Ù[™]XÜÈ	ˆÝÈÈœ™YY[H‹ˆ›Y]WÛÝ™\œšYHŽˆ•HÛÜ\ˆ^ÛÝ\ÈHœ›ÝÛ‹[Ü˜[™ÙH[ÜœÚ]™Y\ÚÚ[È[™YÚ^Y\ÈØ]\ÙYžHH™XÙ\ÜÚ]™H\œH]]][Û‹ˆ‹ˆKˆLHHYX˜[^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆ›[ÜœËÜYX˜[‹ˆšXˆŽˆ›[ÜœÈ‹ˆ]WÛÝ™\œšYHŽˆ”YX˜[^ÛÝˆH]ÚH[Üœ‹ˆ]WÝYÈŽˆ”YX˜[^ÛÝˆÙ[™]XÜËšXÙH	ˆÝÈ]	ÜÈY™™\™[‹ˆ›Y]WÛÝ™\œšYHŽˆHYX˜[^ÛÝ\ÈH\šÈ›ÙHÚ]\œ™YÝ[\ˆÚ]H]Ú\ËˆX\›ˆÝÈ]Y™™\œÈœ›ÛH]XÚ\ÝXÈ[™Ú[Y\˜H^ÛÝËˆ‹ˆKˆLˆH[™\œÝ[™[™È^ÛÝYÛY[Ù[Ë™ØÞŽˆÂˆœÛYÈŽˆ›[ÜœËÜYÛY[XÙ[È‹ˆšXˆŽˆ›[ÜœÈ‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝYÛY[Ù[È	ˆÛÛÜˆÚ[™Ù\ÎˆÝÈZ\ˆÛÛÜœÈÛÜšÈ‹ˆ]WÝYÈŽˆ^ÛÝYÛY[Ù[È	ˆÛÛÜˆÚ[™Ù\ÎˆÝÈZ\ˆÛÛÜœÈÛÜšÈ‹ˆ›Y]WÛÝ™\œšYHŽˆ’ÝÈ^ÛÝÛÛÜœÈÛÜšÎˆY[[›ÜÜ™\Ë[ÜÜ™\È[™\šYÜÜ™\ËÚH[ÜœÈÛÚÈY™™\™[ÝÈÛÛÜˆØ[ˆ\X\ˆÈÚ[™ÙK[™Ú\™H^[XËY[[›ÚY[™[š[›Èš]ˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆLÈH[šYÛXHPPÈ[™š\™Y›H^ÛÝË™ØÞŽˆÂˆœÛYÈŽˆ›[ÜœËÙ[šYÛXKYš\™Y›K[XXÈ‹ˆšXˆŽˆ›[ÜœÈ‹ˆ]WÛÝ™\œšYHŽˆ‘[šYÛXKPPÈ[™š\™Y›H^ÛÝÈ‹ˆ]WÝYÈŽˆ‘[šYÛXKPPÈ	ˆš\™Y›H^ÛÝÎˆ˜\™H[ÜœÈ[™H]XÜÈX˜]H‹ˆ›Y]WÛÝ™\œšYHŽˆ‘[šYÛXKPPË[™š\™Y›H^ÛÝÈ\™H˜\™KÛÛ›Ý™\œÚX[[ÜœËˆÛÛ\\™HÝÈ^H\™H›ÙXÙYZ\ˆ˜\š]KÛÜÝ[™]XØ[ÛÛ˜Ù\›œËˆ‹ˆKˆMH^ÛÝÝ\›YÚ[ÈÝ™\ÜÈÚYÛ˜[™ØÞŽˆÂˆœÛYÈŽˆšX[ØÝ\›YYÚ[Ë\Ý™\ÜË\ÚYÛ˜[‹ˆšXˆŽˆšX[‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝÝ\›YÚ[È[™Z[\Îˆ[™\œÝ[™[™ÈHÝ™\ÜÈÚYÛ˜[‹ˆ]WÝYÈŽˆÝ\›Y^ÛÝÚ[È	ˆZ[\ˆÝ™\ÜÈÚYÛ˜[È	ˆš^\È‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LLŽH‹ˆKˆMHH[™\œÝ[™[™È^ÛÝ[Xˆ™YÙ[™\˜][Û‹™ØÞŽˆÂˆœÛYÈŽˆšX[Û[X‹\™YÙ[™\˜][Ûˆ‹ˆšXˆŽˆšX[‹ˆ]WÛÝ™\œšYHŽˆ“^H^ÛÝÜÝH[XŽˆÚ]ÚÝ[HÏÈ‹ˆ]WÝYÈŽˆ“^H^ÛÝÜÝH[XŽˆX[[™Ë™YÜ›ÝÝ	ˆÚ[ˆÈÙ][‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆMˆHÝÈÈ™X]^ÛÝ[[[ÛšXH\›œË™ØÞŽˆÂˆœÛYÈŽˆšX[Ø[[[ÛšXKX\›œÈ‹ˆšXˆŽˆšX[‹ˆ]WÛÝ™\œšYHŽˆ’ÝÈÈ™X]^ÛÝ[[[ÛšXH\›œÈ‹ˆ]WÝYÈŽˆ^ÛÝ[[[ÛšXH\›ŽˆÚYÛœËÝYÙ\È	ˆ™X]Y[‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LLŽH‹ˆKˆMÈH™XÛÙÛš^š[™È™YYÈÞ[™›ÛYH[ˆ^ÛÝË™ØÞŽˆÂˆœÛYÈŽˆšX[Ü™Y[YË\Þ[™›ÛYH‹ˆšXˆŽˆšX[‹ˆ]WÛÝ™\œšYHŽˆ”™XÛÙÛš^š[™È™YYÈÞ[™›ÛYH[ˆ^ÛÝÈ‹ˆ]WÝYÈŽˆ^ÛÝ™YYÈ\ÙX\ÙNˆÚYÛœË™X]Y[	ˆ™]™[[Ûˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LLŽH‹ˆKˆNHÙ][™È\HÜÜ][]X\˜[[™HXˆ›Üˆ^ÛÝË™ØÞŽˆÂˆœÛYÈŽˆšX[Ü]X\˜[[™K]Xˆ‹ˆšXˆŽˆšX[‹ˆ]WÛÝ™\œšYHŽˆ”Ù][™È\[ˆ^ÛÝÜÜ][]X\˜[[™HXˆ‹ˆ]WÝYÈŽˆ^ÛÝÜÜ][]X\˜[[™HXŽˆÙ]\	ˆØ\™H‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LLŽH‹ˆKˆNHHHØ]\Ù\ÈÙˆÚš[šÚ[™È^ÛÝÚ[Ë™ØÞŽˆÂˆœÛYÈŽˆšX[ÜÚš[šÚ[™ËYÚ[È‹ˆšXˆŽˆšX[‹ˆ]WÛÝ™\œšYHŽˆ•HØ]\Ù\ÈÙˆÚš[šÚ[™È^ÛÝÚ[È‹ˆ]WÝYÈŽˆ•ÚH\™H^H^ÛÝ	ÜÈÚ[ÈÚš[šÚ[™ÏÈØ]\Ù\È	ˆš^\È‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LLŽH‹ˆKˆŒH™X][™ÈZ[›ÜˆØÜ˜\\È[™ÛÝ[™ÈÛˆ^ÛÝË™ØÞŽˆÂˆœÛYÈŽˆšX[ÛZ[›Ü‹\ØÜ˜\\ËX[™]ÛÝ[™È‹ˆšXˆŽˆšX[‹ˆ]WÛÝ™\œšYHŽˆ•™X][™ÈZ[›ÜˆØÜ˜\\È[™ÛÝ[™ÈÛˆ^ÛÝÈ‹ˆ]WÝYÈŽˆ•™X][™ÈZ[›Üˆ^ÛÝØÜ˜\\È	ˆÛÝ[™ÎˆÚ]ÈÈ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LLŽH‹ˆKˆŒHH™\Ý^ÛÝÞ\È[™\ÚY\Ë™ØÞŽˆÂˆœÛYÈŽˆ™ÚYËX[™[Y\˜ÚØ™\ÝX^ÛÝ]Þ\ËX[™\\ÚY\È‹ˆšXˆŽˆ™ÚYËX[™[Y\˜Ú‹ˆ]WÛÝ™\œšYHŽˆ•H™\Ý^ÛÝÞ\È[™\ÚY\È‹ˆ]WÝYÈŽˆ™\Ý^ÛÝÞ\È	ˆ\ÚY\ÎˆÝY™™Y[š[X[È	ˆ[Ü™H
+ŒŠH‹ˆKˆŒˆH^ÛÝÜ]Z\ÚX[ÝÈÝZYK™ØÞŽˆÂˆœÛYÈŽˆ™ÚYËX[™[Y\˜ÚØ^ÛÝ\Ü]Z\ÚX[ÝËYÝZYH‹ˆšXˆŽˆ™ÚYËX[™[Y\˜Ú‹ˆ]WÛÝ™\œšYHŽˆ•HÛÛ\]H^ÛÝÜ]Z\ÚX[ÝÈÝZYH‹ˆ]WÝYÈŽˆ‘]™\žH^ÛÝÜ]Z\ÚX[ÝÎˆ\˜ÚYKÚ^™\È	ˆÝÈÈ^H‹ˆKˆŒÈHZ[PKP™X\ˆ^ÛÝÝZYK™ØÞŽˆÂˆœÛYÈŽˆ™ÚYËX[™[Y\˜ÚØZ[XKX™X\‹X^ÛÝYÝZYH‹ˆšXˆŽˆ™ÚYËX[™[Y\˜Ú‹ˆ]WÛÝ™\œšYHŽˆ•HZ[PKP™X\ˆ^ÛÝÝZYH‹ˆ]WÝYÈŽˆZ[PKP™X\ˆ^ÛÝˆ]™\žH[Ù[šXÙH	ˆÝÈÈÝ\ÝÛZ^™H‹ˆKˆH™\Ý^ÛÝQÓÈÙ]Ë™ØÞŽˆÂˆœÛYÈŽˆ™ÚYËX[™[Y\˜ÚØ™\ÝX^ÛÝ[YÛË\Ù]È‹ˆšXˆŽˆ™ÚYËX[™[Y\˜Ú‹ˆ]WÛÝ™\œšYHŽˆ™\ÝQÓÈ^ÛÝÙ]È‹ˆ]WÝYÈŽˆ“QÓÈ^ÛÝÙ]ÎˆZ[™XÜ˜YH^ÛÝÝ\ÙH^Z[™Y‹ˆKˆHH\™H^ÛÝÈYØ[[ˆØ[Y›Ü›šXK™ØÞŽˆÂˆœÛYÈŽˆ›YØ[ØØ[Y›Ü›šXH‹ˆšXˆŽˆ›YØ[‹ˆ]WÛÝ™\œšYHŽˆ\™H^ÛÝÈYØ[[ˆØ[Y›Ü›šXOÈ‹ˆ]WÝYÈŽˆ\™H^ÛÝÈYØ[[ˆØ[Y›Ü›šXOÈ]ÜÈ	ˆ\›Z]È
+ŒŠH‹ˆKˆˆH\™H^ÛÝÈYØ[[ˆØ[˜YK™ØÞŽˆÂˆœÛYÈŽˆ›YØ[ØØ[˜YH‹ˆšXˆŽˆ›YØ[‹ˆ]WÛÝ™\œšYHŽˆ\™H^ÛÝÈYØ[[ˆØ[˜YOÈ‹ˆ]WÝYÈŽˆ\™H^ÛÝÈYØ[[ˆØ[˜YOÈ[\Ü[\ÈžH›Ýš[˜ÙH
+ŒŠH‹ˆKˆÈH\™H^ÛÝÈYØ[[ˆ]ØZZK™ØÞŽˆÂˆœÛYÈŽˆ›YØ[Ú]ØZZH‹ˆšXˆŽˆ›YØ[‹ˆ]WÛÝ™\œšYHŽˆ\™H^ÛÝÈYØ[[ˆ]ØZZOÈ‹ˆ]WÝYÈŽˆ\™H^ÛÝÈYØ[[ˆ]ØZZOÈ[\Ü[\È^Z[™Y
+ŒŠH‹ˆKˆŽH\™H^ÛÝÈYØ[[ˆXZ[™K™ØÞŽˆÂˆœÛYÈŽˆ›YØ[ÛXZ[™H‹ˆšXˆŽˆ›YØ[‹ˆ]WÛÝ™\œšYHŽˆ\™H^ÛÝÈYØ[[ˆXZ[™OÈ‹ˆ]WÝYÈŽˆ\™H^ÛÝÈYØ[[ˆXZ[™OÈ\›Z][\È^Z[™Y
+ŒŠH‹ˆKˆŽHH\™H^ÛÝÈYØ[[ˆ™]È™\œÙ^K™ØÞŽˆÂˆœÛYÈŽˆ›YØ[Û™]ËZ™\œÙ^H‹ˆšXˆŽˆ›YØ[‹ˆ]WÛÝ™\œšYHŽˆ\™H^ÛÝÈYØ[[ˆ™]È™\œÙ^OÈ‹ˆ]WÝYÈŽˆ\™H^ÛÝÈYØ[[ˆ™]È™\œÙ^OÈ]ÜÈ^Z[™Y
+ŒŠH‹ˆKˆÌH\™H^ÛÝÈYØ[[ˆ™]ÈY^XÛË™ØÞŽˆÂˆœÛYÈŽˆ›YØ[Û™]Ë[Y^XÛÈ‹ˆšXˆŽˆ›YØ[‹ˆ]WÛÝ™\œšYHŽˆ\™H^ÛÝÈYØ[[ˆ™]ÈY^XÛÏÈ‹ˆ]WÝYÈŽˆ\™H^ÛÝÈYØ[[ˆ™]ÈY^XÛÏÈ[\Ü\›Z]
+ŒŠH‹ˆKˆÌHH\™H^ÛÝÈYØ[[ˆš\™Ú[šXK™ØÞŽˆÂˆœÛYÈŽˆ›YØ[Ýš\™Ú[šXH‹ˆšXˆŽˆ›YØ[‹ˆ]WÛÝ™\œšYHŽˆ\™H^ÛÝÈYØ[[ˆš\™Ú[šXOÈ‹ˆ]WÝYÈŽˆ\™H^ÛÝÈYØ[[ˆš\™Ú[šXOÈ]ÜÈ^Z[™Y
+ŒŠH‹ˆKˆÌˆH\™H^ÛÝÈÛÛÙ™YÚ[›™\ˆ]Ë™ØÞŽˆÂˆœÛYÈŽˆ˜Ø\™KX˜\ÚXÜËØ\™KX^ÛÝËYÛÛÙX™YÚ[›™\‹\]È‹ˆšXˆŽˆ˜Ø\™KX˜\ÚXÜÈ‹ˆ]WÛÝ™\œšYHŽˆ\™H^ÛÝÈÛÛÙ]ÏÈ›ÜËÛÛœÈ	ˆ™YÚ[›™\ˆØ\™HY™šXÝ[H‹ˆ]WÝYÈŽˆ\™H^ÛÝÈÛÛÙ]ÏÈ›ÜËÛÛœÈ	ˆ™YÚ[›™\ˆØ\™HY™šXÝ[H‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆÌÈH^ÛÝYÙH[™Ú^™HÚ\™ØÞŽˆÂˆœÛYÈŽˆ˜Ø\™KX˜\ÚXÜËØ^ÛÝXYÙKX[™\Ú^™KXÚ\‹ˆšXˆŽˆ˜Ø\™KX˜\ÚXÜÈ‹ˆ]WÛÝ™\œšYHŽˆ’ÝÈšYÈÈ^ÛÝÈÙ]ÈYÙKÚ^™H	ˆÜ›ÝÝÚ\‹ˆ]WÝYÈŽˆ’ÝÈšYÈÈ^ÛÝÈÙ]ÈYÙKÚ^™H	ˆÜ›ÝÝÚ\‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆÍH[X^š[™È^ÛÝ˜XÝË™ØÞŽˆÂˆœÛYÈŽˆ˜Ø\™KX˜\ÚXÜËØ^ÛÝY˜XÝÈ‹ˆšXˆŽˆ˜Ø\™KX˜\ÚXÜÈ‹ˆ]WÛÝ™\œšYHŽˆ•Ú]\È[ˆ^ÛÝÈH˜XÝÈX›Ý]\ÈY^XØ[ˆØ[[X[™\ˆ‹ˆ]WÝYÈŽˆ•Ú]\È[ˆ^ÛÝÈH˜XÝÈX›Ý]\ÈY^XØ[ˆØ[[X[™\ˆ‹ˆ›Y]WÛÝ™\œšYHŽˆ•Ú]\È[ˆ^ÛÝÈX\›ˆHÛÜ™H˜XÝÈX›Ý]\ÈY^XØ[ˆ\]X]XÈØ[[X[™\ŽˆÛ\ÜÚYšXØ][Û‹™[Ý[žK™YÙ[™\˜][Û‹Xš]]ÛÛœÙ\˜][Û‹Y™\Ü[‹Y][™]š[ÛÙÞKˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆÍHHÈ^ÛÝÈ™XÛÙÛš^™HZ\ˆÝÛ™\œË™ØÞŽˆÂˆœÛYÈŽˆ˜Ø\™KX˜\ÚXÜËØ^ÛÝZ[[YÙ[˜ÙKX[™X›Û™[™È‹ˆšXˆŽˆ˜Ø\™KX˜\ÚXÜÈ‹ˆ]WÛÝ™\œšYHŽˆ‘È^ÛÝÈ™XÛÙÛš^™HZ\ˆÝÛ™\œÏÈ‹ˆ]WÝYÈŽˆ‘È^ÛÝÈ™XÛÙÛš^™HZ\ˆÝÛ™\œÏÈ›Û™[™È	ˆ[[YÙ[˜ÙH‹ˆKˆÍˆH\™H^ÛÝÈÛÛÙ]È›ÜˆÚYË™ØÞŽˆÂˆœÛYÈŽˆ˜Ø\™KX˜\ÚXÜËØ^ÛÝËX[™XÚ[™[ˆ‹ˆšXˆŽˆ˜Ø\™KX˜\ÚXÜÈ‹ˆ]WÛÝ™\œšYHŽˆ\™H^ÛÝÈÛÛÙ]È›ÜˆÚYÏÈ‹ˆ]WÝYÈŽˆ\™H^ÛÝÈÛÛÙ]È›ÜˆÚYÏÈÚ]\™[È]\ÝÛ›ÝÈ‹ˆ›Y]WÛÝ™\œšYHŽˆ\™H^ÛÝÈÝZ]X›H]È›ÜˆÚ[™[ÈX\›ˆYÙH[™X]\š]HÛÛœÚY\˜][ÛœËY[™\ÜÛœÚXš[]KØœÙ\˜][Û‹Yš\œÝ[™[™È[\Ë\]Z\Y[™YY[™ÈÝ\\š\Ú[Ûˆ[™Û™Ë]\›H˜[Z[HÛÛ[Z]Y[ˆ‹ˆKˆÍÈH^ÛÝ™Z]š[Üˆ^Z[™Y™ØÞŽˆÂˆœÛYÈŽˆ˜Ø\™KX˜\ÚXÜËØ™Z]š[Üˆ‹ˆšXˆŽˆ˜Ø\™KX˜\ÚXÜÈ‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝ™Z]š[Üˆ^Z[™Y‹ˆ]WÝYÈŽˆ^ÛÝ™Z]š[Üˆ^Z[™YˆÚ]]™\žHÝÛ™\ˆÚÝ[Û›ÝÈ‹ˆKˆÎH^ÛÝ[ÛHÛÜÝÙˆÝÛ™\œÚ\™ØÞŽˆÂˆœÛYÈŽˆ˜Ø\™KX˜\ÚXÜËØÛÜÝ[Ù‹[ÝÛ™\œÚ\[[ÛH‹ˆšXˆŽˆ˜Ø\™KX˜\ÚXÜÈ‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝ[ÛHÛÜÝÙˆÝÛ™\œÚ\‹ˆ]WÝYÈŽˆ^ÛÝ[ÛHÛÜÝˆYÙ]›Üˆ›ÛÙØ]\ˆ	ˆÝ\Y\È
+ŒŠH‹ˆKˆÎHHÝÈÈÛ[ˆ^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆ˜Ø\™KX˜\ÚXÜËÚ[™[™È‹ˆšXˆŽˆ˜Ø\™KX˜\ÚXÜÈ‹ˆ]WÛÝ™\œšYHŽˆØ[ˆ[ÝHÛ[ˆ^ÛÝÈØY™H[™[™Ë][™È	ˆ˜[œÜÜ‹ˆ]WÝYÈŽˆØ[ˆ[ÝHÛ[ˆ^ÛÝÈØY™H[™[™Ë][™È	ˆ˜[œÜÜ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŽHÝÈÈ›Û›Ý[˜ÙH^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆ˜Ø\™KX˜\ÚXÜËÚÝË]Ë\›Û›Ý[˜ÙKX^ÛÝ‹ˆšXˆŽˆ˜Ø\™KX˜\ÚXÜÈ‹ˆ]WÛÝ™\œšYHŽˆ’ÝÈÈ›Û›Ý[˜ÙH[™Ü[^ÛÝˆYX[š[™È	ˆÛÜœ™XÝ›Û[˜ÚX][Ûˆ‹ˆ]WÝYÈŽˆ’ÝÈÈ›Û›Ý[˜ÙH[™Ü[^ÛÝˆYX[š[™È	ˆÛÜœ™XÝ›Û[˜ÚX][Ûˆ‹ˆ›Y]WÛÝ™\œšYHŽˆ“X\›ˆÝÈÈ›Û›Ý[˜ÙH^ÛÝ[ˆ[™Û\ÚÜ[KVSËSSËUS[™\œÝ[™H\˜[[™ÙYHÝÈH[™Û\Ú›Ü›HY™™\œÈœ›ÛH˜ZX][™Ü[š\ÚZ›ÛÝKˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŽHHØ[ˆ^ÛÝÈ]™HÙÙ]\‹™ØÞŽˆÂˆœÛYÈŽˆ˜Ø\™KX˜\ÚXÜËÚÙY\[™Ë[][\KX^ÛÝÈ‹ˆšXˆŽˆ˜Ø\™KX˜\ÚXÜÈ‹ˆ]WÛÝ™\œšYHŽˆØ[ˆ^ÛÝÈ]™HÙÙ]\ÈÛ™HœÈÛÈ^ÛÝÈ	ˆÛÚXš]][Ûˆ‹ˆ]WÝYÈŽˆØ[ˆ^ÛÝÈ]™HÙÙ]\ÈÛ™HœÈÛÈ^ÛÝÈ	ˆÛÚXš]][Ûˆ‹ˆ›Y]WÛÝ™\œšYHŽˆØ[ˆÛÈ^ÛÝÈ]™HÙÙ]\ÈX\›ˆÚ^™HX]Ú[™Ë]™[š[Hš\[™È[™Ø[›šX˜[\ÛHš\ÚËÜXÙH[™Y\Ë[›ÙXÝ[Û‹[Ûš]Üš[™È[™Ú[ˆ[š[X[ÈÚÝ[™HÙ\\˜]Yˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŽˆH^ÛÝ[˜]Û^HÚ[È[™[™ÜË™ØÞŽˆÂˆœÛYÈŽˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØ[˜]Û^KYÚ[ËX[™[[™ÜÈ‹ˆšXˆŽˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙH‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝ[˜]Û^NˆÚ[Ë[™ÜËY]	ˆ›ÙH\È‹ˆ]WÝYÈŽˆ^ÛÝ[˜]Û^NˆÚ[Ë[™ÜËY]	ˆ›ÙH\È‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŽÈH^ÛÝœÈYÙ\ˆØ[[X[™\‹™ØÞŽˆÂˆœÛYÈŽˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØ^ÛÝ]œË]YÙ\‹\Ø[[X[™\ˆ‹ˆšXˆŽˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙH‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝœÈYÙ\ˆØ[[X[™\ˆ‹ˆ]WÝYÈŽˆ^ÛÝœÈYÙ\ˆØ[[X[™\ŽˆÙ^HY™™\™[˜Ù\È^Z[™Y‹ˆKˆŽH^ÛÝÛÛœÙ\˜][ÛˆÝ]\Ë™ØÞŽˆÂˆœÛYÈŽˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØÛÛœÙ\˜][Û‹\Ý]\È‹ˆšXˆŽˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙH‹ˆ]WÛÝ™\œšYHŽˆ\™H^ÛÝÈ[™[™Ù\™YÈÝÈX[žH\™HY[ˆHÚ[È‹ˆ]WÝYÈŽˆ\™H^ÛÝÈ[™[™Ù\™YÈÝÈX[žH\™HY[ˆHÚ[È‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŽHH\È[ˆ^ÛÝ[ˆ[\XšX[‹™ØÞŽˆÂˆœÛYÈŽˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÚ\ËX^ÛÝX[\XšX[ˆ‹ˆšXˆŽˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙH‹ˆ]WÛÝ™\œšYHŽˆ’\È[ˆ^ÛÝ[ˆ[\XšX[È‹ˆ]WÝYÈŽˆ’\È[ˆ^ÛÝ[ˆ[\XšX[ÈY\ÈH\™IÜÈÚH‹ˆKˆŽˆH^ÛÝY™\Ü[ˆÚ[œÈØ\]š]K™ØÞŽˆÂˆœÛYÈŽˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÛY™\Ü[‹]Ú[]œËXØ\]š]H‹ˆšXˆŽˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙH‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝY™\Ü[ŽˆÚ[œÈØ\]š]H‹ˆ]WÝYÈŽˆ^ÛÝY™\Ü[ŽˆÝÈÛ™ÈÈ^ÛÝÈ]™OÈ‹ˆKˆŽÈH^ÛÝ™YÙ[™\˜][Ûˆ[™[Xˆ™YÜ›ÝÝ™ØÞŽˆÂˆœÛYÈŽˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÜ™YÙ[™\˜][Û‹X[™[[X‹\™YÜ›ÝÝ‹ˆšXˆŽˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙH‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝ™YÙ[™\˜][ÛŽˆHØÚY[˜ÙH‹ˆ]WÝYÈŽˆ^ÛÝ™YÙ[™\˜][ÛŽˆÝÈ^H™YÜ›ÝÈ[XœÈ	ˆ›ÙH\È‹ˆKˆŽHÚ]\È™[Ý[žH^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÛ™[Ý[žH‹ˆšXˆŽˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙH‹ˆ]WÛÝ™\œšYHŽˆ•Ú]\È™[Ý[žOÈ‹ˆ]WÝYÈŽˆ•Ú]\È™[Ý[žOÈÚH^ÛÝÈ™]™\ˆÜ›ÝÈ\‹ˆKˆŽHH^ÛÝÚ[Xš]]ØÚ[Z[ÛË™ØÞŽˆÂˆœÛYÈŽˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÝÚ[ZXš]]^ØÚ[Z[ÛÈ‹ˆšXˆŽˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙH‹ˆ]WÛÝ™\œšYHŽˆ•Ú\™HÈ^ÛÝÈ]™OÈÚ[Xš]][ˆØÚ[Z[ÛËY^XÛÈ‹ˆ]WÝYÈŽˆ•Ú\™HÈ^ÛÝÈ]™OÈÚ[Xš]][ˆØÚ[Z[ÛËY^XÛÈ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŽLH^ÛÝšXÙHžH[Üœ™ØÞŽˆÂˆœÛYÈŽˆ˜ÛÜÝX[™X^Z[™ËØ^ÛÝ\šXÙKXžK[[Üœ‹ˆšXˆŽˆ˜ÛÜÝX[™X^Z[™È‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝšXÙHžH[Üœ‹ˆ]WÝYÈŽˆ^ÛÝšXÙHžH[ÜœˆÛÜÝÝZYH›Üˆ]™\žHÛÛÜˆ
+ŒŠH‹ˆ›Y]WÛÝ™\œšYHŽˆ]YÝ\ÝŒˆTÈ^ÛÝšXÙHÛ˜\ÚÝžH[ÜœÚ]Ý\œ™[\Ý[™È^[\\ËÚ\[™ÈÛÜÝË[™ÚXÚÜÈ]X]\ˆ[Ü™H[ˆHY™\\ÙYÛÛÜ‹ˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LLÈ‹ˆKˆŽLHH^ÛÝœ™YY\ˆœÈ]ÝÜ™K™ØÞŽˆÂˆœÛYÈŽˆ˜ÛÜÝX[™X^Z[™ËØœ™YY\‹]œË\]\ÝÜ™H‹ˆšXˆŽˆ˜ÛÜÝX[™X^Z[™È‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝœ™YY\ˆœÈ]ÝÜ™NˆÚXÚ^Z[™ÈÜ[Ûˆ\È™]\È‹ˆ]WÝYÈŽˆ^ÛÝœ™YY\ˆœÈ]ÝÜ™NˆÚXÚ^Z[™ÈÜ[Ûˆ\È™]\È‹ˆ›Y]WÛÝ™\œšYHŽˆÛÛ\\™H^Z[™È[ˆ^ÛÝœ›ÛHHÜXÚX[\Ýœ™YY\ˆœÈH]ÝÜ™HžH[š[X[™XÛÜ™Ë\Ø˜[™žHš\ÚXš[]KÙ[XÝ[Û‹Ý\ÜXÚÝ\ÜˆÚ\[™Ë\›\È[™^Y\ˆ™\šYšXØ][Û‹ˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŽLˆHÝÈÈÚÛÜÙH[ˆ^ÛÝœ™YY\‹™ØÞŽˆÂˆœÛYÈŽˆ˜ÛÜÝX[™X^Z[™ËØÚÛÜÚ[™ËXK\™\]X›KXœ™YY\ˆ‹ˆšXˆŽˆ˜ÛÜÝX[™X^Z[™È‹ˆ]WÛÝ™\œšYHŽˆ’ÝÈÈÚÛÜÙHH™\]X›H^ÛÝœ™YY\ˆ‹ˆ]WÝYÈŽˆ’ÝÈÈÚÛÜÙH[ˆ^ÛÝœ™YY\ŽˆLˆ]Y\Ý[ÛœÈÈ\ÚÈ‹ˆ›Y]WÛÝ™\œšYHŽˆ•\ÙHLˆ˜XÝXØ[]Y\Ý[ÛœÈÈ™\šYžH[ˆ^ÛÝœ™YY\‰ÜÈ\Ø˜[™žK\™[YÙH™XÛÜ™ËÝ\œ™[[š[X[ÝÜËÚ\[™È\›\Ë[™Ý\Üˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LLÈ‹ˆKˆŽLÈHÝÈÈÚÛÜÙHHX[H^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆ˜ÛÜÝX[™X^Z[™ËÚÝË]ËXÚÛÜÙKXKZX[KX^ÛÝ‹ˆšXˆŽˆ˜ÛÜÝX[™X^Z[™È‹ˆ]WÛÝ™\œšYHŽˆ’ÝÈÈÚÛÜÙHHX[H^ÛÝ‹ˆ]WÝYÈŽˆ’ÝÈÈÚÛÜÙHHX[H^ÛÝˆÚYÛœÈÈÚXÚÈ™Y›Ü™H^Z[™È‹ˆ›Y]WÛÝ™\œšYHŽˆÚXÚÈ[ˆ^ÛÝ	ÜÈ›ÙHÛÛ™][Û‹ÚÚ[‹Ú[Ë[Ý™[Y[\]]H\ÝÜžK[™Ø]\ˆ™XÛÜ™È™Y›Ü™H^Z[™ËÚ]Ý]XYÛ›ÜÚ[™È\ÙX\ÙHœ›ÛHHÝËˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LLÈ‹ˆKˆŽMH^ÛÝÙ[\ˆ™Y›YÜË™ØÞŽˆÂˆœÛYÈŽˆ˜ÛÜÝX[™X^Z[™ËÜ™YY›YÜË]Ú[‹X^Z[™È‹ˆšXˆŽˆ˜ÛÜÝX[™X^Z[™È‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝÙ[\ˆ™Y›YÜÈ‹ˆ]WÝYÈŽˆ^ÛÝÙ[\ˆ™Y›YÜÎˆÝÈÈÜÝØØ[\È[™˜Yœ™YY\œÈ‹ˆ›Y]WÛÝ™\œšYHŽˆ”ÜÝ^ÛÝÙ[\ˆØØ[\ÈžH™\šYžZ[™ÈH^XÝ[š[X[Üš][ˆ\›\Ë˜XÙXX›H^[Y[\Ø˜[™žH™XÛÜ™ËY[]K[™Ú\[™È[‹ˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LLÈ‹ˆKˆŽMHHÝÈ^ÛÝÈ\™HÚ\Y™ØÞŽˆÂˆœÛYÈŽˆ˜ÛÜÝX[™X^Z[™ËÜÚ\[™Ë[]™KX^ÛÝÈ‹ˆšXˆŽˆ˜ÛÜÝX[™X^Z[™È‹ˆ]WÛÝ™\œšYHŽˆ’ÝÈ\™H^ÛÝÈÚ\YÈ[]™\žK[˜›Þ[™È	ˆ\œš]˜[ÝZYH‹ˆ]WÝYÈŽˆ’ÝÈ\™H^ÛÝÈÚ\YÈ[]™\žK[˜›Þ[™È	ˆ\œš]˜[ÝZYH‹ˆ›Y]WÛÝ™\œšYHŽˆ’ÝÈ]™H^ÛÝÚ\[™ÈÛÜšÜÎˆÙ[\ˆ[™Ø\œšY\ˆÚXÚÜËÙX]\ˆ[›š[™ËXÚÚ[™Ë[]™\žH[Z[™Ë[˜›Þ[™Ë\œš]˜[[œÜXÝ[Û‹XØÛ[X][Ûˆ[™Ú]ÈÈY\ˆH[^Kˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŽMˆH^ÛÝYÜYHÝZYK™ØÞŽˆÂˆœÛYÈŽˆ˜^ÛÝZ[‹XÝ[\™KØYÜ[YKX^ÛÝYÝZYH‹ˆšXˆŽˆ˜^ÛÝZ[‹XÝ[\™H‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝ[ˆYÜYNˆÝÈÈÙ]Û™H‹ˆ]WÝYÈŽˆ^ÛÝ[ˆYÜYNˆÝÈÈÙ]Û™H	ˆ[ÛÛÜœÈ
+ŒŠH‹ˆ›Y]WÛÝ™\œšYHŽˆ’ÝÈÈÙ][ˆ^ÛÝ[ˆYÜYH›ÝYÚÝ\œ™[˜Y[™ÈÜˆH]\™H]ÚÜ™]\›‹\È]È›Ü›\È[™ÝÈHš\X[]Y™™\œÈœ›ÛH™X[Ø\™Kˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LLÌ‹ˆKˆŽMÈH^ÛÝ[ˆÜÝ[\™H[™Y[Y\Ë™ØÞŽˆÂˆœÛYÈŽˆ˜^ÛÝZ[‹XÝ[\™KØ^ÛÝZ[‹\ÜXÝ[\™KX[™[Y[Y\È‹ˆšXˆŽˆ˜^ÛÝZ[‹XÝ[\™H‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝ[ˆÜÝ[\™NˆZ[™XÜ˜YÜ˜]š]H˜[Ë]\˜]\™KY[Y\È	ˆ[Ü™H‹ˆ]WÝYÈŽˆ^ÛÝ[ˆÜÝ[\™NˆZ[™XÜ˜YÜ˜]š]H˜[Ë]\˜]\™H	ˆY[Y\È‹ˆ›Y]WÛÝ™\œšYHŽˆ^ÛÝÈ[ˆÜÝ[\™NˆZ[™XÜ˜YÜ˜]š]H˜[È[™š[Ú\\‹[[ÈÛÜ0è^˜\‹Y[Y\ËY\˜Ú[™\ÙKØÚY[˜ÙHYYXH[™HÝ[\˜[YX[š[™ÜÈ]XÚYÈH[š[X[ˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŽNHZ[™XÜ˜Y^ÛÝÈÝZYK™ØÞŽˆÂˆœÛYÈŽˆ˜^ÛÝZ[‹XÝ[\™KÛZ[™XÜ˜YX^ÛÝËYÝZYH‹ˆšXˆŽˆ˜^ÛÝZ[‹XÝ[\™H‹ˆ]WÛÝ™\œšYHŽˆ“Z[™XÜ˜Y^ÛÝÎˆÛÛ\]HÝZYH‹ˆ]WÝYÈŽˆ“Z[™XÜ˜Y^ÛÝÎˆÜ]Ûš[™ËÛÛÜœÈ	ˆÝÈÈØ]Ú[H‹ˆKˆŽNHHÚH\™H^ÛÝÈÛÈÜ[\‹™ØÞŽˆÂˆœÛYÈŽˆ˜^ÛÝZ[‹XÝ[\™KÝÚKX^ÛÝËX\™K\ÝY[›K\Ü[\ˆ‹ˆšXˆŽˆ˜^ÛÝZ[‹XÝ[\™H‹ˆ]WÛÝ™\œšYHŽˆ•ÚH\™H^ÛÝÈÛÈÜ[\È‹ˆ]WÝYÈŽˆ•ÚH\™H^ÛÝÈÛÈÜ[\ÈHš\ÙHÙˆHÝ]H[™[™Ù\™Y[\XšX[ˆ‹ˆKˆŒLH›YH[™[šÈ^ÛÝ^]™ØÞŽˆÂˆœÛYÈŽˆ›[ÜœËØ›YKX[™\[šËX^ÛÝ[^]‹ˆšXˆŽˆ›[ÜœÈ‹ˆ]WÛÝ™\œšYHŽˆ”[šË›YK\œH	ˆÜ™Y[ˆ^ÛÝÎˆÚXÚÛÛÜœÈ\™H™X[È‹ˆ]WÝYÈŽˆ”[šË›YK\œH	ˆÜ™Y[ˆ^ÛÝÎˆÚXÚÛÛÜœÈ\™H™X[È‹ˆ›Y]WÛÝ™\œšYHŽˆ•ÚXÚ^ÛÝÛÛÜœÈ\™H™XÛÙÛš^™Y[ÜœË[™ÚXÚX™[ÈÛÛYHœ›ÛHYÚ[™ËÑ”›[Ü™\ØÙ[˜ÙKY][™ËÜˆÙ[\ˆ\›Z[›ÛÙÞOÈÛÛ\\™H[šË›YK\œKÜ™Y[‹Y[ÝË[™™X[[Üœ˜[Y\Ëˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŒLHH^ÛÝ[ÜœÈÛÛ\\š\ÛÛˆÚ\™ØÞŽˆÂˆœÛYÈŽˆ›[ÜœËÛ[ÜœËXÛÛ\\š\ÛÛ‹XÚ\‹ˆšXˆŽˆ›[ÜœÈ‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝÛÛÜœÈ	ˆ[ÜœÎˆ\\Ë˜\š]H[™ÛÛ\\š\ÛÛˆÚ\‹ˆ]WÝYÈŽˆ^ÛÝÛÛÜœÈ	ˆ[ÜœÎˆ\\Ë˜\š]H	ˆÛÛ\\š\ÛÛˆÚ\‹ˆ›Y]WÛÝ™\œšYHŽˆÛÛ\\™H^ÛÝÛÛÜœÈ[™[ÜœÈÚYHžHÚYK[˜ÛY[™ÈÚ[\K]XÚ\ÝXËY[[›ÚY[š[›ËÛÛ[ˆ[š[›ËÛÜ\‹^[XËÑ”YX˜[[ÜØZXË[™Ú[Y\˜H\›Z[›ÛÙÞKˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŒLˆH[ÜØZXÈ^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆ›[ÜœËÛ[ÜØZXÈ‹ˆšXˆŽˆ›[ÜœÈ‹ˆ]WÛÝ™\œšYHŽˆ“[ÜØZXÈ^ÛÝ‹ˆ]WÝYÈŽˆ“[ÜØZXÈ^ÛÝˆH]ÚH˜\™H[Üœ^Z[™Y‹ˆKˆŒLÈHš[™[™È[ˆ^ÝXÈ™]›Üˆ^ÛÝË™ØÞŽˆÂˆœÛYÈŽˆšX[Ùš[™[™ËX[‹Y^ÝXË]™]‹ˆšXˆŽˆšX[‹ˆ]WÛÝ™\œšYHŽˆ‘š[™[™È[ˆ^ÝXÈ™]›Üˆ^ÛÝÈ‹ˆ]WÝYÈŽˆ’ÝÈÈš[™[ˆ^ÛÝ™]ˆÙX\˜Ú	ˆØÜ™Y[š[™ÈÝZYH‹ˆ›Y]WÛÝ™\œšYHŽˆ‘š[™[™ØÜ™Y[ˆH™]\š[˜\šX[ˆÚ][\XšX[ˆ^\šY[˜ÙK™\\™H\ÙY[™XÛÜ™Ë[™[™\œÝ[™[Y\™Ù[˜ÞK[]šXYÙK[™ÛÜÝ]Y\Ý[ÛœËˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LLŽH‹ˆKˆŒLH^ÛÝÝ™\ÜÈÚYÛœË™ØÞŽˆÂˆœÛYÈŽˆšX[ÜÝ™\ÜË\ÚYÛœÈ‹ˆšXˆŽˆšX[‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝÝ™\ÜÈÚYÛœÎˆÝÈÈ[Yˆ[Ý\ˆ^ÛÝ\ÈÝ™\ÜÙY‹ˆ]WÝYÈŽˆ^ÛÝÝ™\ÜÈÚYÛœÎˆÝÈÈ[Yˆ[Ý\ˆ^ÛÝ\ÈÝ™\ÜÙY‹ˆ›Y]WÛÝ™\œšYHŽˆ“X\›ˆÛÛ[[Ûˆ^ÛÝÝ™\ÜÈÚYÛœÈ[™Ú\™HXXÚÞ[\ÛHÚÝ[XY™^ˆÝ\›YÚ[Ë›Ø][™Ë\]]HÜÜËÚš[šÚ[™ÈÚ[Ë[™Ý\Ë[ZÙHÜ›ÝÝX››Ü›X[ÝÚ[[Z[™È[™Ø]\‹\]X[]HÚXÚÜËˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŒLHH^ÛÝ[\XÝ[ÛˆÞ[\Û\È[™™X]Y[™ØÞŽˆÂˆœÛYÈŽˆšX[Ú[\XÝ[Û‹\Þ[\Û\Ë]™X]Y[‹ˆšXˆŽˆšX[‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝ[\XÝ[ÛˆÞ[\Û\È[™™X]Y[‹ˆ]WÝYÈŽˆ^ÛÝ[\XÝ[ÛŽˆÞ[\Û\ËØ]\Ù\È	ˆ™X]Y[‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LLŽH‹ˆKˆŒLˆH^ÛÝ[šÈÚ^™HžHYÙK™ØÞŽˆÂˆœÛYÈŽˆ[šË\Ù]\Ý[šË\Ú^™KXžKXYÙH‹ˆšXˆŽˆ[šË\Ù]\‹ˆ]WÛÝ™\œšYHŽˆ•Ú]Ú^™H[šÈÙ\È[ˆ^ÛÝ™YYÈ[šÈÚ^™HžHYÙH	ˆ[X™\ˆ‹ˆ]WÝYÈŽˆ•Ú]Ú^™H[šÈÙ\È[ˆ^ÛÝ™YYÈžHYÙH	ˆ[X™\ˆ‹ˆ›Y]WÛÝ™\œšYHŽˆÚÛÜÙH^ÛÝ[šÈÚ^™HžH›ÙH[™Ý›ÛÜˆÜXÙKØ]\ˆ›Û[YKš[˜][Û‹Y™HÝYÙK[™[X™\ˆÙˆ[š[X[ËˆÛÛ\\™H˜XžK]™[š[KY[[™][KX^ÛÝ™YYËˆ‹ˆ™]WÛ[ÙYšYYŽˆŒŒ‹LKLN‹ˆKˆŒLÈHØ[ˆ^ÛÝÈ]™HÚ]š\Ú™ØÞŽˆÂˆœÛYÈŽˆ[šË\Ù]\Ý[šË[X]\È‹ˆšXˆŽˆ[šË\Ù]\‹ˆ]WÛÝ™\œšYHŽˆØ[ˆ^ÛÝÈ]™HÚ]š\ÚÈ‹ˆ]WÝYÈŽˆØ[ˆ^ÛÝÈ]™HÚ]š\ÚÈ[šËSX]\Ë^Z[™Y‹ˆKˆŒLHÝÈÈXØÛ[X]HH™]È^ÛÝ™ØÞŽˆÂˆœÛYÈŽˆ[šË\Ù]\ØXØÛ[X][™ËXK[™]ËX^ÛÝ‹ˆšXˆŽˆ[šË\Ù]\‹ˆ]WÛÝ™\œšYHŽˆ’ÝÈÈXØÛ[X]HH™]È^ÛÝ‹ˆ]WÝYÈŽˆ’ÝÈÈXØÛ[X]HH™]È^ÛÝˆÝ\XžKTÝ\‹ˆKŸB‚ˆÈ\XÛ\È]Ú\[\˜XÝ]™HÛÛÈ
+ÛÜH[ÈÝÛÛËÈ\È›Û\ÈYÙ\ÊB•ÓÓÈHÂˆ˜^ÛÝXØ[Ý[]Üˆ›ÜˆØ]\ˆÛÛ™][Û™\ˆÜÙKš[ŽˆÂˆœÛYÈŽˆÛÛËÝØ]\‹XÛÛ™][Û™\‹YÜØYÙKXØ[Ý[]Üˆ‹ˆ]HŽˆ^ÛÝØ]\ˆÛÛ™][Û™\ˆÜØYÙHØ[Ý[]Üˆ‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝØ]\ˆÛÛ™][Û™\ˆÜØYÙHØ[Ý[]Üˆ^P^ÛÝ‹ˆ˜Ø]Žˆ•ÛÛÈ‹ˆKˆ˜^ÛÝY™YY[™Ë\ØÚY[KYÙ[™\˜]Ü‹š[ŽˆÂˆœÛYÈŽˆÛÛËÙ™YY[™Ë\ØÚY[KYÙ[™\˜]Üˆ‹ˆ]HŽˆ^ÛÝ™YY[™ÈØÚY[HÙ[™\˜]Üˆ‹ˆ˜Ø]Žˆ•ÛÛÈ‹ˆKˆ˜^ÛÝ[š]›ÙÙ[‹XÞXÛK]˜XÚÙ\‹š[ŽˆÂˆœÛYÈŽˆÛÛËÛš]›ÙÙ[‹XÞXÛK]˜XÚÙ\ˆ‹ˆ]HŽˆ^ÛÝš]›ÙÙ[ˆÞXÛH˜XÚÙ\ˆ‹ˆ˜Ø]Žˆ•ÛÛÈ‹ˆKˆ˜^ÛÝ\Þ[\ÛKXÚXÚÙ\‹š[ŽˆÂˆœÛYÈŽˆÛÛËÜÞ[\ÛKXÚXÚÙ\ˆ‹ˆ]HŽˆ^ÛÝÞ[\ÛHÚXÚÙ\ˆ‹ˆ˜Ø]Žˆ•ÛÛÈ‹ˆKˆ˜^ÛÝ][šË\Ú^™KXØ[Ý[]Ü‹š[ŽˆÂˆœÛYÈŽˆÛÛËÝ[šË\Ú^™KXØ[Ý[]Üˆ‹ˆ]HŽˆ^ÛÝ[šÈÚ^™HØ[Ý[]Üˆ‹ˆ˜Ø]Žˆ•ÛÛÈ‹ˆKˆ˜^ÛÝXÚ[\‹\Ú^™KXØ[Ý[]Ü‹š[ŽˆÂˆœÛYÈŽˆÛÛËØÚ[\‹\Ú^™KXØ[Ý[]Üˆ‹ˆ]HŽˆ^ÛÝÚ[\ˆÚ^™HØ[Ý[]Üˆ‹ˆ]WÛÝ™\œšYHŽˆ^ÛÝÚ[\ˆÚ^™HØ[Ý[]ÜŽˆ\Ý[X]H	ˆ›ÝÈ^P^ÛÝ‹ˆ˜Ø]Žˆ•ÛÛÈ‹ˆKˆ˜\]X\š][K]›Û[YKXØ[Ý[]Ü‹š[ŽˆÂˆœÛYÈŽˆÛÛËØ\]X\š][K]›Û[YKXØ[Ý[]Üˆ‹ˆ]HŽˆ\]X\š][H›Û[YHØ[Ý[]Üˆ‹ˆ]WÛÝ™\œšYHŽˆ\]X\š][H›Û[YHØ[Ý[]ÜŽˆØ[ÛœÈ	ˆ]\œÈœ›ÛH[Y[œÚ[ÛœÈ^P^ÛÝ‹ˆ˜Ø]Žˆ•ÛÛÈ‹ˆKŸB‚ˆÈ[\›˜[[šÚ[™ÈX\
+ÛÝ\˜ÙWÜÛYÈOˆÝ\™Ù]ÜÛYË‹‹—JH\YYÈ\XÛBˆÈYÙ\È]]ÛX]XØ[KˆÙ^\ËÝ˜[Y\È\™HÛYÜÈœ›ÛHT•PÓTÈ
+Ú]Ý]XY[™ÈÊK‚“S’ÒS‘ÈHÂˆÈ›YÜÚ\ÝZYH[˜ÚÜœÈHÝÛ™\œÚ\OˆYØ[\Ý]\ÈØ]]Ø^H
+\ÙH
+K‚ˆ˜^ÛÝËØØ\™KYÝZYHŽˆÈ›YØ[—Kˆ[šË\Ù]\ÜÙ]\YÝZYHŽˆÈ[šË\Ù]\ÜÝXœÝ˜]KX[™Z[\XÝ[Ûˆ‹[šË\Ù]\Ùš[˜][Û‹Y›Ü‹X^ÛÝÈ‹ˆ[šË\Ù]\Ý[\\˜]\™H‹[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™È‹ˆÛÛËØ\]X\š][K]›Û[YKXØ[Ý[]Üˆ—Kˆ[šË\Ù]\ÜÝXœÝ˜]KX[™Z[\XÝ[ÛˆŽˆÈšX[Ü™Y\Ú[™Ë]ËYX]‹[šË\Ù]\ÙÜ˜]™[\š\ÚÜÈ‹ˆšX[Ú[\XÝ[Û‹\Þ[\Û\Ë]™X]Y[—Kˆ[šË\Ù]\ÙÜ˜]™[\š\ÚÜÈŽˆÈ[šË\Ù]\ÜÝXœÝ˜]KX[™Z[\XÝ[Ûˆ‹[šË\Ù]\Û]™K]œËX\YšXÚX[\[È‹ˆšX[Ú[\XÝ[Û‹\Þ[\Û\Ë]™X]Y[—Kˆ[šË\Ù]\Ùš[˜][Û‹Y›Ü‹X^ÛÝÈŽˆÈ[šË\Ù]\ØØ[š\Ý\‹]œË\ÜÛ™ÙKYš[\ˆ‹[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™È—Kˆ[šË\Ù]\ØØ[š\Ý\‹]œË\ÜÛ™ÙKYš[\ˆŽˆÈ[šË\Ù]\Ùš[˜][Û‹Y›Ü‹X^ÛÝÈ—Kˆ[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™ÈŽˆÈ[šË\Ù]\ÝÚK][šË]Ø]\‹\ÛY[È‹[šË\Ù]\Ý[™X][‹Y›ÛÙX[™X[[[ÛšXH—Kˆ[šË\Ù]\ÝÚK][šË]Ø]\‹\ÛY[ÈŽˆÈ[šË\Ù]\ÜÙ]\YÝZYH—Kˆ[šË\Ù]\Ý[™X][‹Y›ÛÙX[™X[[[ÛšXHŽˆÈ[šË\Ù]\ÜÙ]\YÝZYH—Kˆ[šË\Ù]\Ý[\\˜]\™HŽˆÈ[šË\Ù]\Ø\]X\š][KXÚ[\œÈ‹ÛÛËØÚ[\‹\Ú^™KXØ[Ý[]Üˆ‹šX[Ü™Y\Ú[™Ë]ËYX]—Kˆ[šË\Ù]\Ø\]X\š][KXÚ[\œÈŽˆÈÛÛËØÚ[\‹\Ú^™KXØ[Ý[]Üˆ‹[šË\Ù]\Ý[\\˜]\™H—Kˆ[šË\Ù]\ÝØ]\‹XÛÛ™][Û™\œÈŽˆÈ[šË\Ù]\ØXØÛ[X][™ËXK[™]ËX^ÛÝ‹ˆ[šË\Ù]\ÛYÚ[™ËY›Ü‹X^ÛÝÈ‹ˆÛÛËØ\]X\š][K]›Û[YKXØ[Ý[]Üˆ—Kˆ[šË\Ù]\ÛYÚ[™ËY›Ü‹X^ÛÝÈŽˆÈ[šË\Ù]\ÚY\ËX[™XØ]™\È—Kˆ[šË\Ù]\ÚY\ËX[™XØ]™\ÈŽˆÈ[šË\Ù]\Û]™K]œËX\YšXÚX[\[È—Kˆ[šË\Ù]\Û]™K]œËX\YšXÚX[\[ÈŽˆÈ[šË\Ù]\ÚY\ËX[™XØ]™\È‹[šË\Ù]\ÛYÚ[™ËY›Ü‹X^ÛÝÈ—Kˆ[šË\Ù]\Ý[šË\Ú^™KXžKXYÙHŽˆÈ[šË\Ù]\ÜÙ]\YÝZYH‹[šË\Ù]\ÙÜ˜]™[\š\ÚÜÈ‹ˆ˜Ø\™KX˜\ÚXÜËØ^ÛÝXYÙKX[™\Ú^™KXÚ\‹[šË\Ù]\Ý[šË[X]\È‹ˆÛÛËØ\]X\š][K]›Û[YKXØ[Ý[]Üˆ—Kˆ[šË\Ù]\Ý[šË[X]\ÈŽˆÈ[šË\Ù]\Ý[šË\Ú^™KXžKXYÙH‹™Y]Ù™YY\‹Yš\Ú\š\ÚÜÈ‹ˆ˜Ø\™KX˜\ÚXÜËÚÙY\[™Ë[][\KX^ÛÝÈ—Kˆ[šË\Ù]\ØXØÛ[X][™ËXK[™]ËX^ÛÝŽˆÈ[šË\Ù]\ÜÙ]\YÝZYH—Kˆ™Y]ŽˆÈ™Y]Ø™\ÝY›ÛÙË[\Ý‹™Y]Ù™YY[™Ë\ØÚY[KXžKXYÙH‹™Y]ÛÝ™\™™YY[™ËX[™Z[\XÝ[Ûˆ—Kˆ™Y]Ø™\ÝY›ÛÙË[\ÝŽˆÈ™Y]Ù™YY[™Ë\ØÚY[KXžKXYÙH‹™Y]Û]™K]œËYœ›Þ™[‹Y›ÛÙ‹™Y]Ø^ÛÝ\[]È‹ˆ™Y]ÚÝË]ËZ[™Y™YY—Kˆ™Y]Ù™YY[™Ë\ØÚY[KXžKXYÙHŽˆÈ™Y]Ø™\ÝY›ÛÙË[\Ý‹™Y]ÛÝ™\™™YY[™ËX[™Z[\XÝ[Ûˆ‹ˆ˜œ™YY[™ËÜ˜Z\Ú[™ËZ]™[š[\È—Kˆ™Y]Ø^ÛÝ\[]ÈŽˆÈ™Y]Ø™\ÝY›ÛÙË[\Ý‹™Y]Û]™K]œËYœ›Þ™[‹Y›ÛÙ—Kˆ™Y]Û]™K]œËYœ›Þ™[‹Y›ÛÙŽˆÈ™Y]Ø™\ÝY›ÛÙË[\Ý‹™Y]Ù™YY\‹Yš\Ú\š\ÚÜÈ‹šX[Ü\˜\Ú]K]™X]Y[—Kˆ™Y]Ù™YY\‹Yš\Ú\š\ÚÜÈŽˆÈ™Y]Ø™\ÝY›ÛÙË[\Ý‹™Y]Û]™K]œËYœ›Þ™[‹Y›ÛÙ‹šX[Ü\˜\Ú]K]™X]Y[—Kˆ™Y]Ø™YY‹ZX\ŽˆÈ™Y]Ø™\ÝY›ÛÙË[\Ý‹™Y]Û]™K]œËYœ›Þ™[‹Y›ÛÙ—Kˆ™Y]ÛÝ™\™™YY[™ËX[™Z[\XÝ[ÛˆŽˆÈšX[Ü™Y\Ú[™Ë]ËYX]‹šX[Ú[\XÝ[Û‹\Þ[\Û\Ë]™X]Y[‹™Y]Ù™YY[™Ë\ØÚY[KXžKXYÙH—Kˆ™Y]Ø›XÚÝÛÜ›\ËY›Ü‹Z]™[š[\ÈŽˆÈ™Y]Ù™YY[™Ë\ØÚY[KXžKXYÙH‹™Y]Ø™\ÝY›ÛÙË[\Ý‹ˆ˜œ™YY[™ËÜ˜Z\Ú[™ËZ]™[š[\È—Kˆ™Y]Ù˜\Ý[™ËX[™]˜XØ][ÛˆŽˆÈ™Y]Ù™YY[™Ë\ØÚY[KXžKXYÙH‹šX[Ü™Y\Ú[™Ë]ËYX]—Kˆ™Y]ÚÝË]ËZ[™Y™YYŽˆÈ™Y]Ø™\ÝY›ÛÙË[\Ý‹™Y]Ù™YY[™Ë\ØÚY[KXžKXYÙH—Kˆ™Y]ÜÚš[\Y›Ü‹X^ÛÝÈŽˆÈ™Y]Ø™\ÝY›ÛÙË[\Ý‹™Y]Ù™YY[™Ë\ØÚY[KXžKXYÙH‹ˆ™Y]Û]™K]œËYœ›Þ™[‹Y›ÛÙ—Kˆ™Y]Ýš][Z[‹X[™\Ý\[Y[[™YYÈŽˆÈ™Y]Ø™\ÝY›ÛÙË[\Ý‹šX[ÛX[]š][Û‹\ÚYÛœÈ—KˆšX[ŽˆÈšX[Ü™Y\Ú[™Ë]ËYX]‹šX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXH‹šX[Ü\˜\Ú]K]™X]Y[—KˆšX[Ü™Y\Ú[™Ë]ËYX]ŽˆÈ™Y]ÛÝ™\™™YY[™ËX[™Z[\XÝ[Ûˆ‹šX[ÛX[]š][Û‹\ÚYÛœÈ—KˆšX[ÛX[]š][Û‹\ÚYÛœÈŽˆÈšX[Ü™Y\Ú[™Ë]ËYX]‹™Y]Ýš][Z[‹X[™\Ý\[Y[[™YYÈ‹ˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÜ™YÙ[™\˜][Û‹X[™[[X‹\™YÜ›ÝÝ—KˆšX[Ü\˜\Ú]K]™X]Y[ŽˆÈšX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXH—KˆšX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXHŽˆÈšX[Ø›XÚË]XKX˜]‹šX[ÜØ[X˜]‹šX[ÙœšYÚ[™Ë\ÚXÚËX^ÛÝ‹ˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØ[˜]Û^KYÚ[ËX[™[[™ÜÈ—KˆšX[Ø›XÚË]XKX˜]ŽˆÈšX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXH‹šX[ÙœšYÚ[™Ë\ÚXÚËX^ÛÝ—KˆšX[ÙœšYÚ[™Ë\ÚXÚËX^ÛÝŽˆÈšX[Ù[Y\™Ù[˜ÞKYš\œÝXZY‹šX[Ùš[™[™ËX[‹Y^ÝXË]™]‹ˆšX[Ú[\XÝ[Û‹\Þ[\Û\Ë]™X]Y[‹[šË\Ù]\Ý[\\˜]\™H—KˆšX[ÜØ[X˜]ŽˆÈšX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXH‹šX[Ø›XÚË]XKX˜]—KˆšX[ÝÚKX^ÛÝY›Ø][™ÈŽˆÈšX[Ü™Y\Ú[™Ë]ËYX]‹[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™È—KˆšX[ØÝ\›YYÚ[Ë\Ý™\ÜË\ÚYÛ˜[ŽˆÈšX[ÜÚš[šÚ[™ËYÚ[È‹šX[Ø[[[ÛšXKX\›œÈ‹ˆ[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™È‹šX[ÜÝ™\ÜË\ÚYÛœÈ‹ˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØ[˜]Û^KYÚ[ËX[™[[™ÜÈ—KˆšX[Û[X‹\™YÙ[™\˜][ÛˆŽˆÈšX[ÛZ[›Ü‹\ØÜ˜\\ËX[™]ÛÝ[™È‹šX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXH‹ˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÜ™YÙ[™\˜][Û‹X[™[[X‹\™YÜ›ÝÝ—KˆšX[Ø[[[ÛšXKX\›œÈŽˆÈšX[ØÝ\›YYÚ[Ë\Ý™\ÜË\ÚYÛ˜[‹šX[Ü]X\˜[[™K]Xˆ‹ˆ[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™È—KˆšX[Ü™Y[YË\Þ[™›ÛYHŽˆÈšX[Ü]X\˜[[™K]Xˆ‹šX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXH‹ˆšX[Ùš[™[™ËX[‹Y^ÝXË]™]—KˆšX[Ü]X\˜[[™K]XˆŽˆÈšX[Ü™Y[YË\Þ[™›ÛYH‹šX[Ü™Y\Ú[™Ë]ËYX]‹ˆšX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXH—KˆšX[ÜÚš[šÚ[™ËYÚ[ÈŽˆÈšX[ØÝ\›YYÚ[Ë\Ý™\ÜË\ÚYÛ˜[‹[šË\Ù]\Ý[\\˜]\™H‹ˆ[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™È‹˜š[ÛÙÞKX[™\ØÚY[˜ÙKØ[˜]Û^KYÚ[ËX[™[[™ÜÈ—KˆšX[ÛZ[›Ü‹\ØÜ˜\\ËX[™]ÛÝ[™ÈŽˆÈšX[Û[X‹\™YÙ[™\˜][Ûˆ‹šX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXH‹ˆšX[ÜØ[X˜]—KˆšX[Ùš[™[™ËX[‹Y^ÝXË]™]ŽˆÈšX[Ü™Y[YË\Þ[™›ÛYH‹šX[Ú[\XÝ[Û‹\Þ[\Û\Ë]™X]Y[‹ˆšX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXH‹šX[Ü\˜\Ú]K]™X]Y[‹ˆšX[Ù[Y\™Ù[˜ÞKYš\œÝXZY—KˆšX[ÜÝ™\ÜË\ÚYÛœÈŽˆÈšX[ØÝ\›YYÚ[Ë\Ý™\ÜË\ÚYÛ˜[‹šX[ÝÚKX^ÛÝY›Ø][™È‹ˆšX[Ü™Y\Ú[™Ë]ËYX]‹[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™È—KˆšX[Ú[\XÝ[Û‹\Þ[\Û\Ë]™X]Y[ŽˆÈšX[Ü™Y\Ú[™Ë]ËYX]‹šX[ÙœšYÚ[™Ë\ÚXÚËX^ÛÝ‹ˆ™Y]ÛÝ™\™™YY[™ËX[™Z[\XÝ[Ûˆ‹[šË\Ù]\ÜÝXœÝ˜]KX[™Z[\XÝ[Ûˆ‹ˆ[šË\Ù]\ÙÜ˜]™[\š\ÚÜÈ—KˆšX[Ù[Y\™Ù[˜ÞKYš\œÝXZYŽˆÈšX[Ùš[™[™ËX[‹Y^ÝXË]™]‹šX[Ü™Y\Ú[™Ë]ËYX]‹ˆšX[Ü™Y[YË\Þ[™›ÛYH‹šX[Ø[[[ÛšXKX\›œÈ‹ˆšX[ÝÚKX^ÛÝY›Ø][™È‹šX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXH‹ˆšX[ÙœšYÚ[™Ë\ÚXÚËX^ÛÝ—Kˆ[šË\Ù]\ÝØ]\‹XÚ[™ÙKYÝZYHŽˆÈ[šË\Ù]\ÜÙ]\YÝZYH—Kˆ™ÚYËX[™[Y\˜ÚŽˆÈ™ÚYËX[™[Y\˜ÚØ™\ÝX^ÛÝ]Þ\ËX[™\\ÚY\È‹ˆ™ÚYËX[™[Y\˜ÚØ^ÛÝ\Ü]Z\ÚX[ÝËYÝZYH‹ˆ™ÚYËX[™[Y\˜ÚØZ[XKX™X\‹X^ÛÝYÝZYH‹ˆ™ÚYËX[™[Y\˜ÚØ™\ÝX^ÛÝ[YÛË\Ù]È—Kˆ™ÚYËX[™[Y\˜ÚØ™\ÝX^ÛÝ]Þ\ËX[™\\ÚY\ÈŽˆÈ™ÚYËX[™[Y\˜ÚØ™\ÝX^ÛÝ[YÛË\Ù]È‹ˆ™ÚYËX[™[Y\˜ÚØ^ÛÝ\Ü]Z\ÚX[ÝËYÝZYH‹ˆ™ÚYËX[™[Y\˜ÚØZ[XKX™X\‹X^ÛÝYÝZYH—Kˆ™ÚYËX[™[Y\˜ÚØ^ÛÝ\Ü]Z\ÚX[ÝËYÝZYHŽˆÈ™ÚYËX[™[Y\˜ÚØ™\ÝX^ÛÝ]Þ\ËX[™\\ÚY\È‹ˆ™ÚYËX[™[Y\˜ÚØZ[XKX™X\‹X^ÛÝYÝZYH—Kˆ™ÚYËX[™[Y\˜ÚØZ[XKX™X\‹X^ÛÝYÝZYHŽˆÈ™ÚYËX[™[Y\˜ÚØ^ÛÝ\Ü]Z\ÚX[ÝËYÝZYH‹ˆ™ÚYËX[™[Y\˜ÚØ™\ÝX^ÛÝ]Þ\ËX[™\\ÚY\È—Kˆ™ÚYËX[™[Y\˜ÚØ™\ÝX^ÛÝ[YÛË\Ù]ÈŽˆÈ™ÚYËX[™[Y\˜ÚØ™\ÝX^ÛÝ]Þ\ËX[™\\ÚY\È‹ˆ˜^ÛÝZ[‹XÝ[\™KÛZ[™XÜ˜YX^ÛÝËYÝZYH—Kˆ›[ÜœËÝÚ[]\HŽˆÈ›[ÜœËÜYÛY[XÙ[È‹›[ÜœËÛ[ÜœËXÛÛ\\š\ÛÛ‹XÚ\‹ˆ˜œ™YY[™ËØÛÛÜ‹YÙ[™]XÜË\[›™]\Ü]X\™\È‹˜ÛÜÝX[™X^Z[™ËØ^ÛÝ\šXÙKXžK[[Üœ—Kˆ›[ÜœËØÚ[Y\˜HŽˆÈ›[ÜœËÛ[ÜØZXÈ‹›[ÜœËÛ[ÜœËXÛÛ\\š\ÛÛ‹XÚ\‹›[ÜœËÜYÛY[XÙ[È—Kˆ›[ÜœËÛ]XÚ\ÝXÈŽˆÈ›[ÜœËÙÛÛ[‹X[š[›È‹›[ÜœËÜYÛY[XÙ[È‹ˆ›[ÜœËÛ[ÜœËXÛÛ\\š\ÛÛ‹XÚ\‹˜ÛÜÝX[™X^Z[™ËØ^ÛÝ\šXÙKXžK[[Üœ—Kˆ›[ÜœËÛY[[›ÚYŽˆÈ›[ÜœËÜYÛY[XÙ[È‹›[ÜœËÝÚ[]\H‹ˆ˜œ™YY[™ËØÛÛÜ‹YÙ[™]XÜË\[›™]\Ü]X\™\È—Kˆ›[ÜœËÙÛÛ[‹X[š[›ÈŽˆÈ›[ÜœËÛ]XÚ\ÝXÈ‹›[ÜœËÜYÛY[XÙ[È‹ˆ˜œ™YY[™ËØÛÛÜ‹YÙ[™]XÜË\[›™]\Ü]X\™\È—Kˆ›[ÜœËÙÙœX^ÛÝŽˆÈ›[ÜœËÛ[ÜœËXÛÛ\\š\ÛÛ‹XÚ\‹ˆ˜œ™YY[™ËØÛÛÜ‹YÙ[™]XÜË\[›™]\Ü]X\™\È‹ˆ˜ÛÜÝX[™X^Z[™ËØ^ÛÝ\šXÙKXžK[[Üœ—Kˆ›[ÜœËØÛÜ\ˆŽˆÈ›[ÜœËÜYÛY[XÙ[È‹˜œ™YY[™ËØÛÛÜ‹YÙ[™]XÜË\[›™]\Ü]X\™\È‹ˆ˜ÛÜÝX[™X^Z[™ËØ^ÛÝ\šXÙKXžK[[Üœ—Kˆ›[ÜœËÜYX˜[ŽˆÈ›[ÜœËÜYÛY[XÙ[È‹›[ÜœËÛ[ÜØZXÈ‹›[ÜœËÛ]XÚ\ÝXÈ—Kˆ›[ÜœËÜYÛY[XÙ[ÈŽˆÈ›[ÜœËÛ[ÜœËXÛÛ\\š\ÛÛ‹XÚ\‹ˆ˜œ™YY[™ËØÛÛÜ‹YÙ[™]XÜË\[›™]\Ü]X\™\È‹›[ÜœËÛY[[›ÚY—Kˆ›[ÜœËÙ[šYÛXKYš\™Y›K[XXÈŽˆÈ›[ÜœËÜYÛY[XÙ[È‹›[ÜœËØÛÜ\ˆ‹›[ÜœËÛY[[›ÚY—Kˆ›[ÜœËØ›YKX[™\[šËX^ÛÝ[^]ŽˆÈ›[ÜœËÛ[ÜœËXÛÛ\\š\ÛÛ‹XÚ\‹ˆ›[ÜœËÛ]XÚ\ÝXÈ‹›[ÜœËÙÙœX^ÛÝ—Kˆ›[ÜœËÛ[ÜœËXÛÛ\\š\ÛÛ‹XÚ\ŽˆÈ›[ÜœËÜYÛY[XÙ[È‹ˆ˜œ™YY[™ËØÛÛÜ‹YÙ[™]XÜË\[›™]\Ü]X\™\È‹ˆ˜ÛÜÝX[™X^Z[™ËØ^ÛÝ\šXÙKXžK[[Üœ—Kˆ›[ÜœËÛ[ÜØZXÈŽˆÈ›[ÜœËØÚ[Y\˜H‹›[ÜœËÜYX˜[‹›[ÜœËÛ[ÜœËXÛÛ\\š\ÛÛ‹XÚ\—Kˆ˜œ™YY[™ËÜÙ^[™ËX^ÛÝÈŽˆÈ˜œ™YY[™ËÙÙ[™]XÜËX[™Z[˜œ™YY[™È‹ˆ˜œ™YY[™ËØœ™YY[™Ë]šYÙÙ\œË][\\˜]\™KXÞXÛ[™È—Kˆ˜œ™YY[™ËÙÙ[™]XÜËX[™Z[˜œ™YY[™ÈŽˆÈ˜œ™YY[™ËÜÙ^[™ËX^ÛÝÈ‹ˆ˜œ™YY[™ËØÛÛÜ‹YÙ[™]XÜË\[›™]\Ü]X\™\È‹ˆ˜œ™YY[™ËØœ™YY[™Ë]šYÙÙ\œË][\\˜]\™KXÞXÛ[™È—Kˆ˜œ™YY[™ËØÛÛÜ‹YÙ[™]XÜË\[›™]\Ü]X\™\ÈŽˆÈ˜œ™YY[™ËÙÙ[™]XÜËX[™Z[˜œ™YY[™È‹ˆ›[ÜœËÛ[ÜœËXÛÛ\\š\ÛÛ‹XÚ\‹ˆ˜œ™YY[™ËØœ™YY[™Ë]šYÙÙ\œË][\\˜]\™KXÞXÛ[™È—Kˆ˜œ™YY[™ËØœ™YY[™Ë]šYÙÙ\œË][\\˜]\™KXÞXÛ[™ÈŽˆÈ˜œ™YY[™ËÜÙ^[™ËX^ÛÝÈ‹ˆ˜œ™YY[™ËÙÙ[™]XÜËX[™Z[˜œ™YY[™È‹ˆ˜œ™YY[™ËÙYÙËX[™[\˜YKXØ\™H—Kˆ˜œ™YY[™ËÙYÙËX[™[\˜YKXØ\™HŽˆÈ˜œ™YY[™ËØœ™YY[™Ë]šYÙÙ\œË][\\˜]\™KXÞXÛ[™È‹ˆ˜œ™YY[™ËÜ˜Z\Ú[™ËZ]™[š[\È‹ˆ™Y]Ù™YY[™Ë\ØÚY[KXžKXYÙH—Kˆ˜œ™YY[™ËÜ˜Z\Ú[™ËZ]™[š[\ÈŽˆÈ˜œ™YY[™ËÙYÙËX[™[\˜YKXØ\™H‹ˆ™Y]Ù™YY[™Ë\ØÚY[KXžKXYÙH‹ˆ™Y]Ø›XÚÝÛÜ›\ËY›Ü‹Z]™[š[\È‹ˆ˜œ™YY[™ËÙÙ[™]XÜËX[™Z[˜œ™YY[™È—Kˆ›YØ[ŽˆÈ›YØ[ØØ[Y›Ü›šXH‹›YØ[ØØ[˜YH‹›YØ[Ýš\™Ú[šXH‹›YØ[Û™]ËZ™\œÙ^H—Kˆ›YØ[ØØ[Y›Ü›šXHŽˆÈ›YØ[Ýš\™Ú[šXH‹›YØ[Û™]ËZ™\œÙ^H‹›YØ[ØØ[˜YH‹˜^ÛÝËØØ\™KYÝZYH—Kˆ›YØ[ØØ[˜YHŽˆÈ›YØ[ØØ[Y›Ü›šXH‹›YØ[Ýš\™Ú[šXH‹›YØ[ÛXZ[™H‹˜^ÛÝËØØ\™KYÝZYH—Kˆ›YØ[Ú]ØZZHŽˆÈ›YØ[ØØ[Y›Ü›šXH‹›YØ[ØØ[˜YH‹›YØ[ÛXZ[™H—Kˆ›YØ[ÛXZ[™HŽˆÈ›YØ[Ýš\™Ú[šXH‹›YØ[ØØ[Y›Ü›šXH‹›YØ[ØØ[˜YH‹›YØ[Ú]ØZZH—Kˆ›YØ[Û™]ËZ™\œÙ^HŽˆÈ›YØ[Ýš\™Ú[šXH‹›YØ[ØØ[Y›Ü›šXH‹›YØ[ØØ[˜YH—Kˆ›YØ[Û™]Ë[Y^XÛÈŽˆÈ›YØ[ØØ[Y›Ü›šXH‹›YØ[ÛXZ[™H‹›YØ[Ýš\™Ú[šXH—Kˆ›YØ[Ýš\™Ú[šXHŽˆÈ›YØ[ØØ[Y›Ü›šXH‹›YØ[ÛXZ[™H‹›YØ[Û™]ËZ™\œÙ^H‹›YØ[Û™]Ë[Y^XÛÈ—Kˆ˜Ø\™KX˜\ÚXÜÈŽˆÈ˜Ø\™KX˜\ÚXÜËØ\™KX^ÛÝËYÛÛÙX™YÚ[›™\‹\]È‹˜Ø\™KX˜\ÚXÜËØ^ÛÝY˜XÝÈ‹ˆ˜Ø\™KX˜\ÚXÜËØ^ÛÝXYÙKX[™\Ú^™KXÚ\‹˜Ø\™KX˜\ÚXÜËØ™Z]š[Üˆ—Kˆ˜Ø\™KX˜\ÚXÜËØ\™KX^ÛÝËYÛÛÙX™YÚ[›™\‹\]ÈŽˆÈ˜Ø\™KX˜\ÚXÜËØ^ÛÝËX[™XÚ[™[ˆ‹ˆ˜Ø\™KX˜\ÚXÜËØÛÜÝ[Ù‹[ÝÛ™\œÚ\[[ÛH‹ˆ[šË\Ù]\ÜÙ]\YÝZYH‹ˆ˜ÛÜÝX[™X^Z[™ËØœ™YY\‹]œË\]\ÝÜ™H—Kˆ˜Ø\™KX˜\ÚXÜËØ^ÛÝXYÙKX[™\Ú^™KXÚ\ŽˆÈ˜Ø\™KX˜\ÚXÜËØ\™KX^ÛÝËYÛÛÙX™YÚ[›™\‹\]È‹ˆ™Y]Ù™YY[™Ë\ØÚY[KXžKXYÙH‹˜œ™YY[™ËÙYÙËX[™[\˜YKXØ\™H—Kˆ˜Ø\™KX˜\ÚXÜËØ^ÛÝY˜XÝÈŽˆÈ˜Ø\™KX˜\ÚXÜËÚÝË]Ë\›Û›Ý[˜ÙKX^ÛÝ‹ˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÜ™YÙ[™\˜][Û‹X[™[[X‹\™YÜ›ÝÝ‹ˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØÛÛœÙ\˜][Û‹\Ý]\È—Kˆ˜Ø\™KX˜\ÚXÜËØ^ÛÝZ[[YÙ[˜ÙKX[™X›Û™[™ÈŽˆÈ˜Ø\™KX˜\ÚXÜËØ™Z]š[Üˆ‹˜Ø\™KX˜\ÚXÜËÚ[™[™È—Kˆ˜Ø\™KX˜\ÚXÜËØ^ÛÝËX[™XÚ[™[ˆŽˆÈ˜Ø\™KX˜\ÚXÜËØ\™KX^ÛÝËYÛÛÙX™YÚ[›™\‹\]È‹ˆ˜Ø\™KX˜\ÚXÜËÚ[™[™È‹[šË\Ù]\ÜÙ]\YÝZYH‹ˆ˜ÛÜÝX[™X^Z[™ËÚÝË]ËXÚÛÜÙKXKZX[KX^ÛÝ—Kˆ˜Ø\™KX˜\ÚXÜËØ™Z]š[ÜˆŽˆÈ˜Ø\™KX˜\ÚXÜËØ^ÛÝZ[[YÙ[˜ÙKX[™X›Û™[™È‹ˆšX[ØÝ\›YYÚ[Ë\Ý™\ÜË\ÚYÛ˜[‹šX[ÝÚKX^ÛÝY›Ø][™È—Kˆ˜Ø\™KX˜\ÚXÜËØÛÜÝ[Ù‹[ÝÛ™\œÚ\[[ÛHŽˆÈ˜Ø\™KX˜\ÚXÜËØ\™KX^ÛÝËYÛÛÙX™YÚ[›™\‹\]È‹ˆ[šË\Ù]\ÜÙ]\YÝZYH‹[šË\Ù]\Ø\]X\š][KXÚ[\œÈ‹ˆ˜ÛÜÝX[™X^Z[™ËØ^ÛÝ\šXÙKXžK[[Üœ—Kˆ˜Ø\™KX˜\ÚXÜËÚ[™[™ÈŽˆÈ˜Ø\™KX˜\ÚXÜËØ^ÛÝËX[™XÚ[™[ˆ‹˜Ø\™KX˜\ÚXÜËÚÙY\[™Ë[][\KX^ÛÝÈ‹ˆ[šË\Ù]\ÜÙ]\YÝZYH—Kˆ˜Ø\™KX˜\ÚXÜËÚÝË]Ë\›Û›Ý[˜ÙKX^ÛÝŽˆÈ˜Ø\™KX˜\ÚXÜËØ^ÛÝY˜XÝÈ‹˜^ÛÝËØØ\™KYÝZYH—Kˆ˜Ø\™KX˜\ÚXÜËÚÙY\[™Ë[][\KX^ÛÝÈŽˆÈ˜Ø\™KX˜\ÚXÜËØ\™KX^ÛÝËYÛÛÙX™YÚ[›™\‹\]È‹ˆ[šË\Ù]\Ý[šË\Ú^™KXžKXYÙH‹˜Ø\™KX˜\ÚXÜËØ™Z]š[Üˆ—Kˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØ[˜]Û^KYÚ[ËX[™[[™ÜÈŽˆÈ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÛ™[Ý[žH‹ˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÚ\ËX^ÛÝX[\XšX[ˆ‹ˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÝÚ[ZXš]]^ØÚ[Z[ÛÈ‹ˆšX[ÜÚš[šÚ[™ËYÚ[È—Kˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØ^ÛÝ]œË]YÙ\‹\Ø[[X[™\ˆŽˆÈ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÛ™[Ý[žH‹ˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÚ\ËX^ÛÝX[\XšX[ˆ—Kˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØÛÛœÙ\˜][Û‹\Ý]\ÈŽˆÈ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÝÚ[ZXš]]^ØÚ[Z[ÛÈ‹ˆ˜ÛÜÝX[™X^Z[™ËØÚÛÜÚ[™ËXK\™\]X›KXœ™YY\ˆ‹ˆ˜^ÛÝËØØ\™KYÝZYH—Kˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÚ\ËX^ÛÝX[\XšX[ˆŽˆÈ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØ[˜]Û^KYÚ[ËX[™[[™ÜÈ‹ˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØ^ÛÝ]œË]YÙ\‹\Ø[[X[™\ˆ—Kˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÛY™\Ü[‹]Ú[]œËXØ\]š]HŽˆÈ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØÛÛœÙ\˜][Û‹\Ý]\È‹ˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÝÚ[ZXš]]^ØÚ[Z[ÛÈ—Kˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÜ™YÙ[™\˜][Û‹X[™[[X‹\™YÜ›ÝÝŽˆÈšX[Û[X‹\™YÙ[™\˜][Ûˆ‹ˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÛ™[Ý[žH‹ˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØ[˜]Û^KYÚ[ËX[™[[™ÜÈ‹ˆšX[ÛZ[›Ü‹\ØÜ˜\\ËX[™]ÛÝ[™È—Kˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÛ™[Ý[žHŽˆÈ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØ^ÛÝ]œË]YÙ\‹\Ø[[X[™\ˆ‹ˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÚ\ËX^ÛÝX[\XšX[ˆ—Kˆ˜š[ÛÙÞKX[™\ØÚY[˜ÙKÝÚ[ZXš]]^ØÚ[Z[ÛÈŽˆÈ˜š[ÛÙÞKX[™\ØÚY[˜ÙKØÛÛœÙ\˜][Û‹\Ý]\È‹ˆ[šË\Ù]\ÜÙ]\YÝZYH‹ˆ[šË\Ù]\Ý[\\˜]\™H—Kˆ˜ÛÜÝX[™X^Z[™ÈŽˆÈ˜ÛÜÝX[™X^Z[™ËØ^ÛÝ\šXÙKXžK[[Üœ‹˜ÛÜÝX[™X^Z[™ËØœ™YY\‹]œË\]\ÝÜ™H‹ˆ˜ÛÜÝX[™X^Z[™ËÚÝË]ËXÚÛÜÙKXKZX[KX^ÛÝ—Kˆ˜ÛÜÝX[™X^Z[™ËØ^ÛÝ\šXÙKXžK[[ÜœŽˆÈ›[ÜœËÝÚ[]\H‹›[ÜœËÛ]XÚ\ÝXÈ‹ˆ˜Ø\™KX˜\ÚXÜËØÛÜÝ[Ù‹[ÝÛ™\œÚ\[[ÛH—Kˆ˜ÛÜÝX[™X^Z[™ËØœ™YY\‹]œË\]\ÝÜ™HŽˆÈ˜ÛÜÝX[™X^Z[™ËØÚÛÜÚ[™ËXK\™\]X›KXœ™YY\ˆ‹ˆ˜ÛÜÝX[™X^Z[™ËÜÚ\[™Ë[]™KX^ÛÝÈ—Kˆ˜ÛÜÝX[™X^Z[™ËØÚÛÜÚ[™ËXK\™\]X›KXœ™YY\ˆŽˆÈ˜ÛÜÝX[™X^Z[™ËØœ™YY\‹]œË\]\ÝÜ™H‹ˆ˜ÛÜÝX[™X^Z[™ËÜ™YY›YÜË]Ú[‹X^Z[™È—Kˆ˜ÛÜÝX[™X^Z[™ËÚÝË]ËXÚÛÜÙKXKZX[KX^ÛÝŽˆÈ˜ÛÜÝX[™X^Z[™ËÜ™YY›YÜË]Ú[‹X^Z[™È‹ˆ˜ÛÜÝX[™X^Z[™ËØÚÛÜÚ[™ËXK\™\]X›KXœ™YY\ˆ—Kˆ˜ÛÜÝX[™X^Z[™ËÜ™YY›YÜË]Ú[‹X^Z[™ÈŽˆÈ˜ÛÜÝX[™X^Z[™ËØÚÛÜÚ[™ËXK\™\]X›KXœ™YY\ˆ‹ˆ˜ÛÜÝX[™X^Z[™ËÚÝË]ËXÚÛÜÙKXKZX[KX^ÛÝ—Kˆ˜ÛÜÝX[™X^Z[™ËÜÚ\[™Ë[]™KX^ÛÝÈŽˆÈ˜ÛÜÝX[™X^Z[™ËØœ™YY\‹]œË\]\ÝÜ™H‹ˆ˜ÛÜÝX[™X^Z[™ËÚÝË]ËXÚÛÜÙKXKZX[KX^ÛÝ‹ˆ[šË\Ù]\ØXØÛ[X][™ËXK[™]ËX^ÛÝ—Kˆ˜^ÛÝZ[‹XÝ[\™HŽˆÈ˜^ÛÝZ[‹XÝ[\™KÛZ[™XÜ˜YX^ÛÝËYÝZYH‹ˆ˜^ÛÝZ[‹XÝ[\™KØ^ÛÝZ[‹\ÜXÝ[\™KX[™[Y[Y\È‹ˆ˜^ÛÝZ[‹XÝ[\™KÝÚKX^ÛÝËX\™K\ÝY[›K\Ü[\ˆ‹ˆ˜^ÛÝZ[‹XÝ[\™KØYÜ[YKX^ÛÝYÝZYH—Kˆ˜^ÛÝZ[‹XÝ[\™KÛZ[™XÜ˜YX^ÛÝËYÝZYHŽˆÈ˜^ÛÝZ[‹XÝ[\™KØ^ÛÝZ[‹\ÜXÝ[\™KX[™[Y[Y\È‹ˆ˜^ÛÝZ[‹XÝ[\™KÝÚKX^ÛÝËX\™K\ÝY[›K\Ü[\ˆ‹ˆ›[ÜœËØ›YKX[™\[¼ß¾ù¶‰žËkºwµç\™\X]YHØ]Ú\È^ÛÝÈ]H˜\™[ˆ\È[\È[ˆ\š\È[[H›Ý[™\žH™]ÙY[ˆ[X[ˆØœÙ\™\ˆ[™[š[X[™XÛÛY\È[œÝX›KÜ‚•HÝÜžHXYHH^ÛÝH]\˜\žH[XYÙHXØY\È™Y›Ü™H[Ù\›ˆØ[Y\È[™ÛØÚX[YYXKˆ]\È\™Y›Ü™H\ÙY[]šY[˜ÙH]H[š[X[	ÜÈÝ[\˜[\X[Y›Ý™YÚ[ˆÚ]Z[™XÜ˜YÜ‚‚•ÚHÈ^ÛÝÈÛÜšÈÛÈÙ[\ÈÚ\˜XÝ\œÈ[™Y[Y\ÏÏÚ‚”Ù]™\˜[š\ÚX›H˜Z]ÈXZÙHH[š[X[X\ÞHÈÝ[^™NˆHœ›ØYXYÛX[^Y\Ë›ÛZ[™[^\›˜[Ú[È[™H[Ý][™H]Ø[ˆÛÚÈÛZ[K[ZÙHœ›ÛHH[X[ˆÚ[ÙˆšY]ËˆÜÙH™X]\™\È\™H›Ý][™[H^YÙÙ\˜]Y[ÈœšY[™HÚ\˜XÝ\ˆ\ÚYÛœÈ]™[ˆÝYÚH™X[^ÛÝ	ÜÈ˜XÚX[^™\ÜÚ[ÛˆÚÝ[›Ý™H[\œ™]Y\ÈH[X[ˆ[[Ý[Û‹Ü‚•]\Ý[˜Ý[ÛˆX]\œÈÛˆ[ˆ[š[X[XØ\™HÚ]NˆH8 'Ý]HÛZ[x 'H\ÈHš\ÝX[[\™\ÜÚ[Û‹›Ý]šY[˜ÙH][ˆ[š[X[\È\KÛØÚX[Üˆ\ÚÚ[™ÈÈ™H[™YÜ‚‚’ÝÈÙ\ÈØÚY[˜ÙHÛÛšX]HÈ^ÛÝ˜[YOÏÚ‚^ÛÝÈ\™H›ÝÛ›H[\Z[›Y[XÛÛœËˆZ\ˆXš[]HÈ™YÙ[™\˜]HÛÛ\^\ÜÝY\È[™Z\ˆÛ™È\ÝÜžH\ÈX›Ü˜]ÜžH[š[X[È™\X]YHÙ[™\˜]HØÚY[˜ÙHÛÝ™\˜YÙKˆ]Ü™X]\ÈHÙXÛÛ™Ý[\˜[]Ø^NˆÛÛY[Û™HX^Hš\œÝYY]H[š[X[›ÝYÚHØ[YHÜˆ\ÚÞH[™[ˆ\ØÛÝ™\ˆ™YÙ[™\˜][Ûˆ™\ÙX\˜ÚÜˆ[˜ÛÝ[\ˆHØÚY[˜ÙHš\œÝ[™]\ˆ™XÛÙÛš^™HH[š[X[[ˆ[\Z[›Y[Ü‚”™XYH™YH‹Øš[ÛÙÞKX[™\ØÚY[˜ÙKÜ™YÙ[™\˜][Û‹X[™[[X‹\™YÜ›ÝÝÈ˜^ÛÝ™YÙ[™\˜][ÛØOˆ›ÜˆHš[ÛÙÞH˜]\ˆ[ˆHÜXÝ[\™HÚÜ[™Ü‚‚\™H^ÛÝÈ[\Ü[[ˆY^XØ[ˆÝ[\™HÛÏÏÚ‚–Y\ËˆH^ÛÝ	ÜÈÝ[\˜[\ÝÜžH\È]XÚÛ\ˆ[ˆ[Ù\›ˆ˜[™ÛKˆ]È˜ZX]˜[YH[™\ÝÜšXØ[›ÛH[ˆH˜[^HÙˆY^XÛÈÛÛ›™XÝ]È[™YÙ[›Ý\È[™ØØ[\ÝÜžKÚ[HØÚ[Z[ÛÈ™[XZ[œÈHÛYHÙˆHÝ\š]š[™ÈÚ[Ü[][Û‹ˆ[Ù\›ˆ[\›™]Ý[\™HÚÝ[›Ý\˜\ÙH]Ù[ÙÜ˜\XÈ[™\ÝÜšXØ[ÛÛ^Ü‚ÛÛ[YHÈH™YH‹Øš[ÛÙÞKX[™\ØÚY[˜ÙKØ^ÛÝZ\ÝÜžKY\ØÛÝ™\žKÈ˜^ÛÝ\ÝÜžH[™ØÚY[YšXÈ\ØÛÝ™\žOØO‹H™YH‹Øš[ÛÙÞKX[™\ØÚY[˜ÙKÝÚ[ZXš]]^ØÚ[Z[ÛËÈ–ØÚ[Z[ÛÈXš]]ØO‹[™H™YH‹Ø^ÛÝZ[‹XÝ[\™KÙË\[ÜKYX]X^ÛÝËÈ˜^ÛÝ›ÛÙ[™Ý[\˜[\ÝÜžOØO‹Ü‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËÝÝÝË›Z[™XÜ˜Y›™]Ù[‹]\ËØ\XÛKÛZ[™XÜ˜Y[]™KLŒŒK]K\™XØ\“Z[™XÜ˜YˆZ[™XÜ˜Y]™HŒŒH™XØ\ØOÛO‚OH™YHšÎ‹ËÝÝÝË›Z[™XÜ˜Y›™]Ù[‹]\ËØ\XÛKÝZÚ[™ËZ[™[ÜžKKXXÚÙ]X^ÛÝ“Z[™XÜ˜YˆZÚ[™È[™[ÜžH8 %XÚÙ]Ùˆ^ÛÝØOÛO‚OH™YHšÎ‹ËÝÝÝË›Z[™XÜ˜Y›™]Ù[‹]\ËØ\XÛKØØ]™\ËKKXÛY™œËXÜ™X]]™KXÛÛXÝ[Ûˆ“Z[™XÜ˜YˆØ]™\È	ˆÛY™œÈÜ™X]]™HÛÛXÝ[ÛØOÛO‚OH™YHšÎ‹ËØ›ÛÚÜË™\Û™^K˜ÛÛKØ›ÛÚËÝKX›ÛÚË[Ù‹Xš[È‘\Û™^H›ÛÚÜÎˆH›ÛÚÈÙˆš[žH[^\œØÚØOÛO‚OH™YHšÎ‹ËÙÜ˜]š]Y˜[Ë™˜[™ÛK˜ÛÛKÝÚZÚKÕWÐ^ÛÝ‘Ü˜]š]H˜[ÈÚZÚNˆH^ÛÝ
+ÙXÛÛ™\žH˜[ˆ™Y™\™[˜ÙH›ÜˆHÙ\šY\ËØÚ\\ˆÛÛ›™XÝ[ÛŠOØOÛO‚OH™YHšÎ‹ËÝÝÝË™[˜ÞXÛÜYXK˜ÛÛKÜ[ËX[™X[š[X[ËØ[š[X[ËÝ™\Xœ˜]K^›ÛÛÙÞKØ^ÛÝ‘[˜ÞXÛÜYXK˜ÛÛNˆ[[ÈÛÜ0è^˜\‰ÜÈ8 '^ÛÝ8 'H
+NMMŠOØOÛO‚OH™YHšÎ‹ËÝÝÝË˜Ø[XœšYÙK›Ü™ËØÛÜ™KØ›ÛÚÜËØXœËØØ[XœšYÙKZ\ÝÜžK[Ù‹[][‹X[Y\šXØ[‹[]\˜]\™KÝÙ[Y]Ù[\žK\ÚÜ\ÝÜžKZ[‹\Ü[š\ÚX[Y\šXØKÌ‘ÍLMPÌŒŽLMNQMLPÌNNLÈØ[XœšYÙH\ÝÜžHÙˆ][ˆ[Y\šXØ[ˆ]\˜]\™NˆÛÜ0è^˜\ˆšX›[ÙÜ˜\OØOÛO‚Ý[‚‰ÉÉÂ‚‚‚ˆÈØ[›ÛšXØ[ÛYKX\]X\š][H[šË\Ú^™HÝZY[˜ÙH
+Œ‹LKLN
+K‚ˆÈ\Ý[™ÝZ\Ú\È[[œÚ]™H™\ÙX\˜ÚÝ\Ú[™Èœ›ÛHÜ™[˜\žH]\]X\š][H[›š[™Ë‚“ÑWÓÕ‘T”’QTÖÈ[šË\Ù]\Ý[šË\Ú^™KXžKXYÙH—HH‰ÉÉÂÝ›Û™Ï‘›ÜˆÛ™HY[]^ÛÝ\ÙHHÛ™È\]X\š][HÙˆ]X\ÝŒØ[ÛœÎÈYˆ[ÝH\™H^Z[™ÈH\›X[™[ÛYHœ›ÛHØÜ˜]ÚHYØ[Ûˆœ™YY\ˆ\È^P^ÛÝ	ÜÈ™Y™\œ™Y[›š[™ÈÚ^™H™XØ]\ÙH]Ú]™\ÈÝXœÝ[X[H[Ü™H›ÛÜˆ\™XH[™Ø]\ˆ›Û[YKÜÝ›Û™ÏˆHYØ[ÛˆšYÝ\™H\ÈH˜XÝXØ[ÛYKX\]X\š][H™XÛÛ[Y[™][Û‹›ÝHØÚY[YšXØ[H›Ý™[ˆš[ÛÙÚXØ[™\ÚÛÜ‚]ˆÛ\ÜÏHœ›ÛK[›ÝHÝ›Û™Ï•\ÈYÙHÝÛœÈ[šË\Ú^™H™\]Z\™[Y[ËÜÝ›Û™Ïˆ\ÙH]›ÜˆYÙK›ÙHÚ^™K\ØX›H›ÛÜˆÜXÙKØ]\ˆ›Û[YH[™][\KX^ÛÝ[›š[™Ëˆ›ÜˆH[Z[Ù\]Y[˜ÙKš[˜][Û‹ÛÛÛ[™ËÝXœÝ˜]H[™ÞXÛ[™Ë\ÙHHH™YH‹Ý[šË\Ù]\ÜÙ]\YÝZYKÈ[šÈÙ]\ÝZYOØO‹Ù]‚‚•Ú]Ú^™H[šÈÙ\ÈÛ™HY[^ÛÝ™YYÏÚ‚”]ÛÉÜÈÝ\œ™[^ÛÝØ\™HÚY]™XÛÛ[Y[™ÈHZ[š[][HXš]]Ú^™HÙˆÝ›Û™ÏŒŒ
+ÈØ[ÛœÈ›Üˆ[ˆY[ÜÝ›Û™Ïˆ[™ÜXÚYšXØ[HØ^\È\]X\š][H[™Ý\È[Ü™H[\Ü[[ˆZYÚXZÚ[™ÈHŒYØ[Û‹[Û™È™Y™\˜X›HÈHŒYØ[Û‹ZYÚˆ^P^ÛÝ\Ù\È]\ÈH˜XÝXØ[ÝÙ\ˆ›Ý[™›ÜˆHÚ[™ÛHY[ÛYH\]X\š][KÜ‚Ý›Û™Ï’YˆÜXÙH[™YÙ][ÝËÚÛÜÙHHYØ[Ûˆœ™YY\ˆ[œÝXYÜÝ›Û™Ïˆ]\ÈHÚ]H™XÛÛ[Y[™][Ûˆ˜]\ˆ[ˆHÛZ[H]Ø[ÛœÈ\ÈHÛ›H]XØ[ÜˆØÚY[YšXØ[H˜[Y]YÚ^™KˆHÚY\ˆ›ÛÝš[Ú]™\È[ˆY[[Ü™H\ØX›H›ÝÛH\™XH[™Ú]™\ÈHÙY\\ˆ[Ü™HØ]\ˆ›Û[YH[ˆÚXÚÈ[]HØ\ÝH[™Y™™\ˆXZ[[˜[˜ÙHZ\ÝZÙ\ËÜ‚‚•ÚHÈ[šË\Ú^™H™XÛÛ[Y[™][ÛœÈÛÛ™›XÝÛ›[™OÏÚ‚•^HÙ[ˆZ^Ý›Û™Ïœ™\ÙX\˜ÚÝ\Ú[™ÏÜÝ›Û™ÏˆÚ]Ý›Û™Ïœ]\Ü^H\]X\š][\ÏÜÝ›Û™Ï‹ˆHŒ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\ˆÝZYHØ^\ÈÝ\Ú[™ËXÛÛZ[™\ˆÚ^™HÚÝ[ØØ[HÚ][š[X[[X™\ˆ[™›ÙHÚ^™K[™]ÈX›Ü˜]ÜžH\Ù\ÈÛX[[™]šYX[ÛÛZ[™\œÈÚ][ˆ[[œÚ]™HÝ]XÈÜˆ™XÚ\˜Ý[][™ÈÞ\Ý[\Ëˆ][ÛÈÝ]\È]š[\™Y\]X\šXHØ[ˆÝ\ÙH^ÛÝÈ][œÚ]Y\È˜\ˆYÚ\ˆ[ˆ[ÜÝ[Ù\›ˆØ˜žH™XÛÛ[Y[™][ÛœËÜ‚•ÜÙHX›Ü˜]ÜžHÞ\Ý[\È\ÙHÛÛ›ÛYØ]\ˆÚ[Z\ÝžKœ™\]Y[Üˆ]]ÛX]XÈØ]\ˆ™\XÙ[Y[Ý[™\™^™Y™YY[™Ë›Ý][™H[Ûš]Üš[™È[™[œÝ]][Û˜[\Ø˜[™žKˆHX›Ü˜]ÜžHÛÛZ[™\ˆ\È\™Y›Ü™H›ÝHÙ[œÚX›H8 'Z[š[][H][šø 'HÚ]][Û‹ˆHÛYHÙY\\ˆ\ÝX[H™[™Yš]Èœ›ÛH[Ü™HØ]\ˆ›Û[YH[™›ÛÜˆ\™XH™XØ]\ÙHHÞ\Ý[H\È\ÜÈ[[œÚ]™[HX[˜YÙYÜ‚‚•[šÈÚ^™HžHY™HÝYÙOÚ‚]ˆÛ\ÜÏHX›K]Ü˜\X›O‚XY“Y™HÝYÙOÝ’ÝÈÈ[ˆÝ\Ú[™ÏÝ•ÚOÝÝÝXY‚›ÙO‚“\˜HÈÛX[˜XžOÝ•\ÙHHX[˜YÙXX›HÜ›ÝË[Ý]ÛÛZ[™\ˆÚ^™YÈH[š[X[[™[Ý\ˆÛX[š[™È›Ý][™NÈ\™H\È›È[š]™\œØ[]šY[˜ÙKX˜\ÙYØ[ÛˆZ[š[][H›Üˆ\ÈÝYÙKÝ”ÛX[[š[X[È™YYX\ÞH™YY[™ËØœÙ\˜][Ûˆ[™œ™\]Y[XZ[[˜[˜ÙKÝÝ‚’]™[š[OÝH[\Ü˜\žHÜ›ÝË[Ý][šÈØ[ˆ™HÛX[\ˆ[ˆHš[˜[Y[ÛYK]Yˆ^Z[™ÈÛ™H\›X[™[\]X\š][K^HHY[\Ú^™Y›ÛÝš[X\›KÝ]›ÚY™\X]Y\Ü˜Y\È[™™KXÞXÛ[™ËÝÝ‚“Û™HY[ÝÝ›Û™ÏŒŒYØ[ÛˆÛ™ÈZ[š[][NÈYØ[Ûˆœ™YY\ˆ™Y™\œ™YžH^P^ÛÝÜÝ›Û™ÏÝ“[™ÝÝÚY›ÝšYH\ØX›H›ÛÜˆÜXÙNÈ\™Ù\ˆ›Û[YH\È[Ü™H›Ü™Ú]š[™È›ÜˆØ\ÝH[™XZ[[˜[˜ÙKÝÝ‚•ÛÈY[ÏÝ‘È›Ý™[HÛˆHÚ[\H8 'Ø[ÛœÈ\ˆ[š[X[8 'H[Kˆ\ÙHHÝXœÝ[X[H\™Ù\ˆ›ÛÝš[Ù\\˜]HY\È[™ÛÜÙH[Ûš]Üš[™ÎÈHYØ[Ûˆœ™YY\ˆ\ÈH˜XÝXØ[Ý\[™È›ÛÜ‹Ú]\™Ù\ˆÝ\Ú[™È™Y™\œ™YÝÛÚXš]][ÛˆYÈ\œš]ÜžKØ\ÝH[™š]K\š\ÚÈÛÛœÚY\˜][ÛœÈ]Ø[ÛœÈ[Û™HØ[››ÝÛÛ™KÝÝ‚•™YHÜˆ[Ü™HY[ÏÝ”[ˆH\™ÙHÝ\ÝÛHÞ\Ý[HÜˆÙ\\˜]H\]X\š][\È˜]\ˆ[ˆ][\Z[™ÈHØ[Ûˆ›Ü›][KÝ‘Ü›Ý\X[˜YÙ[Y[Ú^™HX]Ú[™Ë™YY[™È[™[š\žH[Ûš]Üš[™È™XÛÛYHH[Z][™È˜XÝÜœËÝÝ‚Ý›ÙOÝX›OÙ]‚‚‘Ù\È›ÛÜˆÜXÙHX]\ˆ[Ü™H[ˆZYÚÏÚ‚Ý›Û™Ï–Y\È›ÜˆÝÈH[š[X[\Ù\ÈH[˜ÛÜÝ\™K]Ø]\ˆ›Û[YHÝ[X]\œÈ›ÜˆÞ\Ý[HÝXš[]KÜÝ›Û™Ïˆ^ÛÝÈÜ[™]XÚÙˆZ\ˆ[YHÛˆÜˆ™X\ˆH›ÝÛKÛÈHÛ™ËÚYH\]X\š][HÚ]™\È[Ü™H\ÙY[ÜXÙH[ˆH[[šÈÚ]HØ[YH›ÛZ[˜[›Û[YKˆ^˜HZYÚ\È›Ý\Ù[\Üø %]Ý[YÈØ]\¸ %]]ÚÝ[›ÝÛÛYH]H^[œÙHÙˆ[™Ý[™ÚYÜ‚•Ú[ˆÛÛ\\š[™ÈÛÈ[šÜËÚXÚÈ›ÝHØ[Ûˆ˜][™È[™HXÝX[›ÛÝš[ˆ\ÙHHH™YH‹ÝÛÛËØ\]X\š][K]›Û[YKXØ[Ý[]Ü‹È\]X\š][H›Û[YHØ[Ý[]ÜØOˆYˆ[ÝH]™H[Y[œÚ[ÛœÈ]›ÝH™[XX›H›Û[YHšYÝ\™KÜ‚‚’\ÈHŒYØ[ÛˆÛ™È[›ÝYÚ›ÜˆÛ™HY[ÏÚ‚Ý›Û™Ï’]\ÈHÝ\œ™[˜XÝXØ[Z[š[][K›ÝHÚ^™H^P^ÛÝÛÝ[ÚÛÜÙHÚ[ˆÝ\[™Èœ›ÛHØÜ˜]ÚÜÝ›Û™ÏˆHX[HY[Ø[ˆ\ÚXØ[Hš][ˆHŒYØ[Û‹[Û™È\]X\š][K[™]ÛÈÝ\œ™[H\ÝÈŒ
+ÈØ[ÛœÈ\ÈHY[Z[š[][KˆH˜Y[Ù™ˆ\È\ÜÈ›ÛÜˆ\™XK\ÜÈ[][ÛˆÙˆØ\ÝH[™\ÜÈ›ÛÛH›ÜˆY\È[™\]Z\Y[Ü‚HYØ[Ûˆœ™YY\ˆÚ]™\ÈHÚY\ˆ›ÛÝš[[™›ÝYÚHÚXÙHH›ÛZ[˜[Ø]\ˆØ\XÚ]KÚXÚ\ÈÚH\ÈÚ]H™Y™\œÈ]\ÈHÛ™Ë]\›H[›š[™ÈÚÚXÙHÚ[ˆHÙY\\ˆ\È›ÛÛH›Üˆ]Ü‚‚•Ú]Ú^™H[šÈÈÛÈ^ÛÝÈ™YYÏÚ‚Ý›Û™Ï•\™H\È›È]šY[˜ÙKX˜\ÙYØ[Ûˆ›Ü›][H]XZÙ\ÈÛÈ^ÛÝÈ]]ÛX]XØ[HÛÛ\]X›KÜÝ›Û™ÏˆÛÜÙ[HX]ÚYY[ÈØ[ˆÛÛY][Y\È™HÝ\ÙYÙÙ]\‹]š\[™Ë™YY[™ÈÛÛ\]][Û‹œ™YY[™È™Z]š[Üˆ[™Ú^™HY™™\™[˜Ù\ÈÝ[X]\‹ˆYˆÛÈY[ÈÚ\™HH[šË›ÝšYH[Ü™H›ÛÜˆÜXÙH[ˆ[ÝHÛÝ[›ÜˆÛ™K]X\ÝÛ™HÝZ]X›HYH\ˆ[š[X[[™H^[Ý]]]È[HÙ\\˜]KÜ‚“^P^ÛÝ™X]ÈHYØ[Ûˆœ™YY\ˆ\ÈH[OœÝ\[™È›ÛÝš[Ù[Oˆ›ÜˆÛÈÛÜÙ[HÚ^™K[X]ÚYY[Ë›ÝHÝX\˜[YKˆYˆš]\Ë™\X]Y\ÜXÙ[Y[HÜ›ÝÚ[™ÈÚ^™HØ\Üˆ™YY[™È›Ø›[\È\X\‹Ù\\˜]HH[š[X[ËˆÙYHH™YH‹ØØ\™KX˜\ÚXÜËÚÙY\[™Ë[][\KX^ÛÝËÈØ[ˆ^ÛÝÈ]™HÙÙ]\ÏØO‹Ü‚‚•Ú]Ú^™H[šÈÈ˜XžH[™]™[š[H^ÛÝÈ™YYÏÚ‚Ý›Û™Ï‘È›Ý›Ü˜ÙH˜XšY\È[ÈHšYÚYØ[ÛˆÚ\ÜÝ›Û™ÏˆHŒQÔÐÈÝZYHØØ[\ÈÛÛZ[™\œÈ\È[š[X[ÈÜ›ÝÈ[™Z\œÈÛÛZ[™\ˆÚ^™HÚ]œ™\]Y[ÛX[š[™Ëˆ]™\ÙX\˜Ú[Ù[[[ÛœÝ˜]\ÈH[\Ü[š[˜Ú\NˆÝ\Ú[™ÈÚ^™H[™XZ[[˜[˜ÙH[[œÚ]H\™H[šÙYÜ‚‘›ÜˆH]ÙY\\‹HÛX[Ü›ÝË[Ý]Ù]\Ø[ˆXZÙH™YY[™È[™ØœÙ\˜][ÛˆX\ÚY\‹]]]\ÝÝ^HÛX[ˆ[™[\\˜]\™K\ÝX›KˆYˆ[ÝH[™XYHÛ›ÝÈ[ÝHÚ[ÙY\H[š[X[ÈY[ÛÙ^Z[™È[™ÞXÛ[™ÈH\›X[™[Y[\]X\š][HX\›HØ[ˆ™HÚ[\\ˆ[ˆ™\X]YH\Ü˜Y[™ËÜ‚‘›ÜˆH[š[X[	ÜÈ›ÙK\Ú^™H›ÙÜ™\ÜÚ[Ûˆ˜]\ˆ[ˆ\]X\š][HØ[ÛœË\ÙHH™YH‹ØØ\™KX˜\ÚXÜËØ^ÛÝXYÙKX[™\Ú^™KXÚ\È’ÝÈšYÈÈ^ÛÝÈÙ]ÏØO‹Ü‚‚•Ú[ˆÚÝ[[ÝH\Ü˜YHH[šÏÏÚ‚•\Ü˜YH™Y›Ü™HHÙ]\™XÛÛY\ÈY™šXÝ[ÈX[˜YÙKˆØ\›š[™ÈÚYÛœÈ[˜ÛYH[œÝY™šXÚY[›ÛÜˆ\™XH›ÜˆH[\Ú^™H[š[X[[™Y\Ë˜\YHXØÝ[][][™ÈØ\ÝK™\X]YØ]\‹\]X[]H[œÝXš[]K\]Z\Y[Ü›ÝÙ[™ËÜˆ][\H[š[X[È]Ø[››ÝXZ[Z[ˆÙ\\˜]H™\Ý[™È\™X\Ëˆ[ˆ\˜š]˜\žHš\^HÜˆ›ÙK[[™ÝÝ]Ù™ˆ\È\ÜÈ\ÙY[[ˆÜÙH˜XÝXØ[ÛÛœÝ˜Z[ËÜ‚‚•Ú]ÚÝ[[ÝHYX\Ý\™H™Y›Ü™H^Z[™ÈH[šÏÏÚ‚[‚OÝ›Û™Ï‘^\›˜[›ÛÝš[ÜÝ›Û™ÏˆÛÛ™š\›HH\]X\š][H[™Ý[™š]H›ÛÛKÛO‚OÝ›Û™Ï’[\›˜[[™Ý[™ÚYÜÝ›Û™Ïˆ\ÙH]\›Z[™H\ØX›H›ÝÛH\™XKÛO‚OÝ›Û™ÏXÝX[Ø]\ˆ\ÜÝ›Û™Ïˆ0êXÛÜ‹ÝXœÝ˜]H[™XYÜXÙH™YXÙH™X[Ø]\ˆ›Û[YKÛO‚OÝ›Û™Ï‘š[\ˆ[™Ú[\ˆÜXÙNÜÝ›Û™Ïˆ\]Z\Y[™YYÈÛX\˜[˜ÙH[™ÝZ]X›H›ÝÈ›Ý][™ËÛO‚OÝ›Û™Ï“ØYYÙZYÚÜÝ›Û™ÏˆØ]\ˆ\ÈX]žNÈ\ÙHHH™YH‹ÝÛÛËØ\]X\š][K]›Û[YKXØ[Ý[]Ü‹È\]X\š][H›Û[YHØ[Ý[]ÜØOˆÈ\Ý[X]HØ]\ˆÙZYÚÛO‚Ý[‚‚”ÛÝ\˜Ù\È[™™XÛÛ[Y[™][Ûˆ›ÝOÚ‚Ý›Û™Ï‘]šY[˜ÙH›Ý[™\žNÜÝ›Û™Ïˆ›ÈÛÝ\˜ÙH™]šY]ÙY\ÝX›\Ú\ÈH[š]™\œØ[™\ÙX\˜ÚY\š]™Y]X\]X\š][HØ[Ûˆ™\ÚÛˆHQÔÐÈŒÝZYH\ÈH™\ÙX\˜ÚZ\Ø˜[™žH™Y™\™[˜ÙH[™^XÚ]HØØ[\ÈÝ\Ú[™ÈÚ][š[X[[X™\‹Ø›ÙHÚ^™HÚ[H\Ú[™È[[œÚ]™HXZ[[˜[˜ÙHÞ\Ý[\Ëˆ]ÛÉÜÈÝ\œ™[]XØ\™HÚY]Ý\Y\ÈHÛX\™\ÝÝ\œ™[ÛÛœÝ[Y\ˆZ[š[][HÙH›Ý[™ˆŒ
+ÈØ[ÛœÈ›ÜˆÛ™HY[Ú]HÛ™È[šÈ™Y™\œ™YÝ™\ˆHYÚ[šËÜ‚[‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙÙ[™]XË\ÝØÚËXÙ[\‹ÙØÝ[Y[ËÐQÔÐÉLŒÑÝZYWÌŒœˆ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\Žˆ^ÛÝÝZYHŒØOÛO‚OH™YHšÎ‹ËÝÝÝËœ]ÛË˜ÛÛKÜ]YYXØ][Û‹ØØ\™\ÚY]ËØ^ÛÝ”]ÛÎˆ^ÛÝØ\™HÝZYH8 %Œ
+ÈØ[ÛˆY[Z[š[][OØOÛO‚Ý[‚Ý›Û™Ï“^P^ÛÝ™XÛÛ[Y[™][ÛŽÜÝ›Û™Ïˆ™X]HŒYØ[ÛˆÛ™È\ÈH˜XÝXØ[Z[š[][H›ÜˆÛ™HY[[™HYØ[Ûˆœ™YY\ˆ\ÈH™Y™\œ™YÛ™Ë]\›HÛYHÚ[ˆÜXÙH[™YÙ]\›Z]ˆ]™Y™\™[˜ÙH\È[X™\˜][H[Ü™HÛÛœÙ\˜]]™H[ˆX›Ü˜]ÜžKY[œÚ]HÝZY[˜ÙKÜ‚‰ÉÉÂ‚‚ˆÈ]šY[˜ÙKX›Ý[™Y[™Ø[Y\ÙX\ÙHÛ\Ý\ˆ
+Œ‹LKLN
+K‚“ÑWÓÕ‘T”’QTÖÈšX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXH—HH‰ÉÉÂÝ›Û™ÏHÚ]HÜˆÛÝÛ‹[ZÙHÜ›ÝÝÛˆ[ˆ^ÛÝØ[ˆ™HÛÛœÚ\Ý[Ú]Ø\›ÛYÛšX\Ú\Ë]\X\˜[˜ÙH[Û™HÙ\È›ÝÛÛ™š\›HHÜ™Ø[š\ÛKÜÝ›Û™Ïˆ[O”Ø\›ÛYÛšXOÙ[O‹[O\[›Û^XÙ\ÏÙ[Oˆ[™[OXÚXOÙ[Oˆ\™HØ]\ˆ[ÛÈ
+ÛÛ^XÙ]\ÊH]Ø[ˆ[™™XÝHÚÚ[ˆÜˆÚ[ÈÙˆ\]X]XÈ[\XšX[œËˆ™]\š[˜\žHXYÛ›ÜÚ\ÈØ[ˆ[›Û™HHÚÚ[ˆØÜ˜\[™È^[Z[™Y›Üˆ\YH[™›ÛÜÜÜ™\ËÜ‚]ˆÛ\ÜÏHœ›ÛK[›ÝHÝ›Û™Ï•\ÈYÙHÝÛœÈHÛÛ™][Ûˆ[™XYÛ›ÜÝXÈ]Ø^KÜÝ›Û™ÏˆHH™YH‹ÚX[Ø›XÚË]XKX˜]È˜›XÚË]XHYÙOØOˆ^Z[œÈH]šY[˜ÙH[Z]ÈÙˆHÜ[\ˆØ˜žH˜XÝXÙNÈHH™YH‹ÚX[ÜØ[X˜]ÈœØ[X˜]YÙOØOˆ^Z[œÈÚ\™HØ[[™H\X\œÈ[ˆ™]\š[˜\žHÝZY[˜ÙKˆ™Z]\ˆYÙHÚÝ[™\XÙHXYÛ›ÜÚ\ÈÜˆ™]\š[˜\žHØ\™H›ÜˆHÛÜœÙ[š[™È\Ú[Û‹Ù]‚‚•Ú]\È^ÛÝØ\›ÛYÛšX\Ú\ÏÏÚ‚”Ø\›ÛYÛšX\Ú\È\ÈH\ÙX\ÙHØ]\ÙYžHÜÜ[š\ÝXÈØ]\ˆ[ÛËˆY\˜ÚÉÜÈ™]\š[˜\žH[\XšX[ˆÝZY[˜ÙH\ØÜšX™\È\ÙHÜ™Ø[š\Û\È\ÈY™™XÝ[™ÈHÚÚ[ˆ[™Ú[ÈÙˆ\]X]XÈ[™\˜[[\XšX[œËˆ^H\™HÙ[ˆ\ÜÛØÚX]YÚ]\ÜÝYH]\È[™XYH™Y[ˆ[XYÙYÜˆÚÜÙH›Ü›X[›ÝXÝ]™HÝ\™˜XÙH\È™Y[ˆÛÛ\›ÛZ\ÙYÜ‚‚•Ú]Ø[ˆØ\›ÛYÛšX\Ú\ÈÛÚÈZÙOÏÚ‚•HÛ\ÜÚXÈÜ›ÜÜÈš[™[™È\ÈHÝ›Û™ÏÚ]\ÚÛÝÛ‹[ZÙHÜ›ÝÝÜÝ›Û™Ïˆ]XÚYÈÚÚ[ˆÜˆÚ[\ÜÝYKˆÛ\ˆX]ÈØ[ˆ\X\ˆÜ™Y[š\Ú™XØ]\ÙH[ØYHØ[ˆ™XÛÛYH[˜ÛÜœÜ˜]YˆÛ˜ÙHHX]\šX[\È™[[Ý™Yœ›ÛHØ]\‹]X^HÛÛ\ÙH[™™XÛÛYH]XÚ\™\ˆÈÙYKÜ‚“Ý\ˆÚYÛœÈØ[ˆ[˜ÛYH]\™ÞK™\Ü\˜]ÜžHY™šXÝ[KÜÜÈÙˆ\]]H[™ÙZYÚÜÜË\[™[™ÈÛˆ\Ú[Ûˆ^[ˆ›Û™HÙˆÜÙHÙXÛÛ™\žHÚYÛœÈ\ÈÜXÚYšXÈÈØ\›ÛYÛšX\Ú\ËÜ‚‚•Ú]Ø[ˆ™HZ\ÝZÙ[ˆ›Üˆ[™Ý\ÏÏÚ‚“›Ý]™\žH[H]ÚÚ[Ú[™ÙHÜˆÚÚ[ˆ\Ú[Ûˆ\ÈHØ]\ˆ[Ûˆ˜XÝ\šX[\ÙX\ÙKÝ\ˆ[™Ø[\ÙX\ÙK\˜\Ú]\Ë[š\žKX››Ü›X[ÚY[™ÈÜˆÚ[ZXØ[\œš]][ÛˆØ[ˆÝ™\›\š\ÝX[KˆY\˜ÚÈ›Ý\È]X[žH[\XšX[ˆ[™Ø[\ÙX\Ù\È\™HY™šXÝ[È\Ý[™ÝZ\ÚÜ›ÜÜÛH[™X^H™\]Z\™HÙ][Ý[ËÝ[\™K\ÝÛÙÞHÜˆÜXÚX[ÝZ[œËÜ‚Ý›Û™Ï‘È›ÝY[YžH8 'ÛÛ[[˜\š\Ë8 'H8 '[™Ý\ø 'HÜˆH\˜\Ú]Hœ›ÛHÛ™HÝÙÜ˜\Ú]Ù\Z[KÜÝ›Û™Ïˆ\ÙHÝÙÜ˜\ÈÈØÝ[Y[Ú[™ÙK›ÝÈÝXœÝ]]H›Üˆ^[Z[˜][Û‹Ü‚‚•ÚHØ[ˆØ\›ÛYÛšXHZÙHÛÏÚ‚•™]\š[˜\žH™Y™\™[˜Ù\È\ØÜšX™HØ\›ÛYÛšX\Ú\È\ÈÜÜ[š\ÝXËˆ˜XÝÜœÈ\ÜÛØÚX]YÚ]\ÙX\ÙH[˜ÛYNÜ‚[‚Oœ™]š[Ý\ÈXœ˜\Ú[ÛœÈÜˆÝ\ˆÚÚ[ˆ˜][XNÏÛO‚O›ÜÜÈÜˆ[XYÙHÙˆH›ÝXÝ]™HÝ\™˜XÙH^Y\ˆœ›ÛHÚ[ZXØ[\œš][ÎÏÛO‚OœÛÜˆØ]\ˆ]X[]K[˜ÛY[™È[[[ÛšXH^ÜÝ\™NÏÛO‚O›X[]š][Û‹[˜ÛY[™Èš][Z[‹PH›Ø›[\È[ˆÛÛYH[\XšX[ˆØ\Ù\ÎÈ[™ÛO‚O›Ý\ˆÛÛ™][ÛœÈ]X]™H\ÜÝYH[XYÙYÜˆH[š[X[ÛÛ\›ÛZ\ÙYÛO‚Ý[‚‘›ÜˆH]^ÛÝ]YX[œÈHš\ÚX›H\Ú[ÛˆÚÝ[šYÙÙ\ˆ›ÝHX[\ÜÙ\ÜÛY[[™H\Ø˜[™žH™]šY]È˜]\ˆ[ˆ™X]Y[ÙˆHÚ]HÜ›ÝÝ[ˆ\ÛÛ][Û‹Ü‚‚•Ú]ÚÝ[[ÝHÚXÚÈš\œÝÏÚ‚Û‚OÝ›Û™Ï”™XÛÜ™H\Ú[Û‹ÜÝ›Û™ÏˆZÙHÛX\ˆ]YÝÙÜ˜\È[ˆ™]]˜[YÚÛO‚OÝ›Û™Ï“YX\Ý\™HØ]\ˆ]X[]KÜÝ›Û™Ïˆ™XÛÜ™[[[ÛšXKš]š]Kš]˜]K[™[\\˜]\™Kˆ\ÙHH™YH‹Ý[šË\Ù]\ÚÝË]Ë]\Ý]Ø]\‹È’ÝÈÈ\Ý^ÛÝØ]\ØOˆYˆ™YYYÛO‚OÝ›Û™Ï“ÛÚÈ›Üˆ˜][XKÜÝ›Û™ÏˆÚXÚÈ[šÈX]\ËÚ\œ0êXÛÜ‹[ZÙHÝX\™È[™™XÙ[[™[™ËÛO‚OÝ›Û™Ï”™]šY]È\]]H[™™Z]š[Ü‹ÜÝ›Û™Ïˆ›ÝHÙZYÚÜÜËœ™X][™ÈY™šXÝ[KX››Ü›X[ÝÚ[[Z[™ÈÜˆ˜\YXÛ[™KÛO‚OÝ›Û™ÏÛÛXÝ[ˆ[\XšX[‹Y^\šY[˜ÙY™]\š[˜\šX[ÜÝ›Û™ÏˆÚ[ˆH\Ú[Ûˆ\ÈÜ™XY[™Ë[›Û™\ÈÚ[Ë\ÈXØÛÛ\[šYYžHÞ\Ý[ZXÈÚYÛœËÜˆHXYÛ›ÜÚ\È\È[˜Ù\Z[‹ÛO‚ÛÛ‚‚’ÝÈ\ÈØ\›ÛYÛšX\Ú\ÈXYÛ›ÜÙYÏÚ‚“Y\˜ÚÈ\ØÜšX™\ÈH™\Ý[\]™HXYÛ›ÜÚ\ÈžHš[™[™È[™Ø[[ZÙH\YH[™[‹]Ø[Y›ÛÜÜÜ™\ÈÛˆHÚÚ[ˆØÜ˜\[™Ëˆ\[™[™ÈÛˆHY™™\™[X[XYÛ›ÜÚ\ËH™]\š[˜\šX[ˆX^H\ÙHY][Û˜[ZXÜ›ÜØÛÜKÝ[\™HÜˆ\ÝÜ]ÛÙÞKÜ‚•\È\ÈÚH8 'ÛÝÛžHHYš[š][HØ\›ÛYÛšXx 'H\ÈÛÈÝ›Û™È›Üˆ[ˆ]šY[˜ÙKX˜\ÙYYÙKÜ‚‚’ÝÈ\È^ÛÝ[™Ý\È™X]YÏÚ‚Ý›Û™Ï•™X]Y[\[™ÈÛˆHÜ™Ø[š\ÛK\Ú[ÛˆØØ][Û‹^[[™H[š[X[	ÜÈÝ™\˜[ÛÛ™][Û‹ÜÝ›Û™ÏˆÝ\œ™[™]\š[˜\žH[\XšX[ˆ™Y™\™[˜Ù\È[\\Ú^™HÛÜœ™XÝ[™ÈÛÜˆØ]\ˆ]X[]H[™\Ú[™È\›ÜšX]HÜXØ[ÜˆÞ\Ý[ZXÈ[Y[™Ø[\˜\Kˆ›ÜˆØØ[^™YØ\›ÛYÛšX\Ú\Ë™]\š[˜\žH™Y™\™[˜Ù\È[ÛÈ\ØÜšX™HXœšY[Y[[™Ø[[™H\XØ][Ûˆ[ˆÙ[XÝYØ\Ù\ËÜ‚•ÜÙHÜ[ÛœÈ™\]Z\™HÛ[šXØ[YÛY[ˆHÛÛ˜Ù[˜][Û‹^ÜÝ\™HY]Ù[™YYXØ][Ûˆ]\È™X\ÛÛ˜X›H›ÜˆÛ™H[\XšX[ˆÛÛ™][ÛˆX^H›Ý™HØY™H›Üˆ[›Ý\‹ˆ\ÈYÙH\™Y›Ü™HÙ\È›ÝÛÛ™\™]\š[˜\žH™X]Y[È[ÈH[š]™\œØ[ÛYH™XÚ\KÜ‚‚”ÚÝ[[ÝH\ÙHH›XÚÈXH˜]ÏÚ‚›XÚË]XH˜]È\™HÛÛ[[Ûˆ[ˆ^ÛÝØ˜žH\ØÝ\ÜÚ[ÛœË]H™]\š[˜\žHÛÝ\˜Ù\È™]šY]ÙY›Üˆ\ÈYÙHÈ›Ý\Ý›XÚÈXH\ÈHÝ[™\™™X]Y[›ÜˆØ\›ÛYÛšX\Ú\Ëˆ]YX[œÈÙHÚÝ[›Ý\ØÜšX™HHXH˜]\ÈH›Ý™[ˆ[Y[™Ø[Ý\™HÜˆ\ÜÚYÛˆ]Hš^Y™X]Y[[Y]X›KÜ‚”ÙYHH™YH‹ÚX[Ø›XÚË]XKX˜]È›XÚÈXH˜]›Üˆ^ÛÝÎˆÚ[ˆ	ˆÝÈÈ\ÙHÛ™OØOˆ›ÜˆH]šY[˜ÙH›Ý[™\žH[™]Y\Ý[ÛœÈÈ\ÚÈ™Y›Ü™H\Ú[™È\ÈØ˜žH˜XÝXÙKÜ‚‚”ÚÝ[[ÝH\ÙHHØ[˜]ÏÚ‚”Ø[[™H™X]Y[\ÈHÝ›Û™Ù\ˆ™]\š[˜\žH˜\Ú\È[ˆ›XÚÈXNˆY\˜ÚÉÜÈ›Ù™\ÜÚ[Û˜[[\XšX[ˆÝZY[˜ÙH\ØÜšX™\ÈØ[]Ø]\ˆ\XØ][Ûˆ›ÜˆØØ[^™YØ\›ÛYÛšX\Ú\ËˆÝÙ]™\‹]\ÈÝ›Û™Ï››ÝÜÝ›Û™ÏˆHØ[YH\È˜[Y][™È]™\žHÛ›[™H8 'X\ÜÛÛœÈ\ˆ]\ˆ›ÜˆZ[]\ø 'H›ÝØÛÛ›Üˆ]^ÛÝËÜ‚”ÙYHH™YH‹ÚX[ÜØ[X˜]È^ÛÝØ[˜]ˆÚ[ˆ]X^H™H\ÙY	ˆÝÈ]ÛÜšÜÏØOˆ›ÜˆH\Ý[˜Ý[Ûˆ™]ÙY[ˆ™]\š[˜\žHØ[[™H\ÙH[™[\›Ýš\ÙYÛYH™XÚ\\ËÜ‚‚•Ú[ˆ\È™]\š[˜\žHØ\™H[Ü™H\™Ù[ÏÚ‚ÛÛXÝ[ˆ[\XšX[‹Y^\šY[˜ÙY™]\š[˜\šX[ˆ›Û\HÚ[ˆ\™H\È™\Ü\˜]ÜžH\Ý™\ÜËÝXœÝ[X[Ú[[›Û™[Y[[›Ü™^XHÚ]]\š[Ü˜][Û‹ÙZYÚÜÜË[Ù\˜][Û‹˜\YÜ™XY™\X]Y™XÝ\œ™[˜ÙK^[œÚ]™HÚÚ[ˆ[XYÙKÜˆ[˜Ù\Z[HX›Ý]Ú]\ˆH\Ú[Ûˆ\È[™Ø[][Ü‚•\ÙHH™YH‹ÚX[Ù[Y\™Ù[˜ÞKYš\œÝXZYÈ^ÛÝ[Y\™Ù[˜ÞHÚYÛœÏØOˆ›ÜˆšXYÙH[™H™YH‹ÚX[Ùš[™[™ËX[‹Y^ÝXË]™]È‘š[™[™È[ˆ^ÝXÈ™]ØOˆÈØØ]H\›ÜšX]HØ\™KÜ‚‚’ÝÈÈ[ÝH™YXÙH™XÝ\œ™[˜ÙHš\ÚÏÏÚ‚”™]™[[Ûˆ\Èš[X\š[H\Ø˜[™žNˆÝX›HÛX[ˆØ]\‹ØY™HÝ\™˜XÙ\Ë\›ÜšX]H]š][Û‹ÝË\Ý™\ÜÈ[™[™È[™ÛÜœ™XÝ[ÛˆÙˆ[š\šY\ÈÜˆ[šË[X]H›Ø›[\Ëˆ™X][™ÈHš\ÚX›H\Ú[ÛˆÚ]Ý]ÛÜœ™XÝ[™ÈH˜XÝÜˆ][XYÙYHÚÚ[ˆXZÙ\È™XÝ\œ™[˜ÙH[Ü™HZÙ[KÜ‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKÙ^ÝXËX[™[X›Ü˜]ÜžKX[š[X[ËØ[\XšX[œËÚ[™™XÝ[Ý\ËY\ÙX\Ù\Ë[Ù‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆ[™™XÝ[Ý\È\ÙX\Ù\ÈÙˆ[\XšX[œÈ8 %Ø\›ÛYÛšX\Ú\ÏØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKØ[[Ý\‹\]ËØ[\XšX[œËØÛÛ[[Û‹Z[™™XÝ[Ý\ËY\ÙX\Ù\Ë[Ù‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[][ÝÛ™\ˆ™\œÚ[ÛŽˆÛÛ[[Ûˆ[™™XÝ[Ý\È\ÙX\Ù\ÈÙˆ[\XšX[œË\]Y[™HŒØOÛO‚OH™YHšÎ‹ËÜX›YY›˜ØšK››K›šZ™ÛÝ‹ÌÍMŒŽÎMÈ”Ø\›ÛYÛš[ÜÚ\È[ˆ[\XšX[œÎˆ[ˆ[YÜ˜]YÝ™\šY]ÏØOÛO‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙYXØ][ÛŒKÙÝZYK]ËX^ÛÝZ\Ø˜[™žH[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\ŽˆÝZYHÈ^ÛÝ\Ø˜[™žOØOÛO‚Ý[‚‰ÉÉÂ‚“ÑWÓÕ‘T”’QTÖÈšX[Ø›XÚË]XKX˜]—HH‰ÉÉÂÝ›Û™ÏH›XÚÈXH˜]\ÈHÜ[\ˆ^ÛÝZÙY\[™È˜XÝXÙK]]\È›ÝHÝ[™\™™]\š[˜\žH™X]Y[›ÜˆØ\›ÛYÛšX\Ú\È[ˆH[\XšX[ˆ™Y™\™[˜Ù\È™]šY]ÙYžH^P^ÛÝÜÝ›Û™ÏˆÛZ[\È]Hš^YXH˜][È8 'Ú[È[™Ý\Ë8 'H™\Z\œÈHÛ[YHÛØ]ÜˆÝX\˜[Y\È[\›Ý™[Y[Ú][ˆHÙ\Z[ˆ[X™\ˆÙˆ^\ÈÛÈ™^[Û™H]šY[˜ÙHÙH›Ý[™Ü‚]ˆÛ\ÜÏHœ›ÛK[›ÝHÝ›Û™Ï•\ÈYÙH^Z[œÈH›ØÙY\™IÜÈ]šY[˜ÙH[Z]ÎÈ]Ù\È›ÝXYÛ›ÜÙH[™Ý\ËÜÝ›Û™ÏˆÝ\Ú]H™YH‹ÚX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXKÈ^ÛÝ[™Ý\ÎˆÞ[\Û\ËØ]\Ù\È	ˆ™X]Y[ØO‹Ù]‚‚•Ú]\ÈH›XÚÈXH˜]ÏÚ‚’[ˆHØ˜žKH›XÚÈXH˜]\ÝX[HYX[œÈXÚ[™È[ˆ^ÛÝ[\Ü˜\š[H[ˆXÚÜš[˜]YØ]\ˆÛÛZ[š[™È[]Yœ™]ÙY›XÚÈXKˆHYXH\È˜\ÙYÛˆ[[›š[œÈ[™Z\ˆ\Ýš[™Ù[Üˆ[[ZXÜ›ØšX[›Ü\Y\È[ˆÝ\ˆÛÛ^ËÜ‚•H›Ø›[H\ÈÝ[™\™^˜][ÛŽˆXH\Kœ™]Ú[™ÈÝ™[™Ý[][Û‹Ø]\ˆÚ[Z\ÝžH[™^ÜÝ\™H[YH˜\žHÚY[H™]ÙY[ˆÛ›[™H›ÝØÛÛËˆÙHY›Ýš[™HÛÛ›ÛY^ÛÝÛ[šXØ[ÝYH\ÝX›\Ú[™ÈÛ™H\˜\]]XÈÛÛ˜Ù[˜][ÛˆÜˆ™X]Y[ØÚY[KÜ‚‚’\È›XÚÈXHH›Ý™[ˆ™X]Y[›Üˆ^ÛÝ[™Ý\ÏÏÚ‚Ý›Û™Ï“›Ýœ›ÛHH™]\š[˜\žH]šY[˜ÙH™]šY]ÙY\™KÜÝ›Û™ÏˆÝ\œ™[Y\˜ÚÈ[\XšX[ˆÝZY[˜ÙH›ÜˆØ\›ÛYÛšX\Ú\È\ØÝ\ÜÙ\ÈXYÛ›ÜÚ\ËYÚY[™KÛÜœ™XÝ[™ÈØ]\ˆ]X[]KØ[[™H\XØ][Ûˆ[ˆÙ[XÝYØØ[^™YØ\Ù\È[™[Y[™Ø[YYXØ][ÛœËˆ]Ù\È›Ý\Ý›XÚÈXH\ÈHÝ[™\™™X]Y[Ü‚•]XœÙ[˜ÙHÙ\È›Ý›Ý™H][›š[ˆ^ÜÝ\™HØ[ˆ™]™\ˆ]™HHš[ÛÙÚXØ[Y™™XÝˆ]YX[œÈ^P^ÛÝÚÝ[›Ý™\Ù[HØ˜žH™XÚ\H\ÈÝYÚ]Ù\™HH˜[Y]Y™]\š[˜\žH›ÝØÛÛÜ‚‚•Ú]ÛZ[\ÈÚÝ[[ÝH™HØ]][Ý\ÈX›Ý]ÏÚ‚[‚O¸ '\ÙH^XÝHHNŒÈXK]Ë]Ø]\ˆ˜][Ë¸ 'OÛO‚O¸ '[ˆÈšYY[ˆZ[]\È\ÈH›Ý™[ˆ\˜\]]XÈÚ[™ÝË¸ 'OÛO‚O¸ 'XH˜]ÈÝ\™HZ[[™Ý\È[ˆ™YH^\Ë¸ 'OÛO‚O¸ '›XÚÈXH\È[X˜XÝ\šX[[™[Y[™Ø[][žHØ˜žH[][Û‹¸ 'OÛO‚O¸ 'XH˜]È™\Z\ˆÜˆYÚ[ˆ[ˆ^ÛÝ	ÜÈÛ[YHÛØ]¸ 'OÛO‚Ý[‚•ÜÙHÝ][Y[È™\]Z\™H^ÛÝ\ÜXÚYšXÈÛÛ˜Ù[˜][Ûˆ[™Ý]ÛÛYH]H]HÛÝ\˜Ù\È™]šY]ÙY\™HÈ›Ý›ÝšYKÜ‚‚•Ú[ˆZYÚH™]\š[˜\šX[ˆÝ[\ØÝ\ÜÈ[›š[œÏÏÚ‚H™]\š[˜\šX[ˆX^HÛÛœÚY\ˆ[š\›Û›Y[[ÜˆÝ\Ü]™HYX\Ý\™\È][˜ÛYH[›š[‹XÛÛZ[š[™ÈX]\šX[Ë\[™[™ÈÛˆH[š[X[[™ÛÛ™][Û‹ˆYˆ[Ý\ˆ™]\š[˜\šX[ˆÜXÚYšXØ[H™XÛÛ[Y[™È›XÚÈXK\ÚÈ›ÜˆH^XÝ›ÙXÝÛÛ˜Ù[˜][Û‹Ø]\ˆ›Û[YK^ÜÝ\™H\˜][Û‹œ™\]Y[˜ÞH[™ÝÜÜš]\šXH˜]\ˆ[ˆÝXœÝ]][™ÈH›Ü[H™XÚ\KÜ‚‚•Ú]ÚÝ[[ÝHÈ™Y›Ü™H[žH˜]ÏÚ‚Û‚OÛÛ™š\›HHØ]\ˆ[\\˜]\™H[™\Ý[[[ÛšXKš]š]Kš]˜]H[™ÛO‚O”ÝÙÜ˜\H\Ú[ÛˆÜˆ\œš]][Ûˆ[ˆ™]]˜[YÚÛO‚O”™]šY]È™XÙ[[š\šY\Ë™]È[šÈX]\ËÛX[š[™ÈÚ[ZXØ[È[™[™[™ËÛO‚O‘]\›Z[™HÚ]\ˆH[š[X[\ÈÞ\Ý[ZXÈÚYÛœÈÝXÚ\È[›Ü™^XK™\Ü\˜]ÜžHY™šXÝ[KÙZYÚÜÜÈÜˆX››Ü›X[ÝÚ[[Z[™ËÛO‚O•\ÙH™]\š[˜\žHÝZY[˜ÙH›ÜˆHÜ™XY[™ÈÜˆ[˜Ù\Z[ˆ\Ú[Û‹ÛO‚ÛÛ‚‚Ø[ˆHXH˜][^H™YYY™X]Y[ÏÚ‚–Y\ËˆHXZ[ˆš\ÚÈ\È›ÝÛ›HH˜]]Ù[ŽÈ]\ÈÜÚ[™È[YHÚ[HH˜XÝ\šX[[™Ø[ÜˆÝ\ˆ\Ú[Ûˆ›ÙÜ™\ÜÙ\È[™\ˆH\ÜÝ[\[Ûˆ]8 'XHÚ[š^]¸ 'H[\XšX[ˆÚÚ[ˆ\ÙX\Ù\ÈØ[ˆÝ™\›\š\ÝX[K[™HÛÜœ™XÝ™X]Y[X^H™\]Z\™HZXÜ›ÜØÛÜHÜˆYYXØ][Û‹Ü‚‚•Ú]\ÈHØY™\ˆ]šY[˜ÙKX˜\ÙYÝ\ÜÏÚ‚ÛÜœ™XÝÛÜˆØ]\ˆ]X[]KÙY\H[š[X[Ú][ˆ[ˆ\›ÜšX]HÝX›H[\\˜]\™H˜[™ÙKZ[š[Z^™H[›™XÙ\ÜØ\žH[™[™Ë™[[Ý™HÛÝ\˜Ù\ÈÙˆ˜][XH[™ØZ[ˆ™]\š[˜\žH\ÜÙ\ÜÛY[Ú[ˆH\Ú[Ûˆ\ÈÜ™XY[™ÈÜˆH[š[X[\È]\š[Ü˜][™ËˆÜÙHÝ\È\™HÝ\ÜY[Ü™H\™XÝH[ˆH[š]™\œØ[XKX˜]™XÚ\KÜ‚‚•Ú[ˆÚÝ[[ÝHÛÛXÝ[ˆ^ÝXÈ™]\š[˜\šX[ÏÚ‚”ÙYZÈ™]\š[˜\žHYšXÙH›ÜˆÚ[[›Û™[Y[˜\YH[›\™Ú[™È\Ú[ÛœË[Ù\˜][Û‹™\Ü\˜]ÜžHY™šXÝ[KÝXœÝ[X[\]]HÜÜËÙZYÚÜÜË™\X]Y™XÝ\œ™[˜ÙKÙ]™\™H]\™ÞHÜˆ˜Z[\™HÈ[\›Ý™HY\ˆ\Ø˜[™žH›Ø›[\È\™HÛÜœ™XÝYÜ‚•\ÙHHH™YH‹ÚX[Ùš[™[™ËX[‹Y^ÝXË]™]È˜^ÛÝ™]ÝZYOØOˆYˆ[ÝHÈ›Ý[™XYH]™H[ˆ[\XšX[‹Y^\šY[˜ÙYÛ[šXÚX[‹Ü‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKÙ^ÝXËX[™[X›Ü˜]ÜžKX[š[X[ËØ[\XšX[œËÚ[™™XÝ[Ý\ËY\ÙX\Ù\Ë[Ù‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆ[™™XÝ[Ý\È\ÙX\Ù\ÈÙˆ[\XšX[œÏØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKØ[[Ý\‹\]ËØ[\XšX[œËØÛÛ[[Û‹Z[™™XÝ[Ý\ËY\ÙX\Ù\Ë[Ù‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆÛÛ[[Ûˆ[™™XÝ[Ý\È\ÙX\Ù\ÈÙˆ[\XšX[œË\]Y[™HŒØOÛO‚OH™YHšÎ‹ËÜX›YY›˜ØšK››K›šZ™ÛÝ‹ÌÍMŒŽÎMÈ”Ø\›ÛYÛš[ÜÚ\È[ˆ[\XšX[œÎˆ[ˆ[YÜ˜]YÝ™\šY]ÏØOÛO‚Ý[‚‰ÉÉÂ‚“ÑWÓÕ‘T”’QTÖÈšX[ÜØ[X˜]—HH‰ÉÉÂÝ›Û™Ï”Ø[\ÈHØÝ[Y[Y›ÛH[ˆ™]\š[˜\žHX[˜YÙ[Y[ÙˆØ\›ÛYÛšX\Ú\È[ˆ[\XšX[œË]]Ù\È›Ý˜[Y]H]™\žH^ÛÝØ[X˜]™XÚ\H›Ý[™Û›[™KÜÝ›Û™Ïˆ[\XšX[ˆÚÚ[ˆ[™Ú[È\™HYÚH\›YXX›KÛÈÛÛ˜Ù[˜][Û‹^ÜÝ\™HY]Ù\Ú[Ûˆ\H[™H[š[X[	ÜÈÛÛ™][ÛˆX]\‹Ü‚]ˆÛ\ÜÏHœ›ÛK[›ÝHÝ›Û™Ï•\ÈYÙHÝÛœÈHØ[[™K]™X]Y[]Y\Ý[Û‹›ÝXYÛ›ÜÚ\ËÜÝ›Û™Ïˆš\œÝ™]šY]ÈH™YH‹ÚX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXKÈ^ÛÝ[™Ý\ÎˆÞ[\Û\ËØ]\Ù\È	ˆ™X]Y[ØO‹Ù]‚‚•Ú]\È[ˆ^ÛÝØ[˜]ÏÚ‚¸ 'Ø[˜]8 'H\ÈHØ˜žH\›H›Üˆ[\Ü˜\žH^ÜÝ\™HÈØ[[™HØ]\‹ˆ[ˆ›Ù™\ÜÚ[Û˜[[\XšX[ˆYYXÚ[™KØ[[™HÛÛ][ÛœÈØ[ˆ™H\ÙY›ÜˆÙ]™\˜[Y™™\™[\œÜÙ\Ë[™Y\˜ÚÈÜXÚYšXØ[H\ØÜšX™\ÈØ[]Ø]\ˆ\XØ][Ûˆ[ˆÙ[XÝYØØ[^™YØ\Ù\ÈÙˆØ\›ÛYÛšX\Ú\ËÜ‚•]™]\š[˜\žHÝ][Y[\È]XÚ˜\œ›ÝÙ\ˆ[ˆ8 '[Ú]H^žˆÚÝ[Ù]HØ[˜]¸ 'OÜ‚‚‘Ù\È™]\š[˜\žHÝZY[˜ÙHÝ\ÜØ[›ÜˆØ\›ÛYÛšX\Ú\ÏÏÚ‚Ý›Û™Ï–Y\Ë[ˆÙ[XÝYØ\Ù\ËÜÝ›Û™ÏˆY\˜ÚÉÜÈ›Ù™\ÜÚ[Û˜[[\XšX[ˆX[X[\ØÜšX™\ÈØØ[^™YÛX[\ˆØ\›ÛYÛšX\Ú\È[™™XÝ[ÛœÈ\ÈÝ[X[H™Z[™ÈXœšYY[™™X]YÚ]Ø[]Ø]\ˆ\XØ][Û‹Ú[H[ÛÈ[\\Ú^š[™ÈÛÜœ™XÝ[ÛˆÙˆÛÜˆØ]\ˆ]X[]H[™HÜÜÚX›H\ÙHÙˆ[Y[™Ø[YYXØ][Û‹Ü‚•H][ÝÛ™\ˆ™\œÚ[Ûˆ\È]™[ˆ[Ü™HÛÛœÙ\˜]]™Nˆ]\ÝÈ[Y[™Ø[È[™\È™\ØÜšX™YžHH™]\š[˜\šX[ˆ›ÜˆØ\›ÛYÛšX\Ú\ËÜ‚‚•ÚHÙ\Û‰Ý^P^ÛÝÚ]™HHX\ÜÛÛœË\\‹[]\ˆ™XÚ\OÏÚ‚™XØ]\ÙHHÝ\ÙZÛÜÛÛˆ™XÚ\HØ[ˆYHÙ]™\˜[[\Ü[˜\šXX›\ÎÜ‚[‚OHXÝX[Ø[[š]H›ÙXÙYžHHØ[›ÙXÝÏÛO‚OH\˜][Ûˆ[™œ™\]Y[˜ÞHÙˆ^ÜÝ\™NÏÛO‚OÚ]\ˆH\Ú[Ûˆ\È[HØ\›ÛYÛšX\Ú\ÎÏÛO‚OÚ]\ˆÚ[ÜˆÚÚ[ˆ\ÜÝYH\È[™XYHÙ]™\™[H[XYÙYÏÛO‚OH[š[X[	ÜÈY˜][Ûˆ[™Þ\Ý[ZXÈÛÛ™][ÛŽÈ[™ÛO‚O™Y™™\™[˜Ù\È™]ÙY[ˆHÜXØ[Ø[[™H\XØ][Û‹[ˆ[[Y\œÚ[Ûˆ\[™Û™Ë]\›HØ]\ˆÚ[Z\ÝžKÛO‚Ý[‚•™]\š[˜\žH™Y™\™[˜Ù\È^™\ÜÈØ[[™H™X]Y[[ˆYX\Ý\™YØ[[š]KØÛÛ˜Ù[˜][Ûˆ\›\È[™Û[šXØ[ÛÛ^›Ý\ÈÛ™H[š]™\œØ[Ý\ÙZÛ™XÚ\H›Üˆ]™\žH]^ÛÝÜ‚‚’\ÈÝ›Û™Ù\ˆÜˆÛ™Ù\ˆ™]\ÏÚ‚Ý›Û™Ï“›ËÜÝ›Û™Ïˆ[\XšX[œÈ^Ú[™ÙHØ]\ˆ[™\ÜÛÛ™YÝXœÝ[˜Ù\ÈXÜ›ÜÜÈ\›YXX›HÚÚ[‹ˆ[˜Ü™X\Ú[™ÈØ[[š]HÜˆ^ÜÝ\™H[YHØ[ˆ[˜Ü™X\ÙHÜÛ[ÝXÈÝ™\ÜÈ[™\ÜÝYH\œš]][Û‹ˆYˆH™]\š[˜\šX[ˆ™\ØÜšX™\ÈHØ[[™H™X]Y[›ÛÝÈ]ÛÛ˜Ù[˜][Ûˆ[™^ÜÝ\™HØÚY[H˜]\ˆ[ˆ8 'Y[™ÈH]H[Ü™x 'H›ÜˆHÝX˜›Ü›ˆ\Ú[Û‹Ü‚‚”ÚÝ[Ø[™HYY\›X[™[HÈH^ÛÝ[šÏÏÚ‚‘È›ÝÛÛ™\HÚÜ]\›HÛ[šXØ[Ø[[™H™X]Y[[È›Ý][™H\]X\š][HØ[[™Ëˆ^ÛÝÈ\™Hœ™\ÚØ]\ˆ[\XšX[œË[™›Ý][™H\Ø˜[™žHØ]\ˆÚ[Z\ÝžH\ÈHY™™\™[]Y\Ý[Ûˆœ›ÛHH™]\š[˜\šX[‹Y\™XÝY™X]Y[^ÜÝ\™KˆÙYHH™YH‹Øš[ÛÙÞKX[™\ØÚY[˜ÙKÝÚ[ZXš]]^ØÚ[Z[ÛËÈ•Ú\™HÈ^ÛÝÈ]™OÏØOˆ[™H™YH‹Ý[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™ËÈ•Ø]\ˆ\˜[Y]\œÈ	ˆš]›ÙÙ[ˆÞXÛOØO‹Ü‚‚•Ú]ÚÝ[[ÝHÚXÚÈ™Y›Ü™HÛÛœÚY\š[™ÈØ[[™H™X]Y[ÏÚ‚Û‚OÛÛ™š\›HØ]\ˆ]X[]H[™[\\˜]\™KÛO‚O‘ØÝ[Y[H\Ú[Ûˆ[™Ú]\ˆ]\ÈÜ™XY[™ËÛO‚OÚXÚÈ›Üˆ˜][XHÜˆÚ[ZXØ[^ÜÝ\™KÛO‚O”™]šY]È\]]Kœ™X][™ËÙZYÚ[™™Z]š[Ü‹ÛO‚O‘Ù]™]\š[˜\žHÝZY[˜ÙHÚ[ˆHXYÛ›ÜÚ\È\È[˜Ù\Z[ˆÜˆH\Ú[Ûˆ\È[Ü™H[ˆHÛX[ØØ[^™YÝ\™˜XÙH›Ø›[KÛO‚ÛÛ‚‚•Ú]ÚYÛœÈÚÝ[[Ý™H[ÝH]Ø^Hœ›ÛHVH™X]Y[ÏÚ‚”™\Ü\˜]ÜžHY™šXÝ[KÝXœÝ[X[Ú[[›Û™[Y[[Ù\˜][Û‹ÚY\Ü™XYÜˆ˜\YH›ÙÜ™\ÜÚ[™È\Ú[ÛœËÙZYÚÜÜËX\šÙY[›Ü™^XKX››Ü›X[ÝÚ[[Z[™ËÙ]™\™HÝÙ[[™ÈÜˆ™\X]Y™XÝ\œ™[˜ÙHØ\œ˜[™]\š[˜\žH\ÜÙ\ÜÛY[˜]\ˆ[ˆ™\X]Y[\›Ýš\ÙY˜]ËÜ‚‚”Ø[˜]œÈ›XÚÈXH˜]Ú‚•^HÈ›Ý]™H\]X[]šY[˜ÙKˆ™]\š[˜\žH[\XšX[ˆÛÝ\˜Ù\È\ØÜšX™HØ[[™H\ÙH›ÜˆÙ[XÝYØ\›ÛYÛšX\Ú\ÈØ\Ù\ËˆHØ[YHÛÝ\˜Ù\È™]šY]ÙYžH^P^ÛÝÈ›Ý\Ý›XÚÈXH\ÈHÝ[™\™™X]Y[ˆ]Ù\È›ÝXZÙHØ[[š]™\œØ[H\›ÜšX]NÈ]YX[œÈHØ[[™H]Y\Ý[Ûˆ\ÈHØÝ[Y[YÛ[šXØ[˜\Ú\È]Ý[™YYÈÛÜœ™XÝXYÛ›ÜÚ\È[™ÜÚ[™ËÜ‚”ÙYHH™YH‹ÚX[Ø›XÚË]XKX˜]È›XÚÈXH˜]›Üˆ^ÛÝÏØOˆ›Üˆ]]šY[˜ÙH›Ý[™\žKÜ‚‚•Ú]X^HH™]\š[˜\šX[ˆ\ÙH[œÝXYÏÚ‚‘\[™[™ÈÛˆXYÛ›ÜÚ\È[™Ù]™\š]K™]\š[˜\šX[œÈX^HÛÜœ™XÝ[š\›Û›Y[[ÛÛ™][ÛœËXœšYHHØØ[^™Y\Ú[Û‹\ÙHH›Ü\›HYX\Ý\™YØ[[™H™X]Y[Üˆ™\ØÜšX™HÜXØ[ÜÞ\Ý[ZXÈ[Y[™Ø[YYXØ][Û‹ˆH™X]Y[ÚÝ[X]ÚHÜ™Ø[š\ÛH[™H[š[X[˜]\ˆ[ˆHÙ[™\šXÈ8 '[™Ý\È›ÝØÛÛ¸ 'OÜ‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKÙ^ÝXËX[™[X›Ü˜]ÜžKX[š[X[ËØ[\XšX[œËÚ[™™XÝ[Ý\ËY\ÙX\Ù\Ë[Ù‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆ[™™XÝ[Ý\È\ÙX\Ù\ÈÙˆ[\XšX[œÈ8 %Ø\›ÛYÛšX\Ú\ÏØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKØ[[Ý\‹\]ËØ[\XšX[œËØÛÛ[[Û‹Z[™™XÝ[Ý\ËY\ÙX\Ù\Ë[Ù‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆÛÛ[[Ûˆ[™™XÝ[Ý\È\ÙX\Ù\ÈÙˆ[\XšX[œË\]Y[™HŒØOÛO‚OH™YHšÎ‹ËÜX›YY›˜ØšK››K›šZ™ÛÝ‹ÌÍMŒŽÎMÈ”Ø\›ÛYÛš[ÜÚ\È[ˆ[\XšX[œÎˆ[ˆ[YÜ˜]YÝ™\šY]ÏØOÛO‚Ý[‚‰ÉÉÂ‚‚“ÑWÓÕ‘T”’QTÖÈ[šË\Ù]\ÝØ]\‹XÚ[™ÙKYÝZYH—HH‰ÉÉÂÝ›Û™Ï‘›Üˆ[ˆ\ÝX›\ÚYš[\™Y^ÛÝ\]X\š][K\ÙH™YÝ[\ˆ\X[Ø]\ˆÚ[™Ù\È[™YX\Ý\™YØ]\ˆ]X[]H˜]\ˆ[ˆÛ™H[š]™\œØ[\˜Ù[YÙH›Üˆ]™\žH[šËÜÝ›Û™ÏˆH\ÙY[]šY[˜ÙKX˜\ÙY˜\Ù[[™H\ÈÝ›Û™Ï˜]X\ÝX›Ý]L	HÙYZÛOÜÝ›Û™ÏŽˆHŒ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\ˆÝZYHÜXÚYšY\ÈÙYZÛHL	HÚ[™Ù\È›Üˆš[\™Y^ÛÝ\]X\šXK[™Y\˜ÚÉÜÈ]X[\XšX[ˆÝZY[˜ÙHZÙ]Ú\ÙH™XÛÛ[Y[™È]X\ÝL	HÙYZÛH[ˆ\ÝX›\ÚY\]X]XÈ[šÜËÜ‚‚’ÝÈÙ[ˆÚÝ[[ÝHÚ[™ÙH^ÛÝ[šÈØ]\ÏÚ‚Ý›Û™Ï”Ý\Ú]HÙYZÛH\X[Ú[™ÙK[ˆY\Ýœ›ÛH[Ý\ˆXÝX[™XY[™ÜÈ[™Ø\ÝHØYÜÝ›Û™Ïˆ[šÈ›Û[YK[X™\ˆ[™Ú^™HÙˆ[š[X[Ë™YY[™Ëš[\ˆØ\XÚ]K[ØY[™ÛÝ\˜ÙK]Ø]\ˆÚ[Z\ÝžH[Ú[™ÙHÝÈ]ZXÚÛHØ]\ˆ]X[]HšYËÜ‚”]ÛÉÜÈÝ\œ™[^ÛÝÚY]Ú]™\ÈHœ›ØY\ˆÛÛœÝ[Y\ˆØÚY[HÙˆL8 $ÌIH]™\žH¸ $ÍÙYZÜÈÜˆ\È™YYYˆ^P^ÛÝ\Ù\ÈH[Ü™HÛÛœÙ\˜]]™HÙYZÛH˜\Ù[[™H™XØ]\ÙH›ÝQÔÐÈ[™Y\˜ÚÈÝ\ÜÙYZÛH\X[™[™]Ø[[ˆš[\™Y\]X]XÈÞ\Ý[\È[™™XØ]\ÙHÙYZÛH\Ý[™ÈXZÙ\È]X\ÚY\ˆÈZ\ˆXZ[[˜[˜ÙHÚ]YX\Ý\™Y™[™ËÜ‚‚’ÝÈ]XÚØ]\ˆÚÝ[[ÝHÚ[™ÙOÏÚ‚•\™H\È›ÈÚ[™ÛH\˜Ù[YÙH]š]È]™\žHÚ]X][Û‹ˆ›Üˆ›Ý][™HXZ[[˜[˜ÙKH[Ù\Ý\X[Ú[™ÙH\È\ÝX[H[›ÝYÚÚ[ˆ[[[ÛšXH[™š]š]H™[XZ[ˆÛÛ›ÛY[™š]˜]KÝØ\ÝH\™H›Ýš\Ú[™È˜\YKˆYˆØ]\ˆ]X[]H\ÈX››Ü›X[HH™YH‹Ý[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™ËÈ•Ø]\ˆ\˜[Y]\œÈ	ˆš]›ÙÙ[ˆÞXÛHÝZYOØOˆÚÝ[]\›Z[™HHÛÜœ™XÝ]™H™\ÜÛœÙH˜]\ˆ[ˆ\ÈYÙH[™[[™ÈHš^Y[Y\™Ù[˜ÞH\˜Ù[YÙKÜ‚Ý›Û™Ï‘È›ÝÛÛ™\ÙH›Ý][™HXZ[[˜[˜ÙHÚ][ˆ[Y\™Ù[˜ÞHÛÜœ™XÝ[Û‹ÜÝ›Û™ÏˆH[šÈÚ]YX\Ý\˜X›H[[[ÛšXKÛš]š]HÜˆ[›Ý\ˆÛÛ[Z[˜][Ûˆ›Ø›[HX^H™YYHY™™\™[™\ÜÛœÙH[™™\X]\Ý[™ËÜ‚‚•Ú]È[ÝH™YY™Y›Ü™HÝ\[™ÏÏÚ‚[‚O˜HÚ\ÛˆÜˆYXØ]Y\]X\š][HXÚÙ]ÏÛO‚O˜\›ÜšX]HØ]\ˆÛÛ™][Û™\ˆÚ[ˆ\Ú[™ÈÚÜš[˜]YØÚÜ˜[Z[˜]YÛÝ\˜ÙHØ]\ŽÏÛO‚O˜H\›[ÛY]\ŽÏÛO‚OØ]\ˆ\ÝÈ\›ÜšX]HÈ[Ý\ˆÞ\Ý[NÈ[™ÛO‚O˜HÛX[ˆÛÛZ[™\ˆ›Üˆ™\\š[™È™\XÙ[Y[Ø]\ˆÚ[ˆ™YYYÛO‚Ý[‚’ÙY\\]X\š][H\]Z\Y[Ù\\˜]Hœ›ÛH›ÛÙ\™\\˜][ÛˆÛÛÈ[™™]™\ˆ\ÙHÛØ\ÜˆÝ\ÙZÛXÛX[™\ˆ™\ÚYYH[ˆH[šËÜ‚‚”Ý\Nˆ\Ý™Y›Ü™HÚ[™Ú[™ÈØ]\Ú‚”™XÛÜ™[\\˜]\™K[[[ÛšXKš]š]Kš]˜]H[™™Y›Ü™HXZ[[˜[˜ÙHÚ[ˆÜÜÚX›KˆH™XY[™ÈÚ]™\È[ÝHH˜\Ù[[™H[™[È\Ý[™ÝZ\Ú›Ý][™HXZ[[˜[˜ÙHœ›ÛHHÚ[Z\ÝžH›Ø›[KÜ‚•\ÙHH™YH‹Ý[šË\Ù]\ÚÝË]Ë]\Ý]Ø]\‹È’ÝÈÈ\Ý^ÛÝØ]\ØOˆ›ÜˆHØ[\[™È›ØÙY\™KÜ‚‚”Ý\Žˆ™\\™HØY™H™\XÙ[Y[Ø]\Ú‚”™\XÙ[Y[Ø]\ˆ]\Ý™Hœ™YHÙˆ\›Y[ÚÜš[™KØÚÜ˜[Z[™H[™ÝZ]X›H›ÜˆH\]X\š][IÜÈÚ[Z\ÝžKˆ›ÛÝÈHØ]\ˆÛÛ™][Û™\‰ÜÈX™[›ÜˆH›Û[YHÙˆ™]ÈØ]\ˆ™Z[™È™X]Y[›\ÜÈH›ÙXÝÜXÚYšXØ[H[œÝXÝÈÝ\Ú\ÙKÜ‚•\ÙHHH™YH‹ÝÛÛËÝØ]\‹XÛÛ™][Û™\‹YÜØYÙKXØ[Ý[]Ü‹È•Ø]\ˆÛÛ™][Û™\ˆÜØYÙHØ[Ý[]ÜØOˆ›Üˆ›Û[YHX][ˆÛÛ™š\›HH›ÙXÝX™[Ü‚‚”Ý\ÎˆX]Ú[\\˜]\™HÛÜÙ[OÚ‚]›ÚYÜ™X][™ÈHÝY[ˆ\›X[ÝÚ[™È\š[™ÈXZ[[˜[˜ÙKˆYX\Ý\™H›ÝH\]X\š][H[™™\XÙ[Y[Ø]\ˆ˜]\ˆ[ˆYÚ[™ÈžHÝXÚˆH™\XÙ[Y[Ø]\ˆÚÝ[™HÛÜÙH[›ÝYÚ]HÚ[™ÙHÙ\È›ÝXœ\H\ÚH[šÈÝ]ÚYH]È[[™Y[\\˜]\™H˜[™ÙKÜ‚‘›ÜˆHXÝX[\™Ù]˜[™ÙH[™ÛÛÛ[™ÈXÚ\Ú[ÛœË\ÙHH™YH‹Ý[šË\Ù]\Ý[\\˜]\™KÈ^ÛÝ[šÈ[\\˜]\™OØO‹Ü‚‚”Ý\ˆ™[[Ý™HØ\ÝH[™\ÙˆHÛØ]\Ú‚”Ú\Ûˆš\ÚX›HØ\ÝK[™X][ˆ›ÛÙ[™Xœš\ÈÚ[H™[[Ýš[™ÈH[›™YÜ[ÛˆÙˆØ]\‹ˆÙY\HÚ\Ûˆ]Ø^Hœ›ÛHH^ÛÝ[™œ›ÛH[ž][™ÈÛX[[›ÝYÚÈ™HXØÚY[[HÝXÚÙY[ÈHÜÙKÜ‚–[ÝHÈ›Ý™YYÈÝš\H\]X\š][H˜\™H\š[™È]™\žHØ]\ˆÚ[™ÙKˆHÛØ[\È›Ý][™HØ\ÝH™[[Ý˜[[™[][ÛˆÚ[H™\Ù\š[™ÈHÝX›K\ÝX›\ÚYÞ\Ý[KÜ‚‚”Ý\NˆY™\XÙ[Y[Ø]\ˆÙ[OÚ‚YÛÛ™][Û™Y[\\˜]\™KXÛÛ\]X›HØ]\ˆÚ]Ý]›\Ý[™ÈH[š[X[ÜˆÝXœÝ˜]KˆÝ\ˆYØZ[œÝHÛ\ÜË\ÙHH]KØ˜Y™›KÜˆÝ\Ú\ÙH\Ü\œÙHH›ÝÈYˆ™XÙ\ÜØ\žKÜ‚‚”Ý\Žˆ™XÚXÚÈÚ[ˆ[ÝH\™HÛÜœ™XÝ[™ÈH›Ø›[OÚ‚‘›ÜˆÜ™[˜\žH›Ý][™HXZ[[˜[˜ÙKÙÙÚ[™ÈH™Y›Ü™K\™XY[™È[™ÛÛ[Z[™ÈÙYZÛH[Ûš]Üš[™ÈX^H™H[›ÝYÚˆYˆHØ]\ˆÚ[™ÙHØ\È\™›Ü›YY™XØ]\ÙH[[[ÛšXKš]š]KÜˆ[›Ý\ˆ\˜[Y]\ˆØ\ÈX››Ü›X[™]\ÝXØÛÜ™[™ÈÈHÛÜœ™XÝ]™H[ˆ[™™XÛÜ™H™\Ý[Ü‚•HH™YH‹ÝÛÛËÛš]›ÙÙ[‹XÞXÛK]˜XÚÙ\‹È“š]›ÙÙ[ˆÞXÛH˜XÚÙ\ØOˆ\È\ÙY[›Üˆ™[™ÙÙÚ[™ËÜ‚‚”ÚÝ[[ÝHÚ[™ÙHØ]\ˆ\š[™ÈÞXÛ[™ÏÏÚ‚Ý›Û™Ï‘È›Ý\ÙHHØ[[™\ˆÝXÚ\È8 'Ú[™ÙHØ]\ˆ]™\žH^H›ÜˆHš\œÝ8 $ÍˆÙYZÜË¸ 'OÜÝ›Û™ÏˆÞXÛ[™ÈÝ˜]YÞH\[™ÈÛˆÚ]\ˆHÞ\Ý[H\Èš\Ú\ÜËÚ][[[ÛšXHÛÝ\˜ÙH\È™Z[™È\ÙY[™Ú]HYX\Ý\™Y[[[ÛšXKÛš]š]KÛš]˜]H˜[Y\ÈÚÝËˆ[ˆ^ÛÝÚÝ[›Ý™H\ÙY\ÈH[[[ÛšXHÛÝ\˜ÙH›ÜˆH™]È[˜ÞXÛY[šËÜ‚•\ÙHHH™YH‹Ý[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™ËÈ˜ÞXÛ[™ÈÝZYOØOˆ[™[Ý\ˆ\Ý™\Ý[ÈÈXÚYHÚ]\ˆHØ]\ˆÚ[™ÙH\È\›ÜšX]H\š[™ÈHÞXÛ[™È›ØÙ\ÜËÜ‚‚”ÚÝ[]™[š[\È]]ÛX]XØ[HÙ][Ü™HØ]\ˆÚ[™Ù\ÏÏÚ‚“›Ý™XØ]\ÙHÙˆYÙH[Û™Kˆ[Ý[™È^ÛÝÈX^H™H™Y[Ü™HÙ[ˆ[™ÛX[Ü›ÝË[Ý]ÛÛZ[™\œÈØ[ˆXØÝ[][]HØ\ÝH]ZXÚÛKÛÈXZ[[˜[˜ÙHÙ[ˆ\ÈÈ™H[Ü™Hœ™\]Y[ˆ]H™X[š]™\œÈ\™HÛÛZ[™\ˆ›Û[YK›ÛÙØ\ÝKÝØÚÚ[™È[œÚ]H[™YX\Ý\™YØ]\ˆ]X[]x %›ÝHÛÜ™[Oš]™[š[OÙ[OˆžH]Ù[‹Ü‚‚”ÚÝ[[ÝHÛX[ˆHš[\ˆ\š[™ÈHØ]\ˆÚ[™ÙOÏÚ‚‘š[\ˆXZ[[˜[˜ÙH\ÈHÙ\\˜]H\ÚËˆÈ›Ý›Ý][™[H™\XÙH[š[ÛÙÚXØ[YYXH\Ý™XØ]\ÙH[ÝH\™HÚ[™Ú[™ÈØ]\‹ˆÛX[ˆYXÚ[šXØ[Xœš\ÈÚ[ˆ™YYY[™™\Ù\™H\ÝX›\ÚYš[ÛÙÚXØ[š[˜][Ûˆ[›\ÜÈHX[Y˜XÝ\™\ˆÜˆHÜXÚYšXÈ›Ø›[H™\]Z\™\È™\XÙ[Y[Ü‚•\ÙHH™YH‹Ý[šË\Ù]\Ùš[˜][Û‹Y›Ü‹X^ÛÝËÈ‘È^ÛÝÈ™YYHš[\ÏØOˆ›Üˆš[\ˆØ\™H[™š[ÛÙÚXØ[Yš[˜][Ûˆš[˜Ú\\ËÜ‚‚ÛÛ[[ÛˆØ]\‹XÚ[™ÙHZ\ÝZÙ\ÏÚ‚[‚O\Ú[™È[™X]YÚÜš[˜]YØÚÜ˜[Z[˜]YØ]\ŽÏÛO‚O˜Ü™X][™ÈH\™ÙH[\\˜]\™HÜˆÚ[Z\ÝžHÝÚ[™ÎÏÛO‚O™ÝY\ÜÚ[™ÈØ]\ˆ]X[]H[œÝXYÙˆ\Ý[™ÎÏÛO‚O˜[ÝÚ[™È›ÛÙ[™™XÙ\ÈÈXØÝ[][]H™]ÙY[ˆØÚY[YÚ[™Ù\ÎÏÛO‚O˜ÛX[š[™ÈH\]X\š][HÚ]ÛØ\ÜˆÚ[ZXØ[™\ÚYYNÏÛO‚Oœ™\XÚ[™Èš[ÛÙÚXØ[š[\ˆYYXH[›™XÙ\ÜØ\š[NÈ[™ÛO‚O™›ÛÝÚ[™ÈHš^Y\˜Ù[YÙH]™[ˆÚ[ˆ\Ý™\Ý[ÈÚÝÈH[šÈ™YYÈHY™™\™[™\ÜÛœÙKÛO‚Ý[‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙÙ[™]XË\ÝØÚËXÙ[\‹ÙØÝ[Y[ËÐQÔÐÉLŒÑÝZYWÌŒœˆ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\Žˆ^ÛÝÝZYHŒ8 %š[\™Y\]X\šXH[™Ø]\ˆ]X[]OØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKØ[[Ý\‹\]ËØ[\XšX[œËÚÝ\Ú[™ËY›Ü‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆÝ\Ú[™È›Üˆ[\XšX[œÈ8 %\ÝX›\ÚY\]X]XË][šÈØ]\ˆÚ[™Ù\ÏØOÛO‚OH™YHšÎ‹ËÝÝÝËœ]ÛË˜ÛÛKÜ]YYXØ][Û‹ØØ\™\ÚY]ËØ^ÛÝ”]ÛÈ^ÛÝØ\™HÝZYH8 %ÛÛœÝ[Y\ˆXZ[[˜[˜ÙHØÚY[OØOÛO‚Ý[‚‰ÉÉÂ‚‚“ÑWÓÕ‘T”’QTÖÈ[šË\Ù]\Ùš[˜][Û‹Y›Ü‹X^ÛÝÈ—HH‰ÉÉÂÝ›Û™Ï‘›ÜˆHÛÛ™[[Û˜[ÛYH^ÛÝ\]X\š][K\ÙHš[ÛÙÚXØ[š[˜][ÛˆÚ]Ù[HØ]\ˆ[Ý™[Y[ÜÝ›Û™ÏˆHš[\‰ÜÈ[ÜÝ[\Ü[›Øˆ\ÈÈÝ\ÜHš]›ÙÙ[ˆÞXÛHÛÈ[[[ÛšXH\ÈÛÛ™\Y›ÝYÚš]š]HÝØ\™š]˜]NÈ]ÈÝ]]ÚÝ[›ÝÜ™X]HHÝ\œ™[]ÛÛ[[Ý\ÛH\Ú\ÈÜˆ\Ý\˜œÈH^ÛÝÜ‚]ˆÛ\ÜÏHœ›ÛK[›ÝHÝ›Û™Ï•\ÈYÙHÝÛœÈš[˜][Ûˆš[˜Ú\\ËÚ^š[™ÈÙÚXÈ[™›ÝÈÛÛ›ÛÜÝ›Û™Ïˆ›ÜˆHXY]ËZXY\˜Ú\ÙHXÚ\Ú[Û‹\ÙHH™YH‹Ý[šË\Ù]\ØØ[š\Ý\‹]œË\ÜÛ™ÙKYš[\‹ÈØ[š\Ý\ˆš[\œÈœÈÜÛ™ÙHš[\œÈ›Üˆ^ÛÝÏØO‹Ù]‚‚‘È^ÛÝÈ™YYHš[\ÏÚ‚Ý›Û™ÏHÛYH\]X\š][HÚÝ[›Ü›X[H\ÙH[ˆ\ÝX›\ÚYš[ÛÙÚXØ[š[\‹ÜÝ›Û™Ïˆ^ÛÝÈØ[ˆXÚšXØ[H™HÙ\[ˆÝ]XÈÛÛZ[™\œÈÚ]Ý]š[˜][ÛˆÚ[ˆØ]\ˆ\È™\XÙYœ™\]Y[x %™\ÙX\˜Ú˜XÚ[]Y\ÈÈ\È[™\ˆÛÛ›ÛY\Ø˜[™žx %]]\ÈHY™™\™[X[˜YÙ[Y[Þ\Ý[Hœ›ÛH[ˆÜ™[˜\žH]\]X\š][KÜ‚•HŒ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\ˆÝZYH\ØÜšX™\È™YHÝ\Ú[™È\›ØXÚ\ÎˆÝ]XÈÝ\Ú[™Ëš[\™Y\]X\šXH[™™XÚ\˜Ý[][™ÈÞ\Ý[\Ëˆ›Üˆš[\™Y\]X\šXH]™XÛÛ[Y[™ÈÝËXÝ\œ™[ÝÙ\ˆš[˜][ÛˆÚ]š[ÛÙÚXØ[š[˜][Û‹™YÝ[\ˆØ]\ˆÚ[™Ù\È[™Ø]\‹XÚ[Z\ÝžH[Ûš]Üš[™ËÜ‚‚•Ú]Ù\È[ˆ^ÛÝš[\ˆXÝX[HÏÏÚ‚]ˆÛ\ÜÏHX›K]Ü˜\X›O‚XY‘š[˜][Ûˆ›ÛOÝ•Ú]]Ù\ÏÝ”š[Üš]OÝÝÝXY‚›ÙO‚š[ÛÙÚXØ[Ý”›ÝšY\ÈÛÛÛš^™YÝ\™˜XÙH\™XH›ÜˆZXÜ›Ø™\È[›Û™Y[ˆ›ØÙ\ÜÚ[™Èš]›ÙÙ[›Ý\ÈØ\ÝOÝ‘\ÜÙ[X[[ˆHÛÛ™[[Û˜[ÞXÛY\]X\š][OÝÝ‚“YXÚ[šXØ[ÝØ\\™\ÈÝ\Ü[™YXœš\È[™›ÛÙÝØ\ÝH\XÛ\ÏÝ•\ÙY[È™[[Ý™HØ\\™YØ\ÝH\š[™ÈXZ[[˜[˜ÙOÝÝ‚Ú[ZXØ[Ý”ÜXÚX[\\œÜÙHYYXHØ[ˆ™[[Ý™HÙ[XÝY\ÜÛÛ™YÛÛ\Ý[™ÏÝ“Ü[Û˜[È›ÝHÝXœÝ]]H›Üˆš[ÛÙÚXØ[š[˜][ÛˆÜˆØ]\ˆÚ[™Ù\ÏÝÝ‚Ý›ÙOÝX›OÙ]‚‚•ÚHÙ\Èš[ÛÙÚXØ[š[˜][ÛˆX]\ÏÚ‚[[[ÛšXH\È›ÙXÙY[ˆ[ˆØØÝ\YY\]X]XÈÞ\Ý[Hœ›ÛH[š[X[Ø\ÝH[™XÛÛ\ÜÚ[™ÈÜ™Ø[šXÈX]\šX[ˆ[ˆHÞXÛYš[\‹ZXÜ›ØšX[ÛÛ[][š]Y\ÈÛÛ™\[[[ÛšXH›ÝYÚš]š]HÝØ\™š]˜]KˆY\˜ÚÉÜÈ\]X]XËX[š[X[ÝZY[˜ÙHY[YšY\È[[[ÛšXHÞXÛÜÚ\È\ÈHÛÛ[[Ûˆ›Ø›[H[ˆÞ\Ý[\ÈÚ]Ý][ˆ\ÝX›\ÚYXÝ]™Hš[Ùš[\‹Ü‚•\ÙHH™YH‹Ý[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™ËÈ•Ø]\ˆ\˜[Y]\œÈ	ˆš]›ÙÙ[ˆÞXÛOØOˆ›ÜˆHÚ[Z\ÝžH[™H™YH‹ÝÛÛËÛš]›ÙÙ[‹XÞXÛK]˜XÚÙ\‹ÈHš]›ÙÙ[ˆÞXÛH˜XÚÙ\ØOˆ›ÜˆÙÙÚ[™ËÜ‚‚‘Ù\ÈÚ[™Ú[™ÈØ]\ˆ™[[Ý™HH™[™YšXÚX[˜XÝ\šXOÏÚ‚Ý›Û™Ï”›Ý][™H\X[Ø]\ˆÚ[™Ù\ÈÈ›ÝYX[ˆ[ÝH]\Ý8 '™\Ý\HÞXÛK¸ 'OÜÝ›Û™ÏˆH[˜Ý[Ûš[™Èš[Ùš[\ˆ\È˜\ÙYÛˆZXÜ›ØšX[š[Ùš[\È\ÜÛØÚX]YÚ]š[˜][ÛˆYYXH[™\]X\š][HÝ\™˜XÙ\ËÚ[HØ]\ˆÚ[™Ù\È[]H\ÜÛÛ™YØ\ÝH›ÙXÝËˆH™X[š\ÚÈ\È\Ý›ÞZ[™ÈÜˆ™\XÚ[™ÈÛÈ]XÚ\ÝX›\ÚYš[ÛÙÚXØ[YYXH]Û˜ÙHÜˆ^ÜÚ[™È]ÈÛÛ™][ÛœÈ]Ú[Hš[Ùš[KÜ‚•\È\ÈÚHØ]\ˆÚ[™Ù\È[™š[ÛÙÚXØ[š[˜][ÛˆÛÜšÈÙÙ]\ˆ˜]\ˆ[ˆÛÛ\][™ÈÚ]XXÚÝ\‹Ü‚‚’ÝÈ]XÚ›ÝÈ\ÈØY™H›Üˆ[ˆ^ÛÝÏÚ‚Ý›Û™Ï•\™H\È›ÈÙ[Y\ÝX›\ÚY^ÛÝÔ][\Y\ˆÝXÚ\È8 'påÈ\™Ù]L0åÈX^[][x 'H[ˆHš[X\žH\Ø˜[™žHÛÝ\˜Ù\È™]šY]ÙY\™KÜÝ›Û™ÏˆHY™[œÚX›H[H\È[˜Ý[Û˜[ˆÙY\Ú\˜Ý[][ÛˆÛÝÈ[›ÝYÚ]H[š[X[Ø[ˆ™\ÝØ[È[™™YYÚ]Ý]™Z[™ÈÛÛ[[Ý\ÛH\ÜXÙYÜˆ›Ü˜ÙYÈœ˜XÙHYØZ[œÝHÛÛ˜Ù[˜]Y™]Ü‚QÔÐÈ^XÚ]HØ\›œÈ]˜\YHÚ\˜Ý[][™ÈØ]\ˆ\ÈÝ™\ÜÙ[[™™XÛÛ[Y[™ÈÙY\[™ÈÚ\˜Ý[][Ûˆ\ÈÛÝÈ\ÈÜÜÚX›H[ˆÛÛ[[Ý\ÛHÚ\˜Ý[]YÞ\Ý[\ËˆHÜ˜^H˜\‹˜Y™›Kœ›ØYÝ]]ÜˆY\ÝX›H›ÝÈØ[ˆ™YXÙHÛÛ˜Ù[˜]YÝ\œ™[Ú[H™\Ù\š[™Èš[˜][Û‹Ü‚‚’ÝÈÈ[ÝHÛ›ÝÈHš[\ˆ›ÝÈ\ÈÛÈÝ›Û™ÏÏÚ‚•Ø]ÚH[š[X[[™H[šÈ˜]\ˆ[ˆ™[Z[™ÈÛ›HÛˆH[\	ÜÈ›Þ˜][™Ëˆ™YXÙHÜˆ™Y\™XÝ›ÝÈYˆHÝ]]š\ÚX›H\Ú\ÈH^ÛÝ™]™[È]œ›ÛHÙ][™È›Ü›X[K›ÝÜÈ›ÛÙ]Ø^H\š[™È™YY[™ËÜˆÜ™X]\ÈHÝ›Û™ÈÝ\œ™[XÜ›ÜÜÈ[ÜÝÙˆH\ØX›H›ÛÜˆ\™XKÜ‚‘È›ÝXYÛ›ÜÙH8 '›ÝÈÝ™\Üø 'Hœ›ÛHÝ\›YÚ[È[Û™NÈÜÝ\™HÚ[™Ù\È\™H›ÛœÜXÚYšXËˆ\ÙHH™YH‹ÚX[ØÝ\›YYÚ[Ë\Ý™\ÜË\ÚYÛ˜[ÈHÝ\›YYÚ[ÈÝZYOØOˆYˆ]\ÈHÚYÛˆ]ÛÛ˜Ù\›œÈ[ÝKÜ‚‚’ÝÈÚÝ[[ÝHÚ^™HHš[\ÏÚ‚‘š[\ˆÚ^š[™È\ÈÛÈ[™\[™[]Y\Ý[ÛœÎÜ‚Û‚OÝ›Û™Ïš[ÛÙÚXØ[Ø\XÚ]NÜÝ›Û™ÏˆØ[ˆHYYXHÝ\ÜHÝX›Hš]›ÙÙ[ˆÞXÛH›ÜˆHXÝX[[š[X[[™™YY[™ÈØYÏÛO‚OÝ›Û™Ï“Ý]]™Z]š[ÜŽÜÝ›Û™ÏˆØ[ˆHØ]\ˆ™]\›ˆ™HY\ÝYÜˆ\Ü\œÙYÛÈÝ\œ™[™[XZ[œÈÙ[OÏÛO‚ÛÛ‚Hš[\ˆØ[ˆ]™H[HÙˆYYXH][ˆ[œÝZ]X›HÝ]]ÜˆHÙ[HÝ]]][œÝY™šXÚY[š[ÛÙÚXØ[Ø\XÚ]Kˆ[šÈ›Û[YH[Û™HØ[››Ý[œÝÙ\ˆ›Ý]Y\Ý[ÛœËÜ‚‚”ÜÛ™ÙKÐˆÜˆØ[š\Ý\ˆš[\ÏÚ‚]ˆÛ\ÜÏHX›K]Ü˜\X›O‚XY‘š[\ˆ\OÝ”Ý™[™ÝÏÝ•Ø]Ú›ÜÝÝÝXY‚›ÙO‚”ÜÛ™ÙOÝ”Ú[\Hš[ÛÙÚXØ[š[˜][Û‹[š\™[HÙ[HÚ[ˆÛÜœ™XÝHZ\‹Yš]™[‹[™^[œÚ]™OÝ“YXÚ[šXØ[Ø\\™H\È[Z]YÈÚÛÜÙH[›ÝYÚÜÛ™ÙKÛYYXH\™XH›ÜˆHÞ\Ý[OÝÝ‚’[™Ë[Û‹X˜XÚÈ
+ÐŠOÝXØÙ\ÜÚX›HYYXH[™ÛÛÙYXÚ[šXØ[š[˜][ÛÝ•Ø]\™˜[ÛÝ]]X^H™YY˜Y™›[™ÈÜˆ›ÝÈ™YXÝ[ÛÝÝ‚Ø[š\Ý\Ý“\™ÙHÝ\ÝÛZ^˜X›HYYXHØ\XÚ]H[™›^X›H™]\›ˆ[Xš[™ÏÝØ[ˆÜ™X]HÝ›Û™ÈÝ]]Yˆ›ÝY\ÝYÙ\Ü\œÙYÈ[Ü™HÛÛ\^XZ[[˜[˜ÙOÝÝ‚Ý›ÙOÝX›OÙ]‚“›ÈÛ™H\H\È]]ÛX]XØ[H8 '™\Ý8 'H›Üˆ]™\žH^ÛÝ[šËˆHYXØ]YH™YH‹Ý[šË\Ù]\ØØ[š\Ý\‹]œË\ÜÛ™ÙKYš[\‹ÈØ[š\Ý\ˆœÈÜÛ™ÙOØOˆYÙHÝÛœÈ]ÛÛ\\š\ÛÛ‹Ü‚‚”ÚÝ[[ÝHÝ™\œÚ^™HHš[\ÏÚ‚’]Ø[ˆ™H™X\ÛÛ˜X›HÈÚÛÜÙH[Ü™Hš[ÛÙÚXØ[[YYXHØ\XÚ]H[ˆH˜\™HZ[š[][K]Ý›Û™Ï™È›Ý\ÜÝ[YHH\™Ù\ˆš[\ˆ˜][™È\È]]ÛX]XØ[HØY™\ÜÝ›Û™Ï‹ˆX[Y˜XÝ\™\ˆ[šÈ˜][™ÜÈ\™H›Ý^ÛÝ\ÜXÚYšXË[™HYÚ\‹XØ\XÚ]Hš[\ˆØ[ˆ[ÛÈ›ÙXÙHÝ›Û™Ù\ˆ›ÝËˆYˆ[ÝHÚÛÜÙH^˜HYYXHØ\XÚ]KXZÙHÝ\™HH™]\›ˆØ[ˆÝ[™HXYHÙ[KÜ‚‚’ÝÈÈ[ÝHÞXÛHH™]Èš[\ÏÚ‚‘\ÝX›\ÚHš[ÛÙÚXØ[š[\ˆ™Y›Ü™H™[Z[™ÈÛˆ]È›ØÙ\ÜÈ[ˆ^ÛÝ	ÜÈØ\ÝKˆH™]Èš[\ˆÙ\È›Ý™XÛÛYH8 'ÞXÛY8 'HY\™[H™XØ]\ÙH]\È[ˆ›ÜˆHÙ][X™\ˆÙˆ^\ËˆÞXÛ[™È\ÈÛÛ™š\›YYœ›ÛHH]\›ˆÙˆ[[[ÛšXKš]š]H[™š]˜]H[™\ˆHY]Ù[ÝH\™H\Ú[™ËÜ‚‘›ÛÝÈH™YH‹Ý[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™ËÈHÞXÛ[™ÈÝZYOØOˆ[™È›Ý\ÙHH^ÛÝ]Ù[ˆ\ÈH[[[ÛšXHÛÝ\˜ÙH›Üˆ[ˆ[˜ÞXÛY\]X\š][KÜ‚‚’ÝÈÈ[ÝHXZ[Z[ˆš[\ˆYYXOÏÚ‚[‚O”™[[Ý™H˜\YXœš\È™Y›Ü™H]XÛÛ\ÜÙ\È[ˆHš[\‹ÛO‚O”™\Ù\™H\ÝX›\ÚYš[ÛÙÚXØ[YYXHÚ[ˆ]\ÈÝ[[˜Ý[Û˜[ÛO‚O]›ÚY™\XÚ[™È[X]\™Hš[ÛÙÚXØ[YYXH]HØ[YH[YHÚ]Ý]H™X\ÛÛˆ[™H[‹ÛO‚O’ÙY\ÚÜš[™KØÚÜ˜[Z[™H]Ø^Hœ›ÛH\ÝX›\ÚYš[ÛÙÚXØ[YYXKÛO‚O‘›ÛÝÈHX[Y˜XÝ\™\‰ÜÈYXÚ[šXØ[[XZ[[˜[˜ÙH[œÝXÝ[ÛœÈÚ[H›ÝXÝ[™ÈHš[Ùš[\‹ÛO‚Ý[‚‘š[\ˆXZ[[˜[˜ÙHœ™\]Y[˜ÞH\[™ÈÛˆXœš\ÈØY[™Hš[\ˆ\ÚYÛŽÈ\ÙHXÛ[š[™È›ÝËš\ÚX›HXØÝ[][][Ûˆ[™Ø]\‹\]X[]H™[™È˜]\ˆ[ˆ[ˆ\˜š]˜\žH[ÛH™\XÙ[Y[ØÚY[KÜ‚‚‘È[ÝHÝ[™YYØ]\ˆÚ[™Ù\ÈÚ]Hš[\ÏÚ‚Ý›Û™Ï–Y\ËÜÝ›Û™ÏˆHš[ÛÙÚXØ[š[\ˆ›ØÙ\ÜÙ\Èš]›ÙÙ[›Ý\ÈØ\ÝNÈ]Ù\È›ÝXZÙHØ]\ˆÚ[™Ù\ÈØœÛÛ]KˆHŒQÔÐÈÝZYHÜXÚYšY\È™YÝ[\ˆ\X[Ø]\ˆ™\XÙ[Y[]™[ˆ[ˆš[\™Y[™™XÚ\˜Ý[][™ÈÞ\Ý[\Ëˆ\ÙHH™YH‹Ý[šË\Ù]\ÝØ]\‹XÚ[™ÙKYÝZYKÈH^ÛÝØ]\ˆÚ[™ÙHÝZYOØOˆ›ÜˆHXZ[[˜[˜ÙH›ØÙY\™KÜ‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙÙ[™]XË\ÝØÚËXÙ[\‹ÙØÝ[Y[ËÐQÔÐÉLŒÑÝZYWÌŒœˆ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\Žˆ^ÛÝÝZYHŒØOÛO‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙYXØ][ÛŒKÙÝZYK]ËX^ÛÝZ\Ø˜[™žH[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\ŽˆÝZYHÈ^ÛÝ\Ø˜[™žOØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKÙ^ÝXËX[™[X›Ü˜]ÜžKX[š[X[ËÛX›Ü˜]ÜžKX[š[X[ËÛX[˜YÙ[Y[[Ù‹[X›Ü˜]ÜžKX[š[X[È“Y\˜ÚÈ™]\š[˜\žHX[X[ˆX[˜YÙ[Y[ÙˆX›Ü˜]ÜžH[š[X[È8 %\]X]XÈØ]\ˆ]X[]H[™š[Ùš[˜][ÛØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKØ[[Ý\‹\]ËØ[\XšX[œËÚÝ\Ú[™ËY›Ü‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆÝ\Ú[™È›Üˆ[\XšX[œÏØOÛO‚Ý[‚‰ÉÉÂ‚‚“ÑWÓÕ‘T”’QTÖÈ[šË\Ù]\ØØ[š\Ý\‹]œË\ÜÛ™ÙKYš[\ˆ—HH‰ÉÉÂÝ›Û™Ï“™Z]\ˆHØ[š\Ý\ˆš[\ˆ›ÜˆHÜÛ™ÙHš[\ˆ\È]]ÛX]XØ[H8 '™\Ý8 'H›Üˆ]™\žH^ÛÝ[šËÜÝ›Û™ÏˆHÜÛ™ÙHš[\ˆ\ÈÚ[\K[™^[œÚ]™H[™˜]\˜[HX\ÞHÈ[ˆÚ]Ù[HÚ\˜Ý[][Û‹ˆHØ[š\Ý\ˆš[\ˆÙ™™\œÈ[Ü™HYYXHØ\XÚ]H[™Ý›Û™Ù\ˆYXÚ[šXØ[š[˜][Û‹]]È™]\›ˆ›ÝÈÙ[ˆ™YYÈÈ™H\Ü\œÙYÜˆ™YXÙYˆH™]\ˆÚÚXÙH\ÈHÛ™H]›ÝšY\È[›ÝYÚš[ÛÙÚXØ[š[˜][Ûˆ›Üˆ[Ý\ˆÞ\Ý[HÚ]Ý]Ü™X][™ÈÝ›Û™ÈÝ\œ™[]H[š[X[	ÜÈ™\Ý[™È\™XKÜ‚]ˆÛ\ÜÏHœ›ÛK[›ÝHÝ›Û™Ï•\ÈYÙHÝÛœÈHØ[š\Ý\‹]™\œÝ\Ë\ÜÛ™ÙHXÚ\Ú[Û‹ÜÝ›Û™Ïˆ›Üˆš]›ÙÙ[‹XÞXÛHš[ÛÙÞKš[\ˆÚ^š[™Èš[˜Ú\\È[™Ù[™\˜[›ÝÈÛÛ›ÛÝ\Ú]H™YH‹Ý[šË\Ù]\Ùš[˜][Û‹Y›Ü‹X^ÛÝËÈ‘È^ÛÝÈ™YYHš[\ÏØO‹Ù]‚‚Ø[š\Ý\ˆœÈÜÛ™ÙHš[\Žˆ]ZXÚÈÛÛ\\š\ÛÛÚ‚]ˆÛ\ÜÏHX›K]Ü˜\X›O‚XY”]Y\Ý[ÛÝ”ÜÛ™ÙHš[\ÝØ[š\Ý\ˆš[\ÝÝÝXY‚›ÙO‚š[ÛÙÚXØ[š[˜][ÛÝ‘ÛÛÙÚ[ˆHÜÛ™ÙKÛYYXH\™XH\ÈY\]X]H›ÜˆHš[ÛØYÝ‘ÛÛÙÈ\XØ[HÙ™™\œÈ[Ü™HÛÛ™šYÝ\˜X›Hš[ÛÙÚXØ[[YYXH›Û[YOÝÝ‚“YXÚ[šXØ[Xœš\ÈØ\\™OÝ˜\ÚXÈÈ[Ù\˜]OÝ•\ÝX[HÝ›Û™Ù\ˆ[™][K\ÝYÙOÝÝ‚‘›ÝÈÛÛ›ÛÝ“Ù[ˆ˜]\˜[HÙ[NÈ\[™ÈÛˆZ\ˆ[\[™\ÚYÛÝ”™]\›ˆX^H™YYHÜ˜^H˜\‹˜Y™›HÜˆY\ÝY[ÝÝ‚“XZ[[˜[˜ÙOÝ”Ú[\NÈÜÛ™ÙH\ÈX\ÞHÈ[œÜXÝ[™š[œÙOÝ“[Ü™H\ËÜÙ\È[™[\›˜[YYXHÈÙ\šXÙOÝÝ‚ÛÜÝÈÛÛ\^]OÝ“ÝÙ\Ý’YÚ\ÝÝ‚“YYXHÝ\ÝÛZ^˜][ÛÝ“[Z]YÝ’YÚÝÝ‚’[›[™H\]Z\Y[[YÜ˜][ÛÝ“›Ý\ÚYÛ™Y\ÈH™\ÜÝ\š^™YØ]\ˆÛÜÝØ[ˆÝZ]ÛÛYH[›[™H\]Z\Y[Ú[ˆX[Y˜XÝ\™\ˆ›ÝÈ™\]Z\™[Y[È\™HÛÛ\]X›OÝÝ‚™\Ý™X\ÛÛˆÈÚÛÜÙH]Ý”Ú[\XÚ]H[™Ù[HÚ\˜Ý[][ÛÝ“YYXHØ\XÚ]H[™Ý›Û™Ù\ˆXœš\È™[[Ý˜[ÝÝ‚Ý›ÙOÝX›OÙ]‚‚•Ú]X]\œÈ[Ü™H[ˆHš[\ˆ\OÏÚ‚•™YH[™ÜÈX]\ˆ[Ü™H[ˆHX™[ÛˆHš[\ŽÜ‚Û‚OÝ›Û™Ïš[ÛÙÚXØ[Ø\XÚ]KÜÝ›Û™ÏˆHÞ\Ý[H™YYÈ[›ÝYÚ\ÝX›\ÚYš[Ùš[HÈ›ØÙ\ÜÈHXÝX[š]›ÙÙ[›Ý\Ë]Ø\ÝHØYÛO‚OÝ›Û™Ï‘Ù[HÚ\˜Ý[][Û‹ÜÝ›Û™ÏˆH™]\›ˆÚÝ[›ÝÛÛ[[Ý\ÛH\ÚH^ÛÝÜˆÜ™X]HHÝ›Û™ÈÝ\œ™[XÜ›ÜÜÈ]È™\Ý[™È\™XKÛO‚OÝ›Û™Ï“XZ[Z[˜Xš[]KÜÝ›Û™Ïˆ[ÝH™YYÈ™HX›HÈ™[[Ý™H˜\YXœš\È[™™\Ù\™HX]\™Hš[ÛÙÚXØ[YYXHÚ]Ý]][™ÈHš[\ˆÛÙËÛO‚ÛÛ‚•H[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\ˆÜXÚYšXØ[H™XÛÛ[Y[™Èš[ÛÙÚXØ[š[˜][Ûˆ[ˆš[\™Y\]X\šXH[™Ø\›œÈ]˜\YHÚ\˜Ý[][™ÈØ]\ˆ\ÈÝ™\ÜÙ[ˆY\˜ÚÉÜÈŒˆ[\XšX[ˆ\Ø˜[™žHÝZY[˜ÙHZÙ]Ú\ÙH›Ý\È]ÛÛYH\]X]XÈ[\XšX[œÈ™YYÙ[Hš[˜][Ûˆ]ÙY\ÈØ]\ˆÛX[ˆÚ]Ý]Ý›Û™ÈÝ\œ™[ËÜ‚‚’ÝÈÙ\ÈHÜÛ™ÙHš[\ˆÛÜšÏÏÚ‚[ˆZ\‹Yš]™[ˆÜÛ™ÙHš[\ˆ[È\]X\š][HØ]\ˆ›ÝYÚÜ›Ý\È›Ø[H\Èš\Ú[™ÈX˜›\È[Ý™HØ]\ˆ\HYX™KˆHÜÛ™ÙH›ÝšY\ÈÝ\™˜XÙH\™XH›Üˆš[ÛÙÚXØ[š[˜][ÛˆÚ[H[ÛÈ˜\[™ÈÛÛYHÝ\Ü[™YXœš\ËˆHX˜›HÛÛ[[ˆÜ™X]\ÈÝ\™˜XÙH[Ý™[Y[[™Ø\È^Ú[™ÙKÜ‚™XØ]\ÙHHØ]\ˆ\È˜]Ûˆ›ÝYÚHœ›ØYÜÛ™ÙH˜]\ˆ[ˆH˜\œ›ÝÈÝÙ\™Y[ZÙKH[ZÙH]Ù[ˆ\ÈÙ[™\˜[HÙ[KˆXÝX[Ú\˜Ý[][ÛˆÝ[\[™ÈÛˆHZ\ˆ[\ÜÛ™ÙHÚ^™KY]X™H\ÚYÛˆ[™[šÈ^[Ý]ÛÈ8 'ÜÛ™ÙHš[\¸ 'HÚÝ[›Ý™H™X]Y\ÈHš^Y›ÝÈ˜]KÜ‚‚•Ú]\™HHY˜[YÙ\ÈÙˆHÜÛ™ÙHš[\ÏÚ‚[‚OÝ›Û™Ï”Ú[\Hš[ÛÙÚXØ[š[˜][ÛŽÜÝ›Û™ÏˆÛ™HYXÙHÙˆ›Ø[HØ[ˆÝ\Üš[Ùš[H[™Ø]ÚÛØ\œÙHXœš\ËÛO‚OÝ›Û™Ï‘Ù[HØ]\ˆ[Ý™[Y[ÜÝ›Û™ÏˆZ\‹Yš]™[ˆÚ\˜Ý[][Ûˆ\ÈX\ÞHÈÙY\Z[›Üˆ[ˆ^ÛÝ[šËÛO‚OÝ›Û™Ï‘X\ÞH[œÜXÝ[Ûˆ[™XZ[[˜[˜ÙNÜÝ›Û™Ïˆ[ÝHØ[ˆÙYHÚ[ˆHÜÛ™ÙH\È\H[™ÛX[ˆ]Ú]Ý]Ü[š[™ÈHÙX[Yš[\ˆ›ÙKÛO‚OÝ›Û™Ï“ÝÈÛÛ\^]NÜÝ›Û™Ïˆ™]Ù\ˆÜÙ\ËÙX[È[™[Ýš[™ÈØ]\‹\Þ\Ý[H\ËÛO‚OÝ›Û™Ï•\ÙY[™Y[™[˜ÞNÜÝ›Û™ÏˆHX]\™HÜÛ™ÙHš[\ˆØ[ˆÝ\[Y[[›Ý\ˆš[\ˆÜˆ›ÝšYHHÙYYYš[ÛÙÚXØ[š[\ˆ›ÜˆH]X\˜[[™KÙÜ›ÝË[Ý]Ù]\ÛO‚Ý[‚‚•Ú]\™HH[Z]][ÛœÈÙˆHÜÛ™ÙHš[\ÏÚ‚HÜÛ™ÙHš[\ˆ\ÝX[H›ÝšY\È\ÜÈš[™HYXÚ[šXØ[8 'Û\Ú[™ø 'H[ˆH][K\ÝYÙHØ[š\Ý\ˆ[™Ù™™\œÈ]H›ÛÛH›ÜˆÜXÚX[^™YYYXKˆHÚ[™ÛHÛX[ÜÛ™ÙHØ[ˆ[ÛÈ™H[™\œÚ^™Y›ÜˆH\™ÙHÜˆX]š[HÝØÚÙY\]X\š][H]™[ˆÝYÚHÝ\œ™[™Y[ÈÙ[KÜ‚’YˆXœš\ÈÝ^\ÈÝ\Ü[™YÜˆØ]\‹\]X[]H™[™ÈÚÝÈ]HÞ\Ý[H\È›ÝÛÜ[™ÈÚ]HXÝX[ØYH[œÝÙ\ˆX^H™H[Ü™HYYXHØ\XÚ]K™]\ˆØ\ÝH™[[Ý˜[HÙXÛÛ™š[\‹ÜˆHY™™\™[š[\ˆ\ÚYÛ¸ %›ÝÚ[\H[Ü™HZ\ˆ›ÝÈ›ÝYÚHØ[YHÛX[ÜÛ™ÙKÜ‚‚’ÝÈÙ\ÈHØ[š\Ý\ˆš[\ˆÛÜšÏÏÚ‚HØ[š\Ý\ˆš[\ˆ\Ù\ÈH[\È˜]È\]X\š][HØ]\ˆ›ÝYÚ[ˆ^\›˜[ÙX[Y›ÙHÛÛZ[š[™ÈYXÚ[šXØ[[™š[ÛÙÚXØ[YYXK[ˆ™]\›œÈHš[\™YØ]\ˆÈH[šËˆ[ÜÝØ[š\Ý\œÈØ[ˆÛ][\H^Y\œÈÜˆ˜\ÚÙ]ËÚXÚ]ÈHÙY\\ˆÙ\\˜]HÛØ\œÙHXœš\ÈØ\\™Hœ›ÛHš[ÛÙÚXØ[YYXH[™Ü[Û˜[Ú[ZXØ[YYXKÜ‚•\È\ÚYÛˆØ[ˆ›ÝšYHÝXœÝ[X[YYXHØ\XÚ]K]H™]\›ˆ\ÈÝÙ\™YˆH[\Ü[^ÛÝ]Y\Ý[Ûˆ\È\™Y›Ü™H›ÝY\™[HH[\	ÜÈY™\\ÙY›ÝÈ[X™\ŽÈ]\ÈÚ]\ˆH™]\›ˆØ[ˆ™HÛÛ™šYÝ\™YÛÈH[š[X[^\šY[˜Ù\ÈÙ[HÚ\˜Ý[][Û‹Ü‚‚•Ú]\™HHY˜[YÙ\ÈÙˆHØ[š\Ý\ˆš[\ÏÚ‚[‚OÝ›Û™Ï“[Ü™HYYXHØ\XÚ]NÜÝ›Û™Ïˆ\ÙY[Ú[ˆ[ÝHØ[ÝXœÝ[X[YXÚ[šXØ[[™š[ÛÙÚXØ[š[˜][Ûˆ[ˆÛ™H[š]ÛO‚OÝ›Û™Ï™]\ˆš[™KYXœš\ÈØ\\™NÜÝ›Û™Ïˆ][\HYXÚ[šXØ[ÝYÙ\ÈØ[ˆ[\›Ý™HØ]\ˆÛ\š]HÚ[ˆXZ[Z[™YÛÜœ™XÝKÛO‚OÝ›Û™ÏÛÛ™šYÝ\˜X›HYYXNÜÝ›Û™Ïˆ˜\ÚÙ]ÈØ[ˆ™H\ÜÚYÛ™YÈYXÚ[šXØ[š[ÛÙÚXØ[ÜˆÜXÚX[\\œÜÙHYYXKÛO‚OÝ›Û™Ï‘›^X›H™]\›ˆ[Xš[™ÎÜÝ›Û™ÏˆÜ˜^H˜\œÈ[™Ý\ˆ™]\›ˆ\œ˜[™Ù[Y[ÈØ[ˆÜ™XYØ]\ˆ[Ý™[Y[XÜ›ÜÜÈHÚY\ˆ\™XKÛO‚OÝ›Û™Ï‘^\›˜[\]Z\Y[ÛÜÜÝ›Û™ÏˆÛÛYH\]X\š][HÚ[\œÈ[™Ý\ˆ]šXÙ\ÈØ[ˆ™H[œÝ[Y[ˆÛÛ\]X›H^\›˜[[Xš[™Ë›ÝšYY[X[Y˜XÝ\™\ˆ›ÝÈ[™™\ÜÝ\™H™\]Z\™[Y[È\™HY]ÛO‚Ý[‚‚•Ú]\™HH[Z]][ÛœÈÙˆHØ[š\Ý\ˆš[\ÏÚ‚[‚OšYÚ\ˆÛÜÝ[™[Ü™HÛÛ\^XZ[[˜[˜ÙNÏÛO‚OšÜÙ\ËÙX[È[™[ˆ[\[\ˆYÝ[X[˜Z[\™HÚ[ÎÏÛO‚OHÝ]]Ø[ˆÜ™X]HHÛÛ˜Ù[˜]YÝ\œ™[Yˆ]\È›Ý\Ü\œÙYÏÛO‚O˜H\HYXÚ[šXØ[ÝYÙHØ[ˆ™YXÙHXÝX[›ÝÈ[™š[\ˆ\™›Ü›X[˜ÙNÈ[™ÛO‚O›X[Y˜XÝ\™\ˆ8 '[šÈÚ^™x 'HX™[ÈÈ›Ý[[ÝHÚ]\ˆHÝ]]]\›ˆ\È\›ÜšX]H›Üˆ[ˆ^ÛÝÛO‚Ý[‚HØ[š\Ý\‰ÜÈÝ›Û™Ù\ˆ[\\È›Ý]]ÛX]XØ[HH\ØY˜[YÙHYˆH™]\›ˆ\ÈÙ[ÛÛ›ÛY\Ý\ÈHÜÛ™ÙHš[\ˆ\È›Ý]]ÛX]XØ[HÝY™šXÚY[Y\™[H™XØ]\ÙH]\ÈÙ[KÜ‚‚•ÚXÚš[\ˆÚ]™\È™]\ˆš[ÛÙÚXØ[š[˜][ÛÏÚ‚Ý›Û™Ï’]\[™ÈÛˆH[[Ý[[™ÛÛ™][ÛˆÙˆÛÛÛš^™YYYXK›ÝÚ[\HÛˆHš[\ˆØ]YÛÜžKÜÝ›Û™Ïˆ›ÝÜÛ™ÙH[™Ø[š\Ý\ˆš[\œÈØ[ˆ›ÝšYHY™™XÝ]™Hš[ÛÙÚXØ[š[˜][Û‹ˆHØ[š\Ý\ˆÙ[ˆ\È[Ü™HÜXÙH›ÜˆYXØ]Yš[ÛÙÚXØ[YYXNÈH\™ÙHX]\™HÜÛ™ÙHØ[ˆ[ÛÈÝ\ÜÝXœÝ[X[š[Ùš[KÜ‚“Y\˜ÚÉÜÈ\]X]XË[Y™K\Ý\ÜÝZY[˜ÙH[\\Ú^™\ÈYÚÝ\™˜XÙH\™XKÞYÙ[ˆ[™ÛÜœ™XÝØ]\ˆÚ[Z\ÝžH›Üˆš[Ùš[\ˆÜ™Ø[š\Û\Ëˆ]Ù\È›Ý\ÝX›\ÚH[š]™\œØ[[H]Ù\˜[ZXÈš[™ÜÈ[Ø^\ÈÝ\ÜHš^Y][\HÙˆH˜XÝ\šXH›Ý[™ÛˆÜÛ™ÙH›Ø[KÜ‚‚•ÚXÚš[\ˆÚ]™\È™]\ˆYXÚ[šXØ[š[˜][ÛÏÚ‚HØ[š\Ý\ˆ\ÝX[H\ÈHY˜[YÙHÚ[ˆš[™HXœš\ÈØ\\™H\È[\Ü[™XØ]\ÙHØ]\ˆØ[ˆ\ÜÈ›ÝYÚÝYÙYÛØ\œÙH[™š[™HYYXKˆÜÛ™ÙHš[\œÈØ\\™HXœš\ÈÛË]HØ[YH›Ø[HÛÛ[[Û›H\™›Ü›\È›Ýš[ÛÙÚXØ[[™YXÚ[šXØ[›Û\È[™X^H›ÝÛ\Úš[™H\XÛ\È\ÈY™™XÝ]™[KÜ‚“YXÚ[šXØ[š[˜][ÛˆÚÝ[™[[Ý™H˜\YÜ™Ø[šXÈØ\ÝHœ›ÛHHÞ\Ý[H™Y›Ü™H]XÛÛ\ÜÙ\ÎÈY\˜ÚÉÜÈ\]X]XË\Þ\Ý[HÝZY[˜ÙHXÙ\ÈYXÚ[šXØ[š[˜][Ûˆ™Y›Ü™Hš[Ùš[˜][Ûˆ[ˆ\™Ù\ˆ™XÚ\˜Ý[][™È\ÚYÛœÈ›Üˆ]™X\ÛÛ‹Ü‚‚•ÚXÚš[\ˆ\È™]\ˆ›ÜˆÝÈ›ÝÏÏÚ‚HÜÛ™ÙHš[\ˆ\ÈÙ[ˆHX\ÚY\ˆÝËY›ÝÈÝ\[™ÈÚ[™XØ]\ÙH]ÈÚ\˜Ý[][Ûˆ\ÈZ\‹Yš]™[ˆ[™\ÝšX]YˆHØ[š\Ý\ˆØ[ˆ[ÛÈÛÜšÈÙ[Ú[ˆH™]\›ˆ\ÈÜ™XY›ÝYÚHÜ˜^H˜\‹Z[YYYØZ[œÝÛ\ÜË›ÝYÚ][ˆHX[Y˜XÝ\™\‰ÜÈ\›Z]YÜ\˜][™È˜[™ÙKÜˆÝ\Ú\ÙHÛÛ™šYÝ\™YÈ]›ÚYHÛÛ˜Ù[˜]Y™]Ü‚Ý›Û™Ï•\™H\È›È]šY[˜ÙKX˜\ÙY[š]™\œØ[^ÛÝ™\ÚÛÙˆLÔpåÈ\››Ý™\ˆÜˆL0åÈ\››Ý™\‹ÜÝ›Û™ÏˆYÙHH[š[X[	ÜÈXÝX[[š\›Û›Y[[™\ÙHYX\Ý\™YØ]\ˆ]X[]HÈXZÙHÝ\™H™YXÚ[™ÈÝ\œ™[\È›Ý[ÛÈÛÛ\›ÛZ\ÙYš[˜][Û‹Ü‚‚‘È[ÝH™YYH™KYš[\ˆÜÛ™ÙHÛˆHØ[š\Ý\ˆ[ZÙOÏÚ‚H™KYš[\ˆÜÛ™ÙHØ[ˆ™H\ÙY[ˆ]Ø]Ú\ÈÛØ\œÙHXœš\È™Y›Ü™H]™XXÚ\ÈHØ[š\Ý\ˆ[™Ø[ˆ™YXÙHHÚ[˜ÙH]ÛX[›ÙH\ÈÜˆ›ÛÙ\™H˜]Ûˆ\™XÝHYØZ[œÝ[ˆ[ZÙKˆÚ]\ˆ]\È™XÙ\ÜØ\žH\[™ÈÛˆH[ZÙH\ÚYÛˆ[™[š[X[Ú^™Kˆ™X]]\ÈH˜XÝXØ[š\ÚËXÛÛ›ÛÜ[Ûˆ˜]\ˆ[ˆH[š]™\œØ[™\]Z\™[Y[Ü‚’Yˆ[ÝHYÛ™KÛX[ˆ]Ù[ˆ[›ÝYÚ]]Ù\È›Ý™XÛÛYHHÛÙÙÙYØ\ÝH˜\Ü‚‚Ø[ˆ[ÝH[ˆHÜÛ™ÙH[™Ø[š\Ý\ˆÙÙ]\ÏÚ‚–Y\Ëˆ[›š[™È›ÝØ[ˆ›ÝšYH™Y[™[˜ÞH[™]HÜÛ™ÙH™[XZ[ˆ\È[ˆ\ÝX›\ÚYš[ÛÙÚXØ[š[\ˆÚ[HHØ[š\Ý\ˆ[™\È[Ü™HYXÚ[šXØ[Xœš\Ëˆ\È\ÈÜ[Û˜[›ÝH™\]Z\™[Y[ˆÛÈš[\œÈ\™HÛ›H\ÙY[YˆZ\ˆÛÛXš[™YÚ\˜Ý[][Ûˆ™[XZ[œÈ\›ÜšX]H[™›Ý\™HXZ[Z[™YÜ‚‚•ÚXÚš[\ˆÚÝ[H™YÚ[›™\ˆÚÛÜÙOÏÚ‚Ý›Û™ÏÚÛÜÙHHÜÛ™ÙHš[\ˆÚ[ˆÚ[\XÚ]KÝÈÛÜÝ[™X\ÞHÙ[HÚ\˜Ý[][Ûˆ\™HHXZ[ˆš[Üš]Y\ËÜÝ›Û™ÏˆÚÛÜÙHHØ[š\Ý\ˆÚ[ˆ[ÝH™YY[Ü™HYYXHØ\XÚ]KÝ›Û™Ù\ˆYXÚ[šXØ[š[˜][Û‹ÜˆÛÛ\]X›H^\›˜[[Xš[™È[™\™HÛÛY›ÜX›HXZ[Z[š[™ÈH^˜H\]Z\Y[Ü‚‘›ÜˆX[žHÛYH[šÜËZ]\ˆØ[ˆÛÜšËˆHXÚ\Ú[ÛˆÚÝ[›ÛÝÈH\]X\š][IÜÈXÝX[›Û[YK[š[X[ØYØ]\‹\]X[]H™[™\Ú\™YXœš\ÈØ\\™K›Ú\ÙHÛ\˜[˜ÙKXZ[[˜[˜ÙH™Y™\™[˜ÙH[™\]Z\Y[[‹Ü‚‚Ø[š\Ý\ˆœÈÜÛ™ÙNˆXÚ\Ú[ÛˆÚXÚÛ\ÝÚ‚]ˆÛ\ÜÏHX›K]Ü˜\X›O‚XY’Yˆ\ÈX]\œÈ[ÜÝ‹‹Ý“X[ˆÝØ\™‹‹ÝÝÝXY‚›ÙO‚“ÝÙ\ÝÛÛ\^]H[™X\ÚY\ÝÙ[H›ÝÏÝ”ÜÛ™ÙHš[\ÝÝ‚“\™ÙHÛÛ™šYÝ\˜X›HYYXHØ\XÚ]OÝØ[š\Ý\ˆš[\ÝÝ‚‘š[™HYXÚ[šXØ[Ø]\ˆÛ\Ú[™ÏÝØ[š\Ý\ˆš[\ÝÝ‚”Ú[\H˜XÚÝ\ÜÙYYYš[ÛÙÚXØ[š[\Ý”ÜÛ™ÙHš[\ÝÝ‚’[›[™H\]Z\Y[ÛÛ\]Xš[]OÝØ[š\Ý\‹Ù^\›˜[ÛÜY\ˆÚXÚÚ[™ÈX[Y˜XÝ\™\ˆÜXÜÏÝÝ‚“X^[][H™Y[™[˜ÞOÝ›ÝYˆÚ\˜Ý[][Ûˆ™[XZ[œÈÙ[OÝÝ‚Ý›ÙOÝX›OÙ]‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙYXØ][ÛŒKÙÝZYK]ËX^ÛÝZ\Ø˜[™žH[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\ŽˆÝZYHÈ^ÛÝ\Ø˜[™žOØOÛO‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙÙ[™]XË\ÝØÚËXÙ[\‹ÙØÝ[Y[ËÐQÔÐÉLŒÑÝZYWÌŒœˆ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\Žˆ^ÛÝÝZYHŒØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKØ[[Ý\‹\]ËØ[\XšX[œËÚÝ\Ú[™ËY›Ü‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆÝ\Ú[™È›Üˆ[\XšX[œË\]Y™XœX\žHŒØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKÙ^ÝXËX[™[X›Ü˜]ÜžKX[š[X[ËØ\]X]XË\Þ\Ý[\ËØ\]X]XË[Y™K\Ý\Ü\Þ\Ý[KXÛÛ\Û™[È“Y\˜ÚÈ™]\š[˜\žHX[X[ˆ\]X]XÈY™HÝ\ÜÞ\Ý[HÛÛ\Û™[ÏØOÛO‚Ý[‚‰ÉÉÂ‚‚“ÑWÓÕ‘T”’QTÖÈ™Y]Ù˜\Ý[™ËX[™]˜XØ][Ûˆ—HH‰ÉÉÂÝ›Û™Ï•\™H\È›ÈÙ[Y\ÝX›\ÚY™\ÙX\˜ÚX˜\ÙY[X™\ˆÙˆ^\È]]™\žHX[H^ÛÝØ[ˆØY™[HÛÈÚ]Ý]›ÛÙÜÝ›Û™ÏˆYÙK›ÙHÛÛ™][Û‹›Ü›X[™YY[™ÈØÚY[K[\\˜]\™KX[[™™XÙ[[ZÙH[X]\‹ˆ›Üˆ˜XØ][Ûˆ[›š[™Ë\ÙHH[š[X[	ÜÈ›Ü›X[™YY[™Èœ™\]Y[˜ÞH[™\œ˜[™ÙHHÛÛ\][\œÛÛˆÈ[Ûš]ÜˆH[šÈ˜]\ˆ[ˆ™X][™È[ˆ[\›™]8 'X^[][H˜\Ý[™ÈÚ[™Ýø 'H\ÈHØY™]HÝX\˜[YKÜ‚]ˆÛ\ÜÏHœ›ÛK[›ÝHÝ›Û™Ï•\ÈYÙHÝÛœÈ[›™Y›ÛÙØ\È[™˜XØ][ÛœËÜÝ›Û™ÏˆYˆ[Ý\ˆ^ÛÝ\È[™^XÝYHÝÜYX][™Ë\ÙHH™YH‹ÚX[Ü™Y\Ú[™Ë]ËYX]È^ÛÝ›ÝX][™ÏÏØOˆ[œÝXYÙ]‚‚’ÝÈÙ[ˆ\™H^ÛÝÈ›Ü›X[H™YÏÚ‚•H[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\‰ÜÈÝ\œ™[Œ™\ÙX\˜ÚÝZYH™YYÈ™]ÛH™YY[™È\˜YHœ™\]Y[K[ˆ™YXÙ\È™YY[™È\È[š[X[ÈÜ›ÝÎÈ]È\Ø˜[™žH[Y[[™H\ÝÈY[[]Y›ÛÙX›Ý]ÚXÙHÙYZÛH[ˆ]ÈÞ\Ý[KˆHÛ\ˆQÔÐÈ\Ø˜[™žHÝZYH\ØÜšX™\ÈY[È\›Ý[™Û™HYX\ˆÛ™Z[™È™Y™YHÜˆ›Ý\ˆ[Y\È\ˆÙYZËÜ‚•ÜÙH\™H\Ø˜[™žHØÚY[\Ë›Ý›ÛÙˆ][ˆY[Ø[ˆØY™[H™HY[™™Y›ÜˆHÜXÚYšXÈ[X™\ˆÙˆ^\Ëˆ^HÈÚÝÈÚHZ\ÜÚ[™ÈÛ™HØÚY[YY[™YY[™È\ÈHY™™\™[Ú]X][Ûˆœ›ÛHÚ]Û[™È›ÛÙœ›ÛHH˜\YHÜ›ÝÚ[™È\˜KÜ‚‚’ÝÈÛ™ÈØ[ˆ[ˆY[^ÛÝÛÈÚ]Ý]›ÛÙÏÚ‚Ý›Û™Ï‘È›Ý\ÙH8 'M^\Ë8 'H8 'ŒH^\Ë8 'HÜˆ[žHÝ\ˆš^Y[X™\ˆ\ÈH[š]™\œØ[ØY™H[Z]ÜÝ›Û™ÏˆÙHY›Ýš[™[ˆ^ÛÝÝYH\ÝX›\Ú[™ÈH˜[Y]YX^[][H˜\Ý[™È\˜][Ûˆ›ÜˆX[H]Ëˆ[ˆY[›Ü›X[H™YÛ›HH™]È[Y\ÈXXÚÙYZÈ\È[Ü™HÜXÚ[™È™]ÙY[ˆYX[È[ˆH\˜HÜˆÛX[]™[š[K][›™YXœÙ[˜ÙHÚÝ[Ý[[˜ÛYH[Ûš]Üš[™ÈÙˆH[š[X[[™\]X\š][KÜ‚H[ˆY[[ˆ[š[X[™XÛÝ™\š[™Èœ›ÛH[™\ÜËHœ™YY[™È™[X[KÜˆ[ˆ^ÛÝÚ]™XÙ[\]]HÜÜÈÚÝ[›Ý™H™X]YZÙHHX[HÙ[XÛÛ™][Û™YY[Ú[\H™XØ]\ÙH^H\™HHØ[YHYÙKÜ‚‚’ÝÈÛ™ÈØ[ˆ]™[š[HÜˆ˜XžH^ÛÝÈÛÈÚ]Ý]›ÛÙÏÚ‚Ý›Û™Ï–[Ý[™È[š[X[ÈÚÝ[›Ý™H\ÜÚYÛ™YH8 'ØY™H˜\Ý[™ÈÚ[™Ýø 'Hœ›ÛH[ˆYÙHÚ\ÜÝ›Û™ÏˆQÔÐÈ™YYÈ™]ÛH]ÚY\˜YHZ[HÛ˜ÙH^H™YÚ[ˆ™YY[™È[™Ü˜YX[H˜[œÚ][ÛœÈ[HÈ\™Ù\ˆ›ÛÙÈ\È^HÜ›ÝËˆ[Ý[™È[š[X[È\™HXÝ]™[HÜ›ÝÚ[™È[™\™H›Ü›X[HÙ™™\™Y›ÛÙ]XÚ[Ü™Hœ™\]Y[H[ˆY[ËÜ‚’Yˆ[ÝHÚ[Z\ÜÈ›Ü›X[™YY[™ÜÈ›ÜˆH\˜HÜˆ]™[š[K\œ˜[™ÙHH˜Z[™YÚ]\ˆ˜]\ˆ[ˆ[›š[™ÈH][KY^H˜\Ý\›Ý[™[ˆ[œÝ\ÜY[X™\‹Ü‚‚‘Ù\ÈÛÛØ]\ˆXZÙH˜\Ý[™ÈØY™\ÏÚ‚^ÛÝÈ\™HXÝÝ\›\ËÛÈ[\\˜]\™HY™™XÝÈY]X›Û\ÛK]]Ù\È›Ý\ÝYžH[X™\˜][HÚ[[™È[ˆ[š[X[È^[™H˜XØ][Ûˆ˜\ÝˆÙY\H\]X\š][H[ˆ]È›Ü›X[ÝX›H\Ø˜[™žH˜[™ÙKˆ[\\˜]\™HX[š\[][ÛˆØ[ˆÜ™X]HY][Û˜[Ý™\ÜÈ[™ÚÝ[›Ý™H\ÙY\ÈHÝXœÝ]]H›ÜˆH™YY[™ÈÜˆ[Ûš]Üš[™È[‹Ü‚‚Ø[ˆ[ÝHX]™H[ˆY[^ÛÝ[Û™H›ÜˆHÚÜš\ÏÚ‚HX[HY[ÚÜÙH›Ü›X[™YY[™ÈØÚY[H[™XYH[˜ÛY\È^\È™]ÙY[ˆYX[ÈX^H›Ý™YY›ÛÙ]™\žH^KˆHšYÙÙ\ˆ˜XØ][Ûˆš\ÚÈ\ÈÙ[ˆÝ›Û™Ï›XÚÈÙˆ[Ûš]Üš[™ÏÜÝ›Û™ÏŽˆš[\ˆ˜Z[\™KÝÙ\ˆÝ]YÙKš\Ú[™È[\\˜]\™KHXZÈÜˆ]\š[Ü˜][™ÈØ]\ˆ]X[]HØ[ˆ™XÛÛYHÙ\š[Ý\È]™[ˆYˆZ\ÜÚ[™ÈHYX[ÛÝ[›ÝÜ‚‘›Üˆ[žHXœÙ[˜ÙHÛ™Ù\ˆ[ˆHØ\[ÝH›Ü›X[HX]™H™]ÙY[ˆ™YY[™ÜË\œ˜[™ÙHÛÛY[Û™HÚÈØ[ˆ[œÜXÝH[š[X[[™\]Z\Y[[™›ÛÝÈÜš][ˆ[œÝXÝ[ÛœËÜ‚‚•Ú]ÚÝ[[ÝHÈ™Y›Ü™HH˜XØ][ÛÏÚ‚Û‚OÝ›Û™Ï•\ÝHØ]\ˆÙ]™\˜[^\È™Y›Ü™H\\\™KÜÝ›Û™ÏˆÛÜœ™XÝ›Ø›[\È™Y›Ü™HHš\˜]\ˆ[ˆXZÚ[™ÈH\™ÙH\Ý[Z[]HÚ[™ÙKÛO‚OÝ›Û™Ï”\™›Ü›H›Ü›X[XZ[[˜[˜ÙKÜÝ›Û™Ïˆ\ÙHHH™YH‹Ý[šË\Ù]\ÝØ]\‹XÚ[™ÙKYÝZYKÈ•Ø]\ˆÚ[™ÙHÝZYOØOŽÈÈ›Ý[™[[ˆÝ™\œÚ^™Y8 '˜XØ][ÛˆØ]\ˆÚ[™ÙK¸ 'OÛO‚OÝ›Û™ÏÚXÚÈHš[\ˆ[™ÛÛÛ[™ÈÞ\Ý[KÜÝ›Û™ÏˆÛÛ™š\›H›Ü›X[Ü\˜][ÛˆÚ]Ý]™\XÚ[™ÈX]\™Hš[ÛÙÚXØ[YYXH\Ý™Y›Ü™HX]š[™ËÛO‚OÝ›Û™Ï”™[[Ý™HØ\ÝH[™[™X][ˆ›ÛÙÜÝ›Û™ÏÛO‚OÝ›Û™Ï‘™YYH›Ü›X[ØÚY[YÜ[Û‹ÜÝ›Û™ÏˆÈ›ÝÝX›KY™YY8 'ÈÝÜ™H›ÛÙ\¸ 'OÛO‚OÝ›Û™Ï•Üš]HÚ]\ˆ[œÝXÝ[ÛœËÜÝ›Û™Ïˆ[˜ÛYH[\\˜]\™KÚ]È™YY^XÝÜ[ÛœËÚ]›ÝÈY[™ÚÈÈØ[ÛO‚ÛÛ‚‚’\ÈH]Ú]\ˆ™]\ˆ[ˆ[ˆ]]ÛX]XÈ™YY\ÏÚ‚Ý›Û™Ï‘›Üˆ[ÜÝ^ÛÝ˜XØ][ÛœËHÛÛ\][\œÛÛˆ\È[Ü™H\ÙY[[ˆ[ˆ]]ÛX]XÈ™YY\‹ÜÝ›Û™ÏˆHÚ]\ˆØ[ˆÙYHHXZËÛÛÛ[™È˜Z[\™KX››Ü›X[ÜÝ\™KXY\]Z\Y[ÜˆÜÚ[Y›ÛÙˆ]]ÛX]XÈ™YY\œÈ˜\žH[ˆ™[XXš[]H[™X^H\Ü[œÙH›ÛÙ][ˆ^ÛÝÙ\È›ÝX]›Û\KÜ‚’YˆH™YY\ˆ\È\ÙY\ÝH^XÝ]šXÙH[™›ÛÙ[ˆY˜[˜ÙHÚ[H[ÝH\™HÛYKˆÈ›Ýš\œÝ\ÞH]Ûˆ\\\™H^KÜ‚‚•Ú]ÚÝ[HÚ]\ˆXÝX[HÏÏÚ‚]ˆÛ\ÜÏHX›K]Ü˜\X›O‚XY•\ÚÏÝ’[œÝXÝ[ÛÝÝÝXY‚›ÙO‚•[\\˜]\™OÝ”™XY[™™XÛÜ™H\›[ÛY]\ŽÈÛÛXÝ[ÝHYˆÝ]ÚYHHÜš][ˆ›Ü›X[˜[™ÙKÝÝ‚[š[X[ÚXÚÏÝÛÛ™š\›H›Ü›X[ÜÝ\™Kœ™X][™Ë[Ý™[Y[[™XœÙ[˜ÙHÙˆ[š\žHÜˆXZ›ÜˆÝÙ[[™ËÝÝ‚‘™YY[™ÏÝ‘™YYÛ›HH™K\Ü[Û™Y[[Ý[ÛˆHÜš][ˆØÚY[NÈ™[[Ý™HYÝ™\œËÝÝ‚‘\]Z\Y[ÝÛÛ™š\›Hš[\ˆ[™ÛÛÛ[™È\]Z\Y[\™HÜ\˜][™È›Ü›X[KÝÝ‚‘[Y\™Ù[˜ÞOÝ•\ÙH[Ý\ˆ™]ØÛÛXÝ[œÝXÝ[ÛœÈ˜]\ˆ[ˆ[\›Ýš\Ú[™È˜]ËYYXØ][ÛˆÜˆ[\\˜]\™HÚ[™Ù\ËÝÝ‚Ý›ÙOÝX›OÙ]‚‚”ÚÝ[[ÝHÝ™\™™YY™Y›Ü™HX]š[™ÏÏÚ‚“›ËˆÚ]™HH[š[X[]È›Ü›X[YX[Ûˆ]È›Ü›X[ØÚY[Kˆ[ˆ^˜K[\™ÙHYX[Ø[ˆÜ™X]H[™X][ˆ›ÛÙ™YÝ\™Ú]][ÛˆÜˆ^˜HØ\ÝH[™Ù\È›ÝÜ™X]HH˜[Y]Y™\Ù\™H]ÝX\˜[Y\ÈHÛ™Ù\ˆØY™H˜\ÝÜ‚‚•Ú]ÚÝ[[ÝHÈÚ[ˆ[ÝH™]\›ÏÚ‚’[œÜXÝH[š[X[ÚXÚÈ[\\˜]\™H[™Ø]\ˆ]X[]K™[[Ý™H[žHØ\ÝH[™™\Ý[YHH›Ü›X[™YY[™ÈØÚY[Kˆ\™H\È›È]šY[˜ÙKX˜\ÙY[H]]™\žH^ÛÝ]\Ý™XÙZ]™HH8 '[‹\Ú^™H™\Ý\YX[8 'HY\ˆHÙ\Z[ˆ[X™\ˆÙˆ˜\Ý[™È^\ËÜ‚’YˆH[š[X[\È[™^XÝYH™Y\Ú[™È›ÛÙÜÚ[™È›ÙHÛÛ™][ÛˆÜˆÚÝÚ[™ÈÝ\ˆÚYÛœËÝÚ]ÚÈH™YH‹ÚX[Ü™Y\Ú[™Ë]ËYX]ÈH\]]K[ÜÜÈX[ÝZYOØOˆ˜]\ˆ[ˆÛÛ[Z[™ÈÈ™X]HÚ]X][Ûˆ\È[›™Y˜\Ý[™ËÜ‚‚•Ú[ˆ\ÈH™YY[™ÈØ\›ÈÛ™Ù\ˆH˜XØ][Ûˆ]Y\Ý[ÛÏÚ‚’]™XÛÛY\ÈHX[]Y\Ý[ÛˆÚ[ˆH^ÛÝ™Y\Ù\È›ÛÙ[™^XÝYKÜÙ\ÈÙZYÚÜˆ›ÙHÛÛ™][Û‹]™[ÜÈÝÙ[[™ÈÜˆX››Ü›X[[ÞX[˜ÞK\ÈÚÚ[‹ÙÚ[Ú[™Ù\Ë™XÛÛY\ÈX\šÙYH]\™ÚXËÜˆÛÛ[Y\ÈÈXÛ[™KˆÛÛXÝ[ˆ[\XšX[‹Y^\šY[˜ÙY™]\š[˜\šX[ˆ›ÜˆÛÛ˜Ù\›š[™ÈÜˆ\œÚ\Ý[Ú[™Ù\ËÜ‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙÙ[™]XË\ÝØÚËXÙ[\‹ÙØÝ[Y[ËÐQÔÐÉLŒÑÝZYWÌŒœˆ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\Žˆ^ÛÝÝZYHŒ8 %™YY[™È[Y[[™OØOÛO‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙYXØ][ÛŒKÙÝZYK]ËX^ÛÝZ\Ø˜[™žH[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\ŽˆÝZYHÈ^ÛÝ\Ø˜[™žH8 %™YY[™È[™›Ý][™HØ\™OØOÛO‚Ý[‚Ý›Û™Ï‘]šY[˜ÙH›ÝNÜÝ›Û™Ïˆ\ÙHÛÝ\˜Ù\È\ØÜšX™H™YY[™ÈØÚY[\ÎÈ^HÈ›Ý˜[Y]HH[š]™\œØ[X^[][H˜\Ý[™È\˜][Ûˆ›Üˆ]^ÛÝËÜ‚‰ÉÉÂ‚“ÑWÓÕ‘T”’QTÖÈšX[Ú[\XÝ[Û‹\Þ[\Û\Ë]™X]Y[—HH‰ÉÉÂÝ›Û™Ï¸ '[\XÝ[Û¸ 'HYX[œÈHØ\Ý›Ú[\Ý[˜[›Ü™ZYÛˆ›ÙHÜˆ›ØÚØYÙK]\]]HÜÜËÝÙ[[™Ë™YXÙY™XÙ\È[™X››Ü›X[›Ø][™ÈÈ›ÝÛÛ™š\›HÛ™Hœ›ÛH\X\˜[˜ÙH[Û™KÜÝ›Û™Ïˆ[\XšX[œÈØ[ˆÝØ[ÝÈÜ˜]™[[™Ý\ˆ[˜ÛÜÝ\™HX]\šX[[™^ÛÝ›Ü™ZYÛˆ›ÙY\È]™H™Y[ˆÛÛ™š\›YY[™™[[Ý™Y\Ú[™È™]\š[˜\žH[XYÚ[™Ë[™ÜØÛÜH[™Ý\™Ù\žKÜ‚]ˆÛ\ÜÏHœ›ÛK[›ÝHÝ›Û™Ï•\ÈYÙHÝÛœÈÝ\ÜXÝYØ\Ý›Ú[\Ý[˜[›ØÚØYÙKÜÝ›Û™Ïˆ›ÜˆÝXœÝ˜]H™]™[[Ûˆ\ÙHH™YH‹Ý[šË\Ù]\ÜÝXœÝ˜]KX[™Z[\XÝ[Û‹ÈHÝXœÝ˜]HÝZYOØOŽÈ›ÜˆÜ˜]™[ÜXÚYšXØ[H\ÙHH™YH‹Ý[šË\Ù]\ÙÜ˜]™[\š\ÚÜËÈ‘Ü˜]™[š\ÚÜÏØO‹ˆÈ›Ý\ÙH\ÈYÙH\ÈH™X\ÛÛˆÈœšYÙHÜˆYYXØ]H[ˆ[š[X[Ú]Ý]XYÛ›ÜÚ\ËÙ]‚‚•Ú]\È^ÛÝ[\XÝ[ÛÏÚ‚HØ\Ý›Ú[\Ý[˜[›Ü™ZYÛˆ›ÙH\ÈHÝØ[ÝÙY›Û‹Y›ÛÙ][H]\X[HÜˆÛÛ\][HØœÝXÝÈHYÙ\Ý]™H˜XÝˆ™]\š[˜\žH\™\ˆ\Ù\ÈHœ›ØY\ˆ[\XšX[ˆ\›H[O™Ø\Ý›Ú[\Ý[˜[›Ü™ZYÛˆ›ÙOÙ[OˆÜˆ[\XÝ[Û‹Ú[H[O™Ø\Ý›Ú[\Ý[˜[Ý™\›ØYÙ[Oˆ\ØÜšX™\È^Ù\ÜÚ]™H›ÛÙ›Û[YH\Ý[™[™ÈHÝÛXXÚÜ‚‘Ü˜]™[[™Ý\ˆ[˜ÛÜÝ\™HX]\šX[\™H™XÛÙÛš^™Y[\XšX[ˆ›Ü™ZYÛ‹X›ÙHš\ÚÜË[™X›\ÚY^ÛÝØ\ÙH™\ÜÈØÝ[Y[Ø\ÝšXÈ›Ü™ZYÛˆ›ÙY\È™\]Z\š[™È[™ÜØÛÜXÈÜˆÝ\™ÚXØ[™[[Ý˜[Ü‚‚•Ú]ÚYÛœÈØ[ˆØØÝ\ˆÚ]HØ\Ý›Ú[\Ý[˜[›ØÚØYÙOÏÚ‚”ÜÜÚX›HÚYÛœÈ[˜ÛYH\]]HÜÜËX™ÛZ[˜[[›\™Ù[Y[™YXÙY™XØ[Ý]]X››Ü›X[[ÞX[˜ÞK]\™ÞHÜˆÝ\ˆÚ[™Ù\È[ˆ™Z]š[Ü‹ˆ\ÙHÚYÛœÈ\™HÝ›Û™Ï››ÝÜXÚYšXÏÜÝ›Û™Ï‹ˆÝ™\™™YY[™Ë\˜\Ú]\Ë[™™XÝ[Û‹™\›ÙXÝ]™H›Ø›[\Ë›ZYXØÝ[][][Ûˆ[™Ý\ˆ\ÙX\ÙHØ[ˆÛÚÈÚ[Z[\‹Ü‚•]\ÈÚH8 '›ÝX][™È
+È›Ø][™ÈH[\XÝ[Û¸ 'H\È›Ý[ˆY\]X]HXYÛ›ÜÚ\ËÜ‚‚•Ú]XZÙ\ÈH›Ü™ZYÛˆ›ÙH[Ü™H]\ÚX›OÏÚ‚[‚OšÛ›ÝÛˆXØÙ\ÜÈÈÝØ[ÝØX›HÜ˜]™[ÝÛ™\Ë[ÜÜÈÜˆÝ\ˆ[˜ÛÜÝ\™HX]\šX[ÏÛO‚O˜HÚ]™\ÜÙY[™Ù\Ý[Ûˆ]™[ÏÛO‚Oœ\œÚ\Ý[X™ÛZ[˜[\Ý[œÚ[ÛˆY\ˆÝXÚ^ÜÝ\™NÏÛO‚O˜ÛÛ[Z[™È\]]HÜˆ™XØ[Ú[™Ù\ÎÈÜÛO‚O™XYÛ›ÜÝXÈ[XYÚ[™È]Y[YšY\ÈH›Ü™ZYÛˆØš™XÝÛO‚Ý[‚XœÙ[˜ÙHÙˆš\ÚX›HÜ˜]™[[ˆ™XÙ\ÈÙ\È›Ý›Ý™H\™H\È[ˆØœÝXÝ[Û‹[™XœÙ[˜ÙHÙˆ™XÙ\È›ÜˆH\XÝ[\ˆ[X™\ˆÙˆ^\ÈÙ\È›Ý›Ý™HÛ™HZ]\‹Ü‚‚’[\XÝ[ÛˆœÈÛÛœÝ\][ÛŽˆØ[ˆ[ÝH[]ÛYOÏÚ‚Ý›Û™Ï“›Ý™[XX›Hœ›ÛH^\›˜[ÚYÛœÈ[Û™KÜÝ›Û™Ïˆ8 'ÛÛœÝ\][Û¸ 'H\ÈÙ[ˆ\ÙY[™›Ü›X[H›ÜˆÛÝÙY™XØ[\ÜØYÙKÚ[HH›Ü™ZYÛ‹X›ÙHØœÝXÝ[Ûˆ\ÈH\ÚXØ[›ØÚØYÙKˆ^HØ[ˆÝ™\›\[ˆ\]]KÝÙ[[™È[™™XØ[Ú[™Ù\Ë]Z\ˆX[˜YÙ[Y[X^HY™™\ˆÝXœÝ[X[KÜ‚H™]\š[˜\šX[ˆX^H\ÙH\ÝÜžK\ÚXØ[^[Z[˜][Û‹™XØ[\Ý[™Ë˜Y[ÙÜ˜\ËÛÛ˜\Ý[XYÚ[™ÈÜˆ[˜\ÛÝ[™È\Ý[™ÝZ\ÚØ\Ý›Ú[\Ý[˜[\ÙX\ÙH[™ØØ]HH›Ü™ZYÛˆ›ÙKÜ‚‚”ÚÝ[[ÝHœšYÙH[ˆ^ÛÝ›Üˆ[\XÝ[ÛÏÚ‚Ý›Û™Ï“^P^ÛÝÙ\È›Ý™XÛÛ[Y[™™YœšYÙ\˜]ÜˆœšYÚ[™È\ÈHÝ[™\™š\œÝ[[™H[\XÝ[Ûˆ™X]Y[ÜÝ›Û™ÏˆÙHY›Ýš[™H™]\š[˜\žHÛÝ\˜ÙH\ÝX›\Ú[™Èp¬È™YœšYÙ\˜]Üˆ™X]Y[›Üˆx $ÌˆÙYZÜÈ\ÈH˜[Y]YØ^HÈÛX\ˆ[ˆ^ÛÝ›Ü™ZYÛˆ›ÙKˆÛÛÛ[™È[ÛÈÛÝÜÈY]X›Û\ÛH[™Ý]XÝ]š]KÛÈHÛÛ[[ÛˆÛZ[H]^™[YHÛÛ8 'XZÙ\ÈH›ØÚØYÙH\Üø 'HÚÝ[›Ý™H™\Ù[Y\È\ÝX›\ÚY\Ú[ÛÙÞKÜ‚•HÙ\\˜]HH™YH‹ÚX[ÙœšYÚ[™Ë\ÚXÚËX^ÛÝÈ™œšYÚ[™ÈÝZYOØOˆ^Z[œÈÚH™YœšYÙ\˜][ÛˆÚÝ[Û›H™HÛÛœÚY\™YÚ[ˆ[ˆ[\XšX[‹Y^\šY[˜ÙY™]\š[˜\šX[ˆÜXÚYšXØ[H™XÛÛ[Y[™È]›ÜˆH[™]šYX[[š[X[Ü‚‚”ÚÝ[[ÝHÝÜ™YY[™ÏÏÚ‚’YˆHYHØœÝXÝ[Ûˆ\ÈÝ›Û™ÛHÝ\ÜXÝYÈ›Ý›Ü˜ÙKY™YYÜˆ™\X]YHY\™ÙHYX[ÈÚ[H\œ˜[™Ú[™È™]\š[˜\žH\ÜÙ\ÜÛY[ˆÝÙ]™\‹HÛ™È[œÝ\\š\ÙY˜\Ý\È›ÝHÝXœÝ]]H›ÜˆXYÛ›ÜÚ\ËˆHÛÜœ™XÝ™YY[™È[ˆ\[™ÈÛˆÚ]\ˆH›Ø›[H\ÈH›Ü™ZYÛˆ›ÙKÝ™\›ØY[›Ý\ˆØ\Ý›Ú[\Ý[˜[\ÙX\ÙHÜˆÛÛY][™È[œ™[]YÈHÝ]Ü‚‚•Ú]ÚÝ[[ÝHÈš\œÝÏÚ‚Û‚OÝ›Û™Ï”™[[Ý™HXØÙ\ÜÈÈHÝ\ÜXÝY›Ü™ZYÛˆX]\šX[ÜÝ›Û™Ïˆ[Ý™HH[š[X[Û›HYˆ™YYYÈ™]™[ÛÛ[YY[™Ù\Ý[ÛˆÜˆ[š\žKÛO‚OÝ›Û™Ï“YX\Ý\™HØ]\ˆ]X[]H[™[\\˜]\™KÜÝ›Û™ÏˆÛÜœ™XÝ\Ø˜[™žH›Ø›[\ÈÚ]Ý]Ü™X][™ÈXœ\ÝÚ[™ÜËÛO‚OÝ›Û™Ï‘ØÝ[Y[H[Y[[™KÜÝ›Û™Ïˆ™XÛÜ™\Ý›Ü›X[YX[\ÝØœÙ\™Y™XÙ\ËÛ›ÝÛˆ[™Ù\Ý[Û‹ÝÙ[[™Ë[ÞX[˜ÞH[™ÙZYÚØ›ÙKXÛÛ™][ÛˆÚ[™ÙKÛO‚OÝ›Û™Ï‘È›ÝX\ÜØYÙHHX™ÛY[‹ÜÝ›Û™Ïˆ^\›˜[™\ÜÝ\™HÛˆHÝØ[ÝÙY\™ÜˆÚ\œØš™XÝØ[ˆYš\ÚËÛO‚OÝ›Û™Ï‘È›ÝÚ]™H[X[ˆ^]]™\ÈÜˆ[\›Ýš\ÙYYYXØ][Û‹ÜÝ›Û™ÏÛO‚OÝ›Û™ÏÛÛXÝ[ˆ[\XšX[‹Ù^ÝXÜÈ™]\š[˜\šX[ÜÝ›Û™ÏˆÚ[ˆÚYÛœÈ\œÚ\ÝH[š[X[\ÈÛÜœÙ[š[™ËÜˆ›Ü™ZYÛ‹X›ÙH[™Ù\Ý[Ûˆ\ÈZÙ[KÛO‚ÛÛ‚‚’ÝÈÙ\ÈH™]\š[˜\šX[ˆXYÛ›ÜÙH[\XÝ[ÛÏÚ‚•™]\š[˜\žH[\XšX[ˆÝZY[˜ÙH\ØÜšX™\È˜Y[ÙÜ˜\ËÛÛ˜\ÝÝYY\È[™[˜\ÛÝ[™\ÈÛÛÈ›Üˆ[™\ÝYØ][™È›Ü™ZYÛˆ›ÙY\ÈÜˆØ\Ý›Ú[\Ý[˜[\Ý[œÚ[Û‹ˆX›\ÚY^ÛÝØ\Ù\È]™H\ÙY˜Y[ÙÜ˜\H[™\™XÝš\ÝX[^˜][Ûˆ™Y›Ü™H›Ü™ZYÛˆ›ÙY\ÈÙ\™H™[[Ý™YÜ‚‘[œÙHÜ˜]™[X^H™Hš\ÚX›HÛˆ˜Y[ÙÜ˜\ÎÈÝ\ˆX]\šX[Ø[ˆ™H[Ü™HY™šXÝ[È]XÝ[™X^H™\]Z\™HY][Û˜[[XYÚ[™ÈÜˆ[™ÜØÛÜKÜ‚‚’ÝÈØ[ˆH›Ü™ZYÛˆ›ÙH™H™X]YÏÚ‚•™X]Y[\[™ÈÛˆHØš™XÝ	ÜÈØØ][Û‹Ú^™H[™Y™™XÝÛˆH[š[X[ˆ™]\š[˜\žH\™\ˆ\ØÜšX™\ÈÜ[ÛœÈ[˜ÛY[™ÈXÛÛ\™\ÜÚ[Û‹™[[Ý˜[›ÝYÚH[Ý][™ÜØÛÜXÈ™]šY]˜[[™Ý\™ÚXØ[™[[Ý˜[ˆ^ÛÝØ\ÙH™\ÜÈØÝ[Y[ÝXØÙ\ÜÙ[[™ÜØÛÜXÈ™]šY]˜[[™Ø\ÝšXÈÝ\™Ù\žH[™\ˆ[\XšX[ˆ[™\Ý\ÚXKÜ‚•ÜÙH›ØÙY\™\È\™H™]\š[˜\žH[\™[[ÛœË›ÝÛYHXÚš\]Y\ËÜ‚‚•Ú[ˆ\ÈHÚ]X][Ûˆ\™Ù[ÏÚ‚”ÙYZÈ›Û\™]\š[˜\žHØ\™H›ÜˆÙ]™\™HÜˆ[˜Ü™X\Ú[™ÈX™ÛZ[˜[\Ý[œÚ[Û‹[˜Xš[]HÈXZ[Z[ˆ›Ü›X[ÜÚ][Û‹›Û\ÙK™\Ü\˜]ÜžHY™šXÝ[KX\šÙY]\™ÞK˜\YXÛ[™KØš[Ý\ÈZ[™[˜][XKÜˆHÛ›ÝÛˆÝØ[ÝÙY›Ü™ZYÛˆ›ÙHÚ]ÛÛ[Z[™ÈÞ[\Û\ËÜ‚•\ÙHH™YH‹ÚX[Ù[Y\™Ù[˜ÞKYš\œÝXZYÈ^ÛÝ[Y\™Ù[˜ÞHÚYÛœÏØOˆ›ÜˆšXYÙKÜ‚‚’ÝÈÈ[ÝH™]™[[\XÝ[ÛÏÚ‚”™]™[[Ûˆ\È[Ü™H™[XX›H[ˆÛYH™X]Y[Ü‚[‚O˜]›ÚYÝØ[ÝØX›HÜ˜]™[[™ÛÜÙHÝÛ™\ÎÏÛO‚O˜ÚÛÜÙHÝXœÝ˜]H\Ú[™ÈH™YH‹Ý[šË\Ù]\ÜÝXœÝ˜]KX[™Z[\XÝ[Û‹ÈHÝXœÝ˜]HÝZYOØOŽÏÛO‚Oœ™[[Ý™Hœ›ÚÙ[ˆ0êXÛÜˆ[™ÛX[›Ü™ZYÛˆØš™XÝÎÏÛO‚O™™YY\›ÜšX][HÚ^™Y›ÛÙÎÈ[™ÛO‚O›ØœÙ\™H™YY[™ÈÛÈH^ÛÝ\È›Ý™\X]YHÝXÝ[Ûš[™È›ÛÙœ›ÛH[œØY™HX]\šX[ÛO‚Ý[‚‚•ÚXÚYÙHÝÛœÈXXÚ™[]Y›Ø›[OÏÚ‚]ˆÛ\ÜÏHX›K]Ü˜\X›O‚XY”]Y\Ý[ÛÝ“ÝÛ™\ÝÝÝXY‚›ÙO‚•ÚXÚÝXœÝ˜]HÚÝ[H\ÙOÏÝH™YH‹Ý[šË\Ù]\ÜÝXœÝ˜]KX[™Z[\XÝ[Û‹È”ÝXœÝ˜]H	ˆ[\XÝ[Ûˆ™]™[[ÛØOÝÝ‚•ÚH\ÈÜ˜]™[[™Ù\›Ý\ÏÏÝH™YH‹Ý[šË\Ù]\ÙÜ˜]™[\š\ÚÜËÈ‘Ü˜]™[š\ÚÜÏØOÝÝ‚“^H^ÛÝ\È›Ø][™ÏÝH™YH‹ÚX[ÝÚKX^ÛÝY›Ø][™ËÈ‘›Ø][™ÈÝZYOØOÝÝ‚“^H^ÛÝÝÜYX][™ÏÝH™YH‹ÚX[Ü™Y\Ú[™Ë]ËYX]È”™Y\Ú[™ÈÈX]ØOÝÝ‚’\È^H^ÛÝÝ™\™™YÏÝH™YH‹ÙY]ÛÝ™\™™YY[™ËX[™Z[\XÝ[Û‹È›ÙHÛÛ™][ÛˆÈÝ™\™™YY[™ÏØOÝÝ‚Ý›ÙOÝX›OÙ]‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËÝ™]\š[˜\ž\\™\‹š[‹˜ÛÛKÙY˜][˜\ÜØØ]YLLÎNI˜[\ÚYNÌI˜[\Ú[™LNMÉ˜[\ÛØš•\RQLLÉ˜[\ÜYLNLŒÎH•™]\š[˜\žH\™\ˆÈ’SŽˆØ\Ý›Ú[\Ý[˜[›Ü™ZYÛˆ›ÙHÜˆÝ™\›ØY[ˆ[\XšX[œÏØOÛO‚OH™YHšÎ‹ËÜX›YY›˜ØšK››K›šZ™ÛÝ‹ÌÌLLŒŽLËÈ\›œÈ][Žˆ[™ÜØÛÜXÈ™[[Ý˜[ÙˆH›Ü™ZYÛˆ›ÙH[ˆHY^XØ[ˆ^ÛÝØOÛO‚OH™YHšÎ‹ËÜX›YY›˜ØšK››K›šZ™ÛÝ‹ÌŒNNNKÈ“XÓZ[[ˆ	ˆYXÙNˆ[™\Ý\ÚXH›ÜˆÝ\™ÚXØ[™]šY]˜[ÙˆØ\ÝšXÈ›Ü™ZYÛˆ›ÙY\È[ˆ[ˆ^ÛÝØOÛO‚OH™YHšÎ‹ËÛY[X™\œË˜\˜]‹›Ü™ËÜ™\ÛÝ\˜ÙKÜ™\ÛYÜ‹Ùš[\ËÜ›ØÙYY[™Ü×ÌŒM‹ÐÚ\\—ÌŽËWÐÛ[šXØ[Ô™]šY]ËœˆTUˆÛ[šXØ[™]šY]ÎˆÝ\™ÚXØ[Ø\ÝšXÈ›Ü™ZYÛ‹X›ÙH™[[Ý˜[[ˆH]™[š[HY^XØ[ˆ^ÛÝØOÛO‚Ý[‚‰ÉÉÂ‚‚“ÑWÓÕ‘T”’QTÖÈ[šË\Ù]\Ø\]X\š][KXÚ[\œÈ—HH‰ÉÉÂÝ›Û™Ï[ˆ\]X\š][HÚ[\ˆ\È\ÙY[Ú[ˆ›ÛÛHÛÛÛ[™Ë™[[][Ûˆ[™]˜\Ü˜]]™HY]ÙÈØ[››ÝÙY\[ˆ^ÛÝ[šÈ™[XX›HÚ][ˆH[\\˜]\™H˜[™ÙH[ÝH]™HÚÜÙ[ˆ›Üˆ\Ø˜[™žKÜÝ›Û™ÏˆÈ›ÝÚ^™HHÚ[\ˆœ›ÛH[šÈØ[ÛœÈ[Û™KˆÝ[Ø]\ˆ›Û[YKØ\›Y\Ý›ÛÛH[\\˜]\™K\Ú\™YØ]\ˆ[\\˜]\™K[\ÛYÚX]™[[][Ûˆ[™HÚ[\‰ÜÈ™\]Z\™YØ]\‹Y›ÝÈ˜[™ÙH[Y™™XÝ\™›Ü›X[˜ÙKÜ‚]ˆÛ\ÜÏHœ›ÛK[›ÝHÝ›Û™Ï•\ÈYÙHÝÛœÈHÚ[\ˆ^Z[™ÈXÚ\Ú[Û‹ÜÝ›Û™Ïˆ›Üˆ›Ü›X[^ÛÝ[\\˜]\™H\Ø˜[™žH[™›Û‹XÚ[\ˆÛÛÛ[™ÈY]ÙË\ÙHH™YH‹Ý[šË\Ù]\Ý[\\˜]\™KÈH[\\˜]\™HÝZYOØO‹ˆ›ÜˆH[›š[™È\Ý[X]K\ÙHHH™YH‹ÝÛÛËØÚ[\‹\Ú^™KXØ[Ý[]Ü‹ÈÚ[\ˆÚ^™HØ[Ý[]ÜØO‹Ù]‚‚‘Ù\È]™\žH^ÛÝ[šÈ™YYHÚ[\ÏÚ‚“›ËˆHÚ[\ˆ\È\]Z\Y[›ÜˆH\›X[XÛÛ›Û›Ø›[K›ÝH[š]™\œØ[™\]Z\™[Y[ˆH[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\ˆXZ[Z[œÈ]È™\ÙX\˜ÚÛÛÛžH\›Ý[™Mx $ÌMð¬È\Ú[™ÈZ[[™È[™]^[X\žHZ\ˆÛÛÛ[™ËˆY\˜ÚÉÜÈ[\XšX[ˆ\Ø˜[™žHÝZY[˜ÙHØ^\ÈØ]\ˆÚ[\œÈ[™Z\ˆÛÛ™][Ûš[™ÈÚÝ[™HÛÛœÚY\™YÚ[ˆ™YYYÈÙY\[\XšX[œÈÚ][ˆZ\ˆ\›ÜšX]H[\\˜]\™H˜[™ÙKÜ‚’Yˆ[Ý\ˆ›ÛÛH[™\]X\š][H™[XZ[ˆ™[XX›HÛÛÛÚ]Ý]HÚ[\‹Y[™ÈÛ™HÛ›H[˜Ü™X\Ù\ÈÛÜÝ[™ÛÛ\^]KˆYˆH[šÈ™\X]YHØ\›\È™^[Û™[Ý\ˆ[[™Y˜[™ÙKHÛÜœ™XÝHÚ^™YÛÛ\™\ÜÛÜˆÚ[\ˆØ[ˆ›ÝšYH]XÚ[Ü™H™YXÝX›HÛÛ›Û[ˆ[Y\™Ù[˜ÞHÛÛÛ[™ËÜ‚‚•Ú]\HÙˆ\]X\š][HÚ[\ˆÚÝ[[ÝHÛÛœÚY\ÏÚ‚‘›ÜˆH[šÈ]™YYÈHYX[š[™Ù[Ý\ÝZ[™Y[\\˜]\™H[YÝÛˆ™[ÝÈHØ\›H›ÛÛKHÛÛ\™\ÜÛÜ‹X˜\ÙY\]X\š][HÚ[\ˆ\ÈH\ÝX[YXØ]YÛÛ][Û‹ˆ\›[Ù[XÝšXËÔ[Y\ˆ]šXÙ\ÈØ[ˆ™H\ÙY[›ÜˆÛX[X]ØYÈ]Z\ˆ˜XÝXØ[ÛÛÛ[™ÈØ\XÚ]H\[™ÈX]š[HÛˆ[XšY[ÛÛ™][ÛœÈ[™]šXÙH\ÚYÛ‹Ü‚Ý›Û™Ï‘È›ÝÚÛÜÙHÛÛ[HžHHX™[8 'ÛÛ\™\ÜÛÜ¸ 'HÜˆ8 '\›[Ù[XÝšXË¸ 'OÜÝ›Û™ÏˆÛÛ\\™HHX[Y˜XÝ\™\‰ÜÈXÝX[[\\˜]\™K\[YÝÛˆ]K˜]YØ]\ˆ›Û[YK›ÝÈ™\]Z\™[Y[[™™[[][Ûˆ[œÝXÝ[ÛœÈ›Üˆ[Ý\ˆÙ]\Ü‚‚•Ú]]\›Z[™\ÈÚ[\ˆÚ^™OÏÚ‚]ˆÛ\ÜÏHX›K]Ü˜\X›O‚XY‘˜XÝÜÝ•ÚH]X]\œÏÝÝÝXY‚›ÙO‚•Ý[Þ\Ý[HØ]\ˆ›Û[YOÝ“[Ü™HØ]\ˆ™\]Z\™\È[Ü™HX]™[[Ý˜[ÝÝ‚•Ø\›Y\Ý›ÛÛH[\\˜]\™OÝHÝ\ˆ›ÛÛH[˜Ü™X\Ù\ÈHX][\š[™ÈH\]X\š][H[™H™\]Z\™Y[YÝÛ‹ÝÝ‚•\™Ù]Ø]\ˆ[\\˜]\™OÝ•H\™Ù\ˆHY™™\™[˜ÙH™]ÙY[ˆ[XšY[[™\™Ù]H\™\ˆHÚ[\ˆ]\ÝÛÜšËÝÝ‚”[\ËYÚÈ[™Ý\ˆ\]Z\Y[Ý‘[XÝšXØ[\]Z\Y[Ø[ˆYX]ÈHÞ\Ý[KÝÝ‚“Ü[ˆœÈÛÝ™\™Y[šÏÝ‘]˜\Ü˜][Û‹YÚ[™È[™™[[][ÛˆÚ[™ÙHHX]˜[[˜ÙKÝÝ‚Ú[\ˆ™[[][ÛÝHÛÛ\™\ÜÛÜˆ[š][\È™[[Ý™YX][ÈHÝ\œ›Ý[™[™È›ÛÛNÈ™XÚ\˜Ý[][™ÈÝ^]\Ý™YXÙ\È\™›Ü›X[˜ÙKÝÝ‚XÝX[Ø]\ˆ›ÝÈ›ÝYÚHÚ[\Ý•HX]^Ú[™Ù\ˆ]\ÝÜ\˜]HÚ][ˆHX[Y˜XÝ\™\‰ÜÈÜXÚYšYY›ÝÈ˜[™ÙKÝÝ‚Ý›ÙOÝX›OÙ]‚‚•ÚH[šÈ›Û[YH[Û™H\È›Ý[›ÝYÚÚ‚HYØ[Ûˆ\]X\š][H[ˆHÛÛÛ˜\Ù[Y[Ù\È›Ý[\ÜÙHHØ[YHÛÛÛ[™ÈØY\ÈHØ[YH\]X\š][H[ˆHÝ\ÝZ\œÈ›ÛÛHÚ][\È[™YÚÈY[™ÈX]ˆX[Y˜XÝ\™\ˆÚ^š[™È›Ý\È›ÜˆÝ\œ™[\]X\š][HÚ[\œÈ^XÚ]H[^Y\œÈÈÛÛœÚY\ˆ›ÛÛH[\\˜]\™K\Ú\™Y[\\˜]\™H›Ü\]Z\Y[X][™™[[][Û¸ %›ÝÛ›HØ[ÛœËÜ‚•\È\ÈÚHHÙ[™\šXÈX›HØ^Z[™È8 'Ø[ÛœÈHKÍH8 'H\È[œ™[XX›KˆHØ[YH›ÛZ[˜[[šÈØ[ˆ™\]Z\™HY™™\™[Ú[\ˆØ\XÚ]H[™\ˆY™™\™[ÛÛ™][ÛœËÜ‚‚’ÝÈÈ[ÝH\ÙHHÚ[\ˆÚ^™HØ[Ý[]ÜÏÚ‚•HH™YH‹ÝÛÛËØÚ[\‹\Ú^™KXØ[Ý[]Ü‹È^ÛÝÚ[\ˆÚ^™HØ[Ý[]ÜØOˆ\ÚÜÈ›Üˆ[šÈ›Û[YKØ\›Y\ÝØœÙ\™YØ]\‹Ü›ÛÛHÛÛ™][ÛœË\™Ù][\\˜]\™H[™X]ØY[ˆ™]\›œÈH[›š[™ÈÛ\ÜËˆ™X]H™\Ý[\ÈHÚÜ\Ý›ÝHš[˜[\˜Ú\ÙHXÚ\Ú[Û‹Ü‚™Y›Ü™H^Z[™ËÛÛ\\™H]ÚÜ\ÝÚ]HÝ\œ™[X[Y˜XÝ\™\‰ÜÈÚ^š[™ÈÚ\[™›ÝÈ˜[™ÙH›ÜˆH^XÝ[Ù[Ü‚‚•ÚHÙ\È›ÝÈ˜]HX]\ÏÚ‚’[›[™HÚ[\œÈ™\]Z\™HØ]\ˆÈ\ÜÈ›ÝYÚHX]^Ú[™Ù\ˆÚ][ˆHÜXÚYšYY˜[™ÙKˆÛÈ]HÜˆÛÈ]XÚ›ÝÈØ[ˆ™YXÙH\™›Ü›X[˜ÙHÜˆ˜[Ý]ÚYHHX[Y˜XÝ\™\‰ÜÈÜ\˜][™ÈÜXÚYšXØ][Û‹ˆ[\X™[È\ÝX[H][ÝH›ÝÈ]]HÜˆ›ÈXY™\ÜÝ\™KÚ[HXÝX[›ÝÈ›ÜÈ›ÝYÚXš[™ËZYÚ™[™Ëš[\œÈ[™š][™ÜËÜ‚•\ÙHHÚ[\ˆX[Y˜XÝ\™\‰ÜÈÝ›Û™Ï›Z[š[][H[™X^[][HÜ\˜][™È›ÝÏÜÝ›Û™Ïˆ[™\Ý[X]HÜˆYX\Ý\™HH™X[›ÝÈ›ÝYÚH[œÝ[YÛÜÜ‚‚Ø[ˆHØ[š\Ý\ˆš[\ˆ[ˆ›ÝYÚHÚ[\ÏÚ‚”ÛÛY][Y\ËˆHØ[š\Ý\ˆš[\ˆØ[ˆ›ÝšYHHÚ\˜Ý[][ÛˆÛÜ›Üˆ[ˆ[›[™HÚ[\ˆÚ[ˆHš[\‰ÜÈ™X[Ý]]™[XZ[œÈÚ][ˆHÚ[\‰ÜÈ™\]Z\™Y›ÝÈ˜[™ÙHY\ˆXYÜÜÈ[™[Xš[™È™\ÝšXÝ[ÛœËˆHš[\ˆX[Y˜XÝ\™\ˆ]\Ý[ÛÈ\›Z]H[Xš[™È\œ˜[™Ù[Y[Ü‚’YˆHÛÛXš[˜][Ûˆ˜[ÈÝ]ÚYHZ]\ˆ]šXÙIÜÈÜXÚYšXØ][Û‹\ÙHHÙ\\˜]H[\ÜˆY™™\™[[Xš[™È\ÚYÛ‹ˆÈ›ÝÚÛÜÙHHØ[š\Ý\ˆÛÛ[H™XØ]\ÙH]È›ÞÔ\X\œÈÈX]ÚHÚ[\‹Ü‚‚’ÝÈ]XÚ™[[][ÛˆÙ\ÈHÚ[\ˆ™YYÏÚ‚Ý›Û™Ï‘È›Ý[˜ÛÜÙHHÛÛ\™\ÜÛÜˆÚ[\ˆ[ˆHÙX[YØXš[™][›\ÜÈHX[Y˜XÝ\™\ˆ^XÚ]H\›Z]È]ÜÝ›Û™ÏˆH[š]™[[Ý™\ÈX]œ›ÛH\]X\š][HØ]\ˆ[™™Z™XÝÈ]X][È›ÛÛHZ\‹ˆÝ\œ™[’ˆÝZY[˜ÙH[™™]Z[\ˆ[œÝ[][Ûˆ›Ý\È›Ý[\\Ú^™HY\]X]H™[[][Ûˆ[™]›ÚY[™È™XÚ\˜Ý[][ÛˆÙˆØ\›H^]\ÝÜ‚‘›ÛÝÈH^XÝÛX\˜[˜ÙH™\]Z\™[Y[È[ˆH[Ù[	ÜÈÝ\œ™[X[X[˜]\ˆ[ˆHÙ[™\šXÈ8 'Lˆ[˜Ú\ÈÛˆ]™\žHÚYx 'H[KÜ‚‚•Ú]™X]\™\ÈÚÝ[[ÝHÛÛ\\™OÏÚ‚[‚OÝ›Û™Ï”[YÝÛˆØ\XÚ]NÜÝ›Û™ÏˆØ[ˆ]XZ[Z[ˆ[Ý\ˆ\™Ù][™\ˆHØ\›Y\Ý^XÝY›ÛÛHÛÛ™][ÛœÏÏÛO‚OÝ›Û™Ï”™\]Z\™Y›ÝÈ˜[™ÙNÜÝ›Û™ÏˆÛÛ\]X›HÚ][Ý\ˆ™X[[\Ùš[\ˆ›ÝÏÏÛO‚OÝ›Û™Ï’X]^Ú[™Ù\ˆX]\šX[ÜÝ›Û™ÏˆÝZ]X›H›ÜˆÛÛ[[Ý\È\]X\š][H\ÙKÛO‚OÝ›Û™ÏÛÛ›Û\ˆ˜[™ÙH[™XØÝ\˜XÞNÜÝ›Û™ÏˆY\]X]H›ÜˆH[\\˜]\™H[ÝH[[™ÈXZ[Z[‹ÛO‚OÝ›Û™Ï•™[[][Ûˆ™\]Z\™[Y[ÎÜÝ›Û™Ïˆ˜XÝXØ[›ÜˆÚ\™HH[š]Ú[Ú]ÛO‚OÝ›Û™Ï“›Ú\ÙNÜÝ›Û™ÏˆÚXÚÈÝ\œ™[ÝÛ™\‹ÛX[Y˜XÝ\™\ˆ]HYˆ™Y›ÛÛHXÙ[Y[X]\œËÛO‚OÝ›Û™Ï•Ø\œ˜[H[™Ù\šXÙNÜÝ›Û™Ïˆ™\šYžHÝ\œ™[\›\È]\˜Ú\ÙH[YKÛO‚OÝ›Û™Ï”™\XÙ[Y[\ÎÜÝ›Û™Ïˆ]˜Z[Xš[]HÙˆÛÛ›Û\‹˜[‹\ÙH[™[Xš[™ÈÛÛ\Û™[ËÛO‚Ý[‚‚”ÚÝ[[ÝH^HÛ™HÚ^™H\™Ù\ÏÚ‚H[Ù\ÝØ\XÚ]HX\™Ú[ˆØ[ˆ™YXÙHÛÛ[[Ý\ÈÜ\˜][Ûˆ[™\ˆXZÈX]ØY]8 '[Ø^\ÈÝ™\œÚ^™x 'H\È›ÝH[š]™\œØ[[™Ú[™Y\š[™È]Ëˆ›ÛÝÈHX[Y˜XÝ\™\‰ÜÈÝ\œ™[Ú^š[™ÈY]ÙˆÛÛYHX[Y˜XÝ\™\œÈ™XÛÛ[Y[™[Ýš[™È\Ú[ˆ[Ý\ˆÞ\Ý[HÚ]È™X\ˆHYÙHÙˆH[Ù[	ÜÈ˜][™ÈÜˆ™\]Z\™\ÈH\™ÙH[\\˜]\™H[YÝÛ‹Ü‚“Ý™\œÚ^š[™È[ÛÈY™™XÝÈ\˜Ú\ÙHšXÙK\ÚXØ[Ú^™K[\Ù›ÝÈ™\]Z\™[Y[È[™ÞXÛ[™È™Z]š[Ü‹ÛÈÛÛ\\™HHXÝX[[Ù[]H˜]\ˆ[ˆ\Z[™ÈHš^YKpåÈ][\Y\‹Ü‚‚Ø[ˆH˜[ˆ™\XÙHHÚ[\ÏÚ‚”Ý\™˜XÙH˜[œÈÛÛÛØ]\ˆ›ÝYÚ]˜\Ü˜][Û‹ˆZ\ˆY™™XÝ\[™ÈÛˆ›ÛÛH[\\˜]\™K[ZY]KZ\™›ÝË[šÈÝ\™˜XÙH\™XH[™]˜\Ü˜][Ûˆ˜]KÛÈ\™H\È›È[š]™\œØ[8 '¸ $Í0¬¸ 'H™\Ý[ˆH˜[ˆØ[ˆ™H[›ÝYÚ[ˆÛÛYH›ÛÛ\È[™[˜Y\]X]H[ˆÝ\œËÜ‚•\Ý[Ý\ˆ™X[[šÈ\š[™ÈHØ\›Y\ÝÛÛ™][ÛœÈ[ÝH^XÝˆYˆ[\\˜]\™HØ[››Ý™H[™[XX›K[Ý™HÈ›ÛÛHZ\ˆÛÛ™][Ûš[™ÈÜˆH›Ü\›HÚ^™YÚ[\ˆ[œÝXYÙˆØZ][™È›ÜˆHX][Y\™Ù[˜ÞKÜ‚‚’ÝÈÚÝ[[ÝH[œÝ[HÚ[\ÏÚ‚Û‚O”XÙH]ÛˆHÝX›HÝ\™˜XÙHÚ]H™[[][ÛˆÛX\˜[˜ÙHÜXÚYšYYžH]ÈX[X[ÛO‚O•\ÙHXš[™È[™š][™ÜÈ\›Ý™Y›ÜˆH[š]ÛO‚O”›ÝšYHØ]\ˆ›ÝÈÚ][ˆHX[Y˜XÝ\™\‰ÜÈÜ\˜][™È˜[™ÙKÛO‚OÚXÚÈ[ÛÛ›™XÝ[ÛœÈ›ÜˆXZÜÈ™Y›Ü™H[˜][™YÜ\˜][Û‹ÛO‚O•\ÙH[ˆ[™\[™[\]X\š][H\›[ÛY]\ˆÈ™\šYžHHÚ[\‹ØÛÛ›Û\ˆ™XY[™ËÛO‚O“[Ûš]ÜˆH[šÈY\ˆ[œÝ[][ÛˆÈXZÙHÝ\™HH™]\›ˆ›ÝÈ\ÈÝ[Ù[H[›ÝYÚ›ÜˆH^ÛÝÛO‚ÛÛ‚‚’ÝÈ]XÚÙ\ÈHÚ[\ˆÛÜÝÈ[ÏÚ‚“Ü\˜][™ÈÛÜÝ\[™ÈÛˆH[Ù[	ÜÈ™X[[XÝšXØ[˜]ËØØ[[XÝšXÚ]HšXÙH[™ÛÛ\™\ÜÛÜˆ]HÞXÛKˆÈ›Ý\Ý[X]HÛÜÝœ›ÛHÜœÙ\ÝÙ\ˆ[Û™Kˆ\ÙHHX[Y˜XÝ\™\‰ÜÈØ]YÙKØ[\ÜXÚYšXØ][Ûˆ[™[Ý\ˆÝÛˆYX\Ý\™YÜˆ^XÝY[ˆ[YKÜ‚HÚ[\H\Ý[X]H\ÎÜ‚Ý›Û™ÏšÕÚ\ˆ^HH]šXÙHÚ[ÝØ]È0åÈÛÛ\™\ÜÛÜˆ[ˆÝ\œÈ\ˆ^OÜÝ›Û™ÏÜ‚•[ˆ][\HžH[Ý\ˆ[XÝšXÚ]HšXÙH\ˆÕÚˆXÝX[]HÞXÛHÚ[™Ù\ÈÚ]›ÛÛH[\\˜]\™K[œÝ[][Û‹™[[][Ûˆ[™[šÈX]ØYÜ‚‚’ÝÈÈ[ÝHXZ[Z[ˆHÚ[\ÏÚ‚‘›ÛÝÈH[Ù[X[X[ˆÛÛ[[Ûˆ\ÚÜÈ[˜ÛYHÙY\[™ÈZ\ˆ[ZÙ\ËØÛÛ™[œÙ\ˆÝ\™˜XÙ\Èœ™YHÙˆ\ÝÚXÚÚ[™ÈXš[™È›Üˆ™\ÝšXÝ[ÛˆÜˆXZÜËXZ[Z[š[™ÈH™\]Z\™YØ]\ˆ›ÝÈ[™ÛÛ™š\›Z[™È[\\˜]\™HÚ][ˆ[™\[™[\›[ÛY]\‹ˆÙ\šXÙH[\˜[È˜\žHžH[Ù[[™[š\›Û›Y[Ü‚‚Ý\œ™[›ÙXÝ^[\NˆÝÈÈ™XYHÜXÚYšXØ][ÛˆÚY]Ú‚\ÈÙˆÙ\[X™\ˆŒ‹’‰ÜÈÝ\œ™[\˜ÝXØH\]X\š][K\Ù\šY\ÈYÙHX›\Ú\ÈXXÚ[Ù[	ÜÈÛÛ\™\ÜÛÜ‹ÛÝ]]˜][™Ë][š][HX]^Ú[™Ù\‹[›]ÛÝ]]Ú^™\È[™Z[š[][KÛX^[][H›ÝÈ˜[™ÙK[™Ú[È^Y\œÈÈHX[Y˜XÝ\™\ˆÚ[\‹\Ú^š[™ÈØ[Ý[]Ü‹ˆÜÙH\™HHÚ[™ÈÙˆšY[È[ÝHÚÝ[ÛÛ\\™KÜ‚Ý›Û™Ï•\ÈYÙHÙ\È›Ý˜[šÈÛ™HÝ\œ™[[Ù[8 '™\ÝÝ™\˜[¸ 'OÜÝ›Û™Ïˆ[Ù[]˜Z[Xš[]KØ\œ˜[H\›\ËšXÚ[™È[™ÜXÚYšXØ][ÛœÈØ[ˆÚ[™ÙKÚ[HHÚ^š[™ÈY]ÙX›Ý™H™[XZ[œÈ\ÙY[Ü‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙÙ[™]XË\ÝØÚËXÙ[\‹ÙØÝ[Y[ËÐQÔÐÉLŒÑÝZYWÌŒœˆ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\Žˆ^ÛÝÝZYHŒ8 %ÛÛÛžH[\\˜]\™OØOÛO‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙYXØ][ÛŒKÙÝZYK]ËX^ÛÝZ\Ø˜[™žH[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\ŽˆÝZYHÈ^ÛÝ\Ø˜[™žOØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKÙ^ÝXËX[™[X›Ü˜]ÜžKX[š[X[ËØ[\XšX[œËÙ[š\›Û›Y[X[™Z\Ø˜[™žKY›Ü‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆ[š\›Û›Y[[™\Ø˜[™žH›Üˆ[\XšX[œË\]Y™XœX\žHŒØOÛO‚OH™YHšÎ‹ËÝÝÝËš˜š˜\]X\š][K˜ÛÛKÝ[\\˜]\™KXÛÛ›ÛØ\˜ÝXØKXÚ[\œËØ\]X\š][K\Ù\šY\ËÈ’’ˆ\]X\š][\ÎˆÝ\œ™[\˜ÝXØH\]X\š][HÙ\šY\ÈÜXÚYšXØ][ÛœÏØOÛO‚Ý[‚‰ÉÉÂ‚‚ˆÈKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKBˆÈXˆ™]Üš]\È8 %Ø\™HÝZYH
+È[šÈÙ]\
+Œ‹LKLNJBˆÈKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKBˆÈ\ÙHYÙ\È\™H[[[Û˜[Hœ›ØY›Ý]\œËˆÜXÚX[\ÝYÙ\ÈÝÛˆ^XÝˆÈ›ØÙY\™\Ë™\ÚÛËXYÛ›ÜÚ\Ë[™^Z[™ÈXÚ\Ú[ÛœË‚‚’S•“×ÓÕ‘T”’QTÖÈ˜^ÛÝËØØ\™KYÝZYH—HH
+ˆ^ÛÝØ\™H\ÈZ[\›Ý[™HÛÛÛÝX›H\]X]XÈ[š\›Û›Y[[ˆ\ÝX›\ÚY‚ˆ˜š[ÛÙÚXØ[š[\‹ØY™HÝ\Ú[™Ë\›ÜšX]H›ÛÙ™YÝ[\ˆØ]\ˆ\Ý[™Ë[™‚ˆ™X\›H™XÛÙÛš][ÛˆÙˆX[Ú[™Ù\Ëˆ\ÈÝZYHÚ]™\ÈHÚÛHÞ\Ý[H[ˆÛ™H‚ˆœXÙH[™›Ý]\ÈXXÚÜXÚX[\Ý\ÚÈÈ]ÈØ[›ÛšXØ[YÙKˆ‚ŠB‚’S•“×ÓÕ‘T”’QTÖÈ[šË\Ù]\ÜÙ]\YÝZYH—HH
+ˆ”Ù]\H\]X\š][H™Y›Ü™HH^ÛÝ\œš]™\ÎˆÚÛÜÙHHÛ™È[šÈÚ][›ÝYÚ‚ˆ\ØX›H›ÛÜˆ\™XK\ÝX›\ÚÙ[Hš[ÛÙÚXØ[š[˜][Û‹XZÙH[\\˜]\™H‚ˆ˜ÛÛ›Û™[XX›KÚÛÜÙHØY™HÝXœÝ˜]H[™Y\Ë[™ÛÛ™š\›HHš]›ÙÙ[ˆ‚ˆ˜ÞXÛHÚ]YX\Ý\™YØ]\ˆ\ÝËˆ‚ŠB‚“ÑWÓÕ‘T”’QTÖÈ˜^ÛÝËØØ\™KYÝZYH—HH‰ÉÉÂÝ›Û™Ï‘ÛÛÙ^ÛÝØ\™H\È[ÜÝH[š\›Û›Y[[X[˜YÙ[Y[ÜÝ›Û™ÏˆÙY\H[š[X[[ˆHÛÛÛÝX›Hœ™\ÚØ]\ˆ\]X\š][HÚ]\ÝX›\ÚYš[ÛÙÚXØ[š[˜][Û‹Ù[HÚ\˜Ý[][Û‹ØY™HÝ\™˜XÙ\Ë\›ÜšX]H›ÛÙ[™™YÝ[\ˆØ]\ˆ\Ý[™Ëˆ]›ÚYžZ[™ÈÈXYÛ›ÜÙHÜˆ™X]HX[›Ø›[Hœ›ÛHÛ™Hš\ÚX›HÚYÛŽÈYX\Ý\™HH[š\›Û›Y[š\œÝ[™\ÙHHÜXÚX[\ÝX[YÙH›ÜˆHÜXÚYšXÈÞ[\ÛKÜ‚]ˆÛ\ÜÏHœ›ÛK[›ÝHÝ›Û™Ï•\È\ÈHÝ™\šY]ÈYÙKÜÝ›Û™Ïˆ]ÝÛœÈHœ›ØY8 'ÝÈÈHØ\™H›Üˆ[ˆ^ÛÝø 'H]Y\Ý[Û‹ˆ[šÈÚ^™K[\\˜]\™KØ]\ˆÚ[Z\ÝžK™YY[™ÈØÚY[\ËÜXÚYšXÈ\ÙX\Ù\ËYØ[]H[™^Z[™ÈXÚ\Ú[ÛœÈ\™HÝÛ™YžHHÜXÚX[\ÝÝZY\È[šÙY™[ÝËÙ]‚‚^ÛÝØ\™H]HÛ[˜ÙOÚ‚]ˆÛ\ÜÏHX›K]Ü˜\X›O‚XYØ\™H\™XOÝ”˜XÝXØ[[OÝ‘]Z[YÝZYOÝÝÝXY‚›ÙO‚•[šÏÝ•\ÙHHÛ™È\]X\š][HÚ][›ÝYÚ›ÛÜˆ\™XH[™Ø]\ˆ›Û[YKˆ]ÛÈÝ\œ™[H™XÛÛ[Y[™ÈŒ
+ÈØ[ÛœÈ›ÜˆÛ™HY[È^P^ÛÝ™Y™\œÈHYØ[Ûˆœ™YY\ˆÚ[ˆÝ\[™ÈH\›X[™[Y[Ù]\YˆÜXÙH[™YÙ][ÝËÝH™YH‹Ý[šË\Ù]\Ý[šË\Ú^™KXžKXYÙKÈ•[šÈÚ^™OØOÝÝ‚•[\\˜]\™OÝ’ÙY\Ø]\ˆÛÛÛ[™ÝX›NÈÈ›Ý™[HÛˆÝÈHØ]\ˆ™Y[ÈžH[™ÝH™YH‹Ý[šË\Ù]\Ý[\\˜]\™KÈ•[\\˜]\™OØOÝÝ‚‘š[˜][ÛÝ•\ÙH\ÝX›\ÚYš[ÛÙÚXØ[š[˜][ÛˆÚ]Ú\˜Ý[][ÛˆÙ[H[›ÝYÚ]H[š[X[Ø[ˆ™\Ý›Ü›X[KÝH™YH‹Ý[šË\Ù]\Ùš[˜][Û‹Y›Ü‹X^ÛÝËÈ‘š[˜][ÛØOÝÝ‚•Ø]\ˆ\Ý[™ÏÝ“YX\Ý\™H[[[ÛšXKš]š]Kš]˜]K[™[\\˜]\™H™YÝ[\›H[œÝXYÙˆYÚ[™ÈØ]\ˆžHÛ\š]KÝH™YH‹Ý[šË\Ù]\ÚÝË]Ë]\Ý]Ø]\‹È’ÝÈÈ\ÝØ]\ØOÝÝ‚•Ø]\ˆÚ[™Ù\ÏÝ•\ÙH™YÝ[\ˆ\X[Ø]\ˆÚ[™Ù\È[™Y\ÝXZ[[˜[˜ÙHœ›ÛHYX\Ý\™YØ]\ˆ]X[]H[™Ø\ÝHØYÝH™YH‹Ý[šË\Ù]\ÝØ]\‹XÚ[™ÙKYÝZYKÈ•Ø]\ˆÚ[™ÙHÝZYOØOÝÝ‚”ÝXœÝ˜]OÝ]›ÚYÛÜÙHX]\šX[]Ø[ˆ™HÝØ[ÝÙYÈÚÛÜÙHÝXœÝ˜]HžH[š[X[Ú^™H[™Ù]\ÝH™YH‹Ý[šË\Ù]\ÜÝXœÝ˜]KX[™Z[\XÝ[Û‹È”ÝXœÝ˜]HÝZYOØOÝÝ‚‘›ÛÙÝ‘™YY\›ÜšX]H[š[X[X˜\ÙY›ÛÙÈ[ˆÜ[ÛœÈ[™œ™\]Y[˜ÞHÝZ]YÈY™HÝYÙH[™›ÙHÛÛ™][Û‹ÝH™YH‹ÙY]Ø™\ÝY›ÛÙË[\ÝÈ‘Y]ÝZYOØOÝÝ‚’[™[™ÏÝ•™X]^ÛÝÈ\ÈØœÙ\˜][Û‹Y›ØÝ\ÙY\]X]XÈ]ÎÈ[™HÛ›HÚ[ˆ™XÙ\ÜØ\žKÝH™YH‹ØØ\™KX˜\ÚXÜËÚ[™[™ËÈ’[™[™ÏØOÝÝ‚’X[Ý”™XÛÜ™Ú[™Ù\Ë\ÝH[š\›Û›Y[[™›ÛÝÈHYÙH›ÜˆHÜXÚYšXÈÚYÛ‹ÝH™YH‹ÚX[È’X[XØOÝÝ‚Ý›ÙOÝX›OÙ]‚‚•Ú]\È[ˆ^ÛÝÏÚ‚[O[Xž\ÝÛXHY^XØ[[OÙ[Oˆ\ÈHY^XØ[ˆØ[[X[™\ˆ]›Ü›X[H™XÛÛY\È™\›ÙXÝ]™[HX]\™HÚ[H™]Z[š[™È[ˆ\]X]XÈ›ÙH[‹[˜ÛY[™È^\›˜[Ú[Ëˆ\È]™[ÜY[[Ý˜]YÞH\ÈÛÛ[[Û›H\ØÜšX™Y\ÈYYÛ[ÜœÜÚ\ÈÜˆ™[Ý[žKÜ‚‘›ÜˆH[]HYš[š][Ûˆ[™ÛÜ™H˜XÝË\ÙHH™YH‹ØØ\™KX˜\ÚXÜËØ^ÛÝY˜XÝËÈ•Ú]\È[ˆ^ÛÝÏØO‹ˆ›Üˆš\Ú]™\œÝ\ËX[\XšX[ˆÛ\ÜÚYšXØ][Û‹\ÙHH™YH‹Øš[ÛÙÞKX[™\ØÚY[˜ÙKÚ\ËX^ÛÝX[\XšX[‹È’\È[ˆ^ÛÝ[ˆ[\XšX[ÏØO‹Ü‚‚’\È[ˆ^ÛÝHšYÚ]›Üˆ[ÝOÏÚ‚[ˆ^ÛÝØ[ˆÝZ]ÛÛY[Û™HÚÈ\ÈÛÛY›ÜX›HXZ[Z[š[™È[ˆ\]X\š][H[™™Y™\œÈ[ˆ[š[X[]\ÈØ]ÚY˜]\ˆ[ˆ[™YˆHXZ[ˆÛÛ[Z]Y[\È›ÝZ[H[\˜XÝ[ÛŽÈ]\ÈÙY\[™ÈH[š\›Û›Y[ÛÛœÚ\Ý[H\›ÜšX]HÝ™\ˆX[žHYX\œËÜ‚™Y›Ü™H^Z[™ËXZÙHÝ\™H[ÝHØ[ŽÜ‚[‚O›XZ[Z[ˆÛÛÛØ]\ˆ[ˆ[Ý\ˆXÝX[›ÛÛH›ÝYÚHÝ\Ý\ÙˆHYX\ŽÏÛO‚O\ÝØ]\ˆÚ[Z\ÝžH[™[™\œÝ[™Hš]›ÙÙ[ˆÞXÛNÏÛO‚Oœ›ÝšYH[ˆ\›ÜšX][HÚ^™Y\]X\š][H[™Ý[™ÏÛO‚OœÛÝ\˜ÙHÝZ]X›H›ÛÙÛÛœÚ\Ý[NÏÛO‚O˜\œ˜[™ÙH^ÝXËØ[\XšX[ˆ™]\š[˜\žHØ\™HYˆ™YYYÈ[™ÛO‚O™\šYžH]ÝÛ™\œÚ\[™˜[œÜÜ\™HYØ[Ú\™H[ÝH]™KÛO‚Ý[‚•\ÙHH™YH‹ØØ\™KX˜\ÚXÜËØ\™KX^ÛÝËYÛÛÙX™YÚ[›™\‹\]ËÈ\™H^ÛÝÈÛÛÙ]ÏÏØOˆ›ÜˆH›ÜËÛÛœÈ[™™YÚ[›™\‹YY™šXÝ[HXÚ\Ú[Û‹Ü‚‚•Ú]Ú^™H[šÈÙ\È[ˆY[^ÛÝ™YYÏÚ‚Ý›Û™Ï•\ÙHHYXØ]Y[šË\Ú^™HYÙH\ÈHÛÝ\˜ÙHÙˆ]ÜÝ›Û™ÏˆÝ\œ™[]ÛÈØ\™HÝZY[˜ÙH™XÛÛ[Y[™ÈHZ[š[][HÙˆŒ
+ÈØ[ÛœÈ›ÜˆÛ™HY[[™Ø^\È[™ÝX]\œÈ[Ü™H[ˆZYÚˆ^P^ÛÝ™X]ÈHŒYØ[ÛˆÛ™È\ÈH˜XÝXØ[ÝÙ\ˆ›Ý[™[™™Y™\œÈHYØ[Ûˆœ™YY\ˆ\ÈH[Ü™H›Ü™Ú]š[™È\›X[™[ÛYHÚ[ˆÜXÙH[™YÙ]\›Z]Ü‚•H\™Ù\ˆ™XÛÛ[Y[™][Ûˆ\ÈH˜XÝXØ[Ú]H™Y™\™[˜ÙK›ÝHÛZ[H]Û™H^XÝØ[Ûˆ[X™\ˆ\ÈH[š]™\œØ[š[ÛÙÚXØ[™\ÚÛˆ[š[X[[X™\‹›ÛÜˆ\™XKš[˜][Ûˆ[™\Ø˜[™žH[[œÚ]H[X]\‹Ü‚”ÙYHH™YH‹Ý[šË\Ù]\Ý[šË\Ú^™KXžKXYÙKÈ•Ú]Ú^™H[šÈÙ\È[ˆ^ÛÝ™YYÏØO‹Ü‚‚’ÝÈÛÛÛÚÝ[^ÛÝØ]\ˆ™OÏÚ‚Ý›Û™ÏÛÛÛ[™ÝX›HX]\œÈ[Ü™H[ˆÚ\Ú[™ÈÛ™HXYÚXÈ[X™\‹ÜÝ›Û™ÏˆH[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\ˆXZ[Z[œÈ]È™\ÙX\˜ÚÛÛÛžH[ˆÛÛÛØ]\‹[™Ý\œ™[[\XšX[ˆ™]\š[˜\žHÝZY[˜ÙH[\\Ú^™\ÈÜXÚY\ËX\›ÜšX]HÝX›H[\\˜]\™H™XØ]\ÙH[\\˜]\™HY™™XÝÈY]X›Û\ÛH[™[[][™H[˜Ý[Û‹Ü‚‘›ÜˆHÛYH\]X\š][KYX\Ý\™HHØ]\ˆÛÛ[[Ý\ÛHÜˆ]X\ÝZ[H\š[™ÈØ\›H\š[ÙÈ[™Z[HÛÛÛ[™È[ˆ\›Ý[™HØ\›Y\Ý›ÛÛHÛÛ™][ÛœÈ[ÝHXÝX[H^\šY[˜ÙKˆH˜[‹›ÛÛHZ\ˆÛÛ™][Ûš[™ÈÜˆ[ˆ\]X\š][HÚ[\ˆX^H™H\›ÜšX]H\[™[™ÈÛˆHX]ØYÜ‚•\ÙHH™YH‹Ý[šË\Ù]\Ý[\\˜]\™KÈ^ÛÝ[šÈ[\\˜]\™OØOˆ›ÜˆHÝ\œ™[ÛYH\™Ù][™H™YH‹Ý[šË\Ù]\Ø\]X\š][KXÚ[\œËÈ\]X\š][HÚ[\œÏØOˆYˆXÝ]™HÛÛÛ[™È\È™YYYÜ‚‚•Ú]Ø]\ˆ]X[]HÙ\È[ˆ^ÛÝ™YYÏÚ‚[\XšX[œÈXœÛÜ˜ˆØ]\ˆ[™\ÜÛÛ™YÝXœÝ[˜Ù\È™XY[HXÜ›ÜÜÈZ\ˆÚÚ[‹ÛÈÛX[ˆØ]\ˆ\È›Ý[™][Û˜[ˆY\˜ÚÉÜÈŒˆ[\XšX[ˆÝZY[˜ÙHYš\Ù\È™YÝ[\ˆ\Ý[™ÈÙˆ\]X]XÈÞ\Ý[\È›Üˆ[\\˜]\™K\™™\ÜË[[[ÛšXKš]š]H[™š]˜]K[™[\\Ú^™\ÈØ]\ˆœ™YHœ›ÛHÚÜš[™K[[[ÛšXH[™š]š]KÜ‚‘È›Ý\ÙHHœ›ØYØ\™HYÙHÈY[[Üš^™HHÛ™ÈX›HÙˆš^Y™\ÚÛËˆ\ÝH[šË[™\œÝ[™Hš]›ÙÙ[ˆÞXÛH[™\ÙHHÜXÚX[\ÝYÙHÈ[\œ™]HXÝX[™XY[™ÜËÜ‚”Ý\Ú]H™YH‹Ý[šË\Ù]\ÚÝË]Ë]\Ý]Ø]\‹È’ÝÈÈ\Ý^ÛÝØ]\ØOˆ[™[ˆ\ÙHH™YH‹Ý[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™ËÈ•Ø]\ˆ\˜[Y]\œÈ	ˆš]›ÙÙ[ˆÞXÛOØO‹Ü‚‚‘Ù\È[ˆ^ÛÝ™YYHš[\ÏÚ‚‘›ÜˆHÛÛ™[[Û˜[ÛYH\]X\š][K\ÝX›\ÚYš[ÛÙÚXØ[š[˜][Ûˆ\ÈH›Ü›X[\›ØXÚˆHÛØ[\È[›ÝYÚš[ÛÙÚXØ[Ø\XÚ]HÈ›ØÙ\ÜÈš]›ÙÙ[›Ý\ÈØ\ÝHÚ]Ý]Ü™X][™ÈHÝ›Û™ÈÝ\œ™[XÜ›ÜÜÈH[š[X[	ÜÈ™\Ý[™È\™XKÜ‚Ý›Û™Ï‘È›ÝÚ^™HHš[\ˆœ›ÛH[ˆ[™[Y^ÛÝ\››Ý™\ˆ][\Y\‹ÜÝ›Û™Ïˆš[\ˆÚÚXÙH\[™ÈÛˆš[ÛÙÚXØ[[YYXHØ\XÚ]KXÝX[Ø\ÝHØYYXÚ[šXØ[Xœš\ÈØ\\™H[™Ú]\ˆHÝ]]Ø[ˆ™HXYHÙ[KˆÙYHH™YH‹Ý[šË\Ù]\Ùš[˜][Û‹Y›Ü‹X^ÛÝËÈ‘È^ÛÝÈ™YYHš[\ÏØOˆ[™H™YH‹Ý[šË\Ù]\ØØ[š\Ý\‹]œË\ÜÛ™ÙKYš[\‹ÈØ[š\Ý\ˆœÈÜÛ™ÙOØO‹Ü‚‚’ÝÈÙ[ˆÚÝ[[ÝHÚ[™ÙHHØ]\ÏÚ‚”™YÝ[\ˆ\X[Ø]\ˆ™\XÙ[Y[\ÈÝ[™XÙ\ÜØ\žH[ˆHš[\™Y\]X\š][KˆHŒQÔÐÈÝZYH[™Y\˜ÚÉÜÈŒˆ]X[\XšX[ˆÝZY[˜ÙH›ÝÝ\Ü›Ý][™HÙYZÛH\X[™[™]Ø[[ˆ\ÝX›\ÚY\]X]XÈÞ\Ý[\ËÚ[HH[[Ý[™YYYØ[ˆÚ[™ÙHÚ]YX\Ý\™YÚ[Z\ÝžH[™Ø\ÝHØYÜ‚•\ÙHH™YH‹Ý[šË\Ù]\ÝØ]\‹XÚ[™ÙKYÝZYKÈ’ÝÈÈÚ[™ÙH^ÛÝ[šÈØ]\ØOˆ˜]\ˆ[ˆ›ÛÝÚ[™È[ˆ]]ÛX]XÈ\˜Ù[YÙHœ›ÛH[ˆÝ™\šY]È\XÛKÜ‚‚•Ú]ÝXœÝ˜]H\ÈØY™OÏÚ‚Ý›Û™Ï]›ÚYÛÜÙHÜ˜]™[ÜˆØš™XÝÈÛX[[›ÝYÚÈ™HÝØ[ÝÙYÜÝ›Û™Ïˆ^ÛÝÈ\ÙHÝXÝ[Ûˆ™YY[™È[™Ø[ˆ[™Ù\ÝX]\šX[\›Ý[™H›ÛÙˆÝXœÝ˜]HÚÚXÙHÚÝ[XØÛÝ[›Üˆ[š[X[Ú^™KÜ˜Z[ˆÚ^™KÛX[›[™\ÜÈ[™HÙY\\‰ÜÈXš[]HÈ™[[Ý™HØ\ÝKÜ‚•HH™YH‹Ý[šË\Ù]\ÜÝXœÝ˜]KX[™Z[\XÝ[Û‹È”ÝXœÝ˜]HÝZYOØOˆÝÛœÈHØY™KXÚÚXÙHÛÛ\\š\ÛÛŽÈH™YH‹Ý[šË\Ù]\ÙÜ˜]™[\š\ÚÜËÈ‘Ü˜]™[š\ÚÜÏØOˆ^Z[œÈH›Ü™ZYÛ‹X›ÙH^˜\™Ü‚‚•Ú]Y\Ë[È[™YÚ[™È\™H\›ÜšX]OÏÚ‚”›ÝšYHÛ[ÛÝY[™ÈXÙ\È[™]›ÚYÚ\œ0êXÛÜˆÜˆÜ[š[™ÜÈ]Ø[ˆ˜\H[š[X[ˆ^ÛÝÈÈ›Ý™YYœšYÚ\Ü^HYÚ[™È›ÜˆZ\ˆÝÛˆ™[™Yš]ÛÈ[žHYÚ\ÙY›ÜˆšY]Ú[™ÈÜˆ[ÈÚÝ[Ý[X]™HÚYYÜ™YYÙH\™X\È]˜Z[X›KÜ‚‘›Üˆ[È[™0êXÛÜ‹\ÙHH™YH‹Ý[šË\Ù]\Û]™K]œËX\YšXÚX[\[ËÈ“]™HœÈ\YšXÚX[[ÏØOˆ[™HH™YH‹Ý[šË\Ù]\ÜÙ]\YÝZYKÈ•[šÈÙ]\ÝZYOØO‹Ü‚‚•Ú]È^ÛÝÈX]ÏÚ‚^ÛÝÈ\™HØ\›š]›Ü›Ý\ËˆØ\]™HY]ÈÛÛ[[Û›H\ÙH\›ÜšX][HÚ^™YX\ÛÜ›\ËÛšYÚÜ˜]Û\œÈ[™]š][Û˜[HÝZ]X›HÚ[šÚ[™È[]ËÚ[H\˜YH™\]Z\™H]XÚÛX[\ˆ]™H›ÛÙÈ\š[™ÈX\›H]™[ÜY[ˆ™YY[™Èœ™\]Y[˜ÞHÚ[™Ù\ÈÚ]Y™HÝYÙK›ÙHÛÛ™][Û‹›ÛÙÚ^™H[™H[™]šYX[Ü‚•\ÙHH™YH‹ÙY]Ø™\ÝY›ÛÙË[\ÝÈ•Ú]È^ÛÝÈX]ÏØOˆ›Üˆ›ÛÙÚÚXÙH[™H™YH‹ÙY]Ù™YY[™Ë\ØÚY[KXžKXYÙKÈ‘™YY[™ÈØÚY[HžHYÙOØOˆ›Üˆ›Ý][™Hœ™\]Y[˜ÞKÜ‚‚Ø[ˆ^ÛÝÈ]™HÚ]Ý\ˆ[š[X[ÏÏÚ‚‘È›ÝYš\ÚÜˆ[›Ý\ˆ^ÛÝÚ[\H™XØ]\ÙHH[šÈ\È[›ÝYÚØ[ÛœËˆ[šÈX]\ÈØ[ˆ[›ÙXÙHš\[™Ë™Y][Û‹›ÛÙÛÛ\]][Û‹\ÙX\ÙH[™[™Ù\Ý[Ûˆ^˜\™Ëˆ][\H^ÛÝÈ[ÛÈ™YYÛÜÙHÚ^™HX]Ú[™È[™[Ûš]Üš[™ËÜ‚•\ÙHH™YH‹Ý[šË\Ù]\Ý[šË[X]\ËÈ^ÛÝ[šÈX]\ÏØOˆ›ÜˆÝ\ˆÜXÚY\È[™H™YH‹ØØ\™KX˜\ÚXÜËÚÙY\[™Ë[][\KX^ÛÝËÈØ[ˆ^ÛÝÈ]™HÙÙ]\ÏØOˆ›ÜˆØ[YK\ÜXÚY\ÈÛÚXš]][Û‹Ü‚‚Ø[ˆ[ÝHÛÜˆ][ˆ^ÛÝÏÚ‚”›Ý][™H][™È\È[›™XÙ\ÜØ\žKˆ[\XšX[ˆÚÚ[ˆ\Èš[ÛÙÚXØ[H[\Ü[[™X\Ú[H\Ý\˜™YÛÈ[™HÛ›HÚ[ˆH[š[X[]\Ý™H˜[œÙ™\œ™Y›ÜˆØY™]K™]\š[˜\žHØ\™HÜˆ\ÜÙ[X[\Ø˜[™žKÜ‚•\ÙHH™YH‹ØØ\™KX˜\ÚXÜËÚ[™[™ËÈØ[ˆ[ÝHÛ[ˆ^ÛÝÏØOˆ›Üˆ˜[œÙ™\ˆY]ÙÈ[™H™YH‹ØØ\™KX˜\ÚXÜËØ\™KX^ÛÝË\Ú\ÛÛ›Ý\ËÈ\™H^ÛÝÈÚ\ÛÛ›Ý\ÈÜˆ[™Ù\›Ý\ÏÏØOˆ›Üˆ[X[‹ZYÚY[™H[™š]H]Y\Ý[ÛœËÜ‚‚’ÝÈÈ[ÝHÛ›ÝÈÚ[ˆ[ˆ^ÛÝ\È[Ù[ÏÚ‚Ý›Û™Ï“ÛÚÈ›ÜˆHÚ[™ÙHœ›ÛHH[š[X[	ÜÈ›Ü›X[]\›‹›ÝÛ™H[\›™]8 'XYÛ›ÜÝXÈÚYÛ‹¸ 'OÜÝ›Û™ÏˆÛÛ˜Ù\›š[™ÈÚ[™Ù\ÈØ[ˆ[›Û™H\]]K›ÙHÛÛ™][Û‹Ú[ËÚÚ[‹ÛÝ[™Ë[ÞX[˜ÞKÝÚ[[Z[™Ëœ™X][™Ë™XØ[›ÙXÝ[ÛˆÜˆXÝ]š]KˆHØ[YHÚYÛˆØ[ˆ]™H[Ü™H[ˆÛ™HØ]\ÙKÜ‚•Ú[ˆÛÛY][™ÈÚ[™Ù\ÎÜ‚Û‚O›YX\Ý\™H[\\˜]\™H[™Ø]\ˆÚ[Z\ÝžNÏÛO‚Oœ™XÛÜ™\]]K™XÙ\ËÜÝ\™K™Z]š[Üˆ[™™XÙ[Ú[™Ù\ÎÏÛO‚OZÙHÛX\ˆ]YÝÙÜ˜\ÈYˆ\™H\ÈHš\ÚX›H\Ú[ÛŽÏÛO‚O™›ÛÝÈHÜXÚX[\ÝYÙH›ÜˆHÜXÚYšXÈÚYÛŽÈ[™ÛO‚OœÙYZÈ[ˆ[\XšX[‹Y^\šY[˜ÙY™]\š[˜\šX[ˆ›ÜˆÙ]™\™KÛÜœÙ[š[™ÈÜˆ\œÚ\Ý[›Ø›[\ËÛO‚ÛÛ‚•\ÙHH™YH‹ÚX[ÜÝ™\ÜË\ÚYÛœËÈ^ÛÝÝ™\ÜÈÚYÛœÏØOˆ\ÈHÞ[\ÛH›Ý]\ˆ[™H™YH‹ÚX[Ù[Y\™Ù[˜ÞKYš\œÝXZYÈ^ÛÝ[Y\™Ù[˜ÞHÚYÛœÏØOˆ›Üˆ\™Ù[šXYÙKÜ‚‚•Ú]ÚÝ[›Ý][™HØ\™HÛÚÈZÙOÏÚ‚]ˆÛ\ÜÏHX›K]Ü˜\X›O‚XYØY[˜ÙOÝ•Ú]ÈÏÝÝÝXY‚›ÙO‚‘Z[OÝÚXÚÈH[š[X[[\\˜]\™H[™\]Z\Y[È™[[Ý™HØš[Ý\È[™X][ˆ›ÛÙÝØ\ÝKÝÝ‚”™YÝ[\›HÈÙYZÛOÝ•\ÝØ]\ˆÚ[Z\ÝžK™]šY]È™[™È[™\™›Ü›H›Ý][™H\X[Ø]\ˆ™\XÙ[Y[\È™YYYÝÝ‚\È™YYYÝ”™[[Ý™HYXÚ[šXØ[Xœš\È[™XZ[Z[ˆš[\ˆÛÛ\Û™[ÈÚ]Ý][›™XÙ\ÜØ\š[H™\XÚ[™ÈX]\™Hš[ÛÙÚXØ[YYXKÝÝ‚™Y›Ü™KØY\ˆÚ[™Ù\ÏÝ”™XÛÜ™™]È\]Z\Y[›ÛÙ[š[X[Ë™X]Y[ÈÜˆXZ›ÜˆXZ[[˜[˜ÙHÛÈ]\ˆX[Ú[™Ù\È]™HÛÛ^ÝÝ‚Ý›ÙOÝX›OÙ]‚‚’ÝÈ]XÚÙ\È^ÛÝÝÛ™\œÚ\ÛÜÝÏÚ‚•H[š[X[	ÜÈ\˜Ú\ÙHšXÙH\ÈÛ›HÛ™H\ÙˆÝÛ™\œÚ\ˆ\]X\š][KÝ[™š[˜][Û‹\Ý[™ÈÝ\Y\ËÛÛÛ[™Ë›ÛÙ[XÝšXÚ]H[™™]\š[˜\žHØ\™HØ[ˆ^ÙYYHÛÜÝÙˆH^ÛÝ]Ù[‹ˆ\ÙHH™YH‹ØØ\™KX˜\ÚXÜËØÛÜÝ[Ù‹[ÝÛ™\œÚ\[[ÛKÈ“[ÛHÛÜÝÙˆÝÛ™\œÚ\ØOˆ[™H™YH‹ØÛÜÝX[™X^Z[™ËØ^ÛÝ\šXÙKXžK[[ÜœÈ^ÛÝšXÙHžH[ÜœØO‹Ü‚‚’\È]YØ[ÈÝÛˆ[ˆ^ÛÝÏÚ‚”[\ÈØ[ˆÚ[™ÙHžHÛÝ[žKÝ]KÜ›Ýš[˜ÙH[™ØØ[]KˆÈ›Ý™[HÛˆ[ˆÛØ\™H\XÛHÜˆHÙ[\‰ÜÈÚ[[™Û™\ÜÈÈÚ\ˆÚXÚÈHÝ\œ™[š[X\žK\ÛÝ\˜ÙH[\È›Üˆ[Ý\ˆ\š\ÙXÝ[Ûˆ™Y›Ü™H^Z[™ÈÜˆ˜[œÜÜ[™È[ˆ[š[X[Ü‚•\ÙHHH™YH‹ÛYØ[È^ÛÝYØ[]HÝZYOØO‹Ü‚‚•Ú\™HÚÝ[H™]ÈÙY\\ˆÛÈ™^ÏÚ‚’Yˆ[ÝHÈ›ÝY]ÝÛˆH[š[X[ÛÛ[YH[ˆ\ÈÜ™\ŽÜ‚Û‚OH™YH‹ØØ\™KX˜\ÚXÜËØ\™KX^ÛÝËYÛÛÙX™YÚ[›™\‹\]ËÈ‘XÚYHÚ]\ˆ[ˆ^ÛÝš]È[Ý\ˆÝ\ÙZÛØOÛO‚OH™YH‹ÛYØ[ÈÚXÚÈYØ[]KØOÛO‚OH™YH‹Ý[šË\Ù]\ÜÙ]\YÝZYKÈZ[[™ÞXÛHH\]X\š][KØOÛO‚OH™YH‹ØÛÜÝX[™X^Z[™ËÝÚ\™K]ËX^KX^ÛÝËÈÚÛÜÙHH™\šYšYYÙ[\‹ØOÛO‚OH™YH‹ØÛÜÝX[™X^Z[™ËÚÝË]ËXÚÛÜÙKXKZX[KX^ÛÝÈ’[œÜXÝH[™]šYX[[š[X[ØOÛO‚OH™YH‹Ý[šË\Ù]\ØXØÛ[X][™ËXK[™]ËX^ÛÝÈ“[Ý™H][ÈH™\\™YÞ\Ý[KØOÛO‚ÛÛ‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙÙ[™]XË\ÝØÚËXÙ[\‹ÙØÝ[Y[ËÐQÔÐÉLŒÑÝZYWÌŒœˆ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\Žˆ^ÛÝÝZYHŒØOÛO‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙYXØ][ÛŒKÙÝZYK]ËX^ÛÝZ\Ø˜[™žH[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\ŽˆÝZYHÈ^ÛÝ\Ø˜[™žOØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKÙ^ÝXËX[™[X›Ü˜]ÜžKX[š[X[ËØ[\XšX[œËÙ[š\›Û›Y[X[™Z\Ø˜[™žKY›Ü‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆ[š\›Û›Y[[™\Ø˜[™žH›Üˆ[\XšX[œË\]Y™XœX\žHŒØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKØ[[Ý\‹\]ËØ[\XšX[œËÚÝ\Ú[™ËY›Ü‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆÝ\Ú[™È›Üˆ[\XšX[œË\]Y™XœX\žHŒØOÛO‚OH™YHšÎ‹ËÝÝÝËœ]ÛË˜ÛÛKÜ]YYXØ][Û‹ØØ\™\ÚY]ËØ^ÛÝ”]ÛÎˆ^ÛÝØ\™HÝZYH8 %Ý\œ™[ÛÛœÝ[Y\ˆ[šË\Ú^™HÝZY[˜ÙOØOÛO‚Ý[‚‰ÉÉÂ‚“ÑWÓÕ‘T”’QTÖÈ[šË\Ù]\ÜÙ]\YÝZYH—HH‰ÉÉÂÝ›Û™Ï”Ù]\[™ÝXš[^™HH\]X\š][H™Y›Ü™HH^ÛÝ\œš]™\ËÜÝ›Û™ÏˆHÙ\]Y[˜ÙH\ÎˆÚÛÜÙHHÝZ]X›HÛ™È[šÈ[™Ý[™[ˆÛÛÛ[™Ë[œÝ[Ù[Hš[ÛÙÚXØ[š[˜][Û‹ÚÛÜÙHØY™HÝXœÝ˜]H[™Y\Ëš[Ú]™X]YØ]\‹\ÝX›\ÚHš]›ÙÙ[ˆÞXÛK[™ÛÛ™š\›HHÞ\Ý[HÚ]YX\Ý\™YØ]\ˆ\ÝËÜ‚]ˆÛ\ÜÏHœ›ÛK[›ÝHÝ›Û™Ï•\ÈYÙHÝÛœÈHÙ]\Ù\]Y[˜ÙKÜÝ›Û™Ïˆ^XÝ[šË\Ú^™HXÚ\Ú[ÛœËš[\ˆÛÛ\\š\ÛÛ‹[\\˜]\™HX[˜YÙ[Y[Ø]\ˆÚ[Z\ÝžH[™ÞXÛ[™È[\œ™]][Ûˆ\™H[™YžHZ\ˆÜXÚX[\ÝYÙ\ÈÛÈ\ÈÝZYHÙ\È›ÝÜ™X]HÛÛ\][™È[\ËÙ]‚‚”Ý\NˆÚÛÜÙHH[šÈ™Y›Ü™H^Z[™È\]Z\Y[Ú‚‘›ÜˆÛ™HY[Ý\œ™[]ÛÈØ\™HÝZY[˜ÙH™XÛÛ[Y[™ÈHZ[š[][HÙˆŒ
+ÈØ[ÛœÈ[™Ø^\È[™Ý\È[Ü™H[\Ü[[ˆZYÚˆ^P^ÛÝ™X]ÈHŒYØ[ÛˆÛ™È\ÈH˜XÝXØ[ÝÙ\ˆ›Ý[™[™™Y™\œÈHYØ[Ûˆœ™YY\ˆ\ÈH[Ü™H›Ü™Ú]š[™È\›X[™[Ù]\Ú[ˆÜXÙH[™YÙ]\›Z]Ü‚•]™Y™\™[˜ÙH\È›ÝHÛZ[H]Û™H^XÝØ[Ûˆ[X™\ˆ\ÈH[š]™\œØ[š[ÛÙÚXØ[™\ÚÛˆ\ÙHH™YH‹Ý[šË\Ù]\Ý[šË\Ú^™KXžKXYÙKÈ•Ú]Ú^™H[šÈÙ\È[ˆ^ÛÝ™YYÏØOˆ›ÜˆH[™X\ÛÛš[™Ë[˜ÛY[™È˜XšY\Ë]™[š[\È[™][\HY[ËÜ‚‚”Ý\ŽˆÚÛÜÙHHÝX›HØØ][Ûˆ[™Ý[™Ú‚”XÙHH\]X\š][HÚ\™H›ÛÛH[\\˜]\™H\ÈX\ÚY\ÝÈÛÛ›Û[™Ú\™H\™XÝÝ[‹˜YX]ÜœÈ[™Ý\ˆX]ÛÝ\˜Ù\ÈÚ[›ÝÜ™X]H]›ÚYX›H\›X[ÝÚ[™ÜËˆHÝ[™]\Ý™H]™[[™˜]Y›ÜˆHš[Y\]X\š][IÜÈÙZYÚÜ‚’Yˆ[ÝHÛ›HÛ›ÝÈH[šÈ[Y[œÚ[ÛœË\ÙHHH™YH‹ÝÛÛËØ\]X\š][K]›Û[YKXØ[Ý[]Ü‹È\]X\š][H›Û[YHØ[Ý[]ÜØOˆÈ\Ý[X]HØ]\ˆ›Û[YH[™Ø]\ˆÙZYÚÜ‚‚”Ý\Îˆ[ˆ[\\˜]\™HÛÛ›Û›Üˆ[Ý\ˆ™X[›ÛÛOÚ‚Ý›Û™Ï‘È›Ý]]ÛX]XØ[H^HHÚ[\ˆ[™È›Ý\ÜÝ[YHH˜[ˆÚ[[Ø^\È™H[›ÝYÚÜÝ›Û™ÏˆYX\Ý\™HH›ÛÛH[™[šÈ›ÝYÚHØ\›Y\ÝÛÛ™][ÛœÈ[ÝH^XÝˆ[\XšX[ˆ™]\š[˜\žHÝZY[˜ÙH[\\Ú^™\ÈXZ[Z[š[™ÈHÜXÚY\ËX\›ÜšX]HÝX›H[\\˜]\™H[™›Ý\È]Ú[\œÈÜˆZ\ˆÛÛ™][Ûš[™ÈX^H™H™YYY›Üˆ\]X]XÈÞ\Ý[\ËÜ‚•\ÙHH™YH‹Ý[šË\Ù]\Ý[\\˜]\™KÈ^ÛÝ[šÈ[\\˜]\™OØOˆ›ÜˆH\™Ù][™›Û‹\\˜Ú\ÙHÛÛÛ[™ÈY]ÙËˆYˆXÝ]™HÛÛÛ[™È\È™\]Z\™Y\ÙHH™YH‹Ý[šË\Ù]\Ø\]X\š][KXÚ[\œËÈ\]X\š][HÚ[\œÏØOˆ[™HH™YH‹ÝÛÛËØÚ[\‹\Ú^™KXØ[Ý[]Ü‹ÈÚ[\ˆÚ^™HØ[Ý[]ÜØO‹Ü‚‚”Ý\ˆ[œÝ[š[ÛÙÚXØ[š[˜][ÛˆÚ]Ù[H›ÝÏÚ‚HÛÛ™[[Û˜[ÛYH\]X\š][HÚÝ[\ÙH\ÝX›\ÚYš[ÛÙÚXØ[š[˜][Û‹ˆHš[\ˆ™YYÈ[›ÝYÚÛÛÛš^™YYYXH›ÜˆHXÝX[Ø\ÝHØYÚ[H™]\›š[™ÈØ]\ˆÙ[H[›ÝYÚ]H^ÛÝ\È›ÝÛÛ[[Ý\ÛH\ÚY\›Ý[™H[šËÜ‚Ý›Û™Ï‘È›ÝÚÛÜÙHœ›ÛHHš^Y8 'ðåË8 'H8 'påË8 'HÜˆ8 'L0åø 'H\››Ý™\ˆ[KÜÝ›Û™ÏˆX[Y˜XÝ\™\ˆ›ÝÈ˜][™ÜÈÈ›Ý\ØÜšX™HH[š[X[	ÜÈXÝX[Ý\œ™[Y\ˆYYXKXš[™ËÜ˜^H˜\œÈ[™XYÜÜËˆÚÛÜÙHžHš[ÛÙÚXØ[Ø\XÚ]KXœš\ÈØ\\™H[™ÛÛ›ÛX›H™]\›ˆ›ÝËÜ‚•\ÙHH™YH‹Ý[šË\Ù]\Ùš[˜][Û‹Y›Ü‹X^ÛÝËÈ‘È^ÛÝÈ™YYHš[\ÏØOˆ[™H™YH‹Ý[šË\Ù]\ØØ[š\Ý\‹]œË\ÜÛ™ÙKYš[\‹ÈØ[š\Ý\ˆœÈÜÛ™ÙOØO‹Ü‚‚”Ý\NˆÚÛÜÙHØY™HÝXœÝ˜]OÚ‚]›ÚYÝØ[ÝØX›HÜ˜]™[[™ÛÜÙHÝÛ™\Ëˆ^ÛÝÈ™YYžHÝXÝ[Ûˆ[™Ø[ˆ[™Ù\ÝX]\šX[\›Ý[™›ÛÙˆ˜\™KX›ÝÛHÝ\Ú[™È[™\›ÜšX][Hš[™HØ[™\™HÛÛ[[Ûˆ\›ØXÚ\Ë]HÛÜœ™XÝÚÚXÙH\[™ÈÛˆY™HÝYÙKÜ˜Z[ˆÚ^™H[™XZ[[˜[˜ÙKÜ‚•\ÙHH™YH‹Ý[šË\Ù]\ÜÝXœÝ˜]KX[™Z[\XÝ[Û‹ÈÚÛÜÚ[™ÈH™\Ý^ÛÝÝXœÝ˜]OØO‹ˆYˆ[ÝH\™HÛÛœÚY\š[™ÈÜ˜]™[™XYH™YH‹Ý[šË\Ù]\ÙÜ˜]™[\š\ÚÜËÈ‘Ü˜]™[š\ÚÜÏØOˆš\œÝÜ‚‚”Ý\ŽˆYY\È[™ØY™H0êXÛÜÚ‚”›ÝšYH]X\ÝÛ™HÛ[ÛÝ™YYÙH\™ÙH[›ÝYÚ›ÜˆH[š[X[È\ÙHÛÛY›ÜX›Kˆ]›ÚYÚ\œYÙ\ËÛX[Û\ÈÚ\™HH›ÙHØ[ˆ™XÛÛYH˜\Y[œÝX›H›ØÚÝÛÜšÈ[™ÛX[]XÚX›HØš™XÝÈ]ÛÝ[™HÝØ[ÝÙYÜ‚“YÚ[™ÈÚÝ[Ý\ÜšY]Ú[™ÈÜˆ[ÈÚ]Ý]™[[Ýš[™ÈH[š[X[	ÜÈXš[]HÈ™]™X][ÈÚYKˆÙYHH™YH‹Ý[šË\Ù]\Û]™K]œËX\YšXÚX[\[ËÈ“]™HœÈ\YšXÚX[[ÏØOˆ›Üˆ[ÙXÛÜˆÚÚXÙ\ËÜ‚‚”Ý\Îˆ\ÙHHÙXÝ\™HÜÚ[ˆ\ØØ\H\ÈÜÜÚX›OÚ‚HÙXÝ\™H\]X\š][HÛÝ™\ˆ\È\ÙY[Ú\™H[ˆ^ÛÝÛÝ[X]™HH[šÈÜˆÚ\™HÝ\ÙZÛ]ËØš™XÝÈÜˆÛÛ[Z[˜[ÈÛÝ[[\ˆ]ˆÚÛÜÙHHÛÝ™\ˆ]ÛÜšÜÈÚ]HÛÛÛ[™ËÝ™[[][Ûˆ[ˆ[™\]Z\Y[˜]\ˆ[ˆÙX[[™ÈHØ\›H[šÈ[ˆHØ^H]˜\ÈX]Ü‚‚”Ý\ˆš[Ú]\›ÜšX]H™X]YØ]\Ú‚“][šXÚ\[Ø]\ˆX^HÛÛZ[ˆÚÜš[™HÜˆÚÜ˜[Z[™Kˆ\ÙHHÛÛ™][Û™\ˆÜˆØ]\‹]™X]Y[Y]Ù\›ÜšX]HÈH\Ú[™™XÝ[[ˆ[Ý\ˆÝ\KˆÈ›Ý\ÜÝ[YH]Ú[\H][™ÈØ]\ˆÝ[™™[[Ý™\ÈÚÜ˜[Z[™KÜ‚•\ÙHH™YH‹Ý[šË\Ù]\ÝØ]\‹XÛÛ™][Û™\œËÈ•Ø]\ˆÛÛ™][Û™\œÏØOˆ[™HH™YH‹ÝÛÛËÝØ]\‹XÛÛ™][Û™\‹YÜØYÙKXØ[Ý[]Ü‹È•Ø]\ˆÛÛ™][Û™\ˆÜØYÙHØ[Ý[]ÜØOˆ›Üˆ›ÙXÝ]›Û[YHX]Ü‚‚”Ý\Nˆ\ÝX›\ÚHš[ÛÙÚXØ[š[\ˆ™Y›Ü™HY[™ÈH^ÛÝÚ‚Ý›Û™Ï‘È›Ý\ÙHH^ÛÝ\ÈH[[[ÛšXHÛÝ\˜ÙH›ÜˆH™]È[˜ÞXÛY\]X\š][KÜÝ›Û™Ïˆ\ÝX›\ÚHš[Ùš[\ˆ™Y›Ü™HH[š[X[\œš]™\ËˆHÞXÛ[™È›ØÙ\ÜÈ\Ù\ÈHÛÛ›ÛY[[[ÛšXHÛÝ\˜ÙH[™Ø]\ˆ\Ý[™ÈÈ[[ÛœÝ˜]H]Hš[\ˆÛÛ[][š]H\È›ØÙ\ÜÚ[™Èš]›ÙÙ[›Ý\ÈØ\ÝKÜ‚‘È›ÝXÛ\™HH[šÈ8 'ÞXÛY8 'H™XØ]\ÙHHÙ\Z[ˆ[X™\ˆÙˆÙYZÜÈ\È\ÜÙYˆÛÛ™š\›HH›ØÙ\ÜÈœ›ÛHYX\Ý\™Y[[[ÛšXKš]š]H[™š]˜]H™[™Ëˆ\ÙHH™YH‹Ý[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™ËÈ•Ø]\ˆ\˜[Y]\œÈ	ˆš]›ÙÙ[ˆÞXÛOØOˆ[™ÙÈH™XY[™ÜÈ[ˆHH™YH‹ÝÛÛËÛš]›ÙÙ[‹XÞXÛK]˜XÚÙ\‹È“š]›ÙÙ[ˆÞXÛH˜XÚÙ\ØO‹Ü‚‚”Ý\LˆX\›ˆÈ\ÝHØ]\ˆÛÜœ™XÝOÚ‚™Y›Ü™HH[š[X[\œš]™\Ë[ÝHÚÝ[™HX›HÈYX\Ý\™H[™™XÛÜ™[[[ÛšXKš]š]Kš]˜]K[™[\\˜]\™H™[XX›KˆÛX\‹[ÛÚÚ[™ÈØ]\ˆØ[ˆÝ[]™H[œØY™HÚ[Z\ÝžKÜ‚•\ÙHH™YH‹Ý[šË\Ù]\ÚÝË]Ë]\Ý]Ø]\‹È’ÝÈÈ\Ý^ÛÝØ]\ØOˆ›ÜˆØ[\HÛÛXÝ[Û‹\ÝZÚ]XÚš\]YH[™ÛÛÜ‹XÚ\™XY[™ËÜ‚‚”Ý\LNˆÜ™X]HHXZ[[˜[˜ÙH›Ý][™H™Y›Ü™HH[šÈ\ÈØØÝ\YYÚ‚”™YÝ[\ˆ\Ý[™ËØ\ÝH™[[Ý˜[\X[Ø]\ˆÚ[™Ù\È[™š[\ˆXZ[[˜[˜ÙH\™H\ÙˆHÙ]\8 %›Ý\ÚÜÈÈ[™[Y\ˆH›Ø›[H\X\œËˆHŒQÔÐÈÝZYH[™Y\˜ÚÉÜÈŒˆ[\XšX[ˆÝZY[˜ÙH›ÝÝ\Ü›Ý][™H\X[Ø]\ˆ™\XÙ[Y[[ˆ\ÝX›\ÚY\]X]XÈÞ\Ý[\ËÜ‚•\ÙHH™YH‹Ý[šË\Ù]\ÝØ]\‹XÚ[™ÙKYÝZYKÈ’ÝÈÈÚ[™ÙH^ÛÝ[šÈØ]\ØO‹ˆÈ›Ý™\XÙH[X]\™Hš[ÛÙÚXØ[YYXHÛˆH›Ý][™HØ[[™\‹Ü‚‚”Ý\LŽˆ™\\™H›ÛÙ˜[œÜÜ[™XØÛ[X][Ûˆ™Y›Ü™HXÚÝ\^OÚ‚’]™HH[š[X[	ÜÈ›Ü›X[›ÛÙ™XYH[™Û›ÝÈÝÈHÙ[\ˆ\È™Y[ˆ™YY[™È]ˆÛÛ™š\›HH˜[œÜÜ[™\œš]˜[[ˆ™Y›Ü™H\˜Ú\ÙK\ÜXÚX[H›ÜˆÚ\Y[š[X[ËÜ‚•\ÙHH™YH‹ØÛÜÝX[™X^Z[™ËÜÚ\[™Ë[]™KX^ÛÝËÈ”Ú\[™È]™H^ÛÝÏØOˆ[™H™YH‹Ý[šË\Ù]\ØXØÛ[X][™ËXK[™]ËX^ÛÝÈXØÛ[X][™ÈH™]È^ÛÝØO‹Ü‚‚•Ú]ÚÝ[™H™XYH™Y›Ü™HH^ÛÝ\œš]™\ÏÏÚ‚]ˆÛ\ÜÏHX›K]Ü˜\X›O‚XY’][OÝ”™XYHÚ[‹‹‹ÝÝÝXY‚›ÙO‚•[šÈ[™Ý[™Ý“]™[ÙXÝ\™H[™Ú^™Y›ÜˆH[[™Y[š[X[ÛÝ[ÝÝ‚•[\\˜]\™HÛÛ›ÛÝ•H[šÈ™[XZ[œÈ[ˆH[›™Y˜[™ÙH[™\ˆHØ\›Y\Ý^XÝY›ÛÛHÛÛ™][ÛœËÝÝ‚‘š[\Ýš[ÛÙÚXØ[š[˜][Ûˆ\È\ÝX›\ÚY[™™]\›ˆ›ÝÈ\ÈÙ[KÝÝ‚•Ø]\Ý”ÛÝ\˜ÙHØ]\ˆ\È™X]Y\›ÜšX][H[™[ÝHÛ›ÝÈÝÈÈ\Ý]ÝÝ‚“š]›ÙÙ[ˆÞXÛOÝ”™XY[™ÜÈ[[ÛœÝ˜]HH[˜Ý[Ûš[™Èš[Ùš[\ˆ˜]\ˆ[ˆÚ[\H[ˆ[\ÙY[Y[[™KÝÝ‚”ÝXœÝ˜]HÈ0êXÛÜÝ“›ÈÝØ[ÝØX›HÜ˜]™[Ú\œYÙ\ÈÜˆ˜\[™È^˜\™ËÝÝ‚‘›ÛÙÝ”ÝZ]X›H›ÛÙ\ÈÛˆ[™[™Ü[Û‹Ùœ™\]Y[˜ÞH\™H[™\œÝÛÙÝÝ‚‘[Y\™Ù[˜ÞH[Ý–[ÝHÛ›ÝÈH™X\™\Ý[\XšX[‹Ù^ÝXÜÈ™][™]™HH[\Ü˜\žHØY™HÛÛZ[™\ˆYˆ˜[œÙ™\ˆ\È™YYYÝÝ‚Ý›ÙOÝX›OÙ]‚‚ÛÛ[[ÛˆÙ]\Z\ÝZÙ\ÏÚ‚[‚O˜^Z[™ÈH^ÛÝ™Y›Ü™HH\]X\š][H\ÈÞXÛYÏÛO‚O\Ú[™ÈHÛX[[šÈ™XØ]\ÙHH[š[X[\ÈÝ\œ™[HH]™[š[HÚ]Ý][›š[™ÈHY[ÛYNÏÛO‚O˜ÚÛÜÚ[™ÈHÝÙ\™[š[\ˆ]Ø[››Ý™HXYHÙ[NÏÛO‚O\Ú[™ÈÝØ[ÝØX›HÜ˜]™[ÏÛO‚O˜\ÜÝ[Z[™ÈÛX\ˆØ]\ˆ\ÈÚ[ZXØ[HØY™NÏÛO‚O˜^Z[™ÈHÚ[\ˆœ›ÛH[šÈØ[ÛœÈ[Û™HÚ]Ý]ÛÛœÚY\š[™È›ÛÛHX][™™\]Z\™Y[YÝÛŽÏÛO‚Oœ™[Z[™ÈÛˆHš^YÞXÛ[™È[Y[[™H˜]\ˆ[ˆ\Ý™\Ý[ÎÏÛO‚O›XZÚ[™È\™ÙH\Ý[Z[]HÚ[™Ù\È[[YYX][H™Y›Ü™HH[š[X[\œš]™\ÎÈ[™ÛO‚O˜ÛÜZ[™È™X]Y[Üˆ[Y\™Ù[˜ÞHYšXÙH[ÈHÙ]\›ØÙ\ÜÈ[œÝXYÙˆÙY\[™ÈH[šÈÝX›KÛO‚Ý[‚‚’ÝÈÚÝ[HÙ]\YÙ\Èš]ÙÙ]\ÏÚ‚]ˆÛ\ÜÏHX›K]Ü˜\X›O‚XY–[Ý\ˆ]Y\Ý[ÛÝØ[›ÛšXØ[YÙOÝÝÝXY‚›ÙO‚’ÝÈ\™ÙHÚÝ[H[šÈ™OÏÝH™YH‹Ý[šË\Ù]\Ý[šË\Ú^™KXžKXYÙKÈ•[šÈÚ^™OØOÝÝ‚•ÚXÚš[\ˆ[™ÝÈ]XÚ›ÝÏÏÝH™YH‹Ý[šË\Ù]\Ùš[˜][Û‹Y›Ü‹X^ÛÝËÈ‘š[˜][ÛØOÝÝ‚Ø[š\Ý\ˆÜˆÜÛ™ÙOÏÝH™YH‹Ý[šË\Ù]\ØØ[š\Ý\‹]œË\ÜÛ™ÙKYš[\‹ÈØ[š\Ý\ˆœÈÜÛ™ÙOØOÝÝ‚•Ú][\\˜]\™OÏÝH™YH‹Ý[šË\Ù]\Ý[\\˜]\™KÈ•[\\˜]\™OØOÝÝ‚‘ÈH™YYHÚ[\ÏÝH™YH‹Ý[šË\Ù]\Ø\]X\š][KXÚ[\œËÈÚ[\ˆ^Z[™ÈÝZYOØOÝÝ‚•ÚXÚÝXœÝ˜]OÏÝH™YH‹Ý[šË\Ù]\ÜÝXœÝ˜]KX[™Z[\XÝ[Û‹È”ÝXœÝ˜]OØOÝÝ‚’ÝÈÈH\ÝØ]\ÏÝH™YH‹Ý[šË\Ù]\ÚÝË]Ë]\Ý]Ø]\‹È•Ø]\ˆ\Ý[™ÏØOÝÝ‚•Ú]ÈH™XY[™ÜÈYX[ÏÝH™YH‹Ý[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™ËÈ•Ø]\ˆ\˜[Y]\œÈ	ˆÞXÛ[™ÏØOÝÝ‚’ÝÈÈHÚ[™ÙHØ]\ÏÝH™YH‹Ý[šË\Ù]\ÝØ]\‹XÚ[™ÙKYÝZYKÈ•Ø]\ˆÚ[™ÙHÝZYOØOÝÝ‚Ý›ÙOÝX›OÙ]‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙÙ[™]XË\ÝØÚËXÙ[\‹ÙØÝ[Y[ËÐQÔÐÉLŒÑÝZYWÌŒœˆ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\Žˆ^ÛÝÝZYHŒØOÛO‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙYXØ][ÛŒKÙÝZYK]ËX^ÛÝZ\Ø˜[™žH[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\ŽˆÝZYHÈ^ÛÝ\Ø˜[™žOØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKÙ^ÝXËX[™[X›Ü˜]ÜžKX[š[X[ËØ[\XšX[œËÙ[š\›Û›Y[X[™Z\Ø˜[™žKY›Ü‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆ[š\›Û›Y[[™\Ø˜[™žH›Üˆ[\XšX[œË\]Y™XœX\žHŒØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKØ[[Ý\‹\]ËØ[\XšX[œËÚÝ\Ú[™ËY›Ü‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆÝ\Ú[™È›Üˆ[\XšX[œË\]Y™XœX\žHŒØOÛO‚OH™YHšÎ‹ËÝÝÝËœ]ÛË˜ÛÛKÜ]YYXØ][Û‹ØØ\™\ÚY]ËØ^ÛÝ”]ÛÎˆÝ\œ™[^ÛÝØ\™HÝZYOØOÛO‚Ý[‚‰ÉÉÂ‚™›ÜˆØÙ™È[ˆT•PÓTË˜[Y\Ê
+N‚ˆYˆØÙ™Ë™Ù]
+œÛYÈŠH[ˆÈ˜^ÛÝËØØ\™KYÝZYH‹[šË\Ù]\ÜÙ]\YÝZYHŸN‚ˆØÙ™ÖÈ™]WÛ[ÙYšYY—HHŒŒ‹LKLNH‚‚‚“ÑWÓÕ‘T”’QTÖÈ[šË\Ù]\ÝØ]\‹\\˜[Y]\œËXÞXÛ[™È—HH‰ÉÉÂÝ›Û™Ï^ÛÝØ]\ˆ]X[]HÚÝ[™HX[˜YÙYœ›ÛHYX\Ý\™Y™[™Ë›ÝHY[[Üš^™Y8 '\™™XÝ[X™\œø 'HX›KÜÝ›Û™Ïˆ[ˆH›Ü›X[ÛYH\]X\š][KHš[Üš]Y\È\™HH[˜Ý[Ûš[™Èš[ÛÙÚXØ[š[\‹›ÈXØÝ[][][™È[[[ÛšXHÜˆš]š]KÛÛ›ÛYš]˜]KÝX›H\›ÜšX]H[\\˜]\™K[™ÛÝ\˜ÙHØ]\ˆ]\Èœ™YHÙˆÚÜš[™KØÚÜ˜[Z[™HÜˆ™X]YÛÜœ™XÝKÜ‚]ˆÛ\ÜÏHœ›ÛK[›ÝHÝ›Û™Ï•\ÈYÙHÝÛœÈ[\œ™]][Ûˆ[™ÞXÛ[™ËÜÝ›Û™Ïˆ›ÜˆÝÈÈZÙHH™XY[™ÜË\ÙHH™YH‹Ý[šË\Ù]\ÚÝË]Ë]\Ý]Ø]\‹È’ÝÈÈ\Ý^ÛÝØ]\ØO‹ˆ›ÜˆH\ÚXØ[XZ[[˜[˜ÙH›ØÙY\™K\ÙHH™YH‹Ý[šË\Ù]\ÝØ]\‹XÚ[™ÙKYÝZYKÈ’ÝÈÈÚ[™ÙH^ÛÝ[šÈØ]\ØO‹Ù]‚‚•ÚXÚØ]\ˆ\˜[Y]\œÈÚÝ[[ÝH˜XÚÏÏÚ‚]ˆÛ\ÜÏHX›K]Ü˜\X›O‚XY”\˜[Y]\Ý•ÚH]X]\œÏÝ’ÝÈÈ\ÙH]ÝÝÝXY‚›ÙO‚[[[ÛšXOÝ”š[X\žHš]›ÙÙ[›Ý\ÈØ\ÝNÈÞXÚ]Hš\Ù\È\È[™[\\˜]\™HÚ[™ÙKÝ”ÚÝ[›Ý™H[ÝÙYÈXØÝ[][]H[ˆH[˜Ý[Ûš[™ÈØØÝ\YY\]X\š][KÝÝ‚“š]š]OÝ’[\›YYX]H›ÙXÝÙˆš]šYšXØ][Ûˆ[™[ˆ[™XØ]ÜˆÙˆ[ˆ[˜ÛÛ\]KÛÝ™\›ØYYš[Ùš[\‹Ý”ÚÝ[›ÝXØÝ[][]H[ˆHX]\™HØØÝ\YYÞ\Ý[KÝÝ‚“š]˜]OÝ‘[™›ÙXÝ]\ÝX[HZ[È™]ÙY[ˆØ]\ˆÚ[™Ù\ËÝ•\ÙHH™[™ÈÙ]XZ[[˜[˜ÙNÈÝ\œ™[]ÛÈÝZY[˜ÙHÙY\È]™[ÝÈŒKÝÝ‚œÝY™™XÝÈ[š[X[\Ú[ÛÙÞH[™[[[ÛšXHÞXÚ]NÈÝY[ˆÝÚ[™ÜÈ[ÛÈY™™XÝHš[Ùš[\‹Ý”š[Üš]^™HÝXš[]H[™[™\œÝ[™[Ý\ˆÛÝ\˜ÙHØ]\ˆ˜]\ˆ[ˆÚ\Ú[™ÈÛ™H^XÝXÚ[X[ÝÝ‚•[\\˜]\™OÝY™™XÝÈY]X›Û\ÛKÞYÙ[ˆ[X[™[™Ø]\ˆÚ[Z\ÝžKÝ’[\œ™]ÛˆHH™YH‹Ý[šË\Ù]\Ý[\\˜]\™KÈ•[\\˜]\™HÝZYOØO‹ÝÝ‚‘ÒÈÒÈ[Ø[[š]OÝ‘\ØÜšX™HZ[™\˜[ÛÛ[[™Y™™\š[™ÈØ\XÚ]KÝ•\ÙY[Ú[ˆ\È[œÝX›KÛÝ\˜ÙHØ]\ˆ\È™\žHÛÙÚ\™Üˆ[ÝH\™H›ÝX›\ÚÛÝ[™ÈÚ[Z\ÝžKÝÝ‚Ý›ÙOÝX›OÙ]‚‚•Ú]Ù\ÈHQÔÐÈŒÝZYHXÝX[HØ^OÏÚ‚•H[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\ˆ\Ù\ÈHÝ[™\™^™Y™\ÙX\˜ÚØ]\ˆ›Ü›][][ÛˆXYHœ›ÛH™]™\œÙK[ÜÛ[ÜÚ\ÈØ]\ˆ[™Ø[ËY™™\™YÈ›ÝYÚHËŒx $ÍË‹ˆHØ[YHÝZYH^XÚ]H›Ý\È]Ý\ˆX›Ü˜]ÜšY\È]™H˜Z\ÙY^ÛÝÈÝXØÙ\ÜÙ[H[ˆÛÛ™][Û™YÙ[[™][šXÚ\[Ø]\ˆ[™Ø^\È][šXÚ\[Ú[Z\ÝžHØ[ˆ˜\žH˜[X]XØ[KÜ‚Ý›Û™Ï•]YX[œÈHQÔÐÈ™XÚ\H\ÈH™\ÙX\˜ÚÝ[™\™›ÝHÛÛ[X[™]]™\žH]ÙY\\ˆ]\Ý™XÜ™X]KÜÝ›Û™Ïˆ]È[ÜÝ˜[œÙ™\˜X›H\ÜÛÛˆ\ÈÈÛ›ÝÈ[Ý\ˆÛÝ\˜ÙHØ]\‹™[[Ý™H][šXÚ\[\Ú[™™XÝ[È\›ÜšX][K[Ûš]ÜˆØ[[[ÛšXKØÚÜš[™HÜˆÚÜ˜[Z[™K[™™\ÜÛ™ÈYX\Ý\™YÚ[™Ù\È˜]\ˆ[ˆ\ÜÝ[\[ÛœËÜ‚‚•Ú]ÚÝ[[[[ÛšXH[™š]š]H™XY[ˆ[ˆØØÝ\YY^ÛÝ[šÏÏÚ‚Ý›Û™Ï•^HÚÝ[›Ý™H[ÝÙYÈXØÝ[][]KÜÝ›Û™ÏˆY\˜ÚÉÜÈ\]X]XËX[š[X[ÝZY[˜ÙHÝ]\È]Ø]\ˆÚÝ[™Hœ™YHÙˆ[[[ÛšXH[™š]š]K[™Ý\œ™[]ÛÈ^ÛÝÝZY[˜ÙHØ^\È^ÛÝÈ\™H™\žHÙ[œÚ]]™HÈ›ÝˆHYX\Ý\˜X›H™XY[™È\™Y›Ü™HšYÙÙ\œÈ[™\ÝYØ][ÛˆÙˆHš[Ùš[\‹Ø\ÝHØYÛÝ\˜ÙHØ]\‹™YY[™È[™™XÙ[XZ[[˜[˜ÙKÜ‚‘È›Ý\›ˆHÚ[™ÛH\Ý\Ýš\ÛÛÜˆ[ÈHXYÛ›ÜÚ\ÈÙˆ8 '[[[ÛšXH\›‹¸ 'HÛÛ™š\›HH™\Ý[™]šY]ÈÝ[\\˜]\™K[™ÛÚÈ]HÚÛH[š[X[Ü‚‚•Ú]š]˜]H]™[ÚÝ[[ÝHZ[H›ÜÏÚ‚“š]˜]H\È›Ü›X[HX[˜YÙY›ÝYÚØ]\ˆÚ[™Ù\Ë[\ZÙH[™ÝØÚÚ[™ËÙ™YY[™ÈÛÛ›Û˜]\ˆ[ˆ^XÝYÈ™[XZ[ˆ]™\›ËˆÝ\œ™[]ÛÈ^ÛÝÝZY[˜ÙH™XÛÛ[Y[™ÈÙY\[™Èš]˜]H™[ÝÈŒKˆ^P^ÛÝ\Ù\È]\ÈH˜XÝXØ[ÛÛœÝ[Y\ˆÙZ[[™ÈÚ[H[ÛÈØ]Ú[™ÈH[™]šYX[[šÉÜÈ™[™Ü‚Ý›Û™Ï‘È›ÝÛZ[H]H\XÝ[\ˆš]˜]H[X™\ˆ]]ÛX]XØ[HØ]\Ù\È[™Ý\ËÚ[Úš[šØYÙHÜˆ\]]HÜÜÈ[ˆ]™\žH^ÛÝÜÝ›Û™ÏˆHš\Ú[™Èš]˜]H™[™\ÈHXZ[[˜[˜ÙHÚYÛ˜[]Û[šXØ[ÚYÛœÈÝ[™YYZ\ˆÝÛˆ\ÜÙ\ÜÛY[Ü‚‚•Ú]\È\›ÜšX]OÏÚ‚•HQÔÐÉÜÈÝ[™\™^™Y™X\š[™ÈØ]\ˆ\ÈY™™\™Y\›Ý[™ËŒx $ÍË‹]HØ[YHÝZYHÝ]\È]][šXÚ\[]Ø]\ˆÚ[Z\ÝžH˜\šY\È[™]Ý\ˆØ]\ˆÛÝ\˜Ù\ÈØ[ˆÝ\Ü^ÛÝËˆ›ÜˆHÛYH[šËÝXš[]H[™Hš[ÛÙÚXØ[H[˜Ý[Ûš[™ÈÞ\Ý[H\™H[Ü™H\ÙY[[ˆ™\X]YHÜÚ[™ÈÚ[ZXØ[ÈÈ›Ü˜ÙHÛ™H^XÝ˜[YKÜ‚’Yˆ[Ý\ˆ\È\œÚ\Ý[H^™[YK˜\YHÚ[™Ú[™ËÜˆZ\™YÚ][[[ÛšXH›Ø›[\Ë[™\ÝYØ]HÛÝ\˜ÙHØ]\‹[Ø[[š]KÒÒÝXœÝ˜]KÜ›ØÚÈÚ[Z\ÝžH[™š[˜][Û‹ˆ]›ÚY[Y\™Ù[˜ÞH˜ZÚ[™Ë\ÛÙH™XÚ\\ÈÚ]Ý][™\œÝ[™[™ÈHÚ[Z\ÝžH[ÝH\™HÚ[™Ú[™ËÜ‚‚‘ÈÒ[™Ò]™H[š]™\œØ[^ÛÝ\™Ù]˜[™Ù\ÏÏÚ‚Ý›Û™Ï“›Ýœ›ÛHHÛÝ\˜Ù\È\ÙYžH^P^ÛÝÜÝ›Û™Ïˆ\™™\ÜÈ[™[Ø[[š]HX]\ˆ™XØ]\ÙH^H[™›Y[˜ÙHZ[™\˜[]˜Z[Xš[]H[™Y™™\š[™Ë]ÙHY›Ýš[™[ˆ^ÛÝ\ÜXÚYšXÈ™]\š[˜\žHÛÝ\˜ÙH˜[Y][™ÈÛ™H[š]™\œØ[8 'Òø $ÌMÈÒø $Î8 'HÛYH\™Ù]Ü‚“YX\Ý\™H[HÚ[ˆ[Ý\ˆÛÝ\˜ÙHØ]\ˆ\È[\ÝX[HÛÙÚ\™\È[œÝX›KÜˆ[ÝH\™H\ÚYÛš[™ÈH™\›ÙXÚX›HØ]\ˆ™XÚ\KˆYˆ[ÝH\™H[X™\˜][H™[Z[™\˜[^š[™È“ËÙ\Ý[YØ]\‹›ÛÝÈHYš[™Y›Ü›][][Ûˆ˜]\ˆ[ˆ[\›Ýš\Ú[™ÈØ[ØšXØ\˜›Û˜]HÜÙ\ËÜ‚‚•Ú]\ÈHš]›ÙÙ[ˆÞXÛOÏÚ‚š[ÛÙÚXØ[š[˜][Ûˆ\Ù\ÈZXÜ›ØšX[ÛÛ[][š]Y\ÈÈÞY^™H[[[ÛšXH›ÝYÚš]š]HÝØ\™š]˜]KˆH™]È\]X\š][HÙ\È›Ý]™H[›ÝYÚ\ÝX›\ÚYš[Ùš[HÚ[\H™XØ]\ÙHHš[\ˆ\È™Y[ˆÝÚ]ÚYÛˆ›ÜˆHÙ\Z[ˆ[X™\ˆÙˆ^\ËÜ‚‘›Üˆ[ˆ^ÛÝÙ]\\ÝX›\ÚHš[\ˆ™Y›Ü™HH[š[X[[\œËˆHš\Ú\ÜÈÞXÛ[™ÈY]Ù\Ù\ÈHÛÛ›ÛY[[[ÛšXHÛÝ\˜ÙH[™™\X]Y\Ý[™ÈÛÈ[ÝHØ[ˆÙYHHÞ\Ý[H]™[Ü[[[ÛšXK\›ØÙ\ÜÚ[™È[™š]š]K\›ØÙ\ÜÚ[™ÈØ\XÚ]KÜ‚‚’ÝÈÈ[ÝHÛ›ÝÈÚ[ˆH[šÈ\ÈÞXÛYÏÚ‚Ý›Û™Ï•\ÙHH]\›ˆÙˆ™\X]Y\Ý™\Ý[È˜]\ˆ[ˆHš^Y8 '8 $ÎÙYZø 'H›ÛZ\ÙKÜÝ›Û™ÏˆHX]\™Hš[Ùš[\ˆÚÝ[›ØÙ\ÜÈHØ\ÝHØYÚ]Ý]\œÚ\Ý[[[[ÛšXHÜˆš]š]HXØÝ[][][Û‹Ú[Hš]˜]HÜˆÝ\ˆÝÛœÝ™X[Hš]›ÙÙ[ˆ›ÙXÝÈ™Y›XÝÛ™ÛÚ[™È›ØÙ\ÜÚ[™ËÜ‚™XØ]\ÙHØ˜žHÞXÛ[™ÈY]ÙÈY™™\‹\ÈYÙHÙ\È›Ý™\ØÜšX™HÛ™H[š]™\œØ[[[[ÛšXHÜÙHÜˆÛ™HZÝ\ˆ\ÜËÙ˜Z[[X™\‹ˆ™XÛÜ™[Ý\ˆY]Ù[™™XY[™ÜÈ[ˆHH™YH‹ÝÛÛËÛš]›ÙÙ[‹XÞXÛK]˜XÚÙ\‹È“š]›ÙÙ[ˆÞXÛH˜XÚÙ\ØO‹Ü‚‚•Ú]ÚÝ[[ÝHÈYˆ[[[ÛšXHÜˆš]š]H\X\œÏÏÚ‚Û‚OÝ›Û™ÏÛÛ™š\›HH™XY[™ËÜÝ›Û™Ïˆ™\X]H\ÝÛÜœ™XÝH[™ÚXÚÈÚ]\ˆH™XYÙ[\È[ˆ]KÛO‚OÝ›Û™Ï“YX\Ý\™H[™[\\˜]\™KÜÝ›Û™Ïˆ^HY™™XÝ[[[ÛšXHÞXÚ]H[™[[\œ™]HÚ]X][Û‹ÛO‚OÝ›Û™Ï”™[[Ý™HØš[Ý\ÈØ\ÝKÜÝ›Û™Ïˆ[™X][ˆ›ÛÙXYÜ™Ø[š\Û\ÈÜˆ˜\YXœš\ÈX^H™HÛÛšX][™ËÛO‚OÝ›Û™Ï”›ÝXÝH[š[X[ÜÝ›Û™Ïˆ\ÙH[ˆ\›ÜšX]H\X[Ø]\ˆÚ[™ÙH[™™X]Y™\XÙ[Y[Ø]\ŽÈYˆHXZ[ˆ\]X\š][HØ[››Ý™HXYHØY™H›Û\KH[\Ü˜\žHÛ[™ÈÙ]\X^H™H™YYYÛO‚OÝ›Û™Ï’[™\ÝYØ]HHš[Ùš[\‹ÜÝ›Û™Ïˆ™XÙ[š[\‹[YYXH™\XÙ[Y[ÚÜš[™H^ÜÝ\™KÝÙ\ˆÜÜËYYXØ][ÛˆÜˆÝ™\›ØY[™ÈØ[ˆ\Ü\š]šYšXØ][Û‹ÛO‚OÝ›Û™Ï”™]\Ý[™™XÛÜ™ÜÝ›Û™ÏˆÛ™HÛÜœ™XÝ]™HÚ[™ÙH\È›Ý›ÛÙˆ]HÞ\Ý[H\ÈÝX›HYØZ[‹ÛO‚ÛÛ‚Ý›Û™Ï‘È›ÝœšYÙH[ˆ^ÛÝÈX[˜YÙH[ˆ[[[ÛšXHÜZÙKÜÝ›Û™Ïˆ™YœšYÙ\˜][Ûˆ\È›ÝHÝXœÝ]]H›ÜˆØY™HØ]\ˆ[™š[ÛÙÚXØ[Yš[\ˆ™\Z\‹ˆ\ÙHH™YH‹ÚX[ÙœšYÚ[™Ë\ÚXÚËX^ÛÝÈHœšYÚ[™È]šY[˜ÙHYÙOØOˆYˆH™]\š[˜\šX[ˆ\È˜Z\ÙY]Ü[Ûˆ›ÜˆHÙ\\˜]HÛ[šXØ[™X\ÛÛ‹Ü‚‚”ÚÝ[[ÝH\ÙH[ˆ[[[ÛšXKXš[™[™ÈÛÛ™][Û™\ÏÚ‚ÛÛ™][Û™\ˆ›ÙXÝÈY™™\‹ˆ›ÛÝÈH›ÙXÝX™[[™[™\œÝ[™Ú]H\ÝÚ]YX\Ý\™\ÈY\ˆ™X]Y[ˆHÛÛ™][Û™\ˆØ[ˆ™H\Ùˆ[ˆ[Y\™Ù[˜ÞH™\ÜÛœÙK]]Ù\È›Ý™\Z\ˆ[ˆ[˜ÞXÛYÜˆ[XYÙYš[Ùš[\ˆ[™Ù\È›Ý™[[Ý™HH™YY›ÜˆØ]\ˆÚ[™Ù\È[™™]\Ý[™ËÜ‚•\ÙHH™YH‹Ý[šË\Ù]\ÝØ]\‹XÛÛ™][Û™\œËÈ•Ø]\ˆÛÛ™][Û™\œÏØOˆ›ÜˆÚÜš[™KØÚÜ˜[Z[™H[™›ÙXÝ\Ù[XÝ[Ûˆ]Y\Ý[ÛœËÜ‚‚’ÝÈÙ[ˆÚÝ[[ÝH\ÝÏÚ‚•\Ýœ™\]Y[HÚ[HÞXÛ[™ËY\ˆHš[\ˆ\Ü\[Û‹Y\ˆ[™^Z[™YX[Ú[™Ù\Ë[™Y\ˆ[žHXZ›ÜˆÚ[™ÙH[ˆÝØÚÚ[™ÈÜˆXZ[[˜[˜ÙKˆY\˜ÚÉÜÈŒˆ]X[\XšX[ˆÝZY[˜ÙH™XÛÛ[Y[™ÈÙYZÛH\Ý[™ÈÙˆ[\\˜]\™K\™™\ÜË[[[ÛšXKš]š]H[™š]˜]H[ˆ\]X]XÈÙ]\ËÜ‚HX]\™HÝX›H[šÈX^H›Ý™YYZ[H[Ú[Z\ÝžH[™[Ë]™[™È\™H\ÙY[ˆÙY\HÙÈ˜]\ˆ[ˆ™[Z[™ÈÛˆY[[ÜžKÜ‚‚’ÝÈÈØ]\ˆÚ[™Ù\Èš]Hš]›ÙÙ[ˆÞXÛOÏÚ‚•Ø]\ˆÚ[™Ù\È™[[Ý™H\ÜÛÛ™YØ\ÝH[™™\[š\ÚØ]\ŽÈ^HÈ›Ý™\XÙHš[ÛÙÚXØ[š[˜][Û‹ˆ›Ý][™H\X[Ú[™Ù\È[™[ˆ\ÝX›\ÚYš[Ùš[\ˆÛÜšÈÙÙ]\‹Ü‚•HŒQÔÐÈÝZYH›Ý\È]š[\™Y\]X\šXHÝ[™YY™YÝ[\ˆ\X[Ú[™Ù\È[™[Ûš]Üš[™Ëˆ›ÛÝÈH™YH‹Ý[šË\Ù]\ÝØ]\‹XÚ[™ÙKYÝZYKÈHØ]\ˆÚ[™ÙHÝZYOØOˆ›ÜˆH›ØÙY\™KÜ‚‚ÛÛ[[Ûˆ[\œ™]][ÛˆZ\ÝZÙ\ÏÚ‚[‚O™X][™ÈÛ™HÙ™‹XÛÛÜˆ\Ý\ÈHÛÛ™š\›YY[Y\™Ù[˜ÞHÚ]Ý]™\X][™È]ÏÛO‚O˜\ÜÝ[Z[™È™\›Èš]˜]HYX[œÈH[šÈ]\Ý™HÞXÛYÏÛO‚O\Ú[™È[\ÙY[YH[œÝXYÙˆØ]\‹]\Ý™[™ÈÈXÛ\™HÞXÛ[™ÈÛÛ\]NÏÛO‚O™›Ü˜Ú[™ÈÚ]šXØ\˜›Û˜]HÚ]Ý]YX\Ý\š[™È[Ø[[š]KÒÒ[™ÛÝ\˜ÙHØ]\ŽÏÛO‚O˜ÛÜZ[™ÈX›Ü˜]ÜžHT•ÈÚ[Z\ÝžH\ÈH[š]™\œØ[]]Ø]\ˆ™\]Z\™[Y[ÏÛO‚O˜\ÜÝ[Z[™ÈHÛÛ™][Û™\ˆ\›X[™[HÛÛ™\È[[[ÛšXHÚ]Ý]™\ÝÜš[™ÈHš[Ùš[\ŽÈ[™ÛO‚O™XYÛ›ÜÚ[™ÈHX[ÛÛ™][Ûˆœ›ÛHÚ[Z\ÝžH[Û™H[œÝXYÙˆ]˜[X][™ÈH[š[X[ÛËÛO‚Ý[‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙÙ[™]XË\ÝØÚËXÙ[\‹ÙØÝ[Y[ËÐQÔÐÉLŒÑÝZYWÌŒœˆ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\Žˆ^ÛÝÝZYHŒØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKÙ^ÝXËX[™[X›Ü˜]ÜžKX[š[X[ËÛX›Ü˜]ÜžKX[š[X[ËÛX[˜YÙ[Y[[Ù‹[X›Ü˜]ÜžKX[š[X[È“Y\˜ÚÈ™]\š[˜\žHX[X[ˆX[˜YÙ[Y[ÙˆX›Ü˜]ÜžH[š[X[È8 %\]X]XÈØ]\ˆ]X[]OØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKØ[[Ý\‹\]ËØ[\XšX[œËÚÝ\Ú[™ËY›Ü‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆÝ\Ú[™È›Üˆ[\XšX[œË\]Y™XœX\žHŒØOÛO‚OH™YHšÎ‹ËÝÝÝËœ]ÛË˜ÛÛKÜ]YYXØ][Û‹ØØ\™\ÚY]ËØ^ÛÝ”]ÛÎˆÝ\œ™[^ÛÝØ\™HÝZYOØOÛO‚Ý[‚‰ÉÉÂ‚‚ˆÈKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKBˆÈ™[XZ[š[™ÈYØXÞH›ÝØÛÛÛX[\
+Œ‹LKLNJBˆÈKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKB‚“ÑWÓÕ‘T”’QTÖÈšX[Ü]X\˜[[™K]Xˆ—HH‰ÉÉÂÝ›Û™ÏH]X\˜[[™HÜˆÜÜ][ÛÛZ[™\ˆ\ÈH[\Ü˜\žHÛÛ›ÛY[š\›Û›Y[›ÝH™X]Y[žH]Ù[‹ÜÝ›Û™Ïˆ]È\œÜÙH\ÈÈÙ\\˜]H[ˆ[š[X[Ú[ˆ\ÛÛ][Ûˆ\È™YYYÚ[\YžHØœÙ\˜][Û‹[™XZÙHØ]\ˆ]X[]HX\ÞHÈYX\Ý\™H[™X[˜YÙHÚ[HH[™\›Z[™ÈX[›Ø›[H\È\ÜÙ\ÜÙYÜ‚‚•Ú[ˆ\È[\Ü˜\žH\ÛÛ][Ûˆ\ÙY[ÏÚ‚’\ÛÛ][ÛˆØ[ˆ™H\›ÜšX]H›ÜˆH™]È\œš]˜[[ˆ[š\™Y[š[X[]]\Ý™H›ÝXÝYœ›ÛH[šÈX]\Ë[ˆ[š[X[™Z[™È]˜[X]Y›Üˆ[™™XÝ[Ý\È\ÙX\ÙKÜˆH]Y[ÚÜÙH™]\š[˜\šX[ˆØ[ÈÛÜÙHØœÙ\˜][Ûˆ[ˆHÚ[\YšYYÙ]\Ü‚’]\È›Ý]]ÛX]XØ[H™XÙ\ÜØ\žH›Üˆ]™\žHZ\ÜÙYYX[›Ø][™È\\ÛÙK[™Ø[[ÛÚÚ[™È]ÚÜˆZ[›ÜˆØÜ˜\KÜ‚‚•Ú]ÚÝ[HÜÜ][Ù]\[˜ÛYOÏÚ‚[‚O˜HÛX[‹[™\ÛÛZ[™\ˆ\™ÙH[›ÝYÚ›ÜˆH[š[X[È™\Ý[™\›ˆ›Ü›X[NÏÛO‚O™X]YØ]\ˆ\›ÜšX]H›ÜˆHÜXÚY\ÎÏÛO‚OœÝX›H[\\˜]\™NÏÛO‚O˜HÙXÝ\™HÛÝ™\ˆÚ[ˆ\ØØ\H\ÈÜÜÚX›NÏÛO‚O˜HÛ[ÛÝYHÚ[ˆ]Ù\È›Ý[\™™\™HÚ]ØœÙ\˜][ÛŽÈ[™ÛO‚O™YXØ]Y\]Z\Y[]\È›ÝÚ\™YÚ]Ý\ˆ[šÜËÛO‚Ý[‚‚‘Ù\È[ˆ[™š[\™YXˆ™YYÛÛ\]HZ[HØ]\ˆÚ[™Ù\ÏÏÚ‚Ý›Û™Ï“›Ý\ÈH[š]™\œØ[[KÜÝ›Û™Ïˆ[ˆ[™š[\™YÛÛZ[™\ˆ\È›È\ÝX›\ÚYš[Ùš[\‹ÛÈ[[[ÛšXHØ[ˆXØÝ[][]H]ZXÚÛH[™Ø]\ˆ™\XÙ[Y[X^H™YYÈ™Hœ™\]Y[ÜˆÛÛ\]KˆHÛÜœ™XÝØÚY[H\[™ÈÛˆÛÛZ[™\ˆ›Û[YK[š[X[Ú^™K™YY[™ËØ\ÝH[™YX\Ý\™YØ]\ˆ]X[]KÜ‚•\ÝHØ]\ˆ[™Ú[™ÙH[›ÝYÚÈÙY\ÛÛ™][ÛœÈØY™KˆYˆH[š[X[™YYÈ›ÛÛ™ÙY\ÛÛ][Û‹H›Ü\›HÞXÛY]X\˜[[™H\]X\š][HØ[ˆ™HX\ÚY\ˆÈÝXš[^™H[ˆ[ˆ[™Yš[š][H[™š[\™YX‹Ü‚‚”ÚÝ[[ÝHYØ[XHÜˆYYXØ][ÛˆÈHXÏÚ‚“›È›ÙXÝÚÝ[™HYYÚ[\H™XØ]\ÙHH[š[X[\È[ˆ]X\˜[[™KˆHÜÜ][ÛÛZ[™\ˆ\È›ÝHY˜][YYXØ][Ûˆ˜]ˆ\ÙHYYXØ][Û‹Ø[[™HÜˆ[›Ý\ˆ™X]Y[Û›H›ÜˆHYš[™Y[™XØ][Ûˆ[™™Y™\˜X›H[™\ˆ™]\š[˜\žHÝZY[˜ÙKÜ‚‘›ÜˆÚ]KØÛÝÛžH\Ú[ÛœË\ÙHH™YH‹ÚX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXKÈH[™Ý\ÈÝZYOØO‹ˆ›Üˆ›XÚÈXH[™Ø[ÜXÚYšXØ[K\ÙHHYXØ]Y]šY[˜ÙHYÙ\ËÜ‚‚’ÝÈÚÝ[[ÝH[Ûš]ÜˆH[š[X[ÏÚ‚”™XÛÜ™[\\˜]\™KØ]\ˆÚ[Z\ÝžK\]]K™XØ[›ÙXÝ[Û‹ÜÝ\™Kœ™X][™ËÝÚ[[Z[™Ëš\ÚX›H\Ú[ÛœÈ[™›ÙHÛÛ™][Û‹ˆÝÙÜ˜\ÈZÙ[ˆœ›ÛHHØ[YH[™ÛHØ[ˆ[ÚÝÈÚ]\ˆHÛÝ[™ÜˆÝÙ[[™È\ÈÚ[™Ú[™ËÜ‚“Y\˜ÚÉÜÈ[\XšX[ˆÛ[šXØ[ÝZY[˜ÙH[\\Ú^™\È^XÝH\ÈÚ[™Ùˆ\ÝÜžH[™Ø]\‹\]X[]H™XÛÜ™Ú[ˆ]˜[X][™È[ˆ[\XšX[ˆ]Y[Ü‚‚’ÝÈÈ[ÝH™]™[Ü›ÜÜËXÛÛ[Z[˜][ÛÏÚ‚[‚O\ÙHÙ\\˜]H™]ËXœËÚ\ÛœÈ[™™YY[™ÈÛÛÎÏÛO‚OØ\Ú[™È[™Ú[™ÙHÛÝ™\È™]ÙY[ˆ[˜ÛÜÝ\™\ÎÏÛO‚O™È›ÝÝ\ˆ]X\˜[[™HØ]\ˆ[È[ˆ\ÝX›\ÚY\]X\š][NÈ[™ÛO‚O˜ÛX[‹Ù\Ú[™™XÝ\]Z\Y[\›ÜšX][H™Y›Ü™H™]\ÙKÛO‚Ý[‚‚•Ú[ˆÚÝ[]X\˜[[™H[™ÏÚ‚‘È›Ý\ÙHHš^Y[X™\ˆÙˆ^\È\ÈHÛ›H™[X\ÙHÜš]\š[Û‹ˆH[š[X[ÚÝ[™HÛ[šXØ[H\›ÜšX]HÈ™]\›‹H™X\ÛÛˆ›Üˆ\ÛÛ][ÛˆÚÝ[™H™\ÛÛ™YÜˆÛÛ›ÛY[™H\Ý[˜][Ûˆ\]X\š][HÚÝ[™HØY™Kˆ›Üˆ[ˆ[™™XÝ[Ý\ËY\ÙX\ÙHÛÛ˜Ù\›‹›ÛÝÈH™]\š[˜\šX[‰ÜÈ]X\˜[[™H\š[ÙÜ‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKÙ^ÝXËX[™[X›Ü˜]ÜžKX[š[X[ËØ[\XšX[œËØÛ[šXØ[]XÚš\]Y\ËZ[‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆÛ[šXØ[XÚš\]Y\È[ˆ[\XšX[œË\]Y™XœX\žHŒØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKÙ^ÝXËX[™[X›Ü˜]ÜžKX[š[X[ËØ[\XšX[œËÙ[š\›Û›Y[X[™Z\Ø˜[™žKY›Ü‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆ[š\›Û›Y[[™\Ø˜[™žH›Üˆ[\XšX[œÏØOÛO‚Ý[‚‰ÉÉÂ‚“ÑWÓÕ‘T”’QTÖÈšX[Ø[[[ÛšXKX\›œÈ—HH‰ÉÉÂÝ›Û™Ï[[[ÛšXH^ÜÝ\™H\ÈHØ]\‹\]X[]H[Y\™Ù[˜ÞK]8 '[[[ÛšXH\›¸ 'HØ[››Ý™HÝYÙY™[XX›Hœ›ÛH™Y™\ÜÈ[Û™KÜÝ›Û™Ïˆ[\XšX[œÈ^ÜÙYÈ[˜\›ÜšX]H[[[ÛšXHX^H›ÙXÙH^Ù\ÜÈ]XÝ\Ë™XÛÛYH[[ˆÛÛÜ‹ÚÝÈX››Ü›X[™Z]š[ÜˆÜˆ][\È\ØØ\NÈÝ\ˆÚÚ[ˆ[™Ú[\ÙX\Ù\ÈØ[ˆÛÚÈÚ[Z[\‹Ü‚‚•Ú]ÚÝ[[ÝHÈš\œÝÏÚ‚Û‚OÝ›Û™Ï•\Ý[™ÛÛ™š\›HHØ]\‹ÜÝ›Û™Ïˆ™\X]H[[[ÛšXH™\Ý[ÛÜœ™XÝH[™™XÛÜ™[™[\\˜]\™KÛO‚OÝ›Û™Ï”™[[Ý™HH[š[X[œ›ÛHÛÛ[Z[˜]YØ]\ˆÚ[ˆ™XÙ\ÜØ\žKÜÝ›Û™ÏˆY\˜ÚÉÜÈ[\XšX[ˆÝZY[˜ÙH™XÛÛ[Y[™È[Ýš[™È^ÜÙY[\XšX[œÈÈÛX[‹XÚÜš[˜]YÙ[[ÞYÙ[˜]YØ]\‹ÛO‚OÝ›Û™ÏÛÜœ™XÝHÛÝ\˜ÙKÜÝ›Û™Ïˆ™[[Ý™HØ\ÝKÚXÚÈHš[Ùš[\ˆ[™\™›Ü›H[ˆ\›ÜšX]HØ]\ˆÚ[™ÙKÛO‚OÝ›Û™Ï”™]\ÝÜÝ›Û™ÏˆÛ™HØ]\ˆÚ[™ÙH\È›Ý›ÛÙˆHÞ\Ý[H\ÈÝX›HYØZ[‹ÛO‚ÛÛ‚‚Ø[ˆ[ÝH[Ù]™\š]Hœ›ÛH[ˆ[[[ÛšXH[X™\ˆ[Û™OÏÚ‚“›Ëˆ[[[ÛšXHÞXÚ]H\[™ÈÛˆÝ[[[[ÛšXK[\\˜]\™K^ÜÝ\™H\˜][Ûˆ[™ÜXÚY\ÈÙ[œÚ]]š]KˆHÚ\]\ÜÚYÛœÈ8 'Z[Û[Ù\˜]KÜÙ]™\™x 'HÚÚ[ˆ[XYÙHÈš^YH˜[™ÈÚ]™\È˜[ÙHÙ\Z[KÜ‚•HŒQÔÐÈÝZYH[ÛÈ›Ý\È][[[ÛšXH™XÛÛY\ÈH[Ü™HÙ\š[Ý\È›Ø›[H\Èš\Ù\È[™™X]È[]˜]Y[[[ÛšXH[ˆ™XÚ\˜Ý[][™È™\ÙX\˜ÚÞ\Ý[\È\ÈHÚYÛˆHš]›ÙÙ[ˆÞXÛH\ÈÝ]Ùˆ\]Z[Xœš][KÜ‚‚”ÚÝ[[ÝH\ÙHHÛÛ™][Û™\ÏÚ‚HÛÛ™][Û™\ˆX^H™H\Ùˆ[ˆ[Y\™Ù[˜ÞHØ]\‹[X[˜YÙ[Y[[ˆ\[™[™ÈÛˆH›ÙXÝ]]Ù\È›Ý™\ÝÜ™HH[XYÙYš[Ùš[\‹ˆ›ÛÝÈHX™[[™ÙY\\Ý[™Ëˆ\ÙHH™YH‹Ý[šË\Ù]\ÝØ]\‹XÛÛ™][Û™\œËÈ•Ø]\ˆÛÛ™][Û™\œÏØOˆ›Üˆ›ÙXÝ\ÜXÚYšXÈ]Y\Ý[ÛœËÜ‚‚”ÚÝ[[ÝH\ÙHXKØ[ÜˆY][[™H›YOÏÚ‚Ý›Û™Ï‘È›ÝYH˜]ÜˆYYXØ][ÛˆÛÛ[H™XØ]\ÙHH[š[X[Ø\È^ÜÙYÈ[[[ÛšXKÜÝ›Û™Ïˆ™X]HÛÛ[Z[˜]YØ]\ˆš\œÝˆÙXÛÛ™\žH[™™XÝ[Û‹Ú[[XYÙHÜˆ[›Ý\ˆXYÛ›ÜÚ\ÈX^H™\]Z\™H™]\š[˜\žH™X]Y[]]XÚ\Ú[Ûˆ™[Û™ÜÈÈHÜXÚYšXÈÛÛ™][Û‹Ü‚‚•Ú[ˆ\È™]\š[˜\žHØ\™HØ\œ˜[YÏÚ‚”ÙYZÈ›Û\[\XšX[‹Ù^ÝXÜÈ™]\š[˜\žHØ\™H›ÜˆÙ]™\™H™\Ü\˜]ÜžHY™šXÝ[K^[œÚ]™HÚÚ[ˆ[XYÙK[˜ÛÛ›ÛY›YY[™Ë[˜Xš[]HÈXZ[Z[ˆ›Ü›X[ÜÚ][Û‹X\šÙY]\™ÞK˜\Y]\š[Ü˜][ÛˆÜˆÚYÛœÈ]\œÚ\Ý\Ü]HÛÜœ™XÝ[ÛˆÙˆHØ]\ˆ›Ø›[KÜ‚‚’ÝÈÈ[ÝH™]™[™XÝ\œ™[˜ÙOÏÚ‚“XZ[Z[ˆ[ˆ\ÝX›\ÚYš[ÛÙÚXØ[š[\‹™[[Ý™HXÛÛ\ÜÚ[™ÈØ\ÝK\ÝØ]\ˆ™YÝ[\›K]›ÚY™\XÚ[™ÈX]\™Hš[\ˆYYXH[›™XÙ\ÜØ\š[H[™[™\ÝYØ]H[žH™XÝ\œš[™È[[[ÛšXHš\ÙH˜]\ˆ[ˆ™\X]YH™X][™ÈHÞ[\ÛKÜ‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKÙ^ÝXËX[™[X›Ü˜]ÜžKX[š[X[ËØ[\XšX[œËØ[\XšX[œËX\Ë[X›Ü˜]ÜžKX[š[X[È“Y\˜ÚÈ™]\š[˜\žHX[X[ˆ[\XšX[œÈ\ÈX›Ü˜]ÜžH[š[X[È8 %[[[ÛšXHÞXÛÜÚ\ÏØOÛO‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙÙ[™]XË\ÝØÚËXÙ[\‹ÙØÝ[Y[ËÐQÔÐÉLŒÑÝZYWÌŒœˆ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\Žˆ^ÛÝÝZYHŒØOÛO‚Ý[‚‰ÉÉÂ‚“ÑWÓÕ‘T”’QTÖÈšX[ÛZ[›Ü‹\ØÜ˜\\ËX[™]ÛÝ[™È—HH‰ÉÉÂÝ›Û™ÏHÛX[Ý\\™šXÚX[ØÜ˜\HX^HX[Ú]ÝX›HÛX[ˆØ]\ˆ[™›ÝXÝ[Ûˆœ›ÛH\\ˆ˜][XK][ˆ[\XšX[ˆÛÝ[™ÚÝ[›Ý]]ÛX]XØ[H™H™X]YÚ]Ø[XHÜˆÝ™\‹]KXÛÝ[\ˆYYXØ][Û‹ÜÝ›Û™Ïˆ[\XšX[ˆÚÚ[ˆ\Èš[ÛÙÚXØ[H[\Ü[[™[š\šY\ÈØ[ˆ™XÛÛYH[™™XÝYÜˆ™HY\\ˆ[ˆ^Hš\œÝ\X\‹Ü‚‚•Ú]ÚÝ[[ÝHÈY\ˆ›ÝXÚ[™ÈHØÜ˜\OÏÚ‚Û‚O’Y[YžH[™™[[Ý™HHÛÝ\˜ÙHÙˆ[š\žHYˆ]\ÈØY™HÈÈÛËÛO‚O“YX\Ý\™HØ]\ˆ]X[]H[™[\\˜]\™KÛO‚O”ÝÙÜ˜\H\™XH[ˆ™]]˜[YÚÛO‚O”™YXÙH[›™XÙ\ÜØ\žH[™[™ËÛO‚O“[Ûš]Üˆ\]]KÝÚ[[Z[™ËÝÙ[[™Ë›YY[™È[™Ú]\ˆH\Ú[Ûˆ\È[›\™Ú[™ËÛO‚ÛÛ‚‚•Ú[ˆ\ÈHÛÝ[™[Ü™H[ˆ8 'Z[›Ü¸ 'OÏÚ‚”ÙYZÈ™]\š[˜\žHØ\™H›ÜˆÛ™ÛÚ[™È›YY[™ËY\XÙ\˜][Û‹^ÜÙY\ÜÝYKœ˜XÝ\™K[XˆÜÜËÝXœÝ[X[ÝÙ[[™Ë[Ù\˜][Û‹Ü™XY[™È\ØÛÛÜ˜][Û‹™\Ü\˜]ÜžHY™šXÝ[HÜˆ˜\YXÛ[™KˆY\˜ÚÉÜÈ[\XšX[ˆÝZY[˜ÙH[\\Ú^™\È˜\Y\ÜÙ\ÜÛY[Ý\Ü]™HØ\™H[™Z[ˆX[˜YÙ[Y[›Üˆ˜][X]XÈ[š\šY\ËÜ‚‚”ÚÝ[[ÝH\ÙHHXHÜˆØ[˜]ÏÚ‚“›È˜]ÚÝ[™HHY˜][™\ÜÛœÙHÈHØÜ˜\KˆÚ]KØÛÝÛ‹[ZÙHX]\šX[Ø[ˆ]™HÙ]™\˜[Ø]\Ù\È[™™YYÈ]ÈÝÛˆ\ÜÙ\ÜÛY[ˆ\ÙHH™YH‹ÚX[Ù[™Ø[Z[™™XÝ[ÛœË\Ø\›ÛYÛšXKÈH[™Ý\ÈÝZYOØOˆ›Üˆ]Y™™\™[X[˜]\ˆ[ˆ™X][™È^žˆœ›ÛH\X\˜[˜ÙH[Û™KÜ‚‚”ÚÝ[[ÝH\ÙH[ˆ[\Ù\XÈÜˆ[Xš[ÝXÏÏÚ‚‘È›Ý\H[X[ˆÜXØ[›ÙXÝÈÜˆÝ\[[ZXÜ›ØšX[YYXØ][ÛˆÚ]Ý]™]\š[˜\žHÝZY[˜ÙKˆ[\XšX[ˆÚÚ[ˆ\ÈYÚH\›YXX›K[™YÈÛÛ˜Ù[˜][Ûˆ[™›Ý]HX]\‹Ü‚‚’ÝÈÈ[ÝH™]™[™\X][š\šY\ÏÏÚ‚’[œÜXÝ0êXÛÜ‹[ZÙHÝX\™Ë[šÈX]\Ë[™[™È˜XÝXÙ\È[™˜[œÜÜÛÛZ[™\œËˆÛ[ÛÝÚ\œYÙ\Ë™[[Ý™H˜\[™È^˜\™È[™Ù\\˜]H[˜ÛÛ\]X›H[š[X[ÈÚ[ˆ™XÙ\ÜØ\žKÜ‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKÙ^ÝXËX[™[X›Ü˜]ÜžKX[š[X[ËØ[\XšX[œËÛ›Ûš[™™XÝ[Ý\ËY\ÛÜ™\œË[Ù‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆ˜][XHÙˆ[\XšX[œÏØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKØ[[Ý\‹\]ËØ[\XšX[œËÚ[›ÙXÝ[Û‹]ËX[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆ[š\šY\È[ˆ][\XšX[œÏØOÛO‚Ý[‚‰ÉÉÂ‚“ÑWÓÕ‘T”’QTÖÈšX[Û[X‹\™YÙ[™\˜][Ûˆ—HH‰ÉÉÂÝ›Û™Ï^ÛÝÈØ[ˆ™YÙ[™\˜]HÜÝ[Xˆ\ÜÝYK][ˆÝÛ™\ˆÚÝ[š\œÝX[˜YÙHH[š\žH˜]\ˆ[ˆ\ÜÝ[YH™YÙ[™\˜][ÛˆÝX\˜[Y\ÈHÛÛÙÝ]ÛÛYKÜÝ›Û™ÏˆH[[YYX]Hš[Üš]Y\È\™H›ÝXÝ[Ûˆœ›ÛH\\ˆ˜][XKÝX›H\Ø˜[™žKØœÙ\˜][Ûˆ›Üˆ[™™XÝ[ÛˆÜˆÞ\Ý[ZXÈXÛ[™K[™™]\š[˜\žH\ÜÙ\ÜÛY[Ú[ˆH[š\žH\ÈÚYÛšYšXØ[Ü‚]ˆÛ\ÜÏHœ›ÛK[›ÝHÝ›Û™Ï•\È\ÈHÝÛ™\ˆ[™KÜÝ›Û™Ïˆ›ÜˆHÙ[[\ˆØÚY[˜ÙHÙˆ™YÙ[™\˜][Û‹\ÙHH™YH‹Øš[ÛÙÞKX[™\ØÚY[˜ÙKÜ™YÙ[™\˜][Û‹X[™[[X‹\™YÜ›ÝÝÈ^ÛÝ™YÙ[™\˜][ÛØO‹Ù]‚‚•Ú]ÚÝ[[ÝHÈY\ˆH[Xˆ[š\žOÏÚ‚Û‚O”Ù\\˜]HH[š[X[œ›ÛH[ˆYÙÜ™\ÜÚ]™H[šÈX]HÜˆH[š\žHÛÝ\˜ÙHYˆ™YYYÛO‚O“YX\Ý\™HØ]\ˆ]X[]H[™[\\˜]\™KÛO‚O‘ØÝ[Y[HÛÝ[™Ú]]YÝÙÜ˜\ËÛO‚O“Z[š[Z^™H[™[™ËÛO‚OÛÛXÝ[ˆ[\XšX[‹Y^\šY[˜ÙY™]\š[˜\šX[ˆ›ÜˆXZ›Üˆ\ÜÝYHÜÜËœ˜XÝ\™K[˜ÛÛ›ÛY›YY[™ÈÜˆ]\š[Ü˜][Û‹ÛO‚ÛÛ‚‚‘Ù\È]™\žHÜÝ[XˆÜ›ÝÈ˜XÚÈ›Ü›X[OÏÚ‚“›ÈÝX\˜[YHÚÝ[™HXYKˆ^ÛÝÈ]™H™[X\šØX›H™YÙ[™\˜]]™HØ\XÚ]K]Ý]ÛÛYH\[™ÈÛˆ[š\žH]™[\ÜÝYHÛÛ™][Û‹X[YÙH[™Ú]\ˆÛÛ\XØ][ÛœÈØØÝ\‹ˆ™YÜ›ÝÝØ[ˆ[ÛÈY™™\ˆ[ˆÚ\HÜˆ[˜Ý[Û‹Ü‚‚’ÝÈÛ™ÈÙ\È™YÙ[™\˜][ÛˆZÙOÏÚ‚•\™H\È›ÈÚ[™ÛHÝÛ™\‹Y˜XÚ[™È[Y]X›H]\Y\ÈÈ]™\žH[š\žKˆ™\ÙX\˜Ú\ØÜšX™\ÈÝYÙY™YÙ[™\˜][Û‹]H[YHš\ÚX›H[ˆH]Ø[ˆ˜\žHÚ][š\žHÙ]™\š]K[š[X[Ú^™K[\\˜]\™H[™X[ˆ˜XÚÈH™[™˜]\ˆ[ˆ^XÝ[™ÈHš^Y[X™\ˆÙˆ^\ÈÜˆÙYZÜËÜ‚‚•Ú]Ù\ÈHX[[™È[XˆÛÚÈZÙOÏÚ‚‘X\›HX[[™ÈØ[ˆ[˜ÛYHHÛÝ[™Ý\™˜XÙH[™]™[Ü[™È™YÙ[™\˜]]™H\ÜÝYKˆHÝÙÜ˜\Ø[››Ý™[XX›H\Ý[™ÝZ\Ú]™\žH›Ü›X[ÝYÙHœ›ÛH[™™XÝ[Û‹ÛÈ\ÙH›ÙÜ™\ÜÚ[Û‹\]]KÝÙ[[™ËÙÜ‹›YY[™È[™H[š[X[	ÜÈÝ™\˜[ÛÛ™][ÛˆÈXÚYHÚ]\ˆ™]\š[˜\žH™]šY]È\È™YYYÜ‚‚”ÚÝ[[ÝH\ÙHØ[Üˆ›XÚÈXHÛˆHÝ[\ÏÚ‚Ý›Û™Ï“›È™X]Y[˜]\È™\]Z\™YÚ[\H™XØ]\ÙHH[Xˆ\È™YÙ[™\˜][™ËÜÝ›Û™ÏˆYˆHÙ\\˜]H[™Ø[Üˆ˜XÝ\šX[›Ø›[H\ÈÝ\ÜXÝYXYÛ›ÜÙH[™™X]]›Ø›[HÛˆ]ÈÝÛˆ]šY[˜ÙH˜]\ˆ[ˆ]]ÛX]XØ[H˜][™ÈHÛÝ[™Ü‚‚•Ú[ˆÚÝ[[ÝHÙYHH™]\š[˜\šX[ÏÚ‚”›Û\Ø\™H\È\›ÜšX]H›ÜˆY\[š\žKœ˜XÝ\™K[˜ÛÛ›ÛY›YY[™Ë\ÜÝYH™XÜ›ÜÚ\ËÙ]™\™HÝÙ[[™Ë˜\YHÜ™XY[™È\Ú[ÛœËÞ\Ý[ZXÈXÛ[™KZ[ˆÛÛ˜Ù\›ˆÜˆ[ˆ[š\žHØ]\ÙYžH\]Z\Y[]X^H]™HÜ\ÚY[\›˜[\ÜÝYKÜ‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKÙ^ÝXËX[™[X›Ü˜]ÜžKX[š[X[ËØ[\XšX[œËÛ›Ûš[™™XÝ[Ý\ËY\ÛÜ™\œË[Ù‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆ˜][XHÙˆ[\XšX[œÏØOÛO‚OH™YHšÎ‹ËÝÝÝË›Y\˜ÚÝ™]X[X[˜ÛÛKÙ^ÝXËX[™[X›Ü˜]ÜžKX[š[X[ËØ[\XšX[œËÙ[Y\™Ù[˜ÞKXØ\™K[Ù‹X[\XšX[œÈ“Y\˜ÚÈ™]\š[˜\žHX[X[ˆ[Y\™Ù[˜ÞHØ\™HÙˆ[\XšX[œÏØOÛO‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙÙ[™]XË\ÝØÚËXÙ[\‹Ú\Ø˜[™žKœ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\Žˆ™YÙ[™\˜][Ûˆ™\ÛÝ\˜Ù\ÏØOÛO‚Ý[‚‰ÉÉÂ‚“ÑWÓÕ‘T”’QTÖÈ™Y]Ù™YY[™Ë\ØÚY[KXžKXYÙH—HH‰ÉÉÂÝ›Û™Ï‘™YY[™Èœ™\]Y[˜ÞHÚÝ[™XÛÛYH\ÜÈœ™\]Y[\È[ˆ^ÛÝÜ›ÝÜË]\™H\È›È[š]™\œØ[YÙKXžKXYÙHØÚY[H]š]È]™\žH[™]šYX[ÜÝ›Û™Ïˆ\ÙHY™HÝYÙK›ÙHÚ^™K›ÛÙÚ^™K›ÙHÛÛ™][Û‹\]]H[™Ø\ÝH›ÙXÝ[ÛˆÙÙ]\‹Ü‚]ˆÛ\ÜÏHœ›ÛK[›ÝHÝ›Û™Ï•\ÈYÙHÝÛœÈ›Ý][™H™YY[™ÈØY[˜ÙKÜÝ›Û™Ïˆ›Üˆ[›™Y›ÛÙØ\È\ÙHH™YH‹ÙY]Ù˜\Ý[™ËX[™]˜XØ][Û‹È‘˜\Ý[™È	ˆ˜XØ][ÛØOŽÈ›Üˆ[™^XÝY\]]HÜÜÈ\ÙHH™YH‹ÚX[Ü™Y\Ú[™Ë]ËYX]È”™Y\Ú[™ÈÈX]ØO‹Ù]‚‚•Ú]Ù\ÈHQÔÐÈ™YY[™È[Y[[™HÚÝÏÏÚ‚•HŒ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\ˆÝZYH™YYÈ™]ÛH™YY[™È\˜YHZ[K[ˆ˜[œÚ][ÛœÈÜ›ÝÚ[™È[š[X[È›ÝYÚ]™H›ÛÙÈ[™[]ËÚ]Y[[]Y›ÛÙÙ™™\™YX›Ý]ÚXÙHÙYZÛH[ˆ]È™\ÙX\˜ÚÞ\Ý[Kˆ[ˆÛ\ˆQÔÐÈ\Ø˜[™žHÝZYH\ØÜšX™\ÈY[È\›Ý[™Û™HYX\ˆÛ™Z[™È™Y™YHÜˆ›Ý\ˆ[Y\È\ˆÙYZËÜ‚Ý›Û™Ï•ÜÙH^[\\ÈÚÝÈH\™XÝ[ÛˆÙˆÚ[™Ùx %›ÝÛ™HX[™]ÜžHÛYHØÚY[KÜÝ›Û™ÏÜ‚‚’ÝÈÙ[ˆÚÝ[]Ú[™ÜÈ[™\˜YHX]ÏÚ‚“™]ÛH™YY[™È\˜YH\™HÜ›ÝÚ[™È˜\YH[™\™H›Ü›X[HÙ™™\™Y™\žHÛX[\›ÜšX]H›ÛÙÈœ™\]Y[Kˆ›ÛÝÈHH™YH‹Øœ™YY[™ËÙYÙËX[™[\˜YKXØ\™KÈ‘YÙÈ	ˆ\˜YHØ\™OØOˆÝZYH›ÜˆH˜[œÚ][Ûˆœ›ÛH[ÛÈÈXÝ]™H™YY[™ËÜ‚‚’ÝÈÙ[ˆÚÝ[]™[š[\ÈX]ÏÚ‚’]™[š[\È\ÝX[H™YY›ÛÙ[Ü™Hœ™\]Y[H[ˆY[È™XØ]\ÙH^H\™HÜ›ÝÚ[™Ëˆ[œÝXYÙˆ\Ú[™È[ˆ^XÝYÙHÝ]Ù™‹[Ûš]Üˆ›ÙHÛÛ™][Û‹Ü›ÝÝ\]]H[™ÝÈ]ZXÚÛHH[š[X[›ØÙ\ÜÙ\ÈYX[ËÜ‚•\ÙHH™YH‹Øœ™YY[™ËÜ˜Z\Ú[™ËZ]™[š[\ËÈ˜XžH^ÛÝØ\™OØOˆ›ÜˆÜ›ÝË[Ý][™Ú^™HÛÜ[™ËÜ‚‚’ÝÈÙ[ˆÚÝ[Y[ÈX]ÏÚ‚Y[È\™HÛÛ[[Û›H™YÛ›HH™]È[Y\È\ˆÙYZÈ˜]\ˆ[ˆ]™\žH^KˆQÔÐÈ^[\\È˜[™ÙHœ›ÛH›ÝYÚHÚXÙHÙYZÛH[ˆ]ÈŒ[Y[[™HÈ™YHÜˆ›Ý\ˆ™YY[™ÜÈÙYZÛH[ˆ[ˆÛ\ˆ\Ø˜[™žHÝZYKÜ‚–[Ý\ˆ[™]šYX[X^H™YYY\ÝY[˜\ÙYÛˆ›ÙHÛÛ™][Û‹™\›ÙXÝ]™HÝ]\Ë›ÛÙ[™\™ÞH[œÚ]H[™[\\˜]\™KÜ‚‚’ÝÈ]XÚÚÝ[[ÝH™YYÏÚ‚•\™H\È›È˜[Y]Y8 '[]È\ˆ[˜Ú8 'H›Ü›][H›Üˆ[›ÛÙÈ[™[š[X[ËˆÙ™™\ˆ[ˆ\›ÜšX]HÜ[Û‹ØœÙ\™H›ÙHÛÛ™][ÛˆÝ™\ˆ[YH[™Y\ÝÜ˜YX[Kˆ™[[Ý™H[™X][ˆ›ÛÙ™Y›Ü™H]XÛÛ\ÜÙ\È[™Y™™XÝÈØ]\ˆ]X[]KÜ‚‚•Ú]›ÛÙÈÛÜšÈ›Üˆ›Ý][™H™YY[™ÏÏÚ‚\›ÜšX][HÚ^™YX\ÛÜ›\ËÛšYÚÜ˜]Û\œÈ[™]š][Û˜[HÝZ]X›HÚ[šÚ[™È[]È\™HÛÛ[[ÛˆÝ\\ËˆQÔÐÈ\Ù\È›Ü›][]YÛÙ[[Ú\Ý[]È[™˜[œÚ][ÛœÈ[]Ú^™H\È[š[X[ÈÜ›ÝËÜ‚•\ÙHH™YH‹ÙY]Ø™\ÝY›ÛÙË[\ÝÈ•Ú]È^ÛÝÈX]ÏØOˆ›Üˆ›ÛÙ]X[]H[™˜\šY]KÜ‚‚’ÝÈÈ[ÝHÛ›ÝÈYˆHØÚY[H\ÈÛÈ]XÚÜˆÛÈ]OÏÚ‚•Ø]Ú›ÙHÛÛ™][Ûˆ[™Ü›ÝÝ˜]\ˆ[ˆÛ™HYX[ˆ\œÚ\Ý[ÙZYÚØZ[‹YÝ™\ˆ›ÛÙ™\X]Y™YÝ\™Ú]][ÛˆÜˆ^Ù\ÜÚ]™HØ\ÝHÝYÙÙ\ÝH[ˆX^H™YYY\ÝY[ˆ\œÚ\Ý[ÙZYÚÜÜËÛÜˆÜ›ÝÝÜˆ\]]HÚ[™ÙH™YYÈ™]šY]ÈÙˆY]Ø]\ˆ]X[]H[™X[Ü‚‚‘Ù\È™YY[™Èœ™\]Y[˜ÞH]\›Z[™HHØ]\‹XÚ[™ÙHØÚY[OÏÚ‚‘™YY[™ÈY™™XÝÈØ\ÝHØY]\™H\È›Èš^Y[HÝXÚ\È8 'Û™HY[X][™ÈÛÈÛÜ›\È™\]Z\™\ÈHL	HÙYZÛHÚ[™ÙK¸ 'H\ÝH\]X\š][H[™]Ø]\ˆÚ[Z\ÝžKØ\ÝHXØÝ[][][Ûˆ[™Þ\Ý[HØ\XÚ]HÙ]HXZ[[˜[˜ÙH[‹Ü‚‚’ÝÈÛ™ÈØ[ˆ[ˆ^ÛÝØY™[H˜\ÝÏÚ‚•\ÈYÙHÙ\È›ÝX›\ÚH[š]™\œØ[8 'ØY™H˜\Ý[™È\š[Ù8 'HX›H™XØ]\ÙHH]šY[˜ÙHÙ\È›Ý\ÝX›\ÚÛ™Kˆ[›™YXœÙ[˜Ù\È™[Û™ÈÛˆH™YH‹ÙY]Ù˜\Ý[™ËX[™]˜XØ][Û‹ÈH˜\Ý[™ËÝ˜XØ][ÛˆÝZYOØO‹Ü‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙÙ[™]XË\ÝØÚËXÙ[\‹ÙØÝ[Y[ËÐQÔÐÉLŒÑÝZYWÌŒœˆ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\Žˆ^ÛÝÝZYHŒ8 %™YY[™È[Y[[™OØOÛO‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙYXØ][ÛŒKÙÝZYK]ËX^ÛÝZ\Ø˜[™žH[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\ŽˆÝZYHÈ^ÛÝ\Ø˜[™žOØOÛO‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙÙ[™]XË\ÝØÚËXÙ[\‹Ù›ÛÙZ[™›Ëœ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\Žˆ›ÛÙ[™›Ü›X][ÛØOÛO‚Ý[‚‰ÉÉÂ‚“ÑWÓÕ‘T”’QTÖÈ[šË\Ù]\ÜÝXœÝ˜]KX[™Z[\XÝ[Ûˆ—HH‰ÉÉÂÝ›Û™ÏÚÛÜÙH^ÛÝÝXœÝ˜]HžHÝØ[ÝÚ[™Èš\ÚË[š[X[Ú^™KÛX[›[™\ÜÈ[™HØ^H[ÝH™YYÜÝ›Û™ÏˆHÛX\™\Ý[H\ÈÈ]›ÚYÛÜÙHÜ˜]™[ÜˆÝÛ™\ÈÛX[[›ÝYÚÈ[\ˆH[Ý]\š[™ÈÝXÝ[Ûˆ™YY[™ËÜ‚]ˆÛ\ÜÏHœ›ÛK[›ÝHÝ›Û™Ï•\ÈYÙHÝÛœÈÝXœÝ˜]HÚÚXÙH[™™]™[[Û‹ÜÝ›Û™ÏˆYˆ[ÝHÝ\ÜXÝHØ\Ý›Ú[\Ý[˜[›ØÚØYÙK\ÙHH™YH‹ÚX[Ú[\XÝ[Û‹\Þ[\Û\Ë]™X]Y[ÈH[\XÝ[ÛˆÝZYOØO‹Ù]‚‚•ÚH\ÈÜ˜]™[š\ÚÞOÏÚ‚^ÛÝÈØ[ˆ[™Ù\ÝX]\šX[Ú[HÝXÝ[Û‹Y™YY[™ËˆHŒQÔÐÈÝZYH\ØÛÝ\˜YÙ\ÈÝXœÝ˜]H[ˆš[\™Y\]X\šXH™XØ]\ÙH^ÛÝÈX^H[™Ù\ÝÛX[›ØÚÜÈ[™Ü˜]™[\š[™È™YY[™Ë[™QÔÐÈ›ÛÙÝZY[˜ÙHÜXÚYšXØ[HØ\›œÈX›Ý]Ü˜]™[[™Ù\Ý[Ûˆ\›Ý[™[]ËÜ‚•]\È[›ÝYÚÈ\ÝYžH]›ÚY[™ÈÝØ[ÝØX›HÜ˜]™[Ú]Ý]ÛZ[Z[™È]™\žHÝØ[ÝÙY\XÛH\È[™]š]X›H˜][Ü‚‚•Ú]ÝXœÝ˜]HÜ[ÛœÈ\™H˜XÝXØ[ÏÚ‚]ˆÛ\ÜÏHX›K]Ü˜\X›O‚XY“Ü[ÛÝ”Ý™[™ÝÏÝ•˜Y[Ù™œÏÝÝÝXY‚›ÙO‚˜\™H›ÝÛOÝ“›ÈÛÜÙHÝXœÝ˜]HÈÝØ[ÝÎÈX\ÞHØ\ÝH™[[Ý˜[Ý“\ÜÈ˜]\˜[[ÛÚÚ[™ÎÈÝ\™˜XÙH˜XÝ[Û‹Ýš\ÝX[™Y™\™[˜ÙH˜\žHžHÙ]\ÝÝ‚\›ÜšX][Hš[™HØ[™Ý“˜]\˜[\X\˜[˜ÙH[™œ›ØYÛÛ[[Ý\ÈÝ\™˜XÙOÝ“]\Ý™HÙ\ÛX[ŽÈ\XÛHÚ^™H[™[š[X[Ú^™HX]\ÝÝ‚“\™ÙHš^YÜÛ[ÛÝÝ\™˜XÙ\ÏÝØ[ˆ›ÝšYH˜XÝ[ÛˆÚ]Ý]ÛÜÙH[™Ù\ÝX›H\XÛ\ÏÝ•Ø\ÝHØ[ˆÛÛXÝ\›Ý[™Ý[™\ˆYXÙ\ÏÝÝ‚“ÛÜÙHÜ˜]™[ÈÛX[ÝÛ™\ÏÝ‘XÛÜ˜]]™OÝ”ÝØ[ÝÚ[™ËÙ›Ü™ZYÛ‹X›ÙHš\ÚÈ\š[™È™YY[™ÏÝÝ‚Ý›ÙOÝX›OÙ]‚‚’\È\™HÛ™H›Ý™[ˆØY™HØ[™Ü˜Z[ˆÚ^™OÏÚ‚Ý›Û™Ï“^P^ÛÝÙ\È›Ý™X]Û™HZ[[Y]\ˆÝ]Ù™ˆ\ÈH[š]™\œØ[š[ÛÙÚXØ[]ËÜÝ›Û™Ïˆš[™\ˆX]\šX[\ÈÙ[™\˜[HÚÜÙ[ˆÈ™YXÙHHš\ÚÈÜÙYžHÛØ\œÙH[™Ù\ÝX›H\XÛ\Ë][š[X[Ú^™K™YY[™ÈY]Ù[™XZ[[˜[˜ÙH[ÛÈX]\‹Ü‚‘›Üˆ™\žHÛX[]™[š[\ËH˜\™KX›ÝÛHÜ›ÝË[Ý]Ù]\Ø[ˆXZÙH™YY[™È[™Ø\ÝH™[[Ý˜[X\ÚY\‹Ü‚‚Ø[ˆ\™ÙHš]™\ˆ›ØÚÜÈ™HØY™OÏÚ‚“Øš™XÝÈÛÈ\™ÙHÈÝØ[ÝÈ™[[Ý™HÛ™H›Ü™ZYÛ‹X›ÙH›Ý]K]^HØ[ˆ˜\Ø\ÝH[™\›™X][™Ü™X]HY™šXÝ[ÛX[š[™È›Û™\ËˆYˆ\ÙY^HÚÝ[™HÛ[ÛÝÝX›H[™\œ˜[™ÙYÛÈH[š[X[Ø[››Ý™XÛÛYHÙYÙYÜ‚‚‘Ù\ÈÝXœÝ˜]HØ]\ÙH[™Ý\ÈÜˆ[[[ÛšXHžH]Ù[ÏÚ‚“›Ëˆ\HÝXœÝ˜]HØ[ˆ˜\Ü™Ø[šXÈØ\ÝH[™ÛÛšX]HÈÛÜˆØ]\ˆ]X[]K]]\È›ÝXØÝ\˜]HÈÛZ[H]HÜXÚYšXÈÝXœÝ˜]H]]ÛX]XØ[HØ]\Ù\È[™Ø[[™™XÝ[ÛˆÜˆHš^Yš]˜]H]™[ˆ\Ø˜[™žKÛX[š[™ËÝØÚÚ[™È[™š[˜][Ûˆ]\›Z[™HHÞ\Ý[HÝ]ÛÛYKÜ‚‚”ÚÝ[HÜÜ][Üˆ]X\˜[[™HÙ]\™H˜\™OÏÚ‚H˜\™H[™\Ý\™˜XÙH\ÈÙ[ˆ\ÙY[[ˆ[\Ü˜\žHÛ[šXØ[Ý\Ú[™È™XØ]\ÙH]Ú[\YšY\ÈÛX[š[™È[™ØœÙ\˜][Û‹ˆ]Ù\È›ÝYX[ˆ]™\žHÜÜ][Ø\ÙH™\]Z\™\ÈYYXØ][ÛˆÜˆHš^YÛÛ\]K]Ø]\‹XÚ[™ÙHØÚY[KÜ‚”ÙYHH™YH‹ÚX[Ü]X\˜[[™K]X‹È”]X\˜[[™H	ˆÜÜ][Ù]\ØO‹Ü‚‚’ÝÈÈ[ÝH™YYÚ]Ý][˜Ü™X\Ú[™ÈÝXœÝ˜]H[™Ù\Ý[ÛÏÚ‚”XÙH›ÛÙÚ\™H]\ÈX\ÞH›ÜˆH[š[X[Èš[™[™Ú\™HÝXÝ[Ûˆ\È\ÜÈZÙ[HÈ[[ˆÛÜÙHX]\šX[ˆ™YY[™È\Ú\ÈÜˆ\™Ù]™YY[™ÈØ[ˆ[[ˆÛÛYHÙ]\Ëˆ™[[Ý™HYÝ™\œÈ™Y›Ü™H^HXÛÛ\ÜÙKÜ‚‚•Ú]Yˆ[ÝH[šÈÜ˜]™[Ø\ÈÝØ[ÝÙYÏÚ‚‘È›ÝX\ÜØYÙHHX™ÛY[‹Ú]™H^]]™\ÈÜˆœšYÙHH[š[X[\ÈHÝ[™\™™\ÜÛœÙKˆ™XÛÜ™H^ÜÝ\™KØ]Ú\]]KÙ™XØ[Ý]]Ø›ÙHÚ\H[™ÙYZÈ™]\š[˜\žH]˜[X][ÛˆYˆÞ[\Û\È]™[ÜÜˆ\œÚ\Ýˆ[XYÚ[™ÈX^H™H™YYYÈÛÛ™š\›HH›Ü™ZYÛˆ›ÙKÜ‚‚”ÛÝ\˜Ù\ÏÚ‚[‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙÙ[™]XË\ÝØÚËXÙ[\‹ÙØÝ[Y[ËÐQÔÐÉLŒÑÝZYWÌŒœˆ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\Žˆ^ÛÝÝZYHŒØOÛO‚OH™YHšÎ‹ËØ[Xž\ÝÛXKZÞK™YKÙÙ[™]XË\ÝØÚËXÙ[\‹Ù›ÛÙZ[™›Ëœ[Xž\ÝÛXHÙ[™]XÈÝØÚÈÙ[\Žˆ›ÛÙ[™›Ü›X][ÛØOÛO‚OH™YHšÎ‹ËÝ™]\š[˜\ž\\™\‹š[‹˜ÛÛKÙY˜][˜\ÜØØ]YLLÎNI˜[\ÚYNÌI˜[\Ú[™LNMÉ˜[\ÛØš•\RQLLÉ˜[\ÜYLNLŒÎH•™]\š[˜\žH\™\ˆÈ’SŽˆØ\Ý›Ú[\Ý[˜[›Ü™ZYÛˆ›ÙHÜˆÝ™\›ØY[ˆ[\XšX[œÏØOÛO‚Ý[‚‰ÉÉÂ‚™›ÜˆØÙ™È[ˆT•PÓTË˜[Y\Ê
+N‚ˆYˆØÙ™Ë™Ù]
+œÛYÈŠH[ˆÂˆšX[Ü]X\˜[[™K]Xˆ‹ˆšX[Ø[[[ÛšXKX\›œÈ‹ˆšX[ÛZ[›Ü‹\ØÜ˜\\ËX[™]ÛÝ[™È‹ˆšX[Û[X‹\™YÙ[™\˜][Ûˆ‹ˆ™Y]Ù™YY[™Ë\ØÚY[KXžKXYÙH‹ˆ[šË\Ù]\ÜÝXœÝ˜]KX[™Z[\XÝ[Ûˆ‹ˆN‚ˆØÙ™ÖÈ™]WÛ[ÙYšYY—HHŒŒ‹LKLNH‚‚ˆÈZ[šYÙÙ\Žˆ™]žHÛÜÝ	ˆ^Z[™ÈY\ˆÛX\š[™ÈHÝ[H]Y]YY›Ø‹‚‚ˆÈÙ^]ÛÜ™\™XÛÛ˜Ú[X][Ûˆš^ˆÝ™[™Ý[ˆH^\Ý[™È[˜]Û^HÝÛ™\ˆ›ÜˆY]ÛÜ˜[[˜]Û^K‚’S•“×ÓÕ‘T”’QTÖÉØš[ÛÙÞKX[™\ØÚY[˜ÙKØ[˜]Û^KYÚ[ËX[™[[™ÜÉ×HH
+ˆ	Ð^ÛÝ[˜]Û^H[˜ÛY\È^\›˜[Ú[ËÚ[\H[™ÜË\›YXX›HÚÚ[‹ÛX[Ü˜[Y]	Âˆ	ÛY\ÜÈ^Y\Ë[ˆ[›™\ˆX\ˆ[™]\˜[[[™HÞ\Ý[KÛ˜XÝÜžHÜ™Ø[œË[™HÛ™ÝYHÚ]\ÝHYËˆ	Âˆ	Õ\ÈÝZYH^Z[œÈÝÈÜÙHÝXÝ\™\ÈÛÜšÈÚ]Ý]Ü][™ÈÛÜÙ[H™[]Y[˜]Û^H]Y\Ý[ÛœÈ[ÈÙ\\˜]HYÙ\Ë‰ÂŠB“ÑWÓÕ‘T”’QTÖÉØš[ÛÙÞKX[™\ØÚY[˜ÙKØ[˜]Û^KYÚ[ËX[™[[™ÜÉ×HH‰ÉÉÂ‘È^ÛÝÈ]™HY]ÏÚ‚Ý›Û™Ï–Y\Ëˆ^ÛÝÈ]™H™X[Y][ˆH[Ý][™[]K]™[ˆÝYÚHY]\™HÛX[[™X\ÞHÈZ\ÜËÜÝ›Û™Ïˆ™\ÙX\˜ÚÛˆ[O[Xž\ÝÛXHY^XØ[[OÙ[Oˆ\ØÜšX™\ÈÜ™Ø[š^™YÝ]\ˆ[™[›™\ˆ[[\˜ØY\È[™][\HÛÝšY[È˜]\ˆ[ˆHÛÝ\ÜÈ[Ý]Ü‚”ÝYY\ÈÙˆ^ÛÝ[][Ûˆ[ÛÈÚÝÈ]™\XÙ[Y[Y]ÛÛ[YHÈ]™[ÜˆHY]™XÛÛYH[Ü™H[Y\›Ý\È\ÈH[š[X[]™[ÜË[™Z\ˆÝXÝ\™HÚ[™Ù\ÈÚ]]™[ÜY[[ÝYÙKÜ‚‘›ÜˆÝÛ™\œËH˜XÝXØ[Ú[\ÈÚ[\NˆHÛ[ÛÝ[ÛÚÚ[™È^ÛÝ[Ý]Ù\È›ÝYX[ˆH[š[X[\È›ÈY]ˆ]Y\Ý[ÛœÈX›Ý]Ú]\ˆHš\Ø[ˆ\™[Û™È[ˆHH™YH‹ØØ\™KX˜\ÚXÜËØ^ÛÝËX[™XÚ[™[‹È˜^ÛÝÈ[™Ú[™[ˆØY™]HÝZYOØOŽÈ\ÈYÙHÛÝ™\œÈH[˜]Û^H]Ù[‹Ü‚]ˆÛ\ÜÏHœ™Y™\™[˜Ù\ËX›ÞÏ‘[[[˜]Û^HÛÝ\˜Ù\ÏÚÏ[‚OH™YHšÎ‹ËÜX›YY›˜ØšK››K›šZ™ÛÝ‹ÌLNNNM‹È•Ú\ÝX˜KÜ™]™[ˆ	˜[\ÈÛ[Y[ˆ
+ŒŠNˆ]™[ÜY[Ùˆ^ÛÝY]ØOÛO‚OH™YHšÎ‹ËÝÝÝË›˜]\™K˜ÛÛKØ\XÛ\ËÜÍMNNLŒMŒM‹Lˆ”ØÚY[YšXÈ™\ÜÈ
+ŒŒ
+Nˆ^ÛÝÛÝÝXÝ\™H[™™\XÙ[Y[ØOÛO‚OH™YHšÎ‹ËÜX›YY›˜ØšK››K›šZ™ÛÝ‹ÌÌÍLNMÍÈ“Ü˜[[™[][[][ÛˆÙˆ^ÛÝ
+ŒŒJOØOÛO‚Ý[Ù]‚‚‘È^ÛÝÈ]™H[™ÜÏÏÚ‚Ý›Û™Ï–Y\Ë^ÛÝÈ]™H[™ÜË\È^\›˜[Ú[È[™ÞYÙ[‹XXœÛÜ˜š[™ÈÚÚ[‹ÜÝ›Û™Ïˆ^Hœ™X]H›ÝYÚ[™YHÞ\Ý[\ËÚ]H™X]\žH^\›˜[Ú[È[™HÚÚ[ˆÚ[™È[ÜÝÙˆHÛÜšÈ[™\Ø]\‹ˆH[™ÜÈ\™HÚ[\HØXÜÈ\ÙY›ÜˆÝ\™˜XÙHÝ[ËÚXÚXZÙ\ÈH^ÛÝÛ™HÙˆH[ÜÝ›^X›Hœ™X]\œÈ[[Û™È[\XšX[œËÜ‚HYH[\XšX[ˆZ[›ÜˆHY™HÜ[[\™[H[™\Ø]\ˆÙY\È\ÈÚ[[[™Ë\ÚÚ[ˆÛÛX›È]ÈÚÛHY™KÜ‚’ÝÈÈ^ÛÝÈœ™X]OÏÚ‚Ý›Û™Ï^ÛÝÈœ™X]H›ÝYÚ™YHÞ\Ý[\È]Û˜ÙNˆ^\›˜[Ú[ËÚÚ[‹[™[™ÜËÜÝ›Û™ÏˆXXÚÞ\Ý[H\ÈHÜXÚYšXÈ›ØŽÜ‚]ˆÛ\ÜÏHX›K]Ü˜\X›O‚XY”Þ\Ý[OÝ•Ú]]Ù\ÏÝÝÝXY‚›ÙO‚‘^\›˜[Ú[ÏÝ•™YH™X]\žHÚ[È\ˆÚYH^˜XÝÞYÙ[ˆœ›ÛHØ]\ÝÝ‚”ÚÚ[ÝXœÛÜ˜œÈÞYÙ[ˆ\™XÝH›ÝYÚH[Ú\ÝÚÚ[ÝÝ‚“[™ÜÏÝ”Ú[\HØXÜÈÝ[Z\ˆ]HÝ\™˜XÙOÝÝ‚‘Ú[›XÚÚ[™ÏÝ“[Ý™\ÈØ]\ˆÝ™\ˆHÚ[š[[Y[ÈÈ›ÛÜÝÞYÙ[ˆ\ZÙOÝÝ‚”™YÙ[™\˜][ÛÝ‘Ú[È™YÜ›ÝÈYˆ[XYÙYÜˆš\YÝÝ‚Ý›ÙOÝX›OÙ]‚•HÚ[È[™ÚÚ[ˆ[™HH›Ý][™HÞYÙ[ˆÝ\K[™H[™ÜÈÝ\[Y[[HÚ[ˆH[š[X[Ý\™˜XÙ\ËÜ‚’ÝÈX[žHÚ[ÈÙ\È[ˆ^ÛÝ]™OÏÚ‚Ý›Û™Ï[ˆ^ÛÝ\ÈÚ^^\›˜[Ú[Ý[ÜË™YHÛˆXXÚÚYHÙˆHXYÜÝ›Û™ÏˆXXÚÝ[ÈØ\œšY\Èš[™Hš[[Y[È][˜Ü™X\ÙHÝ\™˜XÙH\™XH›ÜˆØ\È^Ú[™ÙKÜ‚•ÚH\™H^ÛÝÚ[ÈÛÈ\™ÙOÏÚ‚Ý›Û™Ï•HÚ[È\™H\™ÙH™XØ]\ÙH^H›ÝšYHÝXœÝ[X[Ý\™˜XÙH\™XH›Üˆ[™\Ø]\ˆØ\È^Ú[™ÙKÜÝ›Û™ÏˆZ\ˆ™X]\žHš[[Y[È^ÜÙH›ÛÙ\šXÚ\ÜÝYHÈ[Ýš[™ÈØ]\‹ˆÚ[ÛÛ™][ÛˆØ[ˆ[ÛÈÚ[™ÙHÚ]Ý™\ÜÈ[™Ø]\ˆ]X[]KÛÈ\œÚ\Ý[Ú[™Ù\ÈÚÝ[™H[\œ™]Y[Û™ÜÚYH\Ø˜[™žHÛÛ™][ÛœÈ˜]\ˆ[ˆÛˆ\X\˜[˜ÙH[Û™KÜ‚•ÚHÙ\È^H^ÛÝÛÈÈHÝ\™˜XÙH›ÜˆZ\ÏÚ‚Ý›Û™Ï”Ý\™˜XÙHÝ[[™ÈØ[ˆ™H›Ü›X[™XØ]\ÙH^ÛÝÈ]™H[™ÜËÜÝ›Û™ÏˆØØØ\Ú[Û˜[š\ÈÈHÝ\™˜XÙH\™H›Ý]]ÛX]XØ[HH›Ø›[Kˆœ™\]Y[Ý[[™ÈÜˆHÝY[ˆÚ[™ÙHÚÝ[›Û\HÚXÚÈÙˆ[\\˜]\™KØ]\ˆ]X[]K[™Y\˜][Û‹Ü‚Ø[ˆ^ÛÝÈœ™X]HÝ]ÙˆØ]\ÏÚ‚Ý›Û™Ï^ÛÝÈ\™H[H\]X]XÈ[™ÚÝ[™[XZ[ˆ[ˆØ]\‹ÜÝ›Û™ÏˆZ\ˆ^\›˜[Ú[È\™HY\Y›Üˆ[™\Ø]\ˆØ\È^Ú[™ÙH[™Ø[ˆÛÛ\ÙH[™žHÚ[ˆ^ÜÙYÈZ\‹ˆ[™ÜÈ[ÝÈÝ\™˜XÙHZ\ˆÝ[Ë]^HÈ›ÝXZÙH[ˆ^ÛÝH[™[š[X[Ü‚•Ú]ÈX[H^ÛÝÚ[ÈÛÚÈZÙOÏÚ‚Ý›Û™Ï’X[HÚ[È\™H\XØ[H[[™™X]\žK]›Ü›X[\X\˜[˜ÙH˜\šY\È™]ÙY[ˆ[™]šYX[ËÜÝ›Û™Ïˆ\œÚ\Ý[Úš[šÚ[™ËÜÜÈÙˆš[[Y[ËX\šÙYÝ\›[™ËÜˆHÝY[ˆÚ[™ÙHÚÝ[›Û\HÚXÚÈÙˆØ]\ˆ]X[]K[\\˜]\™K[™Ý\ˆÝ™\ÜÛÜœÈ˜]\ˆ[ˆHXYÛ›ÜÚ\Èœ›ÛHÚ[Ú\H[Û™KÜ‚•Ú]\ÈXØØ[[\[™ÏÏÚ‚Ý›Û™ÏXØØ[[\[™È\Èš]ZXÈ[Ý™[Y[ÙˆH[Ý][™›Ø]™YÚ[Ûˆ][È[Ý™HØ]\ˆXÜ›ÜÜÈ™\Ü\˜]ÜžHÝ\™˜XÙ\ËÜÝ›Û™Ïˆ]\ÈÛ™H\ÙˆÝÈ\]X]XÈ[\XšX[œÈXZ[Z[ˆØ\È^Ú[™ÙHÚ[H™\Ý[™È[™\Ø]\‹Ü‚‘È^ÛÝÈ]™H[™ÜÈÜˆÚ[ÏÏÚ‚Ý›Û™Ï^ÛÝÈ]™H›Ý[™ÜÈ[™Ú[Ë\ÈÚÚ[ˆ™\Ü\˜][Û‹ÜÝ›Û™ÏˆHÚ[È[™ÚÚ[ˆÛZ[˜]H[™\Ø]\‹Ú[HH[™ÜÈ[ÝÈØØØ\Ú[Û˜[Ý\™˜XÙHZ\ˆÝ[Ëˆ[™YHÞ\Ý[\È\™H\Ùˆ›Ü›X[^ÛÝ™\Ü\˜]ÜžH[˜]Û^KÜ‚•Ú]\[œÈÈ^ÛÝÚ[È[ˆÛÜˆØ]\ÏÚ‚Ý›Û™Ï”ÛÜˆØ]\ˆ]X[]HØ[ˆ[XYÙHÜˆ™YXÙHHÛÛ™][ÛˆÙˆ^\›˜[Ú[ËÜÝ›Û™Ïˆ[[[ÛšXH[™š]š]H\™H\ÜXÚX[HÛÛ˜Ù\›š[™È™XØ]\ÙH^H[š\™H[XØ]H\]X]XÈ\ÜÝY\ËˆYˆHÚ[ÈÚ[™ÙH›ÝXÙXX›K\ÝHØ]\ˆš\œÝ[™ÛÜœ™XÝH[™\›Z[™È\Ø˜[™žH›Ø›[H˜]\ˆ[ˆ™X][™ÈHÚ[È\ÈHXYÛ›ÜÚ\ÈžH[\Ù[™\ËÜ‚•Ú]Ý\ˆ[˜]Û^HÈ^ÛÝÈ]™OÏÚ‚”Ù]™\˜[ÛÛ[[Ûˆ[˜]Û^H]Y\Ý[ÛœÈ\™H™\Ý[œÝÙ\™YÙÙ]\ˆ™XØ]\ÙH^H\ØÜšX™HHØ[YHYYÛ[ÜœXÈ\]X]XÈ›ÙH[‹Ü‚Ï‘È^ÛÝÈ]™HX\œÏÏÚÏ‚Ý›Û™Ï^ÛÝÈ]™H[ˆ[›™\ˆX\‹]›Èš\ÚX›H^\›˜[X\ˆ›\ÜÝ›Û™Ïˆ^H[ÛÈÙ[œÙHØ]\ˆ[Ý™[Y[›ÝYÚH]\˜[[[™HÞ\Ý[HÙˆYXÚ[›Ü™XÙ\]™H™]\›ÛX\ÝËˆ™\ÙX\˜ÚÛˆ[O[Xž\ÝÛXHY^XØ[[OÙ[Oˆ\ØÜšX™\È›Ý[›™\‹YX\ˆÙ[œÛÜžHZ\ˆÙ[È[™Ý\\™šXÚX[]\˜[[[™HÜ™Ø[œËÛÈX\š[™È[™Ø]\‹[[Ý[ÛˆÙ[œÚ[™È\™H›Ý[Z]YÈHš\ÚX›HÝ]\ˆX\‹Ü‚Ï‘È^ÛÝÈ]™H^Y[YÏÏÚÏ‚Ý›Û™Ï“›Ü›X[YYÛ[ÜœXÈ^ÛÝÈÈ›Ý]™[Ü[Ý˜X›H^Y[YËÜÝ›Û™ÏˆH[Y\šXØ[ˆ]\Ù][HÙˆ˜]\˜[\ÝÜžH[™Ø[ˆYYÛÈ›ÛÈ›ÝY[YžHY\ÜÈ^Y\È\ÈÛ™HÙˆH]™[š[H˜Z]È™]Z[™Y[ÈY[ÛÙÜ‚Ï‘È^ÛÝÈ]™HØØ[\ÏÏÚÏ‚Ý›Û™Ï“›Ëˆ^ÛÝÈÈ›Ý]™Hš\Ú[ZÙHÜˆ™\[K[ZÙHØØ[\ËÜÝ›Û™ÏˆZ\ˆÚÚ[ˆ\È[\XšX[ˆ\Y\›Z\ÈÚ]]XÝ\Ë\›ÙXÚ[™ÈÙ[È[™™[XZ[œÈ[\Ü[›ÜˆØ\È^Ú[™ÙKˆ\ÝÛÙÚXØ[ÝYY\È\ØÜšX™HÜXÚX[^™Y\Y\›X[Ù[È[™H›ÝXÝ]™H]XÝ\È^Y\ˆ˜]\ˆ[ˆØØ[\ËÜ‚Ï‘È^ÛÝÈ]™HH›ÜÙH[™HÙ[œÙHÙˆÛY[ÏÚÏ‚Ý›Û™Ï–Y\Ëˆ^ÛÝÈ]™H^\›˜[›ÜÝš[ËH˜\Ø[Ø]š]K[ˆÛ˜XÝÜžH\][][K[™H›ÛY\›Û˜\Ø[Þ\Ý[KÜÝ›Û™Ïˆ[˜]ÛZXØ[ÝYY\ÈÚÝÈ]Z\ˆÛ˜XÝÜžH™XÙ\ÜˆÙ[È›Ú™XÝÈHÛ˜XÝÜžH[‹[™^\š[Y[È]™H™XÛÜ™YÙÜˆ™\ÜÛœÙ\Èœ›ÛHHÛ˜XÝÜžH\][][KÜ‚Ï‘È^ÛÝÈ]™HHÛ™ÝYOÏÚÏ‚Ý›Û™Ï–Y\Ëˆ^ÛÝÈ]™HHÛ™ÝYHÚ]ÜXÚX[^™Y\][][H[™\ÝHYËÜÝ›Û™ÏˆZXÜ›ÜØÛÜHÝYY\È\ØÜšX™H\ÝHYÈÛˆHÛ™ÝYH[™[Ù]Ú\™H[ˆHÜ˜[Ø]š]KÚ]Ù[œÛÜžH[›™\˜][Ûˆ›ÝYÚÜ˜[šX[™\™\ËÜ‚]ˆÛ\ÜÏHœ™Y™\™[˜Ù\ËX›ÞÏ[˜]Û^H[™Ù[œÛÜžHÛÝ\˜Ù\ÏÚÏ[‚OH™YHšÎ‹ËÜX›YY›˜ØšK››K›šZ™ÛÝ‹ÌŒLNÈ’ÛÜ›˜›[KÛÜÚ[ˆ	˜[\È™]˜\œ›ÝÈ
+NNL
+Nˆ[›™\‹YX\ˆ[™]\˜[[[™HÙ[œÛÜžHZ\ˆÙ[ÏØOÛO‚OH™YHšÎ‹ËÜX›YY›˜ØšK››K›šZ™ÛÝ‹ÎÌMMŒËÈ“›ÜÝ]	˜[\È›XÚÛX[›ˆ
+NNLÊNˆ^ÛÝ]\˜[[[™H™]\›ÛX\ÝÏØOÛO‚OH™YHšÎ‹ËÝÝÝË˜[[š›Ü™ËÙ^Ü™KÛÛÙÞKÛÛÙÞKXØ\™ËÌÍ‹X^ÛÝ[Y\šXØ[ˆ]\Ù][HÙˆ˜]\˜[\ÝÜžNˆ™]Z[™Y]™[š[H˜Z]È[™Y\ÜÈ^Y\ÏØOÛO‚OH™YHšÎ‹ËÜX›YY›˜ØšK››K›šZ™ÛÝ‹ÍÎMLÍŒÈ‘Z\Ý[ˆ][ˆ
+NNM
+NˆÛ˜XÝÜžH[™›ÛY\›Û˜\Ø[[˜]Û^OØOÛO‚OH™YHšÎ‹ËÜX›YY›˜ØšK››K›šZ™ÛÝ‹ÌLŒLKÈ•Ú\ÝX˜H	˜[\ÈÜ™]™[ˆ
+NNNJNˆÛ™ÝYH\][][H[™\ÝHYÏØOÛO‚OH™YHšÎ‹ËÜX›YY›˜ØšK››K›šZ™ÛÝ‹ÌŒÌMÈ’˜\šX[
+NNJNˆ\Y\›X[^YYÈÙ[È[™›ÝXÝ]™H]XÝ\ÏØOÛO‚Ý[Ù]‚^ÛÝ[˜]Û^HÛÛXš[™\ÈÝXÝ\™\È]ÛÚÈ[\ÝX[ÙÙ]\ŽˆÜ˜[Y]^\›˜[Ú[Ë\›YXX›HÚÚ[‹Ú[\H[™ÜËY\ÜÈ^Y\Ë\]X]XÈÙ[œÛÜžHÜ™Ø[œË[™H\ÝKX™X\š[™ÈÛ™ÝYKˆÙÙ]\ˆ^H™Y›XÝH[š[X[	ÜÈ\›X[™[H\]X]XËYYÛ[ÜœXÈØ[[X[™\ˆš[ÛÙÞKÜ‚‰ÉÉÂ
