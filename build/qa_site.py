@@ -342,15 +342,23 @@ def main():
         except Exception as exc:
             errors.append(f"sitemap parse error: {exc}")
 
-    sitemap_counts = Counter(sitemap_urls)
+    def norm_site_url(url: str) -> str:
+        parsed = urlparse(url.strip())
+        path = parsed.path or "/"
+        if path != "/":
+            path = path.rstrip("/") + "/"
+        return f"{parsed.scheme.lower()}://{parsed.netloc.lower()}{path}"
+
+    normalized_sitemap = [norm_site_url(url) for url in sitemap_urls]
+    sitemap_counts = Counter(normalized_sitemap)
     for url, count in sitemap_counts.items():
         if count > 1:
             errors.append(f"duplicate sitemap URL: {url}")
 
-    sitemap_set = set(sitemap_urls)
+    sitemap_set = set(normalized_sitemap)
     for route, info in pages.items():
         canonical = info["canonical"]
-        if canonical and canonical not in sitemap_set:
+        if canonical and norm_site_url(canonical) not in sitemap_set:
             errors.append(f"{route}: canonical missing from sitemap: {canonical}")
 
     # Orphan check is a warning: some trust/profile pages may intentionally have few links.
