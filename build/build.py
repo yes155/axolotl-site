@@ -2719,10 +2719,11 @@ def copy_tools():
             )
             text = text.replace("</head>", site_head_assets + "</head>", 1)
 
-        if not re.search(r'<main\b[^>]*\bid=', text, re.I):
-            text = re.sub(r'<main\b', '<main id="main"', text, count=1, flags=re.I)
-
-        if 'class="site-header"' not in text:
+        # Some legacy tools used site-header/site-footer for their own local
+        # banners. The shared navigation is identified by main-nav/footer-grid,
+        # which avoids mistaking those local elements for the universal chrome.
+        if 'class="main-nav"' not in text:
+            text = text.replace('class="site-header"', 'class="tool-source-header"', 1)
             site_top = (
                 '<a class="skip-link" href="#main">Skip to content</a>\n'
                 + header("/tools/") + "\n"
@@ -2735,7 +2736,21 @@ def copy_tools():
                 flags=re.I,
             )
 
-        if 'class="site-footer"' not in text:
+        if not re.search(r'\bid="main"', text, re.I):
+            if re.search(r'<main\b', text, re.I):
+                text = re.sub(r'<main\b', '<main id="main"', text, count=1, flags=re.I)
+            else:
+                text = text.replace(
+                    "</header>",
+                    '</header>\n<span id="main" class="sr-only" tabindex="-1"></span>',
+                    1,
+                )
+
+        if 'class="footer-grid"' not in text:
+            text = text.replace('class="site-footer"', 'class="tool-source-footer"', 1)
+            text = text.replace("</body>", "\n" + footer() + "\n</body>", 1)
+
+        if "var b=document.querySelector('[data-nav-burger]')" not in text:
             nav_script = (
                 "<script>(function(){"
                 "var b=document.querySelector('[data-nav-burger]'),m=document.querySelector('.mobile-nav');"
@@ -2749,11 +2764,7 @@ def copy_tools():
                 "mm.classList.remove('is-open');t.setAttribute('aria-expanded','false');}});}"
                 "})();</script>"
             )
-            text = text.replace(
-                "</body>",
-                "\n" + footer() + "\n" + nav_script + "\n</body>",
-                1,
-            )
+            text = text.replace("</body>", "\n" + nav_script + "\n</body>", 1)
 
         data = text.encode("utf-8")
         with open(os.path.join(dst_dir, "index.html"), "wb") as fh:
