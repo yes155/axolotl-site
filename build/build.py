@@ -139,6 +139,7 @@ TOOL_DESCS = {
     "symptom-checker": "Review observed axolotl symptoms, possible explanations, safe first checks, and signs that need veterinary care.",
     "tank-size-calculator": "Find the minimum tank size for your axolotl based on its length and number of axolotls.",
     "chiller-size-calculator": "Estimate an aquarium chiller class from tank volume, temperature pull-down, and heat load.",
+    "aquarium-volume-calculator": "Calculate aquarium US gallons, liters, Imperial gallons, usable water volume, and water weight from tank dimensions.",
 }
 
 # Popular searches shown on the empty search page (label -> query).
