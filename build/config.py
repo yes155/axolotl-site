@@ -4041,7 +4041,7 @@ CONFIG_ARTICLES = {
         "hub": "tank-setup",
         "title": "How to Do an Axolotl Water Change Step by Step",
         "title_tag": "Axolotl Water Change: Step-by-Step Guide",
-        "meta": "A complete step-by-step guide to changing your axolotl's water - how often, how much to remove, how to treat and match replacement water, and the mistakes that stress gills.",
+        "meta": "Learn how to change axolotl tank water step by step, including testing, dechlorination, temperature matching, safe siphoning and common mistakes.",
         "intro": "A complete step-by-step guide to changing your axolotl's tank water - how often, how much to remove, and how to treat and match replacement water without stressing the animal.",
         "num": 210,
         "headings": [
@@ -4180,7 +4180,7 @@ CONFIG_ARTICLES.update({
         "hub": "biology-and-science",
         "title": "Do Axolotls Turn Into Salamanders? Metamorphosis Explained",
         "title_tag": "Do Axolotls Turn Into Salamanders? Metamorphosis Explained",
-        "meta": "Axolotl metamorphosis explained: why axolotls normally remain aquatic and paedomorphic, what changes during metamorphosis, and what owners should do if those changes appear.",
+        "meta": "Learn why axolotls normally remain aquatic, what changes during rare metamorphosis and what owners should do if those changes appear.",
         "intro": "Axolotls are salamanders already, but unlike most salamanders they normally reach adulthood without transforming into a terrestrial form. This page explains paedomorphosis, the rare metamorphic pathway, the body changes involved, and why owners should never try to trigger metamorphosis at home.",
         "num": 212,
         "date_published": "2026-09-18",
@@ -4270,7 +4270,7 @@ CONFIG_ARTICLES.update({
         "hub": "biology-and-science",
         "title": "Axolotl Life Cycle: Egg, Larva, Juvenile & Adult Stages",
         "title_tag": "Axolotl Life Cycle: Egg, Larva, Juvenile & Adult Stages",
-        "meta": "Follow the axolotl life cycle from fertilized egg through embryo, hatchling, larva, juvenile and sexually mature adult, including how neoteny changes the usual salamander pattern.",
+        "meta": "Follow the axolotl life cycle from egg and embryo through hatchling, larva, juvenile and aquatic adult, including how neoteny shapes development.",
         "intro": "The axolotl life cycle runs from fertilized egg to embryo, hatchling, feeding larva, juvenile and sexually mature adult. Unlike most salamanders, the normal adult remains aquatic and keeps larval traits such as external gills.",
         "num": 213,
         "date_published": "2026-09-18",
@@ -4352,7 +4352,7 @@ CONFIG_ARTICLES.update({
         "hub": "morphs",
         "title": "Albino Axolotl: Color, Genetics, Types & Identification",
         "title_tag": "Albino Axolotl: Color, Genetics, Types & Identification",
-        "meta": "Albino axolotl genetics and identification: how the recessive tyrosinase mutation removes melanin, why albinos can look golden, white or pale, and how albino differs from leucistic.",
+        "meta": "Learn how albino axolotl genetics affect melanin, why albinos may appear golden, white or pale, and how to distinguish albino from leucistic animals.",
         "intro": "An albino axolotl is homozygous for a recessive mutation that disrupts melanin production. Because other pigment systems can remain, albino animals are not all the same color: golden, white-albino and axanthic-albino combinations can look different.",
         "num": 214,
         "date_published": "2026-09-18",
@@ -4432,7 +4432,7 @@ CONFIG_ARTICLES.update({
         "hub": "morphs",
         "title": "Axanthic Axolotl: Color, Pigment Cells, Genetics & Identification",
         "title_tag": "Axanthic Axolotl: Color, Genetics & Identification",
-        "meta": "What is an axanthic axolotl? Learn how the recessive axanthic mutation alters yellow pteridine pigment and iridophore development, how axanthic differs from melanoid, and how combinations change appearance.",
+        "meta": "Learn how axanthic genetics affect yellow pigment and iridophores, how axanthic differs from melanoid, and why genetic combinations change appearance.",
         "intro": "Axanthic axolotls have a recessive pigment phenotype in which normal yellow pteridine pigmentation is lost and iridophore development is also affected. The result is commonly a gray-toned appearance dominated by melanophores, but combinations with albino or other pigment genes can look very different.",
         "num": 215,
         "date_published": "2026-09-18",
@@ -4500,7 +4500,7 @@ CONFIG_ARTICLES.update({
         "hub": "tank-setup",
         "title": "How to Test Axolotl Water: Ammonia, Nitrite, Nitrate & pH",
         "title_tag": "How to Test Axolotl Water: Ammonia, Nitrite, Nitrate & pH",
-        "meta": "Learn how to test axolotl aquarium water consistently: what to measure, how to take a sample, how to use liquid tests or strips correctly, how to read color charts, and what to do after an abnormal result.",
+        "meta": "Learn how to test axolotl water for ammonia, nitrite, nitrate and pH, use liquid kits or strips correctly, read results and respond to abnormal values.",
         "intro": "Good water testing has two separate jobs: obtain a reliable reading, then interpret it. This page owns the testing procedure; the Water Parameters & Cycling guide explains what the readings mean and what aquarium process may be causing them.",
         "num": 216,
         "date_published": "2026-09-18",
@@ -4595,11 +4595,10 @@ CONFIG_ARTICLES.update({
     },
 })
 
-# Temporary real heroes for the new pages. These deliberately reuse existing
-# MyAxolotl originals so no new URL publishes with an auto-generated placeholder.
+# Dedicated MyAxolotl hero graphics for the new pages.
 HERO_IMAGE_OVERRIDES.update({
     "biology-and-science/metamorphosis": {
-        "file": "axolotl-neoteny-explained.webp",
+        "file": "axolotl-metamorphosis-explained.webp",
         "alt": "Axolotl neoteny and metamorphosis diagram comparing the normal aquatic adult with the metamorphic pathway",
         "caption": "Axolotls normally mature while retaining larval aquatic traits; metamorphosis is an unusual alternative pathway, not a routine pet-care goal.",
         "description": "Axolotl developmental diagram contrasting paedomorphosis with salamander metamorphosis.",
@@ -4607,7 +4606,7 @@ HERO_IMAGE_OVERRIDES.update({
         "width": 1600, "height": 900,
     },
     "biology-and-science/axolotl-life-cycle": {
-        "file": "axolotl-age-and-size-chart.webp",
+        "file": "axolotl-life-cycle-stages.webp",
         "alt": "Axolotl growth stages from early larva through juvenile and adult",
         "caption": "Axolotl development continues from embryo and hatchling through larva, juvenile and sexually mature aquatic adult.",
         "description": "Axolotl growth-stage graphic used to illustrate the post-hatch portion of the life cycle.",
@@ -4615,7 +4614,7 @@ HERO_IMAGE_OVERRIDES.update({
         "width": 1600, "height": 900,
     },
     "morphs/albino": {
-        "file": "golden-albino-axolotl-morph.webp",
+        "file": "albino-axolotl-identification.webp",
         "alt": "Albino axolotl showing pale eyes and reduced dark melanin",
         "caption": "Albinism removes normal melanin production, while other pigment systems determine whether the animal looks golden, white-pink or very pale.",
         "description": "Albino axolotl pigment graphic showing the visible effect of reduced melanin.",
@@ -4623,7 +4622,7 @@ HERO_IMAGE_OVERRIDES.update({
         "width": 1600, "height": 900,
     },
     "morphs/axanthic": {
-        "file": "axolotl-pigment-cells-color-genetics.webp",
+        "file": "axanthic-axolotl-identification.webp",
         "alt": "Axolotl pigment-cell diagram used to explain the axanthic phenotype",
         "caption": "Axanthic genetics alters the normal yellow pteridine system and reflective pigment-cell development, leaving melanophores visually dominant in a typical axanthic animal.",
         "description": "Axolotl pigment-cell graphic explaining how axanthic differs from other color phenotypes.",
@@ -4631,7 +4630,7 @@ HERO_IMAGE_OVERRIDES.update({
         "width": 1600, "height": 900,
     },
     "tank-setup/how-to-test-water": {
-        "file": "axolotl-water-parameters-nitrogen-cycle.webp",
+        "file": "how-to-test-axolotl-water.webp",
         "alt": "Axolotl aquarium water testing with ammonia, nitrite, nitrate and pH test vials",
         "caption": "Reliable water testing starts with correct sampling, reagent timing and consistent recording before the numbers are interpreted.",
         "description": "Axolotl water-test graphic showing the core nitrogen-cycle and pH measurements.",
@@ -4687,7 +4686,7 @@ CONFIG_ARTICLES.update({
         "hub": "cost-and-buying",
         "title": "Where to Buy an Axolotl: Breeders, Pet Stores & Online Options",
         "title_tag": "Where to Buy an Axolotl: Breeders, Pet Stores & Online Options",
-        "meta": "Where to buy an axolotl in the US: compare specialist breeders, local exotic pet stores, online sellers and rehomes, plus current Petco/PetSmart availability checks and a buyer-verification checklist.",
+        "meta": "Compare US axolotl breeders, exotic pet stores, online sellers and rehomes, with checks for legality, animal health, shipping and seller credibility.",
         "intro": "The safest place to buy an axolotl is the seller you can verify, not automatically the closest or cheapest seller. Compare specialist breeders, local exotic pet stores, online sellers and responsible rehomes by the exact animal, husbandry records, legal route, written terms and shipping or pickup plan.",
         "num": 217,
         "date_published": "2026-09-18",
@@ -4780,7 +4779,7 @@ CONFIG_ARTICLES.update({
         "hub": "health",
         "title": "Axolotl Poop: What's Normal, Frequency & Warning Signs",
         "title_tag": "Axolotl Poop: What's Normal, Frequency & Warning Signs",
-        "meta": "Axolotl poop explained without a fake color chart: how to track fecal frequency and consistency, which changes matter with appetite or weight loss, when parasites are possible, and how to collect a fresh sample for a veterinarian.",
+        "meta": "Learn what can be normal for axolotl poop, how to track frequency and consistency, warning signs to watch for and when a veterinary fecal test may help.",
         "intro": "There is no well-established veterinary chart that defines one universal 'normal axolotl poop' color, shape or schedule. The useful approach is to know your animal's baseline, track fecal production with appetite and body condition, and use a fresh veterinary fecal examination when persistent changes raise concern for parasites or gastrointestinal disease.",
         "num": 218,
         "date_published": "2026-09-18",
@@ -4868,7 +4867,7 @@ CONFIG_ARTICLES.update({
 
 HERO_IMAGE_OVERRIDES.update({
     "cost-and-buying/where-to-buy-axolotls": {
-        "file": "axolotl-breeder-vs-pet-store.webp",
+        "file": "where-to-buy-axolotls.webp",
         "alt": "Axolotl buying-source comparison covering breeders, pet stores, online sellers and verification questions",
         "caption": "Where you buy matters less than what you can verify: the exact animal, husbandry records, written terms, legal route and shipping or pickup plan.",
         "description": "Axolotl buying guide graphic comparing breeder, pet-store and online purchase checks.",
@@ -4876,7 +4875,7 @@ HERO_IMAGE_OVERRIDES.update({
         "width": 1600, "height": 900,
     },
     "health/healthy-axolotl-poop": {
-        "file": "axolotl-parasite-treatment.webp",
+        "file": "healthy-axolotl-poop-guide.webp",
         "alt": "Axolotl health observation graphic used for fecal and parasite assessment guidance",
         "caption": "Stool appearance alone cannot diagnose parasites or impaction. Track the animal's baseline and use a fresh veterinary fecal examination when persistent changes occur with other signs.",
         "description": "Axolotl health graphic emphasizing observation, fresh fecal testing and veterinary confirmation.",
@@ -4916,7 +4915,7 @@ CONFIG_ARTICLES.update({
         "hub": "axolotl-in-culture",
         "title": "Do People Eat Axolotls? History, Culture & Conservation",
         "title_tag": "Do People Eat Axolotls? History, Culture & Conservation",
-        "meta": "Were axolotls eaten in Mexico? Learn the historical and cultural record, why the species appeared in food and traditional medicine, and why wild axolotls should not be harvested today.",
+        "meta": "Explore the history of axolotls as food and traditional medicine in Mexico and why critically endangered wild axolotls should never be harvested today.",
         "intro": "Yes, axolotls have a documented history as food in central Mexico, including pre-Hispanic and later Xochimilco traditions. That historical fact should not be confused with advice to eat wild axolotls today: Ambystoma mexicanum is critically endangered in the wild, and modern conservation measures protect the remaining Xochimilco population.",
         "num": 219,
         "date_published": "2026-09-18",
@@ -4982,7 +4981,7 @@ CONFIG_ARTICLES.update({
         "hub": "axolotl-in-culture",
         "title": "Minecraft Axolotl Enclosure Builds: Tanks, Caves & Breeding Pools",
         "title_tag": "Minecraft Axolotl Enclosure Builds: Tanks, Caves & Breeding Pools",
-        "meta": "Build a Minecraft axolotl enclosure that works with current game mechanics: water-first aquarium builds, lush-cave habitats, breeding pools, blue-axolotl setups, escape prevention and decoration ideas.",
+        "meta": "Build a functional Minecraft axolotl enclosure with water-first tanks, lush caves, breeding pools, escape prevention and practical decoration ideas.",
         "intro": "A good Minecraft axolotl enclosure is mostly a water-design problem: keep the mob in or near water, make collection and breeding easy, and decorate around those mechanics. This page focuses on builds; spawning, food, breeding odds and commands stay in the main Minecraft axolotl guide.",
         "num": 220,
         "date_published": "2026-09-18",
@@ -5091,7 +5090,7 @@ CONFIG_ARTICLES.update({
         "hub": "axolotl-in-culture",
         "title": "Axolotl Names: Cute, Funny, Color & Unique Name Ideas",
         "title_tag": "Axolotl Names: Cute, Funny, Color & Unique Name Ideas",
-        "meta": "Find axolotl name ideas by personality, color and theme: cute names, funny names, food names, science names, Minecraft-inspired names and morph-friendly choices, plus a quick naming method.",
+        "meta": "Browse cute, funny, color, food, science, nature and Minecraft-inspired axolotl names, with a simple method for choosing a memorable name.",
         "intro": "A useful axolotl name is short enough to remember, distinct from your other pets, and connected to something you actually notice about the animal—its morph, personality, favorite hide, feeding behavior or the story of how you got it.",
         "num": 221,
         "date_published": "2026-09-18",
@@ -5177,7 +5176,7 @@ CONFIG_ARTICLES.update({
 
 HERO_IMAGE_OVERRIDES.update({
     "axolotl-in-culture/do-people-eat-axolotls": {
-        "file": "axolotl-wild-habitat-xochimilco.webp",
+        "file": "axolotl-food-history-conservation.webp",
         "alt": "Wild-type axolotl in Xochimilco used to illustrate the species' food history and modern conservation context",
         "caption": "Axolotls were historically part of the Valley of Mexico's lacustrine food culture, but the remaining wild Xochimilco population is now a conservation priority.",
         "description": "Xochimilco axolotl graphic connecting historical human use with modern wild-population conservation.",
@@ -5185,7 +5184,7 @@ HERO_IMAGE_OVERRIDES.update({
         "width": 1600, "height": 900,
     },
     "axolotl-in-culture/minecraft-axolotl-enclosure-builds": {
-        "file": "minecraft-axolotls-guide.webp",
+        "file": "minecraft-axolotl-enclosure-builds.webp",
         "alt": "Minecraft axolotl habitat with water enclosure, lush-cave blocks and multiple axolotl colors",
         "caption": "Minecraft axolotl builds work best as water-first aquariums, cave pools or breeding enclosures with easy bucket access.",
         "description": "Minecraft axolotl build graphic illustrating enclosure and breeding-pool concepts.",
@@ -5193,7 +5192,7 @@ HERO_IMAGE_OVERRIDES.update({
         "width": 1600, "height": 900,
     },
     "axolotl-in-culture/axolotl-names": {
-        "file": "axolotl-pop-culture-and-memes.webp",
+        "file": "axolotl-name-ideas.webp",
         "alt": "Axolotl surrounded by playful theme icons used for naming inspiration",
         "caption": "Choose an axolotl name from something memorable about the animal: color, behavior, food, nature, science, games or a joke.",
         "description": "Playful axolotl culture graphic used for a categorized axolotl name-ideas guide.",
@@ -5314,7 +5313,7 @@ CONFIG_ARTICLES.update({
         "hub": "biology-and-science",
         "title": "When Were Axolotls Discovered? History & Scientific Discovery",
         "title_tag": "When Were Axolotls Discovered? History & Scientific Discovery",
-        "meta": "Axolotl history from Nahua knowledge to the 1798 scientific description, Humboldt and Cuvier, the 1863–64 Paris shipment, Duméril's neoteny work and the rise of the laboratory axolotl.",
+        "meta": "Trace axolotl history from Nahua knowledge and the 1798 scientific description to the Paris colony, neoteny research and modern laboratory populations.",
         "intro": "There is no single honest date when humans 'discovered' axolotls: people in the Valley of Mexico knew and named them long before European taxonomy. If the question means formal scientific description, Shaw and Nodder described Gyrinus mexicanus in 1798, the name on which today's Ambystoma mexicanum is based.",
         "num": 223,
         "date_published": "2026-09-18",
@@ -5392,7 +5391,7 @@ CONFIG_ARTICLES.update({
         "hub": "biology-and-science",
         "title": "Axolotl Adaptations: How They Feed, Breathe & Survive Underwater",
         "title_tag": "Axolotl Adaptations: Feeding, Breathing & Aquatic Survival",
-        "meta": "Axolotl adaptations explained: paedomorphosis, external gills, finned tail, lateral-line sensing and suction feeding, plus which famous traits should not automatically be called habitat adaptations.",
+        "meta": "Learn how external gills, a finned tail, lateral-line sensing, suction feeding and paedomorphosis support the axolotl's permanently aquatic life.",
         "intro": "Axolotls are built for a permanently aquatic life. Their most defensible aquatic adaptations and retained traits include paedomorphosis, external gills, a finned tail, mechanosensory lateral-line organs and suction feeding.",
         "num": 224,
         "date_published": "2026-09-18",
@@ -5477,15 +5476,15 @@ CONFIG_ARTICLES.update({
 
 HERO_IMAGE_OVERRIDES.update({
     "care-basics/are-axolotls-poisonous": {
-        "file": "axolotls-as-pets-for-kids.webp",
-        "alt": "Adult and child observing an axolotl aquarium with safe no-handling and hygiene guidance",
+        "file": "are-axolotls-poisonous-safety.webp",
+        "alt": "Axolotl aquarium with not venomous, bites are uncommon and wash-hands safety guidance",
         "caption": "Axolotls are not generally treated as poisonous or venomous pets; practical human safety centers on hygiene, bite care and limiting unnecessary handling.",
         "description": "Axolotl human-safety graphic emphasizing observation, hygiene and minimal handling.",
         "credit": "MyAxolotl original graphic",
         "width": 1600, "height": 900,
     },
     "biology-and-science/axolotl-history-discovery": {
-        "file": "amazing-axolotl-facts.webp",
+        "file": "axolotl-history-discovery.webp",
         "alt": "Axolotl in a Xochimilco and science-history collage used to illustrate its cultural and research history",
         "caption": "Axolotls were known in Mexico long before their 1798 formal scientific description; living animals reached Paris in the 1863–64 period and helped launch modern laboratory research.",
         "description": "Axolotl history graphic connecting Xochimilco, taxonomy and scientific research.",
@@ -5493,7 +5492,7 @@ HERO_IMAGE_OVERRIDES.update({
         "width": 1600, "height": 900,
     },
     "biology-and-science/axolotl-adaptations": {
-        "file": "axolotl-wild-habitat-xochimilco.webp",
+        "file": "axolotl-aquatic-adaptations.webp",
         "alt": "Wild-type axolotl in Xochimilco illustrating aquatic adaptations including gills, tail, sensing and suction feeding",
         "caption": "Axolotl aquatic adaptations include paedomorphosis, external gills, a finned tail, lateral-line sensing and suction feeding.",
         "description": "Xochimilco axolotl graphic used to explain aquatic survival and feeding adaptations.",
