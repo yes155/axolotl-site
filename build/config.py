@@ -3169,11 +3169,62 @@ BODY_TEXT_REPLACEMENTS = {
     ],
 }
 
+
+# Evidence-bounded color terminology override. The external DOCX used absolute
+# claims ("no breeder has ever...") that exceed what the cited genetics sources establish.
+COLOR_LABELS_BODY_OVERRIDE = r'''
+<h2>Are pink axolotls real?</h2>
+<p><strong>Yes. Pink-looking axolotls are common, but “pink” is an appearance label rather than one single genetic category.</strong> The Ambystoma Genetic Stock Center describes white/leucistic axolotls as having pinkish skin with dark eyes. Albino combinations can also look pale, white, yellow, or pinkish depending on which other pigment traits are present.</p>
+<p>If you are trying to identify a pale animal, start with the eyes and the remaining pigment pattern. A pale body with dark eyes usually points toward the white/leucistic phenotype, while albino animals lack normal melanin production and have pinkish or reddish eyes.</p>
+
+<h2>Is blue a recognized axolotl morph?</h2>
+<p><strong>“Blue” is not one of the standard pigment mutations or stock designations documented by the Ambystoma Genetic Stock Center.</strong> That does not mean every photo described as blue is deliberately fake. Cool aquarium lighting, camera white balance, image editing, GFP fluorescence, and informal seller terminology can all make an animal appear more blue or cyan than it looks under neutral light.</p>
+<p>So treat “blue axolotl” as a color claim that needs verification, not as a standardized genetic label. Ask for neutral-light photos, the animal's actual morph or lineage name, and whether GFP or colored lighting is involved.</p>
+
+<h2>Are purple or lavender axolotls real morphs?</h2>
+<p><strong>Purple and lavender are not standard AGSC pigment-mutation names.</strong> Breeders and hobbyists may use these words informally for a particular shade, line, lighting effect, or combination of recognized traits. If a listing uses only a color nickname, ask what established phenotype or genetic background the seller means.</p>
+
+<h2>Are green axolotls real?</h2>
+<p><strong>An axolotl can look green for more than one reason.</strong> Wild-type animals may have olive or greenish mottling, while GFP axolotls fluoresce green under suitable blue or ultraviolet illumination. GFP is a fluorescent trait that can occur on top of other pigment backgrounds; it is not simply a “green color morph.”</p>
+
+<h2>What about yellow and golden axolotls?</h2>
+<p><strong>Yellow or gold appearance often overlaps with albino pigment combinations.</strong> The AGSC describes an otherwise wild-type albino as yellow with reddish eyes and notes that this appearance is often called a golden albino. Other albino combinations can look paler or whiter.</p>
+
+<h2>Color label vs recognized phenotype</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Common search/listing label</th><th>How to interpret it</th><th>Best next page</th></tr></thead>
+<tbody>
+<tr><td>Pink / white</td><td>Often leucistic/white or an albino combination; check eye color and pigment pattern.</td><td><a href="/morphs/leucistic/">Leucistic</a></td></tr>
+<tr><td>Yellow / gold</td><td>Often golden-albino appearance or another albino combination.</td><td><a href="/morphs/golden-albino/">Golden albino</a></td></tr>
+<tr><td>Green / glowing</td><td>May be olive wild-type appearance or GFP fluorescence under suitable light.</td><td><a href="/morphs/gfp-axolotl/">GFP</a></td></tr>
+<tr><td>Blue / cyan</td><td>Not a standard AGSC pigment-mutation label; verify lighting, editing, GFP status, and lineage.</td><td><a href="/morphs/morphs-comparison-chart/">Morph comparison</a></td></tr>
+<tr><td>Purple / lavender</td><td>Usually an informal shade or line name unless the seller can tie it to a defined phenotype/genetic background.</td><td><a href="/morphs/morphs-comparison-chart/">Morph comparison</a></td></tr>
+</tbody></table></div>
+
+<h2>How do you verify an axolotl color or morph?</h2>
+<ol>
+<li><strong>Ask for neutral-light photos</strong> of the exact animal, not a heavily processed promotional image.</li>
+<li><strong>Check the eyes</strong> because eye pigment helps distinguish leucistic/white animals from albino combinations.</li>
+<li><strong>Look for reflective shine, speckling, and patch pattern</strong> rather than judging only the overall hue.</li>
+<li><strong>Ask whether the animal is GFP</strong> and under what light the photo was taken.</li>
+<li><strong>Ask for the breeder's actual phenotype or lineage terminology</strong> if the listing uses a nickname such as blue, lavender, or neon.</li>
+</ol>
+<p>For side-by-side identification, use the <a href="/morphs/morphs-comparison-chart/">axolotl colors and morphs comparison</a>. For the biology behind color, see <a href="/morphs/pigment-cells/">pigment cells</a> and <a href="/breeding/color-genetics-punnett-squares/">color genetics</a>.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ambystoma.uky.edu/teachers-materials-menu/teachers-materials-books-menu?id=9">Ambystoma Genetic Stock Center: Mutant Genes</a></li>
+<li><a href="https://ambystoma.uky.edu/axolotl-research2/12-educationresources/10-axolotl-strains">Ambystoma Genetic Stock Center: Axolotl Strains</a></li>
+</ul>
+'''
+
+
 # Full render-time replacements for Health pages whose external DOCX source is
 # either overly prescriptive or too absolute for safe owner-facing guidance.
 # The source files remain the editorial record; these bodies define the public
 # semantic role until the external source is revised.
 BODY_OVERRIDES = {
+    "morphs/blue-and-pink-axolotl-myth": COLOR_LABELS_BODY_OVERRIDE,
     "cost-and-buying/axolotl-price-by-morph": """
 <p><strong>As of August 27, 2026, current US listings place many common captive-bred axolotls around $50&ndash;$100 before shipping.</strong> A morph name does not set a fixed price. Size, sex, lineage records, unusual patterning, seller, location, and delivery charges can move the total substantially.</p>
 <h2>What Do Axolotls Cost by Morph in 2026?</h2>
@@ -3770,20 +3821,22 @@ EXTRA_SECTIONS = {
 <p>Expect the first-year total to land well above the monthly figure you planned on &mdash; that is normal, and after year one the recurring cost is much smaller.</p>"""),
     ],
     "morphs/morphs-comparison-chart": [
-        ("At a Glance: All Nine Morphs Side by Side", """
+        ("Core Morphs, Pigment Types and Traits Side by Side", """
 <table>
-<tr><th>Morph</th><th>Body colour</th><th>Eyes</th><th>Rarity</th><th>Read more</th></tr>
-<tr><td>Wild type</td><td>Dark brown / olive speckled</td><td>Dark</td><td>Common</td><td><a href="/morphs/wild-type/">Wild type</a></td></tr>
-<tr><td>Leucistic</td><td>Pale pink / white</td><td>Dark</td><td>Common</td><td><a href="/morphs/leucistic/">Leucistic</a></td></tr>
-<tr><td>Melanoid</td><td>Black / dark grey</td><td>Dark</td><td>Common</td><td><a href="/morphs/melanoid/">Melanoid</a></td></tr>
-<tr><td>Golden albino</td><td>Pale gold / white</td><td>Red / pink</td><td>Common</td><td><a href="/morphs/golden-albino/">Golden albino</a></td></tr>
-<tr><td>Copper</td><td>Copper / tan</td><td>Varies</td><td>Uncommon</td><td><a href="/morphs/copper/">Copper</a></td></tr>
-<tr><td>GFP</td><td>Glows green under UV</td><td>Varies</td><td>Uncommon</td><td><a href="/morphs/gfp-axolotl/">GFP</a></td></tr>
-<tr><td>Piebald</td><td>Dark with white patches</td><td>Dark</td><td>Rare</td><td><a href="/morphs/piebald/">Piebald</a></td></tr>
-<tr><td>Mosaic</td><td>Patchwork of two+ colours</td><td>Varies</td><td>Rare</td><td><a href="/morphs/mosaic/">Mosaic</a></td></tr>
-<tr><td>Chimera</td><td>Two fused animals on one body</td><td>Varies</td><td>Rarest</td><td><a href="/morphs/chimera/">Chimera</a></td></tr>
+<tr><th>Name</th><th>Typical appearance</th><th>What the name describes</th><th>Read more</th></tr>
+<tr><td>Wild type</td><td>Dark brown / olive with mottling</td><td>Baseline pigment phenotype</td><td><a href="/morphs/wild-type/">Wild type</a></td></tr>
+<tr><td>Leucistic / white</td><td>Pale pink-white with dark eyes</td><td>White-locus phenotype</td><td><a href="/morphs/leucistic/">Leucistic</a></td></tr>
+<tr><td>Albino</td><td>Reduced/no melanin; eye and body color vary by pigment combination</td><td>Recessive albino mutation</td><td><a href="/morphs/golden-albino/">Albino combinations</a></td></tr>
+<tr><td>Golden albino</td><td>Yellow-gold body with pink/red eyes</td><td>Albino combined with retained yellow pigment</td><td><a href="/morphs/golden-albino/">Golden albino</a></td></tr>
+<tr><td>Melanoid</td><td>Dark body with reduced reflective shine</td><td>Melanoid pigment mutation</td><td><a href="/morphs/melanoid/">Melanoid</a></td></tr>
+<tr><td>Axanthic</td><td>Reduced yellow/reflective pigment; often gray-toned</td><td>Axanthic pigment mutation</td><td><a href="/morphs/pigment-cells/">Pigment cells</a></td></tr>
+<tr><td>Copper</td><td>Copper / tan / reddish-brown tones</td><td>Distinct pigment phenotype used in captive lines</td><td><a href="/morphs/copper/">Copper</a></td></tr>
+<tr><td>GFP</td><td>Green fluorescence under suitable blue/UV light</td><td>Fluorescent transgenic trait that can occur with other morphs</td><td><a href="/morphs/gfp-axolotl/">GFP</a></td></tr>
+<tr><td>Piebald</td><td>Irregular pale and pigmented patches</td><td>Pattern description</td><td><a href="/morphs/piebald/">Piebald</a></td></tr>
+<tr><td>Mosaic</td><td>Patchwork pigment pattern</td><td>Developmental/pattern category, not a simple single-gene color</td><td><a href="/morphs/mosaic/">Mosaic</a></td></tr>
+<tr><td>Chimera</td><td>Two genetically distinct cell populations in one animal</td><td>Developmental chimera, not a simple color morph</td><td><a href="/morphs/chimera/">Chimera</a></td></tr>
 </table>
-<p>Prices by morph are on the <a href="/cost-and-buying/axolotl-price-by-morph/">price-by-morph page</a>.</p>"""),
+<p><strong>There is no single authoritative fixed count of “all axolotl morphs.”</strong> Lists differ because breeders mix core pigment mutations, combinations, patterns, and traits such as GFP under the same everyday word <em>morph</em>. Availability and perceived rarity also change by breeder, region, and time, so use the <a href="/cost-and-buying/axolotl-price-by-morph/">price-by-morph page</a> for market context rather than treating rarity as a permanent biological ranking.</p>"""),
     ],
     "health/impaction-symptoms-treatment": [
         ("Impaction vs Constipation: Know the Difference", """
