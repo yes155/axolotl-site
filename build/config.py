@@ -6073,6 +6073,81 @@ BODY_OVERRIDES["health/salt-bath"] = r'''
 </ul>
 '''
 
+
+BODY_OVERRIDES["tank-setup/water-change-guide"] = r'''
+<p><strong>For an established filtered axolotl aquarium, use regular partial water changes and measured water quality rather than one universal percentage for every tank.</strong> A useful evidence-based baseline is <strong>at least about 10% weekly</strong>: the 2024 Ambystoma Genetic Stock Center guide specifies weekly 10% changes for filtered axolotl aquaria, and Merck's pet-amphibian guidance likewise recommends at least 10% weekly in established aquatic tanks.</p>
+
+<h2>How often should you change axolotl tank water?</h2>
+<p><strong>Start with a weekly partial change, then adjust from your actual readings and waste load.</strong> Tank volume, number and size of animals, feeding, filter capacity, plant load and source-water chemistry all change how quickly water quality drifts.</p>
+<p>Petco's current axolotl sheet gives a broader consumer schedule of 10–25% every 2–4 weeks or as needed. MyAxolotl uses the more conservative weekly baseline because both AGSC and Merck support weekly partial renewal in filtered aquatic systems and because weekly testing makes it easier to pair maintenance with measured trends.</p>
+
+<h2>How much water should you change?</h2>
+<p>There is no single percentage that fits every situation. For routine maintenance, a modest partial change is usually enough when ammonia and nitrite remain controlled and nitrate/waste are not rising rapidly. If water quality is abnormal, the <a href="/tank-setup/water-parameters-cycling/">Water Parameters & Nitrogen Cycle guide</a> should determine the corrective response rather than this page inventing a fixed emergency percentage.</p>
+<p><strong>Do not confuse routine maintenance with an emergency correction.</strong> A tank with measurable ammonia/nitrite or another contamination problem may need a different response and repeat testing.</p>
+
+<h2>What do you need before starting?</h2>
+<ul>
+<li>a siphon or dedicated aquarium bucket;</li>
+<li>appropriate water conditioner when using chlorinated/chloraminated source water;</li>
+<li>a thermometer;</li>
+<li>water tests appropriate to your system; and</li>
+<li>a clean container for preparing replacement water when needed.</li>
+</ul>
+<p>Keep aquarium equipment separate from food-preparation tools and never use soap or household-cleaner residue in the tank.</p>
+
+<h2>Step 1: Test before changing water</h2>
+<p>Record temperature, ammonia, nitrite, nitrate and pH before maintenance when possible. The reading gives you a baseline and helps distinguish routine maintenance from a chemistry problem.</p>
+<p>Use <a href="/tank-setup/how-to-test-water/">How to Test Axolotl Water</a> for the sampling procedure.</p>
+
+<h2>Step 2: Prepare safe replacement water</h2>
+<p>Replacement water must be free of harmful chlorine/chloramine and suitable for the aquarium's chemistry. Follow the water conditioner's label for the volume of new water being treated unless the product specifically instructs otherwise.</p>
+<p>Use the <a href="/tools/water-conditioner-dosage-calculator/">Water Conditioner Dosage Calculator</a> for volume math, then confirm the product label.</p>
+
+<h2>Step 3: Match temperature closely</h2>
+<p>Avoid creating a sudden thermal swing during maintenance. Measure both the aquarium and replacement water rather than judging by touch. The replacement water should be close enough that the change does not abruptly push the tank outside its intended temperature range.</p>
+<p>For the actual target range and cooling decisions, use <a href="/tank-setup/temperature/">Axolotl Tank Temperature</a>.</p>
+
+<h2>Step 4: Remove waste and part of the old water</h2>
+<p>Siphon visible waste, uneaten food and debris while removing the planned portion of water. Keep the siphon away from the axolotl and from anything small enough to be accidentally sucked into the hose.</p>
+<p>You do not need to strip the aquarium bare during every water change. The goal is routine waste removal and dilution while preserving a stable, established system.</p>
+
+<h2>Step 5: Add replacement water gently</h2>
+<p>Add conditioned, temperature-compatible water without blasting the animal or substrate. Pour against the glass, use a plate/baffle, or otherwise disperse the flow if necessary.</p>
+
+<h2>Step 6: Recheck when you are correcting a problem</h2>
+<p>For ordinary routine maintenance, logging the before-reading and continuing weekly monitoring may be enough. If the water change was performed because ammonia, nitrite, pH or another parameter was abnormal, retest according to the corrective plan and record the result.</p>
+<p>The <a href="/tools/nitrogen-cycle-tracker/">Nitrogen Cycle Tracker</a> is useful for trend logging.</p>
+
+<h2>Should you change water during cycling?</h2>
+<p><strong>Do not use a calendar such as “change water every day for the first 4–6 weeks.”</strong> Cycling strategy depends on whether the system is fishless, what ammonia source is being used and what the measured ammonia/nitrite/nitrate values show. An axolotl should not be used as the ammonia source for a new uncycled tank.</p>
+<p>Use the <a href="/tank-setup/water-parameters-cycling/">cycling guide</a> and your test results to decide whether a water change is appropriate during the cycling process.</p>
+
+<h2>Should juveniles automatically get more water changes?</h2>
+<p>Not because of age alone. Young axolotls may be fed more often and small grow-out containers can accumulate waste quickly, so maintenance often has to be more frequent. But the real drivers are container volume, food waste, stocking density and measured water quality—not the word <em>juvenile</em> by itself.</p>
+
+<h2>Should you clean the filter during a water change?</h2>
+<p>Filter maintenance is a separate task. Do not routinely replace all biological media just because you are changing water. Clean mechanical debris when needed and preserve established biological filtration unless the manufacturer or a specific problem requires replacement.</p>
+<p>Use <a href="/tank-setup/filtration-for-axolotls/">Do Axolotls Need a Filter?</a> for filter care and biological-filtration principles.</p>
+
+<h2>Common water-change mistakes</h2>
+<ul>
+<li>using untreated chlorinated/chloraminated water;</li>
+<li>creating a large temperature or chemistry swing;</li>
+<li>guessing water quality instead of testing;</li>
+<li>allowing food and feces to accumulate between scheduled changes;</li>
+<li>cleaning the aquarium with soap or chemical residue;</li>
+<li>replacing biological filter media unnecessarily; and</li>
+<li>following a fixed percentage even when test results show the tank needs a different response.</li>
+</ul>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024 — filtered aquaria and water quality</a></li>
+<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/housing-for-amphibians">Merck Veterinary Manual: Housing for Amphibians — established aquatic-tank water changes</a></li>
+<li><a href="https://www.petco.com/pet-education/caresheets/axolotl">Petco Axolotl Care Guide — consumer maintenance schedule</a></li>
+</ul>
+'''
+
 # Build trigger: retry Cost & Buying after clearing the stale queued job.
 
 # Keyword-reconciliation fix: strengthen the existing anatomy owner for teeth/oral anatomy.
