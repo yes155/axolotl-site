@@ -6229,6 +6229,118 @@ BODY_OVERRIDES["tank-setup/filtration-for-axolotls"] = r'''
 </ul>
 '''
 
+
+BODY_OVERRIDES["tank-setup/canister-vs-sponge-filter"] = r'''
+<p><strong>Neither a canister filter nor a sponge filter is automatically “best” for every axolotl tank.</strong> A sponge filter is simple, inexpensive and naturally easy to run with gentle circulation. A canister filter offers more media capacity and stronger mechanical filtration, but its return flow often needs to be dispersed or reduced. The better choice is the one that provides enough biological filtration for your system without creating strong current at the animal's resting area.</p>
+<div class="role-note"><strong>This page owns the canister-versus-sponge decision.</strong> For nitrogen-cycle biology, filter sizing principles and general flow control, start with <a href="/tank-setup/filtration-for-axolotls/">Do Axolotls Need a Filter?</a>.</div>
+
+<h2>Canister vs sponge filter: quick comparison</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Question</th><th>Sponge filter</th><th>Canister filter</th></tr></thead>
+<tbody>
+<tr><td>Biological filtration</td><td>Good when the sponge/media area is adequate for the bioload</td><td>Good; typically offers more configurable biological-media volume</td></tr>
+<tr><td>Mechanical debris capture</td><td>Basic to moderate</td><td>Usually stronger and multi-stage</td></tr>
+<tr><td>Flow control</td><td>Often naturally gentle; depends on air pump and design</td><td>Return may need a spray bar, baffle or adjustment</td></tr>
+<tr><td>Maintenance</td><td>Simple; sponge is easy to inspect and rinse</td><td>More parts, hoses and internal media to service</td></tr>
+<tr><td>Cost / complexity</td><td>Lower</td><td>Higher</td></tr>
+<tr><td>Media customization</td><td>Limited</td><td>High</td></tr>
+<tr><td>Inline equipment integration</td><td>Not designed as a pressurized water loop</td><td>Can suit some inline equipment when manufacturer flow requirements are compatible</td></tr>
+<tr><td>Best reason to choose it</td><td>Simplicity and gentle circulation</td><td>Media capacity and stronger debris removal</td></tr>
+</tbody></table></div>
+
+<h2>What matters more than the filter type?</h2>
+<p>Three things matter more than the label on the filter:</p>
+<ol>
+<li><strong>Biological capacity.</strong> The system needs enough established biofilm to process the actual nitrogenous-waste load.</li>
+<li><strong>Gentle circulation.</strong> The return should not continuously push the axolotl or create a strong current across its resting area.</li>
+<li><strong>Maintainability.</strong> You need to be able to remove trapped debris and preserve mature biological media without letting the filter clog.</li>
+</ol>
+<p>The Ambystoma Genetic Stock Center specifically recommends biological filtration in filtered aquaria and warns that rapidly circulating water is stressful. Merck's 2026 amphibian husbandry guidance likewise notes that some aquatic amphibians need gentle filtration that keeps water clean without strong currents.</p>
+
+<h2>How does a sponge filter work?</h2>
+<p>An air-driven sponge filter pulls aquarium water through porous foam as rising bubbles move water up a lift tube. The sponge provides surface area for biological filtration while also trapping some suspended debris. The bubble column creates surface movement and gas exchange.</p>
+<p>Because the water is drawn through a broad sponge rather than a narrow powered intake, the intake itself is generally gentle. Actual circulation still depends on the air pump, sponge size, lift-tube design and tank layout, so “sponge filter” should not be treated as a fixed flow rate.</p>
+
+<h2>What are the advantages of a sponge filter?</h2>
+<ul>
+<li><strong>Simple biological filtration:</strong> one piece of foam can support biofilm and catch coarse debris.</li>
+<li><strong>Gentle water movement:</strong> air-driven circulation is easy to keep mild for an axolotl tank.</li>
+<li><strong>Easy inspection and maintenance:</strong> you can see when the sponge is dirty and clean it without opening a sealed filter body.</li>
+<li><strong>Low complexity:</strong> fewer hoses, seals and moving water-system parts.</li>
+<li><strong>Useful redundancy:</strong> a mature sponge filter can supplement another filter or provide a seeded biological filter for a quarantine/grow-out setup.</li>
+</ul>
+
+<h2>What are the limitations of a sponge filter?</h2>
+<p>A sponge filter usually provides less fine mechanical “polishing” than a multi-stage canister and offers little room for specialized media. A single small sponge can also be undersized for a large or heavily stocked aquarium even though the current feels gentle.</p>
+<p>If debris stays suspended or water-quality trends show that the system is not coping with the actual load, the answer may be more media capacity, better waste removal, a second filter, or a different filter design—not simply more air flow through the same small sponge.</p>
+
+<h2>How does a canister filter work?</h2>
+<p>A canister filter uses a pump to draw aquarium water through an external sealed body containing mechanical and biological media, then returns the filtered water to the tank. Most canisters can hold multiple layers or baskets, which lets the keeper separate coarse debris capture from biological media and optional chemical media.</p>
+<p>This design can provide substantial media capacity, but the return is powered. The important axolotl question is therefore not merely the pump's advertised flow number; it is whether the return can be configured so the animal experiences gentle circulation.</p>
+
+<h2>What are the advantages of a canister filter?</h2>
+<ul>
+<li><strong>More media capacity:</strong> useful when you want substantial mechanical and biological filtration in one unit.</li>
+<li><strong>Better fine-debris capture:</strong> multiple mechanical stages can improve water clarity when maintained correctly.</li>
+<li><strong>Configurable media:</strong> baskets can be assigned to mechanical, biological or special-purpose media.</li>
+<li><strong>Flexible return plumbing:</strong> spray bars and other return arrangements can spread water movement across a wider area.</li>
+<li><strong>External equipment loop:</strong> some aquarium chillers and other devices can be installed in compatible external plumbing, provided all manufacturer flow and pressure requirements are met.</li>
+</ul>
+
+<h2>What are the limitations of a canister filter?</h2>
+<ul>
+<li>higher cost and more complex maintenance;</li>
+<li>hoses, seals and an impeller add potential failure points;</li>
+<li>the outlet can create a concentrated current if it is not dispersed;</li>
+<li>a dirty mechanical stage can reduce actual flow and filter performance; and</li>
+<li>manufacturer “tank size” labels do not tell you whether the outlet pattern is appropriate for an axolotl.</li>
+</ul>
+<p>A canister's stronger pump is not automatically a disadvantage if the return is well controlled, just as a sponge filter is not automatically sufficient merely because it is gentle.</p>
+
+<h2>Which filter gives better biological filtration?</h2>
+<p><strong>It depends on the amount and condition of colonized media, not simply on the filter category.</strong> Both sponge and canister filters can provide effective biological filtration. A canister often has more space for dedicated biological media; a large mature sponge can also support substantial biofilm.</p>
+<p>Merck's aquatic-life-support guidance emphasizes high surface area, oxygen and correct water chemistry for biofilter organisms. It does not establish a universal rule that ceramic rings always support a fixed multiple of the bacteria found on sponge foam.</p>
+
+<h2>Which filter gives better mechanical filtration?</h2>
+<p>A canister usually has the advantage when fine debris capture is important because water can pass through staged coarse and fine media. Sponge filters capture debris too, but the same foam commonly performs both biological and mechanical roles and may not polish fine particles as effectively.</p>
+<p>Mechanical filtration should remove trapped organic waste from the system before it decomposes; Merck's aquatic-system guidance places mechanical filtration before biofiltration in larger recirculating designs for that reason.</p>
+
+<h2>Which filter is better for low flow?</h2>
+<p>A sponge filter is often the easier low-flow starting point because its circulation is air-driven and distributed. A canister can also work well when the return is spread through a spray bar, aimed against glass, throttled within the manufacturer's permitted operating range, or otherwise configured to avoid a concentrated jet.</p>
+<p><strong>There is no evidence-based universal axolotl threshold of 100 GPH, 5× turnover or 10× turnover.</strong> Judge the animal's actual environment and use measured water quality to make sure reducing current has not also compromised filtration.</p>
+
+<h2>Do you need a pre-filter sponge on a canister intake?</h2>
+<p>A pre-filter sponge can be useful: it catches coarse debris before it reaches the canister and can reduce the chance that small body parts or food are drawn directly against an intake. Whether it is necessary depends on the intake design and animal size. Treat it as a practical risk-control option rather than a universal requirement.</p>
+<p>If you add one, clean it often enough that it does not become a clogged waste trap.</p>
+
+<h2>Can you run a sponge and canister together?</h2>
+<p>Yes. Running both can provide redundancy and let the sponge remain as an established biological filter while the canister handles more mechanical debris. This is optional, not a requirement. Two filters are only useful if their combined circulation remains appropriate and both are maintained.</p>
+
+<h2>Which filter should a beginner choose?</h2>
+<p><strong>Choose a sponge filter when simplicity, low cost and easy gentle circulation are the main priorities.</strong> Choose a canister when you need more media capacity, stronger mechanical filtration, or compatible external plumbing and are comfortable maintaining the extra equipment.</p>
+<p>For many home tanks, either can work. The decision should follow the aquarium's actual volume, animal load, water-quality trend, desired debris capture, noise tolerance, maintenance preference and equipment plan.</p>
+
+<h2>Canister vs sponge: decision checklist</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>If this matters most...</th><th>Lean toward...</th></tr></thead>
+<tbody>
+<tr><td>Lowest complexity and easiest gentle flow</td><td>Sponge filter</td></tr>
+<tr><td>Large configurable media capacity</td><td>Canister filter</td></tr>
+<tr><td>Fine mechanical water polishing</td><td>Canister filter</td></tr>
+<tr><td>Simple backup/seeded biological filter</td><td>Sponge filter</td></tr>
+<tr><td>Inline equipment compatibility</td><td>Canister/external loop, after checking manufacturer specs</td></tr>
+<tr><td>Maximum redundancy</td><td>Both, if circulation remains gentle</td></tr>
+</tbody></table></div>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://ambystoma.uky.edu/education1/guide-to-axolotl-husbandry">Ambystoma Genetic Stock Center: Guide to Axolotl Husbandry</a></li>
+<li><a href="https://ambystoma.uky.edu/genetic-stock-center/documents/AGSC%20_Guide_2024.pdf">Ambystoma Genetic Stock Center: Axolotl Guide 2024</a></li>
+<li><a href="https://www.merckvetmanual.com/all-other-pets/amphibians/housing-for-amphibians">Merck Veterinary Manual: Housing for Amphibians, updated February 2026</a></li>
+<li><a href="https://www.merckvetmanual.com/exotic-and-laboratory-animals/aquatic-systems/aquatic-life-support-system-components">Merck Veterinary Manual: Aquatic Life Support System Components</a></li>
+</ul>
+'''
+
 # Build trigger: retry Cost & Buying after clearing the stale queued job.
 
 # Keyword-reconciliation fix: strengthen the existing anatomy owner for teeth/oral anatomy.
