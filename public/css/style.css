@@ -2160,3 +2160,172 @@ blockquote p:last-child {
     padding: 0 16px;
   }
 }
+
+/* --- Interactive tool themes ----------------------------------------------
+   Tool sources are self-contained and historically reused global token names
+   such as --muted, --card and --border. Because this stylesheet loads after
+   their inline CSS, those values were being replaced by site palette values;
+   --muted in particular became a pale decorative beige in light mode. Keep
+   the calculator UI legible by restoring scoped semantic colors here. */
+body.tool-page {
+  color-scheme: light;
+  --ink: #1f2d3d;
+  --teal: #2c6e7f;
+  --teal-dark: #1d4e5a;
+  --teal-light: #e7f1f3;
+  --muted: #52636b;
+  --border: #c9d5da;
+  --bg: #f7fafb;
+  --card: #ffffff;
+  --track: #cbdadd;
+  --warn: #74500f;
+  --warn-bg: #fbf2e1;
+  --ok: #2e6339;
+  --ok-bg: #edf7ef;
+  --danger: #a93d17;
+  --danger-bg: #fbeae3;
+  --warning: #76500c;
+  --warning-bg: #fbf2e1;
+
+  /* Nitrogen-cycle tracker tokens. */
+  --text: #20272b;
+  --text-muted: #526168;
+  --text-faint: #68767d;
+  --surface: #f4f7f8;
+  --white: #ffffff;
+  --radius: 10px;
+  --radius-sm: 6px;
+
+  background: var(--c-cream, var(--bg));
+  color: var(--c-text, var(--ink));
+}
+
+body.tool-page input:not([type="range"]),
+body.tool-page select,
+body.tool-page textarea,
+body.tool-page .heat-btn {
+  background-color: var(--c-cream, var(--card));
+  border-color: var(--c-border, var(--border));
+  color: var(--c-text, var(--ink));
+}
+
+body.tool-page .feed-item,
+body.tool-page .mini {
+  background: #edf3f5;
+}
+
+body.tool-page .stage-label,
+body.tool-page .status-desc,
+body.tool-page .faq-a,
+body.tool-page .seo-text,
+body.tool-page .readings-table tbody td {
+  color: var(--text);
+}
+
+body.tool-page .field label {
+  color: var(--text-muted);
+}
+
+body.tool-page .readings-table thead th,
+body.tool-page .readings-table tbody td,
+body.tool-page .faq-a {
+  border-color: var(--border);
+}
+
+body.tool-page .readings-table tbody tr:hover {
+  background: var(--surface);
+}
+
+@media (prefers-color-scheme: dark) {
+  body.tool-page {
+    color-scheme: dark;
+    --ink: #eef4f6;
+    --teal: #70c2cb;
+    --teal-dark: #9edee3;
+    --teal-light: #203c40;
+    --muted: #bcc7cc;
+    --border: #536169;
+    --bg: #171b20;
+    --card: #252c31;
+    --track: #56646c;
+    --warn: #f0d18a;
+    --warn-bg: #3c311c;
+    --ok: #a7ddb2;
+    --ok-bg: #1f3928;
+    --danger: #ffad8f;
+    --danger-bg: #45271f;
+    --warning: #f0cd81;
+    --warning-bg: #3c311c;
+
+    --text: #eef4f6;
+    --text-muted: #bdc7cc;
+    --text-faint: #aebac0;
+    --surface: #1c2227;
+    --white: #252c31;
+    --green-dark: #a7ddb2;
+    --green-mid: #79c58f;
+    --green-light: #20392a;
+    --green-border: #4d7659;
+    --amber-bg: #3d311c;
+    --amber-border: #846b37;
+    --red-bg: #432421;
+    --red-border: #85504c;
+    --blue-bg: #1d3442;
+    --blue-border: #496b80;
+
+    /* Water-conditioner calculator tokens. */
+    --c-ocean: #0f5668;
+    --c-deep: #082f3b;
+    --c-teal: #287f8e;
+    --c-aqua: #75d1d6;
+    --c-aqua-lt: #b9edf0;
+    --c-pink: #ba747b;
+    --c-pink-dk: #f2a6ad;
+    --c-cream: #171b20;
+    --c-surface: #252c31;
+    --c-border: #536970;
+    --c-text: #eef4f6;
+    --c-text-2: #c5d1d5;
+    --c-text-muted: #aebbc1;
+    --c-warn-bg: #3d321d;
+    --c-warn-bd: #8c7130;
+    --c-warn-tx: #f3d47d;
+    --c-err-bg: #432421;
+    --c-err-bd: #925450;
+    --c-err-tx: #ffb4ae;
+    --c-ok-bg: #20392a;
+    --c-ok-bd: #4d7659;
+    --c-ok-tx: #a7ddb2;
+  }
+
+  body.tool-page input:not([type="range"]),
+  body.tool-page select,
+  body.tool-page textarea,
+  body.tool-page .heat-btn {
+    background-color: var(--c-surface, var(--card));
+  }
+
+  body.tool-page .field-input:focus,
+  body.tool-page .field-select:focus {
+    background-color: var(--c-surface, var(--card));
+  }
+
+  body.tool-page .symptom-btn:hover,
+  body.tool-page .pill:hover,
+  body.tool-page .feed-item,
+  body.tool-page .mini {
+    background: #303940;
+  }
+
+  body.tool-page .calc-btn {
+    background: #176477;
+    color: #ffffff;
+  }
+
+  body.tool-page .metric-card .m-val,
+  body.tool-page .edu-note strong,
+  body.tool-page .seo-summary-title,
+  body.tool-page .seo-body h2 {
+    color: #9edee3;
+  }
+}

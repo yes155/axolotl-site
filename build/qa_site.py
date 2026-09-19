@@ -10,6 +10,7 @@ Fatal checks:
 - missing local image/CSS/JS/icon assets
 - article page missing a hero image
 - article hero uses an auto-generated placeholder
+- interactive tool page missing the shared theme scope
 - sitemap duplicate URLs or omission of an indexable generated page
 
 Warnings:
@@ -55,6 +56,7 @@ class PageParser(HTMLParser):
         self.images = []
         self.article_page = False
         self.article_hero = False
+        self.tool_page = False
         self.noindex = False
 
     @staticmethod
@@ -111,6 +113,8 @@ class PageParser(HTMLParser):
             self.article_page = True
         if "article-hero" in classes:
             self.article_hero = True
+        if tag == "body" and "tool-page" in classes:
+            self.tool_page = True
 
     def handle_endtag(self, tag):
         tag = tag.lower()
@@ -283,6 +287,9 @@ def main():
             for img in parser.images:
                 if "hero-img" in img["classes"] and "placeholder" in img["src"].lower():
                     errors.append(f"{route}: article hero is a generated placeholder: {img['src']}")
+
+        if route.startswith("/tools/") and route != "/tools/" and not parser.tool_page:
+            errors.append(f"{route}: interactive tool is missing the tool-page theme scope")
 
         for img in parser.images:
             if not img["alt"].strip():
