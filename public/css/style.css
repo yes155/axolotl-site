@@ -2190,11 +2190,16 @@ body.tool-page {
   /* Nitrogen-cycle tracker tokens. */
   --text: #20272b;
   --text-muted: #526168;
-  --text-faint: #68767d;
+  --text-faint: #5e6b72;
   --surface: #f4f7f8;
   --white: #ffffff;
   --radius: 10px;
   --radius-sm: 6px;
+
+  /* Water-conditioner calculator text tokens. */
+  --c-text: #1a2b35;
+  --c-text-2: #344f5a;
+  --c-text-muted: #536970;
 
   background: var(--c-cream, var(--bg));
   color: var(--c-text, var(--ink));
