@@ -990,7 +990,11 @@ def header(active_href=""):
     primary = "".join(nav_item(href, label, active_href) for href, label in NAV_PRIMARY)
 
     more_open = active_href in [h for h, _ in NAV_MORE] or active_href == "/tools/"
+    # Keep the tools hub discoverable inside the dropdown as well as through
+    # the prominent desktop CTA. At narrower desktop widths the standalone
+    # CTA can be less obvious, while the More menu remains the expected route.
     more_items = "".join(nav_item(href, label, active_href) for href, label in NAV_MORE)
+    more_items += nav_item("/tools/", "Tools", active_href)
     more_btn = (
         '<button type="button" class="more-toggle" aria-haspopup="true" aria-expanded="false" '
         'data-more-toggle>More <svg class="chev" aria-hidden="true" viewBox="0 0 12 8" '
