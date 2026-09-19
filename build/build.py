@@ -2614,6 +2614,26 @@ def copy_tools():
         with open(src, "rb") as fh:
             data = fh.read()
         text = data.decode("utf-8", errors="ignore")
+
+        # Scope shared tool-theme fixes without depending on the markup of any
+        # individual calculator. Tool sources define several common custom
+        # properties (notably --muted, --card and --border) that are also used
+        # by the site stylesheet. Marking the body lets the later-loaded global
+        # CSS restore accessible tool-specific values in both color schemes.
+        body_match = re.search(r'<body\b[^>]*>', text, re.I)
+        if body_match:
+            body_tag = body_match.group(0)
+            class_match = re.search(r'\bclass\s*=\s*(["\'])(.*?)\1', body_tag, re.I | re.S)
+            if class_match:
+                classes = class_match.group(2).split()
+                if "tool-page" not in classes:
+                    replacement = f'{class_match.group(2)} tool-page'
+                    body_tag = body_tag[:class_match.start(2)] + replacement + body_tag[class_match.end(2):]
+            else:
+                body_tag = body_tag[:-1] + ' class="tool-page">'
+            text = text[:body_match.start()] + body_tag + text[body_match.end():]
+        else:
+            print("  !! tool body tag not found:", fname)
         if t["slug"] == "tools/symptom-checker":
             symptom_replacements = [
                 ("Select what you're seeing to get the likely cause and a concrete next step.",
