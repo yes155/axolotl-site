@@ -1094,6 +1094,12 @@ def page_html(title, meta, canonical, content, active_href="",
     schema = ""
     if json_ld:
         schema = f"<script type=\"application/ld+json\">{json_ld}</script>"
+    hero_preload = ""
+    if canonical.rstrip("/") == config.SITE_URL.rstrip("/"):
+        hero_preload = (
+            '<link rel="preload" as="image" href="/images/axolotl-home.webp" '
+            'type="image/webp" fetchpriority="high">\n'
+        )
     pinterest_verification = ""
     if canonical.rstrip("/") == config.SITE_URL.rstrip("/"):
         pinterest_verification = (
@@ -1120,7 +1126,7 @@ def page_html(title, meta, canonical, content, active_href="",
         f'<meta name="twitter:image" content="{esc(og_image)}">\n'
         f'<meta name="twitter:site" content="{esc(config.X_HANDLE)}">\n'
         f'<meta name="twitter:creator" content="{esc(config.X_HANDLE)}">\n'
-        '<link rel="icon" href="/images/axolotl-favicon.webp" type="image/webp">\n'
+        '<link rel="icon" href="/images/axolotl-favicon.webp" type="image/webp">\n'        f"{hero_preload}"\n
         '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
         '<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">\n'
