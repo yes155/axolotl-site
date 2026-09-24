@@ -1123,7 +1123,8 @@ def page_html(title, meta, canonical, content, active_href="",
         '<link rel="icon" href="/images/axolotl-favicon.webp" type="image/webp">\n'
         '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
-        '<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">\n'
+        '<link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Poppins:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>\n'
         '<link rel="stylesheet" href="/css/style.css">\n'
         f"{schema}\n</head>\n<body>\n"
         '<a class="skip-link" href="#main">Skip to content</a>\n'
