@@ -1104,7 +1104,7 @@ def page_html(title, meta, canonical, content, active_href="",
     if canonical.rstrip("/") == config.SITE_URL.rstrip("/"):
         pinterest_verification = (
             '<meta name="p:domain_verify" '
-            'content="626a6bf07d481169b286757138dde7c2"/>\n'
+            'content="c83aa74b9d30d0578a9d912b9cc3c3de"/>\n'
         )
     return (
         "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n"
